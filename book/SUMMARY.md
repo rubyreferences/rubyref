@@ -1,22 +1,28 @@
 # The Ruby Reference
 
-## Syntax
+## Language Structure
 
-* [Literals](syntax/literals.md)
+* [Keywords](language/keywords.md)
 
-* [Assignment](syntax/assignment.md)
+* [Syntax](language/syntax.md)
+  * [Literals](language/syntax/literals.md)
 
-* [Expressions](syntax/expressions.md)
+  * [Assignment](language/syntax/assignment.md)
 
-* [Defining methods](syntax/methods-def.md)
+  * [Expressions](language/syntax/expressions.md)
+    * [Operator Precedence](language/syntax/expressions/operator-precedence.md)
 
-* [Calling methods](syntax/methods-call.md)
+  * [Defining methods](language/syntax/methods-def.md)
 
-* [Modules and Classes](syntax/modules-classes.md)
+  * [Calling methods](language/syntax/methods-call.md)
 
-* [Exceptions](syntax/exceptions.md)
+  * [Modules and Classes](language/syntax/modules-classes.md)
 
-* [Refinements](syntax/refinements.md)
+  * [Exceptions](language/syntax/exceptions.md)
+
+  * [Refinements](language/syntax/refinements.md)
+
+* [Globals](language/globals.md)
 
 
 ## Built-in Classes

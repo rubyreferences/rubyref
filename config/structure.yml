@@ -1,33 +1,49 @@
-- title: Syntax
+- title: Language Structure
+  id: language
   part: true
-  id: syntax
   children:
-    - title: Literals
+    - title: Keywords
       content:
-        - source: doc/syntax/literals.md
-    - title: Assignment
+        - source: doc/keywords.md
+    - title: Syntax
+      id: syntax
       content:
-        - source: doc/syntax/assignment.md
-    - title: Expressions
+        - source: doc/syntax.md
+      children:
+        - title: Literals
+          content:
+            # TODO: Update/rewrite accordingly to our structure
+            - source: doc/syntax/literals.md
+        - title: Assignment
+          content:
+            - source: doc/syntax/assignment.md
+        - title: Expressions
+          content:
+            - source: doc/syntax/control_expressions.md
+          children:
+            - title: Precedence
+              content:
+                - source: doc/syntax/precedence.md
+        - title: Defining methods
+          id: methods-def
+          content:
+            - source: doc/syntax/methods.md
+        - title: Calling methods
+          id: methods-call
+          content:
+            - source: doc/syntax/calling_methods.md
+        - title: Modules and Classes
+          content:
+            - source: doc/syntax/modules_and_classes.md
+        - title: Exceptions
+          content:
+            - source: doc/syntax/exceptions.md
+        - title: Refinements
+          content:
+            - source: doc/syntax/refinements.md
+    - title: Globals
       content:
-        - source: doc/syntax/control_expressions.md
-    - title: Defining methods
-      id: methods-def
-      content:
-        - source: doc/syntax/methods.md
-    - title: Calling methods
-      id: methods-call
-      content:
-        - source: doc/syntax/calling_methods.md
-    - title: Modules and Classes
-      content:
-        - source: doc/syntax/modules_and_classes.md
-    - title: Exceptions
-      content:
-        - source: doc/syntax/exceptions.md
-    - title: Refinements
-      content:
-        - source: doc/syntax/refinements.md
+        - source: doc/globals.md
 - title: Built-in Classes
   part: true
   id: builtin
@@ -82,6 +98,8 @@
           content:
             - source: core/Regexp.md
             - source: core/MatchData.md
+            # Just mentioning it here, but it is already included in Regexp docs by RDoc means
+            # - source: doc/regexp.md
         - title: Range
           content:
             - source: core/Range.md
@@ -212,6 +230,7 @@
     - title: Marshal
       content:
         - source: core/Marshal.md
+        - source: doc/marshal.md
     - title: Misc
       content:
         - source: core/Random.md
