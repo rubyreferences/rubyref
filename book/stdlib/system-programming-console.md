@@ -36,11 +36,11 @@ end
 ### Temp file creation with self
 
 This example is identical to the first, except we're using
-CommandProcessor#transact.
+Command`Processor#transact`.
 
-CommandProcessor#transact executes the given block against self, in this
-case `sh`; our Shell object. Within the block we can substitute `sh.cd`
-to `cd`, because the scope within the block uses `sh` already.
+Command`Processor#transact` executes the given block against self, in
+this case `sh`; our Shell object. Within the block we can substitute
+`sh.cd` to `cd`, because the scope within the block uses `sh` already.
 
 
 ```ruby
@@ -100,7 +100,7 @@ Ruby-oriented solution.
 5.  Arguments can be restricted to a certain set.
 
 All of these features are demonstrated in the examples below. See
-\#make\_switch for full documentation.
+`#make_switch` for full documentation.
 
 #### Minimal example
 
@@ -183,7 +183,7 @@ Used:
 
 ```ruby
 bash-3.2$ ruby optparse-test.rb -r
-optparse-test.rb:9:in `<main>': missing argument: -r (OptionParser::MissingArgument)
+optparse-test.rb:9:in `<main>`: missing argument: -r (OptionParser::MissingArgument)
 bash-3.2$ ruby optparse-test.rb -r my-library
 You required my-library!
 ```
@@ -241,8 +241,8 @@ Used:
 ```ruby
 bash-3.2$ ruby optparse-test.rb  -t nonsense
 ... invalid argument: -t nonsense (OptionParser::InvalidArgument)
-from ... time.rb:5:in `block in <top (required)>'
-from optparse-test.rb:31:in `<main>'
+from ... time.rb:5:in `block in <top (required)>`
+from optparse-test.rb:31:in `<main>`
 bash-3.2$ ruby optparse-test.rb  -t 10-11-12
 2010-11-12 00:00:00 -0500
 bash-3.2$ ruby optparse-test.rb  -t 9:30
@@ -285,7 +285,7 @@ op.parse!
 output: bash-3.2$ ruby optparse-test.rb --user 1 #<struct User id=1,
 name="Sam"> bash-3.2$ ruby optparse-test.rb --user 2 #<struct User id=2,
 name="Gandalf"> bash-3.2$ ruby optparse-test.rb --user 3
-optparse-test.rb:15:in \`block in find\_user'\: No User Found for id 3
+optparse-test.rb:15:in `block in find_user`\: No User Found for id 3
 (RuntimeError)
 
 #### Complete example
@@ -604,9 +604,9 @@ defines a number of methods to facilitate completion and accesses input
 history from the Ruby interpreter. This module supported Edit
 Line(libedit) too. libedit is compatible with GNU Readline.
 
-GNU Readline
-: http://www.gnu.org/directory/readline.html libedit
-: http://www.thrysoee.dk/editline/
+* GNU Readline: http://www.gnu.org/directory/readline.html
+
+* libedit: http://www.thrysoee.dk/editline/
 
 Reads one inputted line with line edit by Readline.readline method. At
 this time, the facilitatation completion and the key bind like Emacs can

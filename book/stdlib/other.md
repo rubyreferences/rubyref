@@ -117,7 +117,7 @@ delete data by key. It furthermore allows a non-sorted traversal of all
 key-value pairs. A gdbm database thus provides the same functionality as
 a hash. As with objects of the Hash class, elements can be accessed with
 `[]`. Furthermore, GDBM mixes in the Enumerable module, thus providing
-convenient methods such as #find, #collect, #map, etc.
+convenient methods such as `#find`, `#collect`, `#map`, etc.
 
 A process is allowed to open several different databases at the same
 time. A process can open a database as a "reader" or a "writer". Whereas
@@ -242,14 +242,12 @@ Output sequence to designate ASCII. (DEFAULT B)
 
 #### -[h](123) --hiragana --katakana --katakana-hiragana
 
--h1 --hiragana
-: Katakana to Hiragana conversion.
+* -h1 --hiragana: Katakana to Hiragana conversion.
 
--h2 --katakana
-: Hiragana to Katakana conversion.
+* -h2 --katakana: Hiragana to Katakana conversion.
 
--h3 --katakana-hiragana
-: Katakana to Hiragana and Hiragana to Katakana conversion.
+* -h3 --katakana-hiragana: Katakana to Hiragana and Hiragana to Katakana
+  conversion.
 
 #### -T
 
@@ -272,18 +270,14 @@ New line preserving line folding.
 
 Convert X0208 alphabet (Fullwidth Alphabets) to ASCII.
 
--Z -Z0
-: Convert X0208 alphabet to ASCII.
+* -Z -Z0: Convert X0208 alphabet to ASCII.
 
--Z1
-: Converts X0208 kankaku to single ASCII space.
+* -Z1: Converts X0208 kankaku to single ASCII space.
 
--Z2
-: Converts X0208 kankaku to double ASCII spaces.
+* -Z2: Converts X0208 kankaku to double ASCII spaces.
 
--Z3
-: Replacing Fullwidth >, <, ", & into '&gt;', '&lt;', '"', '&amp;' as in
-  HTML.
+* -Z3: Replacing Fullwidth >, <, ", & into '&gt;', '&lt;', '"', '&amp;'
+  as in HTML.
 
 #### -X -x
 
@@ -297,11 +291,9 @@ In EUC output, SSO is used.
 Assume broken JIS-Kanji input, which lost ESC. Useful when your site is
 using old B-News Nihongo patch.
 
--B1
-: allows any char after ESC-( or ESC-$.
+* -B1: allows any char after ESC-( or ESC-$.
 
--B2
-: forces ASCII after NL.
+* -B2: forces ASCII after NL.
 
 #### -I
 
@@ -317,22 +309,19 @@ Delete r in line feed, Add r in line feed.
 MIME ISO-2022-JP/ISO8859-1 decode. (DEFAULT) To see ISO8859-1 (Latin-1)
 -l is necessary.
 
--mB
-: Decode MIME base64 encoded stream. Remove header or other part before
+* -mB: Decode MIME base64 encoded stream. Remove header or other part
+  before
 
 conversion.
 
--mQ
-: Decode MIME quoted stream. '\_' in quoted stream is converted to
+* -mQ: Decode MIME quoted stream. '\_' in quoted stream is converted to
   space.
 
--mN
-: Non-strict decoding.
+* -mN: Non-strict decoding.
 
 It allows line break in the middle of the base64 encoding.
 
--m0
-: No MIME decode.
+* -m0: No MIME decode.
 
 #### -M
 
@@ -340,11 +329,9 @@ MIME encode. Header style. All ASCII code and control characters are
 intact. Kanji conversion is performed before encoding, so this cannot be
 used as a picture encoder.
 
--MB
-: MIME encode Base64 stream.
+* -MB: MIME encode Base64 stream.
 
--MQ
-: Perfome quoted encoding.
+* -MQ: Perfome quoted encoding.
 
 #### -l
 
@@ -355,14 +342,11 @@ Input and output code is ISO8859-1 (Latin-1) and ISO-2022-JP. **-s**,
 
 new line mode Without this option, nkf doesn't convert line breaks.
 
--Lu
-: unix (LF)
+* -Lu: unix (LF)
 
--Lw
-: windows (CRLF)
+* -Lw: windows (CRLF)
 
--Lm
-: mac (CR)
+* -Lm: mac (CR)
 
 #### --fj --unix --mac --msdos --windows
 
@@ -381,68 +365,47 @@ assume input system
 Set the input or output codeset. NKF supports following codesets and
 those codeset name are case insensitive.
 
-ISO-2022-JP
-: a.k.a. RFC1468, 7bit JIS, JUNET
+* ISO-2022-JP: a.k.a. RFC1468, 7bit JIS, JUNET
 
-EUC-JP (eucJP-nkf)
-: a.k.a. AT&T JIS, Japanese EUC, UJIS
+* EUC-JP (eucJP-nkf): a.k.a. AT&T JIS, Japanese EUC, UJIS
 
-eucJP-ascii
-: a.k.a. x-eucjp-open-19970715-ascii
+* eucJP-ascii: a.k.a. x-eucjp-open-19970715-ascii
 
-eucJP-ms
-: a.k.a. x-eucjp-open-19970715-ms
+* eucJP-ms: a.k.a. x-eucjp-open-19970715-ms
 
-CP51932
-: Microsoft Version of EUC-JP.
+* CP51932: Microsoft Version of EUC-JP.
 
-Shift\_JIS
-: SJIS, MS-Kanji
+* Shift\_JIS: SJIS, MS-Kanji
 
-Windows-31J
-: a.k.a. CP932
+* Windows-31J: a.k.a. CP932
 
-UTF-8
-: same as UTF-8N
+* UTF-8: same as UTF-8N
 
-UTF-8N
-: UTF-8 without BOM
+* UTF-8N: UTF-8 without BOM
 
-UTF-8-BOM
-: UTF-8 with BOM
+* UTF-8-BOM: UTF-8 with BOM
 
-UTF-16
-: same as UTF-16BE
+* UTF-16: same as UTF-16BE
 
-UTF-16BE
-: UTF-16 Big Endian without BOM
+* UTF-16BE: UTF-16 Big Endian without BOM
 
-UTF-16BE-BOM
-: UTF-16 Big Endian with BOM
+* UTF-16BE-BOM: UTF-16 Big Endian with BOM
 
-UTF-16LE
-: UTF-16 Little Endian without BOM
+* UTF-16LE: UTF-16 Little Endian without BOM
 
-UTF-16LE-BOM
-: UTF-16 Little Endian with BOM
+* UTF-16LE-BOM: UTF-16 Little Endian with BOM
 
-UTF-32
-: same as UTF-32BE
+* UTF-32: same as UTF-32BE
 
-UTF-32BE
-: UTF-32 Big Endian without BOM
+* UTF-32BE: UTF-32 Big Endian without BOM
 
-UTF-32BE-BOM
-: UTF-32 Big Endian with BOM
+* UTF-32BE-BOM: UTF-32 Big Endian with BOM
 
-UTF-32LE
-: UTF-32 Little Endian without BOM
+* UTF-32LE: UTF-32 Little Endian without BOM
 
-UTF-32LE-BOM
-: UTF-32 Little Endian with BOM
+* UTF-32LE-BOM: UTF-32 Little Endian with BOM
 
-UTF8-MAC
-: NKDed UTF-8, a.k.a. UTF8-NFD (input only)
+* UTF8-MAC: NKDed UTF-8, a.k.a. UTF8-NFD (input only)
 
 #### --fb-\{skip, html, xml, perl, java, subchar}
 
@@ -1033,7 +996,7 @@ argv = Shellwords.split('three blind "mice"')
 argv #=> ["three", "blind", "mice"]
 ```
 
-Once you've required Shellwords, you can use the #split alias
+Once you've required Shellwords, you can use the `#split` alias
 String#shellsplit.
 
 
@@ -1063,7 +1026,8 @@ argv #=> "special\\'s.txt"
 system("cat " + argv)
 ```
 
-Shellwords also comes with a core extension for Array, Array#shelljoin.
+Shellwords also comes with a core extension for Array,
+`Array#shelljoin`.
 
 
 ```ruby
@@ -1093,27 +1057,6 @@ shortcut for Array.new.
 
 [1]: http://pubs.opengroup.org/onlinepubs/9699919799/utilities/contents.htm
 l
-
-
-## ThWait
-
-This class watches for termination of multiple threads. Basic
-functionality (wait until specified threads have terminated) can be
-accessed through the class method ThreadsWait::all\_waits. Finer control
-can be gained using instance methods.
-
-Example:
-
-
-```ruby
-ThreadsWait.all_waits(thr1, thr2, ...) do |t|
-  STDERR.puts "Thread #{t} has terminated."
-end
-
-th = ThreadsWait.new(thread1,...)
-th.next_wait # next one to be done
-```
-
 
 
 ## ThreadsWait
@@ -1160,10 +1103,10 @@ internally.
 The following example demonstrates how to mix the TSort module into an
 existing class (in this case, Hash). Here, we're treating each key in
 the hash as a node in the graph, and so we simply alias the required
-\#tsort\_each\_node method to Hash's #each\_key method. For each key in
+\#tsort\_each\_node method to Hash's `#each_key` method. For each key in
 the hash, the associated value is an array of the node's child nodes.
 This choice in turn leads to our implementation of the required
-\#tsort\_each\_child method, which fetches the array of child nodes and
+`#tsort_each_child` method, which fetches the array of child nodes and
 then iterates over that array using the user-supplied block.
 
 
@@ -1187,7 +1130,7 @@ end
 
 ### A More Realistic Example
 
-A very simple \`make' like tool can be implemented as follows:
+A very simple `make` like tool can be implemented as follows:
 
 
 ```ruby

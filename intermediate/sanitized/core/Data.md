@@ -1,0 +1,4 @@
+# Data
+
+This is a deprecated class, base class for C extensions using Data_Make_Struct
+or Data_Wrap_Struct.

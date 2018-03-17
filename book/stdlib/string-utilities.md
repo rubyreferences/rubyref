@@ -7,16 +7,16 @@ scanf for Ruby
 scanf is an implementation of the C function scanf(3), modified as
 necessary for Ruby compatibility.
 
-The methods provided are String#scanf, IO#scanf, and Kernel#scanf.
-Kernel#scanf is a wrapper around STDIN.scanf. IO#scanf can be used on
+The methods provided are `String#scanf`, `IO#scanf`, and `Kernel#scanf`.
+Kernel#scanf is a wrapper around STDIN.scanf. `IO#scanf` can be used on
 any IO stream, including file handles and sockets. scanf can be called
 either with or without a block.
 
 Scanf scans an input string or stream according to a **format**, as
 described below in Conversions, and returns an array of matches between
 the format and the input. The format is defined in a string, and is
-similar (though not identical) to the formats used in Kernel#printf and
-Kernel#sprintf.
+similar (though not identical) to the formats used in `Kernel#printf`
+and `Kernel#sprintf`.
 
 The format may contain **conversion specifiers**, which tell scanf what
 form (type) each particular matched substring should be converted to
@@ -41,11 +41,11 @@ matches found up to the stopping point are returned in the return array
 ```ruby
 require 'scanf'
 
-# String\#scanf and IO\#scanf take a single argument, the format string
+# String#scanf and IO#scanf take a single argument, the format string
 array = a_string.scanf("%d%s")
 array = an_io.scanf("%d%s")
 
-# Kernel\#scanf reads from STDIN
+# Kernel#scanf reads from STDIN
 array = scanf("%d%s")
 ```
 
@@ -75,7 +75,7 @@ etc.).
 
 There may be an optional maximum field width, expressed as a decimal
 integer, between the % and the conversion. If no width is given, a
-default of \`infinity' is used (with the exception of the %c specifier;
+default of `infinity` is used (with the exception of the %c specifier;
 see below). Otherwise, given a field width of *n* for a given
 conversion, at most *n* characters are scanned in processing that
 conversion. Before conversion begins, most conversions skip whitespace
@@ -84,46 +84,37 @@ width.
 
 The following conversions are available.
 
-%
-: Matches a literal `%'. That is, `%%' in the format string matches a
-  single input \`%' character. No conversion is done, and the resulting
+* %: Matches a literal `%`. That is, `%%` in the format string matches a
+  single input `%` character. No conversion is done, and the resulting
   '%' is not included in the return array.
 
-d
-: Matches an optionally signed decimal integer.
+* d: Matches an optionally signed decimal integer.
 
-u
-: Same as d.
+* u: Same as d.
 
-i
-: Matches an optionally signed integer. The integer is read in base 16
-  if it begins with `0x' or `0X', in base 8 if it begins with \`0', and
-  in base 10 other- wise. Only characters that correspond to the base
-  are recognized.
+* i: Matches an optionally signed integer. The integer is read in base
+  16 if it begins with `0x` or `0X`, in base 8 if it begins with `0`,
+  and in base 10 other- wise. Only characters that correspond to the
+  base are recognized.
 
-o
-: Matches an optionally signed octal integer.
+* o: Matches an optionally signed octal integer.
 
-x, X
-: Matches an optionally signed hexadecimal integer,
+* x, X: Matches an optionally signed hexadecimal integer,
 
-a, e, f, g, A, E, F, G
-: Matches an optionally signed floating-point number.
+* a, e, f, g, A, E, F, G: Matches an optionally signed floating-point
+  number.
 
-s
-: Matches a sequence of non-white-space character. The input string
+* s: Matches a sequence of non-white-space character. The input string
   stops at whitespace or at the maximum field width, whichever occurs
   first.
 
-c
-: Matches a single character, or a sequence of *n* characters if a field
-  width of *n* is specified. The usual skip of leading white space is
-  suppressed. To skip whitespace first, use an explicit space in the
+* c: Matches a single character, or a sequence of *n* characters if a
+  field width of *n* is specified. The usual skip of leading white space
+  is suppressed. To skip whitespace first, use an explicit space in the
   format.
 
-\[
-: Matches a nonempty sequence of characters from the specified set of
-  accepted characters. The usual skip of leading whitespace is
+* \[: Matches a nonempty sequence of characters from the specified set
+  of accepted characters. The usual skip of leading whitespace is
   suppressed. This bracketed sub-expression is interpreted exactly like
   a character class in a Ruby regular expression. (In fact, it is placed
   as-is in a regular expression.) The matching against the input string
@@ -157,10 +148,9 @@ languages.
 
 ### Altered specifiers
 
-o, u, x, X
-: In scanf for Ruby, all of these specifiers scan for an optionally
-  signed integer, rather than for an unsigned integer like their C
-  counterparts.
+* o, u, x, X: In scanf for Ruby, all of these specifiers scan for an
+  optionally signed integer, rather than for an unsigned integer like
+  their C counterparts.
 
 ### Return values
 
@@ -184,7 +174,7 @@ above.)
 
 ## Current limitations and bugs
 
-When using IO#scanf under Windows, make sure you open your files in
+When using `IO#scanf` under Windows, make sure you open your files in
 binary mode:
 
 
@@ -202,9 +192,9 @@ using any of the more complex and/or arcane character class idioms.
 
 ## License and copyright
 
-Copyright
-: (c) 2002-2003 David Alan Black License
-: Distributed on the same licensing terms as Ruby itself
+* Copyright: (c) 2002-2003 David Alan Black
+
+* License: Distributed on the same licensing terms as Ruby itself
 
 ## Warranty disclaimer
 
@@ -217,10 +207,10 @@ merchantability and fitness for a particular purpose.
 scanf was developed as the major activity of the Austin Ruby Codefest
 (Austin, Texas, August 2002).
 
-Principal author
-: David Alan Black (mailto:dblack@superlink.net) Co-author
-: Hal Fulton (mailto:hal9000@hypermetrics.com) Project contributors
-: Nolan Darilek, Jason Johnston
+* Principal author: David Alan Black (mailto:dblack@superlink.net)
+
+* Co-author: Hal Fulton (mailto:hal9000@hypermetrics.com)
+* Project contributors: Nolan Darilek, Jason Johnston
 
 Thanks to Hal Fulton for hosting the Codefest.
 
@@ -262,7 +252,7 @@ pp Abbrev.abbrev(%w{ ruby rules })
 *Generates:* \{ "ruby" => "ruby", "rub" => "ruby", "rules" => "rules",
 "rule" => "rules", "rul" => "rules" }
 
-It also provides an array core extension, Array#abbrev.
+It also provides an array core extension, `Array#abbrev`.
 
 
 ```ruby
@@ -339,8 +329,8 @@ positions:
                       0
 ```
 
-When you #scan for a pattern (a regular expression), the match must
-occur at the character after the scan pointer. If you use #scan\_until,
+When you `#scan` for a pattern (a regular expression), the match must
+occur at the character after the scan pointer. If you use `#scan_until`,
 then the match can occur anywhere after the scan pointer. In both cases,
 the scan pointer moves *just beyond* the last character of the match,
 ready to scan again from the next character onwards. This is
@@ -356,59 +346,75 @@ ahead, and so on.
 
 #### Advancing the Scan Pointer
 
-* \#getch
+* # getch
 
-* \#get\_byte
-* \#scan
-* \#scan\_until
-* \#skip
-* \#skip\_until
+* # get\_byte
+
+* # scan
+
+* # scan\_until
+
+* # skip
+
+* # skip\_until
 
 #### Looking Ahead
 
-* \#check
+* # check
 
-* \#check\_until
-* \#exist?
-* \#match?
-* \#peek
+* # check\_until
+
+* # exist?
+
+* # match?
+
+* # peek
 
 #### Finding Where we Are
 
-* \#beginning\_of\_line? (#bol?)
+* `#beginning_of_line?` (#bol?)
 
-* \#eos?
-* \#rest?
-* \#rest\_size
-* \#pos
+* # eos?
+
+* # rest?
+
+* # rest\_size
+
+* # pos
 
 #### Setting Where we Are
 
-* \#reset
+* # reset
 
-* \#terminate
-* \#pos=
+* # terminate
+
+* # pos=
 
 #### Match Data
 
-* \#matched
+* # matched
 
-* \#matched?
-* \#matched\_size
+* # matched?
+
+* # matched\_size
 
 \:
 
-* \#pre\_match
-* \#post\_match
+* # pre\_match
+
+* # post\_match
 
 #### Miscellaneous
 
 * <<
 
-* \#concat
-* \#string
-* \#string=
-* \#unscan
+* # concat
+
+* # string
+
+* # string=
+
+* # unscan
 
 There are aliases to several of the methods.
 

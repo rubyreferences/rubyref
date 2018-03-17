@@ -149,7 +149,7 @@ methods](rdoc-ref:syntax/methods.rdoc).
 
 Class methods may be called directly. (This is slightly confusing, but a
 method on a module is often called a "class method" instead of a "module
-method". See also Module#module\_function which can convert an instance
+method". See also `Module#module_function` which can convert an instance
 method into a class method.)
 
 When a class method references a constant, it uses the same rules as

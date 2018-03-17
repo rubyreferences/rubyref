@@ -35,14 +35,15 @@ compatible with an Enumerator.
 `Prime`\::`PseudoPrimeGenerator` is the base class for generators. There
 are few implementations of generator.
 
-`Prime`\::`EratosthenesGenerator`
-: Uses eratosthenes' sieve. `Prime`\::`TrialDivisionGenerator`
-: Uses the trial division method. `Prime`\::`Generator23`
-: Generates all positive integers which are not divisible by either 2 or
-  3. This sequence is very bad as a pseudo-prime sequence. But this is
-  faster and uses much less memory than the other generators. So, it is
-  suitable for factorizing an integer which is not large but has many
-  prime factors. e.g. for Prime#prime? .
+* `Prime`\::`EratosthenesGenerator`\: Uses eratosthenes\` sieve.
+
+* `Prime`\::`TrialDivisionGenerator`\: Uses the trial division method.
+* `Prime`\::`Generator23`\: Generates all positive integers which are
+  not divisible by either 2 or 3. This sequence is very bad as a
+  pseudo-prime sequence. But this is faster and uses much less memory
+  than the other generators. So, it is suitable for factorizing an
+  integer which is not large but has many prime factors. e.g. for
+  Prime#prime? .
 
 
 
@@ -107,12 +108,6 @@ p SecureRandom.uuid #=> "bad85eb9-0713-4da7-8d36-07a8e4b00eab"
 
 
 
-## Timeout::TimeoutError
-
-Raised by Timeout.timeout when the block times out.
-
-
-
 ## Timeout
 
 Timeout long-running blocks
@@ -132,13 +127,13 @@ status = Timeout::timeout(5) {
 Timeout provides a way to auto-terminate a potentially long-running
 operation if it hasn't finished in a fixed amount of time.
 
-Previous versions didn't use a module for namespacing, however #timeout
-is provided for backwards compatibility. You should prefer
+Previous versions didn't use a module for namespacing, however
+`#timeout` is provided for backwards compatibility. You should prefer
 Timeout.timeout instead.
 
 ### Copyright
 
-Copyright
-: (C) 2000 Network Applied Communication Laboratory, Inc. Copyright
-: (C) 2000 Information-technology Promotion Agency, Japan
+* Copyright: (C) 2000 Network Applied Communication Laboratory, Inc.
+
+* Copyright: (C) 2000 Information-technology Promotion Agency, Japan
 

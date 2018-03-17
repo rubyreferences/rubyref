@@ -19,7 +19,7 @@ Ruby ensures this by preventing instantiation and duplication.
 
 
 ```ruby
-Integer.new(1)   #=> NoMethodError: undefined method `new' for Integer:Class
+Integer.new(1)   #=> NoMethodError: undefined method `new` for Integer:Class
 1.dup            #=> TypeError: can't dup Integer
 ```
 
@@ -28,7 +28,7 @@ classes.
 
 Classes which inherit from Numeric must implement `coerce`, which
 returns a two-member Array containing an object that has been coerced
-into an instance of the new class and `self` (see #coerce).
+into an instance of the new class and `self` (see `#coerce`).
 
 Inheriting classes should also implement arithmetic operator methods
 (`+`, `-`, `*` and `/`) and the `<=>` operator (see Comparable). These

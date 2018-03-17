@@ -1,12 +1,13 @@
 # Forwardable
 
 The Forwardable module provides delegation of specified methods to a
-designated object, using the methods #def\_delegator and
-\#def\_delegators.
+designated object, using the methods `#def_delegator` and
+`#def_delegators`.
 
 For example, say you have a class RecordCollection which contains an
-array `@records`. You could provide the lookup method #record\_number(),
-which simply calls #\[\] on the `@records` array, like this:
+array `@records`. You could provide the lookup method
+`#record_number`(), which simply calls `#[]` on the `@records` array,
+like this:
 
 
 ```ruby
@@ -28,8 +29,8 @@ r.records = [4,5,6]
 r.record_number(0)  # => 4
 ```
 
-Further, if you wish to provide the methods #size, #<<, and #map, all of
-which delegate to @records, this is how you can do it:
+Further, if you wish to provide the methods `#size`, #<<, and `#map`,
+all of which delegate to @records, this is how you can do it:
 
 
 ```ruby

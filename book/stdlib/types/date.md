@@ -73,7 +73,7 @@ handles date.
 
 A Date object is created with Date::new, Date::jd, Date::ordinal,
 Date::commercial, Date::parse, Date::strptime, Date::today,
-Time#to\_date, etc.
+`Time#to_date`, etc.
 
 
 ```ruby
@@ -161,7 +161,7 @@ time rules.
 
 A DateTime object is created with DateTime::new, DateTime::jd,
 DateTime::ordinal, DateTime::commercial, DateTime::parse,
-DateTime::strptime, DateTime::now, Time#to\_datetime, etc.
+DateTime::strptime, DateTime::now, `Time#to_datetime`, etc.
 
 
 ```ruby
@@ -258,7 +258,7 @@ cervantes == shakespeare
 
 This shows that in fact they died 10 days apart (in reality 11 days
 since Cervantes died a day earlier but was buried on the 23rd). We can
-see the actual date of Shakespeare's death by using the #gregorian
+see the actual date of Shakespeare's death by using the `#gregorian`
 method to convert it:
 
 

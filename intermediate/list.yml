@@ -1,8 +1,8 @@
 ---
-- source: doc/contributing.md
-- source: doc/contributors.md
 - source: doc/dtrace_probes.md
 - source: doc/extension.md
+- source: doc/contributing.md
+- source: doc/contributors.md
 - source: doc/maintainers.md
 - source: doc/security.md
 - source: doc/signals.md

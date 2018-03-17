@@ -32,7 +32,7 @@ australia = OpenStruct.new(:country => "Australia", :capital => "Canberra")
 Hash keys with spaces or characters that could normally not be used for
 method calls (e.g. `()[]*`) will not be immediately available on the
 OpenStruct object as a method for retrieval or assignment, but can still
-be reached through the Object#send method.
+be reached through the `Object#send` method.
 
 
 ```ruby

@@ -76,7 +76,7 @@ block local variables in the [calling
 methods](rdoc-ref:syntax/calling_methods.rdoc) documentation for an
 example.
 
-See also Kernel#local\_variables, but note that a `for` loop does not
+See also `Kernel#local_variables`, but note that a `for` loop does not
 create a new scope like a block does.
 
 ## Local Variables and Methods
@@ -125,12 +125,10 @@ p a if a = 0.zero?
 ```
 
 Rather than printing "true" you receive a NameError, "undefined local
-variable or method `a'".  Since ruby parses the bare `a` left of the
-`if` first and has
-not yet seen an assignment to `a` it assumes you wish to call a method. 
-Ruby
-then sees the assignment to `a\` and will assume you are referencing a
-local method.
+variable or method `a`". Since ruby parses the bare `a` left of the `if`
+first and has not yet seen an assignment to `a` it assumes you wish to
+call a method. Ruby then sees the assignment to `a` and will assume you
+are referencing a local method.
 
 The confusion comes from the out-of-order execution of the expression.
 First the local variable is assigned-to then you attempt to call a
@@ -325,7 +323,8 @@ c.value = 42
 ```
 
 Using assignment methods allows your programs to look nicer. When
-assigning to an instance variable most people use Module#attr\_accessor:
+assigning to an instance variable most people use
+`Module#attr_accessor`\:
 
 
 ```ruby

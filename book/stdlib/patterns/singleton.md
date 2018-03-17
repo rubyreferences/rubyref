@@ -60,12 +60,12 @@ This above is achieved by:
 
 * Overriding Klass.\_load(str) to call Klass.instance().
 
-* Overriding Klass#clone and Klass#dup to raise TypeErrors to prevent
-  cloning or duping.
+* Overriding `Klass#clone` and `Klass#dup` to raise TypeErrors to
+  prevent cloning or duping.
 
 ## Singleton and Marshal
 
-By default Singleton's #\_dump(depth) returns the empty string.
+By default Singleton's `#_dump`(depth) returns the empty string.
 Marshalling by default will strip state information, e.g. instance
 variables and taint state, from the instance. Classes using Singleton
 can provide custom \_load(str) and \_dump(depth) methods to retain some

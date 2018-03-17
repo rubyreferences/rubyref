@@ -8,7 +8,7 @@ reconstituted.
 Marshaled data has major and minor version numbers stored along with the
 object information. In normal use, marshaling can only load data written
 with the same major version number and an equal or lower minor version
-number. If Ruby's \`\`verbose'' flag is set (normally using -d, -v, -w,
+number. If Ruby's \`\`verbose\`' flag is set (normally using -d, -v, -w,
 or --verbose) the major and minor numbers must match exactly. Marshal
 versioning is independent of Ruby's version numbers. You can extract the
 version by reading the first two bytes of marshaled data.
@@ -175,44 +175,36 @@ which supports full 32 bit precision.
 
 The first byte has the following special values:
 
-"x00"
-: The value of the integer is 0. No bytes follow.
+* "x00"\: The value of the integer is 0. No bytes follow.
 
-"x01"
-: The total size of the integer is two bytes. The following byte is a
-  positive integer in the range of 0 through 255. Only values between
-  123 and 255 should be represented this way to save bytes.
+* "x01"\: The total size of the integer is two bytes. The following byte
+  is a positive integer in the range of 0 through 255. Only values
+  between 123 and 255 should be represented this way to save bytes.
 
-"xff"
-: The total size of the integer is two bytes. The following byte is a
-  negative integer in the range of -1 through -256.
+* "xff"\: The total size of the integer is two bytes. The following byte
+  is a negative integer in the range of -1 through -256.
 
-"x02"
-: The total size of the integer is three bytes. The following two bytes
-  are a positive little-endian integer.
+* "x02"\: The total size of the integer is three bytes. The following
+  two bytes are a positive little-endian integer.
 
-"xfe"
-: The total size of the integer is three bytes. The following two bytes
-  are a negative little-endian integer.
+* "xfe"\: The total size of the integer is three bytes. The following
+  two bytes are a negative little-endian integer.
 
-"x03"
-: The total size of the integer is four bytes. The following three bytes
-  are a positive little-endian integer.
+* "x03"\: The total size of the integer is four bytes. The following
+  three bytes are a positive little-endian integer.
 
-"xfd"
-: The total size of the integer is two bytes. The following three bytes
-  are a negative little-endian integer.
+* "xfd"\: The total size of the integer is two bytes. The following
+  three bytes are a negative little-endian integer.
 
-"x04"
-: The total size of the integer is five bytes. The following four bytes
-  are a positive little-endian integer. For compatibility with 32 bit
-  ruby, only Fixnums less than 1073741824 should be represented this
-  way. For sizes of stream objects full precision may be used.
+* "x04"\: The total size of the integer is five bytes. The following
+  four bytes are a positive little-endian integer. For compatibility
+  with 32 bit ruby, only Fixnums less than 1073741824 should be
+  represented this way. For sizes of stream objects full precision may
+  be used.
 
-"xfc"
-: The total size of the integer is two bytes. The following four bytes
-  are a negative little-endian integer. For compatibility with 32 bit
-  ruby, only Fixnums greater than -10737341824 should be represented
+* "xfc"\: The total size of the integer is two bytes. The following four
+  bytes are a negative little-endian integer. For compatibility with 32
+  bit ruby, only Fixnums greater than -10737341824 should be represented
   this way. For sizes of stream objects full precision may be used.
 
 Otherwise the first byte is a sign-extended eight-bit value with an
@@ -259,7 +251,7 @@ symbol link.
 #### Object References
 
 Separate from but similar to symbol references, the stream contains only
-one copy of each object (as determined by #object\_id) for all objects
+one copy of each object (as determined by `#object_id`) for all objects
 except true, false, nil, Fixnums and Symbols (which are stored
 separately as described above) a one-indexed 32 bit value will be stored
 and reused when the object is encountered again. (The first object has
@@ -306,13 +298,14 @@ the length.
 
 "l" represents a Bignum which is composed of three parts:
 
-sign
-: A single byte containing "+" for a positive value or "-" for a
-  negative value. length
-: A long indicating the number of bytes of Bignum data follows, divided
-  by two. Multiply the length by two to determine the number of bytes of
-  data that follow. data
-: Bytes of Bignum data representing the number.
+* sign: A single byte containing "+" for a positive value or "-" for a
+  negative value.
+
+* length: A long indicating the number of bytes of Bignum data follows,
+  divided by two. Multiply the length by two to determine the number of
+  bytes of data that follow.
+
+* data: Bytes of Bignum data representing the number.
 
 The following ruby code will reconstruct the Bignum value from an array
 of bytes:
@@ -357,20 +350,16 @@ allocated instance.
 "f" represents a Float object. Following the type byte is a byte
 sequence containing the float value. The following values are special:
 
-"inf"
-: Positive infinity
+* "inf"\: Positive infinity
 
-"-inf"
-: Negative infinity
+* "-inf"\: Negative infinity
 
-"nan"
-: Not a Number
+* "nan"\: Not a Number
 
-Otherwise the byte sequence contains a C double (loadable by strtod(3)). Older
-minor versions of Marshal also stored extra mantissa bits to ensure
-portability across platforms but 4.8 does not include these. See
-ruby-talk:69518
-: for some explanation.
+Otherwise the byte sequence contains a C double (loadable by strtod(3)).
+Older minor versions of Marshal also stored extra mantissa bits to
+ensure portability across platforms but 4.8 does not include these. See
+\[ruby-talk:69518\] for some explanation.
 
 #### Hash and Hash with Default Value
 

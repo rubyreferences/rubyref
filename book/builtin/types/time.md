@@ -39,7 +39,7 @@ Time.new(2002, 10, 31) #=> 2002-10-31 00:00:00 -0500
 Time.new(2002, 10, 31, 2, 2, 2, "+02:00") #=> 2002-10-31 02:02:02 +0200
 ```
 
-You can also use #gm, #local and #utc to infer GMT, local and UTC
+You can also use `#gm`, `#local` and `#utc` to infer GMT, local and UTC
 timezones instead of using the current system setting.
 
 You can also create a new time using Time::at which takes the number of
@@ -159,8 +159,8 @@ t.httpdate # => "Thu, 06 Oct 2011 02:26:12 GMT"
 
 #### Time.parse
 
-\#parse takes a string representation of a Time and attempts to parse it
-using a heuristic.
+`#parse` takes a string representation of a Time and attempts to parse
+it using a heuristic.
 
 
 ```ruby
@@ -176,8 +176,8 @@ Time.parse("12:00") #=> 2011-10-31 12:00:00 -0500
 ```
 
 We can change the date used to infer our missing elements by passing a
-second object that responds to #mon, #day and #year, such as Date, Time
-or DateTime. We can also use our own object.
+second object that responds to `#mon`, `#day` and `#year`, such as Date,
+Time or DateTime. We can also use our own object.
 
 
 ```ruby
@@ -200,11 +200,11 @@ Time.parse("12:00", dt) #=> 2010-10-30 12:00:00 -0500
 Time.parse("12:00", md) #=> 2010-10-31 12:00:00 -0500
 ```
 
-\#parse also accepts an optional block. You can use this block to specify
-how to handle the year component of the date. This is specifically
-designed for handling two digit years. For example, if you wanted to
-treat all two digit years prior to 70 as the year 2000+ you could write
-this:
+`#parse` also accepts an optional block. You can use this block to
+specify how to handle the year component of the date. This is
+specifically designed for handling two digit years. For example, if you
+wanted to treat all two digit years prior to 70 as the year 2000+ you
+could write this:
 
 
 ```ruby
@@ -216,7 +216,7 @@ Time.parse("70-10-31") {|year| year + (year < 70 ? 2000 : 1900)}
 
 #### Time.strptime
 
-\#strptime works similar to `parse` except that instead of using a
+`#strptime` works similar to `parse` except that instead of using a
 heuristic to detect the format of the input string, you provide a second
 argument that describes the format of the string. For example:
 

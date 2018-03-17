@@ -59,7 +59,7 @@ string.force_encoding(Encoding::UTF_8)
 
 Second, it is possible to transcode a string, i.e. translate its
 internal byte representation to another encoding. Its associated
-encoding is also set to the other encoding. See String#encode for the
+encoding is also set to the other encoding. See `String#encode` for the
 various forms of transcoding, and the Encoding::Converter class for
 additional control over the transcoding process.
 
@@ -166,7 +166,7 @@ object.
 Conversely, when data is written to the IO object it is transcoded from
 the internal encoding to the external encoding of the IO object.
 
-The internal encoding of an IO object can be set with IO#set\_encoding
+The internal encoding of an IO object can be set with `IO#set_encoding`
 or at IO object creation (see IO.new options).
 
 The internal encoding is optional and when not set, the Ruby default

@@ -8,12 +8,11 @@ with an intuitive API. REXML passes 100% of the non-validating Oasis
 REXML also includes a full [XPath][4] 1.0 implementation. Since Ruby
 1.8, REXML is included in the standard Ruby distribution.
 
-Main page
-: http://www.germane-software.com/software/rexml Author
-: Sean Russell <serATgermaneHYPHENsoftwareDOTcom>
-  Date</serATgermaneHYPHENsoftwareDOTcom>
-: 2008/019 Version
-: 3\.1.7.3
+* Main page: http://www.germane-software.com/software/rexml
+
+* Author: Sean Russell <serATgermaneHYPHENsoftwareDOTcom />
+* Date: 2008/019
+* Version: 3.1.7.3
 
 This API documentation can be downloaded from the REXML home page, or
 can be accessed [online][5]
@@ -24,7 +23,7 @@ or can be accessed [online][6]
 
 
 [1]: http://www.ruby-lang.org
-[2]: http://www.w3.org/TR/2004/REC-xml-20040204/\#sec-conformance
+[2]: http://www.w3.org/TR/2004/REC-xml-20040204/#sec-conformance
 [3]: http://www.oasis-open.org/committees/xml-conformance/xml-test-suite.sh
 tml
 [4]: http://www.w3c.org/tr/xpath
@@ -74,7 +73,7 @@ open(url) do |rss|
 end
 ```
 
-As you can see, the workhorse is RSS::Parser#parse, which takes the
+As you can see, the workhorse is `RSS::Parser#parse`, which takes the
 source of the feed and a parameter that performs validation on the feed.
 We get back an object that has all of the data from our feed, accessible
 through methods. This example shows getting the title out of the channel

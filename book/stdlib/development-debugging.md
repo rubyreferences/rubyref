@@ -30,7 +30,7 @@ used to execute Ruby code.
   user and system CPU times, and the elapsed real time. The unit of time
   is seconds.
 
-* Do some experiments sequentially using the #bm method:
+* Do some experiments sequentially using the `#bm` method:
   
   
   ```ruby
@@ -259,14 +259,15 @@ was nil after calling `get_foo`.
 
 Other useful commands for navigating through your code are:
 
-`c`
-: Runs the program until it either exists or encounters another
+* `c`\: Runs the program until it either exists or encounters another
   breakpoint. You usually press `c` when you are finished debugging your
-  program and want to resume its execution. `s`
-: Steps into method definition. In the previous example, `s` would take
-  you inside the method definition of `get_foo`. `r`
-: Restart the program. `q`
-: Quit the program.
+  program and want to resume its execution.
+
+* `s`\: Steps into method definition. In the previous example, `s` would
+  take you inside the method definition of `get_foo`.
+
+* `r`\: Restart the program.
+* `q`\: Quit the program.
 
 #### Inspecting variables
 
@@ -378,7 +379,7 @@ A pretty-printer for Ruby objects.
 
 ### What PP Does
 
-Standard output by #p returns this: #<PP:0x81fedf0
+Standard output by `#p` returns this: #<PP:0x81fedf0
 @genspace=#<Proc:0x81feda0>,
 @group\_queue=#<PrettyPrint::GroupQueue:0x81fed3c
 @queue=\[\[#<PrettyPrint::Group:0x81fed78 @breakables=\[\], @depth=0,
@@ -414,15 +415,15 @@ It returns `obj(s)`.
 ### Output Customization
 
 To define a customized pretty printing function for your classes,
-redefine method `\#pretty_print(pp)` in the class.
+redefine method `#pretty_print(pp)` in the class.
 
-`\#pretty_print` takes the `pp` argument, which is an instance of the PP
-class. The method uses #text, #breakable, #nest, #group and #pp to print
-the object.
+`#pretty_print` takes the `pp` argument, which is an instance of the PP
+class. The method uses `#text`, `#breakable`, `#nest`, `#group` and
+`#pp` to print the object.
 
 ### Pretty-Print JSON
 
-To pretty-print JSON refer to JSON#pretty\_generate.
+To pretty-print JSON refer to `JSON#pretty_generate`.
 
 ### Author
 
@@ -440,8 +441,8 @@ each byte in the strings have single column in width. But it can be used
 for other situations by giving suitable arguments for some methods:
 
 * newline object and space generation block for PrettyPrint.new
-* optional width argument for PrettyPrint#text
-* PrettyPrint#breakable
+* optional width argument for \`PrettyPrint#tex't
+* \`PrettyPrint#breakabl'e
 
 There are several candidate uses:
 
@@ -533,14 +534,14 @@ ruby -rprofile example.rb
 
   %   cumulative   self              self     total
  time   seconds   seconds    calls  ms/call  ms/call  name
- 68.42     0.13      0.13        2    65.00    95.00  Integer\#times
+ 68.42     0.13      0.13        2    65.00    95.00  Integer#times
  15.79     0.16      0.03     5000     0.01     0.01  Fixnum#*
  15.79     0.19      0.03     5000     0.01     0.01  Fixnum#+
-  0.00     0.19      0.00        2     0.00     0.00  IO\#set_encoding
-  0.00     0.19      0.00        1     0.00   100.00  Object\#slow_method
-  0.00     0.19      0.00        2     0.00     0.00  Module\#method_added
-  0.00     0.19      0.00        1     0.00    90.00  Object\#fast_method
-  0.00     0.19      0.00        1     0.00   190.00  \#toplevel
+  0.00     0.19      0.00        2     0.00     0.00  IO#set_encoding
+  0.00     0.19      0.00        1     0.00   100.00  Object#slow_method
+  0.00     0.19      0.00        2     0.00     0.00  Module#method_added
+  0.00     0.19      0.00        1     0.00    90.00  Object#fast_method
+  0.00     0.19      0.00        1     0.00   190.00  #toplevel
 ```
 
 
@@ -550,7 +551,7 @@ ruby -rprofile example.rb
 Outputs a source level execution trace of a Ruby program.
 
 It does this by registering an event handler with
-Kernel#set\_trace\_func for processing incoming events. It also provides
+`Kernel#set_trace_func` for processing incoming events. It also provides
 methods for filtering unwanted trace output (see Tracer.add\_filter,
 Tracer.on, and Tracer.off).
 
@@ -572,7 +573,7 @@ a.square(5)
 
 Running the above script using `ruby -r tracer example.rb` will output
 the following trace to STDOUT (Note you can also explicitly `require
-'tracer'`)
+`tracer'\`)
 
 
 ```ruby
@@ -596,15 +597,15 @@ the following trace to STDOUT (Note you can also explicitly `require
 
 Symbol table used for displaying incoming events:
 
-+}+
-: call a C-language routine +\{+
-: return from a C-language routine +>+
-: call a Ruby method `C`
-: start a class or module definition `E`
-: finish a class or module definition `-`
-: execute code on a new line +^+
-: raise an exception +<+
-: return from a Ruby method
+* +}+: call a C-language routine
+
+* +\{+: return from a C-language routine
+* +>+: call a Ruby method
+* `C`\: start a class or module definition
+* `E`\: finish a class or module definition
+* `-`\: execute code on a new line
+* +^+: raise an exception
+* +<+: return from a Ruby method
 
 ### Copyright
 
@@ -625,13 +626,13 @@ only messages at that level or higher will be printed.
 
 The levels are:
 
-`UNKNOWN`
-: An unknown message that should always be logged. `FATAL`
-: An unhandleable error that results in a program crash. `ERROR`
-: A handleable error condition. `WARN`
-: A warning. `INFO`
-: Generic (useful) information about system operation. `DEBUG`
-: Low-level information for developers.
+* `UNKNOWN`\: An unknown message that should always be logged.
+
+* `FATAL`\: An unhandleable error that results in a program crash.
+* `ERROR`\: A handleable error condition.
+* `WARN`\: A warning.
+* `INFO`\: Generic (useful) information about system operation.
+* `DEBUG`\: Low-level information for developers.
 
 For instance, in a production system, you may have your Logger set to
 `INFO` or even `WARN`. When you are developing the system, however, you
@@ -649,7 +650,7 @@ logger.info("User-input: #{input.dump}")
 logger.info("User-input: %p" % input)
 ```
 
-You can use #formatter= for escaping all data.
+You can use `#formatter=` for escaping all data.
 
 
 ```ruby
@@ -861,7 +862,7 @@ message
 
 Log sample: I, \[1999-03-03T02:34:24.895701 #19074\] INFO -- Main: info.
 
-You may change the date and time format via #datetime\_format=.
+You may change the date and time format via `#datetime_format=`.
 
 
 ```ruby
@@ -876,7 +877,7 @@ or via the constructor.
 Logger.new(logdev, datetime_format: '%Y-%m-%d %H:%M:%S')
 ```
 
-Or, you may change the overall format via the #formatter= method.
+Or, you may change the overall format via the `#formatter=` method.
 
 
 ```ruby
@@ -1001,30 +1002,32 @@ racc [-o<var>filename</var>] [--output-file=<var>filename</var>]
      [--version] [--copyright] [--help] <var>grammarfile</var>
 ```
 
-`filename`
-: Racc grammar file. Any extension is permitted. -o+outfile+,
-  --output-file=`outfile`
-: A filename for output. default is <`filename`>.tab.rb -O+filename+,
-  --log-file=`filename`
-: Place logging output in file `filename`. Default log file name is
-  <`filename`>.output. -e+rubypath+, --executable=`rubypath`
-: output executable file(mode 755). where `path` is the Ruby
-  interpreter. -v, --verbose
-: verbose mode. create `filename`.output file, like yacc's y.output
-  file. -g, --debug
-: add debug code to parser class. To display debugging information, use
-  this '-g' option and set @yydebug true in parser class. -E, --embedded
-: Output parser which doesn't need runtime files (racc/parser.rb). -C,
-  --check-only
-: Check syntax of racc grammar file and quit. -S, --output-status
-: Print messages time to time while compiling. -l, --no-line-convert
-: turns off line number converting. -c, --line-convert-all
-: Convert line number of actions, inner, header and footer. -a,
-  --no-omit-actions
-: Call all actions, even if an action is empty. --version
-: print Racc version and quit. --copyright
-: Print copyright and quit. --help
-: Print usage and quit.
+* `filename`\: Racc grammar file. Any extension is permitted.
+
+* -o+outfile+, --output-file=`outfile`\: A filename for output. default
+  is <`filename`>.tab.rb
+* -O+filename+, --log-file=`filename`\: Place logging output in file
+  `filename`. Default log file name is <`filename`>.output.
+
+* -e+rubypath+, --executable=`rubypath`\: output executable file(mode
+  755). where `path` is the Ruby interpreter.
+* -v, --verbose: verbose mode. create `filename`.output file, like
+  yacc's y.output file.
+* -g, --debug: add debug code to parser class. To display debugging
+  information, use this '-g' option and set @yydebug true in parser
+  class.
+
+* -E, --embedded: Output parser which doesn't need runtime files
+  (racc/parser.rb).
+* -C, --check-only: Check syntax of racc grammar file and quit.
+* -S, --output-status: Print messages time to time while compiling.
+* -l, --no-line-convert: turns off line number converting.
+* -c, --line-convert-all: Convert line number of actions, inner, header
+  and footer.
+* -a, --no-omit-actions: Call all actions, even if an action is empty.
+* --version: print Racc version and quit.
+* --copyright: Print copyright and quit.
+* --help: Print usage and quit.
 
 ### Generating Parser Using Racc
 
@@ -1071,18 +1074,19 @@ for more information on grammar files.
 ### Parser
 
 Then you must prepare the parse entry method. There are two types of
-parse methods in Racc, Racc::Parser#do\_parse and Racc::Parser#yyparse
+parse methods in Racc, `Racc::Parser#do_parse` and
+\`Racc::Parser#yypars'e
 
-Racc::Parser#do\_parse is simple.
+Racc::`Parser#do_parse` is simple.
 
-It's yyparse() of yacc, and Racc::Parser#next\_token is yylex(). This
+It's yyparse() of yacc, and `Racc::Parser#next_token` is yylex(). This
 method must returns an array like \[TOKENSYMBOL, ITS\_VALUE\]. EOF is
 \[false, false\]. (TOKENSYMBOL is a Ruby symbol (taken from
-String#intern) by default. If you want to change this, see the grammar
+`String#intern`) by default. If you want to change this, see the grammar
 reference.
 
-Racc::Parser#yyparse is little complicated, but useful. It does not use
-Racc::Parser#next\_token, instead it gets tokens from any iterator.
+Racc::`Parser#yyparse` is little complicated, but useful. It does not
+use Racc::`Parser#next_token`, instead it gets tokens from any iterator.
 
 For example, `yyparse(obj, :scan)` causes calling +obj#scan+, and you
 can return tokens by yielding them from +obj#scan+.
@@ -1130,8 +1134,8 @@ can be done by using '-E' option:
 $ racc -E -omyparser.rb myparser.y
 ```
 
-This command creates myparser.rb which \`includes' Racc runtime. Only
-you must do is to distribute your parser file (myparser.rb).
+This command creates myparser.rb which `includes` Racc runtime. Only you
+must do is to distribute your parser file (myparser.rb).
 
 Note: parser.rb is LGPL, but your parser is not. Your own parser is
 completely yours.
@@ -1174,11 +1178,3 @@ puts floor.call(3.14159) #=> 3.0
 
 [1]: http://sourceware.org/libffi/
 [2]: http://linux.die.net/man/3/floor
-
-
-## MakeMakefile
-
-mkmf.rb is used by Ruby C extensions to generate a Makefile which will
-correctly compile and link the C extension to Ruby and a third-party
-library.
-

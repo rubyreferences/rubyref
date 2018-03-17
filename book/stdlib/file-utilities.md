@@ -75,83 +75,129 @@ p5.children                     # [Pathname:/home/gavin/articles/linux, ...]
 ### Core methods
 
 These methods are effectively manipulating a String, because that's all
-a path is. None of these access the file system except for #mountpoint?,
-\#children, #each\_child, #realdirpath and #realpath.
+a path is. None of these access the file system except for
+`#mountpoint?`, `#children`, `#each_child`, `#realdirpath` and
+`#realpath`.
 
 * +
 
-* \#join
-* \#parent
-* \#root?
-* \#absolute?
-* \#relative?
-* \#relative\_path\_from
-* \#each\_filename
-* \#cleanpath
-* \#realpath
-* \#realdirpath
-* \#children
-* \#each\_child
-* \#mountpoint?
+* # join
+
+* # parent
+
+* # root?
+
+* # absolute?
+
+* # relative?
+
+* # relative\_path\_from
+
+* # each\_filename
+
+* # cleanpath
+
+* # realpath
+
+* # realdirpath
+
+* # children
+
+* # each\_child
+
+* # mountpoint?
 
 ### File status predicate methods
 
 These methods are a facade for FileTest:
 
-* \#blockdev?
-* \#chardev?
-* \#directory?
-* \#executable?
-* \#executable\_real?
-* \#exist?
-* \#file?
-* \#grpowned?
-* \#owned?
-* \#pipe?
-* \#readable?
-* \#world\_readable?
-* \#readable\_real?
-* \#setgid?
-* \#setuid?
-* \#size
-* \#size?
-* \#socket?
-* \#sticky?
-* \#symlink?
-* \#writable?
-* \#world\_writable?
-* \#writable\_real?
-* \#zero?
+* # blockdev?
+
+* # chardev?
+
+* # directory?
+
+* # executable?
+
+* # executable\_real?
+
+* # exist?
+
+* # file?
+
+* # grpowned?
+
+* # owned?
+
+* # pipe?
+
+* # readable?
+
+* # world\_readable?
+
+* # readable\_real?
+
+* # setgid?
+
+* # setuid?
+
+* # size
+
+* # size?
+
+* # socket?
+
+* # sticky?
+
+* # symlink?
+
+* # writable?
+
+* # world\_writable?
+
+* # writable\_real?
+
+* # zero?
 
 ### File property and manipulation methods
 
 These methods are a facade for File:
 
-* \#atime
-* \#birthtime
-* \#ctime
-* \#mtime
-* \#chmod(mode)
-* \#lchmod(mode)
-* \#chown(owner, group)
-* \#lchown(owner, group)
-* \#fnmatch(pattern, \*args)
-* \#fnmatch?(pattern, \*args)
-* \#ftype
-* \#make\_link(old)
-* \#open(\*args, &block)
-* \#readlink
-* \#rename(to)
-* \#stat
-* \#lstat
-* \#make\_symlink(old)
-* \#truncate(length)
-* \#utime(atime, mtime)
-* \#basename(\*args)
-* \#dirname
-* \#extname
-* \#expand\_path(\*args)
-* \#split
+* # atime
+
+* # birthtime
+
+* # ctime
+
+* # mtime
+
+* `#chmod`(mode)
+* `#lchmod`(mode)
+* `#chown`(owner, group)
+* `#lchown`(owner, group)
+* `#fnmatch`(pattern, \*args)
+* `#fnmatch?`(pattern, \*args)
+* # ftype
+
+* `#make_link`(old)
+* `#open`(\*args, &block)
+* # readlink
+
+* `#rename`(to)
+* # stat
+
+* # lstat
+
+* `#make_symlink`(old)
+* `#truncate`(length)
+* `#utime`(atime, mtime)
+* `#basename`(\*args)
+* # dirname
+
+* # extname
+
+* `#expand_path`(\*args)
+* # split
 
 ### Directory methods
 
@@ -159,30 +205,34 @@ These methods are a facade for Dir:
 
 * Pathname.glob(\*args)
 * Pathname.getwd / Pathname.pwd
-* \#rmdir
-* \#entries
-* \#each\_entry(&block)
-* \#mkdir(\*args)
-* \#opendir(\*args)
+* # rmdir
+
+* # entries
+
+* `#each_entry`(&block)
+* `#mkdir`(\*args)
+* `#opendir`(\*args)
 
 ### IO
 
 These methods are a facade for IO:
 
-* \#each\_line(\*args, &block)
-* \#read(\*args)
-* \#binread(\*args)
-* \#readlines(\*args)
-* \#sysopen(\*args)
+* `#each_line`(\*args, &block)
+* `#read`(\*args)
+* `#binread`(\*args)
+* `#readlines`(\*args)
+* `#sysopen`(\*args)
 
 ### Utilities
 
 These methods are a mixture of Find, FileUtils, and others:
 
-* \#find(&block)
-* \#mkpath
-* \#rmtree
-* \#unlink / #delete
+* `#find`(&block)
+* # mkpath
+
+* # rmtree
+
+* `#unlink` / #delete
 
 ## Method documentation
 
@@ -234,7 +284,7 @@ tempfiles on the filesystem until they're garbage collected. The
 existence of these temp files can make it harder to determine a new
 Tempfile filename.
 
-Therefore, one should always call #unlink or close in an ensure block,
+Therefore, one should always call `#unlink` or close in an ensure block,
 like this:
 
 
@@ -263,7 +313,7 @@ this: you need a large byte buffer that's too large to comfortably fit
 in RAM, e.g. when you're writing a web server and you want to buffer the
 client's file upload data.
 
-Please refer to #unlink for more information and a code example.
+Please refer to `#unlink` for more information and a code example.
 
 ### Minor notes
 
@@ -337,7 +387,7 @@ All methods that have the concept of a "source" file or directory can
 take either one file or a list of files in that argument. See the method
 documentation for examples.
 
-There are some \`low level' methods, which do not accept any option:
+There are some `low level` methods, which do not accept any option:
 
 
 ```ruby

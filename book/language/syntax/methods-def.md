@@ -83,27 +83,27 @@ the operator may lead to confusion as the user expects plus to add
 things, minus to subtract things, etc. Additionally, you cannot alter
 the precedence of the operators.
 
-`+`
-: add `-`
-: subtract `*`
-: multiply `**`
-: power `/`
-: divide `%`
-: modulus division, String#% `&`
-: AND `^`
-: XOR (exclusive OR) `>>`
-: right-shift `<<`
-: left-shift, append `==`
-: equal `!=`
-: not equal `===`
-: case equality. See Object#=== `=~`
-: pattern match. (Not just for regular expressions) `!~`
-: does not match `<=>`
-: comparison aka spaceship operator. See Comparable `<`
-: less-than `<=`
-: less-than or equal `>`
-: greater-than `>=`
-: greater-than or equal
+* `+`\: add
+
+* `-`\: subtract
+* `*`\: multiply
+* `**`\: power
+* `/`\: divide
+* `%`\: modulus division, String#%
+* `&`\: AND
+* `^`\: XOR (exclusive OR)
+* `>>`\: right-shift
+* `<<`\: left-shift, append
+* `==`\: equal
+* `!=`\: not equal
+* `===`\: case equality. See `Object#==`=
+* `=~`\: pattern match. (Not just for regular expressions)
+* `!~`\: does not match
+* `<=>`\: comparison aka spaceship operator. See Comparable
+* `<`\: less-than
+* `<=`\: less-than or equal
+* `>`\: greater-than
+* `>=`\: greater-than or equal
 
 To define unary methods minus, plus, tilde and not (`!`) follow the
 operator with an `@` as in `+@` or `!@`\:
@@ -282,7 +282,7 @@ unexpected results. For example, consider this irb session:
 ```
 
 This will effectively sabotage any code which makes use of the method
-`String\#to_i` to parse numbers from strings.
+`String#to_i` to parse numbers from strings.
 
 ## Arguments
 
@@ -405,8 +405,8 @@ This prints:
 {:a=>1, :b=>[2, 3]}
 ```
 
-The argument will be decomposed if it responds to #to\_ary. You should
-only define #to\_ary if you can use your object in place of an Array.
+The argument will be decomposed if it responds to `#to_ary`. You should
+only define `#to_ary` if you can use your object in place of an Array.
 
 Use of the inner parentheses only uses one of the sent arguments. If the
 argument is not an Array it will be assigned to the first argument in

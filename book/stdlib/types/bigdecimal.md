@@ -130,7 +130,7 @@ negative or positive zero; true mathematical zero has no sign.
 
 ## bigdecimal/util
 
-When you require `bigdecimal/util`, the #to\_d method will be available
+When you require `bigdecimal/util`, the `#to_d` method will be available
 on BigDecimal and the native Integer, Float, Rational, and String
 classes:
 

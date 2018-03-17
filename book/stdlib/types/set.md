@@ -11,7 +11,7 @@ converted to Set using the `to_set` method.
 
 Set uses Hash as storage, so you must note the following points:
 
-* Equality of elements is determined according to Object#eql? and
+* Equality of elements is determined according to `Object#eql?` and
   Object#hash. Use Set#compare\_by\_identity to make a set compare its
   elements by their identity.
 

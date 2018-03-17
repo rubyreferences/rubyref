@@ -128,7 +128,7 @@ Encoding that is not ASCII compatible. There's no existing data for CSV
 to use to prepare itself and thus you will probably need to manually
 specify the desired Encoding for most of those cases. It will try to
 guess using the fields in a row of output though, when using
-CSV::generate\_line() or Array#to\_csv().
+CSV::generate\_line() or `Array#to_csv`().
 
 I try to point out any other Encoding issues in the documentation of
 methods as they come up.

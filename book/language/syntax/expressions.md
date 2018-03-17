@@ -213,7 +213,7 @@ other due to parse order. Here is an example that shows the difference:
 p a if a = 0.zero?
 ```
 
-This raises the NameError "undefined local variable or method \`a'".
+This raises the NameError "undefined local variable or method `a`".
 
 When ruby parses this expression it first encounters `a` as a method
 call in the "then" expression, then later it sees the assignment to `a`
@@ -235,7 +235,7 @@ The `case` expression can be used in two ways.
 The most common way is to compare an object against multiple patterns.
 The patterns are matched using the +===+ method which is aliased to +==+
 on Object. Other classes must override it to give meaningful behavior.
-See Module#=== and Regexp#=== for examples.
+See Module#=== and `Regexp#===` for examples.
 
 Here is an example of using `case` to compare a String against a
 pattern:
@@ -279,7 +279,7 @@ end
 
 Ruby will try each condition in turn, so first `/^1/ === "2"` returns
 `false`, then `"2" === "2"` returns `true`, so "the string starts with
-one or is '2'" is printed.
+one or is \`2'" is printed.
 
 You may use `then` after the `when` condition. This is most frequently
 used to place the body of the `when` on a single line.
@@ -379,7 +379,7 @@ is used.
 
 The `for` loop consists of `for` followed by a variable to contain the
 iteration argument followed by `in` and the value to iterate over using
-\#each. The `do` is optional:
+`#each`. The `do` is optional:
 
 
 ```ruby
@@ -392,7 +392,7 @@ Prints 1, 2 and 3.
 
 Like `while` and `until`, the `do` is optional.
 
-The `for` loop is similar to using #each, but does not create a new
+The `for` loop is similar to using `#each`, but does not create a new
 variable scope.
 
 The result value of a `for` loop is the value iterated over unless

@@ -64,10 +64,10 @@ same name, except all lower case and without a preceding HTTP\_.
 
 ### Parameters
 
-The method #params() returns a hash of all parameters in the request as
-name/value-list pairs, where the value-list is an Array of one or more
-values. The CGI object itself also behaves as a hash of parameter names
-to values, but only returns a single value (as a String) for each
+The method `#params`() returns a hash of all parameters in the request
+as name/value-list pairs, where the value-list is an Array of one or
+more values. The CGI object itself also behaves as a hash of parameter
+names to values, but only returns a single value (as a String) for each
 parameter name.
 
 For instance, suppose the request contains the parameter
@@ -82,13 +82,13 @@ cgi["favourite_colours"]         # => "blue"
 
 If a parameter does not exist, the former method will return an empty
 array, the latter an empty string. The simplest way to test for
-existence of a parameter is by the #has\_key? method.
+existence of a parameter is by the `#has_key?` method.
 
 ### Cookies
 
 HTTP Cookies are automatically parsed from the request. They are
-available from the #cookies() accessor, which returns a hash from cookie
-name to CGI::Cookie object.
+available from the `#cookies`() accessor, which returns a hash from
+cookie name to CGI::Cookie object.
 
 ### Multipart requests
 
@@ -100,11 +100,10 @@ usual. However, the value is not a string, but an IO object, either an
 IOString for small files, or a Tempfile for larger ones. This object
 also has the additional singleton methods:
 
-\#local\_path()
-: the path of the uploaded file on the local filesystem
-  #original\_filename()
-: the name of the file on the client computer #content\_type()
-: the content type of the file
+* `#local_path`(): the path of the uploaded file on the local filesystem
+
+* `#original_filename`(): the name of the file on the client computer
+* `#content_type`(): the content type of the file
 
 ## Responses
 
@@ -115,11 +114,11 @@ of HTML to use for HTML generation is specified at object creation time.
 
 ### Writing output
 
-The simplest way to send output to the HTTP client is using the #out()
+The simplest way to send output to the HTTP client is using the `#out`()
 method. This takes the HTTP headers as a hash parameter, and the body
 content via a block. The headers can be generated as a string using the
-\#http\_header() method. The output stream can be written directly to
-using the #print() method.
+`#http_header`() method. The output stream can be written directly to
+using the `#print`() method.
 
 ### Generating HTML
 
@@ -331,9 +330,9 @@ URI is a module providing classes to handle Uniform Resource Identifiers
 ```ruby
 require 'uri'
 
-uri = URI("http://foo.com/posts?id=30&limit=5\#time=1305298413")
+uri = URI("http://foo.com/posts?id=30&limit=5#time=1305298413")
 #=> #<URI::HTTP:0x00000000b14880
-      URL:http://foo.com/posts?id=30&limit=5\#time=1305298413>
+      URL:http://foo.com/posts?id=30&limit=5#time=1305298413>
 uri.scheme
 #=> "http"
 uri.host
@@ -346,7 +345,7 @@ uri.fragment
 #=> "time=1305298413"
 
 uri.to_s
-#=> "http://foo.com/posts?id=30&limit=5\#time=1305298413"
+#=> "http://foo.com/posts?id=30&limit=5#time=1305298413"
 ```
 
 ### Adding custom URIs
@@ -413,16 +412,18 @@ Here is a list of all related RFC's.
 
 ### Copyright Info
 
-Author
-: Akira Yamada [akira@ruby-lang.org](mailto:akira@ruby-lang.org)
-  Documentation
-: Akira Yamada [akira@ruby-lang.org](mailto:akira@ruby-lang.org) Dmitry
-  V. Sabanin [sdmitry@lrn.ru](mailto:sdmitry@lrn.ru) Vincent Batts
-  [vbatts@hashbangbash.com](mailto:vbatts@hashbangbash.com) License
-: Copyright (c) 2001 akira yamada
+* Author: Akira Yamada [akira@ruby-lang.org](mailto:akira@ruby-lang.org)
+
+* Documentation: Akira Yamada
+  [akira@ruby-lang.org](mailto:akira@ruby-lang.org) Dmitry V. Sabanin
+  [sdmitry@lrn.ru](mailto:sdmitry@lrn.ru) Vincent Batts
+  [vbatts@hashbangbash.com](mailto:vbatts@hashbangbash.com)
+
+* License: Copyright (c) 2001 akira yamada
   [akira@ruby-lang.org](mailto:akira@ruby-lang.org) You can redistribute
-  it and/or modify it under the same term as Ruby. Revision
-: $Id$
+  it and/or modify it under the same term as Ruby.
+
+* Revision: $Id$
 
 
 
@@ -490,7 +491,7 @@ open("http://www.ruby-lang.org/en/", :proxy => nil) {|f|
 }
 ```
 
-See OpenURI::OpenRead.open and Kernel#open for more on available
+See OpenURI::OpenRead.open and `Kernel#open` for more on available
 options.
 
 URI objects can be opened in a similar way.
@@ -512,8 +513,7 @@ str = uri.read
 p str.base_uri
 ```
 
-Author
-: Tanaka Akira [akr@m17n.org](mailto:akr@m17n.org)
+* Author: Tanaka Akira [akr@m17n.org](mailto:akr@m17n.org)
 
 
 
@@ -590,7 +590,7 @@ server.start
 ### Custom Behavior
 
 The easiest way to have a server perform custom operations is through
-WEBrick::HTTPServer#mount\_proc. The block given will be called with a
+W`EBrick::HTTPServer#mount_proc`. The block given will be called with a
 WEBrick::HTTPRequest with request info and a WEBrick::HTTPResponse which
 must be filled in appropriately:
 
@@ -914,11 +914,11 @@ the Windows WinSock reference.
 Although the general way to create socket is Socket.new, there are
 several methods of socket creation for most cases.
 
-TCP client socket
-: Socket.tcp, TCPSocket.open TCP server socket
-: Socket.tcp\_server\_loop, TCPServer.open UNIX client socket
-: Socket.unix, UNIXSocket.open UNIX server socket
-: Socket.unix\_server\_loop, UNIXServer.open
+* TCP client socket: Socket.tcp, TCPSocket.open
+
+* TCP server socket: Socket.tcp\_server\_loop, TCPServer.open
+* UNIX client socket: Socket.unix, UNIXSocket.open
+* UNIX server socket: Socket.unix\_server\_loop, UNIXServer.open
 
 #### Documentation by
 

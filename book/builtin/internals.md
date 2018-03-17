@@ -35,7 +35,7 @@ The objspace library extends the ObjectSpace module and adds several
 methods to get internal statistic information about object/memory
 management.
 
-You need to `require 'objspace'` to use this extension module.
+You need to `require `objspace'\` to use this extension module.
 
 Generally, you *SHOULD NOT* use this library if you do not know about
 the MRI implementation. Mainly, this library is for (memory) profiler
@@ -58,7 +58,7 @@ GC::Profiler.
 
 ## TracePoint
 
-A class that provides the functionality of Kernel#set\_trace\_func in a
+A class that provides the functionality of `Kernel#set_trace_func` in a
 nice Object-Oriented API.
 
 ### Example
@@ -91,18 +91,18 @@ want to use.
 To filter what is traced, you can pass any of the following as
 `events`\:
 
-`:line`
-: execute code on a new line `:class`
-: start a class or module definition `:end`
-: finish a class or module definition `:call`
-: call a Ruby method `:return`
-: return from a Ruby method `:c_call`
-: call a C-language routine `:c_return`
-: return from a C-language routine `:raise`
-: raise an exception `:b_call`
-: event hook at block entry `:b_return`
-: event hook at block ending `:thread_begin`
-: event hook at thread beginning `:thread_end`
-: event hook at thread ending `:fiber_switch`
-: event hook at fiber switch
+* `:line`\: execute code on a new line
+
+* `:class`\: start a class or module definition
+* `:end`\: finish a class or module definition
+* `:call`\: call a Ruby method
+* `:return`\: return from a Ruby method
+* `:c_call`\: call a C-language routine
+* `:c_return`\: return from a C-language routine
+* `:raise`\: raise an exception
+* `:b_call`\: event hook at block entry
+* `:b_return`\: event hook at block ending
+* `:thread_begin`\: event hook at thread beginning
+* `:thread_end`\: event hook at thread ending
+* `:fiber_switch`\: event hook at fiber switch
 

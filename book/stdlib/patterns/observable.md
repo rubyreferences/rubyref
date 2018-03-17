@@ -11,12 +11,12 @@ methods for managing the associated observer objects.
 
 The observable object must:
 
-* assert that it has `\#changed`
-* call `\#notify_observers`
+* assert that it has `#changed`
+* call `#notify_observers`
 
-An observer subscribes to updates using Observable#add\_observer, which
-also specifies the method called via #notify\_observers. The default
-method for #notify\_observers is #update.
+An observer subscribes to updates using `Observable#add_observer`, which
+also specifies the method called via `#notify_observers`. The default
+method for `#notify_observers` is `#update`.
 
 ### Example
 

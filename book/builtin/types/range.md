@@ -21,8 +21,8 @@ Ranges can be constructed using any objects that can be compared using
 the `<=>` operator. Methods that treat the range as a sequence (#each
 and methods inherited from Enumerable) expect the begin object to
 implement a `succ` method to return the next object in sequence. The
-\#step and #include? methods require the begin object to implement `succ`
-or to be numeric.
+`#step` and `#include?` methods require the begin object to implement
+`succ` or to be numeric.
 
 In the `Xs` class below both `<=>` and `succ` are implemented so `Xs`
 can be used to construct ranges. Note that the Comparable module is

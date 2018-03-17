@@ -39,10 +39,10 @@ Here 'haystack' contains the pattern 'hay', so it matches:
 Specifically, `/st/` requires that the string contains the letter *s*
 followed by the letter *t*, so it matches *haystack*, also.
 
-## `=~` and Regexp#match
+## `=~` and \`Regexp#matc'h
 
-Pattern matching may be achieved by using `=~` operator or Regexp#match
-method.
+Pattern matching may be achieved by using `=~` operator or
+\`Regexp#matc'h method.
 
 ### `=~` operator
 
@@ -66,9 +66,9 @@ Using `=~` operator with a String and Regexp the `$~` global variable is
 set after a successful match. `$~` holds a MatchData object.
 Regexp.last\_match is equivalent to `$~`.
 
-### Regexp#match method
+### `Regexp#match` method
 
-The #match method returns a MatchData object:
+The `#match` method returns a MatchData object:
 
 
 ```ruby
@@ -272,7 +272,7 @@ later with `\1`\:
 ```
 
 Regexp#match returns a MatchData object which makes the captured text
-available with its #\[\] method:
+available with its `#[]` method:
 
 
 ```ruby
@@ -348,7 +348,7 @@ second group is referred to later with the backreference `\2`\:
 
 The first group of parentheses is now made non-capturing with '?:', so
 it still matches 'n', but doesn't create the backreference. Thus, the
-backreference `\1` now refers to 'ti'.
+backreference `\1` now refers to \`ti'.
 
 
 ```ruby
@@ -473,46 +473,46 @@ A Unicode character's *General Category* value can also be matched with
 `\p{`*Ab*`}` where *Ab* is the category's abbreviation as described
 below:
 
-* `/\p{L}/` - 'Letter'
+* `/\p{L}/` - \`Letter'
 
-* `/\p{Ll}/` - 'Letter: Lowercase'
-* `/\p{Lm}/` - 'Letter: Mark'
-* `/\p{Lo}/` - 'Letter: Other'
-* `/\p{Lt}/` - 'Letter: Titlecase'
-* `/\p{Lu}/` - 'Letter: Uppercase
-* `/\p{Lo}/` - 'Letter: Other'
-* `/\p{M}/` - 'Mark'
-* `/\p{Mn}/` - 'Mark: Nonspacing'
-* `/\p{Mc}/` - 'Mark: Spacing Combining'
-* `/\p{Me}/` - 'Mark: Enclosing'
-* `/\p{N}/` - 'Number'
-* `/\p{Nd}/` - 'Number: Decimal Digit'
-* `/\p{Nl}/` - 'Number: Letter'
-* `/\p{No}/` - 'Number: Other'
-* `/\p{P}/` - 'Punctuation'
-* `/\p{Pc}/` - 'Punctuation: Connector'
-* `/\p{Pd}/` - 'Punctuation: Dash'
-* `/\p{Ps}/` - 'Punctuation: Open'
-* `/\p{Pe}/` - 'Punctuation: Close'
-* `/\p{Pi}/` - 'Punctuation: Initial Quote'
-* `/\p{Pf}/` - 'Punctuation: Final Quote'
-* `/\p{Po}/` - 'Punctuation: Other'
-* `/\p{S}/` - 'Symbol'
-* `/\p{Sm}/` - 'Symbol: Math'
-* `/\p{Sc}/` - 'Symbol: Currency'
-* `/\p{Sc}/` - 'Symbol: Currency'
-* `/\p{Sk}/` - 'Symbol: Modifier'
-* `/\p{So}/` - 'Symbol: Other'
-* `/\p{Z}/` - 'Separator'
-* `/\p{Zs}/` - 'Separator: Space'
-* `/\p{Zl}/` - 'Separator: Line'
-* `/\p{Zp}/` - 'Separator: Paragraph'
-* `/\p{C}/` - 'Other'
-* `/\p{Cc}/` - 'Other: Control'
-* `/\p{Cf}/` - 'Other: Format'
-* `/\p{Cn}/` - 'Other: Not Assigned'
-* `/\p{Co}/` - 'Other: Private Use'
-* `/\p{Cs}/` - 'Other: Surrogate'
+* `/\p{Ll}/` - \`Letter: Lowercase'
+* `/\p{Lm}/` - \`Letter: Mark'
+* `/\p{Lo}/` - \`Letter: Other'
+* `/\p{Lt}/` - \`Letter: Titlecase'
+* `/\p{Lu}/` - \`Letter: Uppercase
+* `/\p{Lo}/` - \`Letter: Other'
+* `/\p{M}/` - \`Mark'
+* `/\p{Mn}/` - \`Mark: Nonspacing'
+* `/\p{Mc}/` - \`Mark: Spacing Combining'
+* `/\p{Me}/` - \`Mark: Enclosing'
+* `/\p{N}/` - \`Number'
+* `/\p{Nd}/` - \`Number: Decimal Digit'
+* `/\p{Nl}/` - \`Number: Letter'
+* `/\p{No}/` - \`Number: Other'
+* `/\p{P}/` - \`Punctuation'
+* `/\p{Pc}/` - \`Punctuation: Connector'
+* `/\p{Pd}/` - \`Punctuation: Dash'
+* `/\p{Ps}/` - \`Punctuation: Open'
+* `/\p{Pe}/` - \`Punctuation: Close'
+* `/\p{Pi}/` - \`Punctuation: Initial Quote'
+* `/\p{Pf}/` - \`Punctuation: Final Quote'
+* `/\p{Po}/` - \`Punctuation: Other'
+* `/\p{S}/` - \`Symbol'
+* `/\p{Sm}/` - \`Symbol: Math'
+* `/\p{Sc}/` - \`Symbol: Currency'
+* `/\p{Sc}/` - \`Symbol: Currency'
+* `/\p{Sk}/` - \`Symbol: Modifier'
+* `/\p{So}/` - \`Symbol: Other'
+* `/\p{Z}/` - \`Separator'
+* `/\p{Zs}/` - \`Separator: Space'
+* `/\p{Zl}/` - \`Separator: Line'
+* `/\p{Zp}/` - \`Separator: Paragraph'
+* `/\p{C}/` - \`Other'
+* `/\p{Cc}/` - \`Other: Control'
+* `/\p{Cf}/` - \`Other: Format'
+* `/\p{Cn}/` - \`Other: Not Assigned'
+* `/\p{Co}/` - \`Other: Private Use'
+* `/\p{Cs}/` - \`Other: Surrogate'
 
 Lastly, `\p{}` matches a character's Unicode *script*. The following
 scripts are supported: *Arabic*, *Armenian*, *Balinese*, *Bengali*,
@@ -564,7 +564,7 @@ characters, *anchoring* the match to a specific position.
 * `\z` - Matches end of string
 * `\G` - Matches first matching position:
   
-  In methods like `String\#gsub` and `String\#scan`, it changes on each
+  In methods like `String#gsub` and `String#scan`, it changes on each
   iteration. It initially matches the beginning of subject, and in each
   following iteration it matches where the last match finished.
   
@@ -574,7 +574,7 @@ characters, *anchoring* the match to a specific position.
   "    a b c".gsub(/\G /, '_')  #=> "____a b c"
   ```
   
-  In methods like `Regexp\#match` and `String\#match` that take an
+  In methods like `Regexp#match` and `String#match` that take an
   (optional) offset, it matches where the search begins.
   
   
@@ -730,7 +730,7 @@ encoding is ASCII-compatible.
 If a match between incompatible encodings is attempted an
 `Encoding::CompatibilityError` exception is raised.
 
-The `Regexp\#fixed_encoding?` predicate indicates whether the regexp has
+The `Regexp#fixed_encoding?` predicate indicates whether the regexp has
 a *fixed* encoding, that is one incompatible with ASCII. A regexp's
 encoding can be explicitly fixed by supplying `Regexp::FIXEDENCODING` as
 the second argument of `Regexp.new`\:
@@ -750,7 +750,7 @@ Pattern matching sets some global variables :
 * `$~` is equivalent to Regexp.last\_match;
 * `$&` contains the complete matched text;
 * `$`\` contains string before match;
-* `$'` contains string after match;
+* `$`\` contains string after match;
 * `$1`, `$2` and so on contain text matching first, second, etc capture
   group;
 
@@ -863,8 +863,8 @@ Regexp.new('a{0,29}' + 'a' * 29) =~ 'a' * 29
 ## MatchData
 
 `MatchData` is the type of the special variable `$~`, and is the type of
-the object returned by `Regexp\#match` and `Regexp.last_match`. It
+the object returned by `Regexp#match` and `Regexp.last_match`. It
 encapsulates all the results of a pattern match, results normally
-accessed through the special variables `$&`, `$'`, `$``, `$1`, `$2\`,
+accessed through the special variables `$&`, `$``, `$\`\`, `$1`, `$2`,
 and so on.
 

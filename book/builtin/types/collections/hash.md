@@ -53,7 +53,7 @@ set the default value by sending it as an argument to Hash.new:
 grades = Hash.new(0)
 ```
 
-Or by using the #default= method:
+Or by using the `#default=` method:
 
 
 ```ruby
@@ -140,5 +140,5 @@ reviews[book2] = 'Nice and compact!'
 reviews.length #=> 1
 ```
 
-See also Object#hash and Object#eql?
+See also `Object#hash` and `Object#eql`?
 

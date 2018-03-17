@@ -42,7 +42,7 @@ Be advised, RDoc will not detect delegated methods.
 A concrete implementation of Delegator, this class provides the means to
 delegate all supported method calls to the object passed into the
 constructor and even to change the object being delegated to at a later
-time with #**setobj**.
+time with `#__setobj__`.
 
 
 ```ruby

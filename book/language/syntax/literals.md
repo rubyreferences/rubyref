@@ -151,7 +151,7 @@ single-quote strings:
 ```
 
 In addition to disabling interpolation, single-quoted strings also
-disable all escape sequences except for the single-quote (`\'`) and
+disable all escape sequences except for the single-quote (`\``) and
 backslash (`\\\`).
 
 You may also create strings using `%`\:
@@ -451,13 +451,13 @@ escaped characters while a lowercase letter disables them.
 
 These are the types of percent strings in ruby:
 
-`%i`
-: Array of Symbols `%q`
-: String `%r`
-: Regular Expression `%s`
-: Symbol `%w`
-: Array of Strings `%x`
-: Backtick (capture subshell result)
+* `%i`\: Array of Symbols
+
+* `%q`\: String
+* `%r`\: Regular Expression
+* `%s`\: Symbol
+* `%w`\: Array of Strings
+* `%x`\: Backtick (capture subshell result)
 
 For the two array forms of percent string, if you wish to include a
 space in one of the array entries you must escape it with a "\"

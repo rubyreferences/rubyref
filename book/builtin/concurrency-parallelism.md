@@ -14,7 +14,7 @@ thr = Thread.new { puts "Whats the big deal" }
 ```
 
 Then we are able to pause the execution of the main thread and allow our
-new thread to finish, using #join:
+new thread to finish, using `#join`\:
 
 
 ```ruby
@@ -64,8 +64,8 @@ thr = Thread.new { ... }
 Thread.kill(thr) # sends exit() to thr
 ```
 
-Alternatively, you can use the instance method #exit, or any of its
-aliases #kill or #terminate.
+Alternatively, you can use the instance method `#exit`, or any of its
+aliases `#kill` or `#terminate`.
 
 
 ```ruby
@@ -85,8 +85,8 @@ thr.exit
 thr.status # => false
 ```
 
-You can also use #alive? to tell if the thread is running or sleeping,
-and #stop? if the thread is dead or sleeping.
+You can also use `#alive?` to tell if the thread is running or sleeping,
+and `#stop?` if the thread is dead or sleeping.
 
 ### Thread variables and scope
 
@@ -96,7 +96,7 @@ block are accessible to only this thread.
 
 #### Fiber-local vs. Thread-local
 
-Each fiber has its own bucket for Thread#\[\] storage. When you set a
+Each fiber has its own bucket for `Thread#[]` storage. When you set a
 new fiber-local it is only accessible within this Fiber. To illustrate:
 
 
@@ -109,9 +109,9 @@ Thread.new {
 }.join
 ```
 
-This example uses #\[\] for getting and #\[\]= for setting fiber-locals,
-you can also use #keys to list the fiber-locals for a given thread and
-\#key? to check if a fiber-local exists.
+This example uses `#[]` for getting and `#[]=` for setting fiber-locals,
+you can also use `#keys` to list the fiber-locals for a given thread and
+`#key?` to check if a fiber-local exists.
 
 When it comes to thread-locals, they are accessible within the entire
 scope of the thread. Given the following example:
@@ -132,23 +132,23 @@ Thread.new{
 You can see that the thread-local `:foo` carried over into the fiber and
 was changed to `2` by the end of the thread.
 
-This example makes use of #thread\_variable\_set to create new
-thread-locals, and #thread\_variable\_get to reference them.
+This example makes use of `#thread_variable_set` to create new
+thread-locals, and `#thread_variable_get` to reference them.
 
-There is also #thread\_variables to list all thread-locals, and
-\#thread\_variable? to check if a given thread-local exists.
+There is also `#thread_variables` to list all thread-locals, and
+`#thread_variable?` to check if a given thread-local exists.
 
 ### Exception handling
 
-Any thread can raise an exception using the #raise instance method,
-which operates similarly to Kernel#raise.
+Any thread can raise an exception using the `#raise` instance method,
+which operates similarly to `Kernel#raise`.
 
 However, it's important to note that an exception that occurs in any
-thread except the main thread depends on #abort\_on\_exception. This
+thread except the main thread depends on `#abort_on_exception`. This
 option is `false` by default, meaning that any unhandled exception will
-cause the thread to terminate silently when waited on by either #join or
-\#value. You can change this default by either #abort\_on\_exception=
-`true` or setting $DEBUG to `true`.
+cause the thread to terminate silently when waited on by either `#join`
+or `#value`. You can change this default by either
+`#abort_on_exception=` `true` or setting $DEBUG to `true`.
 
 With the addition of the class method ::handle\_interrupt, you can now
 handle exceptions asynchronously with threads.
@@ -160,12 +160,12 @@ Ruby provides a few ways to support scheduling threads in your program.
 The first way is by using the class method ::stop, to put the current
 running thread to sleep and schedule the execution of another thread.
 
-Once a thread is asleep, you can use the instance method #wakeup to mark
-your thread as eligible for scheduling.
+Once a thread is asleep, you can use the instance method `#wakeup` to
+mark your thread as eligible for scheduling.
 
 You can also try ::pass, which attempts to pass execution to another
 thread but is dependent on the OS whether a running thread will switch
-or not. The same goes for #priority, which lets you hint to the thread
+or not. The same goes for `#priority`, which lets you hint to the thread
 scheduler which threads you want to take precedence when passing
 execution. This method is also dependent on the OS and may be ignored on
 some platforms.

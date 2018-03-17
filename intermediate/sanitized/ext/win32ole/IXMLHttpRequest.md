@@ -1,0 +1,3 @@
+# IXMLHttpRequest
+
+IXMLHttpRequest Interface

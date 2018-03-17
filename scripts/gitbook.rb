@@ -6,7 +6,7 @@ require 'kramdown'
 
 INFLECTOR = Dry::Inflector.new
 
-SOURCE = 'intermediate/parsed/'
+SOURCE = 'intermediate/sanitized/'
 
 class GFMKonverter < Kramdown::Converter::Kramdown
   # FIXME: very naive, should check if it is proper Ruby code or not
@@ -40,11 +40,7 @@ class ContentPart
 
     path = source.start_with?('content') ? source : File.join(SOURCE, source)
 
-    # TODO: maybe this should be moved to interm.rb
-    # In fact, it is RDoc::ToMarkdown "bugs"?
     File.read(path)
-      .gsub(/\#(?=[a-z])/, '\\#') # it was just method name at the beginning of the line
-      .gsub(/(\n[^\*].+)\n(\* )/, "\\1\n\n\\2") # List start without empty space after previous paragraph
   end
 end
 

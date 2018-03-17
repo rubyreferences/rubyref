@@ -1,11 +1,14 @@
 # Exception
 
 Descendants of class Exception are used to communicate between
-Kernel#raise and `rescue` statements in `begin ... end` blocks.
-Exception objects carry information about the exception -- its type (the
-exception's class name), an optional descriptive string, and optional
-traceback information. Exception subclasses may add additional
-information like NameError#name.
+`Kernel#rais'e
+and `rescue` statements in `begin ... end` blocks. Exception objects
+carry
+information about the exception -- its type (the exception's class
+name), an
+optional descriptive string, and optional traceback information. 
+Exception
+subclasses may add additional information like `NameError#name\`.
 
 Programs may make subclasses of Exception, typically of StandardError or
 RuntimeError, to provide custom classes and add additional information.
@@ -178,7 +181,7 @@ proc.call
 
 
 ```ruby
-SecurityError: Insecure: Insecure operation `untaint' at level 3
+SecurityError: Insecure: Insecure operation `untaint` at level 3
 ```
 
 
@@ -356,7 +359,7 @@ File.open("/etc/hosts") {|f| f.close; f.read }
   #=> IOError: closed stream
 ```
 
-Note that some IO failures raise `SystemCallError`s and these are not
+Note that some IO failures raise \`SystemCallError's and these are not
 subclasses of IOError:
 
 
@@ -417,8 +420,8 @@ h.fetch("baz") #=> KeyError: key not found: "baz"
 
 #### StopIteration
 
-Raised to stop the iteration, in particular by Enumerator#next. It is
-rescued by Kernel#loop.
+Raised to stop the iteration, in particular by `Enumerator#next`. It is
+rescued by `Kernel#loop`.
 
 
 ```ruby
@@ -493,7 +496,7 @@ puts foo
 
 
 ```ruby
-NameError: undefined local variable or method `foo' for main:Object
+NameError: undefined local variable or method `foo` for main:Object
 ```
 
 Since constant names must start with a capital:
@@ -526,7 +529,7 @@ defined and also fails to respond with `method_missing`.
 
 
 ```ruby
-NoMethodError: undefined method `to_ary' for "hello":String
+NoMethodError: undefined method `to_ary` for "hello":String
 ```
 
 
@@ -544,7 +547,7 @@ Raised when a given numerical value is out of range.
 
 
 ```ruby
-RangeError: bignum too big to convert into `long'
+RangeError: bignum too big to convert into `long`
 ```
 
 

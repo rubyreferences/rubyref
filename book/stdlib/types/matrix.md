@@ -23,19 +23,19 @@ To create a Vector:
 
 To access elements:
 
-* # [](i)
+* `#[]`(i)
 
 To enumerate the elements:
 
-* \#each2(v)
-* \#collect2(v)
+* `#each`2(v)
+* `#collect`2(v)
 
 Properties of vectors:
 
-* \#angle\_with(v)
+* `#angle_with`(v)
 * Vector.independent?(\*vs)
-* \#independent?(\*vs)
-* \#zero?
+* `#independent?`(\*vs)
+* # zero?
 
 Vector arithmetic:
 
@@ -53,26 +53,36 @@ Vector arithmetic:
 
 Vector functions:
 
-* \#inner\_product(v), dot(v)
-* \#cross\_product(v), cross(v)
-* \#collect
-* \#magnitude
-* \#map
-* \#map2(v)
-* \#norm
-* \#normalize
-* \#r
-* \#round
-* \#size
+* `#inner_product`(v), dot(v)
+* `#cross_product`(v), cross(v)
+* # collect
+
+* # magnitude
+
+* # map
+
+* `#map`2(v)
+* # norm
+
+* # normalize
+
+* # r
+
+* # round
+
+* # size
 
 Conversion to other data types:
 
-* \#covector
-* \#to\_a
-* \#coerce(other)
+* # covector
+
+* # to\_a
+
+* `#coerce`(other)
 
 String representations:
 
-* \#to\_s
-* \#inspect
+* # to\_s
+
+* # inspect
 

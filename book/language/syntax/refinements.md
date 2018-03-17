@@ -16,14 +16,14 @@ Here is a basic refinement:
 ```ruby
 class C
   def foo
-    puts "C\#foo"
+    puts "C#foo"
   end
 end
 
 module M
   refine C do
     def foo
-      puts "C\#foo in M"
+      puts "C#foo in M"
     end
   end
 end
@@ -34,9 +34,9 @@ using Module#refine. Refinements can modify both classes and modules.
 
 Module#refine creates an anonymous module that contains the changes or
 refinements to the class (`C` in the example). `self` in the refine
-block is this anonymous module similar to Module#module\_eval.
+block is this anonymous module similar to `Module#module_eval`.
 
-Activate the refinement with #using:
+Activate the refinement with `#using`\:
 
 
 ```ruby
@@ -44,7 +44,7 @@ using M
 
 c = C.new
 
-c.foo # prints "C\#foo in M"
+c.foo # prints "C#foo in M"
 ```
 
 ## Scope
@@ -54,7 +54,7 @@ modules. You may not activate refinements in method scope. Refinements
 are activated until the end of the current class or module definition,
 or until the end of the current file if used at the top-level.
 
-You may activate refinements in a string passed to Kernel#eval.
+You may activate refinements in a string passed to `Kernel#eval`.
 Refinements are active until the end of the eval string.
 
 Refinements are lexical in scope. Refinements are only active within a
@@ -74,7 +74,7 @@ end
 module M
   refine C do
     def foo
-      puts "C\#foo in M"
+      puts "C#foo in M"
     end
   end
 end
@@ -86,7 +86,7 @@ end
 using M
 
 x = C.new
-x.foo       # prints "C\#foo in M"
+x.foo       # prints "C#foo in M"
 call_foo(x) #=> raises NoMethodError
 ```
 
@@ -111,7 +111,7 @@ require "c"
 module M
   refine C do
     def foo
-      puts "C\#foo in M"
+      puts "C#foo in M"
     end
   end
 end
@@ -140,16 +140,17 @@ require "m_user"
 
 x = C.new
 m_user = MUser.new
-m_user.call_foo(x) # prints "C\#foo in M"
+m_user.call_foo(x) # prints "C#foo in M"
 x.foo              #=> raises NoMethodError
 ```
 
 Since the refinement `M` is active in `m_user.rb` where
-`MUser\#call_foo` is defined it is also active when `main.rb` calls
-`call_foo`.
+`M`User#call\_fo'o` is
+defined it is also active when `main.rb` calls `call\_foo\`.
 
-Since #using is a method, refinements are only active when it is called.
-Here are examples of where a refinement `M` is and is not active.
+Since `#using` is a method, refinements are only active when it is
+called. Here are examples of where a refinement `M` is and is not
+active.
 
 In a file:
 
@@ -294,13 +295,13 @@ activated in the same context.
 
 ## Indirect Method Calls
 
-When using indirect method access such as Kernel#send, Kernel#method or
-Kernel#respond\_to? refinements are not honored for the caller context
-during method lookup.
+When using indirect method access such as `Kernel#send`, `Kernel#method`
+or Kernel#respond\_to? refinements are not honored for the caller
+context during method lookup.
 
 This behavior may be changed in the future.
 
-## Refinement inheritance by Module#include
+## Refinement inheritance by \`Module#includ'e
 
 When a module X is included into a module Y, Y inherits refinements from
 X.

@@ -47,7 +47,8 @@ common classes will not be found without using a full class path.
 A variety of strategies can be used to provide useful portions of the
 standard library to subclasses of BasicObject. A subclass could `include
 Kernel` to obtain `puts`, `exit`, etc. A custom Kernel-like module could
-be created and included or delegation can be used via #method\_missing:
+be created and included or delegation can be used via
+`#method_missing`\:
 
 
 ```ruby
@@ -67,8 +68,8 @@ end
 
 Access to classes and modules from the Ruby standard library can be
 obtained in a BasicObject subclass by referencing the desired constant
-from the root like `::File` or `::Enumerator`. Like #method\_missing,
-\#const\_missing can be used to delegate constant lookup to `Object`\:
+from the root like `::File` or `::Enumerator`. Like `#method_missing`,
+`#const_missing` can be used to delegate constant lookup to `Object`\:
 
 
 ```ruby
@@ -108,7 +109,7 @@ module may be instance methods or module methods. Instance methods
 appear as methods in a class when the module is included, module methods
 do not. Conversely, module methods may be called without creating an
 encapsulating object, while instance methods may not. (See
-`Module\#module_function`.)
+`Module#module_function`.)
 
 In the descriptions that follow, the parameter *sym* refers to a symbol,
 which is either a quoted string or a `Symbol` (such as `:name`).
@@ -175,7 +176,7 @@ Creating a new Name
 
 Classes, modules, and objects are interrelated. In the diagram that
 follows, the vertical arrows represent inheritance, and the parentheses
-metaclasses. All metaclasses are instances of the class \`Class'.
+metaclasses. All metaclasses are instances of the class `Class`.
 +---------+ +-... \| \| \|
 BasicObject-----\|-->(BasicObject)-------\|-... ^ \| ^ \| \| \| \| \|
 Object---------\|----->(Object)---------\|-... ^ \| ^ \| \| \| \| \|
@@ -188,8 +189,8 @@ Module-\|---------\|--->(Module)-\|-... \| ^ \| \| ^ \| \| \| \| \| \|
 
 ## Method
 
-Method objects are created by `Object\#method`, and are associated with
-a particular object (not just with a class). They may be used to invoke
+Method objects are created by `Object#method`, and are associated with a
+particular object (not just with a class). They may be used to invoke
 the method within the object, and as a block associated with an
 iterator. They may also be unbound from one object (creating an
 `UnboundMethod`) and bound to another.
@@ -215,11 +216,11 @@ meth.call(9)                 #=> 81
 Ruby supports two forms of objectified methods. Class `Method` is used
 to represent methods that are associated with a particular object: these
 method objects are bound to that object. Bound method objects for an
-object can be created using `Object\#method`.
+object can be created using `Object#method`.
 
 Ruby also supports unbound methods; methods objects that are not
 associated with a particular object. These can be created either by
-calling `Module\#instance_method` or by calling `unbind` on a bound
+calling `Module#instance_method` or by calling `unbind` on a bound
 method object. The result of both of these is an `UnboundMethod` object.
 
 Unbound methods can only be called after they are bound to an object.
@@ -303,10 +304,10 @@ deeply nested function calls within the fiber block. See the ruby(1)
 manpage to configure the size of the fiber stack(s).
 
 When a fiber is created it will not run automatically. Rather it must be
-explicitly asked to run using the `Fiber\#resume` method. The code
+explicitly asked to run using the `Fiber#resume` method. The code
 running inside the fiber can give up control by calling `Fiber.yield` in
 which case it yields control back to caller (the caller of the
-`Fiber\#resume`).
+`Fiber#resume`).
 
 Upon yielding or termination the Fiber returns the value of the last
 executed expression
@@ -334,7 +335,7 @@ puts fiber.resume
 FiberError: dead fiber called
 ```
 
-The `Fiber\#resume` method accepts an arbitrary number of parameters, if
+The `Fiber#resume` method accepts an arbitrary number of parameters, if
 it is the first call to `resume` then they will be passed as block
 arguments. Otherwise they will be the return value of the call to
 `Fiber.yield`
@@ -369,11 +370,11 @@ Objects of class `Binding` encapsulate the execution context at some
 particular place in the code and retain this context for future use. The
 variables, methods, value of `self`, and possibly an iterator block that
 can be accessed in this context are all retained. Binding objects can be
-created using `Kernel\#binding`, and are made available to the callback
-of `Kernel\#set_trace_func`.
+created using `Kernel#binding`, and are made available to the callback
+of `Kernel#set_trace_func`.
 
 These binding objects can be passed as the second argument of the
-`Kernel\#eval` method, establishing an environment for the evaluation.
+`Kernel#eval` method, establishing an environment for the evaluation.
 
 
 ```ruby
