@@ -1,0 +1,146 @@
+- title: Syntax
+  part: true
+  id: syntax
+  children:
+    - title: Literals
+      id: literals
+      content:
+        - source: doc/syntax/literals.md
+    - title: Assignment
+      id: assignment
+      content:
+        - source: doc/syntax/assignment.md
+    - title: Expressions
+      id: expressions
+      content:
+        - source: doc/syntax/control_expressions.md
+    - title: Defining methods
+      id: methods-def
+      content:
+        - source: doc/syntax/methods.md
+    - title: Calling methods
+      id: methods-call
+      content:
+        - source: doc/syntax/calling_methods.md
+    - title: Modules and Classes
+      id: modules_and_classes
+      content:
+        - source: doc/syntax/modules_and_classes.md
+    - title: Exceptions
+      id: exceptions
+      content:
+        - source: doc/syntax/exceptions.md
+    - title: Refinements
+      id: refinements
+      content:
+        - source: doc/syntax/refinements.md
+- title: Built-in Classes
+  part: true
+  id: builtin
+  children:
+    - title: Language Core
+      id: core
+      content:
+        - source: content/core/core.md
+        - source: core/Kernel.md
+        - source: core/BasicObject.md
+        - source: core/Object.md
+        - source: core/Module.md
+        - source: core/Class.md
+        - source: core/Method.md
+        - source: core/UnboundMethod.md
+        - source: core/Proc.md
+
+# data types:
+# - source: core/Comparable.md
+# - source: core/Complex.md
+# - source: core/FalseClass.md
+# - source: core/TrueClass.md
+# - source: core/Numeric.md
+# - source: core/Float.md
+# - source: core/Rational.md
+# - source: core/Regexp.md
+# - source: core/MatchData.md
+# - source: core/String.md
+# - source: core/Struct.md
+# - source: core/Symbol.md
+# - source: core/Time.md
+# - source: core/NilClass.md
+# - source: core/Integer.md
+
+# collections:
+# - source: core/Enumerable.md
+# - source: core/Enumerator.md
+# - source: core/Array.md
+# - source: core/Hash.md
+# - source: core/Range.md
+
+# concurrency and parallelism:
+# - source: core/Fiber.md
+# - source: core/ConditionVariable.md
+# - source: core/Mutex.md
+# - source: core/Process.md
+# - source: core/Thread.md
+# - source: core/ThreadGroup.md
+
+# filesystem and environment:
+# - source: core/ARGF.md
+# - source: core/Dir.md
+# - source: core/ENV.md
+# - source: core/FileTest.md
+# - source: core/Encoding.md
+
+# internals and advanced:
+# - source: core/Binding.md
+# - source: core/Continuation.md
+# - source: core/GC.md
+# - source: core/TracePoint.md
+# - source: core/ObjectSpace.md
+
+# errors:
+# - source: core/ArgumentError.md
+# - source: core/ClosedQueueError.md
+# - source: core/EOFError.md
+# - source: core/EncodingError.md
+# - source: core/Errno.md
+# - source: core/Exception.md
+# - source: core/FiberError.md
+# - source: core/FloatDomainError.md
+# - source: core/FrozenError.md
+# - source: core/IOError.md
+# - source: core/IndexError.md
+# - source: core/KeyError.md
+# - source: core/LoadError.md
+# - source: core/LocalJumpError.md
+# - source: core/NameError.md
+# - source: core/NoMemoryError.md
+# - source: core/NoMethodError.md
+# - source: core/NotImplementedError.md
+# - source: core/RangeError.md
+# - source: core/RegexpError.md
+# - source: core/RuntimeError.md
+# - source: core/ScriptError.md
+# - source: core/SecurityError.md
+# - source: core/StandardError.md
+# - source: core/SyntaxError.md
+# - source: core/SystemCallError.md
+# - source: core/SystemExit.md
+# - source: core/SystemStackError.md
+# - source: core/ThreadError.md
+# - source: core/TypeError.md
+# - source: core/UncaughtThrowError.md
+# - source: core/ZeroDivisionError.md
+
+# misc:
+# - source: core/Data.md
+# - source: core/Interrupt.md
+# - source: core/Marshal.md
+# - source: core/Math.md
+# - source: core/Queue.md
+# - source: core/Random.md
+# - source: core/Signal.md
+# - source: core/SignalException.md
+# - source: core/SizedQueue.md
+# - source: core/StopIteration.md
+# - source: core/UnicodeNormalize.md
+# - source: core/Warning.md

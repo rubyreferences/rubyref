@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    dry-inflector (0.1.1)
+    kramdown (1.16.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dry-inflector
+  kramdown
+
+BUNDLED WITH
+   1.16.0
