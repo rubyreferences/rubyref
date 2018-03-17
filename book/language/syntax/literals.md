@@ -3,6 +3,7 @@
 Literals create objects you can use in your program. Literals include:
 
 * Booleans and nil
+
 * Numbers
 * Strings
 * Symbols

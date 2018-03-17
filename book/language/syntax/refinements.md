@@ -16,14 +16,14 @@ Here is a basic refinement:
 ```ruby
 class C
   def foo
-    puts "C#foo"
+    puts "C\#foo"
   end
 end
 
 module M
   refine C do
     def foo
-      puts "C#foo in M"
+      puts "C\#foo in M"
     end
   end
 end
@@ -44,7 +44,7 @@ using M
 
 c = C.new
 
-c.foo # prints "C#foo in M"
+c.foo # prints "C\#foo in M"
 ```
 
 ## Scope
@@ -74,7 +74,7 @@ end
 module M
   refine C do
     def foo
-      puts "C#foo in M"
+      puts "C\#foo in M"
     end
   end
 end
@@ -86,7 +86,7 @@ end
 using M
 
 x = C.new
-x.foo       # prints "C#foo in M"
+x.foo       # prints "C\#foo in M"
 call_foo(x) #=> raises NoMethodError
 ```
 
@@ -111,7 +111,7 @@ require "c"
 module M
   refine C do
     def foo
-      puts "C#foo in M"
+      puts "C\#foo in M"
     end
   end
 end
@@ -140,12 +140,13 @@ require "m_user"
 
 x = C.new
 m_user = MUser.new
-m_user.call_foo(x) # prints "C#foo in M"
+m_user.call_foo(x) # prints "C\#foo in M"
 x.foo              #=> raises NoMethodError
 ```
 
-Since the refinement `M` is active in `m_user.rb` where `MUser#call_foo`
-is defined it is also active when `main.rb` calls `call_foo`.
+Since the refinement `M` is active in `m_user.rb` where
+`MUser\#call_foo` is defined it is also active when `main.rb` calls
+`call_foo`.
 
 Since #using is a method, refinements are only active when it is called.
 Here are examples of where a refinement `M` is and is not active.
@@ -257,6 +258,7 @@ When looking up a method for an instance of class `C` Ruby checks:
   * The included modules from the refinement for `C`
 
 * The prepended modules of `C`
+
 * `C`
 * The included modules of `C`
 
@@ -279,8 +281,10 @@ When `super` is invoked method lookup checks:
 
 * The included modules of the current class. Note that the current class
   may be a refinement.
+
 * If the current class is a refinement, the method lookup proceeds as in
   the Method Lookup section above.
+
 * If the current class has a direct superclass, the method proceeds as
   in the Method Lookup section above using the superclass.
 

@@ -282,7 +282,7 @@ unexpected results. For example, consider this irb session:
 ```
 
 This will effectively sabotage any code which makes use of the method
-`String#to_i` to parse numbers from strings.
+`String\#to_i` to parse numbers from strings.
 
 ## Arguments
 

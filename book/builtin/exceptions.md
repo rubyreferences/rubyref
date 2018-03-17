@@ -45,12 +45,14 @@ MyLibrary::Error.
 The built-in subclasses of Exception are:
 
 * NoMemoryError
+
 * ScriptError
   * LoadError
   * NotImplementedError
   * SyntaxError
 
 * SecurityError
+
 * SignalException
   * Interrupt
 
@@ -86,6 +88,7 @@ The built-in subclasses of Exception are:
   * ZeroDivisionError
 
 * SystemExit
+
 * SystemStackError
 * fatal -- impossible to rescue
 

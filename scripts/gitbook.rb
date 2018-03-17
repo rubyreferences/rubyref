@@ -19,21 +19,32 @@ class ContentPart
   def initialize(index:, source:, header_shift: nil, **)
     @index = index
     @header_shift = header_shift&.to_i || (index.zero? ? 0 : 1)
-    @source_path = source.start_with?('content') ? source : File.join(SOURCE, source)
+    @source = parse_source(source)
   end
 
   def render
-    # TODO: maybe this should be moved to interm.rb
-    # In fact, it is RDoc::ToMarkdown "bug" that it doesn't screen this.
-    text = File.read(@source_path)
-      .gsub(/^(?=\#[a-z])/, '\\') # it was just method name at the beginning of the line
-    doc = Kramdown::Document.new(text)
+    doc = Kramdown::Document.new(@source)
 
     doc.root.children.each { |c|
       c.options[:level] += @header_shift if c.type == :header
     }
     GFMKonverter.convert(doc.root).first
       .gsub(/^(?=\#[a-z])/, '\\') # Again! New methods could be at the beginning of the line after Kramdown render
+  end
+
+  private
+
+  def parse_source(source)
+    # allow raw markdown
+    return source unless File.file?(source) || File.file?(File.join(SOURCE, source))
+
+    path = source.start_with?('content') ? source : File.join(SOURCE, source)
+
+    # TODO: maybe this should be moved to interm.rb
+    # In fact, it is RDoc::ToMarkdown "bugs"?
+    File.read(path)
+      .gsub(/\#(?=[a-z])/, '\\#') # it was just method name at the beginning of the line
+      .gsub(/(\n[^\*].+)\n(\* )/, "\\1\n\n\\2") # List start without empty space after previous paragraph
   end
 end
 

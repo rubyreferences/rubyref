@@ -74,3 +74,61 @@ TRUE
 : The release date string. RUBY\_PLATFORM
 : The platform identifier.
 
+
+
+## English
+
+Include the English library file in a Ruby script, and you can reference
+the global variables such as VAR\{$\_} using less cryptic names, listed
+in the following table.% vref\{tab:english}.
+
+Without 'English'\:
+
+
+```ruby
+$\ = ' -- '
+"waterbuffalo" =~ /buff/
+print $', $$, "\n"
+```
+
+With English:
+
+
+```ruby
+require "English"
+
+$OUTPUT_FIELD_SEPARATOR = ' -- '
+"waterbuffalo" =~ /buff/
+print $POSTMATCH, $PID, "\n"
+```
+
+Below is a full list of descriptive aliases and their associated global
+variable:
+
+$ERROR\_INFO
+: $! $ERROR\_POSITION
+: $@ $FS
+: $; $FIELD\_SEPARATOR
+: $; $OFS
+: $, $OUTPUT\_FIELD\_SEPARATOR
+: $, $RS
+: $/ $INPUT\_RECORD\_SEPARATOR
+: $/ $ORS
+: $\\ $OUTPUT\_RECORD\_SEPARATOR
+: $\\ $INPUT\_LINE\_NUMBER
+: $. $NR
+: $. $LAST\_READ\_LINE
+: $\_ $DEFAULT\_OUTPUT
+: $> $DEFAULT\_INPUT
+: $< $PID
+: \$$ $PROCESS\_ID
+: \$$ $CHILD\_STATUS
+: $? $LAST\_MATCH\_INFO
+: $~ $IGNORECASE
+: $= $ARGV
+: $\* $MATCH
+: $& $PREMATCH
+: $\` $POSTMATCH
+: $' $LAST\_PAREN\_MATCH
+: $+
+

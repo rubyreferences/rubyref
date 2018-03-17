@@ -182,6 +182,7 @@ input/output/error IO objects.
 Requiring io/console adds the following methods:
 
 * IO::console
+
 * IO#raw
 * IO#raw!
 * IO#cooked

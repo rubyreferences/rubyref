@@ -158,10 +158,12 @@ This is equivalent to:
 The following metacharacters also behave like character classes:
 
 * `/./` - Any character except a newline.
+
 * `/./m` - Any character (the `m` modifier enables multiline mode)
 * `/\w/` - A word character (`[a-zA-Z0-9_]`)
 * `/\W/` - A non-word character (`[^a-zA-Z0-9_]`). Please take a look at
   [Bug #4044][1] if using `/\W/` with the `/i` modifier.
+
 * `/\d/` - A digit character (`[0-9]`)
 * `/\D/` - A non-digit character (`[^0-9]`)
 * `/\h/` - A hexdigit character (`[0-9a-fA-F]`)
@@ -176,17 +178,20 @@ the ASCII decimal digits (0-9); whereas `/[[:digit:]]/` matches any
 character in the Unicode *Nd* category.
 
 * `/[[:alnum:]]/` - Alphabetic and numeric character
+
 * `/[[:alpha:]]/` - Alphabetic character
 * `/[[:blank:]]/` - Space or tab
 * `/[[:cntrl:]]/` - Control character
 * `/[[:digit:]]/` - Digit
 * `/[[:graph:]]/` - Non-blank character (excludes spaces, control
   characters, and similar)
+
 * `/[[:lower:]]/` - Lowercase alphabetical character
 * `/[[:print:]]/` - Like \[:graph:\], but includes the space character
 * `/[[:punct:]]/` - Punctuation character
 * `/[[:space:]]/` - Whitespace character (`[:blank:]`, newline, carriage
   return, etc.)
+
 * `/[[:upper:]]/` - Uppercase alphabetical
 * `/[[:xdigit:]]/` - Digit allowed in a hexadecimal number (i.e.,
   0-9a-fA-F)
@@ -195,6 +200,7 @@ Ruby also supports the following non-POSIX character classes:
 
 * `/[[:word:]]/` - A character in one of the following Unicode general
   categories *Letter*, *Mark*, *Number*, *Connector\_Punctuation*
+
 * `/[[:ascii:]]/` - A character in the ASCII character set
   
   
@@ -212,6 +218,7 @@ followed by a repetition metacharacter to specify how many times they
 need to occur. Such metacharacters are called *quantifiers*.
 
 * `*` - Zero or more times
+
 * `+` - One or more times
 * `?` - Zero or one times (optional)
 * `{`*n*`}` - Exactly *n* times
@@ -438,22 +445,26 @@ The `\p{}` construct matches characters with the named property, much
 like POSIX bracket classes.
 
 * `/\p{Alnum}/` - Alphabetic and numeric character
+
 * `/\p{Alpha}/` - Alphabetic character
 * `/\p{Blank}/` - Space or tab
 * `/\p{Cntrl}/` - Control character
 * `/\p{Digit}/` - Digit
 * `/\p{Graph}/` - Non-blank character (excludes spaces, control
   characters, and similar)
+
 * `/\p{Lower}/` - Lowercase alphabetical character
 * `/\p{Print}/` - Like `\p{Graph}`, but includes the space character
 * `/\p{Punct}/` - Punctuation character
 * `/\p{Space}/` - Whitespace character (`[:blank:]`, newline, carriage
   return, etc.)
+
 * `/\p{Upper}/` - Uppercase alphabetical
 * `/\p{XDigit}/` - Digit allowed in a hexadecimal number (i.e.,
   0-9a-fA-F)
 * `/\p{Word}/` - A member of one of the following Unicode general
   category *Letter*, *Mark*, *Number*, *Connector\_Punctuation*
+
 * `/\p{ASCII}/` - A character in the ASCII character set
 * `/\p{Any}/` - Any Unicode character (including unassigned characters)
 * `/\p{Assigned}/` - An assigned character
@@ -463,6 +474,7 @@ A Unicode character's *General Category* value can also be matched with
 below:
 
 * `/\p{L}/` - 'Letter'
+
 * `/\p{Ll}/` - 'Letter: Lowercase'
 * `/\p{Lm}/` - 'Letter: Mark'
 * `/\p{Lo}/` - 'Letter: Other'
@@ -543,14 +555,16 @@ Anchors are metacharacter that match the zero-width positions between
 characters, *anchoring* the match to a specific position.
 
 * `^` - Matches beginning of line
+
 * `$` - Matches end of line
 * `\A` - Matches beginning of string.
 * `\Z` - Matches end of string. If string ends with a newline, it
   matches just before newline
+
 * `\z` - Matches end of string
 * `\G` - Matches first matching position:
   
-  In methods like `String#gsub` and `String#scan`, it changes on each
+  In methods like `String\#gsub` and `String\#scan`, it changes on each
   iteration. It initially matches the beginning of subject, and in each
   following iteration it matches where the last match finished.
   
@@ -560,7 +574,7 @@ characters, *anchoring* the match to a specific position.
   "    a b c".gsub(/\G /, '_')  #=> "____a b c"
   ```
   
-  In methods like `Regexp#match` and `String#match` that take an
+  In methods like `Regexp\#match` and `String\#match` that take an
   (optional) offset, it matches where the search begins.
   
   
@@ -571,16 +585,20 @@ characters, *anchoring* the match to a specific position.
 
 * `\b` - Matches word boundaries when outside brackets; backspace (0x08)
   when inside brackets
+
 * `\B` - Matches non-word boundaries
 * `(?=`*pat*`)` - *Positive lookahead* assertion: ensures that the
   following characters match *pat*, but doesn't include those characters
   in the matched text
+
 * `(?!`*pat*`)` - *Negative lookahead* assertion: ensures that the
   following characters do not match *pat*, but doesn't include those
   characters in the matched text
+
 * `(?<=`*pat*`)` - *Positive lookbehind* assertion: ensures that the
   preceding characters match *pat*, but doesn't include those characters
   in the matched text
+
 * `(?<!`*pat*`)` - *Negative lookbehind* assertion: ensures that the
   preceding characters do not match *pat*, but doesn't include those
   characters in the matched text
@@ -633,6 +651,7 @@ The end delimiter for a regexp can be followed by one or more
 single-letter options which control how the pattern can match.
 
 * `/pat/i` - Ignore case
+
 * `/pat/m` - Treat a newline as a character matched by `.`
 * `/pat/x` - Ignore whitespace and comments in the pattern
 * `/pat/o` - Perform `#{}` interpolation only once
@@ -681,6 +700,7 @@ float_pat.match('3.14') #=> #<MatchData "3.14" 1:".14">
 There are a number of strategies for matching whitespace:
 
 * Use a pattern such as `\s` or `\p{Space}`.
+
 * Use escaped whitespace such as `\ `, i.e. a space preceded by a
   backslash.
 * Use a character class such as `[ ]`.
@@ -698,6 +718,7 @@ Regular expressions are assumed to use the source encoding. This can be
 overridden with one of the following modifiers.
 
 * `/`*pat*`/u` - UTF-8
+
 * `/`*pat*`/e` - EUC-JP
 * `/`*pat*`/s` - Windows-31J
 * `/`*pat*`/n` - ASCII-8BIT
@@ -709,7 +730,7 @@ encoding is ASCII-compatible.
 If a match between incompatible encodings is attempted an
 `Encoding::CompatibilityError` exception is raised.
 
-The `Regexp#fixed_encoding?` predicate indicates whether the regexp has
+The `Regexp\#fixed_encoding?` predicate indicates whether the regexp has
 a *fixed* encoding, that is one incompatible with ASCII. A regexp's
 encoding can be explicitly fixed by supplying `Regexp::FIXEDENCODING` as
 the second argument of `Regexp.new`\:
@@ -724,14 +745,16 @@ r =~ "a\u3042"
 
 ## Special global variables
 
-Pattern matching sets some global variables : \* `$~` is equivalent to
-Regexp.last\_match; \* `$&` contains the complete matched text; \* `$``
-contains string before match;
-*   `$'` contains string after match;
-*   `$1`, `$2` and so on contain text matching first, second, etc
-capture
-    group;
-*   `$+\` contains last capture group.
+Pattern matching sets some global variables :
+
+* `$~` is equivalent to Regexp.last\_match;
+* `$&` contains the complete matched text;
+* `$`\` contains string before match;
+* `$'` contains string after match;
+* `$1`, `$2` and so on contain text matching first, second, etc capture
+  group;
+
+* `$+` contains last capture group.
 
 Example:
 
@@ -840,7 +863,7 @@ Regexp.new('a{0,29}' + 'a' * 29) =~ 'a' * 29
 ## MatchData
 
 `MatchData` is the type of the special variable `$~`, and is the type of
-the object returned by `Regexp#match` and `Regexp.last_match`. It
+the object returned by `Regexp\#match` and `Regexp.last_match`. It
 encapsulates all the results of a pattern match, results normally
 accessed through the special variables `$&`, `$'`, `$``, `$1`, `$2\`,
 and so on.

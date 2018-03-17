@@ -98,8 +98,10 @@ Floating point has a different arithmetic and is an inexact number. So
 you should know its esoteric system. See following:
 
 * http://docs.sun.com/source/806-3568/ncg\_goldberg.html
+
 * http://wiki.github.com/rdp/ruby\_tutorials\_core/ruby-talk-faq#wiki-floats\_i
   mprecise
+
 * http://en.wikipedia.org/wiki/Floating\_point#Accuracy\_problems
 
 

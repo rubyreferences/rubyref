@@ -10,7 +10,7 @@
   * [Assignment](language/syntax/assignment.md)
 
   * [Expressions](language/syntax/expressions.md)
-    * [Operator Precedence](language/syntax/expressions/operator-precedence.md)
+    * [Precedence](language/syntax/expressions/precedence.md)
 
   * [Defining methods](language/syntax/methods-def.md)
 
@@ -60,3 +60,55 @@
 * [Marshal](builtin/marshal.md)
 
 * [Misc](builtin/misc.md)
+
+
+## Standard Library
+
+* [Data Types](stdlib/types.md)
+  * [Bigdecimal](stdlib/types/bigdecimal.md)
+
+  * [Set](stdlib/types/set.md)
+
+  * [Matrix](stdlib/types/matrix.md)
+
+  * [Date](stdlib/types/date.md)
+
+  * [OpenStruct](stdlib/types/openstruct.md)
+
+* [Design Patterns](stdlib/patterns.md)
+  * [Forwardable](stdlib/patterns/forwardable.md)
+
+  * [Delegator](stdlib/patterns/delegator.md)
+
+  * [Observable](stdlib/patterns/observable.md)
+
+  * [Singleton](stdlib/patterns/singleton.md)
+
+* [Formats](stdlib/formats.md)
+  * [CSV](stdlib/formats/csv.md)
+
+  * [JSON](stdlib/formats/json.md)
+
+  * [YAML](stdlib/formats/yaml.md)
+
+  * [XML](stdlib/formats/xml.md)
+
+  * [Zlib](stdlib/formats/zlib.md)
+
+* [Development and Debugging](stdlib/development-debugging.md)
+
+* [String Utilities](stdlib/string-utilities.md)
+
+* [Networking and Web](stdlib/networking-web.md)
+
+* [File Utilities](stdlib/file-utilities.md)
+
+* [System Programming and Console](stdlib/system-programming-console.md)
+
+* [Misc Utilities](stdlib/misc.md)
+
+* [Cryptography and Encoding](stdlib/cryptography-encoding.md)
+
+* [Concurrency Utils](stdlib/concurrency-utils.md)
+
+* [Other Libraries](stdlib/other.md)
