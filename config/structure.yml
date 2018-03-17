@@ -20,7 +20,6 @@
       content:
         - source: doc/syntax/calling_methods.md
     - title: Modules and Classes
-      id: modules-classes
       content:
         - source: doc/syntax/modules_and_classes.md
     - title: Exceptions
@@ -45,7 +44,12 @@
         - source: core/Method.md
         - source: core/UnboundMethod.md
         - source: core/Proc.md
-    - title: Simple Types
+        - source: core/Fiber.md
+        - source: core/Binding.md
+        # Deprecated/obsolete, see https://bugs.ruby-lang.org/issues/10548
+        # - source: core/Continuation.md
+
+    - title: Data Types
       id: types
       content:
         - source: content/core/types.md
@@ -62,11 +66,17 @@
             - source: core/Rational.md
             - source: core/Complex.md
             # TODO: notice about bigdecimal
+            - source: core/Math.md
         - title: Symbols and strings
-          id: symbols-strings
           content:
             - source: core/Symbol.md
             - source: core/String.md
+          children:
+            - title: Encodings
+              content:
+                - source: core/Encoding.md
+                # Nothing documented there
+                # - source: core/UnicodeNormalize.md
         - title: Regular expressions
           id: regexp
           content:
@@ -82,85 +92,129 @@
           content:
             - source: core/Time.md
             # TODO: notice about time.rb & Date
-    - title: Collections
+
+        - title: Collections
+          content:
+            - source: content/core/collections.md
+            - source: core/Enumerable.md
+            - source: core/Enumerator.md
+          children:
+            - title: Array
+              content:
+                - source: core/Array.md
+            - title: Hash
+              content:
+                - source: core/Hash.md
+
+    - title: Exceptions
       content:
-        - source: content/core/collections.md
-        - source: core/Enumerable.md
-        - source: core/Enumerator.md
+        # Order and depth here are corresponding to explanation in Exception class docs
+        - source: core/Exception.md
+        - source: core/NoMemoryError.md
+        - source: core/ScriptError.md
+        - source: core/LoadError.md
+          header_shift: 2
+        - source: core/NotImplementedError.md
+          header_shift: 2
+        - source: core/SyntaxError.md
+          header_shift: 2
+        - source: core/SecurityError.md
+        - source: core/SignalException.md
+        - source: core/Interrupt.md
+          header_shift: 2
+        - source: core/StandardError.md
+        - source: core/ArgumentError.md
+          header_shift: 2
+        - source: core/UncaughtThrowError.md
+          header_shift: 3
+        - source: core/EncodingError.md
+          header_shift: 2
+        - source: core/FiberError.md
+          header_shift: 2
+        - source: core/IOError.md
+          header_shift: 2
+        - source: core/EOFError.md
+          header_shift: 3
+        - source: core/IndexError.md
+          header_shift: 2
+        - source: core/KeyError.md
+          header_shift: 3
+        - source: core/StopIteration.md
+          header_shift: 3
+        - source: core/LocalJumpError.md
+          header_shift: 2
+        - source: core/NameError.md
+          header_shift: 2
+        - source: core/NoMethodError.md
+          header_shift: 3
+        - source: core/RangeError.md
+          header_shift: 2
+        - source: core/FloatDomainError.md
+          header_shift: 3
+        - source: core/RegexpError.md
+          header_shift: 2
+        - source: core/RuntimeError.md
+          header_shift: 2
+        - source: core/FrozenError.md
+          header_shift: 3
+        - source: core/SystemCallError.md
+          header_shift: 2
+        - source: core/Errno.md
+          header_shift: 3
+        - source: core/ThreadError.md
+          header_shift: 2
+        - source: core/TypeError.md
+          header_shift: 2
+        - source: core/ZeroDivisionError.md
+          header_shift: 2
+        - source: core/SystemExit.md
+        - source: core/SystemStackError.md
+        - source: core/fatal.md
+        # Definition is empty
+        # - source: core/ClosedQueueError.md
+
+    - title: Concurrency and Parallelism
+      content:
+        - source: core/Thread.md
+        - source: core/ThreadGroup.md
+        - source: core/Mutex.md
+        - source: core/ConditionVariable.md
+          header_shift: 2
+        - source: core/Queue.md
+        - source: core/SizedQueue.md
+          header_shift: 2
+
+    - title: Filesystem and Environment
+      content:
+        # TODO: Structure it somehow!
+        - source: core/ARGF.md
+        - source: core/Dir.md
+        - source: core/ENV.md
+        - source: core/FileTest.md
+        - source: core/File--Constants.md
+        - source: core/File.md
+        - source: core/IO.md
       children:
-        - title: Array
+        - title: Processes and Signals
           content:
-            - source: core/Array.md
-        - title: Hash
-          content:
-            - source: core/Hash.md
+            - source: core/Process.md
+            - source: core/Signal.md
 
-# concurrency and parallelism:
-# - source: core/Fiber.md
-# - source: core/ConditionVariable.md
-# - source: core/Mutex.md
-# - source: core/Process.md
-# - source: core/Thread.md
-# - source: core/ThreadGroup.md
-
-# filesystem and environment:
-# - source: core/ARGF.md
-# - source: core/Dir.md
-# - source: core/ENV.md
-# - source: core/FileTest.md
-# - source: core/Encoding.md
-
-# internals and advanced:
-# - source: core/Binding.md
-# - source: core/Continuation.md
-# - source: core/GC.md
-# - source: core/TracePoint.md
-# - source: core/ObjectSpace.md
-
-# errors:
-# - source: core/ArgumentError.md
-# - source: core/ClosedQueueError.md
-# - source: core/EOFError.md
-# - source: core/EncodingError.md
-# - source: core/Errno.md
-# - source: core/Exception.md
-# - source: core/FiberError.md
-# - source: core/FloatDomainError.md
-# - source: core/FrozenError.md
-# - source: core/IOError.md
-# - source: core/IndexError.md
-# - source: core/KeyError.md
-# - source: core/LoadError.md
-# - source: core/LocalJumpError.md
-# - source: core/NameError.md
-# - source: core/NoMemoryError.md
-# - source: core/NoMethodError.md
-# - source: core/NotImplementedError.md
-# - source: core/RangeError.md
-# - source: core/RegexpError.md
-# - source: core/RuntimeError.md
-# - source: core/ScriptError.md
-# - source: core/SecurityError.md
-# - source: core/StandardError.md
-# - source: core/SyntaxError.md
-# - source: core/SystemCallError.md
-# - source: core/SystemExit.md
-# - source: core/SystemStackError.md
-# - source: core/ThreadError.md
-# - source: core/TypeError.md
-# - source: core/UncaughtThrowError.md
-# - source: core/ZeroDivisionError.md
-
-# misc:
-# - source: core/Data.md
-# - source: core/Interrupt.md
-# - source: core/Marshal.md
-# - source: core/Math.md
-# - source: core/Queue.md
-# - source: core/Random.md
-# - source: core/Signal.md
-# - source: core/SignalException.md
-# - source: core/SizedQueue.md
-# - source: core/StopIteration.md
-# - source: core/UnicodeNormalize.md
-# - source: core/Warning.md
+    - title: Language Internals
+      id: internals
+      content:
+        # TODO: some intro, or at least title
+        - source: core/ObjectSpace.md
+        - source: core/GC.md
+        - source: core/TracePoint.md
+        # TODO: RubyVM::InstructionSequence have some docs!
+        # - source: core/RubyVM.md
+    - title: Marshal
+      content:
+        - source: core/Marshal.md
+    - title: Misc
+      content:
+        - source: core/Random.md
+        - source: core/Warning.md
+        # deprecated
+        # - source: core/Data.md

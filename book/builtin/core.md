@@ -287,3 +287,114 @@ times5.call(5)                #=> 25
 times3.call(times5.call(4))   #=> 60
 ```
 
+
+
+## Fiber
+
+Fibers are primitives for implementing light weight cooperative
+concurrency in Ruby. Basically they are a means of creating code blocks
+that can be paused and resumed, much like threads. The main difference
+is that they are never preempted and that the scheduling must be done by
+the programmer and not the VM.
+
+As opposed to other stackless light weight concurrency models, each
+fiber comes with a stack. This enables the fiber to be paused from
+deeply nested function calls within the fiber block. See the ruby(1)
+manpage to configure the size of the fiber stack(s).
+
+When a fiber is created it will not run automatically. Rather it must be
+explicitly asked to run using the `Fiber#resume` method. The code
+running inside the fiber can give up control by calling `Fiber.yield` in
+which case it yields control back to caller (the caller of the
+`Fiber#resume`).
+
+Upon yielding or termination the Fiber returns the value of the last
+executed expression
+
+For instance:
+
+
+```ruby
+fiber = Fiber.new do
+  Fiber.yield 1
+  2
+end
+
+puts fiber.resume
+puts fiber.resume
+puts fiber.resume
+```
+
+*produces*
+
+
+```ruby
+1
+2
+FiberError: dead fiber called
+```
+
+The `Fiber#resume` method accepts an arbitrary number of parameters, if
+it is the first call to `resume` then they will be passed as block
+arguments. Otherwise they will be the return value of the call to
+`Fiber.yield`
+
+Example:
+
+
+```ruby
+fiber = Fiber.new do |first|
+  second = Fiber.yield first + 2
+end
+
+puts fiber.resume 10
+puts fiber.resume 14
+puts fiber.resume 18
+```
+
+*produces*
+
+
+```ruby
+12
+14
+FiberError: dead fiber called
+```
+
+
+
+## Binding
+
+Objects of class `Binding` encapsulate the execution context at some
+particular place in the code and retain this context for future use. The
+variables, methods, value of `self`, and possibly an iterator block that
+can be accessed in this context are all retained. Binding objects can be
+created using `Kernel#binding`, and are made available to the callback
+of `Kernel#set_trace_func`.
+
+These binding objects can be passed as the second argument of the
+`Kernel#eval` method, establishing an environment for the evaluation.
+
+
+```ruby
+class Demo
+  def initialize(n)
+    @secret = n
+  end
+  def get_binding
+    binding
+  end
+end
+
+k1 = Demo.new(99)
+b1 = k1.get_binding
+k2 = Demo.new(-3)
+b2 = k2.get_binding
+
+eval("@secret", b1)   #=> 99
+eval("@secret", b2)   #=> -3
+eval("@secret")       #=> nil
+```
+
+Binding objects have no class-specific methods.
+

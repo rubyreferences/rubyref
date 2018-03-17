@@ -23,10 +23,11 @@
 
 * [Language Core](builtin/core.md)
 
-* [Simple Types](builtin/types.md)
+* [Data Types](builtin/types.md)
   * [Numbers](builtin/types/numbers.md)
 
   * [Symbols and strings](builtin/types/symbols-strings.md)
+    * [Encodings](builtin/types/symbols-strings/encodings.md)
 
   * [Regular expressions](builtin/types/regexp.md)
 
@@ -36,7 +37,20 @@
 
   * [Time](builtin/types/time.md)
 
-* [Collections](builtin/collections.md)
-  * [Array](builtin/collections/array.md)
+  * [Collections](builtin/types/collections.md)
+    * [Array](builtin/types/collections/array.md)
 
-  * [Hash](builtin/collections/hash.md)
+    * [Hash](builtin/types/collections/hash.md)
+
+* [Exceptions](builtin/exceptions.md)
+
+* [Concurrency and Parallelism](builtin/concurrency-parallelism.md)
+
+* [Filesystem and Environment](builtin/filesystem-environment.md)
+  * [Processes and Signals](builtin/filesystem-environment/processes-signals.md)
+
+* [Language Internals](builtin/internals.md)
+
+* [Marshal](builtin/marshal.md)
+
+* [Misc](builtin/misc.md)

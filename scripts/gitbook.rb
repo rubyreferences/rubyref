@@ -16,8 +16,9 @@ class GFMKonverter < Kramdown::Converter::Kramdown
 end
 
 class ContentPart
-  def initialize(index:, source:, **)
+  def initialize(index:, source:, header_shift: nil, **)
     @index = index
+    @header_shift = header_shift&.to_i || (index.zero? ? 0 : 1)
     @source_path = source.start_with?('content') ? source : File.join(SOURCE, source)
   end
 
@@ -28,12 +29,9 @@ class ContentPart
       .gsub(/^(?=\#[a-z])/, '\\') # it was just method name at the beginning of the line
     doc = Kramdown::Document.new(text)
 
-    unless @index.zero?
-      # For all subparts except first, shift headers one level deeper
-      doc.root.children.each { |c|
-        c.options[:level] += 1 if c.type == :header
-      }
-    end
+    doc.root.children.each { |c|
+      c.options[:level] += @header_shift if c.type == :header
+    }
     GFMKonverter.convert(doc.root).first
       .gsub(/^(?=\#[a-z])/, '\\') # Again! New methods could be at the beginning of the line after Kramdown render
   end
@@ -47,7 +45,8 @@ class Chapter
   end
 
   def initialize(title:, id: nil, parent: nil, part: false, children: [], content: [])
-    @id = id || title.downcase.tr(' ', '-')
+    # "Modules and Classes" => "modules-classes"
+    @id = id || title.downcase.gsub(' and ', ' ').tr(' ', '-')
     @title = title
     @part = part
     @parent = parent
@@ -117,7 +116,8 @@ class Book
   end
 
   def write
-    FileUtils.rm_rf 'book' if File.exists?('book')
+    # Don't remove README for GitBook server not to get broken every time
+    Dir['book/*'].grep_v(%r{book/README}).each(&FileUtils.method(:rm_rf))
     FileUtils.mkdir_p('book')
     chapters.each(&:write)
     File.write 'book/SUMMARY.md', toc

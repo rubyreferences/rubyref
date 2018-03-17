@@ -203,3 +203,13 @@ Complex(1, 1) / 2    #=> ((1/2)+(1/2)*i)
 Complex(1, 1) / 2.0  #=> (0.5+0.5i)
 ```
 
+
+
+## Math
+
+The Math module contains module functions for basic trigonometric and
+transcendental functions. See class Float for a list of constants that
+define Ruby's floating point accuracy.
+
+Domains and codomains are given only for real (not complex) numbers.
+
