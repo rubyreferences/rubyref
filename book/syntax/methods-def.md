@@ -588,5 +588,3 @@ If you wish to rescue an exception for only part of your method, use
 `begin` and `end`. For more details see the page on [exception
 handling](rdoc-ref:syntax/exceptions.rdoc).
 
-
-

@@ -472,5 +472,3 @@ If you are using "(", "\[", "\{", "<" you must close it with ")", "\]",
 "}", ">" respectively. You may use most other non-alphanumeric
 characters for percent string delimiters such as "%", "\|", "^", etc.
 
-
-

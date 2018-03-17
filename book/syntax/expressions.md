@@ -379,7 +379,7 @@ is used.
 
 The `for` loop consists of `for` followed by a variable to contain the
 iteration argument followed by `in` and the value to iterate over using
-#each. The `do` is optional:
+\#each. The `do` is optional:
 
 
 ```ruby
@@ -608,6 +608,4 @@ p selected # prints [2, 3, 4, 5]
 Here, the flip-flop turns on when `value` equals 2, but doesn't turn off
 on the same iteration. The off condition isn't evaluated until the
 following iteration and `value` will never be two again.
-
-
 

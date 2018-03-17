@@ -473,5 +473,3 @@ If refinements (an experimental feature) are active, the method lookup
 changes. See the [refinements
 documentation](rdoc-ref:syntax/refinements.rdoc) for details.
 
-
-

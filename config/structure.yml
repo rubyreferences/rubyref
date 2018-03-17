@@ -3,15 +3,12 @@
   id: syntax
   children:
     - title: Literals
-      id: literals
       content:
         - source: doc/syntax/literals.md
     - title: Assignment
-      id: assignment
       content:
         - source: doc/syntax/assignment.md
     - title: Expressions
-      id: expressions
       content:
         - source: doc/syntax/control_expressions.md
     - title: Defining methods
@@ -23,15 +20,13 @@
       content:
         - source: doc/syntax/calling_methods.md
     - title: Modules and Classes
-      id: modules_and_classes
+      id: modules-classes
       content:
         - source: doc/syntax/modules_and_classes.md
     - title: Exceptions
-      id: exceptions
       content:
         - source: doc/syntax/exceptions.md
     - title: Refinements
-      id: refinements
       content:
         - source: doc/syntax/refinements.md
 - title: Built-in Classes
@@ -50,30 +45,55 @@
         - source: core/Method.md
         - source: core/UnboundMethod.md
         - source: core/Proc.md
-
-# data types:
-# - source: core/Comparable.md
-# - source: core/Complex.md
-# - source: core/FalseClass.md
-# - source: core/TrueClass.md
-# - source: core/Numeric.md
-# - source: core/Float.md
-# - source: core/Rational.md
-# - source: core/Regexp.md
-# - source: core/MatchData.md
-# - source: core/String.md
-# - source: core/Struct.md
-# - source: core/Symbol.md
-# - source: core/Time.md
-# - source: core/NilClass.md
-# - source: core/Integer.md
-
-# collections:
-# - source: core/Enumerable.md
-# - source: core/Enumerator.md
-# - source: core/Array.md
-# - source: core/Hash.md
-# - source: core/Range.md
+    - title: Simple Types
+      id: types
+      content:
+        - source: content/core/types.md
+        - source: core/TrueClass.md
+        - source: core/FalseClass.md
+        - source: core/NilClass.md
+        - source: core/Comparable.md
+      children:
+        - title: Numbers
+          content:
+            - source: core/Numeric.md
+            - source: core/Integer.md
+            - source: core/Float.md
+            - source: core/Rational.md
+            - source: core/Complex.md
+            # TODO: notice about bigdecimal
+        - title: Symbols and strings
+          id: symbols-strings
+          content:
+            - source: core/Symbol.md
+            - source: core/String.md
+        - title: Regular expressions
+          id: regexp
+          content:
+            - source: core/Regexp.md
+            - source: core/MatchData.md
+        - title: Range
+          content:
+            - source: core/Range.md
+        - title: Struct
+          content:
+            - source: core/Struct.md
+        - title: Time
+          content:
+            - source: core/Time.md
+            # TODO: notice about time.rb & Date
+    - title: Collections
+      content:
+        - source: content/core/collections.md
+        - source: core/Enumerable.md
+        - source: core/Enumerator.md
+      children:
+        - title: Array
+          content:
+            - source: core/Array.md
+        - title: Hash
+          content:
+            - source: core/Hash.md
 
 # concurrency and parallelism:
 # - source: core/Fiber.md

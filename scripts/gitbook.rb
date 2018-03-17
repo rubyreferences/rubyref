@@ -22,7 +22,11 @@ class ContentPart
   end
 
   def render
-    doc = Kramdown::Document.new(File.read(@source_path))
+    # TODO: maybe this should be moved to interm.rb
+    # In fact, it is RDoc::ToMarkdown "bug" that it doesn't screen this.
+    text = File.read(@source_path)
+      .gsub(/^(?=\#[a-z])/, '\\') # it was just method name at the beginning of the line
+    doc = Kramdown::Document.new(text)
 
     unless @index.zero?
       # For all subparts except first, shift headers one level deeper
@@ -30,7 +34,8 @@ class ContentPart
         c.options[:level] += 1 if c.type == :header
       }
     end
-    GFMKonverter.convert(doc.root)
+    GFMKonverter.convert(doc.root).first
+      .gsub(/^(?=\#[a-z])/, '\\') # Again! New methods could be at the beginning of the line after Kramdown render
   end
 end
 
@@ -41,8 +46,8 @@ class Chapter
     new(parent: parent, **hash.transform_keys(&:to_sym))
   end
 
-  def initialize(id:, title:, parent: nil, part: false, children: [], content: [])
-    @id = id
+  def initialize(title:, id: nil, parent: nil, part: false, children: [], content: [])
+    @id = id || title.downcase.tr(' ', '-')
     @title = title
     @part = part
     @parent = parent

@@ -1,6 +1,6 @@
+# Language Core
+
 This section describes language core objects.
-
-
 
 
 
@@ -17,8 +17,6 @@ receiver and thus can be called in functional form:
 ```ruby
 sprintf "%.1f", 1.234 #=> "1.2"
 ```
-
-
 
 
 
@@ -70,7 +68,7 @@ end
 Access to classes and modules from the Ruby standard library can be
 obtained in a BasicObject subclass by referencing the desired constant
 from the root like `::File` or `::Enumerator`. Like #method\_missing,
-#const\_missing can be used to delegate constant lookup to `Object`\:
+\#const\_missing can be used to delegate constant lookup to `Object`\:
 
 
 ```ruby
@@ -80,8 +78,6 @@ class MyObjectSystem < BasicObject
   end
 end
 ```
-
-
 
 
 
@@ -102,8 +98,6 @@ need to use the full namespace. For example, referencing `File` inside
 In the descriptions of Object's methods, the parameter *symbol* refers
 to a symbol, which is either a quoted string or a Symbol (such as
 `:name`).
-
-
 
 
 
@@ -132,8 +126,6 @@ Mod.class              #=> Module
 Mod.constants          #=> [:CONST, :PI, :E]
 Mod.instance_methods   #=> [:meth]
 ```
-
-
 
 
 
@@ -194,8 +186,6 @@ Module-\|---------\|--->(Module)-\|-... \| ^ \| \| ^ \| \| \| \| \| \|
 
 
 
-
-
 ## Method
 
 Method objects are created by `Object#method`, and are associated with a
@@ -217,8 +207,6 @@ meth  = thing.method(:square)
 meth.call(9)                 #=> 81
 [ 1, 2, 3 ].collect(&meth)   #=> [1, 4, 9]
 ```
-
-
 
 
 
@@ -279,8 +267,6 @@ um.bind(t).call   #=> :original
 
 
 
-
-
 ## Proc
 
 `Proc` objects are blocks of code that have been bound to a set of local
@@ -300,6 +286,4 @@ times3.call(12)               #=> 36
 times5.call(5)                #=> 25
 times3.call(times5.call(4))   #=> 60
 ```
-
-
 

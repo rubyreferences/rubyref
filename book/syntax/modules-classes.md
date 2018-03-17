@@ -406,5 +406,3 @@ end
 
 Both objects will have a `my_method` that returns `2`.
 
-
-

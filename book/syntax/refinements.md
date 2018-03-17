@@ -330,5 +330,3 @@ See https://bugs.ruby-lang.org/projects/ruby-trunk/wiki/RefinementsSpec
 for the current specification for implementing refinements. The
 specification also contains more details.
 
-
-
