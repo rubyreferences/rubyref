@@ -14,7 +14,6 @@
   * [Assignment](language/syntax/assignment.md)
 
   * [Control Expressions](language/syntax/control-expressions.md)
-    * [Precedence](language/syntax/control-expressions/precedence.md)
 
   * [Defining methods](language/syntax/methods-def.md)
 
@@ -25,6 +24,10 @@
   * [Exceptions](language/syntax/exceptions.md)
 
   * [Refinements](language/syntax/refinements.md)
+
+  * [Precedence](language/syntax/precedence.md)
+
+* [File Structure](language/files.md)
 
 * [Globals](language/globals.md)
 

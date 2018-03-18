@@ -12,6 +12,14 @@
       id: syntax
       content:
         - source: content/language/syntax.md
+        - source: "doc/syntax/miscellaneous.md#Ending an Expression"
+          header_shift: 0
+        - source: "doc/syntax/miscellaneous.md#Indentation"
+          header_shift: 0
+        - source: "doc/syntax/miscellaneous.md#`defined?`"
+          header_shift: 0
+        - source: "doc/syntax/miscellaneous.md#`BEGIN` and `END`"
+          header_shift: 0
       children:
         - title: Literals
           content:
@@ -42,14 +50,18 @@
         - title: Control Expressions
           content:
             - source: doc/syntax/control_expressions.md
-          children:
-            - title: Precedence
-              content:
-                - source: doc/syntax/precedence.md
+              remove:
+                - "The `for` loop is similar"
+                - "The `for` loop is rarely used"
+              insert:
+                - after: "The result value of a `for`"
+                  source: content/syntax/control_expressions/_for_vs_each.md
         - title: Defining methods
           id: methods-def
           content:
             - source: doc/syntax/methods.md
+            - source: "doc/syntax/miscellaneous.md#`alias`"
+            - source: "doc/syntax/miscellaneous.md#`undef`"
         - title: Calling methods
           id: methods-call
           content:
@@ -63,6 +75,13 @@
         - title: Refinements
           content:
             - source: doc/syntax/refinements.md
+        - title: Precedence
+          content:
+            - source: doc/syntax/precedence.md
+    - title: File Structure
+      id: files
+      content:
+        - source: content/language/files.md
     - title: Globals
       content:
         - source: doc/globals.md

@@ -2,22 +2,20 @@ require 'kramdown'
 require 'pp'
 require 'redcarpet'
 
-TEXT = %q{
-One
+TEXT = %q{Prints 1, 2 and 3.
 
-# Two `and` **a half**
+Like `while` and `until`, the `do` is optional.
 
-Three
+The `for` loop is similar to using `#each`, but does not create a new variable
+scope.
 }
 
 doc = Kramdown::Document.new(TEXT)
 
-# pp doc.root.children[1].type
+pp doc.root.children
 # pp doc.root.children[3].instance_variables.map { |iv| [iv, doc.root.children[3].instance_variable_get(iv)] }.to_h
-content = doc.root.children.dup
-content = content.drop_while { |e| e.type != :header }
-p content
-doc.root.children.replace(content)
+# p content
+# doc.root.children.replace(content)
 
 class GFMKonverter < Kramdown::Converter::Kramdown
   def convert_codeblock(el, opts)
@@ -25,4 +23,6 @@ class GFMKonverter < Kramdown::Converter::Kramdown
   end
 end
 
-puts GFMKonverter.convert(doc.root)
+doc.root.children.first.options[:encoding] = 'UTF-8'
+puts GFMKonverter.convert(doc.root.children.first)
+# puts GFMKonverter.convert(doc.root)

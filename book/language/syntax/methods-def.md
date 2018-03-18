@@ -585,3 +585,59 @@ If you wish to rescue an exception for only part of your method, use
 `begin` and `end`. For more details see the page on [exception
 handling](rdoc-ref:syntax/exceptions.rdoc).
 
+
+
+### `alias`
+
+The `alias` keyword is most frequently used to alias methods. When
+aliasing a method, you can use either its name or a symbol:
+
+
+```ruby
+alias new_name old_name
+alias :new_name :old_name
+```
+
+For methods, `Module#alias_method` can often be used instead of `alias`.
+
+You can also use `alias` to alias global variables:
+
+
+```ruby
+$old = 0
+
+alias $new $old
+
+p $new # prints 0
+```
+
+You may use `alias` in any scope.
+
+
+
+### `undef`
+
+The `undef` keyword prevents the current class from responding to calls
+to the named methods.
+
+
+```ruby
+undef my_method
+```
+
+You may use symbols instead of method names:
+
+
+```ruby
+undef :my_method
+```
+
+You may undef multiple methods:
+
+
+```ruby
+undef method1, method2
+```
+
+You may use `undef` in any scope. See also `Module#undef_method`
+

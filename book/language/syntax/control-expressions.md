@@ -390,13 +390,42 @@ Prints 1, 2 and 3.
 
 Like `while` and `until`, the `do` is optional.
 
-The `for` loop is similar to using `#each`, but does not create a new
-variable scope.
-
 The result value of a `for` loop is the value iterated over unless
 `break` is used.
 
-The `for` loop is rarely used in modern ruby programs.
+Unlike other languages, Ruby program typically doesn't need `for` loop,
+using [Enumerable](../../builtin/types/collections.md#enumerable)
+instead:
+
+
+```ruby
+# Not idiomatic
+for i in 0..3
+  # ...
+end
+# Idiomatic
+(0..3).each do |i|
+  # ...
+end
+
+# Not idiomatic: selecting items
+odds = []
+for value in [1, 2, 3, 4, 5]
+  odds.push(value) if value.odd?
+end
+# Still not idiomatic: just each
+odds = []
+[1, 2, 3, 4, 5].each do |value
+  odds.push(value) if value.odd?
+end
+# Idiomatic: specialized Enumerable method
+odds = [1, 2, 3, 4, 5].select { |value| value.odd? }
+# Simplify with Symbol#to_proc
+odds = [1, 2, 3, 4, 5].select(&:odd?)
+```
+
+Note, that in a lot of cases `until` and `while` loops also could be
+replaced with `Enumerable` methods.
 
 ## Modifier `while` and `until`
 

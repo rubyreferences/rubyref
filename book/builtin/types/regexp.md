@@ -227,8 +227,7 @@ need to occur. Such metacharacters are called *quantifiers*.
 * `{`*n*`,`*m*`}` - At least *n* and at most *m* times
 
 At least one uppercase character ('H'), at least one lowercase character
-('e'), two 'l' characters, then one 'o'\:
-
+('e'), two 'l' characters, then one 'o': 
 
 ```ruby
 "Hello".match(/[[:upper:]]+[[:lower:]]+l{2}o/) #=> #<MatchData "Hello">

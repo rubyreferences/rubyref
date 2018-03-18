@@ -16,19 +16,20 @@ class GFMKonverter < Kramdown::Converter::Kramdown
 end
 
 class ContentPart
-  def initialize(index:, source:, header_shift: nil, **)
+  def initialize(index:, source:, header_shift: nil, remove: [], insert: [], **)
     @index = index
     @header_shift = header_shift&.to_i || (index.zero? ? 0 : 1)
-    @source = parse_source(source)
+    @remove = remove
+    @insert = insert.map { |i| i.transform_keys(&:to_sym) }
+    @source = source
+    @text = parse_source(@source)
+    postprocess
   end
 
   def render
-    @source.root.children.each { |c|
-      c.options[:level] += @header_shift if c.type == :header
-    }
-    GFMKonverter.convert(@source.root).first
+    GFMKonverter.convert(@text.root).first
       .gsub(/^(?=\#[a-z])/, '\\') # Again! New methods could be at the beginning of the line after Kramdown render
-      .gsub(/`\\:\s/, '`: ') # IDK why Kramdown turns "`something`: definition" into "`something`\: definition"
+      .gsub(/([`'])\\:\s/, '\1: ') # IDK why Kramdown turns "`something`: definition" into "`something`\: definition"
   end
 
   private
@@ -60,6 +61,35 @@ class ContentPart
           .take_while { |e| e.type != :header || e.options[:raw_text] == section }
           .tap { |els| doc.root.children.replace(els) }
       }
+  end
+
+  def convert(el)
+    el.options[:encoding] = 'UTF-8'
+    GFMKonverter.convert(el).first
+  end
+
+  def elements
+    @text.root.children
+  end
+
+  def para_idx(what)
+    elements.find_index { |c| convert(c).start_with?(what) } or
+        fail "String #{what} not found in #{@source}"
+  end
+
+  def postprocess
+    @remove.each do |rem|
+      idx = para_idx(rem)
+      elements.delete_at(idx)
+    end
+    @insert.each do |after:, source:|
+      idx = para_idx(after)
+      source = parse_source(source)
+      elements.insert(idx + 1, *source.root.children)
+    end
+    elements.each { |c|
+      c.options[:level] += @header_shift if c.type == :header
+    }
   end
 end
 
