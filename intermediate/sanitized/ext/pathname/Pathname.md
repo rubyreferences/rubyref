@@ -70,80 +70,80 @@ is.  None of these access the file system except for `#mountpoint?`, `#children`
 
 *   +
 
-*   #join
-*   #parent
-*   #root?
-*   #absolute?
-*   #relative?
-*   #relative_path_from
-*   #each_filename
-*   #cleanpath
-*   #realpath
-*   #realdirpath
-*   #children
-*   #each_child
-*   #mountpoint?
+*   `#join`
+*   `#parent`
+*   `#root?`
+*   `#absolute?`
+*   `#relative?`
+*   `#relative_path_from`
+*   `#each_filename`
+*   `#cleanpath`
+*   `#realpath`
+*   `#realdirpath`
+*   `#children`
+*   `#each_child`
+*   `#mountpoint?`
 
 
 ### File status predicate methods
 
 These methods are a facade for FileTest:
 
-*   #blockdev?
-*   #chardev?
-*   #directory?
-*   #executable?
-*   #executable_real?
-*   #exist?
-*   #file?
-*   #grpowned?
-*   #owned?
-*   #pipe?
-*   #readable?
-*   #world_readable?
-*   #readable_real?
-*   #setgid?
-*   #setuid?
-*   #size
-*   #size?
-*   #socket?
-*   #sticky?
-*   #symlink?
-*   #writable?
-*   #world_writable?
-*   #writable_real?
-*   #zero?
+*   `#blockdev?`
+*   `#chardev?`
+*   `#directory?`
+*   `#executable?`
+*   `#executable_real?`
+*   `#exist?`
+*   `#file?`
+*   `#grpowned?`
+*   `#owned?`
+*   `#pipe?`
+*   `#readable?`
+*   `#world_readable?`
+*   `#readable_real?`
+*   `#setgid?`
+*   `#setuid?`
+*   `#size`
+*   `#size?`
+*   `#socket?`
+*   `#sticky?`
+*   `#symlink?`
+*   `#writable?`
+*   `#world_writable?`
+*   `#writable_real?`
+*   `#zero?`
 
 
 ### File property and manipulation methods
 
 These methods are a facade for File:
 
-*   #atime
-*   #birthtime
-*   #ctime
-*   #mtime
+*   `#atime`
+*   `#birthtime`
+*   `#ctime`
+*   `#mtime`
 *   `#chmod`(mode)
 *   `#lchmod`(mode)
 *   `#chown`(owner, group)
 *   `#lchown`(owner, group)
 *   `#fnmatch`(pattern, *args)
 *   `#fnmatch?`(pattern, *args)
-*   #ftype
+*   `#ftype`
 *   `#make_link`(old)
 *   `#open`(*args, &block)
-*   #readlink
+*   `#readlink`
 *   `#rename`(to)
-*   #stat
-*   #lstat
+*   `#stat`
+*   `#lstat`
 *   `#make_symlink`(old)
 *   `#truncate`(length)
 *   `#utime`(atime, mtime)
 *   `#basename`(*args)
-*   #dirname
-*   #extname
+*   `#dirname`
+*   `#extname`
 *   `#expand_path`(*args)
-*   #split
+*   `#split`
 
 
 ### Directory methods
@@ -152,8 +152,8 @@ These methods are a facade for Dir:
 
 *   Pathname.glob(*args)
 *   Pathname.getwd / Pathname.pwd
-*   #rmdir
-*   #entries
+*   `#rmdir`
+*   `#entries`
 *   `#each_entry`(&block)
 *   `#mkdir`(*args)
 *   `#opendir`(*args)
@@ -175,9 +175,9 @@ These methods are a facade for IO:
 These methods are a mixture of Find, FileUtils, and others:
 
 *   `#find`(&block)
-*   #mkpath
-*   #rmtree
-*   `#unlink` / #delete
+*   `#mkpath`
+*   `#rmtree`
+*   `#unlink` / `#delete`
 
 
 ## Method documentation

@@ -56,7 +56,7 @@ Alternatively, you can use the instance method `#exit`, or any of its aliases
 ### Thread status
 
 Ruby provides a few instance methods for querying the state of a given thread.
-To get a string with the current thread's state use #status
+To get a string with the current thread's state use `#status`
 
     thr = Thread.new { sleep }
     thr.status # => "sleep"

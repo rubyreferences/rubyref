@@ -105,4 +105,4 @@ is usually aliased to the overridden `==` method:
 
     reviews.length #=> 1
 
-See also `Object#hash` and `Object#eql`?
+See also `Object#hash` and `Object#eql?`

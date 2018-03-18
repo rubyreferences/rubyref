@@ -1,14 +1,11 @@
 # Exception
 
 Descendants of class Exception are used to communicate between
-`Kernel#rais'e
-and `rescue` statements in `begin ... end` blocks. Exception objects
-carry
-information about the exception -- its type (the exception's class
-name), an
-optional descriptive string, and optional traceback information. 
-Exception
-subclasses may add additional information like `NameError#name\`.
+`Kernel#raise` and `rescue` statements in `begin ... end` blocks.
+Exception objects carry information about the exception -- its type (the
+exception's class name), an optional descriptive string, and optional
+traceback information. Exception subclasses may add additional
+information like `NameError#name`.
 
 Programs may make subclasses of Exception, typically of StandardError or
 RuntimeError, to provide custom classes and add additional information.

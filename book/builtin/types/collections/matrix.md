@@ -35,7 +35,7 @@ Properties of vectors:
 * `#angle_with`(v)
 * Vector.independent?(\*vs)
 * `#independent?`(\*vs)
-* # zero?
+* `#zero?`
 
 Vector arithmetic:
 
@@ -55,34 +55,24 @@ Vector functions:
 
 * `#inner_product`(v), dot(v)
 * `#cross_product`(v), cross(v)
-* # collect
-
-* # magnitude
-
-* # map
-
+* `#collect`
+* `#magnitude`
+* `#map`
 * `#map`2(v)
-* # norm
-
-* # normalize
-
-* # r
-
-* # round
-
-* # size
+* `#norm`
+* `#normalize`
+* `#r`
+* `#round`
+* `#size`
 
 Conversion to other data types:
 
-* # covector
-
-* # to\_a
-
+* `#covector`
+* `#to_a`
 * `#coerce`(other)
 
 String representations:
 
-* # to\_s
-
-* # inspect
+* `#to_s`
+* `#inspect`
 

@@ -342,7 +342,7 @@ until a method is found.
 Once a match is found method lookup stops.
 
 If no match is found this repeats from the beginning, but looking for
-`method_missing`.  The default `method_missing` is `BasicObject#method_missin'g
+`method_missing`.  The default `method_missing` is `BasicObject#method_missing`
 which raises a NameError when invoked.
 
 If refinements (an experimental feature) are active, the method lookup

@@ -227,8 +227,7 @@ Following the type byte is byte sequence which consists of a long
 indicating the number of bytes in the sequence followed by that many
 bytes of data. Byte sequences have no encoding.
 
-For example, the following stream contains the Symbol `:hello`\:
-
+For example, the following stream contains the Symbol `:hello`: 
 
 ```ruby
 "\x04\x08:\x0ahello"
@@ -238,8 +237,7 @@ For example, the following stream contains the Symbol `:hello`\:
 Symbol. Following the type byte is a long containing the index in the
 lookup table for the linked (referenced) Symbol.
 
-For example, the following stream contains `[:hello, :hello]`\:
-
+For example, the following stream contains `[:hello, :hello]`: 
 
 ```ruby
 "\x04\b[\a:\nhello;\x00"

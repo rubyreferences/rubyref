@@ -87,7 +87,7 @@ of an array, respectively.
     arr.first #=> 1
     arr.last  #=> 6
 
-To return the first `n` elements of an array, use #take
+To return the first `n` elements of an array, use `#take`
 
     arr.take(3) #=> [1, 2, 3]
 
@@ -168,7 +168,7 @@ A useful method if you need to remove `nil` values from an array is `#compact`:
 
 Another common need is to remove duplicate elements from an array.
 
-It has the non-destructive `#uniq`, and destructive method #uniq!
+It has the non-destructive `#uniq`, and destructive method `#uniq!`
 
     arr = [2, 5, 6, 556, 6, 6, 8, 9, 0, 123, 556]
     arr.uniq #=> [2, 5, 6, 556, 8, 9, 0, 123]
@@ -222,7 +222,7 @@ elements, but leave the original array unchanged.
 ### Destructive Selection
 
 `#select!` and `#reject!` are the corresponding destructive methods to `#select` and
-#reject
+`#reject`
 
 Similar to `#select` vs. `#reject`, `#delete_if` and `#keep_if` have the exact
 opposite result when supplied with the same block:

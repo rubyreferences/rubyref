@@ -1,4 +1,163 @@
-# Pathname
+# IO
+
+The IO class is the basis for all input and output in Ruby. An I/O
+stream may be *duplexed* (that is, bidirectional), and so may use more
+than one native operating system stream.
+
+Many of the examples in this section use the File class, the only
+standard subclass of IO. The two classes are closely associated. Like
+the File class, the Socket library subclasses from IO (such as TCPSocket
+or UDPSocket).
+
+The `Kernel#open` method can create an IO (or File) object for these
+types of arguments:
+
+* A plain string represents a filename suitable for the underlying
+  operating system.
+
+* A string starting with `"|"` indicates a subprocess. The remainder of
+  the string following the `"|"` is invoked as a process with
+  appropriate input/output channels connected to it.
+
+* A string equal to `"|-"` will create another Ruby instance as a
+  subprocess.
+
+The IO may be opened with different file modes (read-only, write-only)
+and encodings for proper conversion. See IO.new for these options. See
+Kernel#open for details of the various command formats described above.
+
+IO.popen, the Open3 library, or `Process#spawn` may also be used to
+communicate with subprocesses through an IO.
+
+Ruby will convert pathnames between different operating system
+conventions if possible. For instance, on a Windows system the filename
+`"/gumby/ruby/test.rb"` will be opened as `"\gumby\ruby\test.rb"`. When
+specifying a Windows-style filename in a Ruby string, remember to escape
+the backslashes:
+
+
+```ruby
+"C:\\gumby\\ruby\\test.rb"
+```
+
+Our examples here will use the Unix-style forward slashes;
+File::ALT\_SEPARATOR can be used to get the platform-specific separator
+character.
+
+The global constant ARGF (also accessible as `$<`) provides an IO-like
+stream which allows access to all files mentioned on the command line
+(or STDIN if no files are mentioned). `ARGF#path` and its alias
+`ARGF#filename` are provided to access the name of the file currently
+being read.
+
+## io/console
+
+The io/console extension provides methods for interacting with the
+console. The console can be accessed from IO.console or the standard
+input/output/error IO objects.
+
+Requiring io/console adds the following methods:
+
+* IO::console
+
+* `IO#raw`
+* `IO#raw!`
+* `IO#cooked`
+* `IO#cooked!`
+* `IO#getch`
+* `IO#echo=`
+* `IO#echo?`
+* `IO#noecho`
+* `IO#winsize`
+* `IO#winsize=`
+* `IO#iflush`
+* `IO#ioflush`
+* `IO#oflush`
+
+Example:
+
+
+```ruby
+require 'io/console'
+rows, columns = $stdout.winsize
+puts "Your screen is #{columns} wide and #{rows} tall"
+```
+
+
+
+## StringIO
+
+Pseudo I/O on String object.
+
+Commonly used to simulate `$stdio` or `$stderr`
+
+#### Examples
+
+
+```ruby
+require 'stringio'
+
+io = StringIO.new
+io.puts "Hello World"
+io.string #=> "Hello World\n"
+```
+
+
+
+## Dir
+
+Objects of class `Dir` are directory streams representing directories in
+the underlying file system. They provide a variety of ways to list
+directories and their contents. See also `File`.
+
+The directory used in these examples contains the two regular files
+(`config.h` and `main.rb`), the parent directory (`..`), and the
+directory itself (`.`).
+
+
+
+## FileTest
+
+`FileTest` implements file test operations similar to those used in
+`File::Stat`. It exists as a standalone module, and its methods are also
+insinuated into the `File` class. (Note that this is not done by
+inclusion: the interpreter cheats).
+
+
+
+## File
+
+A `File` is an abstraction of any file object accessible by the program
+and is closely associated with class `IO`. `File` includes the methods
+of module `FileTest` as class methods, allowing you to write (for
+example) `File.exist?("foo")`.
+
+In the description of File methods, *permission bits* are a
+platform-specific set of bits that indicate permissions of a file. On
+Unix-based systems, permissions are viewed as a set of three octets, for
+the owner, the group, and the rest of the world. For each of these
+entities, permissions may be set to read, write, or execute the file:
+
+The permission bits `0644` (in octal) would thus be interpreted as
+read/write for owner, and read-only for group and other. Higher-order
+bits may also be used to indicate the type of file (plain, directory,
+pipe, socket, and so on) and various other special features. If the
+permissions are for a directory, the meaning of the execute bit changes;
+when set the directory can be searched.
+
+On non-Posix operating systems, there may be only the ability to make a
+file read-only or read-write. In this case, the remaining permission
+bits will be synthesized to resemble typical values. For instance, on
+Windows NT the default permission bits are `0644`, which means
+read/write for owner, read-only for all others. The only change that can
+be made is to make the file read-only, which is reported as `0444`.
+
+Various constants for the methods in File can be found in
+File::Constants.
+
+
+
+## Pathname
 
 Pathname represents the name of a file or directory on the filesystem,
 but not the file itself.
@@ -20,9 +179,9 @@ the difference.
 FileUtils is included, in an unsurprising way. It is essentially a
 facade for all of these, and more.
 
-## Examples
+### Examples
 
-### Example 1: Using Pathname
+#### Example 1: Using Pathname
 
 
 ```ruby
@@ -38,7 +197,7 @@ pn.open { |f| _ }
 pn.each_line { |line| _ }
 ```
 
-### Example 2: Using standard Ruby
+#### Example 2: Using standard Ruby
 
 
 ```ruby
@@ -53,7 +212,7 @@ File.open(pn) { |f| _ }
 File.foreach(pn) { |line| _ }
 ```
 
-### Example 3: Special features
+#### Example 3: Special features
 
 
 ```ruby
@@ -70,9 +229,9 @@ p5.realpath                     # Pathname:/home/gavin/articles
 p5.children                     # [Pathname:/home/gavin/articles/linux, ...]
 ```
 
-## Breakdown of functionality
+### Breakdown of functionality
 
-### Core methods
+#### Core methods
 
 These methods are effectively manipulating a String, because that's all
 a path is. None of these access the file system except for
@@ -81,139 +240,92 @@ a path is. None of these access the file system except for
 
 * +
 
-* # join
+* `#join`
+* `#parent`
+* `#root?`
+* `#absolute?`
+* `#relative?`
+* `#relative_path_from`
+* `#each_filename`
+* `#cleanpath`
+* `#realpath`
+* `#realdirpath`
+* `#children`
+* `#each_child`
+* `#mountpoint?`
 
-* # parent
-
-* # root?
-
-* # absolute?
-
-* # relative?
-
-* # relative\_path\_from
-
-* # each\_filename
-
-* # cleanpath
-
-* # realpath
-
-* # realdirpath
-
-* # children
-
-* # each\_child
-
-* # mountpoint?
-
-### File status predicate methods
+#### File status predicate methods
 
 These methods are a facade for FileTest:
 
-* # blockdev?
+* `#blockdev?`
+* `#chardev?`
+* `#directory?`
+* `#executable?`
+* `#executable_real?`
+* `#exist?`
+* `#file?`
+* `#grpowned?`
+* `#owned?`
+* `#pipe?`
+* `#readable?`
+* `#world_readable?`
+* `#readable_real?`
+* `#setgid?`
+* `#setuid?`
+* `#size`
+* `#size?`
+* `#socket?`
+* `#sticky?`
+* `#symlink?`
+* `#writable?`
+* `#world_writable?`
+* `#writable_real?`
+* `#zero?`
 
-* # chardev?
-
-* # directory?
-
-* # executable?
-
-* # executable\_real?
-
-* # exist?
-
-* # file?
-
-* # grpowned?
-
-* # owned?
-
-* # pipe?
-
-* # readable?
-
-* # world\_readable?
-
-* # readable\_real?
-
-* # setgid?
-
-* # setuid?
-
-* # size
-
-* # size?
-
-* # socket?
-
-* # sticky?
-
-* # symlink?
-
-* # writable?
-
-* # world\_writable?
-
-* # writable\_real?
-
-* # zero?
-
-### File property and manipulation methods
+#### File property and manipulation methods
 
 These methods are a facade for File:
 
-* # atime
-
-* # birthtime
-
-* # ctime
-
-* # mtime
-
+* `#atime`
+* `#birthtime`
+* `#ctime`
+* `#mtime`
 * `#chmod`(mode)
 * `#lchmod`(mode)
 * `#chown`(owner, group)
 * `#lchown`(owner, group)
 * `#fnmatch`(pattern, \*args)
 * `#fnmatch?`(pattern, \*args)
-* # ftype
-
+* `#ftype`
 * `#make_link`(old)
 * `#open`(\*args, &block)
-* # readlink
-
+* `#readlink`
 * `#rename`(to)
-* # stat
-
-* # lstat
-
+* `#stat`
+* `#lstat`
 * `#make_symlink`(old)
 * `#truncate`(length)
 * `#utime`(atime, mtime)
 * `#basename`(\*args)
-* # dirname
-
-* # extname
-
+* `#dirname`
+* `#extname`
 * `#expand_path`(\*args)
-* # split
+* `#split`
 
-### Directory methods
+#### Directory methods
 
 These methods are a facade for Dir:
 
 * Pathname.glob(\*args)
 * Pathname.getwd / Pathname.pwd
-* # rmdir
-
-* # entries
-
+* `#rmdir`
+* `#entries`
 * `#each_entry`(&block)
 * `#mkdir`(\*args)
 * `#opendir`(\*args)
 
-### IO
+#### IO
 
 These methods are a facade for IO:
 
@@ -223,18 +335,16 @@ These methods are a facade for IO:
 * `#readlines`(\*args)
 * `#sysopen`(\*args)
 
-### Utilities
+#### Utilities
 
 These methods are a mixture of Find, FileUtils, and others:
 
 * `#find`(&block)
-* # mkpath
+* `#mkpath`
+* `#rmtree`
+* `#unlink` / `#delete`
 
-* # rmtree
-
-* `#unlink` / #delete
-
-## Method documentation
+### Method documentation
 
 As the above section shows, most of the methods in Pathname are facades.
 The documentation for these methods generally just says, for instance,
@@ -419,33 +529,4 @@ in FileUtils.
 This module has all methods of FileUtils module, but never changes
 files/directories. This equates to passing the `:noop` and `:verbose`
 flags to methods in FileUtils.
-
-
-
-## Find
-
-The `Find` module supports the top-down traversal of a set of file
-paths.
-
-For example, to total the size of all files under your home directory,
-ignoring anything in a "dot" directory (e.g. $HOME/.ssh):
-
-
-```ruby
-require 'find'
-
-total_size = 0
-
-Find.find(ENV["HOME"]) do |path|
-  if FileTest.directory?(path)
-    if File.basename(path)[0] == ?.
-      Find.prune       # Don't look any further into this directory.
-    else
-      next
-    end
-  else
-    total_size += FileTest.size(path)
-  end
-end
-```
 

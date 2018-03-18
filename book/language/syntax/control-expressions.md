@@ -158,8 +158,7 @@ if not true
 end
 ```
 
-Like an `if` expression you may use an `else` condition with `unless`\:
-
+Like an `if` expression you may use an `else` condition with `unless`: 
 
 ```ruby
 unless true
@@ -267,8 +266,7 @@ when /^1/
 end
 ```
 
-You may place multiple conditions on the same `when`\:
-
+You may place multiple conditions on the same `when`: 
 
 ```ruby
 case "2"
@@ -455,8 +453,7 @@ values.each do |value|
 end
 ```
 
-You can also terminate from a `while` loop using `break`\:
-
+You can also terminate from a `while` loop using `break`: 
 
 ```ruby
 a = 0

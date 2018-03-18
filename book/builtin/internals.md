@@ -89,20 +89,19 @@ change. Instead, it is recommended you specify the type of events you
 want to use.
 
 To filter what is traced, you can pass any of the following as
-`events`\:
+`events`: 
+* `:line`: execute code on a new line
 
-* `:line`\: execute code on a new line
-
-* `:class`\: start a class or module definition
-* `:end`\: finish a class or module definition
-* `:call`\: call a Ruby method
-* `:return`\: return from a Ruby method
-* `:c_call`\: call a C-language routine
-* `:c_return`\: return from a C-language routine
-* `:raise`\: raise an exception
-* `:b_call`\: event hook at block entry
-* `:b_return`\: event hook at block ending
-* `:thread_begin`\: event hook at thread beginning
-* `:thread_end`\: event hook at thread ending
-* `:fiber_switch`\: event hook at fiber switch
+* `:class`: start a class or module definition
+* `:end`: finish a class or module definition
+* `:call`: call a Ruby method
+* `:return`: return from a Ruby method
+* `:c_call`: call a C-language routine
+* `:c_return`: return from a C-language routine
+* `:raise`: raise an exception
+* `:b_call`: event hook at block entry
+* `:b_return`: event hook at block ending
+* `:thread_begin`: event hook at thread beginning
+* `:thread_end`: event hook at thread ending
+* `:fiber_switch`: event hook at fiber switch
 

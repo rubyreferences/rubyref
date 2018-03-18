@@ -8,8 +8,8 @@ byte in the strings have single column in width. But it can be used for other
 situations by giving suitable arguments for some methods:
 
 *   newline object and space generation block for PrettyPrint.new
-*   optional width argument for `PrettyPrint#tex't
-*   `PrettyPrint#breakabl'e
+*   optional width argument for `PrettyPrint#text`
+*   `PrettyPrint#breakable`
 
 
 There are several candidate uses:

@@ -40,8 +40,7 @@ end
 
 By default, StandardError and its subclasses are rescued. You can rescue
 a specific set of exception classes (and their subclasses) by listing
-them after `rescue`\:
-
+them after `rescue`: 
 
 ```ruby
 begin
@@ -91,8 +90,7 @@ use `redo`. See [Control
 Expressions](rdoc-ref:syntax/control_expressions.rdoc) for details.
 
 To always run some code whether an exception was raised or not, use
-`ensure`\:
-
+`ensure`: 
 
 ```ruby
 begin

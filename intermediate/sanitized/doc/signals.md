@@ -75,7 +75,7 @@ corresponding wrappers for many IO, File, Dir, and Socket methods are safe.
 
 *   Dir.mkdir
 *   Dir.open
-*   `File#truncat'e
+*   `File#truncate`
 *   File.link
 *   File.open
 *   File.readlink
@@ -85,14 +85,14 @@ corresponding wrappers for many IO, File, Dir, and Socket methods are safe.
 *   File.truncate
 *   File.unlink
 *   File.utime
-*   `IO#clos'e
-*   `IO#du'p
-*   `IO#fsyn'c
-*   `IO#rea'd
-*   `IO#read_nonbloc'k
-*   `IO#sta't
-*   `IO#sysrea'd
-*   `IO#syswrit'e
+*   `IO#close`
+*   `IO#dup`
+*   `IO#fsync`
+*   `IO#read`
+*   `IO#read_nonblock`
+*   `IO#stat`
+*   `IO#sysread`
+*   `IO#syswrite`
 *   IO.select
 *   IO.pipe
 *   Process.clock_gettime

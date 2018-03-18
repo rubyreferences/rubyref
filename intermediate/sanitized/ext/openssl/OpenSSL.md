@@ -257,7 +257,7 @@ be derived from the "objects.h" file in the OpenSSL source code.
 
 ### Signing a Certificate
 
-To sign a certificate set the issuer and use OpenSSL::X509::`Certificate#sig'n
+To sign a certificate set the issuer and use OpenSSL::X509::`Certificate#sign`
 with a digest algorithm.  This creates a self-signed cert because we're using
 the same name and key to sign the certificate as was used to create the
 certificate.
@@ -444,7 +444,7 @@ SSLServer like an ordinary TCP server.
 
 ### SSL client
 
-An SSL client is created with a TCP socket and the context. `SSLSocket#connec't
+An SSL client is created with a TCP socket and the context. `SSLSocket#connect`
 must be called to initiate the SSL handshake and start encryption.  A key and
 certificate are not required for the client socket.
 

@@ -225,8 +225,8 @@ A few commands for loading files within the session are also available:
 * `source`: Loads a given file in the current session and displays the source lines,
     see IrbLoader#source_file
 
-* `irb_load`: Loads the given file similarly to `Kernel#load`, see `IrbLoader#irb_loa'd
-* `irb_require`: Loads the given file similarly to `Kernel#requir'e
+* `irb_load`: Loads the given file similarly to `Kernel#load`, see `IrbLoader#irb_load`
+* `irb_require`: Loads the given file similarly to `Kernel#require`
 
 
 ### Configuration

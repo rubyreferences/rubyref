@@ -21,7 +21,7 @@ internally.
 
 The following example demonstrates how to mix the TSort module into an
 existing class (in this case, Hash). Here, we're treating each key in the hash
-as a node in the graph, and so we simply alias the required #tsort_each_node
+as a node in the graph, and so we simply alias the required `#tsort_each_node`
 method to Hash's `#each_key` method. For each key in the hash, the associated
 value is an array of the node's child nodes. This choice in turn leads to our
 implementation of the required `#tsort_each_child` method, which fetches the

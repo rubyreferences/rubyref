@@ -140,5 +140,5 @@ reviews[book2] = 'Nice and compact!'
 reviews.length #=> 1
 ```
 
-See also `Object#hash` and `Object#eql`?
+See also `Object#hash` and `Object#eql?`
 

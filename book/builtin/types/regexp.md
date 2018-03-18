@@ -39,10 +39,10 @@ Here 'haystack' contains the pattern 'hay', so it matches:
 Specifically, `/st/` requires that the string contains the letter *s*
 followed by the letter *t*, so it matches *haystack*, also.
 
-## `=~` and \`Regexp#matc'h
+## `=~` and `Regexp#match`
 
 Pattern matching may be achieved by using `=~` operator or
-\`Regexp#matc'h method.
+`Regexp#match` method.
 
 ### `=~` operator
 
@@ -263,8 +263,7 @@ with *n*. Within a pattern use the *backreference* `\n`; outside of the
 pattern use `MatchData[n]`.
 
 'at' is captured by the first group of parentheses, then referred to
-later with `\1`\:
-
+later with `\1`: 
 
 ```ruby
 /[csh](..) [csh]\1 in/.match("The cat sat in the hat")
@@ -324,7 +323,7 @@ The pattern below matches a vowel followed by 2 word characters:
 ```
 
 Whereas the following pattern matches a vowel followed by a word
-character, twice, i.e. `[aeiou]\w[aeiou]\w`\: 'enor'.
+character, twice, i.e. `[aeiou]\w[aeiou]\w`: 'enor'.
 
 
 ```ruby
@@ -338,8 +337,7 @@ a backreference. This benefits performance at the slight expense of
 readability.
 
 The first group of parentheses captures 'n' and the second 'ti'. The
-second group is referred to later with the backreference `\2`\:
-
+second group is referred to later with the backreference `\2`: 
 
 ```ruby
 /I(n)ves(ti)ga\2ons/.match("Investigations")
@@ -666,8 +664,7 @@ disables options *off* for the expression enclosed by the parentheses.
 /a(?i:b)c/.match('abc') #=> #<MatchData "abc">
 ```
 
-Options may also be used with `Regexp.new`\:
-
+Options may also be used with `Regexp.new`: 
 
 ```ruby
 Regexp.new("abc", Regexp::IGNORECASE)                     #=> /abc/i
@@ -733,8 +730,7 @@ If a match between incompatible encodings is attempted an
 The `Regexp#fixed_encoding?` predicate indicates whether the regexp has
 a *fixed* encoding, that is one incompatible with ASCII. A regexp's
 encoding can be explicitly fixed by supplying `Regexp::FIXEDENCODING` as
-the second argument of `Regexp.new`\:
-
+the second argument of `Regexp.new`: 
 
 ```ruby
 r = Regexp.new("a".force_encoding("iso-8859-1"),Regexp::FIXEDENCODING)

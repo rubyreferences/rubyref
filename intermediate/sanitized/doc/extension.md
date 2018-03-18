@@ -1013,7 +1013,7 @@ use, modify, distribute or sell your program.
 * marshal.c: Marshal
 * math.c: Math
 * numeric.c: Numeric, Integer, Fixnum, Float
-* pack.c: `Array#pack`, `String#unpac'k
+* pack.c: `Array#pack`, `String#unpack`
 * proc.c: Binding, Proc
 * process.c: Process
 * random.c: random number
@@ -1021,7 +1021,7 @@ use, modify, distribute or sell your program.
 * rational.c: Rational
 * re.c: Regexp, MatchData
 * signal.c: Signal
-* sprintf.c: `String#sprint'f
+* sprintf.c: `String#sprintf`
 * string.c: String
 * struct.c: Struct
 * time.c: Time

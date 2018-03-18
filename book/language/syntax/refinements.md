@@ -36,8 +36,7 @@ Module#refine creates an anonymous module that contains the changes or
 refinements to the class (`C` in the example). `self` in the refine
 block is this anonymous module similar to `Module#module_eval`.
 
-Activate the refinement with `#using`\:
-
+Activate the refinement with `#using`: 
 
 ```ruby
 using M
@@ -144,9 +143,8 @@ m_user.call_foo(x) # prints "C#foo in M"
 x.foo              #=> raises NoMethodError
 ```
 
-Since the refinement `M` is active in `m_user.rb` where
-`M`User#call\_fo'o` is
-defined it is also active when `main.rb` calls `call\_foo\`.
+Since the refinement `M` is active in `m_user.rb` where `MUser#call_foo`
+is defined it is also active when `main.rb` calls `call_foo`.
 
 Since `#using` is a method, refinements are only active when it is
 called. Here are examples of where a refinement `M` is and is not
@@ -301,7 +299,7 @@ context during method lookup.
 
 This behavior may be changed in the future.
 
-## Refinement inheritance by \`Module#includ'e
+## Refinement inheritance by `Module#include`
 
 When a module X is included into a module Y, Y inherits refinements from
 X.

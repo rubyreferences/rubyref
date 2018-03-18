@@ -1,34 +1,21 @@
 # Ruby Syntax
 
-The Ruby syntax is large and is split up into the following sections:
+This chapter describes all syntax constructs of Ruby.
 
-* [Literals](rdoc-ref:syntax/literals.rdoc)\: Numbers, Strings, Arrays,
-  Hashes, etc.
+As a brief overview, it can be said that:
 
-* [Assignment](rdoc-ref:syntax/assignment.rdoc)\: Assignment and
-  variables
+* Ruby program consists of expressions dealing with
+  [literals](syntax/literals.md), [variables](syntax/variables.md) and
+  [constants](constants.md);
+* Expressions are:
+  * assignments
+  * control expressions
+  * method calls
+  * definitions of modules, classes and methods
 
-* [Control Expressions](rdoc-ref:syntax/control_expressions.rdoc)\:
-  `if`, `unless`, `while`, `until`, `for`, `break`, `next`, `redo`
+* Ruby is object-oriented language, so \[methods\], \[classes and
+  modules\]
+  * Ruby has open classes, for hygiene one can use \[refinements\]
 
-* [Methods](rdoc-ref:syntax/methods.rdoc)\: Method and method argument
-  syntax
-
-* [Calling Methods](rdoc-ref:syntax/calling_methods.rdoc)\: How to call
-  a method (or send a message to a method)
-
-* [Modules and Classes](rdoc-ref:syntax/modules_and_classes.rdoc)\:
-  Creating modules and classes including inheritance
-
-* [Exceptions](rdoc-ref:syntax/exceptions.rdoc)\: Exception handling
-  syntax
-
-* [Precedence](rdoc-ref:syntax/precedence.rdoc)\: Precedence of ruby
-  operators
-
-* [Refinements](rdoc-ref:syntax/refinements.rdoc)\: Use and behavior of
-  the experimental refinements feature
-
-* [Miscellaneous](rdoc-ref:syntax/miscellaneous.rdoc)\: `alias`,
-  `undef`, `BEGIN`, `END`
+* Error handling is done with \[exceptions\]
 

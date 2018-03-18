@@ -1,4 +1,6 @@
 # The Ruby Reference
+* [About This Book](about-this-book.md)
+
 
 ## Language Structure
 
@@ -7,10 +9,12 @@
 * [Syntax](language/syntax.md)
   * [Literals](language/syntax/literals.md)
 
+  * [Variables and Constants](language/syntax/variables-constants.md)
+
   * [Assignment](language/syntax/assignment.md)
 
-  * [Expressions](language/syntax/expressions.md)
-    * [Precedence](language/syntax/expressions/precedence.md)
+  * [Control Expressions](language/syntax/control-expressions.md)
+    * [Precedence](language/syntax/control-expressions/precedence.md)
 
   * [Defining methods](language/syntax/methods-def.md)
 
@@ -48,67 +52,21 @@
 
     * [Hash](builtin/types/collections/hash.md)
 
+    * [Set](builtin/types/collections/set.md)
+
+    * [Matrix](builtin/types/collections/matrix.md)
+
 * [Exceptions](builtin/exceptions.md)
 
 * [Concurrency and Parallelism](builtin/concurrency-parallelism.md)
 
-* [Filesystem and Environment](builtin/filesystem-environment.md)
-  * [Processes and Signals](builtin/filesystem-environment/processes-signals.md)
+* [IO and Filesystem](builtin/io-filesystem.md)
+
+* [Processes and Environment](builtin/processes-environment.md)
+  * [Processes and Signals](builtin/processes-environment/processes-signals.md)
 
 * [Language Internals](builtin/internals.md)
 
 * [Marshal](builtin/marshal.md)
 
 * [Misc](builtin/misc.md)
-
-
-## Standard Library
-
-* [Data Types](stdlib/types.md)
-  * [Bigdecimal](stdlib/types/bigdecimal.md)
-
-  * [Set](stdlib/types/set.md)
-
-  * [Matrix](stdlib/types/matrix.md)
-
-  * [Date](stdlib/types/date.md)
-
-  * [OpenStruct](stdlib/types/openstruct.md)
-
-* [Design Patterns](stdlib/patterns.md)
-  * [Forwardable](stdlib/patterns/forwardable.md)
-
-  * [Delegator](stdlib/patterns/delegator.md)
-
-  * [Observable](stdlib/patterns/observable.md)
-
-  * [Singleton](stdlib/patterns/singleton.md)
-
-* [Formats](stdlib/formats.md)
-  * [CSV](stdlib/formats/csv.md)
-
-  * [JSON](stdlib/formats/json.md)
-
-  * [YAML](stdlib/formats/yaml.md)
-
-  * [XML](stdlib/formats/xml.md)
-
-  * [Zlib](stdlib/formats/zlib.md)
-
-* [Development and Debugging](stdlib/development-debugging.md)
-
-* [String Utilities](stdlib/string-utilities.md)
-
-* [Networking and Web](stdlib/networking-web.md)
-
-* [File Utilities](stdlib/file-utilities.md)
-
-* [System Programming and Console](stdlib/system-programming-console.md)
-
-* [Misc Utilities](stdlib/misc.md)
-
-* [Cryptography and Encoding](stdlib/cryptography-encoding.md)
-
-* [Concurrency Utils](stdlib/concurrency-utils.md)
-
-* [Other Libraries](stdlib/other.md)

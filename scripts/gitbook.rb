@@ -23,24 +23,43 @@ class ContentPart
   end
 
   def render
-    doc = Kramdown::Document.new(@source)
-
-    doc.root.children.each { |c|
+    @source.root.children.each { |c|
       c.options[:level] += @header_shift if c.type == :header
     }
-    GFMKonverter.convert(doc.root).first
+    GFMKonverter.convert(@source.root).first
       .gsub(/^(?=\#[a-z])/, '\\') # Again! New methods could be at the beginning of the line after Kramdown render
+      .gsub(/`\\:\s/, '`: ') # IDK why Kramdown turns "`something`: definition" into "`something`\: definition"
   end
 
   private
 
   def parse_source(source)
-    # allow raw markdown
-    return source unless File.file?(source) || File.file?(File.join(SOURCE, source))
+    parse_file(source) ||               # "dir/doc.md"
+      parse_partial(source) ||          # "dir/doc.md#Section"
+      Kramdown::Document.new(source)    # "## Header"
+  end
 
-    path = source.start_with?('content') ? source : File.join(SOURCE, source)
+  def parse_file(path)
+    full_path = path.start_with?('content') ? path : File.join(SOURCE, path)
+    return unless File.file?(full_path)
 
-    File.read(path)
+    Kramdown::Document.new(File.read(full_path))
+  end
+
+  def parse_partial(path)
+    m = path.match(/^(\S+\.md)\#(.+)$/) or return
+    path, section = m.values_at(1, 2)
+
+    parse_file(path)
+      .tap { |doc|
+        doc or fail "Source for partial not found: #{path}"
+
+        doc.root.children
+          .drop_while { |e| e.type != :header || e.options[:raw_text] != section }
+          .tap { |els| els.empty? and fail "Section #{section} not found in #{path}" }
+          .take_while { |e| e.type != :header || e.options[:raw_text] == section }
+          .tap { |els| doc.root.children.replace(els) }
+      }
   end
 end
 
@@ -126,8 +145,8 @@ class Book
     # Don't remove README for GitBook server not to get broken every time
     Dir['book/*'].grep_v(%r{book/README}).each(&FileUtils.method(:rm_rf))
     FileUtils.mkdir_p('book')
-    chapters.each(&:write)
     File.write 'book/SUMMARY.md', toc
+    chapters.each(&:write)
     FileUtils.touch 'book/README.md'
   end
 end

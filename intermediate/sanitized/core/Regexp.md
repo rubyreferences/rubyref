@@ -28,9 +28,9 @@ Here 'haystack' contains the pattern 'hay', so it matches:
 Specifically, `/st/` requires that the string contains the letter *s* followed
 by the letter *t*, so it matches *haystack*, also.
 
-## `=~` and `Regexp#matc'h
+## `=~` and `Regexp#match`
 
-Pattern matching may be achieved by using `=~` operator or `Regexp#matc'h
+Pattern matching may be achieved by using `=~` operator or `Regexp#match`
 method.
 
 ### `=~` operator

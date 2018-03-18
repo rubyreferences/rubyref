@@ -115,7 +115,7 @@ arr.first #=> 1
 arr.last  #=> 6
 ```
 
-To return the first `n` elements of an array, use #take
+To return the first `n` elements of an array, use `#take`
 
 
 ```ruby
@@ -201,8 +201,7 @@ arr.pop #=> 6
 arr #=> [1, 2, 3, 4, 5]
 ```
 
-To retrieve and at the same time remove the first item, use `#shift`\:
-
+To retrieve and at the same time remove the first item, use `#shift`: 
 
 ```ruby
 arr.shift #=> 1
@@ -217,8 +216,7 @@ arr.delete_at(2) #=> 4
 arr #=> [2, 3, 5]
 ```
 
-To delete a particular element anywhere in an array, use `#delete`\:
-
+To delete a particular element anywhere in an array, use `#delete`: 
 
 ```ruby
 arr = [1, 2, 2, 3]
@@ -227,8 +225,7 @@ arr #=> [1,3]
 ```
 
 A useful method if you need to remove `nil` values from an array is
-`#compact`\:
-
+`#compact`: 
 
 ```ruby
 arr = ['foo', 0, nil, 'bar', 7, 'baz', nil]
@@ -240,7 +237,7 @@ arr          #=> ['foo', 0, 'bar', 7, 'baz']
 
 Another common need is to remove duplicate elements from an array.
 
-It has the non-destructive `#uniq`, and destructive method #uniq!
+It has the non-destructive `#uniq`, and destructive method `#uniq!`
 
 
 ```ruby
@@ -309,7 +306,7 @@ arr                          #=> [1, 2, 3, 4, 5, 6]
 ### Destructive Selection
 
 `#select!` and `#reject!` are the corresponding destructive methods to
-`#select` and #reject
+`#select` and `#reject`
 
 Similar to `#select` vs. `#reject`, `#delete_if` and `#keep_if` have the
 exact opposite result when supplied with the same block:

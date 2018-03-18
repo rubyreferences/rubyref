@@ -84,8 +84,7 @@ floats you may use an underscore for readability.
 
 ## Strings
 
-The most common way of writing strings is using `"`\:
-
+The most common way of writing strings is using `"`: 
 
 ```ruby
 "This is a string."
@@ -132,8 +131,7 @@ Any other character following a backslash is interpreted as the
 character itself.
 
 Double-quote strings allow interpolation of other values using
-`#{...}`\:
-
+`#{...}`: 
 
 ```ruby
 "One plus one is two: #{1 + 1}"
@@ -154,8 +152,7 @@ In addition to disabling interpolation, single-quoted strings also
 disable all escape sequences except for the single-quote (`\``) and
 backslash (`\\\`).
 
-You may also create strings using `%`\:
-
+You may also create strings using `%`: 
 
 ```ruby
 %(1 + 1 is #{1 + 1}) #=> "1 + 1 is 2"
@@ -226,8 +223,7 @@ newline.
 You may use any identifier with a heredoc, but all-uppercase identifiers
 are typically used.
 
-You may indent the ending identifier if you place a "-" after `<<`\:
-
+You may indent the ending identifier if you place a "-" after `<<`: 
 
 ```ruby
   expected_result = <<-INDENTED_HEREDOC
@@ -243,8 +239,7 @@ those spaces will appear in the output.
 
 To have indented content as well as an indented closing identifier, you
 can use a "squiggly" heredoc, which uses a "~" instead of a "-" after
-`<<`\:
-
+`<<`: 
 
 ```ruby
 expected_result = <<~SQUIGGLY_HEREDOC
@@ -332,8 +327,7 @@ as well.
 
 ## Arrays
 
-An array is created using the objects between `[` and `]`\:
-
+An array is created using the objects between `[` and `]`: 
 
 ```ruby
 [1, 2, 3]
@@ -351,8 +345,7 @@ See Array for the methods you may use with an array.
 
 ## Hashes
 
-A hash is created using key-value pairs between `{` and `}`\:
-
+A hash is created using key-value pairs between `{` and `}`: 
 
 ```ruby
 { "a" => 1, "b" => 2 }
@@ -425,8 +418,7 @@ See Regexp for a description of the syntax of regular expressions.
 
 ## Procs
 
-A proc can be created with `->`\:
-
+A proc can be created with `->`: 
 
 ```ruby
 -> { 1 + 1 }
@@ -451,13 +443,13 @@ escaped characters while a lowercase letter disables them.
 
 These are the types of percent strings in ruby:
 
-* `%i`\: Array of Symbols
+* `%i`: Array of Symbols
 
-* `%q`\: String
-* `%r`\: Regular Expression
-* `%s`\: Symbol
-* `%w`\: Array of Strings
-* `%x`\: Backtick (capture subshell result)
+* `%q`: String
+* `%r`: Regular Expression
+* `%s`: Symbol
+* `%w`: Array of Strings
+* `%x`: Backtick (capture subshell result)
 
 For the two array forms of percent string, if you wish to include a
 space in one of the array entries you must escape it with a "\"

@@ -83,31 +83,30 @@ the operator may lead to confusion as the user expects plus to add
 things, minus to subtract things, etc. Additionally, you cannot alter
 the precedence of the operators.
 
-* `+`\: add
+* `+`: add
 
-* `-`\: subtract
-* `*`\: multiply
-* `**`\: power
-* `/`\: divide
-* `%`\: modulus division, String#%
-* `&`\: AND
-* `^`\: XOR (exclusive OR)
-* `>>`\: right-shift
-* `<<`\: left-shift, append
-* `==`\: equal
-* `!=`\: not equal
-* `===`\: case equality. See `Object#==`=
-* `=~`\: pattern match. (Not just for regular expressions)
-* `!~`\: does not match
-* `<=>`\: comparison aka spaceship operator. See Comparable
-* `<`\: less-than
-* `<=`\: less-than or equal
-* `>`\: greater-than
-* `>=`\: greater-than or equal
+* `-`: subtract
+* `*`: multiply
+* `**`: power
+* `/`: divide
+* `%`: modulus division, String#%
+* `&`: AND
+* `^`: XOR (exclusive OR)
+* `>>`: right-shift
+* `<<`: left-shift, append
+* `==`: equal
+* `!=`: not equal
+* `===`: case equality. See `Object#===`
+* `=~`: pattern match. (Not just for regular expressions)
+* `!~`: does not match
+* `<=>`: comparison aka spaceship operator. See Comparable
+* `<`: less-than
+* `<=`: less-than or equal
+* `>`: greater-than
+* `>=`: greater-than or equal
 
 To define unary methods minus, plus, tilde and not (`!`) follow the
-operator with an `@` as in `+@` or `!@`\:
-
+operator with an `@` as in `+@` or `!@`: 
 
 ```ruby
 class C
@@ -411,8 +410,7 @@ only define `#to_ary` if you can use your object in place of an Array.
 Use of the inner parentheses only uses one of the sent arguments. If the
 argument is not an Array it will be assigned to the first argument in
 the decomposition and the remaining arguments in the decomposition will
-be `nil`\:
-
+be `nil`: 
 
 ```ruby
 def my_method(a, (b, c), d)
@@ -496,8 +494,7 @@ def add_values(first: 1, second: 2)
 end
 ```
 
-Arbitrary keyword arguments will be accepted with `**`\:
-
+Arbitrary keyword arguments will be accepted with `**`: 
 
 ```ruby
 def gather_arguments(first: nil, **rest)

@@ -21,8 +21,8 @@ A class which allows both internal and external iteration.
 
 An Enumerator can be created by the following methods.
 
-* \`Kernel#to\_enu'm
-* \`Kernel#enum\_fo'r
+* `Kernel#to_enum`
+* `Kernel#enum_for`
 * Enumerator.new
 
 Most methods have two forms: a block form where the contents are

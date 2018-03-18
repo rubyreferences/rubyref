@@ -27,8 +27,7 @@ documentation on defining methods](rdoc-ref:syntax/methods.rdoc).
 ## Receiver
 
 `self` is the default receiver. If you don't specify any receiver `self`
-will be used. To specify a receiver use `.`\:
-
+will be used. To specify a receiver use `.`: 
 
 ```ruby
 my_object.my_method
@@ -55,8 +54,7 @@ but the arguments must be supplied in this order.
 All arguments in ruby are passed by reference and are not lazily
 evaluated.
 
-Each argument is separated by a `,`\:
-
+Each argument is separated by a `,`: 
 
 ```ruby
 my_method(1, '2', :three)
@@ -220,8 +218,7 @@ not list an ArgumentError will be raised.
 The block argument sends a closure from the calling scope to the method.
 
 The block argument is always last when sending a message to a method. A
-block is sent to a method using `do ... end` or `{ ... }`\:
-
+block is sent to a method using `do ... end` or `{ ... }`: 
 
 ```ruby
 my_method do
@@ -261,8 +258,7 @@ parentheses are used the block is sent to `method_1`.
 
 A block will accept arguments from the method it was sent to. Arguments
 are defined similar to the way a method defines arguments. The block's
-arguments go in `| ... |` following the opening `do` or `{`\:
-
+arguments go in `| ... |` following the opening `do` or `{`: 
 
 ```ruby
 my_method do |argument1, argument2|
@@ -399,8 +395,7 @@ my_method(first: 3, second: 4, third: 5)
 ```
 
 If the method definition uses `**` to gather arbitrary keyword
-arguments, they will not be gathered by `*`\:
-
+arguments, they will not be gathered by `*`: 
 
 ```ruby
 def my_method(*a, **kw)
@@ -454,8 +449,7 @@ of the message for the receiver. Methods are stored in classes and
 modules so method lookup walks these, not the objects themselves.
 
 Here is the order of method lookup for the receiver's class or module
-`R`\:
-
+`R`: 
 * The prepended modules of `R` in reverse order
 
 * For a matching method in `R`
@@ -468,7 +462,7 @@ Once a match is found method lookup stops.
 
 If no match is found this repeats from the beginning, but looking for
 `method_missing`. The default `method_missing` is
-\`BasicObject#method\_missin'g which raises a NameError when invoked.
+`BasicObject#method_missing` which raises a NameError when invoked.
 
 If refinements (an experimental feature) are active, the method lookup
 changes. See the [refinements

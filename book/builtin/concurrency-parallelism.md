@@ -14,8 +14,7 @@ thr = Thread.new { puts "Whats the big deal" }
 ```
 
 Then we are able to pause the execution of the main thread and allow our
-new thread to finish, using `#join`\:
-
+new thread to finish, using `#join`: 
 
 ```ruby
 thr.join #=> "Whats the big deal"
@@ -75,7 +74,7 @@ thr.exit
 ### Thread status
 
 Ruby provides a few instance methods for querying the state of a given
-thread. To get a string with the current thread's state use #status
+thread. To get a string with the current thread's state use `#status`
 
 
 ```ruby

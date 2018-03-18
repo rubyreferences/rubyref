@@ -48,8 +48,7 @@ A variety of strategies can be used to provide useful portions of the
 standard library to subclasses of BasicObject. A subclass could `include
 Kernel` to obtain `puts`, `exit`, etc. A custom Kernel-like module could
 be created and included or delegation can be used via
-`#method_missing`\:
-
+`#method_missing`: 
 
 ```ruby
 class MyObjectSystem < BasicObject
@@ -69,8 +68,7 @@ end
 Access to classes and modules from the Ruby standard library can be
 obtained in a BasicObject subclass by referencing the desired constant
 from the root like `::File` or `::Enumerator`. Like `#method_missing`,
-`#const_missing` can be used to delegate constant lookup to `Object`\:
-
+`#const_missing` can be used to delegate constant lookup to `Object`: 
 
 ```ruby
 class MyObjectSystem < BasicObject
@@ -149,8 +147,7 @@ assigned to a global constant (`Name` in this case).
 
 When `Name.new` is called to create a new object, the `new` method in
 `Class` is run by default. This can be demonstrated by overriding `new`
-in `Class`\:
-
+in `Class`: 
 
 ```ruby
 class Class

@@ -49,65 +49,65 @@ or change the position of the scan pointer, skip ahead, and so on.
 
 ### Advancing the Scan Pointer
 
-*   #getch
+*   `#getch`
 
-*   #get_byte
-*   #scan
-*   #scan_until
-*   #skip
-*   #skip_until
+*   `#get_byte`
+*   `#scan`
+*   `#scan_until`
+*   `#skip`
+*   `#skip_until`
 
 
 ### Looking Ahead
 
-*   #check
+*   `#check`
 
-*   #check_until
-*   #exist?
-*   #match?
-*   #peek
+*   `#check_until`
+*   `#exist?`
+*   `#match?`
+*   `#peek`
 
 
 ### Finding Where we Are
 
 *   `#beginning_of_line?` (#bol?)
 
-*   #eos?
-*   #rest?
-*   #rest_size
-*   #pos
+*   `#eos?`
+*   `#rest?`
+*   `#rest_size`
+*   `#pos`
 
 
 ### Setting Where we Are
 
-*   #reset
+*   `#reset`
 
-*   #terminate
-*   #pos=
+*   `#terminate`
+*   `#pos=`
 
 
 ### Match Data
 
-*   #matched
+*   `#matched`
 
-*   #matched?
-*   #matched_size
+*   `#matched?`
+*   `#matched_size`
 
     
 :       
 
-*   #pre_match
-*   #post_match
+*   `#pre_match`
+*   `#post_match`
 
 
 ### Miscellaneous
 
 *   <<
 
-*   #concat
-*   #string
-*   #string=
-*   #unscan
+*   `#concat`
+*   `#string`
+*   `#string=`
+*   `#unscan`
 
 
 There are aliases to several of the methods.

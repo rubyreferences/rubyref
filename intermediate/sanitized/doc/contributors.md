@@ -91,7 +91,7 @@ Alexey Borzenkov
 
 Evan Brodie
 
-*   a patch for documentation of `Float#roun'd
+*   a patch for documentation of `Float#round`
 
 
 Richard Brown

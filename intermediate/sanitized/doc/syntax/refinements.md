@@ -120,7 +120,7 @@ main.rb:
     m_user.call_foo(x) # prints "C#foo in M"
     x.foo              #=> raises NoMethodError
 
-Since the refinement `M` is active in `m_user.rb` where `M`User#call_fo'o` is
+Since the refinement `M` is active in `m_user.rb` where `MUser#call_foo` is
 defined it is also active when `main.rb` calls `call_foo`.
 
 Since `#using` is a method, refinements are only active when it is called.  Here
@@ -260,7 +260,7 @@ method lookup.
 
 This behavior may be changed in the future.
 
-## Refinement inheritance by `Module#includ'e
+## Refinement inheritance by `Module#include`
 
 When a module X is included into a module Y, Y inherits refinements from X.
 

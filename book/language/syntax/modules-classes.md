@@ -112,8 +112,7 @@ end
 
 However, if you use `::` to define `A::B` without nesting it inside `A`,
 a NameError exception will be raised because the nesting does not
-include `A`\:
-
+include `A`: 
 
 ```ruby
 module A
@@ -322,8 +321,7 @@ p B.new.m #=> 2
 ```
 
 If you wish to invoke the superclass functionality from a method use
-`super`\:
-
+`super`: 
 
 ```ruby
 class A

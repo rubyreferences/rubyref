@@ -86,7 +86,7 @@ operators.
 * `<<`: left-shift, append
 * `==`: equal
 * `!=`: not equal
-* `===`: case equality.  See `Object#==`=
+* `===`: case equality.  See `Object#===`
 * `=~`: pattern match.  (Not just for regular expressions)
 * `!~`: does not match
 * `<=>`: comparison aka spaceship operator.  See Comparable

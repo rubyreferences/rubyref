@@ -51,7 +51,7 @@ You may undef multiple methods:
 
     undef method1, method2
 
-You may use `undef` in any scope.  See also `Module#undef_metho'd
+You may use `undef` in any scope.  See also `Module#undef_method`
 
 ## `defined?`
 

@@ -55,19 +55,19 @@ Requiring io/console adds the following methods:
 
 *   IO::console
 
-*   `IO#ra'w
-*   `IO#raw`!
-*   `IO#cooke'd
-*   `IO#cooked`!
-*   `IO#getc'h
-*   `IO#echo`=
-*   `IO#echo`?
-*   `IO#noech'o
-*   `IO#winsiz'e
-*   `IO#winsize`=
-*   `IO#iflus'h
-*   `IO#ioflus'h
-*   `IO#oflus'h
+*   `IO#raw`
+*   `IO#raw!`
+*   `IO#cooked`
+*   `IO#cooked!`
+*   `IO#getch`
+*   `IO#echo=`
+*   `IO#echo?`
+*   `IO#noecho`
+*   `IO#winsize`
+*   `IO#winsize=`
+*   `IO#iflush`
+*   `IO#ioflush`
+*   `IO#oflush`
 
 
 Example:

@@ -78,7 +78,7 @@ more information on grammar files.
 ## Parser
 
 Then you must prepare the parse entry method. There are two types of parse
-methods in Racc, `Racc::Parser#do_parse` and `Racc::Parser#yypars'e
+methods in Racc, `Racc::Parser#do_parse` and `Racc::Parser#yyparse`
 
 Racc::`Parser#do_parse` is simple.
 
