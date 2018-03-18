@@ -67,7 +67,6 @@ You can report downstream issues for the following distributions via their bug
 tracker:
 
 *   [debian](http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=ruby-defaults)
-
 *   [freebsd](http://www.freebsd.org/cgi/query-pr-summary.cgi?text=ruby)
 *   [redhat](https://bugzilla.redhat.com/buglist.cgi?bug_status=NEW&bug_status
     =ASSIGNED&bug_status=REOPENED&bug_status=MODIFIED)
@@ -86,7 +85,6 @@ maintainer for a specific platform.
 The current active platform maintainers are as follows:
 
 * mswin64 (Microsoft Windows): NAKAMURA Usaku (usa)
-
 * mingw32 (Minimalist GNU for Windows): Nobuyoshi Nakada (nobu)
 * IA-64 (Debian GNU/Linux): TAKANO Mitsuhiro (takano32)
 * AIX: Yutaka Kanemoto (kanemoto)
@@ -156,7 +154,6 @@ on the patch that can help reach the overall goal, try to answer some of these
 questions:
 
 *   What do you like about this change?
-
 *   What would you do differently?
 *   Are there any other edge cases not tested?
 *   Is there any documentation that would be affected by this change?
@@ -192,7 +189,6 @@ spent fixing bugs. Choose your battles.
 A good template for a feature proposal should look something like this:
 
 * Abstract: Summary of your feature
-
 * Background: Describe current behavior and why it is problem. Related work, such as
     solutions in other language helps us to understand the problem.
 
@@ -217,7 +213,6 @@ good way to get feedback.
 Slides should be:
 
 *   One-page slide
-
 *   Include a corresponding ticket number
 *   MUST include a figure and/or short example code
 *   SHOULD have less sentence in natural language (try to write less than 140
@@ -285,7 +280,6 @@ Install the prerequisite dependencies for building the CRuby interpreter to
 run tests.
 
 *   C compiler
-
 *   autoconf
 *   bison
 *   gperf
@@ -297,7 +291,6 @@ You should also have access to development headers for the following
 libraries, but these are not required:
 
 *   Tcl/Tk
-
 *   NDBM/QDBM
 *   GDBM
 *   OpenSSL
@@ -386,7 +379,6 @@ To improve the chance your patch will be accepted please follow these simple
 rules:
 
 *   Bug fixes should be committed on trunk first
-
 *   Format of the patch file must be a unified diff (ie: diff -pu, svn diff,
     or git diff)
 
@@ -447,7 +439,6 @@ Logs](http://www.gnu.org/prep/standards/html_node/Change-Logs.html#Change-Logs
 ), some other requirements and tips:
 
 *   Timestamps must be in JST (+09:00) in the style as above.
-
 *   Two spaces between the timestamp and your name. Two spaces between your
     name and your mail address.
 

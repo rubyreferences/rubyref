@@ -19,7 +19,6 @@ generates Ruby programs.
          [--version] [--copyright] [--help] <var>grammarfile</var>
 
 * `filename`: Racc grammar file. Any extension is permitted.
-
 * -o+outfile+, --output-file=`outfile`: A filename for output. default is <`filename`>.tab.rb
 * -O+filename+, --log-file=`filename`: Place logging output in file `filename`. Default log file name is
     <`filename`>.output.

@@ -84,7 +84,6 @@ things, minus to subtract things, etc. Additionally, you cannot alter
 the precedence of the operators.
 
 * `+`: add
-
 * `-`: subtract
 * `*`: multiply
 * `**`: power
@@ -321,6 +320,23 @@ end
 When called, the arguments must be provided in the exact order. In other
 words, the arguments are positional.
 
+Repeated argument names is syntax error. There is one exception: special
+name `_` to designate unused argument(s).
+
+
+```ruby
+def some_method(x, y, x) # Syntax error
+  # ...
+end
+
+def some_method(_, y, _) # OK
+  # ...
+end
+```
+
+This is useful for redefining methods, when client code expects
+particular calling convention.
+
 ### Default Values
 
 Arguments may have default values:
@@ -511,6 +527,22 @@ ArgumentError is raised.
 
 When mixing keyword arguments and positional arguments, all positional
 arguments must appear before any keyword arguments.
+
+It is possible to define keyword argument with name that is not
+acceptable for variable name, like `class` or `next` (keywords). In this
+case, local variable's value can be obtained via
+[Binding](../builtin/core.md#binding).
+
+
+```ruby
+def html_tag(name, class:)
+  # Will fail with SyntaxError
+  # puts class
+
+  # Works
+  puts binding.local_variable_get('class')
+end
+```
 
 ## Block Argument
 

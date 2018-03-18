@@ -46,7 +46,6 @@ Zachary Scott (zzak)
 ### Libraries
 
 * lib/English.rb: *unmaintained*
-
 * lib/abbrev.rb: Akinori MUSHA (knu)
 * lib/base64.rb: Yusuke Endoh (mame)
 * lib/benchmark.rb: *unmaintained*
@@ -115,7 +114,6 @@ Zachary Scott (zzak)
 ### Extensions
 
 * ext/cgi: Nobuyoshi Nakada (nobu)
-
 * ext/continuation: Koichi Sasada (ko1)
 * ext/coverage: Yusuke Endoh (mame)
 * ext/digest, ext/digest/*: Akinori MUSHA (knu)
@@ -133,7 +131,6 @@ Zachary Scott (zzak)
     *   API change needs matz's approval
 
 * ext/syslog: Akinori MUSHA (knu)
-
 * ext/win32: NAKAMURA Usaku (usa)
 * ext/win32ole: Masaki Suketa (suke)
 
@@ -143,7 +140,6 @@ Zachary Scott (zzak)
 ### Libraries
 
 * lib/cmath.rb: *unmaintained* https://github.com/ruby/cmath
-
 * lib/csv.rb: Kenta Murata (mrkn), Kouhei Sutou (kou) https://github.com/ruby/csv
 * lib/fileutils.rb: *unmaintained* https://github.com/ruby/fileutils
 * lib/rdoc.rb, lib/rdoc/*: Eric Hodel (drbrain), Hiroshi SHIBATA (hsbt) https://github.com/ruby/rdoc
@@ -154,7 +150,6 @@ Zachary Scott (zzak)
 ### Extensions
 
 * ext/bigdecimal: Kenta Murata (mrkn) https://github.com/ruby/bigdecimal
-
 * ext/date: *unmaintained* https://github.com/ruby/date
 * ext/dbm: *unmaintained* https://github.com/ruby/dbm
 * ext/etc: Ruby core team https://github.com/ruby/etc
@@ -176,7 +171,6 @@ Zachary Scott (zzak)
 ## Bundled gems upstream repositories
 
 * did_you_mean: https://github.com/yuki24/did_you_mean
-
 * minitest: https://github.com/seattlerb/minitest
 * net-telnet: https://github.com/ruby/net-telnet
 * power_assert: https://github.com/k-tsj/power_assert

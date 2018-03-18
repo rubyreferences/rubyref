@@ -42,7 +42,6 @@ following trace to STDOUT (Note you can also explicitly `require `tracer'`)
 Symbol table used for displaying incoming events:
 
 * +}+: call a C-language routine
-
 * +{+: return from a C-language routine
 * +>+: call a Ruby method
 * `C`: start a class or module definition

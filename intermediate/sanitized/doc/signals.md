@@ -72,7 +72,6 @@ corresponding wrappers for many IO, File, Dir, and Socket methods are safe.
 (Incomplete list)
 
 *   Dir.chdir (without block arg)
-
 *   Dir.mkdir
 *   Dir.open
 *   `File#truncate`

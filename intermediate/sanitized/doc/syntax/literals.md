@@ -3,7 +3,6 @@
 Literals create objects you can use in your program.  Literals include:
 
 *   Booleans and nil
-
 *   Numbers
 *   Strings
 *   Symbols
@@ -349,7 +348,6 @@ characters while a lowercase letter disables them.
 These are the types of percent strings in ruby:
 
 * `%i`: Array of Symbols
-
 * `%q`: String
 * `%r`: Regular Expression
 * `%s`: Symbol

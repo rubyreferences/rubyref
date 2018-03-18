@@ -69,7 +69,6 @@ is.  None of these access the file system except for `#mountpoint?`, `#children`
 `#each_child`, `#realdirpath` and `#realpath`.
 
 *   +
-
 *   `#join`
 *   `#parent`
 *   `#root?`

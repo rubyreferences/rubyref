@@ -32,7 +32,6 @@ Enumerator.
 few implementations of generator.
 
 * `Prime`::`EratosthenesGenerator`: Uses eratosthenes` sieve.
-
 * `Prime`::`TrialDivisionGenerator`: Uses the trial division method.
 * `Prime`::`Generator23`: Generates all positive integers which are not divisible by either 2 or 3.
     This sequence is very bad as a pseudo-prime sequence. But this is faster

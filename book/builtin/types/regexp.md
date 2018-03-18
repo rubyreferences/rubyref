@@ -158,7 +158,6 @@ This is equivalent to:
 The following metacharacters also behave like character classes:
 
 * `/./` - Any character except a newline.
-
 * `/./m` - Any character (the `m` modifier enables multiline mode)
 * `/\w/` - A word character (`[a-zA-Z0-9_]`)
 * `/\W/` - A non-word character (`[^a-zA-Z0-9_]`). Please take a look at
@@ -178,7 +177,6 @@ the ASCII decimal digits (0-9); whereas `/[[:digit:]]/` matches any
 character in the Unicode *Nd* category.
 
 * `/[[:alnum:]]/` - Alphabetic and numeric character
-
 * `/[[:alpha:]]/` - Alphabetic character
 * `/[[:blank:]]/` - Space or tab
 * `/[[:cntrl:]]/` - Control character
@@ -218,7 +216,6 @@ followed by a repetition metacharacter to specify how many times they
 need to occur. Such metacharacters are called *quantifiers*.
 
 * `*` - Zero or more times
-
 * `+` - One or more times
 * `?` - Zero or one times (optional)
 * `{`*n*`}` - Exactly *n* times
@@ -442,7 +439,6 @@ The `\p{}` construct matches characters with the named property, much
 like POSIX bracket classes.
 
 * `/\p{Alnum}/` - Alphabetic and numeric character
-
 * `/\p{Alpha}/` - Alphabetic character
 * `/\p{Blank}/` - Space or tab
 * `/\p{Cntrl}/` - Control character
@@ -471,7 +467,6 @@ A Unicode character's *General Category* value can also be matched with
 below:
 
 * `/\p{L}/` - \`Letter'
-
 * `/\p{Ll}/` - \`Letter: Lowercase'
 * `/\p{Lm}/` - \`Letter: Mark'
 * `/\p{Lo}/` - \`Letter: Other'
@@ -552,7 +547,6 @@ Anchors are metacharacter that match the zero-width positions between
 characters, *anchoring* the match to a specific position.
 
 * `^` - Matches beginning of line
-
 * `$` - Matches end of line
 * `\A` - Matches beginning of string.
 * `\Z` - Matches end of string. If string ends with a newline, it
@@ -648,7 +642,6 @@ The end delimiter for a regexp can be followed by one or more
 single-letter options which control how the pattern can match.
 
 * `/pat/i` - Ignore case
-
 * `/pat/m` - Treat a newline as a character matched by `.`
 * `/pat/x` - Ignore whitespace and comments in the pattern
 * `/pat/o` - Perform `#{}` interpolation only once
@@ -696,7 +689,6 @@ float_pat.match('3.14') #=> #<MatchData "3.14" 1:".14">
 There are a number of strategies for matching whitespace:
 
 * Use a pattern such as `\s` or `\p{Space}`.
-
 * Use escaped whitespace such as `\ `, i.e. a space preceded by a
   backslash.
 * Use a character class such as `[ ]`.
@@ -714,7 +706,6 @@ Regular expressions are assumed to use the source encoding. This can be
 overridden with one of the following modifiers.
 
 * `/`*pat*`/u` - UTF-8
-
 * `/`*pat*`/e` - EUC-JP
 * `/`*pat*`/s` - Windows-31J
 * `/`*pat*`/n` - ASCII-8BIT

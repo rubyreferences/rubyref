@@ -39,7 +39,6 @@ require 'securerandom'
 It supports the following secure random number generators:
 
 * openssl
-
 * /dev/urandom
 * Win32
 

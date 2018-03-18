@@ -16,7 +16,6 @@ It must provide the following methods:
 * f.values(x): returns the values of all functions at x
 
 * f.zero: returns 0.0
-
 * f.one: returns 1.0
 * f.two: returns 2.0
 * f.ten: returns 10.0

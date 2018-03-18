@@ -1,26 +1,27 @@
-# Ruby Syntax
+# Ruby Language Structure
 
-This chapter describes all syntax constructs of Ruby.
+This chapter describes all syntax constructs and general structure of
+Ruby programs.
 
 As a brief overview, it can be said that:
 
 * Ruby program consists of expressions dealing with
-  [literals](syntax/literals.md), [variables](syntax/variables.md) and
-  [constants](syntax/variables.md#constants).
+  [literals](language/literals.md), [variables](language/variables.md)
+  and [constants](language/variables.md#constants).
 * Expressions are:
-  * [assignments](syntax/assignments.md);
-  * [control expressions](syntax/control-expressions.md);
-  * [method calls](syntax/methods-call.md);
+  * [assignments](language/assignments.md);
+  * [control expressions](language/control-expressions.md);
+  * [method calls](language/methods-call.md);
   * definitions of modules, classes and methods.
 
 * Ruby is object-oriented language, so the program is structured by
-  defining [classes and modules](syntax/modules-classes.md) and their
-  [methods](syntax/methods-def.md).
+  defining [classes and modules](language/modules-classes.md) and their
+  [methods](language/methods-def.md).
   * Ruby has open classes, for hygiene one can use
-    [refinements](syntax/refinements.md).
+    [refinements](language/refinements.md).
 
 * Error reporting and handling is done with
-  [exceptions](syntax/exceptions.md).
+  [exceptions](language/exceptions.md).
 
 
 

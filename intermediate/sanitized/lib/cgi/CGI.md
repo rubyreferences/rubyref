@@ -91,7 +91,6 @@ string, but an IO object, either an IOString for small files, or a Tempfile
 for larger ones.  This object also has the additional singleton methods:
 
 * `#local_path`(): the path of the uploaded file on the local filesystem
-
 * `#original_filename`(): the name of the file on the client computer
 * `#content_type`(): the content type of the file
 

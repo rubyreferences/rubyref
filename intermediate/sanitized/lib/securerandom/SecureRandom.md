@@ -12,7 +12,6 @@ You can use this library in your application by requiring it:
 It supports the following secure random number generators:
 
 *   openssl
-
 *   /dev/urandom
 *   Win32
 

@@ -22,7 +22,6 @@ Below is a full list of descriptive aliases and their associated global
 variable:
 
 * $ERROR_INFO: $!
-
 * $ERROR_POSITION: $@
 * $FS: $;
 * $FIELD_SEPARATOR: $;

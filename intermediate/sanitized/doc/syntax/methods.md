@@ -74,7 +74,6 @@ subtract things, etc.  Additionally, you cannot alter the precedence of the
 operators.
 
 * `+`: add
-
 * `-`: subtract
 * `*`: multiply
 * `**`: power

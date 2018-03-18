@@ -60,7 +60,6 @@ Our expression consists of a local variable, or `var_ref`, with the identifier
 ## Requirements
 
 *   ruby 1.9 (support CVS HEAD only)
-
 *   bison 1.28 or later (Other yaccs do not work)
 
 
@@ -69,6 +68,5 @@ Our expression consists of a local variable, or `var_ref`, with the identifier
 Ruby License.
 
 *   Minero Aoki
-
 *   aamine@loveruby.net
 *   http://i.loveruby.net

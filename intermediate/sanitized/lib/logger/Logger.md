@@ -12,7 +12,6 @@ that level or higher will be printed.
 The levels are:
 
 * `UNKNOWN`: An unknown message that should always be logged.
-
 * `FATAL`: An unhandleable error that results in a program crash.
 * `ERROR`: A handleable error condition.
 * `WARN`: A warning.

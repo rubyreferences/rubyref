@@ -9,7 +9,6 @@ description.
 ## Libraries
 
 * Abbrev: Calculates a set of unique abbreviations for a given set of strings
-
 * Base64: Support for encoding and decoding binary data using a Base64
     representation
 
@@ -79,7 +78,6 @@ description.
 ## Extensions
 
 * Coverage: Provides coverage measurement for Ruby
-
 * Digest: Provides a framework for message digest libraries
 * IO: Extensions for Ruby IO class, including `#wait` and ::console
 * NKF: Ruby extension for Network Kanji Filter
@@ -98,7 +96,6 @@ description.
 ## Libraries
 
 * Bundler: Manage your Ruby application's gem dependencies
-
 * CMath: Provides Trigonometric and Transcendental functions for complex numbers
 * CSV: Provides an interface to read and write CSV files and data
 * FileUtils: Several file utility methods for copying, moving, removing, etc
@@ -110,7 +107,6 @@ description.
 ## Extensions
 
 * BigDecimal: Provides arbitrary-precision floating point decimal arithmetic
-
 * Date: A subclass of Object includes Comparable module for handling dates
 * DateTime: Subclass of Date to handling dates, hours, minutes, seconds, offsets
 * DBM: Provides a wrapper for the UNIX-style Database Manager Library
@@ -133,7 +129,6 @@ description.
 ## Libraries
 
 * DidYouMean: "Did you mean?" experience in Ruby
-
 * MiniTest: A test suite with TDD, BDD, mocking and benchmarking
 * Net::Telnet: Telnet client library for Ruby
 * PowerAssert: Power Assert for Ruby.

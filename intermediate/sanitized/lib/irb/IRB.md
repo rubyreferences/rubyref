@@ -62,7 +62,6 @@ IRB reads from `~/.irbrc` when it's invoked.
 If `~/.irbrc` doesn't exist, `irb` will try to read in the following order:
 
 *   `.irbrc`
-
 *   `irb.rc`
 *   `_irbrc`
 *   `$irbrc`
@@ -246,7 +245,6 @@ session can be configured using this mechanism.
 There are a few variables in every Irb session that can come in handy:
 
 * `_`: The value command executed, as a local variable
-
 * `__`: The history of evaluated commands
 * `__[line_no]`: Returns the evaluation value at the given line number, `line_no`. If
     `line_no` is a negative, the return value `line_no` many lines before the

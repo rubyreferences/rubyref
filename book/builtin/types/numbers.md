@@ -98,7 +98,6 @@ Floating point has a different arithmetic and is an inexact number. So
 you should know its esoteric system. See following:
 
 * http://docs.sun.com/source/806-3568/ncg\_goldberg.html
-
 * http://wiki.github.com/rdp/ruby\_tutorials\_core/ruby-talk-faq#wiki-floats\_i
   mprecise
 
@@ -370,7 +369,7 @@ Documented by zzak
 
 
 
-### Number Utilities
+## Number Utilities
 
 
 
@@ -422,7 +421,6 @@ compatible with an Enumerator.
 are few implementations of generator.
 
 * `Prime`\::`EratosthenesGenerator`: Uses eratosthenes\` sieve.
-
 * `Prime`\::`TrialDivisionGenerator`: Uses the trial division method.
 * `Prime`\::`Generator23`: Generates all positive integers which are
   not divisible by either 2 or 3. This sequence is very bad as a

@@ -177,7 +177,6 @@ arcane character class idioms.
 ## License and copyright
 
 * Copyright: (c) 2002-2003 David Alan Black
-
 * License: Distributed on the same licensing terms as Ruby itself
 
 
@@ -193,7 +192,6 @@ scanf was developed as the major activity of the Austin Ruby Codefest (Austin,
 Texas, August 2002).
 
 * Principal author: David Alan Black (mailto:dblack@superlink.net)
-
 * Co-author: Hal Fulton (mailto:hal9000@hypermetrics.com)
 * Project contributors: Nolan Darilek, Jason Johnston
 

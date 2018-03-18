@@ -19,7 +19,7 @@ class ContentPart
   def initialize(index:, source:, header_shift: nil, remove: [], insert: [], **)
     @index = index
     @header_shift = header_shift&.to_i || (index.zero? ? 0 : 1)
-    @remove = remove
+    @remove = Array(remove)
     @insert = insert.map { |i| i.transform_keys(&:to_sym) }
     @source = source
     @text = parse_source(@source)
@@ -38,6 +38,7 @@ class ContentPart
     parse_file(source) ||               # "dir/doc.md"
       parse_partial(source) ||          # "dir/doc.md#Section"
       Kramdown::Document.new(source)    # "## Header"
+        .tap { @header_shift = 0 } # do not shift headers of verbatim
   end
 
   def parse_file(path)
@@ -173,7 +174,7 @@ class Book
 
   def write
     # Don't remove README for GitBook server not to get broken every time
-    Dir['book/*'].grep_v(%r{book/README}).each(&FileUtils.method(:rm_rf))
+    Dir['book/*'].grep_v(%r{book/(README|book|_book)}).each(&FileUtils.method(:rm_rf))
     FileUtils.mkdir_p('book')
     File.write 'book/SUMMARY.md', toc
     chapters.each(&:write)

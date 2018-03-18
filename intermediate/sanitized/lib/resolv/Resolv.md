@@ -23,5 +23,4 @@ Examples:
 ## Bugs
 
 *   NIS is not supported.
-
 *   /etc/nsswitch.conf is not supported.

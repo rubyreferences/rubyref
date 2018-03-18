@@ -2,11 +2,9 @@
 
 
 
-### Local Variables
+## Local Variables
 
 
-
-### Local Variable Names
 
 A local variable name must start with a lowercase US-ASCII letter or a
 character with the eight bit set. Typically local variables are US-ASCII

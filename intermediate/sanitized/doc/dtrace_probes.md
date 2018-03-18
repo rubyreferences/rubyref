@@ -15,7 +15,6 @@ Where "ruby" is the provider name, module and function names are blank, the
 probe name is "method-entry", and the probe takes four arguments:
 
 *   class name
-
 *   method name
 *   file name
 *   line number

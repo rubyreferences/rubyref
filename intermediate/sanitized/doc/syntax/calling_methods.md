@@ -331,7 +331,6 @@ lookup walks these, not the objects themselves.
 Here is the order of method lookup for the receiver's class or module `R`:
 
 *   The prepended modules of `R` in reverse order
-
 *   For a matching method in `R`
 *   The included modules of `R` in reverse order
 

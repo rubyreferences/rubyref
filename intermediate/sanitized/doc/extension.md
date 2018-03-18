@@ -26,7 +26,6 @@ Converting to the wrong data type may cause serious problems.
 The Ruby interpreter has the following data types:
 
 * T_NIL: nil
-
 * T_OBJECT: ordinary object
 * T_CLASS: class
 * T_MODULE: module
@@ -50,7 +49,6 @@ The Ruby interpreter has the following data types:
 In addition, there are several other types used internally:
 
 * T_ICLASS: included module
-
 * T_MATCH: MatchData object
 * T_UNDEF: undefined
 * T_NODE: syntax tree node
@@ -156,7 +154,6 @@ structures are defined in <ruby.h>.
 To convert C numbers to Ruby values, use these macros:
 
 * INT2FIX(): for integers within 31bits.
-
 * INT2NUM(): for arbitrary sized integers.
 
 
@@ -291,7 +288,6 @@ You can add new features (classes, methods, etc.) to the Ruby interpreter.
 Ruby provides APIs for defining the following things:
 
 *   Classes, Modules
-
 *   Methods, Singleton Methods
 *   Constants
 
@@ -919,7 +915,6 @@ use, modify, distribute or sell your program.
 ### Ruby Language Core
 
 * class.c: classes and modules
-
 * error.c: exception classes and exception mechanism
 * gc.c: memory management
 * load.c: library loading
@@ -930,7 +925,6 @@ use, modify, distribute or sell your program.
 ### Ruby Syntax Parser
 
 * parse.y: grammar definition
-
 * parse.c: automatically generated from parse.y
 * defs/keywords: reserved keywords
 * lex.c: automatically generated from keywords
@@ -975,7 +969,6 @@ use, modify, distribute or sell your program.
 ### Utility Functions
 
 * debug.c: debug symbols for C debugger
-
 * dln.c: dynamic loading
 * st.c: general purpose hash table
 * strftime.c: formatting times
@@ -999,7 +992,6 @@ use, modify, distribute or sell your program.
 ### Class Library
 
 * array.c: Array
-
 * bignum.c: Bignum
 * compar.c: Comparable
 * complex.c: Complex
@@ -1027,14 +1019,12 @@ use, modify, distribute or sell your program.
 * time.c: Time
 
 * defs/known_errors.def: Errno::* exception classes
-
 * -> known_errors.inc: automatically generated
 
 
 ### Multilingualization
 
 * encoding.c: Encoding
-
 * transcode.c: Encoding::Converter
 * enc/*.c: encoding classes
 * enc/trans/*: codepoint mapping tables

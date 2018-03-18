@@ -6,7 +6,6 @@ URI is a module providing classes to handle Uniform Resource Identifiers
 ## Features
 
 *   Uniform handling of handling URIs
-
 *   Flexibility to introduce custom URI schemes
 *   Flexibility to have an alternate URI::Parser (or just different patterns
     and regexp's)
@@ -81,12 +80,10 @@ Here is a list of all related RFC's.
     *   URI::MailTo - (in uri/mailto.rb)
 
 *   URI::Parser - (in uri/common.rb)
-
 *   URI::REGEXP - (in uri/common.rb)
     *   URI::REGEXP::PATTERN - (in uri/common.rb)
 
 *   URI::Util - (in uri/common.rb)
-
 *   URI::Escape - (in uri/common.rb)
 *   URI::Error - (in uri/common.rb)
     *   URI::InvalidURIError - (in uri/common.rb)
@@ -98,7 +95,6 @@ Here is a list of all related RFC's.
 ## Copyright Info
 
 * Author: Akira Yamada <akira@ruby-lang.org>
-
 * Documentation: Akira Yamada <akira@ruby-lang.org> Dmitry V. Sabanin <sdmitry@lrn.ru>
     Vincent Batts <vbatts@hashbangbash.com>
 

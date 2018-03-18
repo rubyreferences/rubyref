@@ -91,7 +91,6 @@ want to use.
 To filter what is traced, you can pass any of the following as
 `events`: 
 * `:line`: execute code on a new line
-
 * `:class`: start a class or module definition
 * `:end`: finish a class or module definition
 * `:call`: call a Ruby method

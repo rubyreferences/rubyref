@@ -1,7 +1,6 @@
 ## Pre-defined variables
 
 * `$!`: The exception information message set by 'raise'.
-
 * `$@`: Array of backtrace of the last exception thrown.
 * `$&`: The string matched by the last successful match.
 * `$`\`: The string to the left of the last successful match.
@@ -64,7 +63,6 @@
 ## Pre-defined global constants
 
 * `TRUE`: The typical true value.
-
 * `FALSE`: The false itself.
 * `NIL`: The nil itself.
 * `STDIN`: The standard input. The default value for $stdin.
@@ -109,7 +107,6 @@ Below is a full list of descriptive aliases and their associated global
 variable:
 
 * $ERROR\_INFO: $!
-
 * $ERROR\_POSITION: $@
 * $FS: $;
 * $FIELD\_SEPARATOR: $;

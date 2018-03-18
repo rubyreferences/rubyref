@@ -10,7 +10,6 @@ TSort requires two methods to interpret an object as a graph, tsort_each_node
 and tsort_each_child.
 
 *   tsort_each_node is used to iterate for all nodes over a graph.
-
 *   tsort_each_child is used to iterate for child nodes of a given node.
 
 

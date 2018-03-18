@@ -6,7 +6,6 @@ libraries.
 For user documentation, see:
 
 *   `gem help` and `gem help [command]`
-
 *   [RubyGems User Guide](http://guides.rubygems.org/)
 *   [Frequently Asked Questions](http://guides.rubygems.org/faqs)
 
@@ -14,7 +13,6 @@ For user documentation, see:
 For gem developer documentation see:
 
 *   [Creating Gems](http://guides.rubygems.org/make-your-own-gem)
-
 *   Gem::Specification
 *   Gem::Version for version dependency notes
 
@@ -22,7 +20,6 @@ For gem developer documentation see:
 Further RubyGems documentation can be found at:
 
 *   [RubyGems Guides](http://guides.rubygems.org)
-
 *   [RubyGems API](http://www.rubydoc.info/github/rubygems/rubygems) (also
     available from `gem server`)
 
@@ -64,7 +61,6 @@ RubyGems is currently maintained by Eric Hodel.
 RubyGems was originally developed at RubyConf 2003 by:
 
 *   Rich Kilmer  -- rich(at)infoether.com
-
 *   Chad Fowler  -- chad(at)chadfowler.com
 *   David Black  -- dblack(at)wobblini.net
 *   Paul Brannan -- paul(at)atdesk.com
@@ -74,7 +70,6 @@ RubyGems was originally developed at RubyConf 2003 by:
 Contributors:
 
 *   Gavin Sinclair     -- gsinclair(at)soyabean.com.au
-
 *   George Marrows     -- george.marrows(at)ntlworld.com
 *   Dick Davies        -- rasputnik(at)hellooperator.net
 *   Mauricio Fernandez -- batsman.geo(at)yahoo.com

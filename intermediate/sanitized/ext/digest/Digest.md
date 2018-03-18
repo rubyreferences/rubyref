@@ -51,7 +51,6 @@ http://web.mit.edu/kenta/www/one/bubblebabble/spec/jrtrjwzi/draft-huima-01.txt
 Different digest algorithms (or hash functions) are available:
 
 * MD5: See RFC 1321 The MD5 Message-Digest Algorithm
-
 * RIPEMD-160: As Digest::RMD160. See
     http://homes.esat.kuleuven.be/~bosselae/ripemd160.html.
 

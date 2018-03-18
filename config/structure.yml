@@ -3,81 +3,83 @@
     - source: README.md
 - title: Language Structure
   id: language
-  part: true
+  content:
+    - source: content/language.md
+    - source: "doc/syntax/miscellaneous.md#Ending an Expression"
+      header_shift: 0
+    - source: "doc/syntax/miscellaneous.md#Indentation"
+      header_shift: 0
+    - source: "doc/syntax/miscellaneous.md#`defined?`"
+      header_shift: 0
+    - source: "doc/syntax/miscellaneous.md#`BEGIN` and `END`"
+      header_shift: 0
   children:
     - title: Keywords
       content:
         - source: doc/keywords.md
-    - title: Syntax
-      id: syntax
+    - title: Literals
       content:
-        - source: content/language/syntax.md
-        - source: "doc/syntax/miscellaneous.md#Ending an Expression"
+        # TODO: Needs rewrite accordingly to our structure
+        - source: doc/syntax/literals.md
+    - title: Variables and Constants
+      content:
+        - source: '# Variables and Constants'
+        - source: '## Local Variables'
+        - source: "doc/syntax/assignment.md#Local Variable Names"
+          remove: "## Local Variable Names"
+        - source: "doc/syntax/assignment.md#Local Variable Scope"
+        - source: "doc/syntax/assignment.md#Local Variables and Methods"
+        - source: "doc/syntax/assignment.md#Instance Variables"
           header_shift: 0
-        - source: "doc/syntax/miscellaneous.md#Indentation"
+        - source: "doc/syntax/assignment.md#Class Variables"
           header_shift: 0
-        - source: "doc/syntax/miscellaneous.md#`defined?`"
+        - source: "doc/syntax/assignment.md#Global Variables"
           header_shift: 0
-        - source: "doc/syntax/miscellaneous.md#`BEGIN` and `END`"
-          header_shift: 0
-      children:
-        - title: Literals
-          content:
-            # TODO: Update/rewrite accordingly to our structure
-            - source: doc/syntax/literals.md
-        - title: Variables and Constants
-          content:
-            - source: '# Variables and Constants'
-            - source: '## Local Variables'
-            - source: "doc/syntax/assignment.md#Local Variable Names"
-            - source: "doc/syntax/assignment.md#Local Variable Scope"
-            - source: "doc/syntax/assignment.md#Local Variables and Methods"
-            - source: "doc/syntax/assignment.md#Instance Variables"
-              header_shift: 0
-            - source: "doc/syntax/assignment.md#Class Variables"
-              header_shift: 0
-            - source: "doc/syntax/assignment.md#Global Variables"
-              header_shift: 0
-            - source: content/language/syntax/constants.md
-        - title: Assignment
-          content:
-            - source: "doc/syntax/assignment.md#Assignment"
-            - source: "doc/syntax/assignment.md#Abbreviated Assignment"
-            - source: "doc/syntax/assignment.md#Implicit Array Assignment"
-            - source: "doc/syntax/assignment.md#Multiple Assignment"
-            - source: "doc/syntax/assignment.md#Array Decomposition"
-            # TODO: Assignment methods: here or in Methods (with link here)?..
-        - title: Control Expressions
-          content:
-            - source: doc/syntax/control_expressions.md
-              remove:
-                - "The `for` loop is similar"
-                - "The `for` loop is rarely used"
-              insert:
-                - after: "The result value of a `for`"
-                  source: content/syntax/control_expressions/_for_vs_each.md
-        - title: Defining methods
-          id: methods-def
-          content:
-            - source: doc/syntax/methods.md
-            - source: "doc/syntax/miscellaneous.md#`alias`"
-            - source: "doc/syntax/miscellaneous.md#`undef`"
-        - title: Calling methods
-          id: methods-call
-          content:
-            - source: doc/syntax/calling_methods.md
-        - title: Modules and Classes
-          content:
-            - source: doc/syntax/modules_and_classes.md
-        - title: Exceptions
-          content:
-            - source: doc/syntax/exceptions.md
-        - title: Refinements
-          content:
-            - source: doc/syntax/refinements.md
-        - title: Precedence
-          content:
-            - source: doc/syntax/precedence.md
+        - source: content/language/constants.md
+    - title: Assignment
+      content:
+        - source: "doc/syntax/assignment.md#Assignment"
+        - source: "doc/syntax/assignment.md#Abbreviated Assignment"
+        - source: "doc/syntax/assignment.md#Implicit Array Assignment"
+        - source: "doc/syntax/assignment.md#Multiple Assignment"
+        - source: "doc/syntax/assignment.md#Array Decomposition"
+        # TODO: Assignment methods: here or in Methods (with link here)?..
+    - title: Control Expressions
+      content:
+        - source: doc/syntax/control_expressions.md
+          remove:
+            - "The `for` loop is similar"
+            - "The `for` loop is rarely used"
+          insert:
+            - after: "The result value of a `for`"
+              source: content/syntax/control_expressions/_for_vs_each.md
+    - title: Defining methods
+      id: methods-def
+      content:
+        - source: doc/syntax/methods.md
+          insert:
+            - after: "When called, the arguments"
+              source: "content/language/methods/_underscore.md"
+            - after: "When mixing keyword arguments"
+              source: "content/language/methods/_keyword_vars.md"
+        - source: "doc/syntax/miscellaneous.md#`alias`"
+        - source: "doc/syntax/miscellaneous.md#`undef`"
+    - title: Calling methods
+      id: methods-call
+      content:
+        - source: doc/syntax/calling_methods.md
+    - title: Modules and Classes
+      content:
+        - source: doc/syntax/modules_and_classes.md
+    - title: Exceptions
+      content:
+        - source: doc/syntax/exceptions.md
+    - title: Refinements
+      content:
+        - source: doc/syntax/refinements.md
+    - title: Precedence
+      content:
+        - source: doc/syntax/precedence.md
     - title: File Structure
       id: files
       content:

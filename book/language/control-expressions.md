@@ -424,8 +424,9 @@ odds = [1, 2, 3, 4, 5].select { |value| value.odd? }
 odds = [1, 2, 3, 4, 5].select(&:odd?)
 ```
 
-Note, that in a lot of cases `until` and `while` loops also could be
-replaced with `Enumerable` methods.
+Note that in a lot of cases `until` and `while` loops also could be
+replaced with `Enumerable` methods like `#take_while`, `#drop_while` and
+others.
 
 ## Modifier `while` and `until`
 

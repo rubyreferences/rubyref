@@ -11,7 +11,6 @@ includes a full [XPath](http://www.w3c.org/tr/xpath) 1.0 implementation. Since
 Ruby 1.8, REXML is included in the standard Ruby distribution.
 
 * Main page: http://www.germane-software.com/software/rexml
-
 * Author: Sean Russell <serATgermaneHYPHENsoftwareDOTcom>
 * Date: 2008/019
 * Version: 3.1.7.3

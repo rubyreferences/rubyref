@@ -50,7 +50,6 @@ or change the position of the scan pointer, skip ahead, and so on.
 ### Advancing the Scan Pointer
 
 *   `#getch`
-
 *   `#get_byte`
 *   `#scan`
 *   `#scan_until`
@@ -61,7 +60,6 @@ or change the position of the scan pointer, skip ahead, and so on.
 ### Looking Ahead
 
 *   `#check`
-
 *   `#check_until`
 *   `#exist?`
 *   `#match?`
@@ -71,7 +69,6 @@ or change the position of the scan pointer, skip ahead, and so on.
 ### Finding Where we Are
 
 *   `#beginning_of_line?` (#bol?)
-
 *   `#eos?`
 *   `#rest?`
 *   `#rest_size`
@@ -81,7 +78,6 @@ or change the position of the scan pointer, skip ahead, and so on.
 ### Setting Where we Are
 
 *   `#reset`
-
 *   `#terminate`
 *   `#pos=`
 
@@ -89,7 +85,6 @@ or change the position of the scan pointer, skip ahead, and so on.
 ### Match Data
 
 *   `#matched`
-
 *   `#matched?`
 *   `#matched_size`
 
@@ -103,7 +98,6 @@ or change the position of the scan pointer, skip ahead, and so on.
 ### Miscellaneous
 
 *   <<
-
 *   `#concat`
 *   `#string`
 *   `#string=`

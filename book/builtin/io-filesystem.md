@@ -59,7 +59,6 @@ input/output/error IO objects.
 Requiring io/console adds the following methods:
 
 * IO::console
-
 * `IO#raw`
 * `IO#raw!`
 * `IO#cooked`
@@ -239,7 +238,6 @@ a path is. None of these access the file system except for
 `#realpath`.
 
 * +
-
 * `#join`
 * `#parent`
 * `#root?`

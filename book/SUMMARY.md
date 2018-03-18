@@ -1,35 +1,32 @@
 # The Ruby Reference
 * [About This Book](about-this-book.md)
 
+* [Language Structure](language.md)
+  * [Keywords](language/keywords.md)
 
-## Language Structure
+  * [Literals](language/literals.md)
 
-* [Keywords](language/keywords.md)
+  * [Variables and Constants](language/variables-constants.md)
 
-* [Syntax](language/syntax.md)
-  * [Literals](language/syntax/literals.md)
+  * [Assignment](language/assignment.md)
 
-  * [Variables and Constants](language/syntax/variables-constants.md)
+  * [Control Expressions](language/control-expressions.md)
 
-  * [Assignment](language/syntax/assignment.md)
+  * [Defining methods](language/methods-def.md)
 
-  * [Control Expressions](language/syntax/control-expressions.md)
+  * [Calling methods](language/methods-call.md)
 
-  * [Defining methods](language/syntax/methods-def.md)
+  * [Modules and Classes](language/modules-classes.md)
 
-  * [Calling methods](language/syntax/methods-call.md)
+  * [Exceptions](language/exceptions.md)
 
-  * [Modules and Classes](language/syntax/modules-classes.md)
+  * [Refinements](language/refinements.md)
 
-  * [Exceptions](language/syntax/exceptions.md)
+  * [Precedence](language/precedence.md)
 
-  * [Refinements](language/syntax/refinements.md)
+  * [File Structure](language/files.md)
 
-  * [Precedence](language/syntax/precedence.md)
-
-* [File Structure](language/files.md)
-
-* [Globals](language/globals.md)
+  * [Globals](language/globals.md)
 
 
 ## Built-in Classes

@@ -46,7 +46,6 @@ Using the wrapper to compress strings with default parameters is quite simple:
 ## Class tree
 
 *   Zlib::Deflate
-
 *   Zlib::Inflate
 *   Zlib::ZStream
 *   Zlib::Error

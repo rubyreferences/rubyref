@@ -18,7 +18,6 @@ UNIXSocket for example.
 Sockets have their own vocabulary:
 
 **domain:** The family of protocols:
-
 *   Socket::PF_INET
 *   Socket::PF_INET6
 *   Socket::PF_UNIX
@@ -26,7 +25,6 @@ Sockets have their own vocabulary:
 
 
 **type:** The type of communications between the two endpoints, typically
-
 *   Socket::SOCK_STREAM
 *   Socket::SOCK_DGRAM.
 
@@ -35,7 +33,6 @@ Sockets have their own vocabulary:
 protocol.
 
 **hostname:** The identifier of a network interface:
-
 *   a string (hostname, IPv4 or IPv6 address or `broadcast` which specifies a
     broadcast address)
 
@@ -98,7 +95,6 @@ Although the general way to create socket is Socket.new, there are several
 methods of socket creation for most cases.
 
 * TCP client socket: Socket.tcp, TCPSocket.open
-
 * TCP server socket: Socket.tcp_server_loop, TCPServer.open
 * UNIX client socket: Socket.unix, UNIXSocket.open
 * UNIX server socket: Socket.unix_server_loop, UNIXServer.open
@@ -107,7 +103,6 @@ methods of socket creation for most cases.
 ### Documentation by
 
 *   Zach Dennis
-
 *   Sam Roberts
 *   *Programming Ruby* from The Pragmatic Bookshelf.
 

@@ -129,7 +129,6 @@ This library extends the Time class with the following conversions
 between date strings and Time objects:
 
 * date-time defined by [RFC 2822][1]
-
 * HTTP-date defined by [RFC 2616][2]
 * dateTime defined by XML Schema Part 2: Datatypes ([ISO 8601][3])
 

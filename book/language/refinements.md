@@ -257,7 +257,6 @@ When looking up a method for an instance of class `C` Ruby checks:
   * The included modules from the refinement for `C`
 
 * The prepended modules of `C`
-
 * `C`
 * The included modules of `C`
 

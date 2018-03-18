@@ -105,7 +105,6 @@ objects for us.
 OptionParser comes with a few ready-to-use kinds of  type coercion. They are:
 
 *   Date  -- Anything accepted by `Date.parse`
-
 *   DateTime -- Anything accepted by `DateTime.parse`
 *   Time -- Anything accepted by `Time.httpdate` or `Time.parse`
 *   URI  -- Anything accepted by `URI.parse`
