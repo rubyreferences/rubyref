@@ -530,7 +530,7 @@ arguments must appear before any keyword arguments.
 
 It is possible to define keyword argument with name that is not
 acceptable for variable name, like `class` or `next` (keywords). In this
-case, local variable's value can be obtained via
+case, argument's value can be obtained via
 [Binding](../builtin/core.md#binding).
 
 
@@ -616,6 +616,27 @@ end
 If you wish to rescue an exception for only part of your method, use
 `begin` and `end`. For more details see the page on [exception
 handling](rdoc-ref:syntax/exceptions.rdoc).
+
+## Method definition as an expression
+
+`def` (method definition) is an *expression* returning the name of the
+defined method. This fact is mostly useful for method decoration:
+
+
+```ruby
+# Ruby's standard visibility statement
+private def some_private_method
+  # ...
+end
+
+# Decorating with third-party library for memoizing (caching) method value
+memoize def some_expensive_method
+  # ...
+end
+```
+
+Both `private` and `memoize` above are just a method calls, receiving
+result of `def` (method name to make private/cached) as their argument.
 
 
 

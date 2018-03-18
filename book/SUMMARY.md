@@ -28,6 +28,8 @@
 
   * [Globals](language/globals.md)
 
+  * [Metaprogramming](language/metaprogramming.md)
+
 
 ## Built-in Classes
 

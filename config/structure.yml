@@ -62,8 +62,11 @@
               source: "content/language/methods/_underscore.md"
             - after: "When mixing keyword arguments"
               source: "content/language/methods/_keyword_vars.md"
+            - after: "If you wish to rescue an exception"
+              source: "content/language/methods/_expression.md"
         - source: "doc/syntax/miscellaneous.md#`alias`"
         - source: "doc/syntax/miscellaneous.md#`undef`"
+        # TODO: Advanced methods: expressions & DSLs
     - title: Calling methods
       id: methods-call
       content:
@@ -71,6 +74,9 @@
     - title: Modules and Classes
       content:
         - source: doc/syntax/modules_and_classes.md
+          insert:
+            - after: "The third visibility is `private`."
+              source: "content/language/modules_and_classes/_visibility.md"
     - title: Exceptions
       content:
         - source: doc/syntax/exceptions.md
@@ -88,6 +94,9 @@
       content:
         - source: doc/globals.md
         - source: lib/English/English.md
+    - title: Metaprogramming
+      content:
+        - source: content/language/metaprogramming.md
 - title: Built-in Classes
   part: true
   id: builtin
