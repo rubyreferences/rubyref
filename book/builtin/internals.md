@@ -33,6 +33,9 @@ Finalizer one on 537763480
 
 ### ObjectSpace
 
+*Part of standard library. You need to `require 'objspace'` before
+using.*
+
 The objspace library extends the ObjectSpace module and adds several
 methods to get internal statistic information about object/memory
 management.

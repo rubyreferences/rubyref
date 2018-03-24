@@ -314,29 +314,55 @@
         - source: core/SizedQueue.md
           header_shift: 2
 
-    - title: IO and Filesystem
+    - title: System Programming and CLI
+      id: system-cli
       content:
-        # TODO: Structure it somehow!
-        - source: core/IO.md
-        - source: ext/stringio/StringIO.md
-        - source: core/Dir.md
-        - source: core/FileTest.md
-        - source: core/File.md
-        # - source: core/File--Constants.md
-        - source: ext/pathname/Pathname.md
-        - source: lib/tempfile/Tempfile.md
-        - source: lib/fileutils/FileUtils.md
-
-    - title: Processes and Environment
-      content:
-        # TODO: Structure it somehow!
-        - source: core/ARGF.md
+        # TODO: Intro
         - source: core/ENV.md
       children:
         - title: Processes and Signals
           content:
             - source: core/Process.md
             - source: core/Signal.md
+        - title: IO Basics
+          id: io
+          content:
+            - source: core/IO.md#IO
+            # removing description of io/console from here
+            - source: core/IO.md#_ref
+            - source: core/ARGF.md
+            - source: core/File.md
+            - source: ext/stringio/StringIO.md
+              process:
+                - [stdlib, stringio]
+        - title: Filesystem
+          content:
+            # TODO: Structure it somehow!
+            - source: core/Dir.md
+              remove: "The directory used"
+            - source: core/File.md
+            - source: core/File--Constants.md#_ref
+            - source: core/FileTest.md#_ref
+            - source: ext/pathname/Pathname.md#Pathname
+              process:
+                - [stdlib, pathname]
+            - source: "ext/pathname/Pathname.md#Example 1: Using Pathname"
+              remove: "### Example 1"
+            - source: ext/pathname/Pathname.md#_ref
+            - source: lib/tempfile/Tempfile.md#Tempfile
+              process:
+                - [stdlib, tempfile]
+            - source: lib/tempfile/Tempfile.md#Synopsis
+              remove: "## Synopsis"
+            - source: lib/tempfile/Tempfile.md#_ref
+            - source: "## FileUtils"
+              process:
+                - [stdlib, fileutils]
+            - source: "lib/fileutils/FileUtils.md#module FileUtils"
+              remove: "## module FileUtils"
+            - source: "lib/fileutils/FileUtils.md#Module Functions"
+              remove: "### Module Functions"
+            - source: lib/fileutils/FileUtils.md#_ref
 
     - title: Language Internals
       id: internals
@@ -345,6 +371,8 @@
         - source: core/ObjectSpace.md
         - source: ext/objspace/ObjectSpace.md
           header_shift: 2
+          process:
+            - [stdlib, objspace]
         - source: core/GC.md
         - source: core/TracePoint.md
         # TODO: RubyVM::InstructionSequence have some docs!
@@ -357,9 +385,11 @@
       content:
         - source: core/Random.md
         - source: lib/securerandom/SecureRandom.md
+          process:
+            - [stdlib, securerandom]
           header_shift: 2
-        # deprecated
-        # - source: core/Data.md
+    # deprecated
+    # - source: core/Data.md
 
 # - title: Standard Library
 #   part: true

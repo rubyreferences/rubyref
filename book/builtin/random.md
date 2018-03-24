@@ -26,6 +26,9 @@ period of 2\*\*19937-1.
 
 ### SecureRandom
 
+*Part of standard library. You need to `require 'securerandom'` before
+using.*
+
 #### Secure random number generator interface.
 
 This library is an interface to secure random number generators which

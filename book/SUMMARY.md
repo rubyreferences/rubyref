@@ -57,14 +57,16 @@
       * [Matrix](builtin/types/collections/matrix.md)
 
   * [Errors and Warnings](builtin/errors-warnings.md)
-    * [Exception classes](builtin/errors-warnings/exception-classes.md)
+    * [Exception Classes](builtin/errors-warnings/exception-classes.md)
 
   * [Concurrency and Parallelism](builtin/concurrency-parallelism.md)
 
-  * [IO and Filesystem](builtin/io-filesystem.md)
+  * [System Programming and CLI](builtin/system-cli.md)
+    * [Processes and Signals](builtin/system-cli/processes-signals.md)
 
-  * [Processes and Environment](builtin/processes-environment.md)
-    * [Processes and Signals](builtin/processes-environment/processes-signals.md)
+    * [IO Basics](builtin/system-cli/io.md)
+
+    * [Filesystem](builtin/system-cli/filesystem.md)
 
   * [Language Internals](builtin/internals.md)
 
