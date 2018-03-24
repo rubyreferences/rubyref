@@ -30,45 +30,44 @@
 
   * [Metaprogramming](language/metaprogramming.md)
 
+* [Built-in Classes](builtin.md)
+  * [Language Core](builtin/core.md)
 
-## Built-in Classes
+  * [Data Types](builtin/types.md)
+    * [Numbers](builtin/types/numbers.md)
 
-* [Language Core](builtin/core.md)
+    * [Symbols and strings](builtin/types/symbols-strings.md)
+      * [Encodings](builtin/types/symbols-strings/encodings.md)
 
-* [Data Types](builtin/types.md)
-  * [Numbers](builtin/types/numbers.md)
+    * [Regular expressions](builtin/types/regexp.md)
 
-  * [Symbols and strings](builtin/types/symbols-strings.md)
-    * [Encodings](builtin/types/symbols-strings/encodings.md)
+    * [Range](builtin/types/range.md)
 
-  * [Regular expressions](builtin/types/regexp.md)
+    * [Struct](builtin/types/struct.md)
 
-  * [Range](builtin/types/range.md)
+    * [Time](builtin/types/time.md)
 
-  * [Struct](builtin/types/struct.md)
+    * [Collections](builtin/types/collections.md)
+      * [Array](builtin/types/collections/array.md)
 
-  * [Time](builtin/types/time.md)
+      * [Hash](builtin/types/collections/hash.md)
 
-  * [Collections](builtin/types/collections.md)
-    * [Array](builtin/types/collections/array.md)
+      * [Set](builtin/types/collections/set.md)
 
-    * [Hash](builtin/types/collections/hash.md)
+      * [Matrix](builtin/types/collections/matrix.md)
 
-    * [Set](builtin/types/collections/set.md)
+  * [Errors and Warnings](builtin/errors-warnings.md)
+    * [Exception classes](builtin/errors-warnings/exception-classes.md)
 
-    * [Matrix](builtin/types/collections/matrix.md)
+  * [Concurrency and Parallelism](builtin/concurrency-parallelism.md)
 
-* [Exceptions](builtin/exceptions.md)
+  * [IO and Filesystem](builtin/io-filesystem.md)
 
-* [Concurrency and Parallelism](builtin/concurrency-parallelism.md)
+  * [Processes and Environment](builtin/processes-environment.md)
+    * [Processes and Signals](builtin/processes-environment/processes-signals.md)
 
-* [IO and Filesystem](builtin/io-filesystem.md)
+  * [Language Internals](builtin/internals.md)
 
-* [Processes and Environment](builtin/processes-environment.md)
-  * [Processes and Signals](builtin/processes-environment/processes-signals.md)
+  * [Marshal](builtin/marshal.md)
 
-* [Language Internals](builtin/internals.md)
-
-* [Marshal](builtin/marshal.md)
-
-* [Misc](builtin/misc.md)
+  * [Random](builtin/random.md)

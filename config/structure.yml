@@ -98,8 +98,9 @@
       content:
         - source: content/language/metaprogramming.md
 - title: Built-in Classes
-  part: true
   id: builtin
+  content:
+    - source: content/builtin.md
   children:
     - title: Language Core
       id: core
@@ -198,72 +199,77 @@
                 - source: lib/matrix/Matrix.md
                 - source: lib/matrix/Vector.md
 
-    - title: Exceptions
+    - title: Errors and Warnings
       content:
-        # Order and depth here are corresponding to explanation in Exception class docs
         - source: core/Exception.md
-        - source: core/NoMemoryError.md
-        - source: core/ScriptError.md
-        - source: core/LoadError.md
-          header_shift: 2
-        - source: core/NotImplementedError.md
-          header_shift: 2
-        - source: core/SyntaxError.md
-          header_shift: 2
-        - source: core/SecurityError.md
-        - source: core/SignalException.md
-        - source: core/Interrupt.md
-          header_shift: 2
-        - source: core/StandardError.md
-        - source: core/ArgumentError.md
-          header_shift: 2
-        - source: core/UncaughtThrowError.md
-          header_shift: 3
-        - source: core/EncodingError.md
-          header_shift: 2
-        - source: core/FiberError.md
-          header_shift: 2
-        - source: core/IOError.md
-          header_shift: 2
-        - source: core/EOFError.md
-          header_shift: 3
-        - source: core/IndexError.md
-          header_shift: 2
-        - source: core/KeyError.md
-          header_shift: 3
-        - source: core/StopIteration.md
-          header_shift: 3
-        - source: core/LocalJumpError.md
-          header_shift: 2
-        - source: core/NameError.md
-          header_shift: 2
-        - source: core/NoMethodError.md
-          header_shift: 3
-        - source: core/RangeError.md
-          header_shift: 2
-        - source: core/FloatDomainError.md
-          header_shift: 3
-        - source: core/RegexpError.md
-          header_shift: 2
-        - source: core/RuntimeError.md
-          header_shift: 2
-        - source: core/FrozenError.md
-          header_shift: 3
-        - source: core/SystemCallError.md
-          header_shift: 2
-        - source: core/Errno.md
-          header_shift: 3
-        - source: core/ThreadError.md
-          header_shift: 2
-        - source: core/TypeError.md
-          header_shift: 2
-        - source: core/ZeroDivisionError.md
-          header_shift: 2
-        - source: core/SystemExit.md
-        - source: core/SystemStackError.md
-        - source: core/fatal.md
-        # Definition is empty
-        # - source: core/ClosedQueueError.md
+        - source: core/Warning.md
+      children:
+        - title: Exception classes
+          content:
+            - source: "# Built-in Exception Classes"
+            # Order and depth here are corresponding to explanation in Exception class docs
+            - source: core/NoMemoryError.md
+            - source: core/ScriptError.md
+            - source: core/LoadError.md
+              header_shift: 2
+            - source: core/NotImplementedError.md
+              header_shift: 2
+            - source: core/SyntaxError.md
+              header_shift: 2
+            - source: core/SecurityError.md
+            - source: core/SignalException.md
+            - source: core/Interrupt.md
+              header_shift: 2
+            - source: core/StandardError.md
+            - source: core/ArgumentError.md
+              header_shift: 2
+            - source: core/UncaughtThrowError.md
+              header_shift: 3
+            - source: core/EncodingError.md
+              header_shift: 2
+            - source: core/FiberError.md
+              header_shift: 2
+            - source: core/IOError.md
+              header_shift: 2
+            - source: core/EOFError.md
+              header_shift: 3
+            - source: core/IndexError.md
+              header_shift: 2
+            - source: core/KeyError.md
+              header_shift: 3
+            - source: core/StopIteration.md
+              header_shift: 3
+            - source: core/LocalJumpError.md
+              header_shift: 2
+            - source: core/NameError.md
+              header_shift: 2
+            - source: core/NoMethodError.md
+              header_shift: 3
+            - source: core/RangeError.md
+              header_shift: 2
+            - source: core/FloatDomainError.md
+              header_shift: 3
+            - source: core/RegexpError.md
+              header_shift: 2
+            - source: core/RuntimeError.md
+              header_shift: 2
+            - source: core/FrozenError.md
+              header_shift: 3
+            - source: core/SystemCallError.md
+              header_shift: 2
+            - source: core/Errno.md
+              header_shift: 3
+            - source: core/ThreadError.md
+              header_shift: 2
+            - source: core/TypeError.md
+              header_shift: 2
+            - source: core/ZeroDivisionError.md
+              header_shift: 2
+            - source: core/SystemExit.md
+            - source: core/SystemStackError.md
+            - source: core/fatal.md
+            # Definition is empty
+            # - source: core/ClosedQueueError.md
 
     - title: Concurrency and Parallelism
       content:
@@ -315,12 +321,11 @@
       content:
         - source: core/Marshal.md
         - source: doc/marshal.md
-    - title: Misc
+    - title: Random
       content:
         - source: core/Random.md
         - source: lib/securerandom/SecureRandom.md
           header_shift: 2
-        - source: core/Warning.md
         # deprecated
         # - source: core/Data.md
 

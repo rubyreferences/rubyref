@@ -5,11 +5,10 @@ that is, defining language structures (classes, modules, methods) at
 runtime. Unlike many other languages, Ruby's metaprogramming does not
 use special constructs different from "normal" programming, like macros,
 decorators or templates. The power of Ruby's metaprogramming comes from
-several facts:
+two facts:
 
 * Everything is an object;
-* Core classes are hackable;
-* Code blocks are useful for concise contextual definitions.
+* Core classes are hackable.
 
 ## Everything is an object
 
@@ -52,7 +51,8 @@ end
 [:A, :B, :C].each { |name| Kernel.const_set(name, Class.new) }
 ```
 
-## Code blocks
+TODO: Add useful metaprogramming example (`memoize`?)
 
-## DSL
+See [Language Core](../builtin/core.md) classes documentation to
+understand what you can do with core objects.
 
