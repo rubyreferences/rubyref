@@ -11,6 +11,7 @@ Calculates the set of unambiguous abbreviations for a given set of strings.
     pp Abbrev.abbrev(%w{ ruby rules })
 
 *Generates:*
+
     { "ruby"  =>  "ruby",
       "rub"   =>  "ruby",
       "rules" =>  "rules",
@@ -22,6 +23,7 @@ It also provides an array core extension, `Array#abbrev`.
     pp %w{ summer winter }.abbrev
 
 *Generates:*
+
     { "summer"  => "summer",
       "summe"   => "summer",
       "summ"    => "summer",

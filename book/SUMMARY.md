@@ -73,3 +73,61 @@
   * [Marshal](builtin/marshal.md)
 
   * [Random](builtin/random.md)
+
+
+## Standard Library
+
+* [Design Patterns](stdlib/patterns.md)
+  * [forwardable](stdlib/patterns/forwardable.md)
+
+  * [delegate](stdlib/patterns/delegate.md)
+
+  * [observer](stdlib/patterns/observer.md)
+
+  * [singleton](stdlib/patterns/singleton.md)
+
+* [Formats](stdlib/formats.md)
+  * [csv](stdlib/formats/csv.md)
+
+  * [json](stdlib/formats/json.md)
+
+  * [yaml](stdlib/formats/yaml.md)
+
+  * [rexml: XML parser and generator](stdlib/formats/rexml.md)
+
+  * [rss](stdlib/formats/rss.md)
+
+  * [zlib](stdlib/formats/zlib.md)
+
+* [Development and Debugging](stdlib/development-debugging.md)
+  * [pp: Debug Print](stdlib/development-debugging/pp.md)
+
+  * [logger](stdlib/development-debugging/logger.md)
+
+  * [ripper: Parsing Ruby](stdlib/development-debugging/ripper.md)
+
+  * [racc: Parser Generator](stdlib/development-debugging/racc.md)
+
+  * [fiddle: FFI wrapper](stdlib/development-debugging/fiddle.md)
+
+* [String Utilities](stdlib/string-utilities.md)
+  * [strscan: Sequental String Scanner](stdlib/string-utilities/strscan.md)
+
+  * [scanf](stdlib/string-utilities/scanf.md)
+
+* [Networking and Web](stdlib/networking-web.md)
+
+* [System Programming and Console](stdlib/system-programming-console.md)
+
+* [Misc Utilities](stdlib/misc.md)
+
+* [Cryptography and Encoding](stdlib/cryptography-encoding.md)
+  * [Base64](stdlib/cryptography-encoding/base64.md)
+
+  * [Digest](stdlib/cryptography-encoding/digest.md)
+
+  * [OpenSSL](stdlib/cryptography-encoding/openssl.md)
+
+* [Concurrency Utils](stdlib/concurrency-utils.md)
+
+* [Other Libraries](stdlib/other.md)

@@ -350,6 +350,9 @@
             - source: "lib/fileutils/FileUtils.md#Module Functions"
               remove: "### Module Functions"
             - source: lib/fileutils/FileUtils.md#_ref
+            - source: lib/find/Find.md
+              process:
+                - [stdlib, find]
 
     - title: Concurrency and Parallelism
       content:
@@ -391,185 +394,229 @@
     # deprecated
     # - source: core/Data.md
 
-# - title: Standard Library
-#   part: true
-#   id: stdlib
-#   children:
-#     # TODO: Intro explaining the structure of docs
-#     # - source: doc/standard_library.md
-#     - title: Design Patterns
-#       id: patterns
-#       content:
-#         - source: "# Ruby implementation of common design patterns"
-#       children:
-#         - title: Forwardable
-#           content:
-#             - source: lib/forwardable/Forwardable.md
-#             - source: lib/forwardable/SingleForwardable.md
-#         - title: Delegator
-#           content:
-#             - source: lib/delegate/Delegator.md
-#             - source: lib/delegate/SimpleDelegator.md
-#         - title: Observable
-#           content:
-#             - source: lib/observer/Observable.md
-#         - title: Singleton
-#           content:
-#             - source: lib/singleton/Singleton.md
+- title: Standard Library
+  part: true
+  id: stdlib
+  # TODO: Intro explaining the structure of docs
+  # content:
+  #   - source: doc/standard_library.md
+  children:
+    - title: Design Patterns
+      id: patterns
+      content:
+        - source: "# Ruby implementation of common design patterns"
+      children:
+        - title: forwardable
+          content:
+            - source: lib/forwardable/Forwardable.md
+            - source: lib/forwardable/SingleForwardable.md
+        - title: delegate
+          content:
+            - source: lib/delegate/Delegator.md
+            - source: lib/delegate/SimpleDelegator.md
+        - title: observer
+          content:
+            - source: lib/observer/Observable.md
+        - title: singleton
+          content:
+            - source: lib/singleton/Singleton.md
 
-#     - title: Formats
-#       content:
-#         - source: content/stdlib/formats.md
-#       children:
-#         - title: CSV
-#           content:
-#             - source: lib/csv/CSV.md
-#         - title: JSON
-#           content:
-#             - source: ext/json/JSON.md
-#             # - source: ext/json/Class.md
-#         - title: YAML
-#           content:
-#             - source: lib/yaml/YAML.md
-#             - source: ext/psych/Psych.md
-#         - title: XML
-#           content:
-#             - source: lib/rexml/REXML.md
-#             - source: lib/rss/RSS.md
-#         - title: Zlib
-#           content:
-#             - source: ext/zlib/Zlib.md
+    - title: Formats
+      content:
+        - source: content/stdlib/formats.md
+      children:
+        - title: csv
+          content:
+            - source: lib/csv/CSV.md
+              remove_sections:
+                - CSV and Character Encodings (M17n or Multilingualization)
+        - title: json
+          content:
+            - source: ext/json/JSON.md
+            # - source: ext/json/Class.md
+        - title: yaml
+          content:
+            - source: lib/yaml/YAML.md
+              remove_sections:
+                - History
+                - More info
+            - source: ext/psych/Psych.md#_ref
+        - title: "rexml: XML parser and generator"
+          id: rexml
+          content:
+            - source: lib/rexml/REXML.md
+        - title: rss
+          content:
+            - source: lib/rss/RSS.md
+              remove_sections: Copyright
+        - title: zlib
+          content:
+            - source: ext/zlib/Zlib.md
+              remove_sections: Class tree
 
-#     - title: Development and Debugging
-#       content:
-#         - source: >
-#             # Development and Debuggin Tools
+    - title: Development and Debugging
+      content:
+        - source: >
+            # Development and Debugging Tools
 
-#             This section lists several tools that help developing in Ruby.
-#         - source: lib/pp/PP.md
-#         - source: lib/prettyprint/PrettyPrint.md
-#         - source: lib/logger/Logger.md
-#         - source: ext/ripper/Ripper.md
-#         # - source: ext/ripper/DSL.md
-#         - source: lib/racc/Racc.md
-#         - source: ext/fiddle/Fiddle.md
+            This chapter lists several tools that help developing in Ruby.
+      children:
+        - title: "pp: Debug Print"
+          id: pp
+          content:
+            - source: lib/pp/PP.md
+            - source: lib/prettyprint/PrettyPrint.md
+        - title: logger
+          content:
+            - source: lib/logger/Logger.md
+        - title: "ripper: Parsing Ruby"
+          id: ripper
+          content:
+            - source: ext/ripper/Ripper.md
+            # - source: ext/ripper/DSL.md
+        - title: "racc: Parser Generator"
+          id: racc
+          content:
+            - source: lib/racc/Racc.md
+        - title: "fiddle: FFI wrapper"
+          id: fiddle
+          content:
+            - source: ext/fiddle/Fiddle.md
 
-#     - title: String Utilities
-#       content:
-#         - source: lib/scanf/Scanf.md
-#         - source: lib/abbrev/Abbrev.md
-#         - source: ext/strscan/StringScanner.md
+    - title: String Utilities
+      content:
+        - source: "# String Utilities"
+      children:
+        - title: "strscan: Sequental String Scanner"
+          id: strscan
+          content:
+            - source: ext/strscan/StringScanner.md#StringScanner
+            - source: ext/strscan/StringScanner.md#_ref
+        - title: scanf
+          content:
+            - source: '# scanf'
+            - source: lib/scanf/Scanf.md#Description
+              remove: '## Description'
+            - source: "lib/scanf/Scanf.md#Basic usage"
+            - source: "lib/scanf/Scanf.md#Block usage"
+            - source: "lib/scanf/Scanf.md#_ref"
 
-#     - title: File Utilities
-#       content:
-#         - source: lib/find/Find.md
-
-#     - title: Networking and Web
-#       content:
-#         - source: lib/cgi/CGI.md
-#         - source: lib/uri/URI.md
-#         - source: lib/open-uri/OpenURI.md
-#         - source: lib/ipaddr/IPAddr.md
-#         - source: lib/webrick/WEBrick.md
-#         # - source: lib/webrick/Errno.md
-#         - source: ext/socket/Socket.md
-#         # - source: ext/socket/Addrinfo.md
-#         # - source: ext/socket/BasicSocket.md
-#         # - source: ext/socket/IPSocket.md
-#         # - source: ext/socket/SOCKSSocket.md
-#         # - source: ext/socket/SocketError.md
-#         # - source: ext/socket/TCPServer.md
-#         # - source: ext/socket/TCPSocket.md
-#         # - source: ext/socket/UDPSocket.md
-#         # - source: ext/socket/UNIXServer.md
-#         # - source: ext/socket/UNIXSocket.md
+    - title: Networking and Web
+      content:
+        - source: lib/cgi/CGI.md
+        - source: lib/uri/URI.md
+        - source: lib/open-uri/OpenURI.md
+        - source: lib/ipaddr/IPAddr.md
+        - source: lib/webrick/WEBrick.md
+        # - source: lib/webrick/Errno.md
+        - source: ext/socket/Socket.md
+        # - source: ext/socket/Addrinfo.md
+        # - source: ext/socket/BasicSocket.md
+        # - source: ext/socket/IPSocket.md
+        # - source: ext/socket/SOCKSSocket.md
+        # - source: ext/socket/SocketError.md
+        # - source: ext/socket/TCPServer.md
+        # - source: ext/socket/TCPSocket.md
+        # - source: ext/socket/UDPSocket.md
+        # - source: ext/socket/UNIXServer.md
+        # - source: ext/socket/UNIXSocket.md
 
 
-#     - title: System Programming and Console
-#       content:
-#         - source: lib/shell/Shell.md
-#         - source: lib/optparse/OptionParser.md
-#         - source: ext/etc/Etc.md
-#         - source: ext/pty/PTY.md
-#         # - source: ext/pty/IO.md
-#         - source: ext/fcntl/Fcntl.md
-#         - source: ext/readline/Readline.md
-#         - source: ext/win32ole/WIN32OLE.md
-#         - source: ext/syslog/Syslog.md
-#         - source: lib/open3/Open3.md
-#         # - source: ext/win32ole/IE_CONST.md
-#         # - source: ext/win32ole/IXMLDOMNode.md
-#         # - source: ext/win32ole/IXMLDOMParseError.md
-#         # - source: ext/win32ole/IXMLHttpRequest.md
-#         # - source: ext/win32ole/IXTLRuntime.md
-#         # - source: ext/win32ole/Microsoft_FreeThreadedXMLDOM_1_0.md
-#         # - source: ext/win32ole/Microsoft_XMLDOM_1_0.md
-#         # - source: ext/win32ole/Microsoft_XMLDSO_1_0.md
-#         # - source: ext/win32ole/Microsoft_XMLHTTP_1.md
-#         # - source: ext/win32ole/Msxml.md
-#         # - source: ext/win32ole/OLEProperty.md
-#         # - source: ext/win32ole/OLEtagDOMNodeType.md
-#         # - source: ext/win32ole/OLEtagXMLEMEM_TYPE.md
-#         # - source: ext/win32ole/WIN32OLERuntimeError.md
-#         # - source: ext/win32ole/WIN32OLE_EVENT.md
-#         # - source: ext/win32ole/WIN32OLE_METHOD.md
-#         # - source: ext/win32ole/WIN32OLE_PARAM.md
-#         # - source: ext/win32ole/WIN32OLE_RECORD.md
-#         # - source: ext/win32ole/WIN32OLE_TYPE.md
-#         # - source: ext/win32ole/WIN32OLE_TYPELIB.md
-#         # - source: ext/win32ole/WIN32OLE_VARIABLE.md
-#         # - source: ext/win32ole/WIN32OLE_VARIANT.md
+    - title: System Programming and Console
+      content:
+        - source: lib/shell/Shell.md
+        - source: lib/optparse/OptionParser.md
+        - source: ext/etc/Etc.md
+        - source: ext/pty/PTY.md
+        # - source: ext/pty/IO.md
+        - source: ext/fcntl/Fcntl.md
+        - source: ext/readline/Readline.md
+        - source: ext/win32ole/WIN32OLE.md
+        - source: ext/syslog/Syslog.md
+        - source: lib/open3/Open3.md
+        # - source: ext/win32ole/IE_CONST.md
+        # - source: ext/win32ole/IXMLDOMNode.md
+        # - source: ext/win32ole/IXMLDOMParseError.md
+        # - source: ext/win32ole/IXMLHttpRequest.md
+        # - source: ext/win32ole/IXTLRuntime.md
+        # - source: ext/win32ole/Microsoft_FreeThreadedXMLDOM_1_0.md
+        # - source: ext/win32ole/Microsoft_XMLDOM_1_0.md
+        # - source: ext/win32ole/Microsoft_XMLDSO_1_0.md
+        # - source: ext/win32ole/Microsoft_XMLHTTP_1.md
+        # - source: ext/win32ole/Msxml.md
+        # - source: ext/win32ole/OLEProperty.md
+        # - source: ext/win32ole/OLEtagDOMNodeType.md
+        # - source: ext/win32ole/OLEtagXMLEMEM_TYPE.md
+        # - source: ext/win32ole/WIN32OLERuntimeError.md
+        # - source: ext/win32ole/WIN32OLE_EVENT.md
+        # - source: ext/win32ole/WIN32OLE_METHOD.md
+        # - source: ext/win32ole/WIN32OLE_PARAM.md
+        # - source: ext/win32ole/WIN32OLE_RECORD.md
+        # - source: ext/win32ole/WIN32OLE_TYPE.md
+        # - source: ext/win32ole/WIN32OLE_TYPELIB.md
+        # - source: ext/win32ole/WIN32OLE_VARIABLE.md
+        # - source: ext/win32ole/WIN32OLE_VARIANT.md
 
-#     - title: Misc Utilities
-#       id: misc
-#       content:
-#       - source: lib/timeout/Timeout.md
-#       # - source: lib/timeout/Timeout--TimeoutError.md
+    - title: Misc Utilities
+      id: misc
+      content:
+      - source: lib/timeout/Timeout.md
+      # - source: lib/timeout/Timeout--TimeoutError.md
 
-#     - title: Cryptography and Encoding
-#       content:
-#         - source: lib/base64/Base64.md
-#         - source: ext/digest/Digest.md
-#         - source: ext/openssl/OpenSSL.md
+    - title: Cryptography and Encoding
+      content:
+        - source: '# Cryptography and Encoding Libraries'
+      children:
+        - title: 'Base64'
+          content:
+          - source: lib/base64/Base64.md
+        - title: 'Digest'
+          content:
+          - source: ext/digest/Digest.md
+        - title: 'OpenSSL'
+          content:
+          - source: ext/openssl/OpenSSL.md
 
-#     # FIXME: If any of this used at all?..
-#     - title: Concurrency Utils
-#       content:
-#         - source: lib/monitor/Monitor.md
-#         - source: lib/monitor/MonitorMixin.md
-#         - source: lib/mutex_m/Mutex_m.md
-#         - source: lib/sync/Sync.md
-#         - source: lib/sync/Sync_m.md
-#         - source: lib/sync/Synchronizer.md
-#         - source: lib/sync/Synchronizer_m.md
+    # FIXME: If any of this used at all?..
+    - title: Concurrency Utils
+      content:
+        - source: lib/monitor/Monitor.md
+        - source: lib/monitor/MonitorMixin.md
+        - source: lib/mutex_m/Mutex_m.md
+        - source: lib/sync/Sync.md
+        - source: lib/sync/Sync_m.md
+        - source: lib/sync/Synchronizer.md
+        - source: lib/sync/Synchronizer_m.md
 
-#     - title: Other Libraries
-#       id: other
-#       content:
-#         - source: lib/cmath/CMath.md
-#         - source: ext/dbm/DBM.md
-#         # - source: ext/dbm/DBMError.md
-#         - source: ext/gdbm/GDBM.md
-#         - source: ext/nkf/NKF.md
-#         # - source: ext/nkf/Kconv.md
-#         - source: ext/sdbm/SDBM.md
-#         # - source: ext/sdbm/SDBMError.md
-#         - source: lib/getoptlong/GetoptLong.md
-#         - source: lib/drb/DRb.md
-#         # - source: lib/drb/ACL.md
-#         # - source: lib/drb/DRb--DRbIdConv.md
-#         # - source: lib/drb/DRb--DRbObject.md
-#         # - source: lib/drb/DRb--DRbUndumped.md
-#         - source: lib/e2mmap/Exception2MessageMapper.md
-#         - source: lib/rinda/Rinda.md
-#         - source: lib/resolv/Resolv.md
-#         - source: lib/shellwords/Shellwords.md
-#         - source: lib/thwait/ThreadsWait.md
-#         # - source: lib/thwait/ThWait.md
-#         - source: lib/tsort/TSort.md
-#         - source: lib/weakref/WeakRef.md
-#         - source: lib/pstore/PStore.md
-#         # - source: ext/win32/Win32.md
+    - title: Other Libraries
+      id: other
+      content:
+        - source: lib/abbrev/Abbrev.md
+        - source: lib/cmath/CMath.md
+        - source: ext/dbm/DBM.md
+        # - source: ext/dbm/DBMError.md
+        - source: ext/gdbm/GDBM.md
+        - source: ext/nkf/NKF.md
+        # - source: ext/nkf/Kconv.md
+        - source: ext/sdbm/SDBM.md
+        # - source: ext/sdbm/SDBMError.md
+        - source: lib/getoptlong/GetoptLong.md
+        - source: lib/drb/DRb.md
+        # - source: lib/drb/ACL.md
+        # - source: lib/drb/DRb--DRbIdConv.md
+        # - source: lib/drb/DRb--DRbObject.md
+        # - source: lib/drb/DRb--DRbUndumped.md
+        - source: lib/e2mmap/Exception2MessageMapper.md
+        - source: lib/rinda/Rinda.md
+        - source: lib/resolv/Resolv.md
+        - source: lib/shellwords/Shellwords.md
+        - source: lib/thwait/ThreadsWait.md
+        # - source: lib/thwait/ThWait.md
+        - source: lib/tsort/TSort.md
+        - source: lib/weakref/WeakRef.md
+        - source: lib/pstore/PStore.md
+        # - source: ext/win32/Win32.md
+
 # - title: Advanced Topics
 #   part: true
 #   children:

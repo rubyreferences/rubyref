@@ -42,20 +42,22 @@ Dir['intermediate/parsed/**/*.md'].each do |source|
       content
         .gsub(/\n\* (\S+):/, "\n* `\\1`:")
         .gsub(/(?<=to the |to )(\$.)/, '`\1`')
-    when %r{core/Class.md}
+    when %r{core/Class\.md}
       content.sub('of the class `Class`.', "of the class `Class`.\n") # To properly render the diagram after
-    when %r{core/Float.md}
+    when %r{core/Float\.md}
       content.sub("wiki-floats_i\n    mprecise\n\n", "wiki-floats_imprecise\n")
-    when %r{lib/prime/Prime.md}
+    when %r{lib/prime/Prime\.md}
       content
         .sub("e.g.\n    Prime", "e.g.\n\n    Prime")
         .sub('`Prime`.instance', '`Prime.instance`')
         .gsub('`Prime`::`', '`Prime::')
-    when %r{core/String.md}
+    when %r{core/String\.md}
       content
         .gsub("``!''", "`!`")
     when %r{ext/date/}
       content.sub(/\A.+?\n/, '') # We don't need first header inserted by render script.
+    when %r{lib/abbrev/Abbrev\.md}
+      content.gsub("*Generates:*\n", "*Generates:*\n\n")
     else
       content
     end

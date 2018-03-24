@@ -36,10 +36,11 @@ class GFMKonverter < Kramdown::Converter::Kramdown
 end
 
 class ContentPart
-  def initialize(index:, source:, header_shift: nil, remove: [], insert: [], process: [], **)
+  def initialize(index:, source:, header_shift: nil, remove: [], insert: [], process: [], remove_sections: [], **)
     @index = index
     @header_shift = header_shift&.to_i || (index.zero? ? 0 : 1)
     @remove = Array(remove)
+    @remove_sections = Array(remove_sections)
     @insert = insert.map { |i| i.transform_keys(&:to_sym) }
     @process = Array(process).map(&method(:Array))
     @source = source
@@ -106,9 +107,28 @@ class ContentPart
         fail "String #{what} not found in #{@source}"
   end
 
+  def remove_section(section)
+    els = elements.dup
+    before = els.take_while { |e| e.type != :header || e.options[:raw_text] != section }
+    els = els[before.size..-1]
+    els.empty? and fail "Section #{section} not found"
+    inside = els.take_while { |e| e.type != :header || e.options[:raw_text] == section }
+    after = els[inside.size..-1]
+
+    # For example, we want to drop last section (# Contribution), but preserve [Docs Reference] after it
+    if reference = inside.detect { |ref| convert(ref).match(/^\[\S+ Reference\]/) }
+      before.push(reference)
+    end
+
+    elements.replace(before + after)
+  end
+
   def postprocess
     @process.each do |what, *arg|
       send("handle_#{what}", *arg)
+    end
+    @remove_sections.each do |title|
+      remove_section(title)
     end
     @remove.each do |rem|
       idx = para_idx(rem)
