@@ -61,3 +61,5 @@ Hash for processing large amounts of data.
     db['1123'] = 'Requirements for Internet Hosts - Application and Support'
     db['3068'] = 'An Anycast Prefix for 6to4 Relay Routers'
     puts db['822']
+
+[DBM Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/dbm/rdoc/DBM.html)

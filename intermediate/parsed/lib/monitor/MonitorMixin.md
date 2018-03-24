@@ -77,3 +77,5 @@ thread of new data.
 `SynchronizedArray` implements an Array with synchronized access to items.
 This Class is implemented as subclass of Array which includes the MonitorMixin
 module.
+
+[MonitorMixin Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/monitor/rdoc/MonitorMixin.html)

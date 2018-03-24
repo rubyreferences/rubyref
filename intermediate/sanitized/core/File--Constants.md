@@ -9,3 +9,5 @@ constant is not defined.
 
 Your platform documentations (e.g. man open(2)) may describe more detailed
 information.
+
+[File::Constants Reference](http://ruby-doc.org/core-2.5.0/File::Constants.html)

@@ -26,3 +26,5 @@ accessed [online](http://www.germane-software.com/software/rexml_doc)
 A tutorial is available in the REXML distribution in docs/tutorial.html, or
 can be accessed
 [online](http://www.germane-software.com/software/rexml/docs/tutorial.html)
+
+[REXML Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/rexml/rdoc/REXML.html)

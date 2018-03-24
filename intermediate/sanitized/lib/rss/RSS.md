@@ -75,3 +75,5 @@ You can redistribute it and/or modify it under the same terms as Ruby.
 
 There is an additional tutorial by the author of RSS at:
 http://www.cozmixng.org/~rwiki/?cmd=view;name=RSS+Parser%3A%3ATutorial.en
+
+[RSS Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/rss/rdoc/RSS.html)

@@ -8,3 +8,5 @@ thread to a new group will remove it from any previous group.
 
 Newly created threads belong to the same group as the thread from which they
 were created.
+
+[ThreadGroup Reference](http://ruby-doc.org/core-2.5.0/ThreadGroup.html)

@@ -128,3 +128,5 @@ times](http://en.wikipedia.org/wiki/Solar_time), since it wasn't until the
 19th century that the introduction of the railways necessitated the need for
 [Standard Time](http://en.wikipedia.org/wiki/Standard_time#Great_Britain) and
 eventually timezones.
+
+[DateTime Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/date/rdoc/DateTime.html)

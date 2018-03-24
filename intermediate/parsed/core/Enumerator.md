@@ -82,3 +82,5 @@ You can use this to implement an internal iterator as follows:
     # implementing an internal iterator.
     puts ext_each(o.to_enum) {|*x| puts x; [:b, *x] }
     # => [], [:b], [1], [:b, 1], [1, 2], [:b, 1, 2], 3
+
+[Enumerator Reference](http://ruby-doc.org/core-2.5.0/Enumerator.html)

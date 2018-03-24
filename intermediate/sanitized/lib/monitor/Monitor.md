@@ -9,3 +9,5 @@ mutual exclusion.
     lock.synchronize do
       # exclusive access
     end
+
+[Monitor Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/monitor/rdoc/Monitor.html)

@@ -230,3 +230,5 @@ for features and behaviors which appear in other scanfs, and would be
 meaningful in Ruby, are welcome, as are reports of suspicious behaviors and/or
 bugs.  (Please see "Credits and acknowledgements", above, for email
 addresses.)
+
+[Scanf Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/scanf/rdoc/Scanf.html)

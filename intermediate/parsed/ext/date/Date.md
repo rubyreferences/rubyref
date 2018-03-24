@@ -134,3 +134,5 @@ A Date object has various methods. See each reference.
     d.wday                       #=> 6
     d += 1                       #=> #<Date: 2001-02-04 ...>
     d.strftime('%a %d %b %Y')    #=> "Sun 04 Feb 2001"
+
+[Date Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/date/rdoc/Date.html)

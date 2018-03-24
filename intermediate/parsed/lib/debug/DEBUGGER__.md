@@ -155,3 +155,5 @@ Make sure you remove every instance of +require 'debug'+ before shipping your
 code. Failing to do so may result in your program hanging unpredictably.
 
 Debug is not available in safe mode.
+
+[DEBUGGER__ Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/debug/rdoc/DEBUGGER__.html)

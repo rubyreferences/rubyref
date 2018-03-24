@@ -7,3 +7,5 @@ them.
 
 Note that if `fork` raises a `NotImplementedError`, then `respond_to?(:fork)`
 returns `false`.
+
+[NotImplementedError Reference](http://ruby-doc.org/core-2.5.0/NotImplementedError.html)

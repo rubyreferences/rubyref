@@ -140,7 +140,6 @@ block. Otherwise, an exception will be raised.
     end.parse!
 
 Used:
-
     bash-3.2$ ruby optparse-test.rb  -t nonsense
     ... invalid argument: -t nonsense (OptionParser::InvalidArgument)
     from ... time.rb:5:in `block in <top (required)>'
@@ -347,3 +346,5 @@ command line options.
 
 The above examples should be enough to learn how to use this class.  If you
 have any questions, file a ticket at http://bugs.ruby-lang.org.
+
+[OptionParser Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/optparse/rdoc/OptionParser.html)

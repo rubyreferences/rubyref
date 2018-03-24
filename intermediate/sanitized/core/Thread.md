@@ -140,3 +140,5 @@ but is dependent on the OS whether a running thread will switch or not. The
 same goes for `#priority`, which lets you hint to the thread scheduler which
 threads you want to take precedence when passing execution. This method is
 also dependent on the OS and may be ignored on some platforms.
+
+[Thread Reference](http://ruby-doc.org/core-2.5.0/Thread.html)

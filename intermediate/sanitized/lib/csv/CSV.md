@@ -108,3 +108,5 @@ This has been tested to the best of my ability with all non-"dummy" Encodings
 Ruby ships with.  However, it is brave new code and may have some bugs. Please
 feel free to [report](mailto:james@grayproductions.net) any issues you find
 with it.
+
+[CSV Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/csv/rdoc/CSV.html)

@@ -85,3 +85,5 @@ detect the format of the input string, you provide a second argument that
 describes the format of the string. For example:
 
     Time.strptime("2000-10-31", "%Y-%m-%d") #=> 2000-10-31 00:00:00 -0500
+
+[Time Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/time/rdoc/Time.html)

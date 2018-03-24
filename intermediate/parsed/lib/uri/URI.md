@@ -104,3 +104,5 @@ License
 Revision
 :   $Id$
 
+
+[URI Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/uri/rdoc/URI.html)

@@ -19,3 +19,5 @@ is either a quoted string or a `Symbol` (such as `:name`).
     Mod.class              #=> Module
     Mod.constants          #=> [:CONST, :PI, :E]
     Mod.instance_methods   #=> [:meth]
+
+[Module Reference](http://ruby-doc.org/core-2.5.0/Module.html)

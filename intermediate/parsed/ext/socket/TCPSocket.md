@@ -13,3 +13,5 @@ A simple client may look like:
     end
 
     s.close             # close socket when done
+
+[TCPSocket Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/socket/rdoc/TCPSocket.html)

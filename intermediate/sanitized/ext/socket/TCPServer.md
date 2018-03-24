@@ -26,3 +26,5 @@ A more usable server (serving multiple clients):
         client.close
       end
     end
+
+[TCPServer Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/socket/rdoc/TCPServer.html)

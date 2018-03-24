@@ -93,7 +93,7 @@ argument, an exception will be raised.
 Used:
 
     bash-3.2$ ruby optparse-test.rb -r
-    optparse-test.rb:9:in `<main>`: missing argument: -r (OptionParser::MissingArgument)
+    optparse-test.rb:9:in `<main>': missing argument: -r (OptionParser::MissingArgument)
     bash-3.2$ ruby optparse-test.rb -r my-library
     You required my-library!
 
@@ -140,11 +140,10 @@ block. Otherwise, an exception will be raised.
     end.parse!
 
 Used:
-
     bash-3.2$ ruby optparse-test.rb  -t nonsense
     ... invalid argument: -t nonsense (OptionParser::InvalidArgument)
     from ... time.rb:5:in `block in <top (required)>`
-    from optparse-test.rb:31:in `<main>`
+    from optparse-test.rb:31:in `<main>'
     bash-3.2$ ruby optparse-test.rb  -t 10-11-12
     2010-11-12 00:00:00 -0500
     bash-3.2$ ruby optparse-test.rb  -t 9:30
@@ -347,3 +346,5 @@ command line options.
 
 The above examples should be enough to learn how to use this class.  If you
 have any questions, file a ticket at http://bugs.ruby-lang.org.
+
+[OptionParser Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/optparse/rdoc/OptionParser.html)

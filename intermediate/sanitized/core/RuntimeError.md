@@ -8,3 +8,5 @@ Kernel#raise will raise a RuntimeError if no Exception class is specified.
 *raises the exception:*
 
     RuntimeError: ouch
+
+[RuntimeError Reference](http://ruby-doc.org/core-2.5.0/RuntimeError.html)

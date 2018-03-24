@@ -82,6 +82,8 @@ rows, columns = $stdout.winsize
 puts "Your screen is #{columns} wide and #{rows} tall"
 ```
 
+[IO Reference](http://ruby-doc.org/core-2.5.0/IO.html)
+
 
 
 ## StringIO
@@ -101,6 +103,9 @@ io.puts "Hello World"
 io.string #=> "Hello World\n"
 ```
 
+[StringIO
+Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/stringio/rdoc/StringIO.html)
+
 
 
 ## Dir
@@ -113,6 +118,8 @@ The directory used in these examples contains the two regular files
 (`config.h` and `main.rb`), the parent directory (`..`), and the
 directory itself (`.`).
 
+[Dir Reference](http://ruby-doc.org/core-2.5.0/Dir.html)
+
 
 
 ## FileTest
@@ -121,6 +128,8 @@ directory itself (`.`).
 `File::Stat`. It exists as a standalone module, and its methods are also
 insinuated into the `File` class. (Note that this is not done by
 inclusion: the interpreter cheats).
+
+[FileTest Reference](http://ruby-doc.org/core-2.5.0/FileTest.html)
 
 
 
@@ -153,6 +162,8 @@ be made is to make the file read-only, which is reported as `0444`.
 
 Various constants for the methods in File can be found in
 File::Constants.
+
+[File Reference](http://ruby-doc.org/core-2.5.0/File.html)
 
 
 
@@ -350,6 +361,9 @@ The documentation for these methods generally just says, for instance,
 method anyway, and its documentation (e.g. through `ri`) will contain
 more information. In some cases, a brief description will follow.
 
+[Pathname
+Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/pathname/rdoc/Pathname.html)
+
 
 
 ## Tempfile
@@ -432,6 +446,9 @@ will pick the same filename.
 Tempfile itself however may not be entirely thread-safe. If you access
 the same Tempfile object from multiple threads then you should protect
 it with a mutex.
+
+[Tempfile
+Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/tempfile/rdoc/Tempfile.html)
 
 
 
@@ -527,4 +544,7 @@ in FileUtils.
 This module has all methods of FileUtils module, but never changes
 files/directories. This equates to passing the `:noop` and `:verbose`
 flags to methods in FileUtils.
+
+[FileUtils
+Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/fileutils/rdoc/FileUtils.html)
 

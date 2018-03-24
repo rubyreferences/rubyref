@@ -27,9 +27,14 @@ In the method descriptions that follow, a "member" parameter refers to a
 struct member which is either a quoted string (`"name"`) or a Symbol
 (`:name`).
 
+[Struct Reference](http://ruby-doc.org/core-2.5.0/Struct.html)
+
 
 
 ## OpenStruct
+
+*Part of standard library. You need to `require 'ostruct'` before
+using.*
 
 An OpenStruct is a data structure, similar to a Hash, that allows the
 definition of arbitrary attributes with their accompanying values. This
@@ -104,4 +109,7 @@ This should be a consideration if there is a concern about the
 performance of the objects that are created, as there is much more
 overhead in the setting of these properties compared to using a Hash or
 a Struct.
+
+[OpenStruct
+Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/ostruct/rdoc/OpenStruct.html)
 

@@ -16,3 +16,5 @@ another.
 
     meth.call(9)                 #=> 81
     [ 1, 2, 3 ].collect(&meth)   #=> [1, 4, 9]
+
+[Method Reference](http://ruby-doc.org/core-2.5.0/Method.html)

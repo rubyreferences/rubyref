@@ -10,3 +10,5 @@ and are defined in the Errno module.
 *raises the exception:*
 
     Errno::ENOENT: No such file or directory - does/not/exist
+
+[SystemCallError Reference](http://ruby-doc.org/core-2.5.0/SystemCallError.html)

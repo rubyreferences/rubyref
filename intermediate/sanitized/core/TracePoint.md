@@ -42,3 +42,6 @@ To filter what is traced, you can pass any of the following as `events`:
 * `:thread_begin`: event hook at thread beginning
 * `:thread_end`: event hook at thread ending
 * `:fiber_switch`: event hook at fiber switch
+
+
+[TracePoint Reference](http://ruby-doc.org/core-2.5.0/TracePoint.html)

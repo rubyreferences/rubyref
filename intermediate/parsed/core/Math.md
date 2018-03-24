@@ -5,3 +5,5 @@ transcendental functions. See class Float for a list of constants that define
 Ruby's floating point accuracy.
 
 Domains and codomains are given only for real (not complex) numbers.
+
+[Math Reference](http://ruby-doc.org/core-2.5.0/Math.html)

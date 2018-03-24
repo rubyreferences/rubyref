@@ -197,3 +197,5 @@ advance or speed is a concern.  See Psych::Emitter for more information.
     # You can instantiate an Emitter manually
     Psych::Visitors::ToRuby.new.accept(parser.handler.root.first)
     # => "a"
+
+[Psych Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/psych/rdoc/Psych.html)

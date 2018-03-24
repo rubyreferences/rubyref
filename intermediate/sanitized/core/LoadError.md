@@ -8,3 +8,5 @@ load.
 *raises the exception:*
 
     LoadError: no such file to load -- this/file/does/not/exist
+
+[LoadError Reference](http://ruby-doc.org/core-2.5.0/LoadError.html)

@@ -56,10 +56,10 @@ When in doubt, consider anything not listed as safe below as being unsafe.
 
 *   Signal.trap is safe to use inside blocks passed to Signal.trap
 
-*   arithmetic on Integer and Float (`+`, `-`, '%', '*', '/')
+*   arithmetic on Integer and Float (`+', `-', '%', '*', '/')
 
     Additionally, signal handlers do not run between two successive local
-    variable accesses, so shortcuts such as `+=` and `-=` will not trigger a
+    variable accesses, so shortcuts such as `+=' and `-=' will not trigger a
     data race when used on Integer and Float classes in signal handlers.
 
 

@@ -27,3 +27,5 @@ Example:
          puts "consumed #{value}"
       end
     end
+
+[Queue Reference](http://ruby-doc.org/core-2.5.0/Queue.html)

@@ -11,3 +11,5 @@ should know its esoteric system. See following:
     mprecise
 *   http://en.wikipedia.org/wiki/Floating_point#Accuracy_problems
 
+
+[Float Reference](http://ruby-doc.org/core-2.5.0/Float.html)

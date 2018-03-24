@@ -23,3 +23,5 @@ will be the same object in all three contexts.
     $f1.object_id   #=> 2514190
     $f2.object_id   #=> 2514190
     $f3.object_id   #=> 2514190
+
+[Symbol Reference](http://ruby-doc.org/core-2.5.0/Symbol.html)

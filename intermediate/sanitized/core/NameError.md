@@ -15,3 +15,5 @@ Since constant names must start with a capital:
 *raises the exception:*
 
     NameError: wrong constant name answer
+
+[NameError Reference](http://ruby-doc.org/core-2.5.0/NameError.html)

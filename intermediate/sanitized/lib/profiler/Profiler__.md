@@ -56,3 +56,5 @@ The output in both cases is a report when the execution is over:
       0.00     0.19      0.00        2     0.00     0.00  Module#method_added
       0.00     0.19      0.00        1     0.00    90.00  Object#fast_method
       0.00     0.19      0.00        1     0.00   190.00  #toplevel
+
+[Profiler__ Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/profiler/rdoc/Profiler__.html)

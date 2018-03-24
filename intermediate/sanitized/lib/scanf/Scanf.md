@@ -75,8 +75,8 @@ is not counted against the field width.
 
 The following conversions are available.
 
-* %: Matches a literal `%`. That is, `%%` in the format string matches a single
-    input `%` character. No conversion is done, and the resulting '%' is not
+* %: Matches a literal `%'. That is, `%%' in the format string matches a single
+    input `%' character. No conversion is done, and the resulting '%' is not
     included in the return array.
 
 * d: Matches an optionally signed decimal integer.
@@ -214,3 +214,5 @@ for features and behaviors which appear in other scanfs, and would be
 meaningful in Ruby, are welcome, as are reports of suspicious behaviors and/or
 bugs.  (Please see "Credits and acknowledgements", above, for email
 addresses.)
+
+[Scanf Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/scanf/rdoc/Scanf.html)

@@ -41,3 +41,5 @@ vs. {x, z} for example).
 ## Contact
 
     - Akinori MUSHA <knu@iDaemons.org> (current maintainer)
+
+[Set Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/set/rdoc/Set.html)

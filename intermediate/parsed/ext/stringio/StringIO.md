@@ -11,3 +11,5 @@ Commonly used to simulate `$stdio` or `$stderr`
     io = StringIO.new
     io.puts "Hello World"
     io.string #=> "Hello World\n"
+
+[StringIO Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/stringio/rdoc/StringIO.html)

@@ -18,6 +18,8 @@ receiver and thus can be called in functional form:
 sprintf "%.1f", 1.234 #=> "1.2"
 ```
 
+[Kernel Reference](http://ruby-doc.org/core-2.5.0/Kernel.html)
+
 
 
 ## BasicObject
@@ -78,6 +80,8 @@ class MyObjectSystem < BasicObject
 end
 ```
 
+[BasicObject Reference](http://ruby-doc.org/core-2.5.0/BasicObject.html)
+
 
 
 ## Object
@@ -97,6 +101,8 @@ need to use the full namespace. For example, referencing `File` inside
 In the descriptions of Object's methods, the parameter *symbol* refers
 to a symbol, which is either a quoted string or a Symbol (such as
 `:name`).
+
+[Object Reference](http://ruby-doc.org/core-2.5.0/Object.html)
 
 
 
@@ -126,11 +132,13 @@ Mod.constants          #=> [:CONST, :PI, :E]
 Mod.instance_methods   #=> [:meth]
 ```
 
+[Module Reference](http://ruby-doc.org/core-2.5.0/Module.html)
+
 
 
 ## Class
 
-Classes in Ruby are first-class objects---each is an instance of class
+Classes in Ruby are first-class objects—each is an instance of class
 `Class`.
 
 Typically, you create a new class by using:
@@ -174,13 +182,30 @@ Creating a new Name
 Classes, modules, and objects are interrelated. In the diagram that
 follows, the vertical arrows represent inheritance, and the parentheses
 metaclasses. All metaclasses are instances of the class `Class`.
-+---------+ +-... \| \| \|
-BasicObject-----\|-->(BasicObject)-------\|-... ^ \| ^ \| \| \| \| \|
-Object---------\|----->(Object)---------\|-... ^ \| ^ \| \| \| \| \|
-+-------+ \| +--------+ \| \| \| \| \| \| \| \|
-Module-\|---------\|--->(Module)-\|-... \| ^ \| \| ^ \| \| \| \| \| \|
-\| \| Class-\|---------\|---->(Class)-\|-... \| ^ \| \| ^ \| \| +---+ \|
-+----+ \| \| obj--->OtherClass---------->(OtherClass)-----------...
+
+
+```ruby
+                         +---------+             +-...
+                         |         |             |
+         BasicObject-----|-->(BasicObject)-------|-...
+             ^           |         ^             |
+             |           |         |             |
+          Object---------|----->(Object)---------|-...
+             ^           |         ^             |
+             |           |         |             |
+             +-------+   |         +--------+    |
+             |       |   |         |        |    |
+             |    Module-|---------|--->(Module)-|-...
+             |       ^   |         |        ^    |
+             |       |   |         |        |    |
+             |     Class-|---------|---->(Class)-|-...
+             |       ^   |         |        ^    |
+             |       +---+         |        +----+
+             |                     |
+obj--->OtherClass---------->(OtherClass)-----------...
+```
+
+[Class Reference](http://ruby-doc.org/core-2.5.0/Class.html)
 
 
 
@@ -206,9 +231,11 @@ meth.call(9)                 #=> 81
 [ 1, 2, 3 ].collect(&meth)   #=> [1, 4, 9]
 ```
 
+[Method Reference](http://ruby-doc.org/core-2.5.0/Method.html)
 
 
-## UnboundMethod
+
+### UnboundMethod
 
 Ruby supports two forms of objectified methods. Class `Method` is used
 to represent methods that are associated with a particular object: these
@@ -263,6 +290,9 @@ t.test            #=> :modified
 um.bind(t).call   #=> :original
 ```
 
+[UnboundMethod
+Reference](http://ruby-doc.org/core-2.5.0/UnboundMethod.html)
+
 
 
 ## Proc
@@ -284,6 +314,8 @@ times3.call(12)               #=> 36
 times5.call(5)                #=> 25
 times3.call(times5.call(4))   #=> 60
 ```
+
+[Proc Reference](http://ruby-doc.org/core-2.5.0/Proc.html)
 
 
 
@@ -359,6 +391,8 @@ puts fiber.resume 18
 FiberError: dead fiber called
 ```
 
+[Fiber Reference](http://ruby-doc.org/core-2.5.0/Fiber.html)
+
 
 
 ## Binding
@@ -395,4 +429,6 @@ eval("@secret")       #=> nil
 ```
 
 Binding objects have no class-specific methods.
+
+[Binding Reference](http://ruby-doc.org/core-2.5.0/Binding.html)
 

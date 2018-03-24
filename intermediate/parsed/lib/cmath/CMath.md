@@ -19,3 +19,5 @@ For more information you can see Complex class.
 To start using this library, simply require cmath library:
 
     require "cmath"
+
+[CMath Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/cmath/rdoc/CMath.html)

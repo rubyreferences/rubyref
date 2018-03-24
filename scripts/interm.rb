@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'rdoc'
 require 'fileutils'
 require 'pp'
@@ -7,6 +9,10 @@ INTERM = "intermediate/parsed"
 
 MARKDOWN = RDoc::Markup::ToMarkdown.new
 INFLECTOR = Dry::Inflector.new
+
+# TODO: currently rendered Ruby version
+CORE_DOCS = 'http://ruby-doc.org/core-2.5.0'
+LIB_DOCS = 'https://ruby-doc.org/stdlib-2.5.0/libdoc/%s/rdoc'
 
 def prepare_rdoc
   RDoc::RDoc.new.tap do |rdoc|
@@ -32,14 +38,15 @@ def write(target, text, source: nil)
   File.write target, text
 end
 
-def write_mod(path, mod, source: nil)
+def write_mod(path, mod, reference: '#TODO', source: nil)
   comment = mod.comment_location.map(&:first).compact.sort_by { |c| c.text.length }.last
   return if comment.nil? || comment.text.empty?
 
   write(
     "#{path}/#{mod.full_name.sub('::', '--')}",
     "# #{mod.full_name}\n\n" +
-    MARKDOWN.convert(comment.parse),
+    MARKDOWN.convert(comment.parse) +
+    "\n[#{mod.full_name} Reference](#{reference}/#{mod.full_name}.html)\n",
     source: source
   )
 end
@@ -75,7 +82,7 @@ end
 # Core language:
 Dir['ruby/{,**/}*.c'].grep_v(%r{/(ext|missing)/}).
   tap do |pathes|
-    parse_modules(*pathes).each { |mod| write_mod('core',  mod) }
+    parse_modules(*pathes).each { |mod| write_mod('core',  mod, reference: CORE_DOCS) }
   end
 
 def libname(f)
@@ -95,14 +102,17 @@ patterns = File.read('ruby/lib/.document').split("\n").map { |ln| ln.sub(/\#.*$/
 Dir[*patterns].group_by { |f| libname(f) } # group optparse.rb & optparse and so on
   .sort
   .each do |name, group|
-    parse_modules(*group).each { |mod| write_mod("lib/#{name}", mod, source: name) }
+    parse_modules(*group).each { |mod|
+      write_mod("lib/#{name}", mod, source: name, reference: LIB_DOCS % name)
+    }
   end
 
 # Standard library - C:
 Dir['ruby/ext/*'].grep_v(/-test-/).select(&File.method(:directory?))
   .sort
   .each do |path|
+    name = File.basename(path)
     parse_modules(path).each do |mod|
-      write_mod("ext/#{File.basename(path)}", mod, source: File.basename(path))
+      write_mod("ext/#{name}", mod, source: name, reference: LIB_DOCS % name)
     end
   end

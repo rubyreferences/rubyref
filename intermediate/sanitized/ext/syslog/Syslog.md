@@ -13,3 +13,5 @@ Unlike application-level logging via Logger or Log4r, syslog is designed to
 allow secure tamper-proof logging.
 
 The syslog protocol is standardized in RFC 5424.
+
+[Syslog Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/syslog/rdoc/Syslog.html)

@@ -42,3 +42,5 @@ few implementations of generator.
     for factorizing an integer which is not large but has many prime factors.
     e.g. for Prime#prime? .
 
+
+[Prime Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/prime/rdoc/Prime.html)

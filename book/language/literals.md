@@ -148,7 +148,7 @@ single-quote strings:
 ```
 
 In addition to disabling interpolation, single-quoted strings also
-disable all escape sequences except for the single-quote (`\``) and
+disable all escape sequences except for the single-quote (`\'`) and
 backslash (`\\\`).
 
 You may also create strings using `%`: 

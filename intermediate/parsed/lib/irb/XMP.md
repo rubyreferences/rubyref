@@ -30,3 +30,5 @@ expressions in the given binding:
       #==>"a good day"
     ctx.eval 'today # is what?'
     #=> "a good day"
+
+[XMP Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/irb/rdoc/XMP.html)

@@ -25,3 +25,5 @@ Examples:
 *   NIS is not supported.
 *   /etc/nsswitch.conf is not supported.
 
+
+[Resolv Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/resolv/rdoc/Resolv.html)

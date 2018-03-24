@@ -61,3 +61,5 @@ String representations:
 *   #to_s
 *   #inspect
 
+
+[Vector Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/matrix/rdoc/Vector.html)

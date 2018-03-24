@@ -25,3 +25,5 @@ Copyright
 Copyright
 :   (C) 2000  Information-technology Promotion Agency, Japan
 
+
+[Timeout Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/timeout/rdoc/Timeout.html)

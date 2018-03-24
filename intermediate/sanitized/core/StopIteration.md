@@ -14,3 +14,5 @@ by `Kernel#loop`.
 
     Hello
     Done!
+
+[StopIteration Reference](http://ruby-doc.org/core-2.5.0/StopIteration.html)

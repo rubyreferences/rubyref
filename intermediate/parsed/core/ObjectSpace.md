@@ -19,3 +19,5 @@ called when a specific object is about to be destroyed by garbage collection.
 
     Finalizer two on 537763470
     Finalizer one on 537763480
+
+[ObjectSpace Reference](http://ruby-doc.org/core-2.5.0/ObjectSpace.html)

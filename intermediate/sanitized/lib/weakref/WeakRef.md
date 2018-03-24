@@ -12,3 +12,5 @@ Usage:
     p foo.to_s                  # should be same class
     GC.start                    # start the garbage collector
     p foo.to_s                  # should raise exception (recycled)
+
+[WeakRef Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/weakref/rdoc/WeakRef.html)

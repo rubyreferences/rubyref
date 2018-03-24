@@ -45,3 +45,5 @@ used to delegate constant lookup to `Object`:
         ::Object.const_get(name)
       end
     end
+
+[BasicObject Reference](http://ruby-doc.org/core-2.5.0/BasicObject.html)

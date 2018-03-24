@@ -26,3 +26,5 @@ read-only for all others. The only change that can be made is to make the file
 read-only, which is reported as `0444`.
 
 Various constants for the methods in File can be found in File::Constants.
+
+[File Reference](http://ruby-doc.org/core-2.5.0/File.html)

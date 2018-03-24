@@ -44,3 +44,5 @@ Outputs:
     Key: carrot, Value: vegetable
     Key: peach, Value: fruit
     Key: tomato, Value: fruit
+
+[SDBM Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/sdbm/rdoc/SDBM.html)

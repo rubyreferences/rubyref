@@ -8,3 +8,5 @@ In order to use this method, you must require expect:
     require 'expect'
 
 Please see `#expect` for usage.
+
+[IO Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/pty/rdoc/IO.html)

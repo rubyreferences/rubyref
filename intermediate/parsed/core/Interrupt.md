@@ -18,3 +18,5 @@ pressed on Control-C (on most posix platforms). As such, it is a subclass of
 *then waits until it is interrupted with Control-C and then prints:*
 
     Note: You will typically use Signal.trap instead.
+
+[Interrupt Reference](http://ruby-doc.org/core-2.5.0/Interrupt.html)

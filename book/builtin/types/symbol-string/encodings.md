@@ -229,3 +229,5 @@ transcoded text:
 "R\u00E9sum\u00E9"
 ```
 
+[Encoding Reference](http://ruby-doc.org/core-2.5.0/Encoding.html)
+

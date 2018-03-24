@@ -18,3 +18,5 @@ Example:
         # access shared resource
       }
     }
+
+[Mutex Reference](http://ruby-doc.org/core-2.5.0/Mutex.html)

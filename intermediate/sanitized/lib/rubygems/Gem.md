@@ -94,3 +94,5 @@ See [LICENSE.txt](rdoc-ref:lib/rubygems/LICENSE.txt) for permissions.
 Thanks!
 
 -The RubyGems Team
+
+[Gem Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/rubygems/rdoc/Gem.html)

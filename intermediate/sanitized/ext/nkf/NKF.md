@@ -273,3 +273,5 @@ Unescape percent escaped characters.
 ### --
 
 Ignore rest of -option.
+
+[NKF Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/nkf/rdoc/NKF.html)

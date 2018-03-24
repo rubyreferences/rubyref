@@ -36,3 +36,5 @@ to your script. For example:
 
     $ echo "glark" | ruby -e 'p ARGF.read'
     "glark\n"
+
+[ARGF Reference](http://ruby-doc.org/core-2.5.0/ARGF.html)

@@ -13,3 +13,5 @@ subclasses of IOError:
 
     File.open("does/not/exist")
       #=> Errno::ENOENT: No such file or directory - does/not/exist
+
+[IOError Reference](http://ruby-doc.org/core-2.5.0/IOError.html)

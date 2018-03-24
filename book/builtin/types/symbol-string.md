@@ -1,4 +1,8 @@
-# Symbol
+# Symbol and String
+
+
+
+## Symbol
 
 `Symbol` objects represent names and some strings inside the Ruby
 interpreter. They are generated using the `:name` and `:"string"`
@@ -28,6 +32,8 @@ $f2.object_id   #=> 2514190
 $f3.object_id   #=> 2514190
 ```
 
+[Symbol Reference](http://ruby-doc.org/core-2.5.0/Symbol.html)
+
 
 
 ## String
@@ -38,7 +44,9 @@ typically representing characters. String objects may be created using
 
 Because of aliasing issues, users of strings should be aware of the
 methods that modify the contents of a `String` object. Typically,
-methods with names ending in `` !`' modify their receiver, while those
-without a ``!`' return a
-new `String`.  However, there are exceptions, such as `String#\[\]=\`.
+methods with names ending in `!` modify their receiver, while those
+without a `!` return a new `String`. However, there are exceptions, such
+as `String#[]=`.
+
+[String Reference](http://ruby-doc.org/core-2.5.0/String.html)
 

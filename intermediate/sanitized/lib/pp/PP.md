@@ -50,3 +50,5 @@ To pretty-print JSON refer to `JSON#pretty_generate`.
 
 ## Author
 Tanaka Akira <akr@fsij.org>
+
+[PP Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/pp/rdoc/PP.html)

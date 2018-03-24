@@ -18,3 +18,5 @@ way as for Process.spawn.
 *   Open3.pipeline_start : run a pipeline without waiting
 *   Open3.pipeline : run a pipeline and wait for its completion
 
+
+[Open3 Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/open3/rdoc/Open3.html)

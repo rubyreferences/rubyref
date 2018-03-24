@@ -8,3 +8,5 @@ methods are documented here.  These methods are called without a receiver and
 thus can be called in functional form:
 
     sprintf "%.1f", 1.234 #=> "1.2"
+
+[Kernel Reference](http://ruby-doc.org/core-2.5.0/Kernel.html)

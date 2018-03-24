@@ -29,3 +29,5 @@ f.eps
 x is the point at which to compute the Jacobian.
 
 fx is f.values(x).
+
+[Jacobian Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/bigdecimal/rdoc/Jacobian.html)

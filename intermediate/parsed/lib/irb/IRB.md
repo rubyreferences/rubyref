@@ -316,3 +316,5 @@ There are a few variables in every Irb session that can come in handy:
       #0->irb on main (#<Thread:0x400fb7e4> : running)
     # quit irb
     irb(main):010:0> exit
+
+[IRB Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/irb/rdoc/IRB.html)

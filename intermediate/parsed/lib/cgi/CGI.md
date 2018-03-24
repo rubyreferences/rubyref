@@ -268,3 +268,5 @@ and cgi.cookies is a hash.
     include CGI::Util
     escapeHTML('Usage: foo "bar" <baz>')
     h('Usage: foo "bar" <baz>') # alias
+
+[CGI Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/cgi/rdoc/CGI.html)

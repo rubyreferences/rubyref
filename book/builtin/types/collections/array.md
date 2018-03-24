@@ -3,9 +3,9 @@
 Arrays are ordered, integer-indexed collections of any object.
 
 Array indexing starts at 0, as in C or Java. A negative index is assumed
-to be relative to the end of the array---that is, an index of -1
-indicates the last element of the array, -2 is the next to last element
-in the array, and so on.
+to be relative to the end of the array—that is, an index of -1 indicates
+the last element of the array, -2 is the next to last element in the
+array, and so on.
 
 ## Creating Arrays
 
@@ -320,4 +320,6 @@ arr = [1, 2, 3, 4, 5, 6]
 arr.keep_if { |a| a < 4 } #=> [1, 2, 3]
 arr                       #=> [1, 2, 3]
 ```
+
+[Array Reference](http://ruby-doc.org/core-2.5.0/Array.html)
 

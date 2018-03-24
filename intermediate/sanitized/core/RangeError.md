@@ -7,3 +7,5 @@ Raised when a given numerical value is out of range.
 *raises the exception:*
 
     RangeError: bignum too big to convert into `long`
+
+[RangeError Reference](http://ruby-doc.org/core-2.5.0/RangeError.html)

@@ -56,3 +56,5 @@ To filter what is traced, you can pass any of the following as `events`:
 `:fiber_switch`
 :   event hook at fiber switch
 
+
+[TracePoint Reference](http://ruby-doc.org/core-2.5.0/TracePoint.html)

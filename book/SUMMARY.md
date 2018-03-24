@@ -33,19 +33,19 @@
 * [Built-in Classes](builtin.md)
   * [Language Core](builtin/core.md)
 
-  * [Data Types](builtin/types.md)
+  * [Value Types](builtin/types.md)
     * [Numbers](builtin/types/numbers.md)
 
-    * [Symbols and strings](builtin/types/symbols-strings.md)
-      * [Encodings](builtin/types/symbols-strings/encodings.md)
+    * [Symbol and String](builtin/types/symbol-string.md)
+      * [Encodings](builtin/types/symbol-string/encodings.md)
 
-    * [Regular expressions](builtin/types/regexp.md)
+    * [Regexp](builtin/types/regexp.md)
 
     * [Range](builtin/types/range.md)
 
     * [Struct](builtin/types/struct.md)
 
-    * [Time](builtin/types/time.md)
+    * [Times and Dates](builtin/types/times-dates.md)
 
     * [Collections](builtin/types/collections.md)
       * [Array](builtin/types/collections/array.md)

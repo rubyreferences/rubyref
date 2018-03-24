@@ -70,3 +70,5 @@ Here is a simple example of usage:
 Example command line:
 
     hello -n 6 --name -- /tmp
+
+[GetoptLong Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/getoptlong/rdoc/GetoptLong.html)

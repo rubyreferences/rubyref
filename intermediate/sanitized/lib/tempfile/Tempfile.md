@@ -69,3 +69,5 @@ it guarantees that no other threads or processes will pick the same filename.
 Tempfile itself however may not be entirely thread-safe. If you access the
 same Tempfile object from multiple threads then you should protect it with a
 mutex.
+
+[Tempfile Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/tempfile/rdoc/Tempfile.html)

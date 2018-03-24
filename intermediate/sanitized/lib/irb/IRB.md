@@ -135,7 +135,7 @@ prompt specification, some special strings are available:
     %N    # command name which is running
     %m    # to_s of main object (self)
     %M    # inspect of main object (self)
-    %l    # type of string(", ', /, ]), `]` is inner %w[...]
+    %l    # type of string(", ', /, ]), `]' is inner %w[...]
     %NNi  # indent level. NN is digits and means as same as printf("%NNd").
           # It can be omitted
     %NNn  # line number.
@@ -311,3 +311,5 @@ There are a few variables in every Irb session that can come in handy:
       #0->irb on main (#<Thread:0x400fb7e4> : running)
     # quit irb
     irb(main):010:0> exit
+
+[IRB Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/irb/rdoc/IRB.html)

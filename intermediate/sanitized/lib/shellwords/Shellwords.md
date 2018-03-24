@@ -63,3 +63,5 @@ Array.new.
 1: [IEEE Std 1003.1-2008, 2016 Edition, the Shell & Utilities
 volume](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/contents.htm
 l)
+
+[Shellwords Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/shellwords/rdoc/Shellwords.html)

@@ -233,3 +233,5 @@ opposite result when supplied with the same block:
     arr = [1, 2, 3, 4, 5, 6]
     arr.keep_if { |a| a < 4 } #=> [1, 2, 3]
     arr                       #=> [1, 2, 3]
+
+[Array Reference](http://ruby-doc.org/core-2.5.0/Array.html)

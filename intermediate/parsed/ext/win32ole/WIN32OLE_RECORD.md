@@ -28,3 +28,5 @@ then, you can retrieve getBook return value from the following Ruby script:
     book.class # => WIN32OLE_RECORD
     book.title # => "The Ruby Book"
     book.cost  # => 20
+
+[WIN32OLE_RECORD Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/win32ole/rdoc/WIN32OLE_RECORD.html)

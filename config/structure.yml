@@ -113,13 +113,14 @@
         - source: core/Class.md
         - source: core/Method.md
         - source: core/UnboundMethod.md
+          header_shift: 2
         - source: core/Proc.md
         - source: core/Fiber.md
         - source: core/Binding.md
         # Deprecated/obsolete, see https://bugs.ruby-lang.org/issues/10548
         # - source: core/Continuation.md
 
-    - title: Data Types
+    - title: Value Types
       id: types
       content:
         - source: content/core/types.md
@@ -136,7 +137,12 @@
             - source: core/Rational.md
             - source: core/Complex.md
             # TODO: notice about require 'bigdecimal'
-            - source: ext/bigdecimal/BigDecimal.md
+            - source: '## BigDecimal'
+            - source: ext/bigdecimal/BigDecimal.md#Introduction
+              remove: '## Introduction'
+              process:
+                - [stdlib, bigdecimal]
+            - source: ext/bigdecimal/BigDecimal.md#_ref
             # - source: ext/bigdecimal/BigMath.md
             # - source: ext/bigdecimal/Jacobian.md
             # - source: ext/bigdecimal/LUSolve.md
@@ -146,8 +152,11 @@
               header_shift: 2
             - source: lib/prime/Prime.md
               header_shift: 2
-        - title: Symbols and strings
+              process:
+                - [stdlib, prime]
+        - title: Symbol and String
           content:
+            - source: '# Symbol and String'
             - source: core/Symbol.md
             - source: core/String.md
           children:
@@ -156,7 +165,7 @@
                 - source: core/Encoding.md
                 # Nothing documented there
                 # - source: core/UnicodeNormalize.md
-        - title: Regular expressions
+        - title: Regexp
           id: regexp
           content:
             - source: core/Regexp.md
@@ -170,14 +179,29 @@
           content:
             - source: core/Struct.md
             - source: lib/ostruct/OpenStruct.md
-        - title: Time
+              process:
+                - [stdlib, ostruct]
+        - title: Times and Dates
           content:
+            - source: '# Times and Dates'
             - source: core/Time.md
-            # TODO: notice about require stdlib
-            - source: lib/time/Time.md
-            - source: ext/date/Date.md
+              remove:
+                - "# Examples"
+                - "All of these examples"
+
+            - source: content/builtin/core/time/_timerb.md
+            - source: lib/time/Time.md#Examples
+              remove: "## Examples"
+            - source: "lib/time/Time.md#Converting to a String"
+            - source: "lib/time/Time.md#Time.parse"
+            - source: "lib/time/Time.md#Time.strptime"
+
+            - source: ext/date/Date.md#Date
+              process:
+                - [stdlib, date]
             - source: ext/date/DateTime.md
-              header_shift: 2
+              process:
+                - [stdlib, date]
         - title: Collections
           content:
             - source: content/core/collections.md
@@ -192,19 +216,27 @@
                 - source: core/Hash.md
             - title: Set
               content:
-              - source: lib/set/Set.md
-              - source: lib/set/SortedSet.md
+                - source: lib/set/Set.md
+                  remove:
+                    - '## Contact'
+                    - '    - Akinori'
+                  process:
+                    - [stdlib, set]
+                - source: lib/set/SortedSet.md
             - title: Matrix
               content:
                 - source: lib/matrix/Matrix.md
-                - source: lib/matrix/Vector.md
+                  process:
+                    - [stdlib, matrix]
+                - source: lib/matrix/Vector.md#Vector
+                - source: lib/matrix/Vector.md#_ref
 
     - title: Errors and Warnings
       content:
         - source: core/Exception.md
         - source: core/Warning.md
       children:
-        - title: Exception classes
+        - title: Exception Classes
           content:
             - source: "# Built-in Exception Classes"
             # Order and depth here are corresponding to explanation in Exception class docs

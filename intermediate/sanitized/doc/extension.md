@@ -1304,7 +1304,7 @@ VALUE rb_funcall2(VALUE recv, ID mid, int argc, VALUE *argv)
 ### Instance Variables
 
 * VALUE rb_iv_get(VALUE obj, const char *name): Retrieve the value of the instance variable.  If the name is not prefixed
-    by `@`, that variable shall be inaccessible from Ruby.
+    by `@', that variable shall be inaccessible from Ruby.
 
 * VALUE rb_iv_set(VALUE obj, const char *name, VALUE val): Sets the value of the instance variable.
 

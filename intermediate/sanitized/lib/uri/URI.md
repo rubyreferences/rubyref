@@ -102,3 +102,6 @@ Here is a list of all related RFC's.
     it and/or modify it under the same term as Ruby.
 
 * Revision: $Id$
+
+
+[URI Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/uri/rdoc/URI.html)

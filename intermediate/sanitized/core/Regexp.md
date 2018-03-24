@@ -272,7 +272,7 @@ group is referred to later with the backreference `\2`:
 
 The first group of parentheses is now made non-capturing with '?:', so it
 still matches 'n', but doesn't create the backreference. Thus, the
-backreference `\1` now refers to `ti'.
+backreference `\1` now refers to 'ti'.
 
     /I(?:n)ves(ti)ga\1ons/.match("Investigations")
         #=> #<MatchData "Investigations" 1:"ti">
@@ -380,45 +380,45 @@ POSIX bracket classes.
 A Unicode character's *General Category* value can also be matched with
 `\p{`*Ab*`}` where *Ab* is the category's abbreviation as described below:
 
-*   `/\p{L}/` - `Letter'
-*   `/\p{Ll}/` - `Letter: Lowercase'
-*   `/\p{Lm}/` - `Letter: Mark'
-*   `/\p{Lo}/` - `Letter: Other'
-*   `/\p{Lt}/` - `Letter: Titlecase'
-*   `/\p{Lu}/` - `Letter: Uppercase
-*   `/\p{Lo}/` - `Letter: Other'
-*   `/\p{M}/` - `Mark'
-*   `/\p{Mn}/` - `Mark: Nonspacing'
-*   `/\p{Mc}/` - `Mark: Spacing Combining'
-*   `/\p{Me}/` - `Mark: Enclosing'
-*   `/\p{N}/` - `Number'
-*   `/\p{Nd}/` - `Number: Decimal Digit'
-*   `/\p{Nl}/` - `Number: Letter'
-*   `/\p{No}/` - `Number: Other'
-*   `/\p{P}/` - `Punctuation'
-*   `/\p{Pc}/` - `Punctuation: Connector'
-*   `/\p{Pd}/` - `Punctuation: Dash'
-*   `/\p{Ps}/` - `Punctuation: Open'
-*   `/\p{Pe}/` - `Punctuation: Close'
-*   `/\p{Pi}/` - `Punctuation: Initial Quote'
-*   `/\p{Pf}/` - `Punctuation: Final Quote'
-*   `/\p{Po}/` - `Punctuation: Other'
-*   `/\p{S}/` - `Symbol'
-*   `/\p{Sm}/` - `Symbol: Math'
-*   `/\p{Sc}/` - `Symbol: Currency'
-*   `/\p{Sc}/` - `Symbol: Currency'
-*   `/\p{Sk}/` - `Symbol: Modifier'
-*   `/\p{So}/` - `Symbol: Other'
-*   `/\p{Z}/` - `Separator'
-*   `/\p{Zs}/` - `Separator: Space'
-*   `/\p{Zl}/` - `Separator: Line'
-*   `/\p{Zp}/` - `Separator: Paragraph'
-*   `/\p{C}/` - `Other'
-*   `/\p{Cc}/` - `Other: Control'
-*   `/\p{Cf}/` - `Other: Format'
-*   `/\p{Cn}/` - `Other: Not Assigned'
-*   `/\p{Co}/` - `Other: Private Use'
-*   `/\p{Cs}/` - `Other: Surrogate'
+*   `/\p{L}/` - 'Letter'
+*   `/\p{Ll}/` - 'Letter: Lowercase'
+*   `/\p{Lm}/` - 'Letter: Mark'
+*   `/\p{Lo}/` - 'Letter: Other'
+*   `/\p{Lt}/` - 'Letter: Titlecase'
+*   `/\p{Lu}/` - 'Letter: Uppercase
+*   `/\p{Lo}/` - 'Letter: Other'
+*   `/\p{M}/` - 'Mark'
+*   `/\p{Mn}/` - 'Mark: Nonspacing'
+*   `/\p{Mc}/` - 'Mark: Spacing Combining'
+*   `/\p{Me}/` - 'Mark: Enclosing'
+*   `/\p{N}/` - 'Number'
+*   `/\p{Nd}/` - 'Number: Decimal Digit'
+*   `/\p{Nl}/` - 'Number: Letter'
+*   `/\p{No}/` - 'Number: Other'
+*   `/\p{P}/` - 'Punctuation'
+*   `/\p{Pc}/` - 'Punctuation: Connector'
+*   `/\p{Pd}/` - 'Punctuation: Dash'
+*   `/\p{Ps}/` - 'Punctuation: Open'
+*   `/\p{Pe}/` - 'Punctuation: Close'
+*   `/\p{Pi}/` - 'Punctuation: Initial Quote'
+*   `/\p{Pf}/` - 'Punctuation: Final Quote'
+*   `/\p{Po}/` - 'Punctuation: Other'
+*   `/\p{S}/` - 'Symbol'
+*   `/\p{Sm}/` - 'Symbol: Math'
+*   `/\p{Sc}/` - 'Symbol: Currency'
+*   `/\p{Sc}/` - 'Symbol: Currency'
+*   `/\p{Sk}/` - 'Symbol: Modifier'
+*   `/\p{So}/` - 'Symbol: Other'
+*   `/\p{Z}/` - 'Separator'
+*   `/\p{Zs}/` - 'Separator: Space'
+*   `/\p{Zl}/` - 'Separator: Line'
+*   `/\p{Zp}/` - 'Separator: Paragraph'
+*   `/\p{C}/` - 'Other'
+*   `/\p{Cc}/` - 'Other: Control'
+*   `/\p{Cf}/` - 'Other: Format'
+*   `/\p{Cn}/` - 'Other: Not Assigned'
+*   `/\p{Co}/` - 'Other: Private Use'
+*   `/\p{Cs}/` - 'Other: Surrogate'
 
 
 Lastly, `\p{}` matches a character's Unicode *script*. The following scripts
@@ -612,7 +612,7 @@ Pattern matching sets some global variables :
 *   `$~` is equivalent to Regexp.last_match;
 *   `$&` contains the complete matched text;
 *   `$`` contains string before match;
-*   `$`` contains string after match;
+*   `$'` contains string after match;
 *   `$1`, `$2` and so on contain text matching first, second, etc capture
     group;
 
@@ -695,3 +695,5 @@ optional *a*s, a range of optional *a*s can be matched all at once with
 *a{0,29}*:
 
     Regexp.new('a{0,29}' + 'a' * 29) =~ 'a' * 29
+
+[Regexp Reference](http://ruby-doc.org/core-2.5.0/Regexp.html)

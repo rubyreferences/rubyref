@@ -83,3 +83,6 @@ The built-in subclasses of Exception are:
 *   SystemExit
 *   SystemStackError
 *   fatal -- impossible to rescue
+
+
+[Exception Reference](http://ruby-doc.org/core-2.5.0/Exception.html)

@@ -48,3 +48,5 @@ method for serialization:
     require 'json'
 
     1.to_json => "1"
+
+[JSON Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/json/rdoc/JSON.html)

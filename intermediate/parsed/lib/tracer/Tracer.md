@@ -62,3 +62,5 @@ Symbol table used for displaying incoming events:
 ## Copyright
 
 by Keiju ISHITSUKA(keiju@ishitsuka.com)
+
+[Tracer Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/tracer/rdoc/Tracer.html)

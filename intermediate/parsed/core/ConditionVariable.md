@@ -23,3 +23,5 @@ Example:
          resource.signal
        }
     }
+
+[ConditionVariable Reference](http://ruby-doc.org/core-2.5.0/ConditionVariable.html)

@@ -223,7 +223,7 @@ You may place multiple conditions on the same `when`:
     end
 
 Ruby will try each condition in turn, so first `/^1/ === "2"` returns `false`,
-then `"2" === "2"` returns `true`, so "the string starts with one or is `2'"
+then `"2" === "2"` returns `true`, so "the string starts with one or is '2'"
 is printed.
 
 You may use `then` after the `when` condition.  This is most frequently used

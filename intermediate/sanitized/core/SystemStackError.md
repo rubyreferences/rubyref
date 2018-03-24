@@ -10,3 +10,5 @@ Raised in case of a stack overflow.
 *raises the exception:*
 
     SystemStackError: stack level too deep
+
+[SystemStackError Reference](http://ruby-doc.org/core-2.5.0/SystemStackError.html)

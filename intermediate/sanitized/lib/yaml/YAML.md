@@ -47,3 +47,5 @@ Psych is maintained by Aaron Patterson on github:
 https://github.com/tenderlove/psych
 
 Syck can also be found on github: https://github.com/tenderlove/syck
+
+[YAML Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/yaml/rdoc/YAML.html)

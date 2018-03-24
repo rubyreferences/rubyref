@@ -89,6 +89,8 @@ The built-in subclasses of Exception are:
 * SystemStackError
 * fatal -- impossible to rescue
 
+[Exception Reference](http://ruby-doc.org/core-2.5.0/Exception.html)
+
 
 
 ## Warning
@@ -103,4 +105,6 @@ Ruby, either filtering some warnings, and/or outputting warnings
 somewhere other than $stderr. When Warning.warn is overridden, super can
 be called to get the default behavior of printing the warning to
 $stderr.
+
+[Warning Reference](http://ruby-doc.org/core-2.5.0/Warning.html)
 

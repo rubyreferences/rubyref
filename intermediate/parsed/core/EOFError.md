@@ -12,3 +12,5 @@ one that returns `nil` when the end of file is reached, the other raises
     file.read
     file.gets     #=> nil
     file.readline #=> EOFError: end of file reached
+
+[EOFError Reference](http://ruby-doc.org/core-2.5.0/EOFError.html)

@@ -16,3 +16,5 @@ On the other hand:
 *raises the exception:*
 
     LoadError: no such file to load -- does/not/exist
+
+[StandardError Reference](http://ruby-doc.org/core-2.5.0/StandardError.html)

@@ -23,3 +23,5 @@ A more subtle example:
 *raises the exception:*
 
     LocalJumpError: unexpected return
+
+[LocalJumpError Reference](http://ruby-doc.org/core-2.5.0/LocalJumpError.html)

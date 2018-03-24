@@ -53,3 +53,6 @@ writer at the same time.
 ## Links
 
 *   http://www.gnu.org/software/gdbm/
+
+
+[GDBM Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/gdbm/rdoc/GDBM.html)

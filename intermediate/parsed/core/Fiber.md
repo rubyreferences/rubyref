@@ -55,3 +55,5 @@ Example:
     12
     14
     FiberError: dead fiber called
+
+[Fiber Reference](http://ruby-doc.org/core-2.5.0/Fiber.html)

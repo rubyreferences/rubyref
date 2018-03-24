@@ -6,5 +6,7 @@ typically representing characters. String objects may be created using
 
 Because of aliasing issues, users of strings should be aware of the methods
 that modify the contents of a `String` object.  Typically, methods with names
-ending in ``!`' modify their receiver, while those without a ``!`' return a
+ending in `!` modify their receiver, while those without a `!` return a
 new `String`.  However, there are exceptions, such as `String#[]=`.
+
+[String Reference](http://ruby-doc.org/core-2.5.0/String.html)

@@ -102,3 +102,6 @@ The result:
         upto:     0.950000   0.000000   0.950000 (  0.946787)
         >total:   2.880000   0.000000   2.880000 (  2.883764)
         >avg:     0.960000   0.000000   0.960000 (  0.961255)
+
+
+[Benchmark Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/benchmark/rdoc/Benchmark.html)

@@ -19,3 +19,5 @@ to be saved and resumed.
 
 PRNGs are currently implemented as a modified Mersenne Twister with a period
 of 2**19937-1.
+
+[Random Reference](http://ruby-doc.org/core-2.5.0/Random.html)

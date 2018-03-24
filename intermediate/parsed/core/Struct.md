@@ -23,3 +23,5 @@ instances.
 In the method descriptions that follow, a "member" parameter refers to a
 struct member which is either a quoted string (`"name"`) or a Symbol
 (`:name`).
+
+[Struct Reference](http://ruby-doc.org/core-2.5.0/Struct.html)

@@ -33,3 +33,5 @@ http://homepages.inf.ed.ac.uk/wadler/topics/language-design.html#prettier
 
 ## Author
 Tanaka Akira <akr@fsij.org>
+
+[PrettyPrint Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/prettyprint/rdoc/PrettyPrint.html)

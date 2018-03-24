@@ -53,3 +53,5 @@ All metaclasses are instances of the class `Class'.
                  |       +---+         |        +----+
                  |                     |
     obj--->OtherClass---------->(OtherClass)-----------...
+
+[Class Reference](http://ruby-doc.org/core-2.5.0/Class.html)

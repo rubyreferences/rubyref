@@ -74,3 +74,5 @@ Example:
     require 'io/console'
     rows, columns = $stdout.winsize
     puts "Your screen is #{columns} wide and #{rows} tall"
+
+[IO Reference](http://ruby-doc.org/core-2.5.0/IO.html)

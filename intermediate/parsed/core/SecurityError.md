@@ -13,3 +13,5 @@ level is raised above 0.
 *raises the exception:*
 
     SecurityError: Insecure: Insecure operation `untaint' at level 3
+
+[SecurityError Reference](http://ruby-doc.org/core-2.5.0/SecurityError.html)

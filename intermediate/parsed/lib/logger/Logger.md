@@ -218,3 +218,5 @@ or via the constructor.
     Logger.new(logdev, formatter: proc {|severity, datetime, progname, msg|
       "#{datetime}: #{msg}\n"
     })
+
+[Logger Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/logger/rdoc/Logger.html)

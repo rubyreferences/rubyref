@@ -23,3 +23,5 @@ Example:
 
     acl = ACL.new(list, ACL::DENY_ALLOW)
     p acl.allow_addr?(addr) # => true
+
+[ACL Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/drb/rdoc/ACL.html)

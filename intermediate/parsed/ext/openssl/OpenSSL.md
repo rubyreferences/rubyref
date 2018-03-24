@@ -485,3 +485,5 @@ certificate authority's certificate:
 
 If the server certificate is invalid or `context.ca_file` is not set when
 verifying peers an OpenSSL::SSL::SSLError will be raised.
+
+[OpenSSL Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/openssl/rdoc/OpenSSL.html)

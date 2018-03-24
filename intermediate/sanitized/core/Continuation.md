@@ -61,3 +61,5 @@ early:
     1:   5  6  7  8  9
     2:  10 11 12 13 14
     3:  15 16
+
+[Continuation Reference](http://ruby-doc.org/core-2.5.0/Continuation.html)

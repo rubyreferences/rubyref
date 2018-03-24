@@ -277,7 +277,7 @@ end
 
 Ruby will try each condition in turn, so first `/^1/ === "2"` returns
 `false`, then `"2" === "2"` returns `true`, so "the string starts with
-one or is \`2'" is printed.
+one or is '2'" is printed.
 
 You may use `then` after the `when` condition. This is most frequently
 used to place the body of the `when` on a single line.

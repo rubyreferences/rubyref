@@ -50,3 +50,6 @@ Dave Thomas <dave@pragmaticprogrammer.com> is the original author of RDoc.
 *   The Ruby parser in rdoc/parse.rb is based heavily on the outstanding work
     of Keiju ISHITSUKA of Nippon Rational Inc, who produced the Ruby parser
     for irb and the rtags package.
+
+
+[RDoc Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/rdoc/rdoc/RDoc.html)

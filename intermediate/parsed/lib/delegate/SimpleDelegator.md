@@ -64,3 +64,5 @@ Prints:
     Elements:  8
      Non-Nil:  7
       Unique:  6
+
+[SimpleDelegator Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/delegate/rdoc/SimpleDelegator.html)

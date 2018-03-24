@@ -95,3 +95,5 @@ Be advised, RDoc will not detect delegated methods.
 `forwardable.rb` provides single-method delegation via the def_delegator and
 def_delegators methods. For full-class delegation via DelegateClass, see
 `delegate.rb`.
+
+[Forwardable Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/forwardable/rdoc/Forwardable.html)

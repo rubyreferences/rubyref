@@ -18,3 +18,5 @@ Ex: passing an argument that is not acceptable:
 *raises the exception:*
 
     ArgumentError: negative array size
+
+[ArgumentError Reference](http://ruby-doc.org/core-2.5.0/ArgumentError.html)

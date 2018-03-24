@@ -13,6 +13,8 @@ collection. If `Enumerable#max`, `#min`, or `#sort` is used, the objects
 in the collection must also implement a meaningful `<=>` operator, as
 these methods rely on an ordering between members of the collection.
 
+[Enumerable Reference](http://ruby-doc.org/core-2.5.0/Enumerable.html)
+
 
 
 ## Enumerator
@@ -111,4 +113,6 @@ puts o.each {|*x| puts x; [:b, *x] }
 puts ext_each(o.to_enum) {|*x| puts x; [:b, *x] }
 # => [], [:b], [1], [:b, 1], [1, 2], [:b, 1, 2], 3
 ```
+
+[Enumerator Reference](http://ruby-doc.org/core-2.5.0/Enumerator.html)
 

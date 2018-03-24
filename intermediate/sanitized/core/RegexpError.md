@@ -7,3 +7,5 @@ Raised when given an invalid regexp expression.
 *raises the exception:*
 
     RegexpError: target of repeat operator is not specified: /?/
+
+[RegexpError Reference](http://ruby-doc.org/core-2.5.0/RegexpError.html)

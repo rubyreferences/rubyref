@@ -6,6 +6,9 @@
 
 Raised when memory allocation fails.
 
+[NoMemoryError
+Reference](http://ruby-doc.org/core-2.5.0/NoMemoryError.html)
+
 
 
 ## ScriptError
@@ -15,6 +18,8 @@ executed because of a `LoadError`, `NotImplementedError` or a
 `SyntaxError`. Note these type of `ScriptErrors` are not `StandardError`
 and will not be rescued unless it is specified explicitly (or its
 ancestor `Exception`).
+
+[ScriptError Reference](http://ruby-doc.org/core-2.5.0/ScriptError.html)
 
 
 
@@ -35,6 +40,8 @@ require 'this/file/does/not/exist'
 LoadError: no such file to load -- this/file/does/not/exist
 ```
 
+[LoadError Reference](http://ruby-doc.org/core-2.5.0/LoadError.html)
+
 
 
 ### NotImplementedError
@@ -46,6 +53,9 @@ does not support them.
 
 Note that if `fork` raises a `NotImplementedError`, then
 `respond_to?(:fork)` returns `false`.
+
+[NotImplementedError
+Reference](http://ruby-doc.org/core-2.5.0/NotImplementedError.html)
 
 
 
@@ -64,6 +74,8 @@ eval("1+1=2")
 ```ruby
 SyntaxError: (eval):1: syntax error, unexpected '=', expecting $end
 ```
+
+[SyntaxError Reference](http://ruby-doc.org/core-2.5.0/SyntaxError.html)
 
 
 
@@ -89,6 +101,9 @@ proc.call
 SecurityError: Insecure: Insecure operation `untaint` at level 3
 ```
 
+[SecurityError
+Reference](http://ruby-doc.org/core-2.5.0/SecurityError.html)
+
 
 
 ## SignalException
@@ -111,6 +126,9 @@ end
 ```ruby
 received Exception SIGHUP
 ```
+
+[SignalException
+Reference](http://ruby-doc.org/core-2.5.0/SignalException.html)
 
 
 
@@ -144,6 +162,8 @@ Press ctrl-C when you get bored
 Note: You will typically use Signal.trap instead.
 ```
 
+[Interrupt Reference](http://ruby-doc.org/core-2.5.0/Interrupt.html)
+
 
 
 ## StandardError
@@ -173,6 +193,9 @@ require 'does/not/exist' rescue "Hi"
 ```ruby
 LoadError: no such file to load -- does/not/exist
 ```
+
+[StandardError
+Reference](http://ruby-doc.org/core-2.5.0/StandardError.html)
 
 
 
@@ -209,6 +232,9 @@ Ex: passing an argument that is not acceptable:
 ArgumentError: negative array size
 ```
 
+[ArgumentError
+Reference](http://ruby-doc.org/core-2.5.0/ArgumentError.html)
+
 
 
 #### UncaughtThrowError
@@ -228,11 +254,17 @@ throw "foo", "bar"
 UncaughtThrowError: uncaught throw "foo"
 ```
 
+[UncaughtThrowError
+Reference](http://ruby-doc.org/core-2.5.0/UncaughtThrowError.html)
+
 
 
 ### EncodingError
 
 EncodingError is the base class for encoding errors.
+
+[EncodingError
+Reference](http://ruby-doc.org/core-2.5.0/EncodingError.html)
 
 
 
@@ -248,6 +280,8 @@ fiber = Fiber.new{}
 fiber.resume #=> nil
 fiber.resume #=> FiberError: dead fiber called
 ```
+
+[FiberError Reference](http://ruby-doc.org/core-2.5.0/FiberError.html)
 
 
 
@@ -273,6 +307,8 @@ File.open("does/not/exist")
   #=> Errno::ENOENT: No such file or directory - does/not/exist
 ```
 
+[IOError Reference](http://ruby-doc.org/core-2.5.0/IOError.html)
+
 
 
 #### EOFError
@@ -293,6 +329,8 @@ file.gets     #=> nil
 file.readline #=> EOFError: end of file reached
 ```
 
+[EOFError Reference](http://ruby-doc.org/core-2.5.0/EOFError.html)
+
 
 
 ### IndexError
@@ -307,6 +345,8 @@ a[4]         #=> nil
 a.fetch(4)   #=> IndexError: index 4 outside of array bounds: -2...2
 ```
 
+[IndexError Reference](http://ruby-doc.org/core-2.5.0/IndexError.html)
+
 
 
 #### KeyError
@@ -320,6 +360,8 @@ h = {"foo" => :bar}
 h.fetch("foo") #=> :bar
 h.fetch("baz") #=> KeyError: key not found: "baz"
 ```
+
+[KeyError Reference](http://ruby-doc.org/core-2.5.0/KeyError.html)
 
 
 
@@ -345,6 +387,9 @@ puts "Done!"
 Hello
 Done!
 ```
+
+[StopIteration
+Reference](http://ruby-doc.org/core-2.5.0/StopIteration.html)
 
 
 
@@ -386,6 +431,9 @@ get_me_a_return.call
 LocalJumpError: unexpected return
 ```
 
+[LocalJumpError
+Reference](http://ruby-doc.org/core-2.5.0/LocalJumpError.html)
+
 
 
 ### NameError
@@ -418,6 +466,8 @@ Integer.const_set :answer, 42
 NameError: wrong constant name answer
 ```
 
+[NameError Reference](http://ruby-doc.org/core-2.5.0/NameError.html)
+
 
 
 #### NoMethodError
@@ -437,6 +487,9 @@ defined and also fails to respond with `method_missing`.
 NoMethodError: undefined method `to_ary` for "hello":String
 ```
 
+[NoMethodError
+Reference](http://ruby-doc.org/core-2.5.0/NoMethodError.html)
+
 
 
 ### RangeError
@@ -455,6 +508,8 @@ Raised when a given numerical value is out of range.
 RangeError: bignum too big to convert into `long`
 ```
 
+[RangeError Reference](http://ruby-doc.org/core-2.5.0/RangeError.html)
+
 
 
 #### FloatDomainError
@@ -466,6 +521,9 @@ Raised when attempting to convert special float values (in particular
 ```ruby
 Float::INFINITY.to_r   #=> FloatDomainError: Infinity
 ```
+
+[FloatDomainError
+Reference](http://ruby-doc.org/core-2.5.0/FloatDomainError.html)
 
 
 
@@ -484,6 +542,8 @@ Regexp.new("?")
 ```ruby
 RegexpError: target of repeat operator is not specified: /?/
 ```
+
+[RegexpError Reference](http://ruby-doc.org/core-2.5.0/RegexpError.html)
 
 
 
@@ -505,6 +565,9 @@ raise "ouch"
 RuntimeError: ouch
 ```
 
+[RuntimeError
+Reference](http://ruby-doc.org/core-2.5.0/RuntimeError.html)
+
 
 
 #### FrozenError
@@ -522,6 +585,8 @@ Raised when there is an attempt to modify a frozen object.
 ```ruby
 FrozenError: can't modify frozen Array
 ```
+
+[FrozenError Reference](http://ruby-doc.org/core-2.5.0/FrozenError.html)
 
 
 
@@ -544,6 +609,9 @@ File.open("does/not/exist")
 ```ruby
 Errno::ENOENT: No such file or directory - does/not/exist
 ```
+
+[SystemCallError
+Reference](http://ruby-doc.org/core-2.5.0/SystemCallError.html)
 
 
 
@@ -579,6 +647,8 @@ available as the constants of `Errno`.
 Errno.constants   #=> :E2BIG, :EACCES, :EADDRINUSE, :EADDRNOTAVAIL, ...
 ```
 
+[Errno Reference](http://ruby-doc.org/core-2.5.0/Errno.html)
+
 
 
 ### ThreadError
@@ -600,6 +670,8 @@ ThreadError: stopping only thread
 note: use sleep to stop forever
 ```
 
+[ThreadError Reference](http://ruby-doc.org/core-2.5.0/ThreadError.html)
+
 
 
 ### TypeError
@@ -617,6 +689,8 @@ Raised when encountering an object that is not of the expected type.
 ```ruby
 TypeError: no implicit conversion of String into Integer
 ```
+
+[TypeError Reference](http://ruby-doc.org/core-2.5.0/TypeError.html)
 
 
 
@@ -638,11 +712,16 @@ Note that only division by an exact 0 will raise the exception:
 0  /  0.0   #=> NaN
 ```
 
+[ZeroDivisionError
+Reference](http://ruby-doc.org/core-2.5.0/ZeroDivisionError.html)
+
 
 
 ## SystemExit
 
 Raised by `exit` to initiate the termination of the script.
+
+[SystemExit Reference](http://ruby-doc.org/core-2.5.0/SystemExit.html)
 
 
 
@@ -665,10 +744,15 @@ me_myself_and_i
 SystemStackError: stack level too deep
 ```
 
+[SystemStackError
+Reference](http://ruby-doc.org/core-2.5.0/SystemStackError.html)
+
 
 
 ## fatal
 
 fatal is an Exception that is raised when Ruby has encountered a fatal
 error and must exit. You are not able to rescue fatal.
+
+[fatal Reference](http://ruby-doc.org/core-2.5.0/fatal.html)
 

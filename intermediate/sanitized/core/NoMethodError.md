@@ -8,3 +8,5 @@ also fails to respond with `method_missing`.
 *raises the exception:*
 
     NoMethodError: undefined method `to_ary` for "hello":String
+
+[NoMethodError Reference](http://ruby-doc.org/core-2.5.0/NoMethodError.html)

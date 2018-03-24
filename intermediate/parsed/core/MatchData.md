@@ -4,3 +4,5 @@
 object returned by `Regexp#match` and `Regexp.last_match`. It encapsulates all
 the results of a pattern match, results normally accessed through the special
 variables `$&`, `$'`, `$``, `$1`, `$2`, and so on.
+
+[MatchData Reference](http://ruby-doc.org/core-2.5.0/MatchData.html)

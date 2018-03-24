@@ -135,3 +135,5 @@ do is to distribute your parser file (myparser.rb).
 
 Note: parser.rb is LGPL, but your parser is not. Your own parser is completely
 yours.
+
+[Racc Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/racc/rdoc/Racc.html)

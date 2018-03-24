@@ -23,3 +23,5 @@ methods.
     end
     obj = Foo.new
     # this obj can be handled like Mutex
+
+[Mutex_m Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/mutex_m/rdoc/Mutex_m.html)

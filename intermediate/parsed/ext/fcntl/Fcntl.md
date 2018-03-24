@@ -29,3 +29,5 @@ Get the flags on file `s`:
 Set the non-blocking flag on `f` in addition to the existing flags in `m`.
 
     f.fcntl(Fcntl::F_SETFL, Fcntl::O_NONBLOCK|m)
+
+[Fcntl Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/fcntl/rdoc/Fcntl.html)

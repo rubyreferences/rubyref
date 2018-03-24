@@ -27,3 +27,5 @@ libm](http://linux.die.net/man/3/floor)
     )
 
     puts floor.call(3.14159) #=> 3.0
+
+[Fiddle Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/fiddle/rdoc/Fiddle.html)

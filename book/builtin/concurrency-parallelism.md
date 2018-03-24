@@ -169,6 +169,8 @@ scheduler which threads you want to take precedence when passing
 execution. This method is also dependent on the OS and may be ignored on
 some platforms.
 
+[Thread Reference](http://ruby-doc.org/core-2.5.0/Thread.html)
+
 
 
 ## ThreadGroup
@@ -181,6 +183,8 @@ adding a thread to a new group will remove it from any previous group.
 
 Newly created threads belong to the same group as the thread from which
 they were created.
+
+[ThreadGroup Reference](http://ruby-doc.org/core-2.5.0/ThreadGroup.html)
 
 
 
@@ -207,6 +211,8 @@ b = Thread.new {
   }
 }
 ```
+
+[Mutex Reference](http://ruby-doc.org/core-2.5.0/Mutex.html)
 
 
 
@@ -238,6 +244,9 @@ b = Thread.new {
    }
 }
 ```
+
+[ConditionVariable
+Reference](http://ruby-doc.org/core-2.5.0/ConditionVariable.html)
 
 
 
@@ -274,6 +283,8 @@ consumer = Thread.new do
 end
 ```
 
+[Queue Reference](http://ruby-doc.org/core-2.5.0/Queue.html)
+
 
 
 ### SizedQueue
@@ -282,4 +293,6 @@ This class represents queues of specified size capacity. The push
 operation may be blocked if the capacity is full.
 
 See Queue for an example of how a SizedQueue works.
+
+[SizedQueue Reference](http://ruby-doc.org/core-2.5.0/SizedQueue.html)
 

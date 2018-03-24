@@ -83,3 +83,5 @@ FileUtils.
 This module has all methods of FileUtils module, but never changes
 files/directories.  This equates to passing the `:noop` and `:verbose` flags
 to methods in FileUtils.
+
+[FileUtils Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/fileutils/rdoc/FileUtils.html)

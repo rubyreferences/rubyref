@@ -1,5 +1,7 @@
 # Set
 
+*Part of standard library. You need to `require 'set'` before using.*
+
 Set implements a collection of unordered values with no duplicates. This
 is a hybrid of Array's intuitive inter-operation facilities and Hash's
 fast lookup.
@@ -43,12 +45,8 @@ s1.subset?(s2)                        #=> false
 s2.subset?(s1)                        #=> true
 ```
 
-## Contact
-
-
-```ruby
-- Akinori MUSHA <knu@iDaemons.org> (current maintainer)
-```
+[Set
+Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/set/rdoc/Set.html)
 
 
 
@@ -83,4 +81,7 @@ p ary # => [1, 2, 3, 4, 5, 6]
 set2 = SortedSet.new([1, 2, "3"])
 set2.each { |obj| } # => raises ArgumentError: comparison of Fixnum with String failed
 ```
+
+[SortedSet
+Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/set/rdoc/SortedSet.html)
 

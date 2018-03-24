@@ -80,12 +80,16 @@ puts tally * 2            #=> "||||"
 puts tally > 1            #=> true
 ```
 
+[Numeric Reference](http://ruby-doc.org/core-2.5.0/Numeric.html)
+
 
 
 ## Integer
 
 Holds Integer values. You cannot add a singleton method to an Integer
 object, any attempt to do so will raise a TypeError.
+
+[Integer Reference](http://ruby-doc.org/core-2.5.0/Integer.html)
 
 
 
@@ -97,11 +101,11 @@ architecture's double-precision floating point representation.
 Floating point has a different arithmetic and is an inexact number. So
 you should know its esoteric system. See following:
 
-* http://docs.sun.com/source/806-3568/ncg\_goldberg.html
-* http://wiki.github.com/rdp/ruby\_tutorials\_core/ruby-talk-faq#wiki-floats\_i
-  mprecise
+* http://docs.sun.com/source/806-3568/ncg_goldberg.html
+* http://wiki.github.com/rdp/ruby_tutorials_core/ruby-talk-faq#wiki-floats_imprecise
+* http://en.wikipedia.org/wiki/Floating_point#Accuracy_problems
 
-* http://en.wikipedia.org/wiki/Floating\_point#Accuracy\_problems
+[Float Reference](http://ruby-doc.org/core-2.5.0/Float.html)
 
 
 
@@ -160,6 +164,8 @@ Rational(-8) ** Rational(1, 3)
                    #=> (1.0000000000000002+1.7320508075688772i)
 ```
 
+[Rational Reference](http://ruby-doc.org/core-2.5.0/Rational.html)
+
 
 
 ## Complex
@@ -204,14 +210,16 @@ Complex(1, 1) / 2    #=> ((1/2)+(1/2)*i)
 Complex(1, 1) / 2.0  #=> (0.5+0.5i)
 ```
 
+[Complex Reference](http://ruby-doc.org/core-2.5.0/Complex.html)
+
 
 
 ## BigDecimal
 
-BigDecimal provides arbitrary-precision floating point decimal
-arithmetic.
 
-### Introduction
+
+*Part of standard library. You need to `require 'bigdecimal'` before
+using.*
 
 Ruby provides built-in support for arbitrary precision integer
 arithmetic.
@@ -264,108 +272,10 @@ Similarly:
 (1.2 - 1.0) == 0.2 #=> false
 ```
 
-### Special features of accurate decimal arithmetic
-
-Because BigDecimal is more accurate than normal binary floating point
-arithmetic, it requires some special values.
-
-#### Infinity
-
-BigDecimal sometimes needs to return infinity, for example if you divide
-a value by zero.
 
 
-```ruby
-BigDecimal("1.0") / BigDecimal("0.0")  #=> Infinity
-BigDecimal("-1.0") / BigDecimal("0.0")  #=> -Infinity
-```
-
-You can represent infinite numbers to BigDecimal using the strings
-`'Infinity'`, `'+Infinity'` and `'-Infinity'` (case-sensitive)
-
-#### Not a Number
-
-When a computation results in an undefined value, the special value
-`NaN` (for 'not a number') is returned.
-
-Example:
-
-
-```ruby
-BigDecimal("0.0") / BigDecimal("0.0") #=> NaN
-```
-
-You can also create undefined values.
-
-NaN is never considered to be the same as any other value, even NaN
-itself:
-
-
-```ruby
-n = BigDecimal('NaN')
-n == 0.0 #=> false
-n == n #=> false
-```
-
-#### Positive and negative zero
-
-If a computation results in a value which is too small to be represented
-as a BigDecimal within the currently specified limits of precision, zero
-must be returned.
-
-If the value which is too small to be represented is negative, a
-BigDecimal value of negative zero is returned.
-
-
-```ruby
-BigDecimal("1.0") / BigDecimal("-Infinity") #=> -0.0
-```
-
-If the value is positive, a value of positive zero is returned.
-
-
-```ruby
-BigDecimal("1.0") / BigDecimal("Infinity") #=> 0.0
-```
-
-(See BigDecimal.mode for how to specify limits of precision.)
-
-Note that `-0.0` and `0.0` are considered to be the same for the
-purposes of comparison.
-
-Note also that in mathematics, there is no particular concept of
-negative or positive zero; true mathematical zero has no sign.
-
-### bigdecimal/util
-
-When you require `bigdecimal/util`, the `#to_d` method will be available
-on BigDecimal and the native Integer, Float, Rational, and String
-classes:
-
-
-```ruby
-require 'bigdecimal/util'
-
-42.to_d         # => 0.42e2
-0.5.to_d        # => 0.5e0
-(2/3r).to_d(3)  # => 0.667e0
-"0.5".to_d      # => 0.5e0
-```
-
-### License
-
-Copyright (C) 2002 by Shigeo Kobayashi
-[shigeo@tinyforest.gr.jp](mailto:shigeo@tinyforest.gr.jp).
-
-BigDecimal is released under the Ruby and 2-clause BSD licenses. See
-LICENSE.txt for details.
-
-Maintained by mrkn [mrkn@mrkn.jp](mailto:mrkn@mrkn.jp) and ruby-core
-members.
-
-Documented by zzak
-[zachary@zacharyscott.net](mailto:zachary@zacharyscott.net), mathew
-[meta@pobox.com](mailto:meta@pobox.com), and many other contributors.
+[BigDecimal
+Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/bigdecimal/rdoc/BigDecimal.html)
 
 
 
@@ -381,9 +291,13 @@ define Ruby's floating point accuracy.
 
 Domains and codomains are given only for real (not complex) numbers.
 
+[Math Reference](http://ruby-doc.org/core-2.5.0/Math.html)
+
 
 
 ### Prime
+
+*Part of standard library. You need to `require 'prime'` before using.*
 
 The set of all prime numbers.
 
@@ -405,10 +319,16 @@ Prime.first 5 # => [2, 3, 5, 7, 11]
 
 #### Retrieving the instance
 
-For convenience, each instance method of `Prime`.instance can be
+For convenience, each instance method of `Prime.instance` can be
 accessed as a class method of `Prime`.
 
-e.g. Prime.instance.prime?(2) #=> true Prime.prime?(2) #=> true
+e.g.
+
+
+```ruby
+Prime.instance.prime?(2)  #=> true
+Prime.prime?(2)           #=> true
+```
 
 #### Generators
 
@@ -417,15 +337,18 @@ numbers and it remembers the position of enumeration and upper bound.
 Furthermore, it is an external iterator of prime enumeration which is
 compatible with an Enumerator.
 
-`Prime`\::`PseudoPrimeGenerator` is the base class for generators. There
+`Prime::PseudoPrimeGenerator` is the base class for generators. There
 are few implementations of generator.
 
-* `Prime`\::`EratosthenesGenerator`: Uses eratosthenes\` sieve.
-* `Prime`\::`TrialDivisionGenerator`: Uses the trial division method.
-* `Prime`\::`Generator23`: Generates all positive integers which are
-  not divisible by either 2 or 3. This sequence is very bad as a
+* `Prime::EratosthenesGenerator`: Uses eratosthenes' sieve.
+* `Prime::TrialDivisionGenerator`: Uses the trial division method.
+* `Prime::Generator23`: Generates all positive integers which are not
+  divisible by either 2 or 3. This sequence is very bad as a
   pseudo-prime sequence. But this is faster and uses much less memory
   than the other generators. So, it is suitable for factorizing an
   integer which is not large but has many prime factors. e.g. for
   Prime#prime? .
+
+[Prime
+Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/prime/rdoc/Prime.html)
 

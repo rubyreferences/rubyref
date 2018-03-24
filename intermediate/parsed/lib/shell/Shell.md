@@ -66,3 +66,5 @@ of `sh`.
     (sh.cat < "/etc/printcap") | sh.tee("tee11") > "tee12"
     sh.cat("/etc/printcap") | sh.tee("tee1") >> "tee2"
     (sh.cat < "/etc/printcap") | sh.tee("tee11") >> "tee12"
+
+[Shell Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/shell/rdoc/Shell.html)

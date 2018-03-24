@@ -2,6 +2,8 @@
 
 Module to handle processes.
 
+[Process Reference](http://ruby-doc.org/core-2.5.0/Process.html)
+
 
 
 ## Signal
@@ -41,4 +43,6 @@ produces: Debug now: true Debug now: false Terminating...
 The list of available signal names and their interpretation is system
 dependent. Signal delivery semantics may also vary between systems; in
 particular signal delivery may not always be reliable.
+
+[Signal Reference](http://ruby-doc.org/core-2.5.0/Signal.html)
 

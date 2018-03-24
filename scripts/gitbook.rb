@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'fileutils'
 require 'pp'
 require 'dry/inflector'
@@ -8,37 +10,57 @@ INFLECTOR = Dry::Inflector.new
 
 SOURCE = 'intermediate/sanitized/'
 
+class String
+  # Recursive gsub. Repeats till anything replaced.
+  def gsub_r(pattern, sub)
+    res = gsub(pattern, sub)
+    res == self ? res : res.gsub_r(pattern, sub)
+  end
+end
+
 class GFMKonverter < Kramdown::Converter::Kramdown
   # FIXME: very naive, should check if it is proper Ruby code or not
   def convert_codeblock(el, opts)
     "\n```ruby\n#{el.value}```\n"
   end
+
+  # Kramdown converts HTTP links into [link][1] with list of links at the end of the doc. It is
+  # not appropriate for our tasks
+  def convert_a(el, opts)
+    if el.attr['href'] =~ /^(?:http|ftp)/
+      "[#{inner(el, opts)}](#{el.attr['href']})"
+    else
+      super
+    end
+  end
 end
 
 class ContentPart
-  def initialize(index:, source:, header_shift: nil, remove: [], insert: [], **)
+  def initialize(index:, source:, header_shift: nil, remove: [], insert: [], process: [], **)
     @index = index
     @header_shift = header_shift&.to_i || (index.zero? ? 0 : 1)
     @remove = Array(remove)
     @insert = insert.map { |i| i.transform_keys(&:to_sym) }
+    @process = Array(process).map(&method(:Array))
     @source = source
-    @text = parse_source(@source)
+    @text = parse_source(@source, main: true)
     postprocess
   end
 
   def render
     GFMKonverter.convert(@text.root).first
-      .gsub(/^(?=\#[a-z])/, '\\') # Again! New methods could be at the beginning of the line after Kramdown render
-      .gsub(/([`'])\\:\s/, '\1: ') # IDK why Kramdown turns "`something`: definition" into "`something`\: definition"
+      .gsub(/^(?=\#[a-z])/, '\\')       # Again! New methods could be at the beginning of the line after Kramdown render
+      .gsub(/([`'])\\:\s/, '\1: ')      # IDK why Kramdown turns "`something`: definition" into "`something`\: definition"
+      .gsub_r(/(https?:\S+)\\_/, '\1_') # Kramdown helpfully screens _ in URLs... And then GitBook screens them again.
   end
 
   private
 
-  def parse_source(source)
+  def parse_source(source, main: false)
     parse_file(source) ||               # "dir/doc.md"
       parse_partial(source) ||          # "dir/doc.md#Section"
       Kramdown::Document.new(source)    # "## Header"
-        .tap { @header_shift = 0 } # do not shift headers of verbatim
+        .tap { @header_shift = 0 if main } # do not shift headers of verbatim
   end
 
   def parse_file(path)
@@ -56,17 +78,23 @@ class ContentPart
       .tap { |doc|
         doc or fail "Source for partial not found: #{path}"
 
-        doc.root.children
-          .drop_while { |e| e.type != :header || e.options[:raw_text] != section }
-          .tap { |els| els.empty? and fail "Section #{section} not found in #{path}" }
-          .take_while { |e| e.type != :header || e.options[:raw_text] == section }
-          .tap { |els| doc.root.children.replace(els) }
+        if section == '_ref' # special syntax to borrow the "[ClassName Reference](...)" link
+          ref = doc.root.children.select { |e| convert(e).match(/^\[\S+ Reference\]/) }
+          ref.empty? and fail "Reference not found: #{path}"
+          doc.root.children.replace(ref)
+        else
+          doc.root.children
+            .drop_while { |e| e.type != :header || e.options[:raw_text] != section }
+            .tap { |els| els.empty? and fail "Section #{section} not found in #{path}" }
+            .take_while { |e| e.type != :header || e.options[:raw_text] == section }
+            .tap { |els| doc.root.children.replace(els) }
+        end
       }
   end
 
   def convert(el)
     el.options[:encoding] = 'UTF-8'
-    GFMKonverter.convert(el).first
+    Kramdown::Converter::Kramdown.convert(el, line_width: 1000).first
   end
 
   def elements
@@ -79,6 +107,9 @@ class ContentPart
   end
 
   def postprocess
+    @process.each do |what, *arg|
+      send("handle_#{what}", *arg)
+    end
     @remove.each do |rem|
       idx = para_idx(rem)
       elements.delete_at(idx)
@@ -91,6 +122,16 @@ class ContentPart
     elements.each { |c|
       c.options[:level] += @header_shift if c.type == :header
     }
+  end
+
+  STDLIB = <<~DOC
+    _Part of standard library. You need to `require '%s'` before using._
+
+  DOC
+
+  def handle_stdlib(libname)
+    idx = para_idx('#') # First header
+    elements.insert(idx + 1, *parse_source(STDLIB % libname).root.children)
   end
 end
 

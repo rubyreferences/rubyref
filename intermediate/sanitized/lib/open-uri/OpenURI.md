@@ -54,3 +54,6 @@ OpenURI::Meta.
     p str.base_uri
 
 * Author: Tanaka Akira <akr@m17n.org>
+
+
+[OpenURI Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/open-uri/rdoc/OpenURI.html)

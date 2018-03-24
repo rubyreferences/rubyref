@@ -1,6 +1,6 @@
 # Range
 
-A `Range` represents an interval---a set of values with a beginning and an
+A `Range` represents an interval—a set of values with a beginning and an
 end. Ranges may be constructed using the *s*`..`*e* and *s*`...`*e* literals,
 or with Range::new. Ranges constructed using `..` run from the beginning to
 the end inclusively. Those created using `...` exclude the end value. When
@@ -48,3 +48,5 @@ An example of using `Xs` to construct a range:
     r = Xs.new(3)..Xs.new(6)   #=> xxx..xxxxxx
     r.to_a                     #=> [xxx, xxxx, xxxxx, xxxxxx]
     r.member?(Xs.new(5))       #=> true
+
+[Range Reference](http://ruby-doc.org/core-2.5.0/Range.html)

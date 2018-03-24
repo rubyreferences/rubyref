@@ -1,6 +1,6 @@
 # Class
 
-Classes in Ruby are first-class objects---each is an instance of class
+Classes in Ruby are first-class objects—each is an instance of class
 `Class`.
 
 Typically, you create a new class by using:
@@ -35,6 +35,7 @@ is run by default. This can be demonstrated by overriding `new` in `Class`:
 Classes, modules, and objects are interrelated. In the diagram that follows,
 the vertical arrows represent inheritance, and the parentheses metaclasses.
 All metaclasses are instances of the class `Class`.
+
                              +---------+             +-...
                              |         |             |
              BasicObject-----|-->(BasicObject)-------|-...
@@ -53,3 +54,5 @@ All metaclasses are instances of the class `Class`.
                  |       +---+         |        +----+
                  |                     |
     obj--->OtherClass---------->(OtherClass)-----------...
+
+[Class Reference](http://ruby-doc.org/core-2.5.0/Class.html)

@@ -132,3 +132,6 @@ variable:
 * $POSTMATCH: $'
 * $LAST\_PAREN\_MATCH: $+
 
+[English
+Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/English/rdoc/English.html)
+

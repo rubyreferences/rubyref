@@ -1,4 +1,8 @@
-# Time
+# Times and Dates
+
+
+
+## Time
 
 Time is an abstraction of dates and times. Time is stored internally as
 the number of seconds with fraction since the *Epoch*, January 1, 1970
@@ -17,11 +21,7 @@ Bignum or Rational. The integer is a number of nanoseconds since the
 Rational is used (before 1823, after 2116, under nanosecond), Time works
 slower as when integer is used.
 
-# Examples
-
-All of these examples were done using the EST timezone which is GMT-5.
-
-## Creating a new Time instance
+### Creating a new Time instance
 
 You can create a new instance of Time with Time::new. This will use the
 current system time. Time::now is an alias for this. You can also pass
@@ -43,14 +43,15 @@ You can also use `#gm`, `#local` and `#utc` to infer GMT, local and UTC
 timezones instead of using the current system setting.
 
 You can also create a new time using Time::at which takes the number of
-seconds (or fraction of seconds) since the [Unix Epoch][1].
+seconds (or fraction of seconds) since the [Unix
+Epoch](http://en.wikipedia.org/wiki/Unix_time).
 
 
 ```ruby
 Time.at(628232400) #=> 1989-11-28 00:00:00 -0500
 ```
 
-## Working with an instance of Time
+### Working with an instance of Time
 
 Once you have an instance of Time there is a multitude of things you can
 do with it. Below are some examples. For all of the following examples,
@@ -111,31 +112,16 @@ t1 >  t2 #=> false
 Time.new(2010,10,31).between?(t1, t2) #=> true
 ```
 
+[Time Reference](http://ruby-doc.org/core-2.5.0/Time.html)
 
 
-[1]: http://en.wikipedia.org/wiki/Unix_time
+
+### time.rb
+
+Part of useful functionality for `Time` is provided by standard library
+`time`.
 
 
-## Time
-
-## time.rb
-
-When 'time' is required, Time is extended with additional methods for
-parsing and converting Times.
-
-### Features
-
-This library extends the Time class with the following conversions
-between date strings and Time objects:
-
-* date-time defined by [RFC 2822][1]
-* HTTP-date defined by [RFC 2616][2]
-* dateTime defined by XML Schema Part 2: Datatypes ([ISO 8601][3])
-
-* various formats handled by Date.\_parse
-* custom formats handled by Date.\_strptime
-
-### Examples
 
 All examples assume you have loaded Time with:
 
@@ -146,6 +132,8 @@ require 'time'
 
 All of these examples were done using the EST timezone which is GMT-5.
 
+
+
 #### Converting to a String
 
 
@@ -155,6 +143,8 @@ t.iso8601  # => "2011-10-05T22:26:12-04:00"
 t.rfc2822  # => "Wed, 05 Oct 2011 22:26:12 -0400"
 t.httpdate # => "Thu, 06 Oct 2011 02:26:12 GMT"
 ```
+
+
 
 #### Time.parse
 
@@ -213,6 +203,8 @@ Time.parse("70-10-31") {|year| year + (year < 70 ? 2000 : 1900)}
 #=> 1970-10-31 00:00:00 -0500
 ```
 
+
+
 #### Time.strptime
 
 `#strptime` works similar to `parse` except that instead of using a
@@ -224,82 +216,14 @@ argument that describes the format of the string. For example:
 Time.strptime("2000-10-31", "%Y-%m-%d") #=> 2000-10-31 00:00:00 -0500
 ```
 
+[Time
+Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/time/rdoc/Time.html)
 
 
-[1]: http://www.ietf.org/rfc/rfc2822.txt
-[2]: http://www.ietf.org/rfc/rfc2616.txt
-[3]: http://www.iso.org/iso/date_and_time_format
-
-
-## Date
-
-date and datetime class - Tadayoshi Funaba 1998-2011
-
-'date' provides two classes: Date and DateTime.
-
-### Terms and Definitions
-
-Some terms and definitions are based on ISO 8601 and JIS X 0301.
-
-#### Calendar Date
-
-The calendar date is a particular day of a calendar year, identified by
-its ordinal number within a calendar month within that year.
-
-In those classes, this is so-called "civil".
-
-#### Ordinal Date
-
-The ordinal date is a particular day of a calendar year identified by
-its ordinal number within the year.
-
-In those classes, this is so-called "ordinal".
-
-#### Week Date
-
-The week date is a date identified by calendar week and day numbers.
-
-The calendar week is a seven day period within a calendar year, starting
-on a Monday and identified by its ordinal number within the year; the
-first calendar week of the year is the one that includes the first
-Thursday of that year. In the Gregorian calendar, this is equivalent to
-the week which includes January 4.
-
-In those classes, this is so-called "commercial".
-
-#### Julian Day Number
-
-The Julian day number is in elapsed days since noon (Greenwich Mean
-Time) on January 1, 4713 BCE (in the Julian calendar).
-
-In this document, the astronomical Julian day number is the same as the
-original Julian day number. And the chronological Julian day number is a
-variation of the Julian day number. Its days begin at midnight on local
-time.
-
-In this document, when the term "Julian day number" simply appears, it
-just refers to "chronological Julian day number", not the original.
-
-In those classes, those are so-called "ajd" and "jd".
-
-#### Modified Julian Day Number
-
-The modified Julian day number is in elapsed days since midnight
-(Coordinated Universal Time) on November 17, 1858 CE (in the Gregorian
-calendar).
-
-In this document, the astronomical modified Julian day number is the
-same as the original modified Julian day number. And the chronological
-modified Julian day number is a variation of the modified Julian day
-number. Its days begin at midnight on local time.
-
-In this document, when the term "modified Julian day number" simply
-appears, it just refers to "chronological modified Julian day number",
-not the original.
-
-In those classes, those are so-called "amjd" and "mjd".
 
 ### Date
+
+*Part of standard library. You need to `require 'date'` before using.*
 
 A subclass of Object that includes the Comparable module and easily
 handles date.
@@ -380,11 +304,14 @@ d += 1                       #=> #<Date: 2001-02-04 ...>
 d.strftime('%a %d %b %Y')    #=> "Sun 04 Feb 2001"
 ```
 
+[Date
+Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/date/rdoc/Date.html)
+
 
 
 ### DateTime
 
-#### DateTime
+*Part of standard library. You need to `require 'date'` before using.*
 
 A subclass of Date that easily handles date, hour, minute, second, and
 offset.
@@ -459,16 +386,23 @@ d > DateTime.new(1999)
                     #=> true
 ```
 
-##### When should you use DateTime and when should you use Time?
+#### When should you use DateTime and when should you use Time?
 
-It's a common misconception that [William Shakespeare][1] and [Miguel de
-Cervantes][2] died on the same day in history - so much so that UNESCO
-named April 23 as [World Book Day because of this fact][3]. However,
-because England hadn't yet adopted the [Gregorian Calendar Reform][4]
-(and wouldn't until [1752][5]) their deaths are actually 10 days apart.
-Since Ruby's Time class implements a [proleptic Gregorian calendar][6]
-and has no concept of calendar reform there's no way to express this
-with Time objects. This is where DateTime steps in:
+It's a common misconception that [William
+Shakespeare](http://en.wikipedia.org/wiki/William_Shakespeare) and
+[Miguel de Cervantes](http://en.wikipedia.org/wiki/Miguel_de_Cervantes)
+died on the same day in history - so much so that UNESCO named April 23
+as [World Book Day because of this
+fact](http://en.wikipedia.org/wiki/World_Book_Day). However, because
+England hadn't yet adopted the [Gregorian Calendar
+Reform](http://en.wikipedia.org/wiki/Gregorian_calendar#Gregorian_reform)
+(and wouldn't until
+[1752](http://en.wikipedia.org/wiki/Calendar_(New_Style)_Act_1750))
+their deaths are actually 10 days apart. Since Ruby's Time class
+implements a [proleptic Gregorian
+calendar](http://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar) and
+has no concept of calendar reform there's no way to express this with
+Time objects. This is where DateTime steps in:
 
 
 ```ruby
@@ -521,8 +455,9 @@ shakespeare + 366 + 365
 ```
 
 As you can see, if we're accurately tracking the number of [solar
-years][7] since Shakespeare's birthday then the correct anniversary date
-would be the 4th May and not the 23rd April.
+years](http://en.wikipedia.org/wiki/Tropical_year) since Shakespeare's
+birthday then the correct anniversary date would be the 4th May and not
+the 23rd April.
 
 So when should you use DateTime in Ruby and when should you use Time?
 Almost certainly you'll want to use Time since your app is probably
@@ -530,18 +465,13 @@ dealing with current dates and times. However, if you need to deal with
 dates and times in a historical context you'll want to use DateTime to
 avoid making the same mistakes as UNESCO. If you also have to deal with
 timezones then best of luck - just bear in mind that you'll probably be
-dealing with [local solar times][8], since it wasn't until the 19th
-century that the introduction of the railways necessitated the need for
-[Standard Time][9] and eventually timezones.
+dealing with [local solar
+times](http://en.wikipedia.org/wiki/Solar_time), since it wasn't until
+the 19th century that the introduction of the railways necessitated the
+need for [Standard
+Time](http://en.wikipedia.org/wiki/Standard_time#Great_Britain) and
+eventually timezones.
 
+[DateTime
+Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/date/rdoc/DateTime.html)
 
-
-[1]: http://en.wikipedia.org/wiki/William_Shakespeare
-[2]: http://en.wikipedia.org/wiki/Miguel_de_Cervantes
-[3]: http://en.wikipedia.org/wiki/World_Book_Day
-[4]: http://en.wikipedia.org/wiki/Gregorian_calendar#Gregorian_reform
-[5]: http://en.wikipedia.org/wiki/Calendar_(New_Style)_Act_1750
-[6]: http://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar
-[7]: http://en.wikipedia.org/wiki/Tropical_year
-[8]: http://en.wikipedia.org/wiki/Solar_time
-[9]: http://en.wikipedia.org/wiki/Standard_time#Great_Britain

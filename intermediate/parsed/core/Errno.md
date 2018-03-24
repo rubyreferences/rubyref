@@ -21,3 +21,5 @@ The full list of operating system errors on your particular platform are
 available as the constants of `Errno`.
 
     Errno.constants   #=> :E2BIG, :EACCES, :EADDRINUSE, :EADDRNOTAVAIL, ...
+
+[Errno Reference](http://ruby-doc.org/core-2.5.0/Errno.html)
