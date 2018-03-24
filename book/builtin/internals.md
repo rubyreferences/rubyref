@@ -1,4 +1,11 @@
-# ObjectSpace
+# Interpreter Internals
+
+This chapter lists several modules that allow to introspect and hack
+Ruby interpreter at execution time.
+
+
+
+## ObjectSpace
 
 The ObjectSpace module contains a number of routines that interact with
 the garbage collection facility and allow you to traverse all living
@@ -31,10 +38,12 @@ Finalizer one on 537763480
 
 
 
-### ObjectSpace
+### objspace standard library
 
-*Part of standard library. You need to `require 'objspace'` before
-using.*
+Standard library `objspace` provides some extensions for `ObjectSpace`
+module.
+
+
 
 The objspace library extends the ObjectSpace module and adds several
 methods to get internal statistic information about object/memory

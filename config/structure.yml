@@ -136,7 +136,6 @@
             - source: core/Float.md
             - source: core/Rational.md
             - source: core/Complex.md
-            # TODO: notice about require 'bigdecimal'
             - source: '## BigDecimal'
             - source: ext/bigdecimal/BigDecimal.md#Introduction
               remove: '## Introduction'
@@ -303,17 +302,6 @@
             # Definition is empty
             # - source: core/ClosedQueueError.md
 
-    - title: Concurrency and Parallelism
-      content:
-        - source: core/Thread.md
-        - source: core/ThreadGroup.md
-        - source: core/Mutex.md
-        - source: core/ConditionVariable.md
-          header_shift: 2
-        - source: core/Queue.md
-        - source: core/SizedQueue.md
-          header_shift: 2
-
     - title: System Programming and CLI
       id: system-cli
       content:
@@ -328,7 +316,7 @@
           id: io
           content:
             - source: core/IO.md#IO
-            # removing description of io/console from here
+            # description of io/console removed from inside IO docs
             - source: core/IO.md#_ref
             - source: core/ARGF.md
             - source: core/File.md
@@ -337,7 +325,6 @@
                 - [stdlib, stringio]
         - title: Filesystem
           content:
-            # TODO: Structure it somehow!
             - source: core/Dir.md
               remove: "The directory used"
             - source: core/File.md
@@ -364,15 +351,28 @@
               remove: "### Module Functions"
             - source: lib/fileutils/FileUtils.md#_ref
 
-    - title: Language Internals
+    - title: Concurrency and Parallelism
+      content:
+        - source: core/Thread.md
+        - source: core/ThreadGroup.md
+        - source: core/Mutex.md
+        - source: core/ConditionVariable.md
+          header_shift: 2
+        - source: core/Queue.md
+        - source: core/SizedQueue.md
+          header_shift: 2
+
+    - title: Interpreter Internals
       id: internals
       content:
-        # TODO: some intro, or at least title
+        - source: content/builtin/core/internals.md
         - source: core/ObjectSpace.md
+        - source: >
+            ### objspace standard library
+
+            Standard library `objspace` provides some extensions for `ObjectSpace` module.
         - source: ext/objspace/ObjectSpace.md
-          header_shift: 2
-          process:
-            - [stdlib, objspace]
+          remove: "# ObjectSpace"
         - source: core/GC.md
         - source: core/TracePoint.md
         # TODO: RubyVM::InstructionSequence have some docs!

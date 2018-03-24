@@ -59,8 +59,6 @@
   * [Errors and Warnings](builtin/errors-warnings.md)
     * [Exception Classes](builtin/errors-warnings/exception-classes.md)
 
-  * [Concurrency and Parallelism](builtin/concurrency-parallelism.md)
-
   * [System Programming and CLI](builtin/system-cli.md)
     * [Processes and Signals](builtin/system-cli/processes-signals.md)
 
@@ -68,7 +66,9 @@
 
     * [Filesystem](builtin/system-cli/filesystem.md)
 
-  * [Language Internals](builtin/internals.md)
+  * [Concurrency and Parallelism](builtin/concurrency-parallelism.md)
+
+  * [Interpreter Internals](builtin/internals.md)
 
   * [Marshal](builtin/marshal.md)
 
