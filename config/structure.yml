@@ -460,19 +460,33 @@
 
     - title: Development and Debugging
       content:
-        - source: >
-            # Development and Debugging Tools
-
-            This chapter lists several tools that help developing in Ruby.
+        - source: "# Development and Debugging Tools"
       children:
-        - title: "pp: Debug Print"
-          id: pp
+        - title: benchmark
           content:
-            - source: lib/pp/PP.md
+            - source: lib/benchmark/Benchmark.md
+        - title: coverage
+          content:
+           - source: ext/coverage/Coverage.md
+             remove:
+               - "# Usage"
+               - "# Example"
+        - title: debug
+          content:
+            - source: '# debug'
+            - source: lib/debug/DEBUGGER__.md
+              remove: "# DEBUGGER"
               remove_sections:
-                - Pretty-Print JSON
-                - Author
-            - source: lib/prettyprint/PrettyPrint.md#_ref
+                - Going beyond basics
+                - Getting help
+#         - source: lib/tracer/Tracer.md
+        - title: "fiddle: FFI wrapper"
+          id: fiddle
+          content:
+            - source: ext/fiddle/Fiddle.md
+              remove:
+                - 'A libffi wrapper'
+                - '## Description'
         - title: logger
           content:
             - source: lib/logger/Logger.md
@@ -484,13 +498,20 @@
                 - How to log a message
                 - How to close a logger
                 - Setting severity threshold
-        - title: "fiddle: FFI wrapper"
-          id: fiddle
+        - title: "pp: Debug Print"
+          id: pp
           content:
-            - source: ext/fiddle/Fiddle.md
-              remove:
-                - 'A libffi wrapper'
-                - '## Description'
+            - source: lib/pp/PP.md
+              remove_sections:
+                - Pretty-Print JSON
+                - Author
+            - source: lib/prettyprint/PrettyPrint.md#_ref
+        - title: profiler
+          content:
+            - source: "## profile"
+            - source: lib/profiler/Profiler__.md
+              remove: "# Profiler"
+
         - title: "ripper: Parsing Ruby"
           id: ripper
           content:
@@ -500,11 +521,6 @@
                 - Requirements
                 - License
             # - source: ext/ripper/DSL.md
-        # FIXME: Where is good place for it?..
-        # - title: "racc: Parser Generator"
-        #   id: racc
-        #   content:
-        #     - source: lib/racc/Racc.md
 
     - title: String Utilities
       content:
@@ -519,6 +535,10 @@
             - source: lib/erb/ERB.md#Recognized Tags
             - source: lib/erb/ERB.md#Options
             - source: lib/erb/ERB.md#_ref
+        - title: "racc: Parser Generator"
+          id: racc
+          content:
+            - source: lib/racc/Racc.md
         - title: scanf
           content:
             - source: '# scanf'
@@ -850,11 +870,6 @@
 #       content:
 #         - source: '# Tools and Approaches'
 #         # TODO: Move to separate parts
-#         - source: lib/benchmark/Benchmark.md
-#         - source: lib/debug/DEBUGGER__.md
-#         - source: lib/tracer/Tracer.md
-#         - source: ext/coverage/Coverage.md
-#         - source: lib/profiler/Profiler__.md
 #         - source: doc/dtrace_probes.md
 #       children:
 #         - title: Interactive Console

@@ -100,16 +100,26 @@
   * [zlib](stdlib/formats/zlib.md)
 
 * [Development and Debugging](stdlib/development-debugging.md)
-  * [pp: Debug Print](stdlib/development-debugging/pp.md)
+  * [benchmark](stdlib/development-debugging/benchmark.md)
+
+  * [coverage](stdlib/development-debugging/coverage.md)
+
+  * [debug](stdlib/development-debugging/debug.md)
+
+  * [fiddle: FFI wrapper](stdlib/development-debugging/fiddle.md)
 
   * [logger](stdlib/development-debugging/logger.md)
 
-  * [fiddle: FFI wrapper](stdlib/development-debugging/fiddle.md)
+  * [pp: Debug Print](stdlib/development-debugging/pp.md)
+
+  * [profiler](stdlib/development-debugging/profiler.md)
 
   * [ripper: Parsing Ruby](stdlib/development-debugging/ripper.md)
 
 * [String Utilities](stdlib/string-utilities.md)
   * [erb: Ruby Temlating](stdlib/string-utilities/erb.md)
+
+  * [racc: Parser Generator](stdlib/string-utilities/racc.md)
 
   * [scanf](stdlib/string-utilities/scanf.md)
 
