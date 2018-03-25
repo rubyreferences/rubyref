@@ -1,3 +1,8 @@
+
+```ruby
+require 'shellwords'
+```
+
 # Shellwords
 
 This module manipulates strings according to the word parsing rules of

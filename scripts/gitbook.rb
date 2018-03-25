@@ -149,9 +149,22 @@ class ContentPart
 
   DOC
 
+  REQ_STDLIB = "    require '%s'\n\n"
+
   def handle_stdlib(libname)
     idx = para_idx('#') # First header
     elements.insert(idx + 1, *parse_source(STDLIB % libname).root.children)
+  end
+
+  class ::MatchData
+    def at(i); self[i] end
+  end
+
+  def handle_require_stdlib(libname = nil)
+    libname ||= @source.match(%r{lib/(net/[^/]+)})&.at(1) ||
+      @source.match(%r{(?:lib|ext)/([^/]+)})&.at(1) or fail("Can't guess libname by #{@source}")
+
+    elements.insert(0, *parse_source(REQ_STDLIB % libname).root.children)
   end
 end
 

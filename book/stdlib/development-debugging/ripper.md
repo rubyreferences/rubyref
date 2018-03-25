@@ -1,3 +1,8 @@
+
+```ruby
+require 'ripper'
+```
+
 # Ripper
 
 Ripper is a Ruby script parser.

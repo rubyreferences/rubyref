@@ -1,3 +1,8 @@
+
+```ruby
+require 'cgi'
+```
+
 # CGI
 
 ## Overview

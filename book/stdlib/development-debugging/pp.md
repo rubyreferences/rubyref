@@ -1,3 +1,8 @@
+
+```ruby
+require 'pp'
+```
+
 # PP
 
 A pretty-printer for Ruby objects.

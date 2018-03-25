@@ -1,3 +1,8 @@
+
+```ruby
+require 'zlib'
+```
+
 # Zlib
 
 This module provides access to the [zlib library](http://zlib.net). Zlib

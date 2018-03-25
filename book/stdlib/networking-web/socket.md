@@ -1,3 +1,8 @@
+
+```ruby
+require 'socket'
+```
+
 # Socket
 
 Class `Socket` provides access to the underlying operating system socket

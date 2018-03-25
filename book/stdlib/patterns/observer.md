@@ -1,3 +1,8 @@
+
+```ruby
+require 'observer'
+```
+
 # Observable
 
 The Observer pattern (also known as publish/subscribe) provides a simple

@@ -1,3 +1,8 @@
+
+```ruby
+require 'optparse'
+```
+
 # OptionParser
 
 OptionParser is a class for command-line option analysis. It is much

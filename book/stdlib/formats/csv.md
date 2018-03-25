@@ -1,3 +1,8 @@
+
+```ruby
+require 'csv'
+```
+
 # CSV
 
 This class provides a complete interface to CSV files and data. It

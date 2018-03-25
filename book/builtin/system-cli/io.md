@@ -50,8 +50,6 @@ stream which allows access to all files mentioned on the command line
 `ARGF#filename` are provided to access the name of the file currently
 being read.
 
-
-
 [IO Reference](http://ruby-doc.org/core-2.5.0/IO.html)
 
 

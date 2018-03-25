@@ -1,3 +1,8 @@
+
+```ruby
+require 'pty'
+```
+
 # PTY
 
 Creates and managed pseudo terminals (PTYs). See also

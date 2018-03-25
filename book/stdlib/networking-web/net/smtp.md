@@ -1,3 +1,8 @@
+
+```ruby
+require 'net/smtp'
+```
+
 # Net::SMTP
 
 This library provides functionality to send internet mail via SMTP, the

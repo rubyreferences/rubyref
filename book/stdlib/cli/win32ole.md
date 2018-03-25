@@ -1,3 +1,8 @@
+
+```ruby
+require 'win32ole'
+```
+
 # WIN32OLE
 
 `WIN32OLE` objects represent OLE Automation object in Ruby.

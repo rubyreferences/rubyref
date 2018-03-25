@@ -1,3 +1,8 @@
+
+```ruby
+require 'openssl'
+```
+
 # OpenSSL
 
 OpenSSL provides SSL, TLS and general purpose cryptography. It wraps the

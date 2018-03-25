@@ -317,14 +317,24 @@
         - title: IO Basics
           id: io
           content:
-            - source: core/IO.md#IO
-            # description of io/console removed from inside IO docs
-            - source: core/IO.md#_ref
+            - source: core/IO.md
+              remove_sections:
+                - "io/console"
             - source: core/ARGF.md
+            # File is repeated here (as an object of IO) and in Filesystem section (as a module for
+            # file manipulations).
             - source: core/File.md
             - source: ext/stringio/StringIO.md
               process:
                 - [stdlib, stringio]
+            # - source: core/IO--EAGAINWaitReadable.md
+            # - source: core/IO--EAGAINWaitWritable.md
+            # - source: core/IO--EINPROGRESSWaitReadable.md
+            # - source: core/IO--EINPROGRESSWaitWritable.md
+            # - source: core/IO--EWOULDBLOCKWaitReadable.md
+            # - source: core/IO--EWOULDBLOCKWaitWritable.md
+            # - source: core/IO--WaitReadable.md
+            # - source: core/IO--WaitWritable.md
         - title: Filesystem
           content:
             - source: core/Dir.md
@@ -396,11 +406,10 @@
     # - source: core/Data.md
 
 - title: Standard Library
-  part: true
   id: stdlib
-  # TODO: Intro explaining the structure of docs
-  # content:
-  #   - source: doc/standard_library.md
+  content:
+    - source: content/stdlib.md
+    # - source: doc/standard_library.md
   children:
     - title: Design Patterns
       id: patterns
@@ -410,17 +419,21 @@
         - title: forwardable
           content:
             - source: lib/forwardable/Forwardable.md
+              process: require_stdlib
             - source: lib/forwardable/SingleForwardable.md
         - title: delegate
           content:
             - source: lib/delegate/Delegator.md
+              process: require_stdlib
             - source: lib/delegate/SimpleDelegator.md
         - title: observer
           content:
             - source: lib/observer/Observable.md
+              process: require_stdlib
         - title: singleton
           content:
             - source: lib/singleton/Singleton.md
+              process: require_stdlib
               remove_sections:
                 - Implementation
                 - Singleton and Marshal
@@ -432,15 +445,19 @@
         - title: csv
           content:
             - source: lib/csv/CSV.md
+              process: require_stdlib
               remove_sections:
                 - CSV and Character Encodings (M17n or Multilingualization)
         - title: json
           content:
             - source: ext/json/JSON.md
+              process: require_stdlib
+              remove: "# JSON"
             # - source: ext/json/Class.md
         - title: yaml
           content:
             - source: lib/yaml/YAML.md
+              process: require_stdlib
               remove_sections:
                 - History
                 - More info
@@ -449,13 +466,16 @@
           id: rexml
           content:
             - source: lib/rexml/REXML.md
+              process: require_stdlib
         - title: rss
           content:
             - source: lib/rss/RSS.md
+              process: require_stdlib
               remove_sections: Copyright
         - title: zlib
           content:
             - source: ext/zlib/Zlib.md
+              process: require_stdlib
               remove_sections: Class tree
 
     - title: Development and Debugging
@@ -465,12 +485,14 @@
         - title: benchmark
           content:
             - source: lib/benchmark/Benchmark.md
+              process: require_stdlib
         - title: coverage
           content:
-           - source: ext/coverage/Coverage.md
-             remove:
-               - "# Usage"
-               - "# Example"
+            - source: ext/coverage/Coverage.md
+              process: require_stdlib
+              remove:
+                - "# Usage"
+                - "# Example"
         - title: debug
           content:
             - source: '# debug'
@@ -479,17 +501,18 @@
               remove_sections:
                 - Going beyond basics
                 - Getting help
-#         - source: lib/tracer/Tracer.md
         - title: "fiddle: FFI wrapper"
           id: fiddle
           content:
             - source: ext/fiddle/Fiddle.md
+              process: require_stdlib
               remove:
                 - 'A libffi wrapper'
                 - '## Description'
         - title: logger
           content:
             - source: lib/logger/Logger.md
+              process: require_stdlib
               remove: '## Description'
               remove_sections:
                 - Features
@@ -502,6 +525,7 @@
           id: pp
           content:
             - source: lib/pp/PP.md
+              process: require_stdlib
               remove_sections:
                 - Pretty-Print JSON
                 - Author
@@ -516,11 +540,17 @@
           id: ripper
           content:
             - source: ext/ripper/Ripper.md
+              process: require_stdlib
               remove_sections:
                 - Resources
                 - Requirements
                 - License
             # - source: ext/ripper/DSL.md
+        - title: tracer
+          content:
+            - source: lib/tracer/Tracer.md
+              remove_sections:
+                - Copyright
 
     - title: String Utilities
       content:
@@ -530,6 +560,7 @@
           id: erb
           content:
             - source: "## ERB"
+              process: [[require_stdlib, erb]]
             - source: lib/erb/ERB.md#Introduction
               remove: "## Introduction"
             - source: lib/erb/ERB.md#Recognized Tags
@@ -539,9 +570,11 @@
           id: racc
           content:
             - source: lib/racc/Racc.md
+              process: require_stdlib
         - title: scanf
           content:
             - source: '# scanf'
+              process: [[require_stdlib, scanf]]
             - source: lib/scanf/Scanf.md#Description
               remove: '## Description'
             - source: "lib/scanf/Scanf.md#Basic usage"
@@ -551,6 +584,7 @@
           id: shellwords
           content:
             - source: lib/shellwords/Shellwords.md
+              process: require_stdlib
               remove:
                 - "## Manipulates strings like"
                 - "The shellwords() function"
@@ -563,6 +597,7 @@
           id: strscan
           content:
             - source: ext/strscan/StringScanner.md#StringScanner
+              process: require_stdlib
             - source: ext/strscan/StringScanner.md#_ref
 
     - title: Networking and Web
@@ -572,19 +607,23 @@
         - title: cgi
           content:
             - source: lib/cgi/CGI.md
+              process: require_stdlib
         - title: ipaddr
           content:
             - source: lib/ipaddr/IPAddr.md
+              process: require_stdlib
               remove: '## Example'
 
         - title: net/ftp
           content:
             - source: lib/net/ftp/Net--FTP.md
+              process: require_stdlib
               remove_sections:
                 - Major Methods
         - title: net/http
           content:
             - source: lib/net/http/Net--HTTP.md
+              process: require_stdlib
               remove_sections:
                 - HTTP Request Classes
                 - HTTP Response Classes
@@ -602,12 +641,14 @@
         - title: net/imap
           content:
             - source: lib/net/imap/Net--IMAP.md
+              process: require_stdlib
               remove_sections:
                 - Errors
                 - References
         - title: net/pop
           content:
             - source: lib/net/pop/Net--POP3.md
+              process: require_stdlib
               remove:
                 - "## What is This Library?"
             - source: lib/net/pop/Net--APOP.md#_ref
@@ -625,6 +666,7 @@
         - title: net/smtp
           content:
             - source: lib/net/smtp/Net--SMTP.md
+              process: require_stdlib
               remove:
                 - "## What is This Library?"
                 - "## What is This Library NOT?"
@@ -640,12 +682,23 @@
           id: openuri
           content:
             - source: lib/open-uri/OpenURI.md
+              process: require_stdlib
               remove:
                 - "## Example"
                 - "* Author:"
+        - title: "resolv: DNS Resolver"
+          id: resolv
+          content:
+            - source: lib/resolv/Resolv.md
+              process: require_stdlib
+              remove_sections: [Bugs]
+            # Nothing there, in fact
+            # - source: ext/win32/Resolv.md
+
         - title: socket
           content:
             - source: ext/socket/Socket.md
+              process: require_stdlib
               remove_sections:
                 - What's a socket?
                 - Exception Handling
@@ -665,6 +718,7 @@
           id: webrick
           content:
             - source: "lib/webrick/WEBrick.md#WEB server toolkit."
+              process: require_stdlib
             - source: "lib/webrick/WEBrick.md#Starting an HTTP server"
             - source: "lib/webrick/WEBrick.md#Custom Behavior"
             - source: lib/webrick/WEBrick.md#_ref
@@ -672,6 +726,7 @@
         - title: uri
           content:
             - source: lib/uri/URI.md
+              process: require_stdlib
               remove_sections:
                 - RFC References
                 - Class tree
@@ -686,18 +741,22 @@
           id: etc
           content:
             - source: ext/etc/Etc.md
+              process: require_stdlib
         - title: "fcntl: POSIX file access constants"
           id: fcntl
           content:
             - source: ext/fcntl/Fcntl.md
+              process: require_stdlib
         - title: "open3: Flexible child processes"
           id: open3
           content:
             - source: lib/open3/Open3.md
+              process: require_stdlib
         - title: "optparse: CLI arguments parser"
           id: optparse
           content:
             - source: lib/optparse/OptionParser.md
+              process: require_stdlib
               header_shift: -1
               remove:
                 - "## OptionParser"
@@ -710,22 +769,27 @@
           id: pty
           content:
             - source: ext/pty/PTY.md
+              process: require_stdlib
               remove_sections:
                 - License
             # - source: ext/pty/IO.md
         - title: readline
           content:
             - source: ext/readline/Readline.md
+              process: require_stdlib
         - title: syslog
           content:
             - source: ext/syslog/Syslog.md
+              process: require_stdlib
         - title: "shell: Ruby interface to UNIX shell"
           id: shell
           content:
             - source: lib/shell/Shell.md
+              process: require_stdlib
         - title: win32ole
           content:
             - source: ext/win32ole/WIN32OLE.md
+              process: require_stdlib
             # - source: ext/win32ole/IE_CONST.md
             # - source: ext/win32ole/IXMLDOMNode.md
             # - source: ext/win32ole/IXMLDOMParseError.md
@@ -755,14 +819,17 @@
       children:
         - title: base64
           content:
-          - source: lib/base64/Base64.md
+            - source: lib/base64/Base64.md
+              process: require_stdlib
         - title: 'digest: Digests Generation'
           id: digest
           content:
-          - source: ext/digest/Digest.md
+            - source: ext/digest/Digest.md
+              process: require_stdlib
         - title: openssl
           content:
-          - source: ext/openssl/OpenSSL.md
+            - source: ext/openssl/OpenSSL.md
+              process: require_stdlib
 
     - title: Miscellaneous Libraries
       id: misc
@@ -784,6 +851,7 @@
           id: drb
           content:
             - source: lib/drb/DRb.md
+              process: require_stdlib
             # - source: lib/drb/ACL.md
         - title: "dbm, gdbm, sdbm"
           id: dbm
@@ -804,12 +872,13 @@
             # - source: ext/sdbm/SDBMError.md
         - title: timeout
           content:
-          - source: lib/timeout/Timeout.md
-            remove:
-              - "## Synopsis"
-              - "## Description"
-            remove_sections:
-              - Copyright
+            - source: lib/timeout/Timeout.md
+              process: require_stdlib
+              remove:
+                - "## Synopsis"
+                - "## Description"
+              remove_sections:
+                - Copyright
         - title: Other Libraries
           id: other
           content:
@@ -834,8 +903,6 @@
             - source: lib/rinda/Rinda.md
               remove_sections:
                 - "Example(s)"
-            - source: lib/resolv/Resolv.md
-              remove_sections: [Bugs]
             - source: lib/thwait/ThreadsWait.md
             # - source: lib/thwait/ThWait.md
             - source: lib/tsort/TSort.md
@@ -847,45 +914,56 @@
             - source: lib/weakref/WeakRef.md
             # - source: ext/win32/Win32.md
 
+- title: Advanced Topics
+  part: true
+  children:
+    - title: Third-Party Libraries
+      content:
+        - source: '# Third-Party Libraries'
+      children:
+        - title: RubyGems and Bundler
+          content:
+            - source: "# RubyGems"
+            - source: lib/rubygems/Gem.md#Gem
+              remove: "# Gem"
+            - source: lib/rubygems/Gem.md#_ref
+            # - source: lib/rubygems/Kernel.md
+            # - source: lib/rubygems/TempIO.md
+          # TODO: Quick intro: install gems
+          # TODO: Where to find gems
+          # TODO: Bundler
+        - title: Developing C Extensions
+          id: extensions
+          content:
+            # TODO: In fact, it has a whole LOT of chapters! Should be either separated, or
+            # shortened and linked to full version.
+            - source: doc/extension.md
+              remove:
+                - "# extension.rdoc -"
+                - "\\:enddoc"
+            - source: lib/mkmf/MakeMakefile.md
+    - title: Tools and Approaches
+      content:
+        - source: '# Tools and Approaches'
+      children:
+        - title: Interactive Console
+          id: irb
+          content:
+            - source: lib/irb/IRB.md
+            # - source: lib/irb/XMP.md
+        - title: Documenting
+          id: rdoc
+          content:
+            - source: lib/rdoc/RDoc.md
+            # - source: lib/rdoc/RDocTask.md
+        - title: DTrace
+          content:
+            - source: doc/dtrace_probes.md
 
-
-# - title: Advanced Topics
-#   part: true
-#   children:
-#     - title: Third-Party Libraries
-#       content:
-#         - source: '# Third-Party Libraries'
-#       children:
-#         - title: RubyGems
-#           source:
-#             - source: lib/rubygems/Gem.md
-#             # - source: lib/rubygems/Kernel.md
-#             # - source: lib/rubygems/TempIO.md
-#         - title: C Extensions
-#           content:
-#             - source: doc/extension.md
-#             - source: lib/mkmf/MakeMakefile.md
-#         # TODO: Bundler
-#     - title: Tools and Approaches
-#       content:
-#         - source: '# Tools and Approaches'
-#         # TODO: Move to separate parts
-#         - source: doc/dtrace_probes.md
-#       children:
-#         - title: Interactive Console
-#           id: irb
-#           content:
-#             - source: lib/irb/IRB.md
-#             # - source: lib/irb/XMP.md
-#         - title: Documenting
-#           id: rdoc
-#           content:
-#             - source: lib/rdoc/RDoc.md
-#             - source: lib/rdoc/RDocTask.md
-#         # TODO: Code Style and Linting
-#     - title: Language Development
-#       cotnent:
-#         - source: '# Development of Ruby'
-#         - source: doc/contributing.md
-#         - source: doc/contributors.md
-#         - source: doc/maintainers.md
+        # TODO: Code Style and Linting
+    - title: Contributing To Ruby
+      id: contributing
+      content:
+        - source: doc/contributing.md
+        # - source: doc/contributors.md
+        # - source: doc/maintainers.md

@@ -1,3 +1,8 @@
+
+```ruby
+require 'ipaddr'
+```
+
 # IPAddr
 
 IPAddr provides a set of methods to manipulate an IP address. Both IPv4

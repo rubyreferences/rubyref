@@ -1,3 +1,8 @@
+
+```ruby
+require 'open3'
+```
+
 # Open3
 
 Open3 grants you access to stdin, stdout, stderr and a thread to wait

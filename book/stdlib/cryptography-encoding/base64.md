@@ -1,3 +1,8 @@
+
+```ruby
+require 'base64'
+```
+
 # Base64
 
 The Base64 module provides for the encoding (#encode64,

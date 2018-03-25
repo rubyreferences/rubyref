@@ -1,3 +1,8 @@
+
+```ruby
+require 'net/imap'
+```
+
 # Net::IMAP
 
 Net::IMAP implements Internet Message Access Protocol (IMAP) client

@@ -1,3 +1,8 @@
+
+```ruby
+require 'rexml'
+```
+
 # REXML
 
 REXML is an XML toolkit for [Ruby](http://www.ruby-lang.org), in Ruby.

@@ -1,3 +1,8 @@
+
+```ruby
+require 'logger'
+```
+
 # Logger
 
 The Logger class provides a simple but sophisticated logging utility

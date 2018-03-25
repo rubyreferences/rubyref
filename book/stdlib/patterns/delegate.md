@@ -1,3 +1,8 @@
+
+```ruby
+require 'delegate'
+```
+
 # Delegator
 
 This library provides three different ways to delegate method calls to

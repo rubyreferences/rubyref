@@ -1,3 +1,8 @@
+
+```ruby
+require 'syslog'
+```
+
 # Syslog
 
 The syslog package provides a Ruby interface to the POSIX system logging

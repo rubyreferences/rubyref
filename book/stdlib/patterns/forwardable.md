@@ -1,3 +1,8 @@
+
+```ruby
+require 'forwardable'
+```
+
 # Forwardable
 
 The Forwardable module provides delegation of specified methods to a

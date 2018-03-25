@@ -1,12 +1,4 @@
 ---
-- source: core/IO--EAGAINWaitReadable.md
-- source: core/IO--EAGAINWaitWritable.md
-- source: core/IO--EINPROGRESSWaitReadable.md
-- source: core/IO--EINPROGRESSWaitWritable.md
-- source: core/IO--EWOULDBLOCKWaitReadable.md
-- source: core/IO--EWOULDBLOCKWaitWritable.md
-- source: core/IO--WaitReadable.md
-- source: core/IO--WaitWritable.md
 - source: doc/security.md
 - source: doc/signals.md
-- source: ext/win32/Resolv.md
+

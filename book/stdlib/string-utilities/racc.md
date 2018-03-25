@@ -1,3 +1,8 @@
+
+```ruby
+require 'racc'
+```
+
 # Racc
 
 Racc is a LALR(1) parser generator. It is written in Ruby itself, and

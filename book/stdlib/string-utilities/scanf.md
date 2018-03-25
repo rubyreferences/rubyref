@@ -2,6 +2,11 @@
 
 
 
+
+```ruby
+require 'scanf'
+```
+
 scanf is an implementation of the C function scanf(3), modified as
 necessary for Ruby compatibility.
 

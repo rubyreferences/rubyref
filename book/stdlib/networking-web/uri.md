@@ -1,3 +1,8 @@
+
+```ruby
+require 'uri'
+```
+
 # URI
 
 URI is a module providing classes to handle Uniform Resource Identifiers

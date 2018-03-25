@@ -1,3 +1,8 @@
+
+```ruby
+require 'timeout'
+```
+
 # Timeout
 
 Timeout long-running blocks

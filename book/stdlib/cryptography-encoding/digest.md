@@ -1,3 +1,8 @@
+
+```ruby
+require 'digest'
+```
+
 # Digest
 
 This module provides a framework for message digest libraries.

@@ -1,3 +1,8 @@
+
+```ruby
+require 'fiddle'
+```
+
 # Fiddle
 
 Fiddle is an extension to translate a foreign function interface (FFI)

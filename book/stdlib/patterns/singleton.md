@@ -1,3 +1,8 @@
+
+```ruby
+require 'singleton'
+```
+
 # Singleton
 
 The Singleton module implements the Singleton pattern.

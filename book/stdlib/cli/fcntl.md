@@ -1,3 +1,8 @@
+
+```ruby
+require 'fcntl'
+```
+
 # Fcntl
 
 Fcntl loads the constants defined in the system's <fcntl.h> C header

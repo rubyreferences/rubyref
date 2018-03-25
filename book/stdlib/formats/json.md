@@ -1,4 +1,7 @@
-# JSON
+
+```ruby
+require 'json'
+```
 
 # JavaScript Object Notation (JSON)
 

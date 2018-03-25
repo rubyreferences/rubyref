@@ -1,3 +1,8 @@
+
+```ruby
+require 'yaml'
+```
+
 # YAML
 
 YAML Ain't Markup Language

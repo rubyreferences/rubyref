@@ -1,3 +1,8 @@
+
+```ruby
+require 'etc'
+```
+
 # Etc
 
 The Etc module provides access to information typically stored in files

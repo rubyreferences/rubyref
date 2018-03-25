@@ -1,3 +1,8 @@
+
+```ruby
+require 'coverage'
+```
+
 # Coverage
 
 Coverage provides coverage measurement feature for Ruby. This feature is

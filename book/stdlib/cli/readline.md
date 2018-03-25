@@ -1,3 +1,8 @@
+
+```ruby
+require 'readline'
+```
+
 # Readline
 
 The Readline module provides interface for GNU Readline. This module

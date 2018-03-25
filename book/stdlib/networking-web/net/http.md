@@ -1,3 +1,8 @@
+
+```ruby
+require 'net/http'
+```
+
 # Net::HTTP
 
 ## An HTTP client API for Ruby.

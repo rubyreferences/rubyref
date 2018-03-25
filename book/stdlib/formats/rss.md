@@ -1,3 +1,8 @@
+
+```ruby
+require 'rss'
+```
+
 # RSS
 
 # RSS reading and writing

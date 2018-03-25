@@ -1,3 +1,8 @@
+
+```ruby
+require 'open-uri'
+```
+
 # OpenURI
 
 OpenURI is an easy-to-use wrapper for Net::HTTP, Net::HTTPS and

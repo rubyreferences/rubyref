@@ -1,3 +1,8 @@
+
+```ruby
+require 'strscan'
+```
+
 # StringScanner
 
 StringScanner provides for lexical scanning operations on a String. Here

@@ -24,6 +24,7 @@ def children(context)
     .flat_map { |mod| [mod, *children(mod)] }
 end
 
+# Net::* and IO::* are separate libraries.
 WITH_SUBMODULES = %w[Net IO]
 
 def root_module?(mod)

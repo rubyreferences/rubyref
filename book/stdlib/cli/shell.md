@@ -1,3 +1,8 @@
+
+```ruby
+require 'shell'
+```
+
 # Shell
 
 Shell implements an idiomatic Ruby interface for common UNIX shell

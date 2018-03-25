@@ -1,3 +1,8 @@
+
+```ruby
+require 'net/ftp'
+```
+
 # Net::FTP
 
 This class implements the File Transfer Protocol. If you have used a

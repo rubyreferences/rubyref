@@ -1,3 +1,8 @@
+
+```ruby
+require 'webrick'
+```
+
 # WEB server toolkit.
 
 WEBrick is an HTTP server toolkit that can be configured as an HTTPS
