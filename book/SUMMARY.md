@@ -111,9 +111,11 @@
 * [String Utilities](stdlib/string-utilities.md)
   * [erb: Ruby Temlating](stdlib/string-utilities/erb.md)
 
-  * [strscan: Sequental String Scanner](stdlib/string-utilities/strscan.md)
-
   * [scanf](stdlib/string-utilities/scanf.md)
+
+  * [shellwords: Shell-aware string manipulation](stdlib/string-utilities/shellwords.md)
+
+  * [strscan: Sequental String Scanner](stdlib/string-utilities/strscan.md)
 
 * [Networking and Web](stdlib/networking-web.md)
   * [cgi](stdlib/networking-web/cgi.md)
@@ -138,9 +140,24 @@
 
   * [uri](stdlib/networking-web/uri.md)
 
-* [System Programming and Console](stdlib/system-programming-console.md)
+* [System Programming and CLI](stdlib/cli.md)
+  * [etc: Access to Unix /etc](stdlib/cli/etc.md)
 
-* [Misc Utilities](stdlib/misc.md)
+  * [fcntl: POSIX file access constants](stdlib/cli/fcntl.md)
+
+  * [open3: Flexible child processes](stdlib/cli/open3.md)
+
+  * [optparse: CLI arguments parser](stdlib/cli/optparse.md)
+
+  * [pty: Pseudo terminal](stdlib/cli/pty.md)
+
+  * [readline](stdlib/cli/readline.md)
+
+  * [syslog](stdlib/cli/syslog.md)
+
+  * [shell: Ruby interface to UNIX shell](stdlib/cli/shell.md)
+
+  * [win32ole](stdlib/cli/win32ole.md)
 
 * [Cryptography and Encoding](stdlib/cryptography-encoding.md)
   * [base64](stdlib/cryptography-encoding/base64.md)
@@ -149,9 +166,13 @@
 
   * [openssl](stdlib/cryptography-encoding/openssl.md)
 
-* [Concurrency Utils](stdlib/concurrency-utils.md)
+* [Miscellaneous Libraries](stdlib/misc.md)
+  * [Concurrency Utils](stdlib/misc/concurrency-utils.md)
 
-* [Other Libraries](stdlib/other.md)
-  * [drb: Distributed Ruby](stdlib/other/drb.md)
+  * [drb: Distributed Ruby](stdlib/misc/drb.md)
 
-  * [dbm, gdbm, sdbm](stdlib/other/dbm.md)
+  * [dbm, gdbm, sdbm](stdlib/misc/dbm.md)
+
+  * [timeout](stdlib/misc/timeout.md)
+
+  * [Other Libraries](stdlib/misc/other.md)

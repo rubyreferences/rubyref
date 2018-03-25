@@ -1,4 +1,8 @@
-# Abbrev
+# A Brief List of Less Used Libraries
+
+
+
+## Abbrev
 
 Calculates the set of unambiguous abbreviations for a given set of
 strings.
@@ -208,11 +212,6 @@ A module to implement the Linda distributed computing paradigm in Ruby.
 
 Rinda is part of DRb (dRuby).
 
-### Example(s)
-
-See the sample/drb/ directory in the Ruby distribution, from 1.8.2
-onwards.
-
 [Rinda
 Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/rinda/rdoc/Rinda.html)
 
@@ -245,20 +244,6 @@ end
 
 [Resolv
 Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/resolv/rdoc/Resolv.html)
-
-
-
-## Shellwords
-
-This module manipulates strings according to the word parsing rules of
-the UNIX Bourne shell.
-
-The shellwords() function was originally a port of shellwords.pl, but
-modified to conform to the Shell & Utilities volume of the IEEE Std
-1003.1-2008, 2016 Edition \[1\].
-
-[Shellwords
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/shellwords/rdoc/Shellwords.html)
 
 
 

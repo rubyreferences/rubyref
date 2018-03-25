@@ -64,6 +64,8 @@ Dir['intermediate/parsed/**/*.md'].each do |source|
       content.gsub(/(Log (format|sample)):\n/, "\\1\n\n")
     when %r{lib/pp/PP\.md}
       content.gsub("returns this:\n", "returns this:\n\n")
+    when %r{lib/optparse/OptionParser\.md}
+      content.gsub(/((Used|output):)\n(?=    bash-3\.2)/, "\\1\n\n")
     else
       content
     end

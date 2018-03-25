@@ -519,11 +519,6 @@
             - source: lib/erb/ERB.md#Recognized Tags
             - source: lib/erb/ERB.md#Options
             - source: lib/erb/ERB.md#_ref
-        - title: "strscan: Sequental String Scanner"
-          id: strscan
-          content:
-            - source: ext/strscan/StringScanner.md#StringScanner
-            - source: ext/strscan/StringScanner.md#_ref
         - title: scanf
           content:
             - source: '# scanf'
@@ -532,6 +527,23 @@
             - source: "lib/scanf/Scanf.md#Basic usage"
             - source: "lib/scanf/Scanf.md#Block usage"
             - source: "lib/scanf/Scanf.md#_ref"
+        - title: "shellwords: Shell-aware string manipulation"
+          id: shellwords
+          content:
+            - source: lib/shellwords/Shellwords.md
+              remove:
+                - "## Manipulates strings like"
+                - "The shellwords() function"
+                - "### Usage"
+              remove_sections:
+                - Authors
+                - Contact
+                - Resources
+        - title: "strscan: Sequental String Scanner"
+          id: strscan
+          content:
+            - source: ext/strscan/StringScanner.md#StringScanner
+            - source: ext/strscan/StringScanner.md#_ref
 
     - title: Networking and Web
       content:
@@ -645,45 +657,77 @@
                 - Class tree
                 - Copyright Info
 
-    - title: System Programming and Console
+    - title: System Programming and CLI
+      id: cli
       content:
-        - source: lib/shell/Shell.md
-        - source: lib/optparse/OptionParser.md
-        - source: ext/etc/Etc.md
-        - source: ext/pty/PTY.md
-        # - source: ext/pty/IO.md
-        - source: ext/fcntl/Fcntl.md
-        - source: ext/readline/Readline.md
-        - source: ext/win32ole/WIN32OLE.md
-        - source: ext/syslog/Syslog.md
-        - source: lib/open3/Open3.md
-        # - source: ext/win32ole/IE_CONST.md
-        # - source: ext/win32ole/IXMLDOMNode.md
-        # - source: ext/win32ole/IXMLDOMParseError.md
-        # - source: ext/win32ole/IXMLHttpRequest.md
-        # - source: ext/win32ole/IXTLRuntime.md
-        # - source: ext/win32ole/Microsoft_FreeThreadedXMLDOM_1_0.md
-        # - source: ext/win32ole/Microsoft_XMLDOM_1_0.md
-        # - source: ext/win32ole/Microsoft_XMLDSO_1_0.md
-        # - source: ext/win32ole/Microsoft_XMLHTTP_1.md
-        # - source: ext/win32ole/Msxml.md
-        # - source: ext/win32ole/OLEProperty.md
-        # - source: ext/win32ole/OLEtagDOMNodeType.md
-        # - source: ext/win32ole/OLEtagXMLEMEM_TYPE.md
-        # - source: ext/win32ole/WIN32OLERuntimeError.md
-        # - source: ext/win32ole/WIN32OLE_EVENT.md
-        # - source: ext/win32ole/WIN32OLE_METHOD.md
-        # - source: ext/win32ole/WIN32OLE_PARAM.md
-        # - source: ext/win32ole/WIN32OLE_RECORD.md
-        # - source: ext/win32ole/WIN32OLE_TYPE.md
-        # - source: ext/win32ole/WIN32OLE_TYPELIB.md
-        # - source: ext/win32ole/WIN32OLE_VARIABLE.md
-        # - source: ext/win32ole/WIN32OLE_VARIANT.md
-
-    - title: Misc Utilities
-      id: misc
-      content:
-      - source: lib/timeout/Timeout.md
+        - source: "# Libraries for CLI and OS services access"
+      children:
+        - title: "etc: Access to Unix /etc"
+          id: etc
+          content:
+            - source: ext/etc/Etc.md
+        - title: "fcntl: POSIX file access constants"
+          id: fcntl
+          content:
+            - source: ext/fcntl/Fcntl.md
+        - title: "open3: Flexible child processes"
+          id: open3
+          content:
+            - source: lib/open3/Open3.md
+        - title: "optparse: CLI arguments parser"
+          id: optparse
+          content:
+            - source: lib/optparse/OptionParser.md
+              header_shift: -1
+              remove:
+                - "## OptionParser"
+                - "### Introduction"
+              remove_sections:
+                - Further documentation
+                - Complete example
+                - Shell Completion
+        - title: "pty: Pseudo terminal"
+          id: pty
+          content:
+            - source: ext/pty/PTY.md
+              remove_sections:
+                - License
+            # - source: ext/pty/IO.md
+        - title: readline
+          content:
+            - source: ext/readline/Readline.md
+        - title: syslog
+          content:
+            - source: ext/syslog/Syslog.md
+        - title: "shell: Ruby interface to UNIX shell"
+          id: shell
+          content:
+            - source: lib/shell/Shell.md
+        - title: win32ole
+          content:
+            - source: ext/win32ole/WIN32OLE.md
+            # - source: ext/win32ole/IE_CONST.md
+            # - source: ext/win32ole/IXMLDOMNode.md
+            # - source: ext/win32ole/IXMLDOMParseError.md
+            # - source: ext/win32ole/IXMLHttpRequest.md
+            # - source: ext/win32ole/IXTLRuntime.md
+            # - source: ext/win32ole/Microsoft_FreeThreadedXMLDOM_1_0.md
+            # - source: ext/win32ole/Microsoft_XMLDOM_1_0.md
+            # - source: ext/win32ole/Microsoft_XMLDSO_1_0.md
+            # - source: ext/win32ole/Microsoft_XMLHTTP_1.md
+            # - source: ext/win32ole/Msxml.md
+            # - source: ext/win32ole/OLEProperty.md
+            # - source: ext/win32ole/OLEtagDOMNodeType.md
+            # - source: ext/win32ole/OLEtagXMLEMEM_TYPE.md
+            # - source: ext/win32ole/WIN32OLERuntimeError.md
+            # - source: ext/win32ole/WIN32OLE_EVENT.md
+            # - source: ext/win32ole/WIN32OLE_METHOD.md
+            # - source: ext/win32ole/WIN32OLE_PARAM.md
+            # - source: ext/win32ole/WIN32OLE_RECORD.md
+            # - source: ext/win32ole/WIN32OLE_TYPE.md
+            # - source: ext/win32ole/WIN32OLE_TYPELIB.md
+            # - source: ext/win32ole/WIN32OLE_VARIABLE.md
+            # - source: ext/win32ole/WIN32OLE_VARIANT.md
 
     - title: Cryptography and Encoding
       content:
@@ -700,58 +744,22 @@
           content:
           - source: ext/openssl/OpenSSL.md
 
-    # FIXME: If any of this used at all?..
-    - title: Concurrency Utils
+    - title: Miscellaneous Libraries
+      id: misc
       content:
-        - source: lib/monitor/Monitor.md
-        - source: lib/monitor/MonitorMixin.md
-        - source: lib/mutex_m/Mutex_m.md
-        - source: lib/sync/Sync.md
-        - source: lib/sync/Sync_m.md
-        - source: lib/sync/Synchronizer.md
-        - source: lib/sync/Synchronizer_m.md
-
-    - title: Other Libraries
-      id: other
-      content:
-        - source: lib/abbrev/Abbrev.md
-        - source: lib/cmath/CMath.md
-          remove: "# Trigonometric and transcendental"
-          remove_sections: [Usage]
-        - source: lib/getoptlong/GetoptLong.md
-
-        - source: lib/e2mmap/Exception2MessageMapper.md#Exception2MessageMapper
-        - source: lib/e2mmap/Exception2MessageMapper.md#_ref
-
-        - source: ext/nkf/NKF.md#NKF
-        - source: ext/nkf/NKF.md#_ref
-        # - source: ext/nkf/Kconv.md
-
-        - source: lib/pstore/PStore.md
-          remove_sections:
-            - "Usage example:"
-            - Transaction modes
-        - source: lib/rinda/Rinda.md
-        - source: lib/resolv/Resolv.md
-          remove_sections: [Bugs]
-        - source: lib/shellwords/Shellwords.md
-          remove: "## Manipulates strings like"
-          remove_sections:
-            - Usage
-            - Authors
-            - Contact
-            - Resources
-        - source: lib/thwait/ThreadsWait.md
-        # - source: lib/thwait/ThWait.md
-        - source: lib/tsort/TSort.md
-          remove_sections:
-            - A Simple Example
-            - A More Realistic Example
-            - Bugs
-            - References
-        - source: lib/weakref/WeakRef.md
-        # - source: ext/win32/Win32.md
+        - source: "## Miscellaneous Ruby Libraries"
       children:
+        # FIXME: If any of this used at all?..
+        - title: Concurrency Utils
+          content:
+            - source: "# Concurrency Utils"
+            - source: lib/monitor/Monitor.md
+            - source: lib/monitor/MonitorMixin.md
+            - source: lib/mutex_m/Mutex_m.md
+            - source: lib/sync/Sync.md
+            - source: lib/sync/Sync_m.md
+            - source: lib/sync/Synchronizer.md
+            - source: lib/sync/Synchronizer_m.md
         - title: "drb: Distributed Ruby"
           id: drb
           content:
@@ -774,6 +782,51 @@
             - source: ext/sdbm/SDBM.md#SDBM
             - source: ext/sdbm/SDBM.md#_ref
             # - source: ext/sdbm/SDBMError.md
+        - title: timeout
+          content:
+          - source: lib/timeout/Timeout.md
+            remove:
+              - "## Synopsis"
+              - "## Description"
+            remove_sections:
+              - Copyright
+        - title: Other Libraries
+          id: other
+          content:
+            - source: "# A Brief List of Less Used Libraries"
+            - source: lib/abbrev/Abbrev.md
+            - source: lib/cmath/CMath.md
+              remove: "# Trigonometric and transcendental"
+              remove_sections: [Usage]
+            - source: lib/getoptlong/GetoptLong.md
+
+            - source: lib/e2mmap/Exception2MessageMapper.md#Exception2MessageMapper
+            - source: lib/e2mmap/Exception2MessageMapper.md#_ref
+
+            - source: ext/nkf/NKF.md#NKF
+            - source: ext/nkf/NKF.md#_ref
+            # - source: ext/nkf/Kconv.md
+
+            - source: lib/pstore/PStore.md
+              remove_sections:
+                - "Usage example:"
+                - Transaction modes
+            - source: lib/rinda/Rinda.md
+              remove_sections:
+                - "Example(s)"
+            - source: lib/resolv/Resolv.md
+              remove_sections: [Bugs]
+            - source: lib/thwait/ThreadsWait.md
+            # - source: lib/thwait/ThWait.md
+            - source: lib/tsort/TSort.md
+              remove_sections:
+                - A Simple Example
+                - A More Realistic Example
+                - Bugs
+                - References
+            - source: lib/weakref/WeakRef.md
+            # - source: ext/win32/Win32.md
+
 
 
 # - title: Advanced Topics

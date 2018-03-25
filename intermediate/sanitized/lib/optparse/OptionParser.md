@@ -140,6 +140,7 @@ block. Otherwise, an exception will be raised.
     end.parse!
 
 Used:
+
     bash-3.2$ ruby optparse-test.rb  -t nonsense
     ... invalid argument: -t nonsense (OptionParser::InvalidArgument)
     from ... time.rb:5:in `block in <top (required)>`
@@ -180,6 +181,7 @@ receives it.
     op.parse!
 
 output:
+
     bash-3.2$ ruby optparse-test.rb --user 1
     #<struct User id=1, name="Sam">
     bash-3.2$ ruby optparse-test.rb --user 2
