@@ -23,7 +23,7 @@ Dir['intermediate/parsed/**/*.md'].each do |source|
     .strip
     .gsub("ruby-talk:69518\n:   ", "[ruby-talk:69518] ")    # Just broken by rdoc2markdown
     .gsub(/\n(.+)\n: {3}(?=\S)/, "\n* \\1: ")               # RDoc converts dd/dt this way, no Markdown corresponding syntax...
-    .gsub(/`(\w[^\n`']*?)'/, '`\1`')                          # Code pieces wrapped in `foo'
+    .gsub(/`(\w[^\n`']*?)'/, '`\1`')                        # Code pieces wrapped in `foo'
     .gsub("`(?``*name*`')`", "`(?'`*name*`')`")             # Manually fix one case broken by previous line
     .gsub("`enor'", "'enor'")                               # And another one...
     .gsub(/(\n[^\*\n][^\n]+)\n(\* )/, "\\1\n\n\\2")         # List start without empty space after previous paragraph
@@ -56,8 +56,13 @@ Dir['intermediate/parsed/**/*.md'].each do |source|
         .gsub("``!''", "`!`")
     when %r{ext/date/}
       content.sub(/\A.+?\n/, '') # We don't need first header inserted by render script.
+    # FIXME: probably could be handled generically (line with a lot of spaces after line without spaces):
     when %r{lib/abbrev/Abbrev\.md}
       content.gsub("*Generates:*\n", "*Generates:*\n\n")
+    when %r{lib/logger/Logger\.md}
+      content.gsub(/(Log (format|sample)):\n/, "\\1\n\n")
+    when %r{lib/pp/PP\.md}
+      content.gsub("returns this:\n", "returns this:\n\n")
     else
       content
     end

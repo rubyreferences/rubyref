@@ -13,6 +13,8 @@
       header_shift: 0
     - source: "doc/syntax/miscellaneous.md#`BEGIN` and `END`"
       header_shift: 0
+    # Rewritten
+    # - source: doc/syntax.md
   children:
     - title: Keywords
       content:
@@ -420,6 +422,9 @@
         - title: singleton
           content:
             - source: lib/singleton/Singleton.md
+              remove_sections:
+                - Implementation
+                - Singleton and Marshal
 
     - title: Formats
       content:
@@ -465,28 +470,56 @@
           id: pp
           content:
             - source: lib/pp/PP.md
-            - source: lib/prettyprint/PrettyPrint.md
+              remove_sections:
+                - Pretty-Print JSON
+                - Author
+            - source: lib/prettyprint/PrettyPrint.md#_ref
         - title: logger
           content:
             - source: lib/logger/Logger.md
-        - title: "ripper: Parsing Ruby"
-          id: ripper
-          content:
-            - source: ext/ripper/Ripper.md
-            # - source: ext/ripper/DSL.md
-        - title: "racc: Parser Generator"
-          id: racc
-          content:
-            - source: lib/racc/Racc.md
+              remove: '## Description'
+              remove_sections:
+                - Features
+                - HOWTOs
+                - How to create a logger
+                - How to log a message
+                - How to close a logger
+                - Setting severity threshold
         - title: "fiddle: FFI wrapper"
           id: fiddle
           content:
             - source: ext/fiddle/Fiddle.md
+              remove:
+                - 'A libffi wrapper'
+                - '## Description'
+        - title: "ripper: Parsing Ruby"
+          id: ripper
+          content:
+            - source: ext/ripper/Ripper.md
+              remove_sections:
+                - Resources
+                - Requirements
+                - License
+            # - source: ext/ripper/DSL.md
+        # FIXME: Where is good place for it?..
+        # - title: "racc: Parser Generator"
+        #   id: racc
+        #   content:
+        #     - source: lib/racc/Racc.md
 
     - title: String Utilities
       content:
         - source: "# String Utilities"
       children:
+        - title: "erb: Ruby Temlating"
+          id: erb
+          content:
+            - source: "## ERB"
+            - source: lib/erb/ERB.md#Introduction
+              remove: "## Introduction"
+            - source: lib/erb/ERB.md#Recognized Tags
+            - source: lib/erb/ERB.md#Options
+            - source: lib/erb/ERB.md#_ref
         - title: "strscan: Sequental String Scanner"
           id: strscan
           content:
@@ -567,13 +600,14 @@
       content:
         - source: '# Cryptography and Encoding Libraries'
       children:
-        - title: 'Base64'
+        - title: base64
           content:
           - source: lib/base64/Base64.md
-        - title: 'Digest'
+        - title: 'digest: Digests Generation'
+          id: digest
           content:
           - source: ext/digest/Digest.md
-        - title: 'OpenSSL'
+        - title: openssl
           content:
           - source: ext/openssl/OpenSSL.md
 

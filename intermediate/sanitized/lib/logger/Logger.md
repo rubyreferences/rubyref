@@ -185,10 +185,12 @@ not set to show the debug message.
 Log messages are rendered in the output stream in a certain format by default.
  The default format and a sample are shown below:
 
-Log format:
+Log format
+
     SeverityID, [DateTime #pid] SeverityLabel -- ProgName: message
 
-Log sample:
+Log sample
+
     I, [1999-03-03T02:34:24.895701 #19074]  INFO -- Main: info.
 
 You may change the date and time format via `#datetime_format=`.

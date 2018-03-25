@@ -1,5 +1,7 @@
+#!/usr/bin/env ruby
+
 require 'yaml'
-known = File.read('config/structure.yml').scan(/source: (\S+\.md)/).flatten
+known = File.read('config/structure.yml').scan(/source: "?(\S+\.md)/).flatten
 Dir['intermediate/parsed/**/*.md'].sort
   .map { |p| p.sub('intermediate/parsed/', '') }
   .yield_self { |l| l - known }

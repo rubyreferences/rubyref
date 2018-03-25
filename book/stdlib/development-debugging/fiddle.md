@@ -1,9 +1,5 @@
 # Fiddle
 
-A libffi wrapper for Ruby.
-
-## Description
-
 Fiddle is an extension to translate a foreign function interface (FFI)
 with ruby.
 

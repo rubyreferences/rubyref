@@ -1,4 +1,4 @@
 ---
 - source: doc/security.md
 - source: doc/signals.md
-- source: doc/syntax/miscellaneous.md
+- source: lib/erb/ERB.md

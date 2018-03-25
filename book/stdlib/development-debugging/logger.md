@@ -1,7 +1,5 @@
 # Logger
 
-## Description
-
 The Logger class provides a simple but sophisticated logging utility
 that you can use to output messages.
 
@@ -78,172 +76,24 @@ Because the Logger's level is set to `WARN`, only the warning, error,
 and fatal messages are recorded. The debug and info messages are
 silently discarded.
 
-### Features
-
-There are several interesting features that Logger provides, like
-auto-rolling of log files, setting the format of log messages, and
-specifying a program name in conjunction with the message. The next
-section shows you how to achieve these things.
-
-## HOWTOs
-
-### How to create a logger
-
-The options below give you various choices, in more or less increasing
-complexity.
-
-1.  Create a logger which logs messages to STDERR/STDOUT.
-    
-    
-    ```ruby
-    logger = Logger.new(STDERR)
-    logger = Logger.new(STDOUT)
-    ```
-
-2.  Create a logger for the file which has the specified name.
-    
-    
-    ```ruby
-    logger = Logger.new('logfile.log')
-    ```
-
-3.  Create a logger for the specified file.
-    
-    
-    ```ruby
-    file = File.open('foo.log', File::WRONLY | File::APPEND)
-    # To create new (and to remove old) logfile, add File::CREAT like:
-    # file = File.open('foo.log', File::WRONLY | File::APPEND | File::CREAT)
-    logger = Logger.new(file)
-    ```
-
-4.  Create a logger which ages the logfile once it reaches a certain
-    size. Leave 10 "old" log files where each file is about 1,024,000
-    bytes.
-    
-    
-    ```ruby
-    logger = Logger.new('foo.log', 10, 1024000)
-    ```
-
-5.  Create a logger which ages the logfile daily/weekly/monthly.
-    
-    
-    ```ruby
-    logger = Logger.new('foo.log', 'daily')
-    logger = Logger.new('foo.log', 'weekly')
-    logger = Logger.new('foo.log', 'monthly')
-    ```
-
-### How to log a message
-
-Notice the different methods (`fatal`, `error`, `info`) being used to
-log messages of various levels? Other methods in this family are `warn`
-and `debug`. `add` is used below to log a message of an arbitrary
-(perhaps dynamic) level.
-
-1.  Message in a block.
-    
-    
-    ```ruby
-    logger.fatal { "Argument 'foo' not given." }
-    ```
-
-2.  Message as a string.
-    
-    
-    ```ruby
-    logger.error "Argument #{@foo} mismatch."
-    ```
-
-3.  With progname.
-    
-    
-    ```ruby
-    logger.info('initialize') { "Initializing..." }
-    ```
-
-4.  With severity.
-    
-    
-    ```ruby
-    logger.add(Logger::FATAL) { 'Fatal error!' }
-    ```
-
-The block form allows you to create potentially complex log messages,
-but to delay their evaluation until and unless the message is logged.
-For example, if we have the following:
-
-
-```ruby
-logger.debug { "This is a " + potentially + " expensive operation" }
-```
-
-If the logger's level is `INFO` or higher, no debug messages will be
-logged, and the entire block will not even be evaluated. Compare to
-this:
-
-
-```ruby
-logger.debug("This is a " + potentially + " expensive operation")
-```
-
-Here, the string concatenation is done every time, even if the log level
-is not set to show the debug message.
-
-### How to close a logger
-
-
-```ruby
-logger.close
-```
-
-### Setting severity threshold
-
-1.  Original interface.
-    
-    
-    ```ruby
-    logger.sev_threshold = Logger::WARN
-    ```
-
-2.  Log4r (somewhat) compatible interface.
-    
-    
-    ```ruby
-    logger.level = Logger::INFO
-    
-    # DEBUG < INFO < WARN < ERROR < FATAL < UNKNOWN
-    ```
-
-3.  Symbol or String (case insensitive)
-    
-    
-    ```ruby
-    logger.level = :info
-    logger.level = 'INFO'
-    
-    # :debug < :info < :warn < :error < :fatal < :unknown
-    ```
-
-4.  Constructor
-    
-    
-    ```ruby
-    Logger.new(logdev, level: Logger::INFO)
-    Logger.new(logdev, level: :info)
-    Logger.new(logdev, level: 'INFO')
-    ```
-
 ## Format
 
 Log messages are rendered in the output stream in a certain format by
 default. The default format and a sample are shown below:
 
-Log format: SeverityID, \[DateTime #pid\] SeverityLabel -- ProgName:
-message
+Log format
 
-Log sample: I, \[1999-03-03T02:34:24.895701 #19074\] INFO -- Main: info.
+
+```ruby
+SeverityID, [DateTime #pid] SeverityLabel -- ProgName: message
+```
+
+Log sample
+
+
+```ruby
+I, [1999-03-03T02:34:24.895701 #19074]  INFO -- Main: info.
+```
 
 You may change the date and time format via `#datetime_format=`.
 

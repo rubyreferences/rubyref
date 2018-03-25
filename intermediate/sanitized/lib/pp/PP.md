@@ -5,9 +5,11 @@ A pretty-printer for Ruby objects.
 ## What PP Does
 
 Standard output by `#p` returns this:
+
     #<PP:0x81fedf0 @genspace=#<Proc:0x81feda0>, @group_queue=#<PrettyPrint::GroupQueue:0x81fed3c @queue=[[#<PrettyPrint::Group:0x81fed78 @breakables=[], @depth=0, @break=false>], []]>, @buffer=[], @newline="\n", @group_stack=[#<PrettyPrint::Group:0x81fed78 @breakables=[], @depth=0, @break=false>], @buffer_width=0, @indent=0, @maxwidth=79, @output_width=2, @output=#<IO:0x8114ee4>>
 
 Pretty-printed output returns this:
+
     #<PP:0x81fedf0
      @buffer=[],
      @buffer_width=0,

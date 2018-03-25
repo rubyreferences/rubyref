@@ -54,25 +54,6 @@ is the literal part for `Hello, ` and `!`. Between the two
 an embedded expression. Our expression consists of a local variable, or
 `var_ref`, with the identifier (`@ident`) of `world`.
 
-## Resources
-
-* [Ruby
-  Inside](http://www.rubyinside.com/using-ripper-to-see-how-ruby-is-parsing-
-  your-code-5270.html)
-
-## Requirements
-
-* ruby 1.9 (support CVS HEAD only)
-* bison 1.28 or later (Other yaccs do not work)
-
-## License
-
-Ruby License.
-
-* Minero Aoki
-* aamine@loveruby.net
-* http://i.loveruby.net
-
 [Ripper
 Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/ripper/rdoc/Ripper.html)
 

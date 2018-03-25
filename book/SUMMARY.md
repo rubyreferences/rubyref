@@ -104,13 +104,13 @@
 
   * [logger](stdlib/development-debugging/logger.md)
 
-  * [ripper: Parsing Ruby](stdlib/development-debugging/ripper.md)
-
-  * [racc: Parser Generator](stdlib/development-debugging/racc.md)
-
   * [fiddle: FFI wrapper](stdlib/development-debugging/fiddle.md)
 
+  * [ripper: Parsing Ruby](stdlib/development-debugging/ripper.md)
+
 * [String Utilities](stdlib/string-utilities.md)
+  * [erb: Ruby Temlating](stdlib/string-utilities/erb.md)
+
   * [strscan: Sequental String Scanner](stdlib/string-utilities/strscan.md)
 
   * [scanf](stdlib/string-utilities/scanf.md)
@@ -122,11 +122,11 @@
 * [Misc Utilities](stdlib/misc.md)
 
 * [Cryptography and Encoding](stdlib/cryptography-encoding.md)
-  * [Base64](stdlib/cryptography-encoding/base64.md)
+  * [base64](stdlib/cryptography-encoding/base64.md)
 
-  * [Digest](stdlib/cryptography-encoding/digest.md)
+  * [digest: Digests Generation](stdlib/cryptography-encoding/digest.md)
 
-  * [OpenSSL](stdlib/cryptography-encoding/openssl.md)
+  * [openssl](stdlib/cryptography-encoding/openssl.md)
 
 * [Concurrency Utils](stdlib/concurrency-utils.md)
 
