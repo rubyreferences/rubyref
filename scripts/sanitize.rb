@@ -27,6 +27,7 @@ Dir['intermediate/parsed/**/*.md'].each do |source|
     .gsub("`(?``*name*`')`", "`(?'`*name*`')`")             # Manually fix one case broken by previous line
     .gsub("`enor'", "'enor'")                               # And another one...
     .gsub(/(\n[^\*\n][^\n]+)\n(\* )/, "\\1\n\n\\2")         # List start without empty space after previous paragraph
+    .gsub(/(\[RFC\d+\])\s+(?=\(http)/, '\1')                # Remove wrongful spaces in [RFCxxxx] (http://) for Net:: libs
     .split("\n").map { |ln| sanitize_line(source, ln) }
     .join("\n")
 

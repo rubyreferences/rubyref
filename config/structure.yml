@@ -330,7 +330,6 @@
             - source: core/Dir.md
               remove: "The directory used"
             - source: core/File.md
-            - source: core/File--Constants.md#_ref
             - source: core/FileTest.md#_ref
             - source: ext/pathname/Pathname.md#Pathname
               process:
@@ -545,6 +544,66 @@
           content:
             - source: lib/ipaddr/IPAddr.md
               remove: '## Example'
+
+        - title: net/ftp
+          content:
+            - source: lib/net/ftp/Net--FTP.md
+              remove_sections:
+                - Major Methods
+        - title: net/http
+          content:
+            - source: lib/net/http/Net--HTTP.md
+              remove_sections:
+                - HTTP Request Classes
+                - HTTP Response Classes
+            # - source: lib/net/http/Net--HTTPExceptions.md
+            # - source: lib/net/http/Net--HTTPGenericRequest.md
+            # - source: lib/net/http/Net--HTTPHeader.md
+            # - source: lib/net/http/Net--HTTPInternalServerError.md
+            # - source: lib/net/http/Net--HTTPMisdirectedRequest.md
+            # - source: lib/net/http/Net--HTTPNotExtended.md
+            # - source: lib/net/http/Net--HTTPRequest.md
+            # - source: lib/net/http/Net--HTTPResponse.md
+            # - source: lib/net/http/Net--HTTPTemporaryRedirect.md
+            # - source: lib/net/http/Net--HTTPUnknownResponse.md
+            # - source: lib/net/http/Net--HTTPUpgradeRequired.md
+        - title: net/imap
+          content:
+            - source: lib/net/imap/Net--IMAP.md
+              remove_sections:
+                - Errors
+                - References
+        - title: net/pop
+          content:
+            - source: lib/net/pop/Net--POP3.md
+              remove:
+                - "## What is This Library?"
+            - source: lib/net/pop/Net--APOP.md#_ref
+            # - source: lib/net/pop/Net--APOPSession.md
+            # - source: lib/net/pop/Net--POPAuthenticationError.md
+            # - source: lib/net/pop/Net--POPBadResponse.md
+            # - source: lib/net/pop/Net--POPError.md
+            # - source: lib/net/pop/Net--POPMail.md
+        # Just generic utility classes for other libs
+        # - title: net/protocol
+        #   content:
+        #     - source: lib/net/protocol/Net--OpenTimeout.md
+        #     - source: lib/net/protocol/Net--ReadTimeout.md
+        #     - source: lib/net/protocol/Net--WriteAdapter.md
+        - title: net/smtp
+          content:
+            - source: lib/net/smtp/Net--SMTP.md
+              remove:
+                - "## What is This Library?"
+                - "## What is This Library NOT?"
+            # - source: lib/net/smtp/Net--SMTPAuthenticationError.md
+            # - source: lib/net/smtp/Net--SMTPError.md
+            # - source: lib/net/smtp/Net--SMTPFatalError.md
+            # - source: lib/net/smtp/Net--SMTPServerBusy.md
+            # - source: lib/net/smtp/Net--SMTPSyntaxError.md
+            # - source: lib/net/smtp/Net--SMTPUnknownError.md
+            # - source: lib/net/smtp/Net--SMTPUnsupportedCommand.md
+
         - title: "openuri: Open Files and URLs"
           id: openuri
           content:
@@ -625,7 +684,6 @@
       id: misc
       content:
       - source: lib/timeout/Timeout.md
-      # - source: lib/timeout/Timeout--TimeoutError.md
 
     - title: Cryptography and Encoding
       content:
@@ -699,9 +757,6 @@
           content:
             - source: lib/drb/DRb.md
             # - source: lib/drb/ACL.md
-            # - source: lib/drb/DRb--DRbIdConv.md
-            # - source: lib/drb/DRb--DRbObject.md
-            # - source: lib/drb/DRb--DRbUndumped.md
         - title: "dbm, gdbm, sdbm"
           id: dbm
           content:
@@ -733,7 +788,6 @@
 #             - source: lib/rubygems/Gem.md
 #             # - source: lib/rubygems/Kernel.md
 #             # - source: lib/rubygems/TempIO.md
-#             # - source: lib/rubygems/YAML--Syck.md
 #         - title: C Extensions
 #           content:
 #             - source: doc/extension.md
@@ -759,6 +813,7 @@
 #           id: rdoc
 #           content:
 #             - source: lib/rdoc/RDoc.md
+#             - source: lib/rdoc/RDocTask.md
 #         # TODO: Code Style and Linting
 #     - title: Language Development
 #       cotnent:

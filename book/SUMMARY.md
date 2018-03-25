@@ -120,6 +120,16 @@
 
   * [ipaddr](stdlib/networking-web/ipaddr.md)
 
+  * [net/ftp](stdlib/networking-web/net/ftp.md)
+
+  * [net/http](stdlib/networking-web/net/http.md)
+
+  * [net/imap](stdlib/networking-web/net/imap.md)
+
+  * [net/pop](stdlib/networking-web/net/pop.md)
+
+  * [net/smtp](stdlib/networking-web/net/smtp.md)
+
   * [openuri: Open Files and URLs](stdlib/networking-web/openuri.md)
 
   * [socket](stdlib/networking-web/socket.md)

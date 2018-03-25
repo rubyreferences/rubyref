@@ -42,11 +42,6 @@ File::Constants.
 
 
 
-[File::Constants
-Reference](http://ruby-doc.org/core-2.5.0/File::Constants.html)
-
-
-
 [FileTest Reference](http://ruby-doc.org/core-2.5.0/FileTest.html)
 
 
