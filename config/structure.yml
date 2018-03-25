@@ -536,24 +536,55 @@
 
     - title: Networking and Web
       content:
-        - source: lib/cgi/CGI.md
-        - source: lib/uri/URI.md
-        - source: lib/open-uri/OpenURI.md
-        - source: lib/ipaddr/IPAddr.md
-        - source: lib/webrick/WEBrick.md
-        # - source: lib/webrick/Errno.md
-        - source: ext/socket/Socket.md
-        # - source: ext/socket/Addrinfo.md
-        # - source: ext/socket/BasicSocket.md
-        # - source: ext/socket/IPSocket.md
-        # - source: ext/socket/SOCKSSocket.md
-        # - source: ext/socket/SocketError.md
-        # - source: ext/socket/TCPServer.md
-        # - source: ext/socket/TCPSocket.md
-        # - source: ext/socket/UDPSocket.md
-        # - source: ext/socket/UNIXServer.md
-        # - source: ext/socket/UNIXSocket.md
-
+        - source: "## Networking and Web Libraries"
+      children:
+        - title: cgi
+          content:
+            - source: lib/cgi/CGI.md
+        - title: ipaddr
+          content:
+            - source: lib/ipaddr/IPAddr.md
+              remove: '## Example'
+        - title: "openuri: Open Files and URLs"
+          id: openuri
+          content:
+            - source: lib/open-uri/OpenURI.md
+              remove:
+                - "## Example"
+                - "* Author:"
+        - title: socket
+          content:
+            - source: ext/socket/Socket.md
+              remove_sections:
+                - What's a socket?
+                - Exception Handling
+                - Convenience methods
+                - Documentation by
+            # - source: ext/socket/Addrinfo.md
+            # - source: ext/socket/BasicSocket.md
+            # - source: ext/socket/IPSocket.md
+            # - source: ext/socket/SOCKSSocket.md
+            # - source: ext/socket/SocketError.md
+            # - source: ext/socket/TCPServer.md
+            # - source: ext/socket/TCPSocket.md
+            # - source: ext/socket/UDPSocket.md
+            # - source: ext/socket/UNIXServer.md
+            # - source: ext/socket/UNIXSocket.md
+        - title: "webrick: Simple Web Server"
+          id: webrick
+          content:
+            - source: "lib/webrick/WEBrick.md#WEB server toolkit."
+            - source: "lib/webrick/WEBrick.md#Starting an HTTP server"
+            - source: "lib/webrick/WEBrick.md#Custom Behavior"
+            - source: lib/webrick/WEBrick.md#_ref
+            # - source: lib/webrick/Errno.md
+        - title: uri
+          content:
+            - source: lib/uri/URI.md
+              remove_sections:
+                - RFC References
+                - Class tree
+                - Copyright Info
 
     - title: System Programming and Console
       content:
@@ -627,29 +658,68 @@
       content:
         - source: lib/abbrev/Abbrev.md
         - source: lib/cmath/CMath.md
-        - source: ext/dbm/DBM.md
-        # - source: ext/dbm/DBMError.md
-        - source: ext/gdbm/GDBM.md
-        - source: ext/nkf/NKF.md
-        # - source: ext/nkf/Kconv.md
-        - source: ext/sdbm/SDBM.md
-        # - source: ext/sdbm/SDBMError.md
+          remove: "# Trigonometric and transcendental"
+          remove_sections: [Usage]
         - source: lib/getoptlong/GetoptLong.md
-        - source: lib/drb/DRb.md
-        # - source: lib/drb/ACL.md
-        # - source: lib/drb/DRb--DRbIdConv.md
-        # - source: lib/drb/DRb--DRbObject.md
-        # - source: lib/drb/DRb--DRbUndumped.md
-        - source: lib/e2mmap/Exception2MessageMapper.md
+
+        - source: lib/e2mmap/Exception2MessageMapper.md#Exception2MessageMapper
+        - source: lib/e2mmap/Exception2MessageMapper.md#_ref
+
+        - source: ext/nkf/NKF.md#NKF
+        - source: ext/nkf/NKF.md#_ref
+        # - source: ext/nkf/Kconv.md
+
+        - source: lib/pstore/PStore.md
+          remove_sections:
+            - "Usage example:"
+            - Transaction modes
         - source: lib/rinda/Rinda.md
         - source: lib/resolv/Resolv.md
+          remove_sections: [Bugs]
         - source: lib/shellwords/Shellwords.md
+          remove: "## Manipulates strings like"
+          remove_sections:
+            - Usage
+            - Authors
+            - Contact
+            - Resources
         - source: lib/thwait/ThreadsWait.md
         # - source: lib/thwait/ThWait.md
         - source: lib/tsort/TSort.md
+          remove_sections:
+            - A Simple Example
+            - A More Realistic Example
+            - Bugs
+            - References
         - source: lib/weakref/WeakRef.md
-        - source: lib/pstore/PStore.md
         # - source: ext/win32/Win32.md
+      children:
+        - title: "drb: Distributed Ruby"
+          id: drb
+          content:
+            - source: lib/drb/DRb.md
+            # - source: lib/drb/ACL.md
+            # - source: lib/drb/DRb--DRbIdConv.md
+            # - source: lib/drb/DRb--DRbObject.md
+            # - source: lib/drb/DRb--DRbUndumped.md
+        - title: "dbm, gdbm, sdbm"
+          id: dbm
+          content:
+            - source: '# DBM-alike Database Implementations'
+            - source: ext/dbm/DBM.md
+              remove: '## Introduction'
+              remove_sections:
+                - Cautions
+                - Example
+            # - source: ext/dbm/DBMError.md
+            - source: '## GDBM'
+            - source: ext/gdbm/GDBM.md#Summary
+              remove: '## Summary'
+            - source: ext/gdbm/GDBM.md#_ref
+            - source: ext/sdbm/SDBM.md#SDBM
+            - source: ext/sdbm/SDBM.md#_ref
+            # - source: ext/sdbm/SDBMError.md
+
 
 # - title: Advanced Topics
 #   part: true

@@ -116,6 +116,17 @@
   * [scanf](stdlib/string-utilities/scanf.md)
 
 * [Networking and Web](stdlib/networking-web.md)
+  * [cgi](stdlib/networking-web/cgi.md)
+
+  * [ipaddr](stdlib/networking-web/ipaddr.md)
+
+  * [openuri: Open Files and URLs](stdlib/networking-web/openuri.md)
+
+  * [socket](stdlib/networking-web/socket.md)
+
+  * [webrick: Simple Web Server](stdlib/networking-web/webrick.md)
+
+  * [uri](stdlib/networking-web/uri.md)
 
 * [System Programming and Console](stdlib/system-programming-console.md)
 
@@ -131,3 +142,6 @@
 * [Concurrency Utils](stdlib/concurrency-utils.md)
 
 * [Other Libraries](stdlib/other.md)
+  * [drb: Distributed Ruby](stdlib/other/drb.md)
+
+  * [dbm, gdbm, sdbm](stdlib/other/dbm.md)
