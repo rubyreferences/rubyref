@@ -96,7 +96,7 @@ will judge whether it should send or reject the SMTP session by
 inspecting the HELO domain.
 
 
-```ruby
+```
 Net::SMTP.start('your.smtp.server', 25,
                 'mail.from.domain') { |smtp| ... }
 ```

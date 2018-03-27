@@ -114,7 +114,7 @@ puts s.stats([1, 2, 3, nil, 4, 5, 1, 2])
 Prints:
 
 
-```ruby
+```
 Elements:  4
  Non-Nil:  4
   Unique:  4

@@ -64,7 +64,7 @@ argument per element. `ARGF` assumes that any arguments that aren't
 filenames have been removed from `ARGV`. For example:
 
 
-```ruby
+```
 $ ruby argf.rb --verbose file1 file2
 
 ARGV  #=> ["--verbose", "file1", "file2"]
@@ -97,7 +97,7 @@ If `ARGV` is empty, `ARGF` acts as if it contained STDIN, i.e. the data
 piped to your script. For example:
 
 
-```ruby
+```
 $ echo "glark" | ruby -e 'p ARGF.read'
 "glark\n"
 ```

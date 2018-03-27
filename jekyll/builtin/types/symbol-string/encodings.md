@@ -133,7 +133,7 @@ option. Encoding.default\_external returns the current value of the
 external encoding.
 
 
-```ruby
+```
 ENV["LANG"]
 #=> "UTF-8"
 Encoding.default_external
@@ -177,7 +177,7 @@ The default internal encoding can be set with the interpreter option
 `-E`. Encoding.default\_internal returns the current internal encoding.
 
 
-```ruby
+```
 $ ruby -e 'p Encoding.default_internal'
 nil
 
@@ -220,7 +220,7 @@ only necessary for reading. While reading the file both the internal and
 external encoding must be specified to obtain the correct result.
 
 
-```ruby
+```
 $ ruby t.rb
 raw text:
 "R\xE9sum\xE9"

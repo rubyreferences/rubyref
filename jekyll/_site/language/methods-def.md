@@ -266,7 +266,7 @@ dangerous ability, and should be used sparingly because it can cause
 unexpected results. For example, consider this irb session:
 
 
-```ruby
+```
 >> "43".to_i
 => 43
 >> class String
@@ -324,7 +324,7 @@ Repeated argument names is syntax error. There is one exception: special
 name `_` to designate unused argument(s).
 
 
-```ruby
+```
 def some_method(x, y, x) # Syntax error
   # ...
 end
@@ -361,7 +361,7 @@ end
 This will raise a SyntaxError:
 
 
-```ruby
+```
 def add_values(a = 1, b, c = 1)
   a + b + c
 end

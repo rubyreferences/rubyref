@@ -42,24 +42,177 @@
 
               
               <li>
-                <a href="#about-this-book.html"> About This Book</a>
+                <a href="/about-this-book.html"> About This Book</a>
               </li>
+                
               
               <li>
-                <a href="#language.html"> Language Structure</a>
+                <a href="/language.html"> Language Structure</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/language/keywords.html"> Keywords</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/literals.html"> Literals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/variables-constants.html"> Variables and Constants</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/assignment.html"> Assignment</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/control-expressions.html"> Control Expressions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-def.html"> Defining methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-call.html"> Calling methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/modules-classes.html"> Modules and Classes</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/exceptions.html"> Exceptions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/refinements.html"> Refinements</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/precedence.html"> Precedence</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/files.html"> File Structure</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/globals.html"> Globals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/metaprogramming.html"> Metaprogramming</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#builtin.html"> Built-in Classes</a>
+                <a href="/builtin.html"> Built-in Classes</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/builtin/core.html"> Language Core</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/types.html"> Value Types</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/errors-warnings.html"> Errors and Warnings</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/system-cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/concurrency-parallelism.html"> Concurrency and Parallelism</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/internals.html"> Interpreter Internals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/marshal.html"> Marshal</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/random.html"> Random</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#stdlib.html"> Standard Library</a>
+                <a href="/stdlib.html"> Standard Library</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/stdlib/patterns.html"> Design Patterns</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/formats.html"> Formats</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/development-debugging.html"> Development and Debugging</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/string-utilities.html"> String Utilities</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/networking-web.html"> Networking and Web</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cryptography-encoding.html"> Cryptography and Encoding</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/misc.html"> Miscellaneous Libraries</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#advanced-topics.html"> Advanced Topics</a>
+                <a href="/advanced-topics.html"> Advanced Topics</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/advanced-topics/third-party-libraries.html"> Third-Party Libraries</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/tools-approaches.html"> Tools and Approaches</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/contributing.html"> Contributing To Ruby</a>
+                          </li>
+                        
+                    </ul>
+                
               
 
             </ul>
@@ -87,13 +240,13 @@
 cannot be defined in user defined probes (known as USDT), so they will
 not be specified. Probe definitions are in the format of:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">provider</span><span class="ss">:module:function:name</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>provider:module:function:name(arguments)
 </code></pre></div></div>
 
 <p>Since module and function cannot be specified, they will be blank. An
 example probe definition for Ruby would then be:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ruby</span><span class="o">::</span><span class="ss">:method</span><span class="o">-</span><span class="n">entry</span><span class="p">(</span><span class="k">class</span> <span class="nb">name</span><span class="p">,</span> <span class="nb">method</span> <span class="nb">name</span><span class="p">,</span> <span class="n">file</span> <span class="nb">name</span><span class="p">,</span> <span class="n">line</span> <span class="n">number</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby:::method-entry(class name, method name, file name, line number)
 </code></pre></div></div>
 
 <p>Where “ruby” is the provider name, module and function names are blank,
@@ -148,10 +301,10 @@ along with when they are fired and the arguments they take:</p>
     <p>ruby:::method-entry(classname, methodname, filename, lineno);: This
 probe is fired just before a method is entered.</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">classname</span> <span class="nb">name</span> <span class="n">of</span> <span class="n">the</span> <span class="k">class</span> <span class="p">(</span><span class="n">a</span> <span class="n">string</span><span class="p">)</span>
-  <span class="n">methodname</span> <span class="nb">name</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">method</span> <span class="n">about</span> <span class="n">to</span> <span class="n">be</span> <span class="n">executed</span> <span class="p">(</span><span class="n">a</span> <span class="n">string</span><span class="p">)</span>
-  <span class="n">filename</span> <span class="n">the</span> <span class="n">file</span> <span class="nb">name</span> <span class="n">where</span> <span class="n">the</span> <span class="nb">method</span> <span class="n">is</span> <span class="n">_being</span> <span class="n">called_</span> <span class="p">(</span><span class="n">a</span> <span class="n">string</span><span class="p">)</span>
-  <span class="n">lineno</span> <span class="n">the</span> <span class="n">line</span> <span class="n">number</span> <span class="n">where</span> <span class="n">the</span> <span class="nb">method</span> <span class="n">is</span> <span class="n">_being</span> <span class="n">called_</span> <span class="p">(</span><span class="n">an</span> <span class="n">int</span><span class="p">)</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  classname name of the class (a string)
+  methodname name of the method about to be executed (a string)
+  filename the file name where the method is _being called_ (a string)
+  lineno the line number where the method is _being called_ (an int)
 </code></pre></div>    </div>
   </li>
   <li>
@@ -173,9 +326,9 @@ same as “ruby:::method-entry”.</p>
     <p>ruby:::require-entry(requiredfile, filename, lineno);: This probe is
 fired on calls to rb_require_safe (when a file is required).</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">requiredfile</span> <span class="n">is</span> <span class="n">the</span> <span class="nb">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span> <span class="n">to</span> <span class="n">be</span> <span class="n">required</span> <span class="p">(</span><span class="n">string</span><span class="p">).</span>
-  <span class="nf">filename</span> <span class="n">is</span> <span class="n">the</span> <span class="n">file</span> <span class="n">that</span> <span class="n">called</span> <span class="s2">"require"</span> <span class="p">(</span><span class="n">string</span><span class="p">).</span>
-  <span class="nf">lineno</span> <span class="n">is</span> <span class="n">the</span> <span class="n">line</span> <span class="n">number</span> <span class="n">where</span> <span class="n">the</span> <span class="n">call</span> <span class="n">to</span> <span class="nb">require</span> <span class="n">was</span> <span class="n">made</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span><span class="o">.</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  requiredfile is the name of the file to be required (string).
+  filename is the file that called "require" (string).
+  lineno is the line number where the call to require was made (int).
 </code></pre></div>    </div>
   </li>
   <li>
@@ -191,9 +344,9 @@ determines whether the file has already been required by searching
 loaded features ($”), and if not, figures out which file must be
 loaded.</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">requiredfile</span> <span class="n">is</span> <span class="n">the</span> <span class="n">file</span> <span class="n">to</span> <span class="n">be</span> <span class="n">required</span> <span class="p">(</span><span class="n">string</span><span class="p">).</span>
-  <span class="nf">filename</span> <span class="n">is</span> <span class="n">the</span> <span class="n">file</span> <span class="n">that</span> <span class="n">called</span> <span class="s2">"require"</span> <span class="p">(</span><span class="n">string</span><span class="p">).</span>
-  <span class="nf">lineno</span> <span class="n">is</span> <span class="n">the</span> <span class="n">line</span> <span class="n">number</span> <span class="n">where</span> <span class="n">the</span> <span class="n">call</span> <span class="n">to</span> <span class="nb">require</span> <span class="n">was</span> <span class="n">made</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span><span class="o">.</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  requiredfile is the file to be required (string).
+  filename is the file that called "require" (string).
+  lineno is the line number where the call to require was made (int).
 </code></pre></div>    </div>
   </li>
   <li>
@@ -216,54 +369,54 @@ when “load” returns. The arguments are the same as
     <p>ruby:::raise(classname, filename, lineno);: This probe is fired when
 an exception is raised.</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">classname</span> <span class="n">is</span> <span class="n">the</span> <span class="k">class</span> <span class="nb">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">raised</span> <span class="n">exception</span> <span class="p">(</span><span class="n">string</span><span class="p">)</span>
-  <span class="n">filename</span> <span class="n">the</span> <span class="nb">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span> <span class="n">where</span> <span class="n">the</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">raised</span> <span class="p">(</span><span class="n">string</span><span class="p">)</span>
-  <span class="n">lineno</span> <span class="n">the</span> <span class="n">line</span> <span class="n">number</span> <span class="k">in</span> <span class="n">the</span> <span class="n">file</span> <span class="n">where</span> <span class="n">the</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">raised</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  classname is the class name of the raised exception (string)
+  filename the name of the file where the exception was raised (string)
+  lineno the line number in the file where the exception was raised (int)
 </code></pre></div>    </div>
   </li>
   <li>
     <p>ruby:::object-create(classname, filename, lineno);: This probe is
 fired when an object is about to be allocated.</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">classname</span> <span class="n">the</span> <span class="k">class</span> <span class="n">of</span> <span class="n">the</span> <span class="n">allocated</span> <span class="n">object</span> <span class="p">(</span><span class="n">string</span><span class="p">)</span>
-  <span class="n">filename</span> <span class="n">the</span> <span class="nb">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span> <span class="n">where</span> <span class="n">the</span> <span class="n">object</span> <span class="n">is</span> <span class="n">allocated</span> <span class="p">(</span><span class="n">string</span><span class="p">)</span>
-  <span class="n">lineno</span> <span class="n">the</span> <span class="n">line</span> <span class="n">number</span> <span class="k">in</span> <span class="n">the</span> <span class="n">file</span> <span class="n">where</span> <span class="n">the</span> <span class="n">object</span> <span class="n">is</span> <span class="n">allocated</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  classname the class of the allocated object (string)
+  filename the name of the file where the object is allocated (string)
+  lineno the line number in the file where the object is allocated (int)
 </code></pre></div>    </div>
   </li>
   <li>
     <p>ruby:::array-create(length, filename, lineno);: This probe is fired
 when an Array is about to be allocated.</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">length</span> <span class="n">the</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">array</span> <span class="p">(</span><span class="n">long</span><span class="p">)</span>
-  <span class="n">filename</span> <span class="n">the</span> <span class="nb">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span> <span class="n">where</span> <span class="n">the</span> <span class="n">array</span> <span class="n">is</span> <span class="n">allocated</span> <span class="p">(</span><span class="n">string</span><span class="p">)</span>
-  <span class="n">lineno</span> <span class="n">the</span> <span class="n">line</span> <span class="n">number</span> <span class="k">in</span> <span class="n">the</span> <span class="n">file</span> <span class="n">where</span> <span class="n">the</span> <span class="n">array</span> <span class="n">is</span> <span class="n">allocated</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  length the size of the array (long)
+  filename the name of the file where the array is allocated (string)
+  lineno the line number in the file where the array is allocated (int)
 </code></pre></div>    </div>
   </li>
   <li>
     <p>ruby:::hash-create(length, filename, lineno);: This probe is fired
 when a Hash is about to be allocated.</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">length</span> <span class="n">the</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">hash</span> <span class="p">(</span><span class="n">long</span><span class="p">)</span>
-  <span class="n">filename</span> <span class="n">the</span> <span class="nb">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span> <span class="n">where</span> <span class="n">the</span> <span class="nb">hash</span> <span class="n">is</span> <span class="n">allocated</span> <span class="p">(</span><span class="n">string</span><span class="p">)</span>
-  <span class="n">lineno</span> <span class="n">the</span> <span class="n">line</span> <span class="n">number</span> <span class="k">in</span> <span class="n">the</span> <span class="n">file</span> <span class="n">where</span> <span class="n">the</span> <span class="nb">hash</span> <span class="n">is</span> <span class="n">allocated</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  length the size of the hash (long)
+  filename the name of the file where the hash is allocated (string)
+  lineno the line number in the file where the hash is allocated (int)
 </code></pre></div>    </div>
   </li>
   <li>
     <p>ruby:::string-create(length, filename, lineno);: This probe is fired
 when a String is about to be allocated.</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">length</span> <span class="n">the</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">string</span> <span class="p">(</span><span class="n">long</span><span class="p">)</span>
-  <span class="n">filename</span> <span class="n">the</span> <span class="nb">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span> <span class="n">where</span> <span class="n">the</span> <span class="n">string</span> <span class="n">is</span> <span class="n">allocated</span> <span class="p">(</span><span class="n">string</span><span class="p">)</span>
-  <span class="n">lineno</span> <span class="n">the</span> <span class="n">line</span> <span class="n">number</span> <span class="k">in</span> <span class="n">the</span> <span class="n">file</span> <span class="n">where</span> <span class="n">the</span> <span class="n">string</span> <span class="n">is</span> <span class="n">allocated</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  length the size of the string (long)
+  filename the name of the file where the string is allocated (string)
+  lineno the line number in the file where the string is allocated (int)
 </code></pre></div>    </div>
   </li>
   <li>
     <p>ruby:::symbol-create(str, filename, lineno);: This probe is fired when
 a Symbol is about to be allocated.</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">str</span> <span class="n">the</span> <span class="n">contents</span> <span class="n">of</span> <span class="n">the</span> <span class="n">symbol</span> <span class="p">(</span><span class="n">string</span><span class="p">)</span>
-  <span class="n">filename</span> <span class="n">the</span> <span class="nb">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span> <span class="n">where</span> <span class="n">the</span> <span class="n">string</span> <span class="n">is</span> <span class="n">allocated</span> <span class="p">(</span><span class="n">string</span><span class="p">)</span>
-  <span class="n">lineno</span> <span class="n">the</span> <span class="n">line</span> <span class="n">number</span> <span class="k">in</span> <span class="n">the</span> <span class="n">file</span> <span class="n">where</span> <span class="n">the</span> <span class="n">string</span> <span class="n">is</span> <span class="n">allocated</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  str the contents of the symbol (string)
+  filename the name of the file where the string is allocated (string)
+  lineno the line number in the file where the string is allocated (int)
 </code></pre></div>    </div>
   </li>
   <li>
@@ -298,9 +451,9 @@ compiling a source file.</p>
     <p>ruby:::method-cache-clear(class, sourcefile, lineno);: Fired when the
 method cache is cleared.</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">class</span> <span class="n">is</span> <span class="n">the</span> <span class="n">classname</span> <span class="n">being</span> <span class="n">cleared</span><span class="p">,</span> <span class="n">or</span> <span class="s2">"global"</span> <span class="p">(</span><span class="n">string</span><span class="p">)</span>
-  <span class="n">sourcefile</span> <span class="n">the</span> <span class="n">file</span> <span class="n">being</span> <span class="n">parsed</span> <span class="p">(</span><span class="n">string</span><span class="p">)</span>
-  <span class="n">lineno</span> <span class="n">the</span> <span class="n">line</span> <span class="n">number</span> <span class="n">where</span> <span class="n">the</span> <span class="n">source</span> <span class="n">ended</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  class is the classname being cleared, or "global" (string)
+  sourcefile the file being parsed (string)
+  lineno the line number where the source ended (int)
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -329,6 +482,6 @@ method cache is cleared.</p>
         </div>
 
 
-        <script src="js/book.js"></script>
+        <script src="/js/book.js"></script>
     </body>
 </html>

@@ -101,7 +101,7 @@ end.parse!
 Used:
 
 
-```ruby
+```
 bash-3.2$ ruby optparse-test.rb -r
 optparse-test.rb:9:in `<main>': missing argument: -r (OptionParser::MissingArgument)
 bash-3.2$ ruby optparse-test.rb -r my-library
@@ -157,7 +157,7 @@ end.parse!
 Used:
 
 
-```ruby
+```
 bash-3.2$ ruby optparse-test.rb  -t nonsense
 ... invalid argument: -t nonsense (OptionParser::InvalidArgument)
 from ... time.rb:5:in `block in <top (required)>`
@@ -204,7 +204,7 @@ op.parse!
 output:
 
 
-```ruby
+```
 bash-3.2$ ruby optparse-test.rb --user 1
 #<struct User id=1, name="Sam">
 bash-3.2$ ruby optparse-test.rb --user 2

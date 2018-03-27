@@ -20,7 +20,7 @@ Understanding the output of the parser may come as a challenge, it's
 recommended you use PP to format the output for legibility.
 
 
-```ruby
+```
 require 'ripper'
 require 'pp'
 

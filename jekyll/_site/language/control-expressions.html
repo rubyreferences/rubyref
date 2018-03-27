@@ -42,24 +42,177 @@
 
               
               <li>
-                <a href="#about-this-book.html"> About This Book</a>
+                <a href="/about-this-book.html"> About This Book</a>
               </li>
+                
               
               <li>
-                <a href="#language.html"> Language Structure</a>
+                <a href="/language.html"> Language Structure</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/language/keywords.html"> Keywords</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/literals.html"> Literals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/variables-constants.html"> Variables and Constants</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/assignment.html"> Assignment</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/control-expressions.html"> Control Expressions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-def.html"> Defining methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-call.html"> Calling methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/modules-classes.html"> Modules and Classes</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/exceptions.html"> Exceptions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/refinements.html"> Refinements</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/precedence.html"> Precedence</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/files.html"> File Structure</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/globals.html"> Globals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/metaprogramming.html"> Metaprogramming</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#builtin.html"> Built-in Classes</a>
+                <a href="/builtin.html"> Built-in Classes</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/builtin/core.html"> Language Core</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/types.html"> Value Types</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/errors-warnings.html"> Errors and Warnings</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/system-cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/concurrency-parallelism.html"> Concurrency and Parallelism</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/internals.html"> Interpreter Internals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/marshal.html"> Marshal</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/random.html"> Random</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#stdlib.html"> Standard Library</a>
+                <a href="/stdlib.html"> Standard Library</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/stdlib/patterns.html"> Design Patterns</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/formats.html"> Formats</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/development-debugging.html"> Development and Debugging</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/string-utilities.html"> String Utilities</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/networking-web.html"> Networking and Web</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cryptography-encoding.html"> Cryptography and Encoding</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/misc.html"> Miscellaneous Libraries</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#advanced-topics.html"> Advanced Topics</a>
+                <a href="/advanced-topics.html"> Advanced Topics</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/advanced-topics/third-party-libraries.html"> Third-Party Libraries</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/tools-approaches.html"> Tools and Approaches</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/contributing.html"> Contributing To Ruby</a>
+                          </li>
+                        
+                    </ul>
+                
               
 
             </ul>
@@ -333,12 +486,12 @@ one or is ‘2’” is printed.</p>
 <p>You may use <code class="highlighter-rouge">then</code> after the <code class="highlighter-rouge">when</code> condition. This is most frequently
 used to place the body of the <code class="highlighter-rouge">when</code> on a single line.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">case</span> <span class="n">a</span>
-<span class="k">when</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="k">then</span> <span class="nb">puts</span> <span class="s2">"a is one or two
-when 3    then puts "</span><span class="n">a</span> <span class="n">is</span> <span class="n">three</span><span class="s2">"
-else           puts "</span><span class="no">I</span> <span class="n">don</span><span class="err">'</span><span class="n">t</span> <span class="n">know</span> <span class="n">what</span> <span class="n">a</span> <span class="n">is</span><span class="s2">"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>case a
+when 1, 2 then puts "a is one or two
+when 3    then puts "a is three"
+else           puts "I don't know what a is"
 end
-</span></code></pre></div></div>
+</code></pre></div></div>
 
 <p>The other way to use a <code class="highlighter-rouge">case</code> expression is like an if-elsif expression:</p>
 
@@ -438,29 +591,29 @@ iteration argument followed by <code class="highlighter-rouge">in</code> and the
 using <a href="../../builtin/types/collections.md#enumerable">Enumerable</a>
 instead:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Not idiomatic</span>
-<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="mi">3</span>
-  <span class="c1"># ...</span>
-<span class="k">end</span>
-<span class="c1"># Idiomatic</span>
-<span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">3</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
-  <span class="c1"># ...</span>
-<span class="k">end</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Not idiomatic
+for i in 0..3
+  # ...
+end
+# Idiomatic
+(0..3).each do |i|
+  # ...
+end
 
-<span class="c1"># Not idiomatic: selecting items</span>
-<span class="n">odds</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">value</span> <span class="k">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-  <span class="n">odds</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span><span class="p">.</span><span class="nf">odd?</span>
-<span class="k">end</span>
-<span class="c1"># Still not idiomatic: just each</span>
-<span class="n">odds</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">value</span>
-  <span class="n">odds</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span><span class="p">.</span><span class="nf">odd?</span>
-<span class="k">end</span>
-<span class="c1"># Idiomatic: specialized Enumerable method</span>
-<span class="n">odds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">].</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span> <span class="n">value</span><span class="p">.</span><span class="nf">odd?</span> <span class="p">}</span>
-<span class="c1"># Simplify with Symbol#to_proc</span>
-<span class="n">odds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">].</span><span class="nf">select</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:odd?</span><span class="p">)</span>
+# Not idiomatic: selecting items
+odds = []
+for value in [1, 2, 3, 4, 5]
+  odds.push(value) if value.odd?
+end
+# Still not idiomatic: just each
+odds = []
+[1, 2, 3, 4, 5].each do |value
+  odds.push(value) if value.odd?
+end
+# Idiomatic: specialized Enumerable method
+odds = [1, 2, 3, 4, 5].select { |value| value.odd? }
+# Simplify with Symbol#to_proc
+odds = [1, 2, 3, 4, 5].select(&amp;:odd?)
 </code></pre></div></div>
 
 <p>Note that in a lot of cases <code class="highlighter-rouge">until</code> and <code class="highlighter-rouge">while</code> loops also could be
@@ -676,6 +829,6 @@ following iteration and <code class="highlighter-rouge">value</code> will never 
         </div>
 
 
-        <script src="js/book.js"></script>
+        <script src="/js/book.js"></script>
     </body>
 </html>

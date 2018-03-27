@@ -42,24 +42,177 @@
 
               
               <li>
-                <a href="#about-this-book.html"> About This Book</a>
+                <a href="/about-this-book.html"> About This Book</a>
               </li>
+                
               
               <li>
-                <a href="#language.html"> Language Structure</a>
+                <a href="/language.html"> Language Structure</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/language/keywords.html"> Keywords</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/literals.html"> Literals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/variables-constants.html"> Variables and Constants</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/assignment.html"> Assignment</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/control-expressions.html"> Control Expressions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-def.html"> Defining methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-call.html"> Calling methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/modules-classes.html"> Modules and Classes</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/exceptions.html"> Exceptions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/refinements.html"> Refinements</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/precedence.html"> Precedence</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/files.html"> File Structure</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/globals.html"> Globals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/metaprogramming.html"> Metaprogramming</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#builtin.html"> Built-in Classes</a>
+                <a href="/builtin.html"> Built-in Classes</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/builtin/core.html"> Language Core</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/types.html"> Value Types</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/errors-warnings.html"> Errors and Warnings</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/system-cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/concurrency-parallelism.html"> Concurrency and Parallelism</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/internals.html"> Interpreter Internals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/marshal.html"> Marshal</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/random.html"> Random</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#stdlib.html"> Standard Library</a>
+                <a href="/stdlib.html"> Standard Library</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/stdlib/patterns.html"> Design Patterns</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/formats.html"> Formats</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/development-debugging.html"> Development and Debugging</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/string-utilities.html"> String Utilities</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/networking-web.html"> Networking and Web</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cryptography-encoding.html"> Cryptography and Encoding</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/misc.html"> Miscellaneous Libraries</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#advanced-topics.html"> Advanced Topics</a>
+                <a href="/advanced-topics.html"> Advanced Topics</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/advanced-topics/third-party-libraries.html"> Third-Party Libraries</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/tools-approaches.html"> Tools and Approaches</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/contributing.html"> Contributing To Ruby</a>
+                          </li>
+                        
+                    </ul>
+                
               
 
             </ul>
@@ -99,13 +252,13 @@ profiling.</p>
 
 <p>Run your Ruby script with <code class="highlighter-rouge">-rprofile</code>:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ruby</span> <span class="o">-</span><span class="n">rprofile</span> <span class="n">example</span><span class="p">.</span><span class="nf">rb</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby -rprofile example.rb
 </code></pre></div></div>
 
 <p>If you’re profiling an executable in your <code class="highlighter-rouge">$PATH</code> you can use <code class="highlighter-rouge">ruby
 -S</code>:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ruby</span> <span class="o">-</span><span class="n">rprofile</span> <span class="o">-</span><span class="no">S</span> <span class="n">some_executable</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby -rprofile -S some_executable
 </code></pre></div></div>
 
 <h3 id="from-code">From code</h3>
@@ -132,18 +285,18 @@ profiling.</p>
 
 <p>The output in both cases is a report when the execution is over:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ruby</span> <span class="o">-</span><span class="n">rprofile</span> <span class="n">example</span><span class="p">.</span><span class="nf">rb</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby -rprofile example.rb
 
-  <span class="sx">%  </span> <span class="n">cumulative</span>   <span class="nb">self</span>              <span class="nb">self</span>     <span class="n">total</span>
- <span class="n">time</span>   <span class="n">seconds</span>   <span class="n">seconds</span>    <span class="n">calls</span>  <span class="n">ms</span><span class="o">/</span><span class="n">call</span>  <span class="n">ms</span><span class="o">/</span><span class="n">call</span>  <span class="nb">name</span>
- <span class="mf">68.42</span>     <span class="mf">0.13</span>      <span class="mf">0.13</span>        <span class="mi">2</span>    <span class="mf">65.00</span>    <span class="mf">95.00</span>  <span class="no">Integer</span><span class="c1">#times</span>
- <span class="mf">15.79</span>     <span class="mf">0.16</span>      <span class="mf">0.03</span>     <span class="mi">5000</span>     <span class="mf">0.01</span>     <span class="mf">0.01</span>  <span class="no">Fixnum</span><span class="c1">#*</span>
- <span class="mf">15.79</span>     <span class="mf">0.19</span>      <span class="mf">0.03</span>     <span class="mi">5000</span>     <span class="mf">0.01</span>     <span class="mf">0.01</span>  <span class="no">Fixnum</span><span class="c1">#+</span>
-  <span class="mf">0.00</span>     <span class="mf">0.19</span>      <span class="mf">0.00</span>        <span class="mi">2</span>     <span class="mf">0.00</span>     <span class="mf">0.00</span>  <span class="no">IO</span><span class="c1">#set_encoding</span>
-  <span class="mf">0.00</span>     <span class="mf">0.19</span>      <span class="mf">0.00</span>        <span class="mi">1</span>     <span class="mf">0.00</span>   <span class="mf">100.00</span>  <span class="no">Object</span><span class="c1">#slow_method</span>
-  <span class="mf">0.00</span>     <span class="mf">0.19</span>      <span class="mf">0.00</span>        <span class="mi">2</span>     <span class="mf">0.00</span>     <span class="mf">0.00</span>  <span class="no">Module</span><span class="c1">#method_added</span>
-  <span class="mf">0.00</span>     <span class="mf">0.19</span>      <span class="mf">0.00</span>        <span class="mi">1</span>     <span class="mf">0.00</span>    <span class="mf">90.00</span>  <span class="no">Object</span><span class="c1">#fast_method</span>
-  <span class="mf">0.00</span>     <span class="mf">0.19</span>      <span class="mf">0.00</span>        <span class="mi">1</span>     <span class="mf">0.00</span>   <span class="mf">190.00</span>  <span class="c1">#toplevel</span>
+  %   cumulative   self              self     total
+ time   seconds   seconds    calls  ms/call  ms/call  name
+ 68.42     0.13      0.13        2    65.00    95.00  Integer#times
+ 15.79     0.16      0.03     5000     0.01     0.01  Fixnum#*
+ 15.79     0.19      0.03     5000     0.01     0.01  Fixnum#+
+  0.00     0.19      0.00        2     0.00     0.00  IO#set_encoding
+  0.00     0.19      0.00        1     0.00   100.00  Object#slow_method
+  0.00     0.19      0.00        2     0.00     0.00  Module#method_added
+  0.00     0.19      0.00        1     0.00    90.00  Object#fast_method
+  0.00     0.19      0.00        1     0.00   190.00  #toplevel
 </code></pre></div></div>
 
 <p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/profiler/rdoc/Profiler__.html">Profiler__
@@ -173,6 +326,6 @@ Reference</a></p>
         </div>
 
 
-        <script src="js/book.js"></script>
+        <script src="/js/book.js"></script>
     </body>
 </html>

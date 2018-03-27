@@ -154,7 +154,7 @@ end
 Example command line:
 
 
-```ruby
+```
 hello -n 6 --name -- /tmp
 ```
 
@@ -227,7 +227,7 @@ can be gained using instance methods.
 Example:
 
 
-```ruby
+```
 ThreadsWait.all_waits(thr1, thr2, ...) do |t|
   STDERR.puts "Thread #{t} has terminated."
 end

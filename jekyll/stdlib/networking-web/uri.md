@@ -18,7 +18,7 @@ URI is a module providing classes to handle Uniform Resource Identifiers
 ## Basic example
 
 
-```ruby
+```
 require 'uri'
 
 uri = URI("http://foo.com/posts?id=30&limit=5#time=1305298413")
@@ -42,7 +42,7 @@ uri.to_s
 ## Adding custom URIs
 
 
-```ruby
+```
 module URI
   class RSYNC < Generic
     DEFAULT_PORT = 873

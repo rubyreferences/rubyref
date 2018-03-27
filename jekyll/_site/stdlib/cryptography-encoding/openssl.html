@@ -42,24 +42,177 @@
 
               
               <li>
-                <a href="#about-this-book.html"> About This Book</a>
+                <a href="/about-this-book.html"> About This Book</a>
               </li>
+                
               
               <li>
-                <a href="#language.html"> Language Structure</a>
+                <a href="/language.html"> Language Structure</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/language/keywords.html"> Keywords</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/literals.html"> Literals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/variables-constants.html"> Variables and Constants</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/assignment.html"> Assignment</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/control-expressions.html"> Control Expressions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-def.html"> Defining methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-call.html"> Calling methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/modules-classes.html"> Modules and Classes</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/exceptions.html"> Exceptions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/refinements.html"> Refinements</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/precedence.html"> Precedence</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/files.html"> File Structure</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/globals.html"> Globals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/metaprogramming.html"> Metaprogramming</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#builtin.html"> Built-in Classes</a>
+                <a href="/builtin.html"> Built-in Classes</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/builtin/core.html"> Language Core</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/types.html"> Value Types</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/errors-warnings.html"> Errors and Warnings</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/system-cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/concurrency-parallelism.html"> Concurrency and Parallelism</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/internals.html"> Interpreter Internals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/marshal.html"> Marshal</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/random.html"> Random</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#stdlib.html"> Standard Library</a>
+                <a href="/stdlib.html"> Standard Library</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/stdlib/patterns.html"> Design Patterns</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/formats.html"> Formats</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/development-debugging.html"> Development and Debugging</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/string-utilities.html"> String Utilities</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/networking-web.html"> Networking and Web</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cryptography-encoding.html"> Cryptography and Encoding</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/misc.html"> Miscellaneous Libraries</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#advanced-topics.html"> Advanced Topics</a>
+                <a href="/advanced-topics.html"> Advanced Topics</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/advanced-topics/third-party-libraries.html"> Third-Party Libraries</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/tools-approaches.html"> Tools and Approaches</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/contributing.html"> Contributing To Ruby</a>
+                          </li>
+                        
+                    </ul>
+                
               
 
             </ul>
@@ -237,23 +390,23 @@ to generate a random IV plus a key derived from the password using
 PBKDF2. PKCS #5 v2.0 recommends at least 8 bytes for the salt, the
 number of iterations largely depends on the hardware being used.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cipher</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">Cipher</span><span class="p">.</span><span class="nf">new</span> <span class="s1">'AES-128-CBC'</span>
-<span class="n">cipher</span><span class="p">.</span><span class="nf">encrypt</span>
-<span class="n">iv</span> <span class="o">=</span> <span class="n">cipher</span><span class="p">.</span><span class="nf">random_iv</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cipher = OpenSSL::Cipher.new 'AES-128-CBC'
+cipher.encrypt
+iv = cipher.random_iv
 
-<span class="n">pwd</span> <span class="o">=</span> <span class="s1">'some hopefully not to easily guessable password'</span>
-<span class="n">salt</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">Random</span><span class="p">.</span><span class="nf">random_bytes</span> <span class="mi">16</span>
-<span class="n">iter</span> <span class="o">=</span> <span class="mi">20000</span>
-<span class="n">key_len</span> <span class="o">=</span> <span class="n">cipher</span><span class="p">.</span><span class="nf">key_len</span>
-<span class="n">digest</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">Digest</span><span class="o">::</span><span class="no">SHA256</span><span class="p">.</span><span class="nf">new</span>
+pwd = 'some hopefully not to easily guessable password'
+salt = OpenSSL::Random.random_bytes 16
+iter = 20000
+key_len = cipher.key_len
+digest = OpenSSL::Digest::SHA256.new
 
-<span class="n">key</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">PKCS5</span><span class="p">.</span><span class="nf">pbkdf2_hmac</span><span class="p">(</span><span class="n">pwd</span><span class="p">,</span> <span class="n">salt</span><span class="p">,</span> <span class="n">iter</span><span class="p">,</span> <span class="n">key_len</span><span class="p">,</span> <span class="n">digest</span><span class="p">)</span>
-<span class="n">cipher</span><span class="p">.</span><span class="nf">key</span> <span class="o">=</span> <span class="n">key</span>
+key = OpenSSL::PKCS5.pbkdf2_hmac(pwd, salt, iter, key_len, digest)
+cipher.key = key
 
-<span class="no">Now</span> <span class="n">encrypt</span> <span class="n">the</span> <span class="ss">data:
+Now encrypt the data:
 
-</span><span class="n">encrypted</span> <span class="o">=</span> <span class="n">cipher</span><span class="p">.</span><span class="nf">update</span> <span class="n">document</span>
-<span class="n">encrypted</span> <span class="o">&lt;&lt;</span> <span class="n">cipher</span><span class="p">.</span><span class="nf">final</span>
+encrypted = cipher.update document
+encrypted &lt;&lt; cipher.final
 </code></pre></div></div>
 
 <h3 id="decryption">Decryption</h3>
@@ -261,23 +414,23 @@ number of iterations largely depends on the hardware being used.</p>
 <p>Use the same steps as before to derive the symmetric AES key, this time
 setting the Cipher up for decryption.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cipher</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">Cipher</span><span class="p">.</span><span class="nf">new</span> <span class="s1">'AES-128-CBC'</span>
-<span class="n">cipher</span><span class="p">.</span><span class="nf">decrypt</span>
-<span class="n">cipher</span><span class="p">.</span><span class="nf">iv</span> <span class="o">=</span> <span class="n">iv</span> <span class="c1"># the one generated with #random_iv</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cipher = OpenSSL::Cipher.new 'AES-128-CBC'
+cipher.decrypt
+cipher.iv = iv # the one generated with #random_iv
 
-<span class="n">pwd</span> <span class="o">=</span> <span class="s1">'some hopefully not to easily guessable password'</span>
-<span class="n">salt</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># the one generated above</span>
-<span class="n">iter</span> <span class="o">=</span> <span class="mi">20000</span>
-<span class="n">key_len</span> <span class="o">=</span> <span class="n">cipher</span><span class="p">.</span><span class="nf">key_len</span>
-<span class="n">digest</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">Digest</span><span class="o">::</span><span class="no">SHA256</span><span class="p">.</span><span class="nf">new</span>
+pwd = 'some hopefully not to easily guessable password'
+salt = ... # the one generated above
+iter = 20000
+key_len = cipher.key_len
+digest = OpenSSL::Digest::SHA256.new
 
-<span class="n">key</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">PKCS5</span><span class="p">.</span><span class="nf">pbkdf2_hmac</span><span class="p">(</span><span class="n">pwd</span><span class="p">,</span> <span class="n">salt</span><span class="p">,</span> <span class="n">iter</span><span class="p">,</span> <span class="n">key_len</span><span class="p">,</span> <span class="n">digest</span><span class="p">)</span>
-<span class="n">cipher</span><span class="p">.</span><span class="nf">key</span> <span class="o">=</span> <span class="n">key</span>
+key = OpenSSL::PKCS5.pbkdf2_hmac(pwd, salt, iter, key_len, digest)
+cipher.key = key
 
-<span class="no">Now</span> <span class="n">decrypt</span> <span class="n">the</span> <span class="ss">data:
+Now decrypt the data:
 
-</span><span class="n">decrypted</span> <span class="o">=</span> <span class="n">cipher</span><span class="p">.</span><span class="nf">update</span> <span class="n">encrypted</span>
-<span class="n">decrypted</span> <span class="o">&lt;&lt;</span> <span class="n">cipher</span><span class="p">.</span><span class="nf">final</span>
+decrypted = cipher.update encrypted
+decrypted &lt;&lt; cipher.final
 </code></pre></div></div>
 
 <h2 id="pkcs-5-password-based-encryption">PKCS #5 Password-based Encryption</h2>
@@ -647,6 +800,6 @@ Reference</a></p>
         </div>
 
 
-        <script src="js/book.js"></script>
+        <script src="/js/book.js"></script>
     </body>
 </html>

@@ -42,24 +42,177 @@
 
               
               <li>
-                <a href="#about-this-book.html"> About This Book</a>
+                <a href="/about-this-book.html"> About This Book</a>
               </li>
+                
               
               <li>
-                <a href="#language.html"> Language Structure</a>
+                <a href="/language.html"> Language Structure</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/language/keywords.html"> Keywords</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/literals.html"> Literals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/variables-constants.html"> Variables and Constants</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/assignment.html"> Assignment</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/control-expressions.html"> Control Expressions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-def.html"> Defining methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-call.html"> Calling methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/modules-classes.html"> Modules and Classes</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/exceptions.html"> Exceptions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/refinements.html"> Refinements</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/precedence.html"> Precedence</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/files.html"> File Structure</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/globals.html"> Globals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/metaprogramming.html"> Metaprogramming</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#builtin.html"> Built-in Classes</a>
+                <a href="/builtin.html"> Built-in Classes</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/builtin/core.html"> Language Core</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/types.html"> Value Types</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/errors-warnings.html"> Errors and Warnings</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/system-cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/concurrency-parallelism.html"> Concurrency and Parallelism</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/internals.html"> Interpreter Internals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/marshal.html"> Marshal</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/random.html"> Random</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#stdlib.html"> Standard Library</a>
+                <a href="/stdlib.html"> Standard Library</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/stdlib/patterns.html"> Design Patterns</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/formats.html"> Formats</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/development-debugging.html"> Development and Debugging</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/string-utilities.html"> String Utilities</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/networking-web.html"> Networking and Web</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cryptography-encoding.html"> Cryptography and Encoding</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/misc.html"> Miscellaneous Libraries</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#advanced-topics.html"> Advanced Topics</a>
+                <a href="/advanced-topics.html"> Advanced Topics</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/advanced-topics/third-party-libraries.html"> Third-Party Libraries</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/tools-approaches.html"> Tools and Approaches</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/contributing.html"> Contributing To Ruby</a>
+                          </li>
+                        
+                    </ul>
+                
               
 
             </ul>
@@ -178,11 +331,11 @@ required argument, an exception will be raised. require ‘optparse’</p>
 
 <p>Used:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bash</span><span class="o">-</span><span class="mf">3.2</span><span class="err">$</span> <span class="n">ruby</span> <span class="n">optparse</span><span class="o">-</span><span class="nb">test</span><span class="p">.</span><span class="nf">rb</span> <span class="o">-</span><span class="n">r</span>
-<span class="n">optparse</span><span class="o">-</span><span class="nb">test</span><span class="p">.</span><span class="nf">rb</span><span class="p">:</span><span class="mi">9</span><span class="ss">:in</span> <span class="sb">`&lt;main&gt;': missing argument: -r (OptionParser::MissingArgument)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-3.2$ ruby optparse-test.rb -r
+optparse-test.rb:9:in `&lt;main&gt;': missing argument: -r (OptionParser::MissingArgument)
 bash-3.2$ ruby optparse-test.rb -r my-library
 You required my-library!
-</span></code></pre></div></div>
+</code></pre></div></div>
 
 <h2 id="type-coercion">Type Coercion</h2>
 
@@ -232,15 +385,15 @@ passed to the handler block. Otherwise, an exception will be raised.</p>
 
 <p>Used:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bash</span><span class="o">-</span><span class="mf">3.2</span><span class="err">$</span> <span class="n">ruby</span> <span class="n">optparse</span><span class="o">-</span><span class="nb">test</span><span class="p">.</span><span class="nf">rb</span>  <span class="o">-</span><span class="n">t</span> <span class="n">nonsense</span>
-<span class="o">...</span> <span class="n">invalid</span> <span class="ss">argument: </span><span class="o">-</span><span class="n">t</span> <span class="n">nonsense</span> <span class="p">(</span><span class="no">OptionParser</span><span class="o">::</span><span class="no">InvalidArgument</span><span class="p">)</span>
-<span class="n">from</span> <span class="o">...</span> <span class="n">time</span><span class="p">.</span><span class="nf">rb</span><span class="p">:</span><span class="mi">5</span><span class="ss">:in</span> <span class="sb">`block in &lt;top (required)&gt;`</span>
-<span class="n">from</span> <span class="n">optparse</span><span class="o">-</span><span class="nb">test</span><span class="p">.</span><span class="nf">rb</span><span class="p">:</span><span class="mi">31</span><span class="ss">:in</span> <span class="sb">`&lt;main&gt;'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-3.2$ ruby optparse-test.rb  -t nonsense
+... invalid argument: -t nonsense (OptionParser::InvalidArgument)
+from ... time.rb:5:in `block in &lt;top (required)&gt;`
+from optparse-test.rb:31:in `&lt;main&gt;'
 bash-3.2$ ruby optparse-test.rb  -t 10-11-12
 2010-11-12 00:00:00 -0500
 bash-3.2$ ruby optparse-test.rb  -t 9:30
 2014-08-13 09:30:00 -0400
-</span></code></pre></div></div>
+</code></pre></div></div>
 
 <h3 id="creating-custom-conversions">Creating Custom Conversions</h3>
 
@@ -275,12 +428,12 @@ handler receives it.</p>
 
 <p>output:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bash</span><span class="o">-</span><span class="mf">3.2</span><span class="err">$</span> <span class="n">ruby</span> <span class="n">optparse</span><span class="o">-</span><span class="nb">test</span><span class="p">.</span><span class="nf">rb</span> <span class="o">--</span><span class="n">user</span> <span class="mi">1</span>
-<span class="c1">#&lt;struct User id=1, name="Sam"&gt;</span>
-<span class="n">bash</span><span class="o">-</span><span class="mf">3.2</span><span class="err">$</span> <span class="n">ruby</span> <span class="n">optparse</span><span class="o">-</span><span class="nb">test</span><span class="p">.</span><span class="nf">rb</span> <span class="o">--</span><span class="n">user</span> <span class="mi">2</span>
-<span class="c1">#&lt;struct User id=2, name="Gandalf"&gt;</span>
-<span class="n">bash</span><span class="o">-</span><span class="mf">3.2</span><span class="err">$</span> <span class="n">ruby</span> <span class="n">optparse</span><span class="o">-</span><span class="nb">test</span><span class="p">.</span><span class="nf">rb</span> <span class="o">--</span><span class="n">user</span> <span class="mi">3</span>
-<span class="n">optparse</span><span class="o">-</span><span class="nb">test</span><span class="p">.</span><span class="nf">rb</span><span class="p">:</span><span class="mi">15</span><span class="ss">:in</span> <span class="sb">`block in find_user`</span><span class="p">:</span> <span class="no">No</span> <span class="no">User</span> <span class="no">Found</span> <span class="k">for</span> <span class="nb">id</span> <span class="mi">3</span> <span class="p">(</span><span class="no">RuntimeError</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash-3.2$ ruby optparse-test.rb --user 1
+#&lt;struct User id=1, name="Sam"&gt;
+bash-3.2$ ruby optparse-test.rb --user 2
+#&lt;struct User id=2, name="Gandalf"&gt;
+bash-3.2$ ruby optparse-test.rb --user 3
+optparse-test.rb:15:in `block in find_user`: No User Found for id 3 (RuntimeError)
 </code></pre></div></div>
 
 <p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/optparse/rdoc/OptionParser.html">OptionParser
@@ -310,6 +463,6 @@ Reference</a></p>
         </div>
 
 
-        <script src="js/book.js"></script>
+        <script src="/js/book.js"></script>
     </body>
 </html>

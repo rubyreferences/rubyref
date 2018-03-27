@@ -42,24 +42,177 @@
 
               
               <li>
-                <a href="#about-this-book.html"> About This Book</a>
+                <a href="/about-this-book.html"> About This Book</a>
               </li>
+                
               
               <li>
-                <a href="#language.html"> Language Structure</a>
+                <a href="/language.html"> Language Structure</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/language/keywords.html"> Keywords</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/literals.html"> Literals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/variables-constants.html"> Variables and Constants</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/assignment.html"> Assignment</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/control-expressions.html"> Control Expressions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-def.html"> Defining methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-call.html"> Calling methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/modules-classes.html"> Modules and Classes</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/exceptions.html"> Exceptions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/refinements.html"> Refinements</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/precedence.html"> Precedence</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/files.html"> File Structure</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/globals.html"> Globals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/metaprogramming.html"> Metaprogramming</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#builtin.html"> Built-in Classes</a>
+                <a href="/builtin.html"> Built-in Classes</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/builtin/core.html"> Language Core</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/types.html"> Value Types</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/errors-warnings.html"> Errors and Warnings</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/system-cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/concurrency-parallelism.html"> Concurrency and Parallelism</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/internals.html"> Interpreter Internals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/marshal.html"> Marshal</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/random.html"> Random</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#stdlib.html"> Standard Library</a>
+                <a href="/stdlib.html"> Standard Library</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/stdlib/patterns.html"> Design Patterns</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/formats.html"> Formats</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/development-debugging.html"> Development and Debugging</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/string-utilities.html"> String Utilities</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/networking-web.html"> Networking and Web</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cryptography-encoding.html"> Cryptography and Encoding</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/misc.html"> Miscellaneous Libraries</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#advanced-topics.html"> Advanced Topics</a>
+                <a href="/advanced-topics.html"> Advanced Topics</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/advanced-topics/third-party-libraries.html"> Third-Party Libraries</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/tools-approaches.html"> Tools and Approaches</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/contributing.html"> Contributing To Ruby</a>
+                          </li>
+                        
+                    </ul>
+                
               
 
             </ul>
@@ -101,24 +254,24 @@ symbolic expression tree (or S-expression).</p>
 <p>Understanding the output of the parser may come as a challenge, it’s
 recommended you use PP to format the output for legibility.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'ripper'</span>
-<span class="nb">require</span> <span class="s1">'pp'</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>require 'ripper'
+require 'pp'
 
-<span class="n">pp</span> <span class="no">Ripper</span><span class="p">.</span><span class="nf">sexp</span><span class="p">(</span><span class="s1">'def hello(world) "Hello, #{world}!"; end'</span><span class="p">)</span>
-  <span class="c1">#=&gt; [:program,</span>
-       <span class="p">[[</span><span class="ss">:def</span><span class="p">,</span>
-         <span class="p">[</span><span class="ss">:@ident</span><span class="p">,</span> <span class="s2">"hello"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span>
-         <span class="p">[</span><span class="ss">:paren</span><span class="p">,</span>
-          <span class="p">[</span><span class="ss">:params</span><span class="p">,</span> <span class="p">[[</span><span class="ss">:@ident</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]]],</span> <span class="kp">nil</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="kp">nil</span><span class="p">]],</span>
-         <span class="p">[</span><span class="ss">:bodystmt</span><span class="p">,</span>
-          <span class="p">[[</span><span class="ss">:string_literal</span><span class="p">,</span>
-            <span class="p">[</span><span class="ss">:string_content</span><span class="p">,</span>
-             <span class="p">[</span><span class="ss">:@tstring_content</span><span class="p">,</span> <span class="s2">"Hello, "</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">18</span><span class="p">]],</span>
-             <span class="p">[</span><span class="ss">:string_embexpr</span><span class="p">,</span> <span class="p">[[</span><span class="ss">:var_ref</span><span class="p">,</span> <span class="p">[</span><span class="ss">:@ident</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">27</span><span class="p">]]]]],</span>
-             <span class="p">[</span><span class="ss">:@tstring_content</span><span class="p">,</span> <span class="s2">"!"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">33</span><span class="p">]]]]],</span>
-          <span class="kp">nil</span><span class="p">,</span>
-          <span class="kp">nil</span><span class="p">,</span>
-          <span class="kp">nil</span><span class="p">]]]]</span>
+pp Ripper.sexp('def hello(world) "Hello, #{world}!"; end')
+  #=&gt; [:program,
+       [[:def,
+         [:@ident, "hello", [1, 4]],
+         [:paren,
+          [:params, [[:@ident, "world", [1, 10]]], nil, nil, nil, nil, nil, nil]],
+         [:bodystmt,
+          [[:string_literal,
+            [:string_content,
+             [:@tstring_content, "Hello, ", [1, 18]],
+             [:string_embexpr, [[:var_ref, [:@ident, "world", [1, 27]]]]],
+             [:@tstring_content, "!", [1, 33]]]]],
+          nil,
+          nil,
+          nil]]]]
 </code></pre></div></div>
 
 <p>You can see in the example above, the expression starts with <code class="highlighter-rouge">:program</code>.</p>
@@ -166,6 +319,6 @@ Reference</a></p>
         </div>
 
 
-        <script src="js/book.js"></script>
+        <script src="/js/book.js"></script>
     </body>
 </html>

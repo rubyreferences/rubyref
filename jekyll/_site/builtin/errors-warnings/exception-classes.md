@@ -36,7 +36,7 @@ require 'this/file/does/not/exist'
 *raises the exception:*
 
 
-```ruby
+```
 LoadError: no such file to load -- this/file/does/not/exist
 ```
 
@@ -71,7 +71,7 @@ eval("1+1=2")
 *raises the exception:*
 
 
-```ruby
+```
 SyntaxError: (eval):1: syntax error, unexpected '=', expecting $end
 ```
 
@@ -97,7 +97,7 @@ proc.call
 *raises the exception:*
 
 
-```ruby
+```
 SecurityError: Insecure: Insecure operation `untaint` at level 3
 ```
 
@@ -151,14 +151,14 @@ end
 *produces:*
 
 
-```ruby
+```
 Press ctrl-C when you get bored
 ```
 
 *then waits until it is interrupted with Control-C and then prints:*
 
 
-```ruby
+```
 Note: You will typically use Signal.trap instead.
 ```
 
@@ -190,7 +190,7 @@ require 'does/not/exist' rescue "Hi"
 *raises the exception:*
 
 
-```ruby
+```
 LoadError: no such file to load -- does/not/exist
 ```
 
@@ -214,7 +214,7 @@ Ex: passing the wrong number of arguments
 *raises the exception:*
 
 
-```ruby
+```
 ArgumentError: wrong number of arguments (given 2, expected 1)
 ```
 
@@ -228,7 +228,7 @@ Ex: passing an argument that is not acceptable:
 *raises the exception:*
 
 
-```ruby
+```
 ArgumentError: negative array size
 ```
 
@@ -250,7 +250,7 @@ throw "foo", "bar"
 *raises the exception:*
 
 
-```ruby
+```
 UncaughtThrowError: uncaught throw "foo"
 ```
 
@@ -410,7 +410,7 @@ call_block
 *raises the exception:*
 
 
-```ruby
+```
 LocalJumpError: no block given (yield)
 ```
 
@@ -427,7 +427,7 @@ get_me_a_return.call
 *raises the exception:*
 
 
-```ruby
+```
 LocalJumpError: unexpected return
 ```
 
@@ -448,7 +448,7 @@ puts foo
 *raises the exception:*
 
 
-```ruby
+```
 NameError: undefined local variable or method `foo` for main:Object
 ```
 
@@ -462,7 +462,7 @@ Integer.const_set :answer, 42
 *raises the exception:*
 
 
-```ruby
+```
 NameError: wrong constant name answer
 ```
 
@@ -483,7 +483,7 @@ defined and also fails to respond with `method_missing`.
 *raises the exception:*
 
 
-```ruby
+```
 NoMethodError: undefined method `to_ary` for "hello":String
 ```
 
@@ -504,7 +504,7 @@ Raised when a given numerical value is out of range.
 *raises the exception:*
 
 
-```ruby
+```
 RangeError: bignum too big to convert into `long`
 ```
 
@@ -539,7 +539,7 @@ Regexp.new("?")
 *raises the exception:*
 
 
-```ruby
+```
 RegexpError: target of repeat operator is not specified: /?/
 ```
 
@@ -561,7 +561,7 @@ raise "ouch"
 *raises the exception:*
 
 
-```ruby
+```
 RuntimeError: ouch
 ```
 
@@ -582,7 +582,7 @@ Raised when there is an attempt to modify a frozen object.
 *raises the exception:*
 
 
-```ruby
+```
 FrozenError: can't modify frozen Array
 ```
 
@@ -606,7 +606,7 @@ File.open("does/not/exist")
 *raises the exception:*
 
 
-```ruby
+```
 Errno::ENOENT: No such file or directory - does/not/exist
 ```
 
@@ -665,7 +665,7 @@ Thread.stop
 This will raises the following exception:
 
 
-```ruby
+```
 ThreadError: stopping only thread
 note: use sleep to stop forever
 ```
@@ -686,7 +686,7 @@ Raised when encountering an object that is not of the expected type.
 *raises the exception:*
 
 
-```ruby
+```
 TypeError: no implicit conversion of String into Integer
 ```
 
@@ -740,7 +740,7 @@ me_myself_and_i
 *raises the exception:*
 
 
-```ruby
+```
 SystemStackError: stack level too deep
 ```
 

@@ -59,7 +59,7 @@ TYPE() returns the constant number T\_XXXX described above. To handle
 data types, your code will look something like this:
 
 
-```ruby
+```
 switch (TYPE(obj)) {
   case T_FIXNUM:
     /* process Fixnum */
@@ -80,7 +80,7 @@ switch (TYPE(obj)) {
 There is the data type check function
 
 
-```ruby
+```
 void Check_Type(VALUE value, int type)
 ```
 
@@ -323,7 +323,7 @@ interpreter. Ruby provides APIs for defining the following things:
 To define a class or module, use the functions below:
 
 
-```ruby
+```
 VALUE rb_define_class(const char *name, VALUE super)
 VALUE rb_define_module(const char *name)
 ```
@@ -334,7 +334,7 @@ to save this reference into a variable to use later.
 To define nested classes or modules, use the functions below:
 
 
-```ruby
+```
 VALUE rb_define_class_under(VALUE outer, const char *name, VALUE super)
 VALUE rb_define_module_under(VALUE outer, const char *name)
 ```
@@ -344,7 +344,7 @@ VALUE rb_define_module_under(VALUE outer, const char *name)
 To define methods or singleton methods, use these functions:
 
 
-```ruby
+```
 void rb_define_method(VALUE klass, const char *name,
                       VALUE (*func)(ANYARGS), int argc)
 
@@ -361,7 +361,7 @@ the arguments.
 If argc is -1, the function will be called as:
 
 
-```ruby
+```
 VALUE func(int argc, VALUE *argv, VALUE obj)
 ```
 
@@ -372,7 +372,7 @@ If argc is -2, the arguments are passed in a Ruby array. The function
 will be called like:
 
 
-```ruby
+```
 VALUE func(VALUE obj, VALUE args)
 ```
 
@@ -383,7 +383,7 @@ There are some more functions to define methods. One takes an ID as the
 name of method to be defined. See also ID or Symbol below.
 
 
-```ruby
+```
 void rb_define_method_id(VALUE klass, ID name,
                          VALUE (*func)(ANYARGS), int argc)
 ```
@@ -391,7 +391,7 @@ void rb_define_method_id(VALUE klass, ID name,
 There are two functions to define private/protected methods:
 
 
-```ruby
+```
 void rb_define_private_method(VALUE klass, const char *name,
                               VALUE (*func)(ANYARGS), int argc)
 void rb_define_protected_method(VALUE klass, const char *name,
@@ -419,7 +419,7 @@ sqrt(4)
 To define module functions, use:
 
 
-```ruby
+```
 void rb_define_module_function(VALUE module, const char *name,
                                VALUE (*func)(ANYARGS), int argc)
 ```
@@ -428,28 +428,28 @@ In addition, function-like methods, which are private methods defined in
 the Kernel module, can be defined using:
 
 
-```ruby
+```
 void rb_define_global_function(const char *name, VALUE (*func)(ANYARGS), int argc)
 ```
 
 To define an alias for the method,
 
 
-```ruby
+```
 void rb_define_alias(VALUE module, const char* new, const char* old);
 ```
 
 To define a reader/writer for an attribute,
 
 
-```ruby
+```
 void rb_define_attr(VALUE klass, const char *name, int read, int write)
 ```
 
 To define and undefine the `allocate` class method,
 
 
-```ruby
+```
 void rb_define_alloc_func(VALUE klass, VALUE (*func)(VALUE klass));
 void rb_undef_alloc_func(VALUE klass);
 ```
@@ -462,7 +462,7 @@ If you are overriding an existing method of any ancestor of your class,
 you may rely on:
 
 
-```ruby
+```
 VALUE rb_call_super(int argc, const VALUE *argv)
 ```
 
@@ -479,7 +479,7 @@ VALUE rb_current_receiver(void)
 We have 2 functions to define constants:
 
 
-```ruby
+```
 void rb_define_const(VALUE klass, const char *name, VALUE val)
 void rb_define_global_const(const char *name, VALUE val)
 ```
@@ -509,7 +509,7 @@ Note that the evaluation can raise an exception. There is a safer
 function:
 
 
-```ruby
+```
 VALUE rb_eval_string_protect(const char *str, int *state)
 ```
 
@@ -547,7 +547,7 @@ You can retrieve ID from Ruby object (Symbol or String) given as an
 argument by using
 
 
-```ruby
+```
 rb_to_id(VALUE symbol)
 rb_check_id(volatile VALUE *name)
 rb_check_id_cstr(const char *name, long len, rb_encoding *enc)
@@ -564,7 +564,7 @@ You can retrieve Symbol from Ruby object (Symbol or String) given as an
 argument by using
 
 
-```ruby
+```
 rb_to_symbol(VALUE name)
 rb_check_symbol(volatile VALUE *namep)
 rb_check_symbol_cstr(const char *ptr, long len, rb_encoding *enc)
@@ -592,7 +592,7 @@ ID SYM2ID(VALUE symbol)
 To invoke methods directly, you can use the function below
 
 
-```ruby
+```
 VALUE rb_funcall(VALUE recv, ID mid, int argc, ...)
 ```
 
@@ -608,7 +608,7 @@ environments. There's no way to access Ruby's local variables.
 The functions to access/modify instance variables are below:
 
 
-```ruby
+```
 VALUE rb_ivar_get(VALUE obj, ID id)
 VALUE rb_ivar_set(VALUE obj, ID id, VALUE val)
 ```
@@ -618,7 +618,7 @@ id must be the symbol, which can be retrieved by rb\_intern().
 To access the constants of the class/module:
 
 
-```ruby
+```
 VALUE rb_const_get(VALUE obj, ID id)
 ```
 
@@ -643,7 +643,7 @@ Information can be shared between the two environments using shared
 global variables. To define them, you can use functions listed below:
 
 
-```ruby
+```
 void rb_define_variable(const char *name, VALUE *var)
 ```
 
@@ -655,7 +655,7 @@ You can define read-only (from Ruby, of course) variables using the
 function below.
 
 
-```ruby
+```
 void rb_define_readonly_variable(const char *name, VALUE *var)
 ```
 
@@ -663,7 +663,7 @@ You can define hooked variables. The accessor functions (getter and
 setter) are called on access to the hooked variables.
 
 
-```ruby
+```
 void rb_define_hooked_variable(const char *name, VALUE *var,
                                VALUE (*getter)(), void (*setter)())
 ```
@@ -675,7 +675,7 @@ works just like rb\_define\_variable().
 The prototypes of the getter and setter functions are as follows:
 
 
-```ruby
+```
 VALUE (*getter)(ID id, VALUE *var);
 void (*setter)(VALUE val, ID id, VALUE *var);
 ```
@@ -684,7 +684,7 @@ Also you can define a Ruby global variable without a corresponding C
 variable. The value of the variable will be set/get only by hooks.
 
 
-```ruby
+```
 void rb_define_virtual_variable(const char *name,
                                 VALUE (*getter)(), void (*setter)())
 ```
@@ -692,7 +692,7 @@ void rb_define_virtual_variable(const char *name,
 The prototypes of the getter and setter functions are as follows:
 
 
-```ruby
+```
 VALUE (*getter)(ID id);
 void (*setter)(VALUE val, ID id);
 ```
@@ -731,7 +731,7 @@ rb\_data\_type\_t is defined like this. Let's take a look at each member
 of the struct.
 
 
-```ruby
+```
 typedef struct rb_data_type_struct rb_data_type_t;
 
 struct rb_data_type_struct {
@@ -824,7 +824,7 @@ To retrieve the C pointer from the Data object, use the macro
 Data\_Get\_Struct().
 
 
-```ruby
+```
 TypedData_Get_Struct(obj, type, &data_type, sval)
 ```
 
@@ -841,7 +841,7 @@ directory in the Ruby's source tree.
 ### Make the Directory
 
 
-```ruby
+```
 % mkdir ext/dbm
 ```
 
@@ -873,7 +873,7 @@ the library.
 Here's the example of an initializing function.
 
 
-```ruby
+```
 void
 Init_dbm(void)
 {
@@ -901,7 +901,7 @@ The dbm extension wraps the dbm struct in the C environment using
 TypedData\_Make\_Struct.
 
 
-```ruby
+```
 struct dbmdata {
     int  di_size;
     DBM *di_dbm;
@@ -924,7 +924,7 @@ To retrieve the dbmdata structure from a Ruby object, we define the
 following macro:
 
 
-```ruby
+```
 \#define GetDBM(obj, dbmp) do {\
     TypedData_Get_Struct((obj), struct dbmdata, &dbm_type, (dbmp));\
     if ((dbmp) == 0) closed_dbm();\
@@ -939,7 +939,7 @@ There are three kinds of way to receive method arguments. First, methods
 with a fixed number of arguments receive arguments like this:
 
 
-```ruby
+```
 static VALUE
 fdbm_delete(VALUE obj, VALUE keystr)
 {
@@ -954,7 +954,7 @@ Second, methods with an arbitrary number of arguments receive arguments
 like this:
 
 
-```ruby
+```
 static VALUE
 fdbm_s_open(int argc, VALUE *argv, VALUE klass)
 {
@@ -981,7 +981,7 @@ The following is an example of a method that takes arguments by Ruby's
 array:
 
 
-```ruby
+```
 static VALUE
 thread_initialize(VALUE thread, VALUE args)
 {
@@ -1018,7 +1018,7 @@ at the top of the file. You can use the functions below to check various
 conditions.
 
 
-```ruby
+```
 have_macro(macro[, headers[, opt]]): check whether macro is defined
 have_library(lib[, func[, headers[, opt]]]): check whether library containing function exists
 find_library(lib[, func, *paths]): find library from paths
@@ -1044,7 +1044,7 @@ See MakeMakefile for full documentation of these functions.
 The value of the variables below will affect the Makefile.
 
 
-```ruby
+```
 $CFLAGS: included in CFLAGS make variable (such as -O)
 $CPPFLAGS: included in CPPFLAGS make variable (such as -I, -D)
 $LDFLAGS: included in LDFLAGS make variable (such as -L)
@@ -1065,7 +1065,7 @@ If the file named depend exists, Makefile will include that file to
 check dependencies. You can make this file by invoking
 
 
-```ruby
+```
 % gcc -MM *.c > depend
 ```
 
@@ -1138,7 +1138,7 @@ free to use, modify, distribute or sell your program.
 ### Ruby Evaluator (a.k.a. YARV)
 
 
-```ruby
+```
 compile.c
 eval.c
 eval_error.c
@@ -1244,7 +1244,7 @@ prelude.rb
 ### goruby Interpreter Implementation
 
 
-```ruby
+```
 goruby.c
 golf_prelude.rb     : goruby specific libraries.
   -> golf_prelude.c : automatically generated
@@ -1390,7 +1390,7 @@ golf_prelude.rb     : goruby specific libraries.
   functions are:
   
   
-  ```ruby
+  ```
     VALUE getter(ID id)
     void setter(VALUE val, ID id)
   ```
@@ -1402,14 +1402,14 @@ golf_prelude.rb     : goruby specific libraries.
   virtual variable with a C variable. The getter is called as
   
   
-  ```ruby
+  ```
     VALUE getter(ID id, VALUE *var)
   ```
   
   returning a new value. The setter is called as
   
   
-  ```ruby
+  ```
     void setter(VALUE val, ID id, VALUE *var)
   ```
 
@@ -1458,7 +1458,7 @@ golf_prelude.rb     : goruby specific libraries.
   follows:
   
   
-  ```ruby
+  ```
     scan-arg-spec  := param-arg-spec [option-hash-arg-spec] [block-arg-spec]
   
     param-arg-spec := pre-arg-spec [post-arg-spec] / post-arg-spec /
@@ -1771,7 +1771,7 @@ libraries):
   The definition of rb\_event\_hook\_func\_t is below:
   
   
-  ```ruby
+  ```
     typedef void (*rb_event_hook_func_t)(rb_event_t event, VALUE data,
                                          VALUE self, ID id, VALUE klass)
   ```
@@ -1937,7 +1937,7 @@ contents of sptr remain valid while the second invocation of
 rb\_str\_new\_cstr is running.
 
 
-```ruby
+```
 VALUE s, w;
 const char *sptr;
 

@@ -103,7 +103,7 @@ Double-quote strings allow escaped characters such as `\n` for newline,
 follows:
 
 
-```ruby
+```
 \a             bell, ASCII 07h (BEL)
 \b             backspace, ASCII 08h (BS)
 \t             horizontal tab, ASCII 09h (TAB)
@@ -187,7 +187,7 @@ character or escape sequence that corresponds to a single codepoint in
 the script encoding:
 
 
-```ruby
+```
 ?a       #=> "a"
 ?abc     #=> SyntaxError
 ?\n      #=> "\n"

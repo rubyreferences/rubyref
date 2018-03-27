@@ -273,7 +273,7 @@ calendar reform as a Julian day number, which should be 2298874 to
 `Date::ITALY` (2299161=1582-10-15). See also sample/cal.rb.
 
 
-```ruby
+```
 $ ruby sample/cal.rb -c it 10 1582
     October 1582
  S  M Tu  W Th  F  S

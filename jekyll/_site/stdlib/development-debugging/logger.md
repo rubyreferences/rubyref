@@ -89,14 +89,14 @@ default. The default format and a sample are shown below:
 Log format
 
 
-```ruby
+```
 SeverityID, [DateTime #pid] SeverityLabel -- ProgName: message
 ```
 
 Log sample
 
 
-```ruby
+```
 I, [1999-03-03T02:34:24.895701 #19074]  INFO -- Main: info.
 ```
 

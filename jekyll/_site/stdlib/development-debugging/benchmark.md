@@ -20,7 +20,7 @@ used to execute Ruby code.
   On my machine (OSX 10.8.3 on i5 1.7 GHz) this generates:
   
   
-  ```ruby
+  ```
   0.350000   0.400000   0.750000 (  0.835234)
   ```
   
@@ -45,7 +45,7 @@ used to execute Ruby code.
   The result:
   
   
-  ```ruby
+  ```
       user     system      total        real
   1.010000   0.000000   1.010000 (  1.014479)
   1.000000   0.000000   1.000000 (  0.998261)
@@ -69,7 +69,7 @@ used to execute Ruby code.
 The result:
 
 
-```ruby
+```
               user     system      total        real
 for:      1.010000   0.000000   1.010000 (  1.015688)
 times:    1.000000   0.000000   1.000000 (  1.003611)
@@ -96,7 +96,7 @@ upto:     1.030000   0.000000   1.030000 (  1.028098)
   The result:
   
   
-  ```ruby
+  ```
   Rehearsal -----------------------------------------
   sort!   1.490000   0.010000   1.500000 (  1.490520)
   sort    1.460000   0.000000   1.460000 (  1.463025)
@@ -127,7 +127,7 @@ upto:     1.030000   0.000000   1.030000 (  1.028098)
   The result:
   
   
-  ```ruby
+  ```
                user     system      total        real
   for:      0.950000   0.000000   0.950000 (  0.952039)
   times:    0.980000   0.000000   0.980000 (  0.984938)

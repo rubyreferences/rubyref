@@ -42,24 +42,177 @@
 
               
               <li>
-                <a href="#about-this-book.html"> About This Book</a>
+                <a href="/about-this-book.html"> About This Book</a>
               </li>
+                
               
               <li>
-                <a href="#language.html"> Language Structure</a>
+                <a href="/language.html"> Language Structure</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/language/keywords.html"> Keywords</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/literals.html"> Literals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/variables-constants.html"> Variables and Constants</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/assignment.html"> Assignment</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/control-expressions.html"> Control Expressions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-def.html"> Defining methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-call.html"> Calling methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/modules-classes.html"> Modules and Classes</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/exceptions.html"> Exceptions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/refinements.html"> Refinements</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/precedence.html"> Precedence</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/files.html"> File Structure</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/globals.html"> Globals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/metaprogramming.html"> Metaprogramming</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#builtin.html"> Built-in Classes</a>
+                <a href="/builtin.html"> Built-in Classes</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/builtin/core.html"> Language Core</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/types.html"> Value Types</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/errors-warnings.html"> Errors and Warnings</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/system-cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/concurrency-parallelism.html"> Concurrency and Parallelism</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/internals.html"> Interpreter Internals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/marshal.html"> Marshal</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/random.html"> Random</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#stdlib.html"> Standard Library</a>
+                <a href="/stdlib.html"> Standard Library</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/stdlib/patterns.html"> Design Patterns</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/formats.html"> Formats</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/development-debugging.html"> Development and Debugging</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/string-utilities.html"> String Utilities</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/networking-web.html"> Networking and Web</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cryptography-encoding.html"> Cryptography and Encoding</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/misc.html"> Miscellaneous Libraries</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#advanced-topics.html"> Advanced Topics</a>
+                <a href="/advanced-topics.html"> Advanced Topics</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/advanced-topics/third-party-libraries.html"> Third-Party Libraries</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/tools-approaches.html"> Tools and Approaches</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/contributing.html"> Contributing To Ruby</a>
+                          </li>
+                        
+                    </ul>
+                
               
 
             </ul>
@@ -108,22 +261,22 @@ Tracer.on, and Tracer.off).</p>
 the following trace to STDOUT (Note you can also explicitly <code class="highlighter-rouge">require
 </code>tracer’`)</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#0:&lt;internal:lib/rubygems/custom_require&gt;:38:Kernel:&lt;: -</span>
-<span class="c1">#0:example.rb:3::-: class A</span>
-<span class="c1">#0:example.rb:3::C: class A</span>
-<span class="c1">#0:example.rb:4::-:   def square(a)</span>
-<span class="c1">#0:example.rb:7::E: end</span>
-<span class="c1">#0:example.rb:9::-: a = A.new</span>
-<span class="c1">#0:example.rb:10::-: a.square(5)</span>
-<span class="c1">#0:example.rb:4:A:&gt;:   def square(a)</span>
-<span class="c1">#0:example.rb:5:A:-:     return a*a</span>
-<span class="c1">#0:example.rb:6:A:&lt;:   end</span>
- <span class="o">|</span>  <span class="o">|</span>         <span class="o">|</span> <span class="o">|</span>  <span class="o">|</span>
- <span class="o">|</span>  <span class="o">|</span>         <span class="o">|</span> <span class="o">|</span>   <span class="o">---------------------+</span> <span class="n">event</span>
- <span class="o">|</span>  <span class="o">|</span>         <span class="o">|</span>  <span class="o">------------------------+</span> <span class="k">class</span>
- <span class="o">|</span>  <span class="o">|</span>          <span class="o">--------------------------+</span> <span class="n">line</span>
- <span class="o">|</span>   <span class="o">------------------------------------+</span> <span class="n">filename</span>
-  <span class="o">---------------------------------------+</span> <span class="n">thread</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#0:&lt;internal:lib/rubygems/custom_require&gt;:38:Kernel:&lt;: -
+#0:example.rb:3::-: class A
+#0:example.rb:3::C: class A
+#0:example.rb:4::-:   def square(a)
+#0:example.rb:7::E: end
+#0:example.rb:9::-: a = A.new
+#0:example.rb:10::-: a.square(5)
+#0:example.rb:4:A:&gt;:   def square(a)
+#0:example.rb:5:A:-:     return a*a
+#0:example.rb:6:A:&lt;:   end
+ |  |         | |  |
+ |  |         | |   ---------------------+ event
+ |  |         |  ------------------------+ class
+ |  |          --------------------------+ line
+ |   ------------------------------------+ filename
+  ---------------------------------------+ thread
 </code></pre></div></div>
 
 <p>Symbol table used for displaying incoming events:</p>
@@ -166,6 +319,6 @@ Reference</a></p>
         </div>
 
 
-        <script src="js/book.js"></script>
+        <script src="/js/book.js"></script>
     </body>
 </html>

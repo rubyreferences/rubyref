@@ -6,6 +6,7 @@ require 'dry/inflector'
 require 'yaml'
 require 'kramdown'
 require 'hm'
+require 'ripper'
 
 INFLECTOR = Dry::Inflector.new
 
@@ -21,9 +22,13 @@ class String
 end
 
 class GFMKonverter < Kramdown::Converter::Kramdown
-  # FIXME: very naive, should check if it is proper Ruby code or not
   def convert_codeblock(el, opts)
-    "\n```ruby\n#{el.value}```\n"
+    "\n```#{code_lang(el.value)}\n#{el.value}```\n"
+  end
+
+  def code_lang(str)
+    # If Ripper can't parse it, it is not Ruby (console output, or diagram, or whatever)
+    Ripper.sexp(str).nil? ? '' : 'ruby'
   end
 
   # Kramdown converts HTTP links into [link][1] with list of links at the end of the doc. It is

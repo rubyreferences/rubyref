@@ -39,7 +39,7 @@ puts "no local variables outside the block" if local_variables.empty?
 This prints:
 
 
-```ruby
+```
 local variables in the block: a
 no local variables outside the block
 ```
@@ -295,7 +295,7 @@ puts "at top-level, $global: #{$global}, $other_global: #{$other_global}"
 This prints:
 
 
-```ruby
+```
 in a class: 0
 in a method: 0
 at top-level, $global: 1, $other_global: 3

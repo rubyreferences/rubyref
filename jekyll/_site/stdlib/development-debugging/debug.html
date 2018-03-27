@@ -42,24 +42,177 @@
 
               
               <li>
-                <a href="#about-this-book.html"> About This Book</a>
+                <a href="/about-this-book.html"> About This Book</a>
               </li>
+                
               
               <li>
-                <a href="#language.html"> Language Structure</a>
+                <a href="/language.html"> Language Structure</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/language/keywords.html"> Keywords</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/literals.html"> Literals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/variables-constants.html"> Variables and Constants</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/assignment.html"> Assignment</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/control-expressions.html"> Control Expressions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-def.html"> Defining methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-call.html"> Calling methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/modules-classes.html"> Modules and Classes</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/exceptions.html"> Exceptions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/refinements.html"> Refinements</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/precedence.html"> Precedence</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/files.html"> File Structure</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/globals.html"> Globals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/metaprogramming.html"> Metaprogramming</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#builtin.html"> Built-in Classes</a>
+                <a href="/builtin.html"> Built-in Classes</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/builtin/core.html"> Language Core</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/types.html"> Value Types</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/errors-warnings.html"> Errors and Warnings</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/system-cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/concurrency-parallelism.html"> Concurrency and Parallelism</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/internals.html"> Interpreter Internals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/marshal.html"> Marshal</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/random.html"> Random</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#stdlib.html"> Standard Library</a>
+                <a href="/stdlib.html"> Standard Library</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/stdlib/patterns.html"> Design Patterns</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/formats.html"> Formats</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/development-debugging.html"> Development and Debugging</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/string-utilities.html"> String Utilities</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/networking-web.html"> Networking and Web</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cryptography-encoding.html"> Cryptography and Encoding</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/misc.html"> Miscellaneous Libraries</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#advanced-topics.html"> Advanced Topics</a>
+                <a href="/advanced-topics.html"> Advanced Topics</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/advanced-topics/third-party-libraries.html"> Third-Party Libraries</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/tools-approaches.html"> Tools and Approaches</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/contributing.html"> Contributing To Ruby</a>
+                          </li>
+                        
+                    </ul>
+                
               
 
             </ul>
@@ -99,8 +252,8 @@ program:</p>
 
 <p>Once you’re inside the prompt, you can start debugging your program.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="nb">p</span> <span class="n">word</span>
-<span class="s2">"hello"</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(rdb:1) p word
+"hello"
 </code></pre></div></div>
 
 <h3 id="usage">Usage</h3>
@@ -125,16 +278,16 @@ means pausing execution and inspecting variables at some point in time.</p>
 <p>When you run this program, the debugger will kick in just before the
 <code class="highlighter-rouge">foo</code> assignment.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="nb">p</span> <span class="n">foo</span>
-<span class="kp">nil</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(rdb:1) p foo
+nil
 </code></pre></div></div>
 
 <p>In this example, it’d be interesting to move to the next line and
 inspect the value of <code class="highlighter-rouge">foo</code> again. You can do that by pressing <code class="highlighter-rouge">n</code>:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="n">n</span> <span class="c1"># goes to next line</span>
-<span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="nb">p</span> <span class="n">foo</span>
-<span class="kp">nil</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(rdb:1) n # goes to next line
+(rdb:1) p foo
+nil
 </code></pre></div></div>
 
 <p>You now know that the original value of <code class="highlighter-rouge">foo</code> was nil, and that it still
@@ -161,37 +314,37 @@ take you inside the method definition of <code class="highlighter-rouge">get_foo
 <p>You can use the debugger to easily inspect both local and global
 variables. We’ve seen how to inspect local variables before:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="nb">p</span> <span class="n">my_arg</span>
-<span class="mi">42</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(rdb:1) p my_arg
+42
 </code></pre></div></div>
 
 <p>You can also pretty print the result of variables or expressions:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="n">pp</span> <span class="sx">%w{a very long long array containing many words}</span>
-<span class="p">[</span><span class="s2">"a"</span><span class="p">,</span>
- <span class="s2">"very"</span><span class="p">,</span>
- <span class="s2">"long"</span><span class="p">,</span>
- <span class="o">...</span>
-<span class="p">]</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(rdb:1) pp %w{a very long long array containing many words}
+["a",
+ "very",
+ "long",
+ ...
+]
 </code></pre></div></div>
 
 <p>You can list all local variables with +v l+:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="n">v</span> <span class="n">l</span>
-  <span class="n">foo</span> <span class="o">=&gt;</span> <span class="s2">"hello"</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(rdb:1) v l
+  foo =&gt; "hello"
 </code></pre></div></div>
 
 <p>Similarly, you can show all global variables with +v g+:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="n">v</span> <span class="n">g</span>
-  <span class="n">all</span> <span class="n">global</span> <span class="n">variables</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(rdb:1) v g
+  all global variables
 </code></pre></div></div>
 
 <p>Finally, you can omit <code class="highlighter-rouge">p</code> if you simply want to evaluate a variable or
 expression</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="mi">5</span><span class="o">**</span><span class="mi">2</span>
-<span class="mi">25</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(rdb:1) 5**2
+25
 </code></pre></div></div>
 
 <h3 id="staying-out-of-trouble">Staying out of trouble</h3>
@@ -229,6 +382,6 @@ Reference</a></p>
         </div>
 
 
-        <script src="js/book.js"></script>
+        <script src="/js/book.js"></script>
     </body>
 </html>

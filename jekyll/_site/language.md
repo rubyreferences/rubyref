@@ -111,7 +111,7 @@ Here is an example one-liner that adds numbers from standard input or
 any files in the argument list:
 
 
-```ruby
+```
 ruby -ne 'BEGIN { count = 0 }; END { puts count }; count += gets.to_i'
 ```
 

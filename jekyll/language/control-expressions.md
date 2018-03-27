@@ -283,7 +283,7 @@ You may use `then` after the `when` condition. This is most frequently
 used to place the body of the `when` on a single line.
 
 
-```ruby
+```
 case a
 when 1, 2 then puts "a is one or two
 when 3    then puts "a is three"
@@ -398,7 +398,7 @@ using [Enumerable](../../builtin/types/collections.md#enumerable)
 instead:
 
 
-```ruby
+```
 # Not idiomatic
 for i in 0..3
   # ...

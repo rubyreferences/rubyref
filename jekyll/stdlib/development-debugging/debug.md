@@ -21,7 +21,7 @@ This will cause Ruby to interrupt execution and show a prompt when the
 Once you're inside the prompt, you can start debugging your program.
 
 
-```ruby
+```
 (rdb:1) p word
 "hello"
 ```
@@ -51,7 +51,7 @@ When you run this program, the debugger will kick in just before the
 `foo` assignment.
 
 
-```ruby
+```
 (rdb:1) p foo
 nil
 ```
@@ -59,7 +59,7 @@ nil
 In this example, it'd be interesting to move to the next line and
 inspect the value of `foo` again. You can do that by pressing `n`: 
 
-```ruby
+```
 (rdb:1) n # goes to next line
 (rdb:1) p foo
 nil
@@ -86,7 +86,7 @@ You can use the debugger to easily inspect both local and global
 variables. We've seen how to inspect local variables before:
 
 
-```ruby
+```
 (rdb:1) p my_arg
 42
 ```
@@ -94,7 +94,7 @@ variables. We've seen how to inspect local variables before:
 You can also pretty print the result of variables or expressions:
 
 
-```ruby
+```
 (rdb:1) pp %w{a very long long array containing many words}
 ["a",
  "very",
@@ -106,7 +106,7 @@ You can also pretty print the result of variables or expressions:
 You can list all local variables with +v l+:
 
 
-```ruby
+```
 (rdb:1) v l
   foo => "hello"
 ```
@@ -114,7 +114,7 @@ You can list all local variables with +v l+:
 Similarly, you can show all global variables with +v g+:
 
 
-```ruby
+```
 (rdb:1) v g
   all global variables
 ```
@@ -123,7 +123,7 @@ Finally, you can omit `p` if you simply want to evaluate a variable or
 expression
 
 
-```ruby
+```
 (rdb:1) 5**2
 25
 ```

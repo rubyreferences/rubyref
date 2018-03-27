@@ -63,14 +63,14 @@ my_method(1, '2', :three)
 Arguments may be an expression, a hash argument:
 
 
-```ruby
+```
 'key' => value
 ```
 
 or a keyword argument:
 
 
-```ruby
+```
 key: value
 ```
 
@@ -103,7 +103,7 @@ SyntaxError because ruby does not know which method argument3 should be
 sent to:
 
 
-```ruby
+```
 method_one argument1, method_two argument2, argument3
 ```
 

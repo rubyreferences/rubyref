@@ -42,24 +42,177 @@
 
               
               <li>
-                <a href="#about-this-book.html"> About This Book</a>
+                <a href="/about-this-book.html"> About This Book</a>
               </li>
+                
               
               <li>
-                <a href="#language.html"> Language Structure</a>
+                <a href="/language.html"> Language Structure</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/language/keywords.html"> Keywords</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/literals.html"> Literals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/variables-constants.html"> Variables and Constants</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/assignment.html"> Assignment</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/control-expressions.html"> Control Expressions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-def.html"> Defining methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-call.html"> Calling methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/modules-classes.html"> Modules and Classes</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/exceptions.html"> Exceptions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/refinements.html"> Refinements</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/precedence.html"> Precedence</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/files.html"> File Structure</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/globals.html"> Globals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/metaprogramming.html"> Metaprogramming</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#builtin.html"> Built-in Classes</a>
+                <a href="/builtin.html"> Built-in Classes</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/builtin/core.html"> Language Core</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/types.html"> Value Types</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/errors-warnings.html"> Errors and Warnings</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/system-cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/concurrency-parallelism.html"> Concurrency and Parallelism</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/internals.html"> Interpreter Internals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/marshal.html"> Marshal</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/random.html"> Random</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#stdlib.html"> Standard Library</a>
+                <a href="/stdlib.html"> Standard Library</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/stdlib/patterns.html"> Design Patterns</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/formats.html"> Formats</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/development-debugging.html"> Development and Debugging</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/string-utilities.html"> String Utilities</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/networking-web.html"> Networking and Web</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cryptography-encoding.html"> Cryptography and Encoding</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/misc.html"> Miscellaneous Libraries</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#advanced-topics.html"> Advanced Topics</a>
+                <a href="/advanced-topics.html"> Advanced Topics</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/advanced-topics/third-party-libraries.html"> Third-Party Libraries</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/tools-approaches.html"> Tools and Approaches</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/contributing.html"> Contributing To Ruby</a>
+                          </li>
+                        
+                    </ul>
+                
               
 
             </ul>
@@ -92,19 +245,19 @@ generates Ruby programs.</p>
 
 <h2 id="command-line-reference">Command-line Reference</h2>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">racc</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span><span class="o">&lt;</span><span class="n">var</span><span class="o">&gt;</span><span class="n">filename</span><span class="o">&lt;</span><span class="sr">/var&gt;] [--output-file=&lt;var&gt;filename&lt;/</span><span class="n">var</span><span class="o">&gt;</span><span class="p">]</span>
-     <span class="p">[</span><span class="o">-</span><span class="n">e</span><span class="o">&lt;</span><span class="n">var</span><span class="o">&gt;</span><span class="n">rubypath</span><span class="o">&lt;</span><span class="sr">/var&gt;] [--embedded=&lt;var&gt;rubypath&lt;/</span><span class="n">var</span><span class="o">&gt;</span><span class="p">]</span>
-     <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">verbose</span><span class="p">]</span>
-     <span class="p">[</span><span class="o">-</span><span class="no">O</span><span class="o">&lt;</span><span class="n">var</span><span class="o">&gt;</span><span class="n">filename</span><span class="o">&lt;</span><span class="sr">/var&gt;] [--log-file=&lt;var&gt;filename&lt;/</span><span class="n">var</span><span class="o">&gt;</span><span class="p">]</span>
-     <span class="p">[</span><span class="o">-</span><span class="n">g</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">debug</span><span class="p">]</span>
-     <span class="p">[</span><span class="o">-</span><span class="no">E</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">embedded</span><span class="p">]</span>
-     <span class="p">[</span><span class="o">-</span><span class="n">l</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">line</span><span class="o">-</span><span class="n">convert</span><span class="p">]</span>
-     <span class="p">[</span><span class="o">-</span><span class="n">c</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">line</span><span class="o">-</span><span class="n">convert</span><span class="o">-</span><span class="n">all</span><span class="p">]</span>
-     <span class="p">[</span><span class="o">-</span><span class="n">a</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">omit</span><span class="o">-</span><span class="n">actions</span><span class="p">]</span>
-     <span class="p">[</span><span class="o">-</span><span class="no">C</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">check</span><span class="o">-</span><span class="n">only</span><span class="p">]</span>
-     <span class="p">[</span><span class="o">-</span><span class="no">S</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">status</span><span class="p">]</span>
-     <span class="p">[</span><span class="o">--</span><span class="n">version</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">copyright</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">help</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">var</span><span class="o">&gt;</span><span class="n">grammarfile</span><span class="o">&lt;</span><span class="sr">/var&gt;
-</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>racc [-o&lt;var&gt;filename&lt;/var&gt;] [--output-file=&lt;var&gt;filename&lt;/var&gt;]
+     [-e&lt;var&gt;rubypath&lt;/var&gt;] [--embedded=&lt;var&gt;rubypath&lt;/var&gt;]
+     [-v] [--verbose]
+     [-O&lt;var&gt;filename&lt;/var&gt;] [--log-file=&lt;var&gt;filename&lt;/var&gt;]
+     [-g] [--debug]
+     [-E] [--embedded]
+     [-l] [--no-line-convert]
+     [-c] [--line-convert-all]
+     [-a] [--no-omit-actions]
+     [-C] [--check-only]
+     [-S] [--output-status]
+     [--version] [--copyright] [--help] &lt;var&gt;grammarfile&lt;/var&gt;
+</code></pre></div></div>
 
 <ul>
   <li><code class="highlighter-rouge">filename</code>: Racc grammar file. Any extension is permitted.</li>
@@ -140,7 +293,7 @@ and footer.</li>
 
 <p>To compile Racc grammar file, simply type:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">racc</span> <span class="n">parse</span><span class="p">.</span><span class="nf">y</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ racc parse.y
 </code></pre></div></div>
 
 <p>This creates Ruby script file “parse.tab.y”. The -o option can change
@@ -156,15 +309,15 @@ difficult.</p>
 
 <p>Here’s an example Racc grammar file.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Calcparser</span>
-<span class="n">rule</span>
-  <span class="ss">target: </span><span class="n">exp</span> <span class="p">{</span> <span class="nb">print</span> <span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">}</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Calcparser
+rule
+  target: exp { print val[0] }
 
-  <span class="ss">exp: </span><span class="n">exp</span> <span class="s1">'+'</span> <span class="n">exp</span>
-     <span class="o">|</span> <span class="n">exp</span> <span class="s1">'*'</span> <span class="n">exp</span>
-     <span class="o">|</span> <span class="s1">'('</span> <span class="n">exp</span> <span class="s1">')'</span>
-     <span class="o">|</span> <span class="no">NUMBER</span>
-<span class="k">end</span>
+  exp: exp '+' exp
+     | exp '*' exp
+     | '(' exp ')'
+     | NUMBER
+end
 </code></pre></div></div>
 
 <p>Racc grammar files resemble yacc files. But (of course), this is Ruby
@@ -232,7 +385,7 @@ runtime files.</p>
 <p>If you want to include the Racc runtime module with your parser. This
 can be done by using ‘-E’ option:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">racc</span> <span class="o">-</span><span class="no">E</span> <span class="o">-</span><span class="n">omyparser</span><span class="p">.</span><span class="nf">rb</span> <span class="n">myparser</span><span class="p">.</span><span class="nf">y</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ racc -E -omyparser.rb myparser.y
 </code></pre></div></div>
 
 <p>This command creates myparser.rb which <code class="highlighter-rouge">includes</code> Racc runtime. Only you
@@ -268,6 +421,6 @@ Reference</a></p>
         </div>
 
 
-        <script src="js/book.js"></script>
+        <script src="/js/book.js"></script>
     </body>
 </html>

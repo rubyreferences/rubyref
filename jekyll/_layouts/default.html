@@ -45,8 +45,17 @@
 
               {% for chapter in book.chapters %}
               <li>
-                <a href="{{ site.baseurl }}#{{ chapter.path }}"> {{ chapter.title }}</a>
+                <a href="{{ site.baseurl }}/{{ chapter.path }}"> {{ chapter.title }}</a>
               </li>
+                {% if chapter.children %}
+                    <ul class="section">
+                        {% for section in chapter.children %}
+                          <li>
+                            <a href="{{ site.baseurl }}/{{ section.path }}"> {{ section.title }}</a>
+                          </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
               {% endfor %}
 
             </ul>
@@ -92,6 +101,6 @@
         </div>
 
 
-        <script src="js/book.js"></script>
+        <script src="{{ site.baseurl }}/js/book.js"></script>
     </body>
 </html>

@@ -51,7 +51,7 @@ puts JSON.generate(my_hash) => "{\"hello\":\"goodbye\"}"
 Or an alternative way:
 
 
-```ruby
+```
 require 'json'
 puts {:hello => "goodbye"}.to_json => "{\"hello\":\"goodbye\"}"
 ```
@@ -61,7 +61,7 @@ syntax. `to_json`, however, accepts many Ruby classes even though it
 acts only as a method for serialization:
 
 
-```ruby
+```
 require 'json'
 
 1.to_json => "1"

@@ -184,7 +184,7 @@ follows, the vertical arrows represent inheritance, and the parentheses
 metaclasses. All metaclasses are instances of the class `Class`.
 
 
-```ruby
+```
                          +---------+             +-...
                          |         |             |
          BasicObject-----|-->(BasicObject)-------|-...
@@ -358,7 +358,7 @@ puts fiber.resume
 *produces*
 
 
-```ruby
+```
 1
 2
 FiberError: dead fiber called
@@ -385,7 +385,7 @@ puts fiber.resume 18
 *produces*
 
 
-```ruby
+```
 12
 14
 FiberError: dead fiber called

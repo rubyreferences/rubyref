@@ -42,24 +42,177 @@
 
               
               <li>
-                <a href="#about-this-book.html"> About This Book</a>
+                <a href="/about-this-book.html"> About This Book</a>
               </li>
+                
               
               <li>
-                <a href="#language.html"> Language Structure</a>
+                <a href="/language.html"> Language Structure</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/language/keywords.html"> Keywords</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/literals.html"> Literals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/variables-constants.html"> Variables and Constants</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/assignment.html"> Assignment</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/control-expressions.html"> Control Expressions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-def.html"> Defining methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-call.html"> Calling methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/modules-classes.html"> Modules and Classes</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/exceptions.html"> Exceptions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/refinements.html"> Refinements</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/precedence.html"> Precedence</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/files.html"> File Structure</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/globals.html"> Globals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/metaprogramming.html"> Metaprogramming</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#builtin.html"> Built-in Classes</a>
+                <a href="/builtin.html"> Built-in Classes</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/builtin/core.html"> Language Core</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/types.html"> Value Types</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/errors-warnings.html"> Errors and Warnings</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/system-cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/concurrency-parallelism.html"> Concurrency and Parallelism</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/internals.html"> Interpreter Internals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/marshal.html"> Marshal</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/random.html"> Random</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#stdlib.html"> Standard Library</a>
+                <a href="/stdlib.html"> Standard Library</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/stdlib/patterns.html"> Design Patterns</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/formats.html"> Formats</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/development-debugging.html"> Development and Debugging</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/string-utilities.html"> String Utilities</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/networking-web.html"> Networking and Web</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cryptography-encoding.html"> Cryptography and Encoding</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/misc.html"> Miscellaneous Libraries</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#advanced-topics.html"> Advanced Topics</a>
+                <a href="/advanced-topics.html"> Advanced Topics</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/advanced-topics/third-party-libraries.html"> Third-Party Libraries</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/tools-approaches.html"> Tools and Approaches</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/contributing.html"> Contributing To Ruby</a>
+                          </li>
+                        
+                    </ul>
+                
               
 
             </ul>
@@ -102,7 +255,7 @@ used to execute Ruby code.</p>
 
     <p>On my machine (OSX 10.8.3 on i5 1.7 GHz) this generates:</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">0.350000</span>   <span class="mf">0.400000</span>   <span class="mf">0.750000</span> <span class="p">(</span>  <span class="mf">0.835234</span><span class="p">)</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.350000   0.400000   0.750000 (  0.835234)
 </code></pre></div>    </div>
 
     <p>This report shows the user CPU time, system CPU time, the sum of the
@@ -124,10 +277,10 @@ is seconds.</p>
 
     <p>The result:</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">user</span>     <span class="nb">system</span>      <span class="n">total</span>        <span class="n">real</span>
-<span class="mf">1.010000</span>   <span class="mf">0.000000</span>   <span class="mf">1.010000</span> <span class="p">(</span>  <span class="mf">1.014479</span><span class="p">)</span>
-<span class="mf">1.000000</span>   <span class="mf">0.000000</span>   <span class="mf">1.000000</span> <span class="p">(</span>  <span class="mf">0.998261</span><span class="p">)</span>
-<span class="mf">0.980000</span>   <span class="mf">0.000000</span>   <span class="mf">0.980000</span> <span class="p">(</span>  <span class="mf">0.981335</span><span class="p">)</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    user     system      total        real
+1.010000   0.000000   1.010000 (  1.014479)
+1.000000   0.000000   1.000000 (  0.998261)
+0.980000   0.000000   0.980000 (  0.981335)
 </code></pre></div>    </div>
   </li>
   <li>
@@ -147,10 +300,10 @@ is seconds.</p>
 
 <p>The result:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>              <span class="n">user</span>     <span class="nb">system</span>      <span class="n">total</span>        <span class="n">real</span>
-<span class="ss">for:      </span><span class="mf">1.010000</span>   <span class="mf">0.000000</span>   <span class="mf">1.010000</span> <span class="p">(</span>  <span class="mf">1.015688</span><span class="p">)</span>
-<span class="ss">times:    </span><span class="mf">1.000000</span>   <span class="mf">0.000000</span>   <span class="mf">1.000000</span> <span class="p">(</span>  <span class="mf">1.003611</span><span class="p">)</span>
-<span class="ss">upto:     </span><span class="mf">1.030000</span>   <span class="mf">0.000000</span>   <span class="mf">1.030000</span> <span class="p">(</span>  <span class="mf">1.028098</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>              user     system      total        real
+for:      1.010000   0.000000   1.010000 (  1.015688)
+times:    1.000000   0.000000   1.000000 (  1.003611)
+upto:     1.030000   0.000000   1.030000 (  1.028098)
 </code></pre></div></div>
 
 <ul>
@@ -172,14 +325,14 @@ provided. For example, to compare ways to sort an array of floats:</p>
 
     <p>The result:</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Rehearsal</span> <span class="o">-----------------------------------------</span>
-<span class="n">sort!</span>   <span class="mf">1.490000</span>   <span class="mf">0.010000</span>   <span class="mf">1.500000</span> <span class="p">(</span>  <span class="mf">1.490520</span><span class="p">)</span>
-<span class="n">sort</span>    <span class="mf">1.460000</span>   <span class="mf">0.000000</span>   <span class="mf">1.460000</span> <span class="p">(</span>  <span class="mf">1.463025</span><span class="p">)</span>
-<span class="o">--------------------------------</span> <span class="ss">total: </span><span class="mf">2.960000</span><span class="n">sec</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Rehearsal -----------------------------------------
+sort!   1.490000   0.010000   1.500000 (  1.490520)
+sort    1.460000   0.000000   1.460000 (  1.463025)
+-------------------------------- total: 2.960000sec
   
-            <span class="n">user</span>     <span class="nb">system</span>      <span class="n">total</span>        <span class="n">real</span>
-<span class="n">sort!</span>   <span class="mf">1.460000</span>   <span class="mf">0.000000</span>   <span class="mf">1.460000</span> <span class="p">(</span>  <span class="mf">1.460465</span><span class="p">)</span>
-<span class="n">sort</span>    <span class="mf">1.450000</span>   <span class="mf">0.010000</span>   <span class="mf">1.460000</span> <span class="p">(</span>  <span class="mf">1.448327</span><span class="p">)</span>
+            user     system      total        real
+sort!   1.460000   0.000000   1.460000 (  1.460465)
+sort    1.450000   0.010000   1.460000 (  1.448327)
 </code></pre></div>    </div>
   </li>
   <li>
@@ -200,12 +353,12 @@ the #benchmark method:</p>
 
     <p>The result:</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>             <span class="n">user</span>     <span class="nb">system</span>      <span class="n">total</span>        <span class="n">real</span>
-<span class="ss">for:      </span><span class="mf">0.950000</span>   <span class="mf">0.000000</span>   <span class="mf">0.950000</span> <span class="p">(</span>  <span class="mf">0.952039</span><span class="p">)</span>
-<span class="ss">times:    </span><span class="mf">0.980000</span>   <span class="mf">0.000000</span>   <span class="mf">0.980000</span> <span class="p">(</span>  <span class="mf">0.984938</span><span class="p">)</span>
-<span class="ss">upto:     </span><span class="mf">0.950000</span>   <span class="mf">0.000000</span>   <span class="mf">0.950000</span> <span class="p">(</span>  <span class="mf">0.946787</span><span class="p">)</span>
-<span class="o">&gt;</span><span class="ss">total:   </span><span class="mf">2.880000</span>   <span class="mf">0.000000</span>   <span class="mf">2.880000</span> <span class="p">(</span>  <span class="mf">2.883764</span><span class="p">)</span>
-<span class="o">&gt;</span><span class="ss">avg:     </span><span class="mf">0.960000</span>   <span class="mf">0.000000</span>   <span class="mf">0.960000</span> <span class="p">(</span>  <span class="mf">0.961255</span><span class="p">)</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>             user     system      total        real
+for:      0.950000   0.000000   0.950000 (  0.952039)
+times:    0.980000   0.000000   0.980000 (  0.984938)
+upto:     0.950000   0.000000   0.950000 (  0.946787)
+&gt;total:   2.880000   0.000000   2.880000 (  2.883764)
+&gt;avg:     0.960000   0.000000   0.960000 (  0.961255)
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -237,6 +390,6 @@ Reference</a></p>
         </div>
 
 
-        <script src="js/book.js"></script>
+        <script src="/js/book.js"></script>
     </body>
 </html>

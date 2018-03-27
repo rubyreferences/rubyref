@@ -176,7 +176,7 @@ PBKDF2. PKCS #5 v2.0 recommends at least 8 bytes for the salt, the
 number of iterations largely depends on the hardware being used.
 
 
-```ruby
+```
 cipher = OpenSSL::Cipher.new 'AES-128-CBC'
 cipher.encrypt
 iv = cipher.random_iv
@@ -202,7 +202,7 @@ Use the same steps as before to derive the symmetric AES key, this time
 setting the Cipher up for decryption.
 
 
-```ruby
+```
 cipher = OpenSSL::Cipher.new 'AES-128-CBC'
 cipher.decrypt
 cipher.iv = iv # the one generated with #random_iv

@@ -11,7 +11,7 @@ generates Ruby programs.
 ## Command-line Reference
 
 
-```ruby
+```
 racc [-o<var>filename</var>] [--output-file=<var>filename</var>]
      [-e<var>rubypath</var>] [--embedded=<var>rubypath</var>]
      [-v] [--verbose]
@@ -57,7 +57,7 @@ racc [-o<var>filename</var>] [--output-file=<var>filename</var>]
 To compile Racc grammar file, simply type:
 
 
-```ruby
+```
 $ racc parse.y
 ```
 
@@ -75,7 +75,7 @@ difficult.
 Here's an example Racc grammar file.
 
 
-```ruby
+```
 class Calcparser
 rule
   target: exp { print val[0] }
@@ -153,7 +153,7 @@ If you want to include the Racc runtime module with your parser. This
 can be done by using '-E' option:
 
 
-```ruby
+```
 $ racc -E -omyparser.rb myparser.y
 ```
 

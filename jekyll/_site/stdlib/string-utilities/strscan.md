@@ -41,7 +41,7 @@ Given the string "test string", here are the pertinent scan pointer
 positions:
 
 
-```ruby
+```
   t e s t   s t r i n g
 0 1 2 ...             1
                       0

@@ -306,7 +306,7 @@ X.
 For example, C inherits refinements from A and B in the following code:
 
 
-```ruby
+```
 module A
   refine X do ... end
   refine Y do ... end

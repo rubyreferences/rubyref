@@ -13,7 +13,7 @@ When executing irb, prompts are displayed as follows. Then, enter the
 Ruby expression. An input is executed when it is syntactically complete.
 
 
-```ruby
+```
 $ irb
 irb(main):001:0> 1+2
 #=> 3
@@ -31,7 +31,7 @@ default if it's installed.
 ## Command line options
 
 
-```ruby
+```
 Usage:  irb.rb [options] [programfile] [arguments]
   -f                Suppress read of ~/.irbrc
   -d                Set $DEBUG to true (same as `ruby -d`)
@@ -77,7 +77,7 @@ The following are alternatives to the command line options. To use them
 type as follows in an `irb` session:
 
 
-```ruby
+```
 IRB.conf[:IRB_NAME]="irb"
 IRB.conf[:INSPECT_MODE]=nil
 IRB.conf[:IRB_RC] = nil
@@ -150,7 +150,7 @@ IRB.conf[:PROMPT_MODE] = :MY_PROMPT
 Or, invoke irb with the above prompt mode by:
 
 
-```ruby
+```
 irb --prompt my-prompt
 ```
 
@@ -158,7 +158,7 @@ Constants `PROMPT_I`, `PROMPT_S` and `PROMPT_C` specify the format. In
 the prompt specification, some special strings are available:
 
 
-```ruby
+```
 %N    # command name which is running
 %m    # to_s of main object (self)
 %M    # inspect of main object (self)
@@ -292,7 +292,7 @@ There are a few variables in every Irb session that can come in handy:
 ### Example using IRB Sessions
 
 
-```ruby
+```
 # invoke a new session
 irb(main):001:0> irb
 # list open sessions

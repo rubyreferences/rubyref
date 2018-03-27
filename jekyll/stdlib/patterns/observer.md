@@ -105,7 +105,7 @@ ticker.run
 Produces:
 
 
-```ruby
+```
 Current price: 83
 Current price: 75
 --- Sun Jun 09 00:10:25 CDT 2002: Price below 80: 75

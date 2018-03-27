@@ -18,14 +18,14 @@ There are two ways to activate Profiling:
 
 Run your Ruby script with `-rprofile`: 
 
-```ruby
+```
 ruby -rprofile example.rb
 ```
 
 If you're profiling an executable in your `$PATH` you can use `ruby
 -S`: 
 
-```ruby
+```
 ruby -rprofile -S some_executable
 ```
 
@@ -55,7 +55,7 @@ fast_method
 The output in both cases is a report when the execution is over:
 
 
-```ruby
+```
 ruby -rprofile example.rb
 
   %   cumulative   self              self     total

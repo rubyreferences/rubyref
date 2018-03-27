@@ -28,7 +28,7 @@ the following trace to STDOUT (Note you can also explicitly `require
 `tracer'\`)
 
 
-```ruby
+```
 #0:<internal:lib/rubygems/custom_require>:38:Kernel:<: -
 #0:example.rb:3::-: class A
 #0:example.rb:3::C: class A

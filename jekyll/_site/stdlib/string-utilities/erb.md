@@ -37,7 +37,7 @@ ERB recognizes certain tags in the provided template and converts them
 based on the rules below:
 
 
-```ruby
+```
 <% Ruby code -- inline with output %>
 <%= Ruby expression -- replace with result %>
 <%# comment -- ignored -- useful in testing %>

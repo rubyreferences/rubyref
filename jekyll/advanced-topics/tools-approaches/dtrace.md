@@ -5,7 +5,7 @@ cannot be defined in user defined probes (known as USDT), so they will
 not be specified. Probe definitions are in the format of:
 
 
-```ruby
+```
 provider:module:function:name(arguments)
 ```
 
@@ -13,7 +13,7 @@ Since module and function cannot be specified, they will be blank. An
 example probe definition for Ruby would then be:
 
 
-```ruby
+```
 ruby:::method-entry(class name, method name, file name, line number)
 ```
 
@@ -59,7 +59,7 @@ along with when they are fired and the arguments they take:
   probe is fired just before a method is entered.
   
   
-  ```ruby
+  ```
     classname name of the class (a string)
     methodname name of the method about to be executed (a string)
     filename the file name where the method is _being called_ (a string)
@@ -82,7 +82,7 @@ along with when they are fired and the arguments they take:
   fired on calls to rb\_require\_safe (when a file is required).
   
   
-  ```ruby
+  ```
     requiredfile is the name of the file to be required (string).
     filename is the file that called "require" (string).
     lineno is the line number where the call to require was made (int).
@@ -100,7 +100,7 @@ along with when they are fired and the arguments they take:
   loaded.
   
   
-  ```ruby
+  ```
     requiredfile is the file to be required (string).
     filename is the file that called "require" (string).
     lineno is the line number where the call to require was made (int).
@@ -123,7 +123,7 @@ along with when they are fired and the arguments they take:
   an exception is raised.
   
   
-  ```ruby
+  ```
     classname is the class name of the raised exception (string)
     filename the name of the file where the exception was raised (string)
     lineno the line number in the file where the exception was raised (int)
@@ -133,7 +133,7 @@ along with when they are fired and the arguments they take:
   fired when an object is about to be allocated.
   
   
-  ```ruby
+  ```
     classname the class of the allocated object (string)
     filename the name of the file where the object is allocated (string)
     lineno the line number in the file where the object is allocated (int)
@@ -143,7 +143,7 @@ along with when they are fired and the arguments they take:
   when an Array is about to be allocated.
   
   
-  ```ruby
+  ```
     length the size of the array (long)
     filename the name of the file where the array is allocated (string)
     lineno the line number in the file where the array is allocated (int)
@@ -153,7 +153,7 @@ along with when they are fired and the arguments they take:
   when a Hash is about to be allocated.
   
   
-  ```ruby
+  ```
     length the size of the hash (long)
     filename the name of the file where the hash is allocated (string)
     lineno the line number in the file where the hash is allocated (int)
@@ -163,7 +163,7 @@ along with when they are fired and the arguments they take:
   when a String is about to be allocated.
   
   
-  ```ruby
+  ```
     length the size of the string (long)
     filename the name of the file where the string is allocated (string)
     lineno the line number in the file where the string is allocated (int)
@@ -173,7 +173,7 @@ along with when they are fired and the arguments they take:
   a Symbol is about to be allocated.
   
   
-  ```ruby
+  ```
     str the contents of the symbol (string)
     filename the name of the file where the string is allocated (string)
     lineno the line number in the file where the string is allocated (int)
@@ -209,7 +209,7 @@ along with when they are fired and the arguments they take:
   method cache is cleared.
   
   
-  ```ruby
+  ```
     class is the classname being cleared, or "global" (string)
     sourcefile the file being parsed (string)
     lineno the line number where the source ended (int)

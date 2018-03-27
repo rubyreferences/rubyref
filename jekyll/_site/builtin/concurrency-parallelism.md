@@ -58,7 +58,7 @@ For terminating threads, Ruby provides a variety of ways to do this.
 The class method ::kill, is meant to exit a given thread:
 
 
-```ruby
+```
 thr = Thread.new { ... }
 Thread.kill(thr) # sends exit() to thr
 ```

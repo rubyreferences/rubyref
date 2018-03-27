@@ -42,24 +42,177 @@
 
               
               <li>
-                <a href="#about-this-book.html"> About This Book</a>
+                <a href="/about-this-book.html"> About This Book</a>
               </li>
+                
               
               <li>
-                <a href="#language.html"> Language Structure</a>
+                <a href="/language.html"> Language Structure</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/language/keywords.html"> Keywords</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/literals.html"> Literals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/variables-constants.html"> Variables and Constants</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/assignment.html"> Assignment</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/control-expressions.html"> Control Expressions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-def.html"> Defining methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-call.html"> Calling methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/modules-classes.html"> Modules and Classes</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/exceptions.html"> Exceptions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/refinements.html"> Refinements</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/precedence.html"> Precedence</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/files.html"> File Structure</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/globals.html"> Globals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/metaprogramming.html"> Metaprogramming</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#builtin.html"> Built-in Classes</a>
+                <a href="/builtin.html"> Built-in Classes</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/builtin/core.html"> Language Core</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/types.html"> Value Types</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/errors-warnings.html"> Errors and Warnings</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/system-cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/concurrency-parallelism.html"> Concurrency and Parallelism</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/internals.html"> Interpreter Internals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/marshal.html"> Marshal</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/random.html"> Random</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#stdlib.html"> Standard Library</a>
+                <a href="/stdlib.html"> Standard Library</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/stdlib/patterns.html"> Design Patterns</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/formats.html"> Formats</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/development-debugging.html"> Development and Debugging</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/string-utilities.html"> String Utilities</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/networking-web.html"> Networking and Web</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cryptography-encoding.html"> Cryptography and Encoding</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/misc.html"> Miscellaneous Libraries</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#advanced-topics.html"> Advanced Topics</a>
+                <a href="/advanced-topics.html"> Advanced Topics</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/advanced-topics/third-party-libraries.html"> Third-Party Libraries</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/tools-approaches.html"> Tools and Approaches</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/contributing.html"> Contributing To Ruby</a>
+                          </li>
+                        
+                    </ul>
+                
               
 
             </ul>
@@ -147,26 +300,26 @@ its data type.</p>
 TYPE() returns the constant number T_XXXX described above. To handle
 data types, your code will look something like this:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">switch</span> <span class="p">(</span><span class="no">TYPE</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span> <span class="p">{</span>
-  <span class="k">case</span> <span class="no">T_FIXNUM</span><span class="p">:</span>
-    <span class="sr">/* process Fixnum */</span>
-    <span class="k">break</span><span class="p">;</span>
-  <span class="k">case</span> <span class="no">T_STRING</span><span class="p">:</span>
-    <span class="sr">/* process String */</span>
-    <span class="k">break</span><span class="p">;</span>
-  <span class="k">case</span> <span class="no">T_ARRAY</span><span class="p">:</span>
-    <span class="sr">/* process Array */</span>
-    <span class="k">break</span><span class="p">;</span>
-  <span class="ss">default:
-    </span><span class="sr">/* raise exception */</span>
-    <span class="n">rb_raise</span><span class="p">(</span><span class="n">rb_eTypeError</span><span class="p">,</span> <span class="s2">"not valid value"</span><span class="p">);</span>
-    <span class="k">break</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>switch (TYPE(obj)) {
+  case T_FIXNUM:
+    /* process Fixnum */
+    break;
+  case T_STRING:
+    /* process String */
+    break;
+  case T_ARRAY:
+    /* process Array */
+    break;
+  default:
+    /* raise exception */
+    rb_raise(rb_eTypeError, "not valid value");
+    break;
+}
 </code></pre></div></div>
 
 <p>There is the data type check function</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">void</span> <span class="no">Check_Type</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">value</span><span class="p">,</span> <span class="n">int</span> <span class="n">type</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void Check_Type(VALUE value, int type)
 </code></pre></div></div>
 
 <p>which raises an exception if the VALUE does not have the type specified.</p>
@@ -474,8 +627,8 @@ interpreter. Ruby provides APIs for defining the following things:</p>
 
 <p>To define a class or module, use the functions below:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">VALUE</span> <span class="n">rb_define_class</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">,</span> <span class="no">VALUE</span> <span class="k">super</span><span class="p">)</span>
-<span class="no">VALUE</span> <span class="n">rb_define_module</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VALUE rb_define_class(const char *name, VALUE super)
+VALUE rb_define_module(const char *name)
 </code></pre></div></div>
 
 <p>These functions return the newly created class or module. You may want
@@ -483,19 +636,19 @@ to save this reference into a variable to use later.</p>
 
 <p>To define nested classes or modules, use the functions below:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">VALUE</span> <span class="n">rb_define_class_under</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">outer</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">,</span> <span class="no">VALUE</span> <span class="k">super</span><span class="p">)</span>
-<span class="no">VALUE</span> <span class="n">rb_define_module_under</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">outer</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VALUE rb_define_class_under(VALUE outer, const char *name, VALUE super)
+VALUE rb_define_module_under(VALUE outer, const char *name)
 </code></pre></div></div>
 
 <h4 id="method-and-singleton-method-definition">Method and Singleton Method Definition</h4>
 
 <p>To define methods or singleton methods, use these functions:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">void</span> <span class="n">rb_define_method</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">klass</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">,</span>
-                      <span class="no">VALUE</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="no">ANYARGS</span><span class="p">),</span> <span class="n">int</span> <span class="n">argc</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void rb_define_method(VALUE klass, const char *name,
+                      VALUE (*func)(ANYARGS), int argc)
 
-<span class="n">void</span> <span class="n">rb_define_singleton_method</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">object</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">,</span>
-                                <span class="no">VALUE</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="no">ANYARGS</span><span class="p">),</span> <span class="n">int</span> <span class="n">argc</span><span class="p">)</span>
+void rb_define_singleton_method(VALUE object, const char *name,
+                                VALUE (*func)(ANYARGS), int argc)
 </code></pre></div></div>
 
 <p>The <code class="highlighter-rouge">argc</code> represents the number of the arguments to the C function,
@@ -506,7 +659,7 @@ the arguments.</p>
 
 <p>If argc is -1, the function will be called as:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">VALUE</span> <span class="n">func</span><span class="p">(</span><span class="n">int</span> <span class="n">argc</span><span class="p">,</span> <span class="no">VALUE</span> <span class="o">*</span><span class="n">argv</span><span class="p">,</span> <span class="no">VALUE</span> <span class="n">obj</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VALUE func(int argc, VALUE *argv, VALUE obj)
 </code></pre></div></div>
 
 <p>where argc is the actual number of arguments, argv is the C array of the
@@ -515,7 +668,7 @@ arguments, and obj is the receiver.</p>
 <p>If argc is -2, the arguments are passed in a Ruby array. The function
 will be called like:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">VALUE</span> <span class="n">func</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">obj</span><span class="p">,</span> <span class="no">VALUE</span> <span class="n">args</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VALUE func(VALUE obj, VALUE args)
 </code></pre></div></div>
 
 <p>where obj is the receiver, and args is the Ruby array containing actual
@@ -524,16 +677,16 @@ arguments.</p>
 <p>There are some more functions to define methods. One takes an ID as the
 name of method to be defined. See also ID or Symbol below.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">void</span> <span class="n">rb_define_method_id</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">klass</span><span class="p">,</span> <span class="no">ID</span> <span class="nb">name</span><span class="p">,</span>
-                         <span class="no">VALUE</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="no">ANYARGS</span><span class="p">),</span> <span class="n">int</span> <span class="n">argc</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void rb_define_method_id(VALUE klass, ID name,
+                         VALUE (*func)(ANYARGS), int argc)
 </code></pre></div></div>
 
 <p>There are two functions to define private/protected methods:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">void</span> <span class="n">rb_define_private_method</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">klass</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">,</span>
-                              <span class="no">VALUE</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="no">ANYARGS</span><span class="p">),</span> <span class="n">int</span> <span class="n">argc</span><span class="p">)</span>
-<span class="n">void</span> <span class="n">rb_define_protected_method</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">klass</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">,</span>
-                                <span class="no">VALUE</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="no">ANYARGS</span><span class="p">),</span> <span class="n">int</span> <span class="n">argc</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void rb_define_private_method(VALUE klass, const char *name,
+                              VALUE (*func)(ANYARGS), int argc)
+void rb_define_protected_method(VALUE klass, const char *name,
+                                VALUE (*func)(ANYARGS), int argc)
 </code></pre></div></div>
 
 <p>At last, rb_define_module_function defines a module function, which
@@ -552,30 +705,30 @@ following way:</p>
 
 <p>To define module functions, use:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">void</span> <span class="n">rb_define_module_function</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">module</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">,</span>
-                               <span class="no">VALUE</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="no">ANYARGS</span><span class="p">),</span> <span class="n">int</span> <span class="n">argc</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void rb_define_module_function(VALUE module, const char *name,
+                               VALUE (*func)(ANYARGS), int argc)
 </code></pre></div></div>
 
 <p>In addition, function-like methods, which are private methods defined in
 the Kernel module, can be defined using:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">void</span> <span class="n">rb_define_global_function</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">,</span> <span class="no">VALUE</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="no">ANYARGS</span><span class="p">),</span> <span class="n">int</span> <span class="n">argc</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void rb_define_global_function(const char *name, VALUE (*func)(ANYARGS), int argc)
 </code></pre></div></div>
 
 <p>To define an alias for the method,</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">void</span> <span class="n">rb_define_alias</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">module</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">new</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">old</span><span class="p">);</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void rb_define_alias(VALUE module, const char* new, const char* old);
 </code></pre></div></div>
 
 <p>To define a reader/writer for an attribute,</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">void</span> <span class="n">rb_define_attr</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">klass</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">,</span> <span class="n">int</span> <span class="n">read</span><span class="p">,</span> <span class="n">int</span> <span class="n">write</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void rb_define_attr(VALUE klass, const char *name, int read, int write)
 </code></pre></div></div>
 
 <p>To define and undefine the <code class="highlighter-rouge">allocate</code> class method,</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">void</span> <span class="n">rb_define_alloc_func</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">klass</span><span class="p">,</span> <span class="no">VALUE</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="no">VALUE</span> <span class="n">klass</span><span class="p">));</span>
-<span class="n">void</span> <span class="n">rb_undef_alloc_func</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">klass</span><span class="p">);</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void rb_define_alloc_func(VALUE klass, VALUE (*func)(VALUE klass));
+void rb_undef_alloc_func(VALUE klass);
 </code></pre></div></div>
 
 <p>func has to take the klass as the argument and return a newly allocated
@@ -585,7 +738,7 @@ expensive (including external) resources.</p>
 <p>If you are overriding an existing method of any ancestor of your class,
 you may rely on:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">VALUE</span> <span class="n">rb_call_super</span><span class="p">(</span><span class="n">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">const</span> <span class="no">VALUE</span> <span class="o">*</span><span class="n">argv</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VALUE rb_call_super(int argc, const VALUE *argv)
 </code></pre></div></div>
 
 <p>To achieve the receiver of the current scope (if no other way is
@@ -598,8 +751,8 @@ available), you can use:</p>
 
 <p>We have 2 functions to define constants:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">void</span> <span class="n">rb_define_const</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">klass</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">,</span> <span class="no">VALUE</span> <span class="n">val</span><span class="p">)</span>
-<span class="n">void</span> <span class="n">rb_define_global_const</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">,</span> <span class="no">VALUE</span> <span class="n">val</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void rb_define_const(VALUE klass, const char *name, VALUE val)
+void rb_define_global_const(const char *name, VALUE val)
 </code></pre></div></div>
 
 <p>The former is to define a constant under specified class/module. The
@@ -624,7 +777,7 @@ accessed.</p>
 <p>Note that the evaluation can raise an exception. There is a safer
 function:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">VALUE</span> <span class="n">rb_eval_string_protect</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">state</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VALUE rb_eval_string_protect(const char *str, int *state)
 </code></pre></div></div>
 
 <p>It returns nil when an error occurred. Moreover, *state is zero if str
@@ -654,9 +807,9 @@ ID is Symbol. It can be accessed from Ruby in the form:</p>
 <p>You can retrieve ID from Ruby object (Symbol or String) given as an
 argument by using</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rb_to_id</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">symbol</span><span class="p">)</span>
-<span class="n">rb_check_id</span><span class="p">(</span><span class="n">volatile</span> <span class="no">VALUE</span> <span class="o">*</span><span class="nb">name</span><span class="p">)</span>
-<span class="n">rb_check_id_cstr</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">,</span> <span class="n">long</span> <span class="n">len</span><span class="p">,</span> <span class="n">rb_encoding</span> <span class="o">*</span><span class="n">enc</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rb_to_id(VALUE symbol)
+rb_check_id(volatile VALUE *name)
+rb_check_id_cstr(const char *name, long len, rb_encoding *enc)
 </code></pre></div></div>
 
 <p>These functions try to convert the argument to a String if it was not a
@@ -669,9 +822,9 @@ takes NUL-terminated C string, not Ruby VALUE.</p>
 <p>You can retrieve Symbol from Ruby object (Symbol or String) given as an
 argument by using</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rb_to_symbol</span><span class="p">(</span><span class="no">VALUE</span> <span class="nb">name</span><span class="p">)</span>
-<span class="n">rb_check_symbol</span><span class="p">(</span><span class="n">volatile</span> <span class="no">VALUE</span> <span class="o">*</span><span class="n">namep</span><span class="p">)</span>
-<span class="n">rb_check_symbol_cstr</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">ptr</span><span class="p">,</span> <span class="n">long</span> <span class="n">len</span><span class="p">,</span> <span class="n">rb_encoding</span> <span class="o">*</span><span class="n">enc</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rb_to_symbol(VALUE name)
+rb_check_symbol(volatile VALUE *namep)
+rb_check_symbol_cstr(const char *ptr, long len, rb_encoding *enc)
 </code></pre></div></div>
 
 <p>These functions are similar to above functions except that these return
@@ -691,7 +844,7 @@ a Symbol instead of an ID.</p>
 
 <p>To invoke methods directly, you can use the function below</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">VALUE</span> <span class="n">rb_funcall</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">recv</span><span class="p">,</span> <span class="no">ID</span> <span class="n">mid</span><span class="p">,</span> <span class="n">int</span> <span class="n">argc</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VALUE rb_funcall(VALUE recv, ID mid, int argc, ...)
 </code></pre></div></div>
 
 <p>This function invokes a method on the recv, with the method name
@@ -705,15 +858,15 @@ environments. There’s no way to access Ruby’s local variables.</p>
 
 <p>The functions to access/modify instance variables are below:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">VALUE</span> <span class="n">rb_ivar_get</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">obj</span><span class="p">,</span> <span class="no">ID</span> <span class="nb">id</span><span class="p">)</span>
-<span class="no">VALUE</span> <span class="n">rb_ivar_set</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">obj</span><span class="p">,</span> <span class="no">ID</span> <span class="nb">id</span><span class="p">,</span> <span class="no">VALUE</span> <span class="n">val</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VALUE rb_ivar_get(VALUE obj, ID id)
+VALUE rb_ivar_set(VALUE obj, ID id, VALUE val)
 </code></pre></div></div>
 
 <p>id must be the symbol, which can be retrieved by rb_intern().</p>
 
 <p>To access the constants of the class/module:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">VALUE</span> <span class="n">rb_const_get</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">obj</span><span class="p">,</span> <span class="no">ID</span> <span class="nb">id</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VALUE rb_const_get(VALUE obj, ID id)
 </code></pre></div></div>
 
 <p>See also Constant Definition above.</p>
@@ -741,7 +894,7 @@ from C.</p>
 <p>Information can be shared between the two environments using shared
 global variables. To define them, you can use functions listed below:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">void</span> <span class="n">rb_define_variable</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">,</span> <span class="no">VALUE</span> <span class="o">*</span><span class="n">var</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void rb_define_variable(const char *name, VALUE *var)
 </code></pre></div></div>
 
 <p>This function defines the variable which is shared by both environments.
@@ -751,14 +904,14 @@ through Ruby’s global variable named <code class="highlighter-rouge">name</cod
 <p>You can define read-only (from Ruby, of course) variables using the
 function below.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">void</span> <span class="n">rb_define_readonly_variable</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">,</span> <span class="no">VALUE</span> <span class="o">*</span><span class="n">var</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void rb_define_readonly_variable(const char *name, VALUE *var)
 </code></pre></div></div>
 
 <p>You can define hooked variables. The accessor functions (getter and
 setter) are called on access to the hooked variables.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">void</span> <span class="n">rb_define_hooked_variable</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">,</span> <span class="no">VALUE</span> <span class="o">*</span><span class="n">var</span><span class="p">,</span>
-                               <span class="no">VALUE</span> <span class="p">(</span><span class="o">*</span><span class="n">getter</span><span class="p">)(),</span> <span class="n">void</span> <span class="p">(</span><span class="o">*</span><span class="n">setter</span><span class="p">)())</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void rb_define_hooked_variable(const char *name, VALUE *var,
+                               VALUE (*getter)(), void (*setter)())
 </code></pre></div></div>
 
 <p>If you need to supply either setter or getter, just supply 0 for the
@@ -767,21 +920,21 @@ works just like rb_define_variable().</p>
 
 <p>The prototypes of the getter and setter functions are as follows:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">VALUE</span> <span class="p">(</span><span class="o">*</span><span class="n">getter</span><span class="p">)(</span><span class="no">ID</span> <span class="nb">id</span><span class="p">,</span> <span class="no">VALUE</span> <span class="o">*</span><span class="n">var</span><span class="p">);</span>
-<span class="n">void</span> <span class="p">(</span><span class="o">*</span><span class="n">setter</span><span class="p">)(</span><span class="no">VALUE</span> <span class="n">val</span><span class="p">,</span> <span class="no">ID</span> <span class="nb">id</span><span class="p">,</span> <span class="no">VALUE</span> <span class="o">*</span><span class="n">var</span><span class="p">);</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VALUE (*getter)(ID id, VALUE *var);
+void (*setter)(VALUE val, ID id, VALUE *var);
 </code></pre></div></div>
 
 <p>Also you can define a Ruby global variable without a corresponding C
 variable. The value of the variable will be set/get only by hooks.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">void</span> <span class="n">rb_define_virtual_variable</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">name</span><span class="p">,</span>
-                                <span class="no">VALUE</span> <span class="p">(</span><span class="o">*</span><span class="n">getter</span><span class="p">)(),</span> <span class="n">void</span> <span class="p">(</span><span class="o">*</span><span class="n">setter</span><span class="p">)())</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void rb_define_virtual_variable(const char *name,
+                                VALUE (*getter)(), void (*setter)())
 </code></pre></div></div>
 
 <p>The prototypes of the getter and setter functions are as follows:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">VALUE</span> <span class="p">(</span><span class="o">*</span><span class="n">getter</span><span class="p">)(</span><span class="no">ID</span> <span class="nb">id</span><span class="p">);</span>
-<span class="n">void</span> <span class="p">(</span><span class="o">*</span><span class="n">setter</span><span class="p">)(</span><span class="no">VALUE</span> <span class="n">val</span><span class="p">,</span> <span class="no">ID</span> <span class="nb">id</span><span class="p">);</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VALUE (*getter)(ID id);
+void (*setter)(VALUE val, ID id);
 </code></pre></div></div>
 
 <h3 id="encapsulate-c-data-into-a-ruby-object">Encapsulate C Data into a Ruby Object</h3>
@@ -815,20 +968,20 @@ you have to call rb_undef_alloc_func(klass).</p>
 <p>rb_data_type_t is defined like this. Let’s take a look at each member
 of the struct.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">typedef</span> <span class="n">struct</span> <span class="n">rb_data_type_struct</span> <span class="n">rb_data_type_t</span><span class="p">;</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typedef struct rb_data_type_struct rb_data_type_t;
 
-<span class="n">struct</span> <span class="n">rb_data_type_struct</span> <span class="p">{</span>
-        <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">wrap_struct_name</span><span class="p">;</span>
-        <span class="n">struct</span> <span class="p">{</span>
-                <span class="n">void</span> <span class="p">(</span><span class="o">*</span><span class="n">dmark</span><span class="p">)(</span><span class="n">void</span><span class="o">*</span><span class="p">);</span>
-                <span class="n">void</span> <span class="p">(</span><span class="o">*</span><span class="n">dfree</span><span class="p">)(</span><span class="n">void</span><span class="o">*</span><span class="p">);</span>
-                <span class="n">size_t</span> <span class="p">(</span><span class="o">*</span><span class="n">dsize</span><span class="p">)(</span><span class="n">const</span> <span class="n">void</span> <span class="o">*</span><span class="p">);</span>
-                <span class="n">void</span> <span class="o">*</span><span class="n">reserved</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-        <span class="p">}</span> <span class="n">function</span><span class="p">;</span>
-        <span class="n">const</span> <span class="n">rb_data_type_t</span> <span class="o">*</span><span class="n">parent</span><span class="p">;</span>
-        <span class="n">void</span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>
-        <span class="no">VALUE</span> <span class="n">flags</span><span class="p">;</span>
-<span class="p">};</span>
+struct rb_data_type_struct {
+        const char *wrap_struct_name;
+        struct {
+                void (*dmark)(void*);
+                void (*dfree)(void*);
+                size_t (*dsize)(const void *);
+                void *reserved[2];
+        } function;
+        const rb_data_type_t *parent;
+        void *data;
+        VALUE flags;
+};
 </code></pre></div></div>
 
 <p>wrap_struct_name is an identifier of this instance of the struct. It
@@ -907,7 +1060,7 @@ assigned to sval, which should be a pointer of the type specified.</p>
 <p>To retrieve the C pointer from the Data object, use the macro
 Data_Get_Struct().</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">TypedData_Get_Struct</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">type</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data_type</span><span class="p">,</span> <span class="n">sval</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TypedData_Get_Struct(obj, type, &amp;data_type, sval)
 </code></pre></div></div>
 
 <p>A pointer to the structure will be assigned to the variable sval.</p>
@@ -922,7 +1075,7 @@ directory in the Ruby’s source tree.</p>
 
 <h3 id="make-the-directory">Make the Directory</h3>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sx">% mkdir </span><span class="n">ext</span><span class="o">/</span><span class="n">dbm</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>% mkdir ext/dbm
 </code></pre></div></div>
 
 <p>Make a directory for the extension library under ext directory.</p>
@@ -952,45 +1105,45 @@ the library.</p>
 
 <p>Here’s the example of an initializing function.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">void</span>
-<span class="no">Init_dbm</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="sr">/* define DBM class */</span>
-    <span class="no">VALUE</span> <span class="n">cDBM</span> <span class="o">=</span> <span class="n">rb_define_class</span><span class="p">(</span><span class="s2">"DBM"</span><span class="p">,</span> <span class="n">rb_cObject</span><span class="p">);</span>
-    <span class="sr">/* DBM includes Enumerable module */</span>
-    <span class="n">rb_include_module</span><span class="p">(</span><span class="n">cDBM</span><span class="p">,</span> <span class="n">rb_mEnumerable</span><span class="p">);</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void
+Init_dbm(void)
+{
+    /* define DBM class */
+    VALUE cDBM = rb_define_class("DBM", rb_cObject);
+    /* DBM includes Enumerable module */
+    rb_include_module(cDBM, rb_mEnumerable);
 
-    <span class="sr">/* DBM has class method open(): arguments are received as C array */</span>
-    <span class="n">rb_define_singleton_method</span><span class="p">(</span><span class="n">cDBM</span><span class="p">,</span> <span class="s2">"open"</span><span class="p">,</span> <span class="n">fdbm_s_open</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    /* DBM has class method open(): arguments are received as C array */
+    rb_define_singleton_method(cDBM, "open", fdbm_s_open, -1);
 
-    <span class="sr">/* DBM instance method close(): no args */</span>
-    <span class="n">rb_define_method</span><span class="p">(</span><span class="n">cDBM</span><span class="p">,</span> <span class="s2">"close"</span><span class="p">,</span> <span class="n">fdbm_close</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-    <span class="sr">/* DBM instance method []: 1 argument */</span>
-    <span class="n">rb_define_method</span><span class="p">(</span><span class="n">cDBM</span><span class="p">,</span> <span class="s2">"[]"</span><span class="p">,</span> <span class="n">fdbm_fetch</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    /* DBM instance method close(): no args */
+    rb_define_method(cDBM, "close", fdbm_close, 0);
+    /* DBM instance method []: 1 argument */
+    rb_define_method(cDBM, "[]", fdbm_fetch, 1);
 
-    <span class="sr">/* ... */</span>
+    /* ... */
 
-    <span class="sr">/* ID for a instance variable to store DBM data */</span>
-    <span class="n">id_dbm</span> <span class="o">=</span> <span class="n">rb_intern</span><span class="p">(</span><span class="s2">"dbm"</span><span class="p">);</span>
-<span class="p">}</span>
+    /* ID for a instance variable to store DBM data */
+    id_dbm = rb_intern("dbm");
+}
 </code></pre></div></div>
 
 <p>The dbm extension wraps the dbm struct in the C environment using
 TypedData_Make_Struct.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">struct</span> <span class="n">dbmdata</span> <span class="p">{</span>
-    <span class="n">int</span>  <span class="n">di_size</span><span class="p">;</span>
-    <span class="no">DBM</span> <span class="o">*</span><span class="n">di_dbm</span><span class="p">;</span>
-<span class="p">};</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>struct dbmdata {
+    int  di_size;
+    DBM *di_dbm;
+};
 
-<span class="n">static</span> <span class="n">const</span> <span class="n">rb_data_type_t</span> <span class="n">dbm_type</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"dbm"</span><span class="p">,</span>
-    <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="n">free_dbm</span><span class="p">,</span> <span class="n">memsize_dbm</span><span class="p">,},</span>
-    <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="no">RUBY_TYPED_FREE_IMMEDIATELY</span><span class="p">,</span>
-<span class="p">};</span>
+static const rb_data_type_t dbm_type = {
+    "dbm",
+    {0, free_dbm, memsize_dbm,},
+    0, 0,
+    RUBY_TYPED_FREE_IMMEDIATELY,
+};
 
-<span class="n">obj</span> <span class="o">=</span> <span class="no">TypedData_Make_Struct</span><span class="p">(</span><span class="n">klass</span><span class="p">,</span> <span class="n">struct</span> <span class="n">dbmdata</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dbm_type</span><span class="p">,</span> <span class="n">dbmp</span><span class="p">);</span>
+obj = TypedData_Make_Struct(klass, struct dbmdata, &amp;dbm_type, dbmp);
 </code></pre></div></div>
 
 <p>This code wraps the dbmdata structure into a Ruby object. We avoid
@@ -999,11 +1152,11 @@ wrapping DBM* directly, because we want to cache size information.</p>
 <p>To retrieve the dbmdata structure from a Ruby object, we define the
 following macro:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">\</span><span class="c1">#define GetDBM(obj, dbmp) do {\</span>
-    <span class="no">TypedData_Get_Struct</span><span class="p">((</span><span class="n">obj</span><span class="p">),</span> <span class="n">struct</span> <span class="n">dbmdata</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dbm_type</span><span class="p">,</span> <span class="p">(</span><span class="n">dbmp</span><span class="p">));\</span>
-    <span class="k">if</span> <span class="p">((</span><span class="n">dbmp</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">closed_dbm</span><span class="p">();\</span>
-    <span class="k">if</span> <span class="p">((</span><span class="n">dbmp</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">di_dbm</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">closed_dbm</span><span class="p">();\</span>
-<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\#define GetDBM(obj, dbmp) do {\
+    TypedData_Get_Struct((obj), struct dbmdata, &amp;dbm_type, (dbmp));\
+    if ((dbmp) == 0) closed_dbm();\
+    if ((dbmp)-&gt;di_dbm == 0) closed_dbm();\
+} while (0)
 </code></pre></div></div>
 
 <p>This sort of complicated macro does the retrieving and close checking
@@ -1012,11 +1165,11 @@ for the DBM.</p>
 <p>There are three kinds of way to receive method arguments. First, methods
 with a fixed number of arguments receive arguments like this:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">static</span> <span class="no">VALUE</span>
-<span class="n">fdbm_delete</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">obj</span><span class="p">,</span> <span class="no">VALUE</span> <span class="n">keystr</span><span class="p">)</span>
-<span class="p">{</span>
-      <span class="sr">/* ... */</span>
-<span class="p">}</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>static VALUE
+fdbm_delete(VALUE obj, VALUE keystr)
+{
+      /* ... */
+}
 </code></pre></div></div>
 
 <p>The first argument of the C function is the self, the rest are the
@@ -1025,15 +1178,15 @@ arguments to the method.</p>
 <p>Second, methods with an arbitrary number of arguments receive arguments
 like this:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">static</span> <span class="no">VALUE</span>
-<span class="n">fdbm_s_open</span><span class="p">(</span><span class="n">int</span> <span class="n">argc</span><span class="p">,</span> <span class="no">VALUE</span> <span class="o">*</span><span class="n">argv</span><span class="p">,</span> <span class="no">VALUE</span> <span class="n">klass</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="sr">/* ... */</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">rb_scan_args</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s2">"11"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">file</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">vmode</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">mode</span> <span class="o">=</span> <span class="mo">0666</span><span class="p">;</span>          <span class="sr">/* default value */</span>
-    <span class="p">}</span>
-    <span class="sr">/* ... */</span>
-<span class="p">}</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>static VALUE
+fdbm_s_open(int argc, VALUE *argv, VALUE klass)
+{
+    /* ... */
+    if (rb_scan_args(argc, argv, "11", &amp;file, &amp;vmode) == 1) {
+        mode = 0666;          /* default value */
+    }
+    /* ... */
+}
 </code></pre></div></div>
 
 <p>The first argument is the number of method arguments, the second
@@ -1050,11 +1203,11 @@ handy in the case you want to treat the arguments as a list.</p>
 <p>The following is an example of a method that takes arguments by Ruby’s
 array:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">static</span> <span class="no">VALUE</span>
-<span class="n">thread_initialize</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">thread</span><span class="p">,</span> <span class="no">VALUE</span> <span class="n">args</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="sr">/* ... */</span>
-<span class="p">}</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>static VALUE
+thread_initialize(VALUE thread, VALUE args)
+{
+    /* ... */
+}
 </code></pre></div></div>
 
 <p>The first argument is the receiver, the second one is the Ruby array
@@ -1081,34 +1234,34 @@ to put</p>
 <p>at the top of the file. You can use the functions below to check various
 conditions.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">have_macro</span><span class="p">(</span><span class="n">macro</span><span class="p">[,</span> <span class="n">headers</span><span class="p">[,</span> <span class="n">opt</span><span class="p">]]):</span> <span class="n">check</span> <span class="n">whether</span> <span class="n">macro</span> <span class="n">is</span> <span class="n">defined</span>
-<span class="n">have_library</span><span class="p">(</span><span class="n">lib</span><span class="p">[,</span> <span class="n">func</span><span class="p">[,</span> <span class="n">headers</span><span class="p">[,</span> <span class="n">opt</span><span class="p">]]]):</span> <span class="n">check</span> <span class="n">whether</span> <span class="n">library</span> <span class="n">containing</span> <span class="n">function</span> <span class="n">exists</span>
-<span class="n">find_library</span><span class="p">(</span><span class="n">lib</span><span class="p">[,</span> <span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">paths</span><span class="p">]):</span> <span class="n">find</span> <span class="n">library</span> <span class="n">from</span> <span class="n">paths</span>
-<span class="n">have_func</span><span class="p">(</span><span class="n">func</span><span class="p">[,</span> <span class="n">headers</span><span class="p">[,</span> <span class="n">opt</span><span class="p">]):</span> <span class="n">check</span> <span class="n">whether</span> <span class="n">function</span> <span class="n">exists</span>
-<span class="n">have_var</span><span class="p">(</span><span class="n">var</span><span class="p">[,</span> <span class="n">headers</span><span class="p">[,</span> <span class="n">opt</span><span class="p">]]):</span> <span class="n">check</span> <span class="n">whether</span> <span class="n">variable</span> <span class="n">exists</span>
-<span class="n">have_header</span><span class="p">(</span><span class="n">header</span><span class="p">[,</span> <span class="n">preheaders</span><span class="p">[,</span> <span class="n">opt</span><span class="p">]]):</span> <span class="n">check</span> <span class="n">whether</span> <span class="n">header</span> <span class="n">file</span> <span class="n">exists</span>
-<span class="n">find_header</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="o">*</span><span class="n">paths</span><span class="p">):</span> <span class="n">find</span> <span class="n">header</span> <span class="n">from</span> <span class="n">paths</span>
-<span class="n">have_framework</span><span class="p">(</span><span class="n">fw</span><span class="p">):</span> <span class="n">check</span> <span class="n">whether</span> <span class="n">framework</span> <span class="n">exists</span> <span class="p">(</span><span class="k">for</span> <span class="no">MacOS</span> <span class="no">X</span><span class="p">)</span>
-<span class="n">have_struct_member</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="n">member</span><span class="p">[,</span> <span class="n">headers</span><span class="p">[,</span> <span class="n">opt</span><span class="p">]]):</span> <span class="n">check</span> <span class="n">whether</span> <span class="n">struct</span> <span class="n">has</span> <span class="n">member</span>
-<span class="n">have_type</span><span class="p">(</span><span class="n">type</span><span class="p">[,</span> <span class="n">headers</span><span class="p">[,</span> <span class="n">opt</span><span class="p">]]):</span> <span class="n">check</span> <span class="n">whether</span> <span class="n">type</span> <span class="n">exists</span>
-<span class="n">find_type</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="n">opt</span><span class="p">,</span> <span class="o">*</span><span class="n">headers</span><span class="p">):</span> <span class="n">check</span> <span class="n">whether</span> <span class="n">type</span> <span class="n">exists</span> <span class="k">in</span> <span class="n">headers</span>
-<span class="n">have_const</span><span class="p">(</span><span class="n">const</span><span class="p">[,</span> <span class="n">headers</span><span class="p">[,</span> <span class="n">opt</span><span class="p">]]):</span> <span class="n">check</span> <span class="n">whether</span> <span class="n">constant</span> <span class="n">is</span> <span class="n">defined</span>
-<span class="n">check_sizeof</span><span class="p">(</span><span class="n">type</span><span class="p">[,</span> <span class="n">headers</span><span class="p">[,</span> <span class="n">opts</span><span class="p">]]):</span> <span class="n">check</span> <span class="n">size</span> <span class="n">of</span> <span class="n">type</span>
-<span class="n">check_signedness</span><span class="p">(</span><span class="n">type</span><span class="p">[,</span> <span class="n">headers</span><span class="p">[,</span> <span class="n">opts</span><span class="p">]]):</span> <span class="n">check</span> <span class="n">signedness</span> <span class="n">of</span> <span class="n">type</span>
-<span class="n">convertible_int</span><span class="p">(</span><span class="n">type</span><span class="p">[,</span> <span class="n">headers</span><span class="p">[,</span> <span class="n">opts</span><span class="p">]]):</span> <span class="n">find</span> <span class="n">convertible</span> <span class="n">integer</span> <span class="n">type</span>
-<span class="n">find_executable</span><span class="p">(</span><span class="n">bin</span><span class="p">[,</span> <span class="n">path</span><span class="p">]):</span> <span class="n">find</span> <span class="n">executable</span> <span class="n">file</span> <span class="n">path</span>
-<span class="n">create_header</span><span class="p">(</span><span class="n">header</span><span class="p">):</span> <span class="n">generate</span> <span class="n">configured</span> <span class="n">header</span>
-<span class="n">create_makefile</span><span class="p">(</span><span class="n">target</span><span class="p">[,</span> <span class="n">target_prefix</span><span class="p">]):</span> <span class="n">generate</span> <span class="no">Makefile</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>have_macro(macro[, headers[, opt]]): check whether macro is defined
+have_library(lib[, func[, headers[, opt]]]): check whether library containing function exists
+find_library(lib[, func, *paths]): find library from paths
+have_func(func[, headers[, opt]): check whether function exists
+have_var(var[, headers[, opt]]): check whether variable exists
+have_header(header[, preheaders[, opt]]): check whether header file exists
+find_header(header, *paths): find header from paths
+have_framework(fw): check whether framework exists (for MacOS X)
+have_struct_member(type, member[, headers[, opt]]): check whether struct has member
+have_type(type[, headers[, opt]]): check whether type exists
+find_type(type, opt, *headers): check whether type exists in headers
+have_const(const[, headers[, opt]]): check whether constant is defined
+check_sizeof(type[, headers[, opts]]): check size of type
+check_signedness(type[, headers[, opts]]): check signedness of type
+convertible_int(type[, headers[, opts]]): find convertible integer type
+find_executable(bin[, path]): find executable file path
+create_header(header): generate configured header
+create_makefile(target[, target_prefix]): generate Makefile
 </code></pre></div></div>
 
 <p>See MakeMakefile for full documentation of these functions.</p>
 
 <p>The value of the variables below will affect the Makefile.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="vg">$CFLAGS</span><span class="p">:</span> <span class="n">included</span> <span class="k">in</span> <span class="no">CFLAGS</span> <span class="n">make</span> <span class="n">variable</span> <span class="p">(</span><span class="n">such</span> <span class="n">as</span> <span class="o">-</span><span class="no">O</span><span class="p">)</span>
-<span class="vg">$CPPFLAGS</span><span class="p">:</span> <span class="n">included</span> <span class="k">in</span> <span class="no">CPPFLAGS</span> <span class="n">make</span> <span class="n">variable</span> <span class="p">(</span><span class="n">such</span> <span class="n">as</span> <span class="o">-</span><span class="no">I</span><span class="p">,</span> <span class="o">-</span><span class="no">D</span><span class="p">)</span>
-<span class="vg">$LDFLAGS</span><span class="p">:</span> <span class="n">included</span> <span class="k">in</span> <span class="no">LDFLAGS</span> <span class="n">make</span> <span class="n">variable</span> <span class="p">(</span><span class="n">such</span> <span class="n">as</span> <span class="o">-</span><span class="no">L</span><span class="p">)</span>
-<span class="vg">$objs</span><span class="p">:</span> <span class="n">list</span> <span class="n">of</span> <span class="n">object</span> <span class="n">file</span> <span class="n">names</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$CFLAGS: included in CFLAGS make variable (such as -O)
+$CPPFLAGS: included in CPPFLAGS make variable (such as -I, -D)
+$LDFLAGS: included in LDFLAGS make variable (such as -L)
+$objs: list of object file names
 </code></pre></div></div>
 
 <p>Normally, the object files list is automatically generated by searching
@@ -1124,7 +1277,7 @@ will not be done.</p>
 <p>If the file named depend exists, Makefile will include that file to
 check dependencies. You can make this file by invoking</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sx">% gcc </span><span class="o">-</span><span class="no">MM</span> <span class="o">*</span><span class="p">.</span><span class="nf">c</span> <span class="o">&gt;</span> <span class="n">depend</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>% gcc -MM *.c &gt; depend
 </code></pre></div></div>
 
 <p>It’s harmless. Prepare it.</p>
@@ -1193,29 +1346,29 @@ free to use, modify, distribute or sell your program.</p>
 
 <h3 id="ruby-evaluator-aka-yarv">Ruby Evaluator (a.k.a. YARV)</h3>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">compile</span><span class="p">.</span><span class="nf">c</span>
-<span class="nb">eval</span><span class="p">.</span><span class="nf">c</span>
-<span class="n">eval_error</span><span class="p">.</span><span class="nf">c</span>
-<span class="n">eval_jump</span><span class="p">.</span><span class="nf">c</span>
-<span class="n">eval_safe</span><span class="p">.</span><span class="nf">c</span>
-<span class="n">insns</span><span class="p">.</span><span class="nf">def</span>           <span class="p">:</span> <span class="n">definition</span> <span class="n">of</span> <span class="no">VM</span> <span class="n">instructions</span>
-<span class="n">iseq</span><span class="p">.</span><span class="nf">c</span>              <span class="p">:</span> <span class="n">implementation</span> <span class="n">of</span> <span class="no">VM</span><span class="o">::</span><span class="no">ISeq</span>
-<span class="n">thread</span><span class="p">.</span><span class="nf">c</span>            <span class="p">:</span> <span class="n">thread</span> <span class="n">management</span> <span class="n">and</span> <span class="n">context</span> <span class="n">switching</span>
-<span class="n">thread_win32</span><span class="p">.</span><span class="nf">c</span>      <span class="p">:</span> <span class="n">thread</span> <span class="n">implementation</span>
-<span class="n">thread_pthread</span><span class="p">.</span><span class="nf">c</span>    <span class="p">:</span> <span class="n">ditto</span>
-<span class="n">vm</span><span class="p">.</span><span class="nf">c</span>
-<span class="n">vm_dump</span><span class="p">.</span><span class="nf">c</span>
-<span class="n">vm_eval</span><span class="p">.</span><span class="nf">c</span>
-<span class="n">vm_exec</span><span class="p">.</span><span class="nf">c</span>
-<span class="n">vm_insnhelper</span><span class="p">.</span><span class="nf">c</span>
-<span class="n">vm_method</span><span class="p">.</span><span class="nf">c</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compile.c
+eval.c
+eval_error.c
+eval_jump.c
+eval_safe.c
+insns.def           : definition of VM instructions
+iseq.c              : implementation of VM::ISeq
+thread.c            : thread management and context switching
+thread_win32.c      : thread implementation
+thread_pthread.c    : ditto
+vm.c
+vm_dump.c
+vm_eval.c
+vm_exec.c
+vm_insnhelper.c
+vm_method.c
 
-<span class="n">defs</span><span class="o">/</span><span class="n">opt_insns_unif</span><span class="p">.</span><span class="nf">def</span>  <span class="p">:</span> <span class="n">instruction</span> <span class="n">unification</span>
-<span class="n">defs</span><span class="o">/</span><span class="n">opt_operand</span><span class="p">.</span><span class="nf">def</span>     <span class="p">:</span> <span class="n">definitions</span> <span class="k">for</span> <span class="n">optimization</span>
+defs/opt_insns_unif.def  : instruction unification
+defs/opt_operand.def     : definitions for optimization
 
-  <span class="o">-&gt;</span> <span class="n">insn</span><span class="o">*</span><span class="p">.</span><span class="nf">inc</span>           <span class="p">:</span> <span class="n">automatically</span> <span class="n">generated</span>
-  <span class="o">-&gt;</span> <span class="n">opt</span><span class="o">*</span><span class="p">.</span><span class="nf">inc</span>            <span class="p">:</span> <span class="n">automatically</span> <span class="n">generated</span>
-  <span class="o">-&gt;</span> <span class="n">vm</span><span class="p">.</span><span class="nf">inc</span>              <span class="p">:</span> <span class="n">automatically</span> <span class="n">generated</span>
+  -&gt; insn*.inc           : automatically generated
+  -&gt; opt*.inc            : automatically generated
+  -&gt; vm.inc              : automatically generated
 </code></pre></div></div>
 
 <h3 id="regular-expression-engine-oniguruma">Regular Expression Engine (Oniguruma)</h3>
@@ -1300,9 +1453,9 @@ free to use, modify, distribute or sell your program.</p>
 
 <h3 id="goruby-interpreter-implementation">goruby Interpreter Implementation</h3>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">goruby</span><span class="p">.</span><span class="nf">c</span>
-<span class="n">golf_prelude</span><span class="p">.</span><span class="nf">rb</span>     <span class="p">:</span> <span class="n">goruby</span> <span class="n">specific</span> <span class="n">libraries</span><span class="p">.</span>
-  <span class="nf">-</span><span class="o">&gt;</span> <span class="n">golf_prelude</span><span class="p">.</span><span class="nf">c</span> <span class="p">:</span> <span class="n">automatically</span> <span class="n">generated</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>goruby.c
+golf_prelude.rb     : goruby specific libraries.
+  -&gt; golf_prelude.c : automatically generated
 </code></pre></div></div>
 
 <h2 id="appendix-b-ruby-extension-api-reference">Appendix B. Ruby Extension API Reference</h2>
@@ -1505,8 +1658,8 @@ called when the variable is referenced. The setter function is called
 when the variable is set to a value. The prototype for getter/setter
 functions are:</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="no">VALUE</span> <span class="n">getter</span><span class="p">(</span><span class="no">ID</span> <span class="nb">id</span><span class="p">)</span>
-  <span class="n">void</span> <span class="n">setter</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">val</span><span class="p">,</span> <span class="no">ID</span> <span class="nb">id</span><span class="p">)</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  VALUE getter(ID id)
+  void setter(VALUE val, ID id)
 </code></pre></div>    </div>
 
     <p>The getter function must return the value for the access.</p>
@@ -1516,12 +1669,12 @@ functions are:</p>
 (</em>getter)(), void (*setter)()): Defines hooked variable. It’s a
 virtual variable with a C variable. The getter is called as</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="no">VALUE</span> <span class="n">getter</span><span class="p">(</span><span class="no">ID</span> <span class="nb">id</span><span class="p">,</span> <span class="no">VALUE</span> <span class="o">*</span><span class="n">var</span><span class="p">)</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  VALUE getter(ID id, VALUE *var)
 </code></pre></div>    </div>
 
     <p>returning a new value. The setter is called as</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">void</span> <span class="n">setter</span><span class="p">(</span><span class="no">VALUE</span> <span class="n">val</span><span class="p">,</span> <span class="no">ID</span> <span class="nb">id</span><span class="p">,</span> <span class="no">VALUE</span> <span class="o">*</span><span class="n">var</span><span class="p">)</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  void setter(VALUE val, ID id, VALUE *var)
 </code></pre></div>    </div>
   </li>
   <li>
@@ -1580,42 +1733,42 @@ Retrieve argument from argc and argv to given VALUE references
 according to the format string. The format can be described in ABNF as
 follows:</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">scan</span><span class="o">-</span><span class="n">arg</span><span class="o">-</span><span class="n">spec</span>  <span class="p">:</span><span class="o">=</span> <span class="n">param</span><span class="o">-</span><span class="n">arg</span><span class="o">-</span><span class="n">spec</span> <span class="p">[</span><span class="n">option</span><span class="o">-</span><span class="nb">hash</span><span class="o">-</span><span class="n">arg</span><span class="o">-</span><span class="n">spec</span><span class="p">]</span> <span class="p">[</span><span class="n">block</span><span class="o">-</span><span class="n">arg</span><span class="o">-</span><span class="n">spec</span><span class="p">]</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  scan-arg-spec  := param-arg-spec [option-hash-arg-spec] [block-arg-spec]
   
-  <span class="n">param</span><span class="o">-</span><span class="n">arg</span><span class="o">-</span><span class="n">spec</span> <span class="p">:</span><span class="o">=</span> <span class="n">pre</span><span class="o">-</span><span class="n">arg</span><span class="o">-</span><span class="n">spec</span> <span class="p">[</span><span class="n">post</span><span class="o">-</span><span class="n">arg</span><span class="o">-</span><span class="n">spec</span><span class="p">]</span> <span class="o">/</span> <span class="n">post</span><span class="o">-</span><span class="n">arg</span><span class="o">-</span><span class="n">spec</span> <span class="o">/</span>
-                    <span class="n">pre</span><span class="o">-</span><span class="n">opt</span><span class="o">-</span><span class="n">post</span><span class="o">-</span><span class="n">arg</span><span class="o">-</span><span class="n">spec</span>
-  <span class="n">pre</span><span class="o">-</span><span class="n">arg</span><span class="o">-</span><span class="n">spec</span>   <span class="p">:</span><span class="o">=</span> <span class="n">num</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">leading</span><span class="o">-</span><span class="n">mandatory</span><span class="o">-</span><span class="n">args</span> <span class="p">[</span><span class="n">num</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">optional</span><span class="o">-</span><span class="n">args</span><span class="p">]</span>
-  <span class="n">post</span><span class="o">-</span><span class="n">arg</span><span class="o">-</span><span class="n">spec</span>  <span class="p">:</span><span class="o">=</span> <span class="n">sym</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">variable</span><span class="o">-</span><span class="n">length</span><span class="o">-</span><span class="n">args</span>
-                    <span class="p">[</span><span class="n">num</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">trailing</span><span class="o">-</span><span class="n">mandatory</span><span class="o">-</span><span class="n">args</span><span class="p">]</span>
-  <span class="n">pre</span><span class="o">-</span><span class="n">opt</span><span class="o">-</span><span class="n">post</span><span class="o">-</span><span class="n">arg</span><span class="o">-</span><span class="n">spec</span> <span class="p">:</span><span class="o">=</span> <span class="n">num</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">leading</span><span class="o">-</span><span class="n">mandatory</span><span class="o">-</span><span class="n">args</span> <span class="n">num</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">optional</span><span class="o">-</span><span class="n">args</span>
-                           <span class="n">num</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">trailing</span><span class="o">-</span><span class="n">mandatory</span><span class="o">-</span><span class="n">args</span>
-  <span class="n">option</span><span class="o">-</span><span class="nb">hash</span><span class="o">-</span><span class="n">arg</span><span class="o">-</span><span class="n">spec</span> <span class="p">:</span><span class="o">=</span> <span class="n">sym</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">option</span><span class="o">-</span><span class="nb">hash</span><span class="o">-</span><span class="n">arg</span>
-  <span class="n">block</span><span class="o">-</span><span class="n">arg</span><span class="o">-</span><span class="n">spec</span> <span class="p">:</span><span class="o">=</span> <span class="n">sym</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">block</span><span class="o">-</span><span class="n">arg</span>
+  param-arg-spec := pre-arg-spec [post-arg-spec] / post-arg-spec /
+                    pre-opt-post-arg-spec
+  pre-arg-spec   := num-of-leading-mandatory-args [num-of-optional-args]
+  post-arg-spec  := sym-for-variable-length-args
+                    [num-of-trailing-mandatory-args]
+  pre-opt-post-arg-spec := num-of-leading-mandatory-args num-of-optional-args
+                           num-of-trailing-mandatory-args
+  option-hash-arg-spec := sym-for-option-hash-arg
+  block-arg-spec := sym-for-block-arg
   
-  <span class="n">num</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">leading</span><span class="o">-</span><span class="n">mandatory</span><span class="o">-</span><span class="n">args</span>  <span class="p">:</span><span class="o">=</span> <span class="no">DIGIT</span> <span class="p">;</span> <span class="no">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">leading</span>
-                                          <span class="p">;</span> <span class="n">mandatory</span> <span class="n">arguments</span>
-  <span class="n">num</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">optional</span><span class="o">-</span><span class="n">args</span>           <span class="p">:</span><span class="o">=</span> <span class="no">DIGIT</span> <span class="p">;</span> <span class="no">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">optional</span>
-                                          <span class="p">;</span> <span class="n">arguments</span>
-  <span class="n">sym</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">variable</span><span class="o">-</span><span class="n">length</span><span class="o">-</span><span class="n">args</span>   <span class="p">:</span><span class="o">=</span> <span class="s2">"*"</span>   <span class="p">;</span> <span class="no">Indicates</span> <span class="n">that</span> <span class="n">variable</span>
-                                          <span class="p">;</span> <span class="n">length</span> <span class="n">arguments</span> <span class="n">are</span>
-                                          <span class="p">;</span> <span class="n">captured</span> <span class="n">as</span> <span class="n">a</span> <span class="n">ruby</span> <span class="n">array</span>
-  <span class="n">num</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">trailing</span><span class="o">-</span><span class="n">mandatory</span><span class="o">-</span><span class="n">args</span> <span class="p">:</span><span class="o">=</span> <span class="no">DIGIT</span> <span class="p">;</span> <span class="no">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">trailing</span>
-                                          <span class="p">;</span> <span class="n">mandatory</span> <span class="n">arguments</span>
-  <span class="n">sym</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">option</span><span class="o">-</span><span class="nb">hash</span><span class="o">-</span><span class="n">arg</span>        <span class="p">:</span><span class="o">=</span> <span class="s2">":"</span>   <span class="p">;</span> <span class="no">Indicates</span> <span class="n">that</span> <span class="n">an</span> <span class="n">option</span>
-                                          <span class="p">;</span> <span class="nb">hash</span> <span class="n">is</span> <span class="n">captured</span> <span class="k">if</span> <span class="n">the</span> <span class="n">last</span>
-                                          <span class="p">;</span> <span class="n">argument</span> <span class="n">is</span> <span class="n">a</span> <span class="nb">hash</span> <span class="n">or</span> <span class="n">can</span> <span class="n">be</span>
-                                          <span class="p">;</span> <span class="n">converted</span> <span class="n">to</span> <span class="n">a</span> <span class="nb">hash</span> <span class="n">with</span>
-                                          <span class="p">;</span> <span class="c1">#to_hash.  When the last</span>
-                                          <span class="p">;</span> <span class="n">argument</span> <span class="n">is</span> <span class="kp">nil</span><span class="p">,</span> <span class="n">it</span> <span class="n">is</span>
-                                          <span class="p">;</span> <span class="n">captured</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">not</span>
-                                          <span class="p">;</span> <span class="n">ambiguous</span> <span class="n">to</span> <span class="n">take</span> <span class="n">it</span> <span class="n">as</span>
-                                          <span class="p">;</span> <span class="n">empty</span> <span class="n">option</span> <span class="nb">hash</span><span class="p">;</span> <span class="n">i</span><span class="p">.</span><span class="nf">e</span><span class="o">.</span> <span class="s1">'*'</span>
-                                          <span class="p">;</span> <span class="n">is</span> <span class="n">not</span> <span class="n">specified</span> <span class="n">and</span>
-                                          <span class="p">;</span> <span class="n">arguments</span> <span class="n">are</span> <span class="n">given</span> <span class="n">more</span>
-                                          <span class="p">;</span> <span class="n">than</span> <span class="n">sufficient</span><span class="p">.</span>
-  <span class="nf">sym</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">block</span><span class="o">-</span><span class="n">arg</span>              <span class="p">:</span><span class="o">=</span> <span class="s2">"&amp;"</span>   <span class="p">;</span> <span class="no">Indicates</span> <span class="n">that</span> <span class="n">an</span> <span class="n">iterator</span>
-                                          <span class="p">;</span> <span class="n">block</span> <span class="n">should</span> <span class="n">be</span> <span class="n">captured</span> <span class="k">if</span>
-                                          <span class="p">;</span> <span class="n">given</span>
+  num-of-leading-mandatory-args  := DIGIT ; The number of leading
+                                          ; mandatory arguments
+  num-of-optional-args           := DIGIT ; The number of optional
+                                          ; arguments
+  sym-for-variable-length-args   := "*"   ; Indicates that variable
+                                          ; length arguments are
+                                          ; captured as a ruby array
+  num-of-trailing-mandatory-args := DIGIT ; The number of trailing
+                                          ; mandatory arguments
+  sym-for-option-hash-arg        := ":"   ; Indicates that an option
+                                          ; hash is captured if the last
+                                          ; argument is a hash or can be
+                                          ; converted to a hash with
+                                          ; #to_hash.  When the last
+                                          ; argument is nil, it is
+                                          ; captured if it is not
+                                          ; ambiguous to take it as
+                                          ; empty option hash; i.e. '*'
+                                          ; is not specified and
+                                          ; arguments are given more
+                                          ; than sufficient.
+  sym-for-block-arg              := "&amp;"   ; Indicates that an iterator
+                                          ; block should be captured if
+                                          ; given
 </code></pre></div>    </div>
 
     <p>For example, “12” means that the method requires at least one
@@ -1961,8 +2114,8 @@ specified interpreter events. events should be OR’ed value of:</p>
 
     <p>The definition of rb_event_hook_func_t is below:</p>
 
-    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">typedef</span> <span class="n">void</span> <span class="p">(</span><span class="o">*</span><span class="n">rb_event_hook_func_t</span><span class="p">)(</span><span class="n">rb_event_t</span> <span class="n">event</span><span class="p">,</span> <span class="no">VALUE</span> <span class="n">data</span><span class="p">,</span>
-                                       <span class="no">VALUE</span> <span class="nb">self</span><span class="p">,</span> <span class="no">ID</span> <span class="nb">id</span><span class="p">,</span> <span class="no">VALUE</span> <span class="n">klass</span><span class="p">)</span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  typedef void (*rb_event_hook_func_t)(rb_event_t event, VALUE data,
+                                       VALUE self, ID id, VALUE klass)
 </code></pre></div>    </div>
 
     <p>The third argument <code class="highlighter-rouge">data</code> to rb_add_event_hook() is passed to the
@@ -2145,14 +2298,14 @@ VALUE.</p>
 contents of sptr remain valid while the second invocation of
 rb_str_new_cstr is running.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">VALUE</span> <span class="n">s</span><span class="p">,</span> <span class="n">w</span><span class="p">;</span>
-<span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">sptr</span><span class="p">;</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VALUE s, w;
+const char *sptr;
 
-<span class="n">s</span> <span class="o">=</span> <span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="s2">"hello world!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"</span><span class="p">);</span>
-<span class="n">sptr</span> <span class="o">=</span> <span class="no">RSTRING_PTR</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-<span class="n">w</span> <span class="o">=</span> <span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="n">sptr</span> <span class="o">+</span> <span class="mi">6</span><span class="p">);</span> <span class="sr">/* Possible GC invocation */</span>
+s = rb_str_new_cstr("hello world!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+sptr = RSTRING_PTR(s);
+w = rb_str_new_cstr(sptr + 6); /* Possible GC invocation */
 
-<span class="no">RB_GC_GUARD</span><span class="p">(</span><span class="n">s</span><span class="p">);</span> <span class="sr">/* ensure s (and thus sptr) do not get GC-ed */</span>
+RB_GC_GUARD(s); /* ensure s (and thus sptr) do not get GC-ed */
 </code></pre></div></div>
 
 <p>In the above example, RB_GC_GUARD must be placed <em>after</em> the last use
@@ -2222,6 +2375,6 @@ Reference</a></p>
         </div>
 
 
-        <script src="js/book.js"></script>
+        <script src="/js/book.js"></script>
     </body>
 </html>

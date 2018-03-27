@@ -42,24 +42,177 @@
 
               
               <li>
-                <a href="#about-this-book.html"> About This Book</a>
+                <a href="/about-this-book.html"> About This Book</a>
               </li>
+                
               
               <li>
-                <a href="#language.html"> Language Structure</a>
+                <a href="/language.html"> Language Structure</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/language/keywords.html"> Keywords</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/literals.html"> Literals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/variables-constants.html"> Variables and Constants</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/assignment.html"> Assignment</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/control-expressions.html"> Control Expressions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-def.html"> Defining methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-call.html"> Calling methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/modules-classes.html"> Modules and Classes</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/exceptions.html"> Exceptions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/refinements.html"> Refinements</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/precedence.html"> Precedence</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/files.html"> File Structure</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/globals.html"> Globals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/metaprogramming.html"> Metaprogramming</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#builtin.html"> Built-in Classes</a>
+                <a href="/builtin.html"> Built-in Classes</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/builtin/core.html"> Language Core</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/types.html"> Value Types</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/errors-warnings.html"> Errors and Warnings</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/system-cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/concurrency-parallelism.html"> Concurrency and Parallelism</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/internals.html"> Interpreter Internals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/marshal.html"> Marshal</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/random.html"> Random</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#stdlib.html"> Standard Library</a>
+                <a href="/stdlib.html"> Standard Library</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/stdlib/patterns.html"> Design Patterns</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/formats.html"> Formats</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/development-debugging.html"> Development and Debugging</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/string-utilities.html"> String Utilities</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/networking-web.html"> Networking and Web</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cryptography-encoding.html"> Cryptography and Encoding</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/misc.html"> Miscellaneous Libraries</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#advanced-topics.html"> Advanced Topics</a>
+                <a href="/advanced-topics.html"> Advanced Topics</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/advanced-topics/third-party-libraries.html"> Third-Party Libraries</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/tools-approaches.html"> Tools and Approaches</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/contributing.html"> Contributing To Ruby</a>
+                          </li>
+                        
+                    </ul>
+                
               
 
             </ul>
@@ -203,16 +356,16 @@ external encoding is set by locale encoding or the interpreter <code class="high
 option. Encoding.default_external returns the current value of the
 external encoding.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">ENV</span><span class="p">[</span><span class="s2">"LANG"</span><span class="p">]</span>
-<span class="c1">#=&gt; "UTF-8"</span>
-<span class="no">Encoding</span><span class="p">.</span><span class="nf">default_external</span>
-<span class="c1">#=&gt; #&lt;Encoding:UTF-8&gt;</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ENV["LANG"]
+#=&gt; "UTF-8"
+Encoding.default_external
+#=&gt; #&lt;Encoding:UTF-8&gt;
 
-<span class="err">$</span> <span class="n">ruby</span> <span class="o">-</span><span class="no">E</span> <span class="no">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="n">e</span> <span class="s2">"p Encoding.default_external"</span>
-<span class="c1">#&lt;Encoding:ISO-8859-1&gt;</span>
+$ ruby -E ISO-8859-1 -e "p Encoding.default_external"
+#&lt;Encoding:ISO-8859-1&gt;
 
-<span class="err">$</span> <span class="no">LANG</span><span class="o">=</span><span class="no">C</span> <span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s1">'p Encoding.default_external'</span>
-<span class="c1">#&lt;Encoding:US-ASCII&gt;</span>
+$ LANG=C ruby -e 'p Encoding.default_external'
+#&lt;Encoding:US-ASCII&gt;
 </code></pre></div></div>
 
 <p>The default external encoding may also be set through
@@ -245,12 +398,12 @@ encoding is <code class="highlighter-rouge">nil</code> meaning that by default, 
 <p>The default internal encoding can be set with the interpreter option
 <code class="highlighter-rouge">-E</code>. Encoding.default_internal returns the current internal encoding.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s1">'p Encoding.default_internal'</span>
-<span class="kp">nil</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ruby -e 'p Encoding.default_internal'
+nil
 
-<span class="err">$</span> <span class="n">ruby</span> <span class="o">-</span><span class="no">E</span> <span class="no">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span><span class="ss">:UTF</span><span class="o">-</span><span class="mi">8</span> <span class="o">-</span><span class="n">e</span> <span class="s2">"p [Encoding.default_external, \
-  Encoding.default_internal]"</span>
-<span class="p">[</span><span class="c1">#&lt;Encoding:ISO-8859-1&gt;, #&lt;Encoding:UTF-8&gt;]</span>
+$ ruby -E ISO-8859-1:UTF-8 -e "p [Encoding.default_external, \
+  Encoding.default_internal]"
+[#&lt;Encoding:ISO-8859-1&gt;, #&lt;Encoding:UTF-8&gt;]
 </code></pre></div></div>
 
 <p>The default internal encoding may also be set through
@@ -284,12 +437,12 @@ transcoded to UTF-8:</p>
 only necessary for reading. While reading the file both the internal and
 external encoding must be specified to obtain the correct result.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">ruby</span> <span class="n">t</span><span class="p">.</span><span class="nf">rb</span>
-<span class="n">raw</span> <span class="ss">text:
-</span><span class="s2">"R</span><span class="se">\xE9</span><span class="s2">sum</span><span class="se">\xE9</span><span class="s2">"</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ruby t.rb
+raw text:
+"R\xE9sum\xE9"
 
-<span class="n">transcoded</span> <span class="ss">text:
-</span><span class="s2">"R</span><span class="se">\u</span><span class="s2">00E9sum</span><span class="se">\u</span><span class="s2">00E9"</span>
+transcoded text:
+"R\u00E9sum\u00E9"
 </code></pre></div></div>
 
 <p><a href="http://ruby-doc.org/core-2.5.0/Encoding.html">Encoding Reference</a></p>
@@ -318,6 +471,6 @@ external encoding must be specified to obtain the correct result.</p>
         </div>
 
 
-        <script src="js/book.js"></script>
+        <script src="/js/book.js"></script>
     </body>
 </html>

@@ -19,7 +19,7 @@ Standard output by `#p` returns this:
 Pretty-printed output returns this:
 
 
-```ruby
+```
 #<PP:0x81fedf0
  @buffer=[],
  @buffer_width=0,
@@ -41,7 +41,7 @@ Pretty-printed output returns this:
 ## Usage
 
 
-```ruby
+```
 pp(obj)             #=> obj
 pp obj              #=> obj
 pp(obj1, obj2, ...) #=> [obj1, obj2, ...]

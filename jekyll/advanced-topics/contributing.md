@@ -311,14 +311,14 @@ Now let's build CRuby:
 * Checkout the CRuby source code:
   
   
-  ```ruby
+  ```
   git clone git://github.com/ruby/ruby.git ruby-trunk
   ```
 
 * Generate the configuration files and build:
   
   
-  ```ruby
+  ```
   cd ruby-trunk
   autoconf
   mkdir build && cd build # its good practice to build outside of source dir
@@ -340,14 +340,14 @@ interpreter just built. Use TESTS or RUNRUBYOPT to pass parameters, such
 as:
 
 
-```ruby
+```
 make test-all TESTS=-v
 ```
 
 This is also how you can run a specific test from our build dir:
 
 
-```ruby
+```
 make test-all TESTS=drb/test_drb.rb
 ```
 
@@ -363,7 +363,7 @@ after checking out the associated branch in git, for example if you
 wanted to checkout 1.9.3:
 
 
-```ruby
+```
 git clone git://github.com/ruby/ruby.git --branch ruby_1_9_3
 ```
 
@@ -421,14 +421,14 @@ simple rules:
 First thing you should do is check out the code if you haven't already:
 
 
-```ruby
+```
 git clone git://github.com/ruby/ruby.git ruby-trunk
 ```
 
 Now create a dedicated branch:
 
 
-```ruby
+```
 cd ruby-trunk
 git checkout -b my_new_branch
 ```
@@ -465,7 +465,7 @@ You can use the following template for the ChangeLog entry on your
 commit:
 
 
-```ruby
+```
 Thu Jan  1 00:00:00 2004  Your Name  <yourmail@example.com>
 
 	* filename (function): short description of this commit.

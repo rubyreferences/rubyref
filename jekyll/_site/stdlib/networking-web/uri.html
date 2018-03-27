@@ -42,24 +42,177 @@
 
               
               <li>
-                <a href="#about-this-book.html"> About This Book</a>
+                <a href="/about-this-book.html"> About This Book</a>
               </li>
+                
               
               <li>
-                <a href="#language.html"> Language Structure</a>
+                <a href="/language.html"> Language Structure</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/language/keywords.html"> Keywords</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/literals.html"> Literals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/variables-constants.html"> Variables and Constants</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/assignment.html"> Assignment</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/control-expressions.html"> Control Expressions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-def.html"> Defining methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/methods-call.html"> Calling methods</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/modules-classes.html"> Modules and Classes</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/exceptions.html"> Exceptions</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/refinements.html"> Refinements</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/precedence.html"> Precedence</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/files.html"> File Structure</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/globals.html"> Globals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/language/metaprogramming.html"> Metaprogramming</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#builtin.html"> Built-in Classes</a>
+                <a href="/builtin.html"> Built-in Classes</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/builtin/core.html"> Language Core</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/types.html"> Value Types</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/errors-warnings.html"> Errors and Warnings</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/system-cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/concurrency-parallelism.html"> Concurrency and Parallelism</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/internals.html"> Interpreter Internals</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/marshal.html"> Marshal</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/builtin/random.html"> Random</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#stdlib.html"> Standard Library</a>
+                <a href="/stdlib.html"> Standard Library</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/stdlib/patterns.html"> Design Patterns</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/formats.html"> Formats</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/development-debugging.html"> Development and Debugging</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/string-utilities.html"> String Utilities</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/networking-web.html"> Networking and Web</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cli.html"> System Programming and CLI</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/cryptography-encoding.html"> Cryptography and Encoding</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/stdlib/misc.html"> Miscellaneous Libraries</a>
+                          </li>
+                        
+                    </ul>
+                
               
               <li>
-                <a href="#advanced-topics.html"> Advanced Topics</a>
+                <a href="/advanced-topics.html"> Advanced Topics</a>
               </li>
+                
+                    <ul class="section">
+                        
+                          <li>
+                            <a href="/advanced-topics/third-party-libraries.html"> Third-Party Libraries</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/tools-approaches.html"> Tools and Approaches</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/advanced-topics/contributing.html"> Contributing To Ruby</a>
+                          </li>
+                        
+                    </ul>
+                
               
 
             </ul>
@@ -101,43 +254,43 @@ patterns and regexp’s)</li>
 
 <h2 id="basic-example">Basic example</h2>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'uri'</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>require 'uri'
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"http://foo.com/posts?id=30&amp;limit=5#time=1305298413"</span><span class="p">)</span>
-<span class="c1">#=&gt; #&lt;URI::HTTP:0x00000000b14880</span>
-      <span class="no">URL</span><span class="ss">:http:/</span><span class="o">/</span><span class="n">foo</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">posts?</span><span class="nb">id</span><span class="o">=</span><span class="mi">30</span><span class="o">&amp;</span><span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="c1">#time=1305298413&gt;</span>
-<span class="n">uri</span><span class="p">.</span><span class="nf">scheme</span>
-<span class="c1">#=&gt; "http"</span>
-<span class="n">uri</span><span class="p">.</span><span class="nf">host</span>
-<span class="c1">#=&gt; "foo.com"</span>
-<span class="n">uri</span><span class="p">.</span><span class="nf">path</span>
-<span class="c1">#=&gt; "/posts"</span>
-<span class="n">uri</span><span class="p">.</span><span class="nf">query</span>
-<span class="c1">#=&gt; "id=30&amp;limit=5"</span>
-<span class="n">uri</span><span class="p">.</span><span class="nf">fragment</span>
-<span class="c1">#=&gt; "time=1305298413"</span>
+uri = URI("http://foo.com/posts?id=30&amp;limit=5#time=1305298413")
+#=&gt; #&lt;URI::HTTP:0x00000000b14880
+      URL:http://foo.com/posts?id=30&amp;limit=5#time=1305298413&gt;
+uri.scheme
+#=&gt; "http"
+uri.host
+#=&gt; "foo.com"
+uri.path
+#=&gt; "/posts"
+uri.query
+#=&gt; "id=30&amp;limit=5"
+uri.fragment
+#=&gt; "time=1305298413"
 
-<span class="n">uri</span><span class="p">.</span><span class="nf">to_s</span>
-<span class="c1">#=&gt; "http://foo.com/posts?id=30&amp;limit=5#time=1305298413"</span>
+uri.to_s
+#=&gt; "http://foo.com/posts?id=30&amp;limit=5#time=1305298413"
 </code></pre></div></div>
 
 <h2 id="adding-custom-uris">Adding custom URIs</h2>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">URI</span>
-  <span class="k">class</span> <span class="nc">RSYNC</span> <span class="o">&lt;</span> <span class="no">Generic</span>
-    <span class="no">DEFAULT_PORT</span> <span class="o">=</span> <span class="mi">873</span>
-  <span class="k">end</span>
-  <span class="vc">@@schemes</span><span class="p">[</span><span class="s1">'RSYNC'</span><span class="p">]</span> <span class="o">=</span> <span class="no">RSYNC</span>
-<span class="k">end</span>
-<span class="c1">#=&gt; URI::RSYNC</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module URI
+  class RSYNC &lt; Generic
+    DEFAULT_PORT = 873
+  end
+  @@schemes['RSYNC'] = RSYNC
+end
+#=&gt; URI::RSYNC
 
-<span class="no">URI</span><span class="p">.</span><span class="nf">scheme_list</span>
-<span class="c1">#=&gt; {"FILE"=&gt;URI::File, "FTP"=&gt;URI::FTP, "HTTP"=&gt;URI::HTTP, "HTTPS"=&gt;URI::HTTPS,</span>
-     <span class="s2">"LDAP"</span><span class="o">=&gt;</span><span class="no">URI</span><span class="o">::</span><span class="no">LDAP</span><span class="p">,</span> <span class="s2">"LDAPS"</span><span class="o">=&gt;</span><span class="no">URI</span><span class="o">::</span><span class="no">LDAPS</span><span class="p">,</span> <span class="s2">"MAILTO"</span><span class="o">=&gt;</span><span class="no">URI</span><span class="o">::</span><span class="no">MailTo</span><span class="p">,</span>
-     <span class="s2">"RSYNC"</span><span class="o">=&gt;</span><span class="no">URI</span><span class="o">::</span><span class="no">RSYNC</span><span class="p">}</span>
+URI.scheme_list
+#=&gt; {"FILE"=&gt;URI::File, "FTP"=&gt;URI::FTP, "HTTP"=&gt;URI::HTTP, "HTTPS"=&gt;URI::HTTPS,
+     "LDAP"=&gt;URI::LDAP, "LDAPS"=&gt;URI::LDAPS, "MAILTO"=&gt;URI::MailTo,
+     "RSYNC"=&gt;URI::RSYNC}
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"rsync://rsync.foo.com"</span><span class="p">)</span>
-<span class="c1">#=&gt; #&lt;URI::RSYNC:0x00000000f648c8 URL:rsync://rsync.foo.com&gt;</span>
+uri = URI("rsync://rsync.foo.com")
+#=&gt; #&lt;URI::RSYNC:0x00000000f648c8 URL:rsync://rsync.foo.com&gt;
 </code></pre></div></div>
 
 <p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/uri/rdoc/URI.html">URI
@@ -167,6 +320,6 @@ Reference</a></p>
         </div>
 
 
-        <script src="js/book.js"></script>
+        <script src="/js/book.js"></script>
     </body>
 </html>
