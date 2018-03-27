@@ -1,0 +1,195 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'csv'</span>
+</code></pre></div></div>
+
+<h1 id="csv">CSV</h1>
+
+<p>This class provides a complete interface to CSV files and data. It
+offers tools to enable you to read and write to and from Strings or IO
+objects, as needed.</p>
+
+<h2 id="reading">Reading</h2>
+
+<h3 id="from-a-file">From a File</h3>
+
+<h4 id="a-line-at-a-time">A Line at a Time</h4>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">CSV</span><span class="p">.</span><span class="nf">foreach</span><span class="p">(</span><span class="s2">"path/to/file.csv"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span>
+  <span class="c1"># use row here...</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h4 id="all-at-once">All at Once</h4>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr_of_arrs</span> <span class="o">=</span> <span class="no">CSV</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="s2">"path/to/file.csv"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="from-a-string">From a String</h3>
+
+<h4 id="a-line-at-a-time-1">A Line at a Time</h4>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">CSV</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"CSV,data,String"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span>
+  <span class="c1"># use row here...</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h4 id="all-at-once-1">All at Once</h4>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr_of_arrs</span> <span class="o">=</span> <span class="no">CSV</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"CSV,data,String"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="writing">Writing</h2>
+
+<h3 id="to-a-file">To a File</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">CSV</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s2">"path/to/file.csv"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">csv</span><span class="o">|</span>
+  <span class="n">csv</span> <span class="o">&lt;&lt;</span> <span class="p">[</span><span class="s2">"row"</span><span class="p">,</span> <span class="s2">"of"</span><span class="p">,</span> <span class="s2">"CSV"</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">]</span>
+  <span class="n">csv</span> <span class="o">&lt;&lt;</span> <span class="p">[</span><span class="s2">"another"</span><span class="p">,</span> <span class="s2">"row"</span><span class="p">]</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h3 id="to-a-string">To a String</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">csv_string</span> <span class="o">=</span> <span class="no">CSV</span><span class="p">.</span><span class="nf">generate</span> <span class="k">do</span> <span class="o">|</span><span class="n">csv</span><span class="o">|</span>
+  <span class="n">csv</span> <span class="o">&lt;&lt;</span> <span class="p">[</span><span class="s2">"row"</span><span class="p">,</span> <span class="s2">"of"</span><span class="p">,</span> <span class="s2">"CSV"</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">]</span>
+  <span class="n">csv</span> <span class="o">&lt;&lt;</span> <span class="p">[</span><span class="s2">"another"</span><span class="p">,</span> <span class="s2">"row"</span><span class="p">]</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="convert-a-single-line">Convert a Single Line</h2>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">csv_string</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"CSV"</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">].</span><span class="nf">to_csv</span>   <span class="c1"># to CSV</span>
+<span class="n">csv_array</span>  <span class="o">=</span> <span class="s2">"CSV,String"</span><span class="p">.</span><span class="nf">parse_csv</span>   <span class="c1"># from CSV</span>
+</code></pre></div></div>
+
+<h2 id="shortcut-interface">Shortcut Interface</h2>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">CSV</span>             <span class="p">{</span> <span class="o">|</span><span class="n">csv_out</span><span class="o">|</span> <span class="n">csv_out</span> <span class="o">&lt;&lt;</span> <span class="sx">%w{my data here}</span> <span class="p">}</span>  <span class="c1"># to $stdout</span>
+<span class="no">CSV</span><span class="p">(</span><span class="n">csv</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span>   <span class="p">{</span> <span class="o">|</span><span class="n">csv_str</span><span class="o">|</span> <span class="n">csv_str</span> <span class="o">&lt;&lt;</span> <span class="sx">%w{my data here}</span> <span class="p">}</span>  <span class="c1"># to a String</span>
+<span class="no">CSV</span><span class="p">(</span><span class="vg">$stderr</span><span class="p">)</span>    <span class="p">{</span> <span class="o">|</span><span class="n">csv_err</span><span class="o">|</span> <span class="n">csv_err</span> <span class="o">&lt;&lt;</span> <span class="sx">%w{my data here}</span> <span class="p">}</span>  <span class="c1"># to $stderr</span>
+<span class="no">CSV</span><span class="p">(</span><span class="vg">$stdin</span><span class="p">)</span>     <span class="p">{</span> <span class="o">|</span><span class="n">csv_in</span><span class="o">|</span>  <span class="n">csv_in</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span> <span class="nb">p</span> <span class="n">row</span> <span class="p">}</span> <span class="p">}</span>  <span class="c1"># from $stdin</span>
+</code></pre></div></div>
+
+<h2 id="advanced-usage">Advanced Usage</h2>
+
+<h3 id="wrap-an-io-object">Wrap an IO Object</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">csv</span> <span class="o">=</span> <span class="no">CSV</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="c1"># ... read (with gets() or each()) from and write (with &lt;&lt;) to csv here ...</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/csv/rdoc/CSV.html">CSV
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

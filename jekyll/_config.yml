@@ -1,0 +1,5 @@
+# Build settings
+markdown: kramdown
+
+plugins:
+  - jekyll-readme-index

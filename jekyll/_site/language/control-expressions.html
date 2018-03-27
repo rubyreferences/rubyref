@@ -1,0 +1,681 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 <h1 id="control-expressions">Control Expressions</h1>
+
+<p>Ruby has a variety of ways to control execution. All the expressions
+described here return a value.</p>
+
+<p>For the tests in these control expressions, <code class="highlighter-rouge">nil</code> and <code class="highlighter-rouge">false</code> are
+false-values and <code class="highlighter-rouge">true</code> and any other object are true-values. In this
+document “true” will mean “true-value” and “false” will mean
+“false-value”.</p>
+
+<h2 id="if-expression"><code class="highlighter-rouge">if</code> Expression</h2>
+
+<p>The simplest <code class="highlighter-rouge">if</code> expression has two parts, a “test” expression and a
+“then” expression. If the “test” expression evaluates to a true then the
+“then” expression is evaluated.</p>
+
+<p>Here is a simple if statement:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="kp">true</span> <span class="k">then</span>
+  <span class="nb">puts</span> <span class="s2">"the test resulted in a true-value"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This will print “the test resulted in a true-value”.</p>
+
+<p>The <code class="highlighter-rouge">then</code> is optional:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="kp">true</span>
+  <span class="nb">puts</span> <span class="s2">"the test resulted in a true-value"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This document will omit the optional <code class="highlighter-rouge">then</code> for all expressions as that
+is the most common usage of <code class="highlighter-rouge">if</code>.</p>
+
+<p>You may also add an <code class="highlighter-rouge">else</code> expression. If the test does not evaluate to
+true the <code class="highlighter-rouge">else</code> expression will be executed:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="kp">false</span>
+  <span class="nb">puts</span> <span class="s2">"the test resulted in a true-value"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"the test resulted in a false-value"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This will print “the test resulted in a false-value”.</p>
+
+<p>You may add an arbitrary number of extra tests to an if expression using
+<code class="highlighter-rouge">elsif</code>. An <code class="highlighter-rouge">elsif</code> executes when all tests above the <code class="highlighter-rouge">elsif</code> are false.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="nb">puts</span> <span class="s2">"a is zero"</span>
+<span class="k">elsif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span>
+  <span class="nb">puts</span> <span class="s2">"a is one"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"a is some other value"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This will print “a is one” as <code class="highlighter-rouge">1</code> is not equal to <code class="highlighter-rouge">0</code>. Since <code class="highlighter-rouge">else</code> is
+only executed when there are no matching conditions.</p>
+
+<p>Once a condition matches, either the <code class="highlighter-rouge">if</code> condition or any <code class="highlighter-rouge">elsif</code>
+condition, the <code class="highlighter-rouge">if</code> expression is complete and no further tests will be
+performed.</p>
+
+<p>Like an <code class="highlighter-rouge">if</code>, an <code class="highlighter-rouge">elsif</code> condition may be followed by a <code class="highlighter-rouge">then</code>.</p>
+
+<p>In this example only “a is one” is printed:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="nb">puts</span> <span class="s2">"a is zero"</span>
+<span class="k">elsif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span>
+  <span class="nb">puts</span> <span class="s2">"a is one"</span>
+<span class="k">elsif</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+  <span class="nb">puts</span> <span class="s2">"a is greater than or equal to one"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"a is some other value"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>The tests for <code class="highlighter-rouge">if</code> and <code class="highlighter-rouge">elsif</code> may have side-effects. The most common
+use of side-effect is to cache a value into a local variable:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">a</span> <span class="o">=</span> <span class="n">object</span><span class="p">.</span><span class="nf">some_value</span>
+  <span class="c1"># do something to a</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>The result value of an <code class="highlighter-rouge">if</code> expression is the last value executed in the
+expression.</p>
+
+<h2 id="ternary-if">Ternary if</h2>
+
+<p>You may also write a if-then-else expression using <code class="highlighter-rouge">?</code> and <code class="highlighter-rouge">:</code>. This
+ternary if:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">input_type</span> <span class="o">=</span> <span class="nb">gets</span> <span class="o">=~</span> <span class="sr">/hello/i</span> <span class="p">?</span> <span class="s2">"greeting"</span> <span class="p">:</span> <span class="s2">"other"</span>
+</code></pre></div></div>
+
+<p>Is the same as this <code class="highlighter-rouge">if</code> expression:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">input_type</span> <span class="o">=</span>
+  <span class="k">if</span> <span class="nb">gets</span> <span class="o">=~</span> <span class="sr">/hello/i</span>
+    <span class="s2">"greeting"</span>
+  <span class="k">else</span>
+    <span class="s2">"other"</span>
+  <span class="k">end</span>
+</code></pre></div></div>
+
+<p>While the ternary if is much shorter to write than the more verbose
+form, for readability it is recommended that the ternary if is only used
+for simple conditionals. Also, avoid using multiple ternary conditions
+in the same expression as this can be confusing.</p>
+
+<h2 id="unless-expression"><code class="highlighter-rouge">unless</code> Expression</h2>
+
+<p>The <code class="highlighter-rouge">unless</code> expression is the opposite of the <code class="highlighter-rouge">if</code> expression. If the
+value is false, the “then” expression is executed:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">unless</span> <span class="kp">true</span>
+  <span class="nb">puts</span> <span class="s2">"the value is a false-value"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This prints nothing as true is not a false-value.</p>
+
+<p>You may use an optional <code class="highlighter-rouge">then</code> with <code class="highlighter-rouge">unless</code> just like <code class="highlighter-rouge">if</code>.</p>
+
+<p>Note that the above <code class="highlighter-rouge">unless</code> expression is the same as:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">not</span> <span class="kp">true</span>
+  <span class="nb">puts</span> <span class="s2">"the value is a false-value"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Like an <code class="highlighter-rouge">if</code> expression you may use an <code class="highlighter-rouge">else</code> condition with <code class="highlighter-rouge">unless</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">unless</span> <span class="kp">true</span>
+  <span class="nb">puts</span> <span class="s2">"the value is false"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"the value is true"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This prints “the value is true” from the <code class="highlighter-rouge">else</code> condition.</p>
+
+<p>You may not use <code class="highlighter-rouge">elsif</code> with an <code class="highlighter-rouge">unless</code> expression.</p>
+
+<p>The result value of an <code class="highlighter-rouge">unless</code> expression is the last value executed in
+the expression.</p>
+
+<h2 id="modifier-if-and-unless">Modifier <code class="highlighter-rouge">if</code> and <code class="highlighter-rouge">unless</code></h2>
+
+<p><code class="highlighter-rouge">if</code> and <code class="highlighter-rouge">unless</code> can also be used to modify an expression. When used as
+a modifier the left-hand side is the “then” expression and the
+right-hand side is the “test” expression:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">a</span><span class="p">.</span><span class="nf">zero?</span>
+
+<span class="nb">p</span> <span class="n">a</span>
+</code></pre></div></div>
+
+<p>This will print 1.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">unless</span> <span class="n">a</span><span class="p">.</span><span class="nf">zero?</span>
+
+<span class="nb">p</span> <span class="n">a</span>
+</code></pre></div></div>
+
+<p>This will print 0.</p>
+
+<p>While the modifier and standard versions have both a “test” expression
+and a “then” expression, they are not exact transformations of each
+other due to parse order. Here is an example that shows the difference:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="n">a</span> <span class="k">if</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="nf">zero?</span>
+</code></pre></div></div>
+
+<p>This raises the NameError “undefined local variable or method <code class="highlighter-rouge">a</code>”.</p>
+
+<p>When ruby parses this expression it first encounters <code class="highlighter-rouge">a</code> as a method
+call in the “then” expression, then later it sees the assignment to <code class="highlighter-rouge">a</code>
+in the “test” expression and marks <code class="highlighter-rouge">a</code> as a local variable.</p>
+
+<p>When running this line it first executes the “test” expression, <code class="highlighter-rouge">a =
+0.zero?</code>.</p>
+
+<p>Since the test is true it executes the “then” expression, <code class="highlighter-rouge">p a</code>. Since
+the <code class="highlighter-rouge">a</code> in the body was recorded as a method which does not exist the
+NameError is raised.</p>
+
+<p>The same is true for <code class="highlighter-rouge">unless</code>.</p>
+
+<h2 id="case-expression"><code class="highlighter-rouge">case</code> Expression</h2>
+
+<p>The <code class="highlighter-rouge">case</code> expression can be used in two ways.</p>
+
+<p>The most common way is to compare an object against multiple patterns.
+The patterns are matched using the +===+ method which is aliased to +==+
+on Object. Other classes must override it to give meaningful behavior.
+See Module#=== and <code class="highlighter-rouge">Regexp#===</code> for examples.</p>
+
+<p>Here is an example of using <code class="highlighter-rouge">case</code> to compare a String against a
+pattern:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">case</span> <span class="s2">"12345"</span>
+<span class="k">when</span> <span class="sr">/^1/</span>
+  <span class="nb">puts</span> <span class="s2">"the string starts with one"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"I don't know what the string starts with"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Here the string <code class="highlighter-rouge">"12345"</code> is compared with <code class="highlighter-rouge">/^1/</code> by calling <code class="highlighter-rouge">/^1/ ===
+"12345"</code> which returns <code class="highlighter-rouge">true</code>. Like the <code class="highlighter-rouge">if</code> expression, the first
+<code class="highlighter-rouge">when</code> that matches is executed and all other matches are ignored.</p>
+
+<p>If no matches are found, the <code class="highlighter-rouge">else</code> is executed.</p>
+
+<p>The <code class="highlighter-rouge">else</code> and <code class="highlighter-rouge">then</code> are optional, this <code class="highlighter-rouge">case</code> expression gives the
+same result as the one above:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">case</span> <span class="s2">"12345"</span>
+<span class="k">when</span> <span class="sr">/^1/</span>
+  <span class="nb">puts</span> <span class="s2">"the string starts with one"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>You may place multiple conditions on the same <code class="highlighter-rouge">when</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">case</span> <span class="s2">"2"</span>
+<span class="k">when</span> <span class="sr">/^1/</span><span class="p">,</span> <span class="s2">"2"</span>
+  <span class="nb">puts</span> <span class="s2">"the string starts with one or is '2'"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Ruby will try each condition in turn, so first <code class="highlighter-rouge">/^1/ === "2"</code> returns
+<code class="highlighter-rouge">false</code>, then <code class="highlighter-rouge">"2" === "2"</code> returns <code class="highlighter-rouge">true</code>, so “the string starts with
+one or is ‘2’” is printed.</p>
+
+<p>You may use <code class="highlighter-rouge">then</code> after the <code class="highlighter-rouge">when</code> condition. This is most frequently
+used to place the body of the <code class="highlighter-rouge">when</code> on a single line.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">case</span> <span class="n">a</span>
+<span class="k">when</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="k">then</span> <span class="nb">puts</span> <span class="s2">"a is one or two
+when 3    then puts "</span><span class="n">a</span> <span class="n">is</span> <span class="n">three</span><span class="s2">"
+else           puts "</span><span class="no">I</span> <span class="n">don</span><span class="err">'</span><span class="n">t</span> <span class="n">know</span> <span class="n">what</span> <span class="n">a</span> <span class="n">is</span><span class="s2">"
+end
+</span></code></pre></div></div>
+
+<p>The other way to use a <code class="highlighter-rouge">case</code> expression is like an if-elsif expression:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="k">case</span>
+<span class="k">when</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">2</span>
+  <span class="nb">puts</span> <span class="s2">"a is one or two"</span>
+<span class="k">when</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">3</span>
+  <span class="nb">puts</span> <span class="s2">"a is three"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"I don't know what a is"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Again, the <code class="highlighter-rouge">then</code> and <code class="highlighter-rouge">else</code> are optional.</p>
+
+<p>The result value of a <code class="highlighter-rouge">case</code> expression is the last value executed in
+the expression.</p>
+
+<h2 id="while-loop"><code class="highlighter-rouge">while</code> Loop</h2>
+
+<p>The <code class="highlighter-rouge">while</code> loop executes while a condition is true:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="k">do</span>
+  <span class="nb">p</span> <span class="n">a</span>
+  <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="n">a</span>
+</code></pre></div></div>
+
+<p>Prints the numbers 0 through 10. The condition <code class="highlighter-rouge">a &lt; 10</code> is checked
+before the loop is entered, then the body executes, then the condition
+is checked again. When the condition results in false the loop is
+terminated.</p>
+
+<p>The <code class="highlighter-rouge">do</code> keyword is optional. The following loop is equivalent to the
+loop above:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span>
+  <span class="nb">p</span> <span class="n">a</span>
+  <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>The result of a <code class="highlighter-rouge">while</code> loop is <code class="highlighter-rouge">nil</code> unless <code class="highlighter-rouge">break</code> is used to supply a
+value.</p>
+
+<h2 id="until-loop"><code class="highlighter-rouge">until</code> Loop</h2>
+
+<p>The <code class="highlighter-rouge">until</code> loop executes while a condition is false:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">until</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="k">do</span>
+  <span class="nb">p</span> <span class="n">a</span>
+  <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="n">a</span>
+</code></pre></div></div>
+
+<p>This prints the numbers 0 through 11. Like a while loop the condition `a</p>
+<blockquote>
+
+  <p>10` is checked when entering the loop and each time the loop body
+executes. If the condition is false the loop will continue to execute.</p>
+</blockquote>
+
+<p>Like a <code class="highlighter-rouge">while</code> loop, the <code class="highlighter-rouge">do</code> is optional.</p>
+
+<p>Like a <code class="highlighter-rouge">while</code> loop, the result of an <code class="highlighter-rouge">until</code> loop is nil unless <code class="highlighter-rouge">break</code>
+is used.</p>
+
+<h2 id="for-loop"><code class="highlighter-rouge">for</code> Loop</h2>
+
+<p>The <code class="highlighter-rouge">for</code> loop consists of <code class="highlighter-rouge">for</code> followed by a variable to contain the
+iteration argument followed by <code class="highlighter-rouge">in</code> and the value to iterate over using
+<code class="highlighter-rouge">#each</code>. The <code class="highlighter-rouge">do</code> is optional:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">value</span> <span class="k">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="n">value</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Prints 1, 2 and 3.</p>
+
+<p>Like <code class="highlighter-rouge">while</code> and <code class="highlighter-rouge">until</code>, the <code class="highlighter-rouge">do</code> is optional.</p>
+
+<p>The result value of a <code class="highlighter-rouge">for</code> loop is the value iterated over unless
+<code class="highlighter-rouge">break</code> is used.</p>
+
+<p>Unlike other languages, Ruby program typically doesn’t need <code class="highlighter-rouge">for</code> loop,
+using <a href="../../builtin/types/collections.md#enumerable">Enumerable</a>
+instead:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Not idiomatic</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="mi">3</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+<span class="c1"># Idiomatic</span>
+<span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">3</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+
+<span class="c1"># Not idiomatic: selecting items</span>
+<span class="n">odds</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">value</span> <span class="k">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+  <span class="n">odds</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span><span class="p">.</span><span class="nf">odd?</span>
+<span class="k">end</span>
+<span class="c1"># Still not idiomatic: just each</span>
+<span class="n">odds</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">value</span>
+  <span class="n">odds</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span><span class="p">.</span><span class="nf">odd?</span>
+<span class="k">end</span>
+<span class="c1"># Idiomatic: specialized Enumerable method</span>
+<span class="n">odds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">].</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span> <span class="n">value</span><span class="p">.</span><span class="nf">odd?</span> <span class="p">}</span>
+<span class="c1"># Simplify with Symbol#to_proc</span>
+<span class="n">odds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">].</span><span class="nf">select</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:odd?</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Note that in a lot of cases <code class="highlighter-rouge">until</code> and <code class="highlighter-rouge">while</code> loops also could be
+replaced with <code class="highlighter-rouge">Enumerable</code> methods like <code class="highlighter-rouge">#take_while</code>, <code class="highlighter-rouge">#drop_while</code> and
+others.</p>
+
+<h2 id="modifier-while-and-until">Modifier <code class="highlighter-rouge">while</code> and <code class="highlighter-rouge">until</code></h2>
+
+<p>Like <code class="highlighter-rouge">if</code> and <code class="highlighter-rouge">unless</code>, <code class="highlighter-rouge">while</code> and <code class="highlighter-rouge">until</code> can be used as modifiers:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span>
+
+<span class="nb">p</span> <span class="n">a</span> <span class="c1"># prints 10</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">until</code> used as a modifier:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k">until</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">10</span>
+
+<span class="nb">p</span> <span class="n">a</span> <span class="c1"># prints 11</span>
+</code></pre></div></div>
+
+<p>You can use <code class="highlighter-rouge">begin</code> and <code class="highlighter-rouge">end</code> to create a <code class="highlighter-rouge">while</code> loop that runs the
+body once before the condition:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">begin</span>
+  <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span> <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span>
+
+<span class="nb">p</span> <span class="n">a</span> <span class="c1"># prints 10</span>
+</code></pre></div></div>
+
+<p>If you don’t use <code class="highlighter-rouge">rescue</code> or <code class="highlighter-rouge">ensure</code>, Ruby optimizes away any exception
+handling overhead.</p>
+
+<h2 id="break-statement"><code class="highlighter-rouge">break</code> Statement</h2>
+
+<p>Use <code class="highlighter-rouge">break</code> to leave a block early. This will stop iterating over the
+items in <code class="highlighter-rouge">values</code> if one of them is even:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">values</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span>
+  <span class="k">break</span> <span class="k">if</span> <span class="n">value</span><span class="p">.</span><span class="nf">even?</span>
+
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>You can also terminate from a <code class="highlighter-rouge">while</code> loop using <code class="highlighter-rouge">break</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="kp">true</span> <span class="k">do</span>
+  <span class="nb">p</span> <span class="n">a</span>
+  <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+
+  <span class="k">break</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="n">a</span>
+</code></pre></div></div>
+
+<p>This prints the numbers 0 and 1.</p>
+
+<p><code class="highlighter-rouge">break</code> accepts a value that supplies the result of the expression it is
+“breaking” out of:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span>
+  <span class="k">break</span> <span class="n">value</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">value</span><span class="p">.</span><span class="nf">even?</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="n">result</span> <span class="c1"># prints 4</span>
+</code></pre></div></div>
+
+<h2 id="next-statement"><code class="highlighter-rouge">next</code> Statement</h2>
+
+<p>Use <code class="highlighter-rouge">next</code> to skip the rest of the current iteration:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nf">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span>
+  <span class="k">next</span> <span class="k">if</span> <span class="n">value</span><span class="p">.</span><span class="nf">even?</span>
+
+  <span class="n">value</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="n">result</span> <span class="c1"># prints [2, nil, 6]</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">next</code> accepts an argument that can be used as the result of the current
+block iteration:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nf">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span>
+  <span class="k">next</span> <span class="n">value</span> <span class="k">if</span> <span class="n">value</span><span class="p">.</span><span class="nf">even?</span>
+
+  <span class="n">value</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="n">result</span> <span class="c1"># prints [2, 2, 6]</span>
+</code></pre></div></div>
+
+<h2 id="redo-statement"><code class="highlighter-rouge">redo</code> Statement</h2>
+
+<p>Use <code class="highlighter-rouge">redo</code> to redo the current iteration:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">while</span> <span class="n">result</span><span class="p">.</span><span class="nf">length</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="k">do</span>
+  <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">result</span><span class="p">.</span><span class="nf">length</span>
+
+  <span class="k">redo</span> <span class="k">if</span> <span class="n">result</span><span class="p">.</span><span class="nf">last</span><span class="p">.</span><span class="nf">even?</span>
+
+  <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">result</span><span class="p">.</span><span class="nf">length</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="n">result</span>
+</code></pre></div></div>
+
+<p>This prints [0, 1, 3, 3, 5, 5, 7, 7, 9, 9, 11]</p>
+
+<p>In Ruby 1.8, you could also use <code class="highlighter-rouge">retry</code> where you used <code class="highlighter-rouge">redo</code>. This is
+no longer true, now you will receive a SyntaxError when you use <code class="highlighter-rouge">retry</code>
+outside of a <code class="highlighter-rouge">rescue</code> block. See
+<a href="rdoc-ref:syntax/exceptions.rdoc">Exceptions</a> for proper usage of
+<code class="highlighter-rouge">retry</code>.</p>
+
+<h2 id="flip-flop">Flip-Flop</h2>
+
+<p>The flip-flop is a rarely seen conditional expression. It’s primary use
+is for processing text from ruby one-line programs used with <code class="highlighter-rouge">ruby -n</code>
+or <code class="highlighter-rouge">ruby
+-p</code>.</p>
+
+<p>The form of the flip-flop is an expression that indicates when the
+flip-flop turns on, <code class="highlighter-rouge">..</code> (or <code class="highlighter-rouge">...</code>), then an expression that indicates
+when the flip-flop will turn off. While the flip-flop is on it will
+continue to evaluate to <code class="highlighter-rouge">true</code>, and <code class="highlighter-rouge">false</code> when off.</p>
+
+<p>Here is an example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">selected</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="mi">0</span><span class="p">.</span><span class="nf">upto</span> <span class="mi">10</span> <span class="k">do</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span>
+  <span class="n">selected</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="k">if</span> <span class="n">value</span><span class="o">==</span><span class="mi">2</span><span class="o">..</span><span class="n">value</span><span class="o">==</span><span class="mi">8</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="n">selected</span> <span class="c1"># prints [2, 3, 4, 5, 6, 7, 8]</span>
+</code></pre></div></div>
+
+<p>In the above example, the on condition is <code class="highlighter-rouge">n==2</code>. The flip-flop is
+initially off (false) for 0 and 1, but becomes on (true) for 2 and
+remains on through 8. After 8 it turns off and remains off for 9 and 10.</p>
+
+<p>The flip-flop must be used inside a conditional such as <code class="highlighter-rouge">if</code>, <code class="highlighter-rouge">while</code>,
+<code class="highlighter-rouge">unless</code>, <code class="highlighter-rouge">until</code> etc. including the modifier forms.</p>
+
+<p>When you use an inclusive range (<code class="highlighter-rouge">..</code>), the off condition is evaluated
+when the on condition changes:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">selected</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="mi">0</span><span class="p">.</span><span class="nf">upto</span> <span class="mi">5</span> <span class="k">do</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span>
+  <span class="n">selected</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="k">if</span> <span class="n">value</span><span class="o">==</span><span class="mi">2</span><span class="o">..</span><span class="n">value</span><span class="o">==</span><span class="mi">2</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="n">selected</span> <span class="c1"># prints [2]</span>
+</code></pre></div></div>
+
+<p>Here, both sides of the flip-flop are evaluated so the flip-flop turns
+on and off only when <code class="highlighter-rouge">value</code> equals 2. Since the flip-flop turned on in
+the iteration it returns true.</p>
+
+<p>When you use an exclusive range (<code class="highlighter-rouge">...</code>), the off condition is evaluated
+on the following iteration:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">selected</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="mi">0</span><span class="p">.</span><span class="nf">upto</span> <span class="mi">5</span> <span class="k">do</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span>
+  <span class="n">selected</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="k">if</span> <span class="n">value</span><span class="o">==</span><span class="mi">2</span><span class="o">...</span><span class="n">value</span><span class="o">==</span><span class="mi">2</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="n">selected</span> <span class="c1"># prints [2, 3, 4, 5]</span>
+</code></pre></div></div>
+
+<p>Here, the flip-flop turns on when <code class="highlighter-rouge">value</code> equals 2, but doesn’t turn off
+on the same iteration. The off condition isn’t evaluated until the
+following iteration and <code class="highlighter-rouge">value</code> will never be two again.</p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

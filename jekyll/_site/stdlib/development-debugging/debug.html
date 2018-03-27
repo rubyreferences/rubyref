@@ -1,0 +1,234 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 <h1 id="debug">debug</h1>
+
+<p>This library provides debugging functionality to Ruby.</p>
+
+<p>To add a debugger to your code, start by requiring <code class="highlighter-rouge">debug</code> in your
+program:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">say</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+  <span class="nb">require</span> <span class="s1">'debug'</span>
+  <span class="nb">puts</span> <span class="n">word</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This will cause Ruby to interrupt execution and show a prompt when the
+<code class="highlighter-rouge">say</code> method is run.</p>
+
+<p>Once you’re inside the prompt, you can start debugging your program.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="nb">p</span> <span class="n">word</span>
+<span class="s2">"hello"</span>
+</code></pre></div></div>
+
+<h3 id="usage">Usage</h3>
+
+<p>The following is a list of common functionalities that the debugger
+provides.</p>
+
+<h4 id="navigating-through-your-code">Navigating through your code</h4>
+
+<p>In general, a debugger is used to find bugs in your program, which often
+means pausing execution and inspecting variables at some point in time.</p>
+
+<p>Let’s look at an example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">my_method</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+  <span class="nb">require</span> <span class="s1">'debug'</span>
+  <span class="n">foo</span> <span class="o">=</span> <span class="n">get_foo</span> <span class="k">if</span> <span class="n">foo</span><span class="p">.</span><span class="nf">nil?</span>
+  <span class="k">raise</span> <span class="k">if</span> <span class="n">foo</span><span class="p">.</span><span class="nf">nil?</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>When you run this program, the debugger will kick in just before the
+<code class="highlighter-rouge">foo</code> assignment.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="nb">p</span> <span class="n">foo</span>
+<span class="kp">nil</span>
+</code></pre></div></div>
+
+<p>In this example, it’d be interesting to move to the next line and
+inspect the value of <code class="highlighter-rouge">foo</code> again. You can do that by pressing <code class="highlighter-rouge">n</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="n">n</span> <span class="c1"># goes to next line</span>
+<span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="nb">p</span> <span class="n">foo</span>
+<span class="kp">nil</span>
+</code></pre></div></div>
+
+<p>You now know that the original value of <code class="highlighter-rouge">foo</code> was nil, and that it still
+was nil after calling <code class="highlighter-rouge">get_foo</code>.</p>
+
+<p>Other useful commands for navigating through your code are:</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">c</code>: Runs the program until it either exists or encounters another
+breakpoint. You usually press <code class="highlighter-rouge">c</code> when you are finished debugging your
+program and want to resume its execution.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">s</code>: Steps into method definition. In the previous example, <code class="highlighter-rouge">s</code> would
+take you inside the method definition of <code class="highlighter-rouge">get_foo</code>.</p>
+  </li>
+  <li><code class="highlighter-rouge">r</code>: Restart the program.</li>
+  <li><code class="highlighter-rouge">q</code>: Quit the program.</li>
+</ul>
+
+<h4 id="inspecting-variables">Inspecting variables</h4>
+
+<p>You can use the debugger to easily inspect both local and global
+variables. We’ve seen how to inspect local variables before:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="nb">p</span> <span class="n">my_arg</span>
+<span class="mi">42</span>
+</code></pre></div></div>
+
+<p>You can also pretty print the result of variables or expressions:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="n">pp</span> <span class="sx">%w{a very long long array containing many words}</span>
+<span class="p">[</span><span class="s2">"a"</span><span class="p">,</span>
+ <span class="s2">"very"</span><span class="p">,</span>
+ <span class="s2">"long"</span><span class="p">,</span>
+ <span class="o">...</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p>You can list all local variables with +v l+:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="n">v</span> <span class="n">l</span>
+  <span class="n">foo</span> <span class="o">=&gt;</span> <span class="s2">"hello"</span>
+</code></pre></div></div>
+
+<p>Similarly, you can show all global variables with +v g+:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="n">v</span> <span class="n">g</span>
+  <span class="n">all</span> <span class="n">global</span> <span class="n">variables</span>
+</code></pre></div></div>
+
+<p>Finally, you can omit <code class="highlighter-rouge">p</code> if you simply want to evaluate a variable or
+expression</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">rdb</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span> <span class="mi">5</span><span class="o">**</span><span class="mi">2</span>
+<span class="mi">25</span>
+</code></pre></div></div>
+
+<h3 id="staying-out-of-trouble">Staying out of trouble</h3>
+
+<p>Make sure you remove every instance of +require ‘debug’+ before shipping
+your code. Failing to do so may result in your program hanging
+unpredictably.</p>
+
+<p>Debug is not available in safe mode.</p>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/debug/rdoc/DEBUGGER__.html">DEBUGGER__
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

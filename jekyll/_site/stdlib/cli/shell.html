@@ -1,0 +1,190 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'shell'</span>
+</code></pre></div></div>
+
+<h1 id="shell">Shell</h1>
+
+<p>Shell implements an idiomatic Ruby interface for common UNIX shell
+commands.</p>
+
+<p>It provides users the ability to execute commands with filters and
+pipes, like <code class="highlighter-rouge">sh</code>/<code class="highlighter-rouge">csh</code> by using native facilities of Ruby.</p>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="temp-file-creation">Temp file creation</h3>
+
+<p>In this example we will create three <code class="highlighter-rouge">tmpFile</code>’s in three different
+folders under the <code class="highlighter-rouge">/tmp</code> directory.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sh</span> <span class="o">=</span> <span class="no">Shell</span><span class="p">.</span><span class="nf">cd</span><span class="p">(</span><span class="s2">"/tmp"</span><span class="p">)</span> <span class="c1"># Change to the /tmp directory</span>
+<span class="n">sh</span><span class="p">.</span><span class="nf">mkdir</span> <span class="s2">"shell-test-1"</span> <span class="k">unless</span> <span class="n">sh</span><span class="p">.</span><span class="nf">exists?</span><span class="p">(</span><span class="s2">"shell-test-1"</span><span class="p">)</span>
+<span class="c1"># make the 'shell-test-1' directory if it doesn't already exist</span>
+<span class="n">sh</span><span class="p">.</span><span class="nf">cd</span><span class="p">(</span><span class="s2">"shell-test-1"</span><span class="p">)</span> <span class="c1"># Change to the /tmp/shell-test-1 directory</span>
+<span class="k">for</span> <span class="n">dir</span> <span class="k">in</span> <span class="p">[</span><span class="s2">"dir1"</span><span class="p">,</span> <span class="s2">"dir3"</span><span class="p">,</span> <span class="s2">"dir5"</span><span class="p">]</span>
+  <span class="k">if</span> <span class="o">!</span><span class="n">sh</span><span class="p">.</span><span class="nf">exists?</span><span class="p">(</span><span class="n">dir</span><span class="p">)</span>
+    <span class="n">sh</span><span class="p">.</span><span class="nf">mkdir</span> <span class="n">dir</span> <span class="c1"># make dir if it doesn't already exist</span>
+    <span class="n">sh</span><span class="p">.</span><span class="nf">cd</span><span class="p">(</span><span class="n">dir</span><span class="p">)</span> <span class="k">do</span>
+      <span class="c1"># change to the `dir` directory</span>
+      <span class="n">f</span> <span class="o">=</span> <span class="n">sh</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s2">"tmpFile"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="c1"># open a new file in write mode</span>
+      <span class="n">f</span><span class="p">.</span><span class="nf">print</span> <span class="s2">"TEST</span><span class="se">\n</span><span class="s2">"</span>            <span class="c1"># write to the file</span>
+      <span class="n">f</span><span class="p">.</span><span class="nf">close</span>                     <span class="c1"># close the file handler</span>
+    <span class="k">end</span>
+    <span class="nb">print</span> <span class="n">sh</span><span class="p">.</span><span class="nf">pwd</span>                  <span class="c1"># output the process working directory</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h3 id="temp-file-creation-with-self">Temp file creation with self</h3>
+
+<p>This example is identical to the first, except we’re using
+Command<code class="highlighter-rouge">Processor#transact</code>.</p>
+
+<p>Command<code class="highlighter-rouge">Processor#transact</code> executes the given block against self, in
+this case <code class="highlighter-rouge">sh</code>; our Shell object. Within the block we can substitute
+<code class="highlighter-rouge">sh.cd</code> to <code class="highlighter-rouge">cd</code>, because the scope within the block uses <code class="highlighter-rouge">sh</code> already.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sh</span> <span class="o">=</span> <span class="no">Shell</span><span class="p">.</span><span class="nf">cd</span><span class="p">(</span><span class="s2">"/tmp"</span><span class="p">)</span>
+<span class="n">sh</span><span class="p">.</span><span class="nf">transact</span> <span class="k">do</span>
+  <span class="n">mkdir</span> <span class="s2">"shell-test-1"</span> <span class="k">unless</span> <span class="n">exists?</span><span class="p">(</span><span class="s2">"shell-test-1"</span><span class="p">)</span>
+  <span class="n">cd</span><span class="p">(</span><span class="s2">"shell-test-1"</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">dir</span> <span class="k">in</span> <span class="p">[</span><span class="s2">"dir1"</span><span class="p">,</span> <span class="s2">"dir3"</span><span class="p">,</span> <span class="s2">"dir5"</span><span class="p">]</span>
+    <span class="k">if</span> <span class="o">!</span><span class="n">exists?</span><span class="p">(</span><span class="n">dir</span><span class="p">)</span>
+      <span class="n">mkdir</span> <span class="n">dir</span>
+      <span class="n">cd</span><span class="p">(</span><span class="n">dir</span><span class="p">)</span> <span class="k">do</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"tmpFile"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
+        <span class="n">f</span><span class="p">.</span><span class="nf">print</span> <span class="s2">"TEST</span><span class="se">\n</span><span class="s2">"</span>
+        <span class="n">f</span><span class="p">.</span><span class="nf">close</span>
+      <span class="k">end</span>
+      <span class="nb">print</span> <span class="n">pwd</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h3 id="pipe-etcprintcap-into-a-file">Pipe /etc/printcap into a file</h3>
+
+<p>In this example we will read the operating system file <code class="highlighter-rouge">/etc/printcap</code>,
+generated by <code class="highlighter-rouge">cupsd</code>, and then output it to a new file relative to the
+<code class="highlighter-rouge">pwd</code> of <code class="highlighter-rouge">sh</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sh</span> <span class="o">=</span> <span class="no">Shell</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">sh</span><span class="p">.</span><span class="nf">cat</span><span class="p">(</span><span class="s2">"/etc/printcap"</span><span class="p">)</span> <span class="o">|</span> <span class="n">sh</span><span class="p">.</span><span class="nf">tee</span><span class="p">(</span><span class="s2">"tee1"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="s2">"tee2"</span>
+<span class="p">(</span><span class="n">sh</span><span class="p">.</span><span class="nf">cat</span> <span class="o">&lt;</span> <span class="s2">"/etc/printcap"</span><span class="p">)</span> <span class="o">|</span> <span class="n">sh</span><span class="p">.</span><span class="nf">tee</span><span class="p">(</span><span class="s2">"tee11"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="s2">"tee12"</span>
+<span class="n">sh</span><span class="p">.</span><span class="nf">cat</span><span class="p">(</span><span class="s2">"/etc/printcap"</span><span class="p">)</span> <span class="o">|</span> <span class="n">sh</span><span class="p">.</span><span class="nf">tee</span><span class="p">(</span><span class="s2">"tee1"</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="s2">"tee2"</span>
+<span class="p">(</span><span class="n">sh</span><span class="p">.</span><span class="nf">cat</span> <span class="o">&lt;</span> <span class="s2">"/etc/printcap"</span><span class="p">)</span> <span class="o">|</span> <span class="n">sh</span><span class="p">.</span><span class="nf">tee</span><span class="p">(</span><span class="s2">"tee11"</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="s2">"tee12"</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/shell/rdoc/Shell.html">Shell
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

@@ -1,0 +1,323 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 <h1 id="encoding">Encoding</h1>
+
+<p>An Encoding instance represents a character encoding usable in Ruby. It
+is defined as a constant under the Encoding namespace. It has a name and
+optionally, aliases:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Encoding</span><span class="o">::</span><span class="no">ISO_8859_1</span><span class="p">.</span><span class="nf">name</span>
+<span class="c1">#=&gt; "ISO-8859-1"</span>
+
+<span class="no">Encoding</span><span class="o">::</span><span class="no">ISO_8859_1</span><span class="p">.</span><span class="nf">names</span>
+<span class="c1">#=&gt; ["ISO-8859-1", "ISO8859-1"]</span>
+</code></pre></div></div>
+
+<p>Ruby methods dealing with encodings return or accept Encoding instances
+as arguments (when a method accepts an Encoding instance as an argument,
+it can be passed an Encoding name or alias instead).</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"some string"</span><span class="p">.</span><span class="nf">encoding</span>
+<span class="c1">#=&gt; #&lt;Encoding:UTF-8&gt;</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="s2">"some string"</span><span class="p">.</span><span class="nf">encode</span><span class="p">(</span><span class="no">Encoding</span><span class="o">::</span><span class="no">ISO_8859_1</span><span class="p">)</span>
+<span class="c1">#=&gt; "some string"</span>
+<span class="n">string</span><span class="p">.</span><span class="nf">encoding</span>
+<span class="c1">#=&gt; #&lt;Encoding:ISO-8859-1&gt;</span>
+
+<span class="s2">"some string"</span><span class="p">.</span><span class="nf">encode</span> <span class="s2">"ISO-8859-1"</span>
+<span class="c1">#=&gt; "some string"</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">Encoding::ASCII_8BIT</code> is a special encoding that is usually used for a
+byte string, not a character string. But as the name insists, its
+characters in the range of ASCII are considered as ASCII characters.
+This is useful when you use ASCII-8BIT characters with other ASCII
+compatible characters.</p>
+
+<h2 id="changing-an-encoding">Changing an encoding</h2>
+
+<p>The associated Encoding of a String can be changed in two different
+ways.</p>
+
+<p>First, it is possible to set the Encoding of a string to a new Encoding
+without changing the internal byte representation of the string, with
+String#force_encoding. This is how you can tell Ruby the correct
+encoding of a string.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">string</span>
+<span class="c1">#=&gt; "R\xC3\xA9sum\xC3\xA9"</span>
+<span class="n">string</span><span class="p">.</span><span class="nf">encoding</span>
+<span class="c1">#=&gt; #&lt;Encoding:ISO-8859-1&gt;</span>
+<span class="n">string</span><span class="p">.</span><span class="nf">force_encoding</span><span class="p">(</span><span class="no">Encoding</span><span class="o">::</span><span class="no">UTF_8</span><span class="p">)</span>
+<span class="c1">#=&gt; "R\u00E9sum\u00E9"</span>
+</code></pre></div></div>
+
+<p>Second, it is possible to transcode a string, i.e. translate its
+internal byte representation to another encoding. Its associated
+encoding is also set to the other encoding. See <code class="highlighter-rouge">String#encode</code> for the
+various forms of transcoding, and the Encoding::Converter class for
+additional control over the transcoding process.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">string</span>
+<span class="c1">#=&gt; "R\u00E9sum\u00E9"</span>
+<span class="n">string</span><span class="p">.</span><span class="nf">encoding</span>
+<span class="c1">#=&gt; #&lt;Encoding:UTF-8&gt;</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="p">.</span><span class="nf">encode!</span><span class="p">(</span><span class="no">Encoding</span><span class="o">::</span><span class="no">ISO_8859_1</span><span class="p">)</span>
+<span class="c1">#=&gt; "R\xE9sum\xE9"</span>
+<span class="n">string</span><span class="p">.</span><span class="nf">encoding</span>
+<span class="c1">#=&gt; #&lt;Encoding::ISO-8859-1&gt;</span>
+</code></pre></div></div>
+
+<h2 id="script-encoding">Script encoding</h2>
+
+<p>All Ruby script code has an associated Encoding which any String literal
+created in the source code will be associated to.</p>
+
+<p>The default script encoding is <code class="highlighter-rouge">Encoding::UTF-8</code> after v2.0, but it can
+be changed by a magic comment on the first line of the source code file
+(or second line, if there is a shebang line on the first). The comment
+must contain the word <code class="highlighter-rouge">coding</code> or <code class="highlighter-rouge">encoding</code>, followed by a colon, space
+and the Encoding name or alias:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># encoding: UTF-8</span>
+
+<span class="s2">"some string"</span><span class="p">.</span><span class="nf">encoding</span>
+<span class="c1">#=&gt; #&lt;Encoding:UTF-8&gt;</span>
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">__ENCODING__</code> keyword returns the script encoding of the file which
+the keyword is written:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># encoding: ISO-8859-1</span>
+
+<span class="n">__ENCODING__</span>
+<span class="c1">#=&gt; #&lt;Encoding:ISO-8859-1&gt;</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">ruby -K</code> will change the default locale encoding, but this is not
+recommended. Ruby source files should declare its script encoding by a
+magic comment even when they only depend on US-ASCII strings or regular
+expressions.</p>
+
+<h2 id="locale-encoding">Locale encoding</h2>
+
+<p>The default encoding of the environment. Usually derived from locale.</p>
+
+<p>see Encoding.locale_charmap, Encoding.find(‘locale’)</p>
+
+<h2 id="filesystem-encoding">Filesystem encoding</h2>
+
+<p>The default encoding of strings from the filesystem of the environment.
+This is used for strings of file names or paths.</p>
+
+<p>see Encoding.find(‘filesystem’)</p>
+
+<h2 id="external-encoding">External encoding</h2>
+
+<p>Each IO object has an external encoding which indicates the encoding
+that Ruby will use to read its data. By default Ruby sets the external
+encoding of an IO object to the default external encoding. The default
+external encoding is set by locale encoding or the interpreter <code class="highlighter-rouge">-E</code>
+option. Encoding.default_external returns the current value of the
+external encoding.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">ENV</span><span class="p">[</span><span class="s2">"LANG"</span><span class="p">]</span>
+<span class="c1">#=&gt; "UTF-8"</span>
+<span class="no">Encoding</span><span class="p">.</span><span class="nf">default_external</span>
+<span class="c1">#=&gt; #&lt;Encoding:UTF-8&gt;</span>
+
+<span class="err">$</span> <span class="n">ruby</span> <span class="o">-</span><span class="no">E</span> <span class="no">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="n">e</span> <span class="s2">"p Encoding.default_external"</span>
+<span class="c1">#&lt;Encoding:ISO-8859-1&gt;</span>
+
+<span class="err">$</span> <span class="no">LANG</span><span class="o">=</span><span class="no">C</span> <span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s1">'p Encoding.default_external'</span>
+<span class="c1">#&lt;Encoding:US-ASCII&gt;</span>
+</code></pre></div></div>
+
+<p>The default external encoding may also be set through
+Encoding.default_external=, but you should not do this as strings
+created before and after the change will have inconsistent encodings.
+Instead use <code class="highlighter-rouge">ruby -E</code> to invoke ruby with the correct external encoding.</p>
+
+<p>When you know that the actual encoding of the data of an IO object is
+not the default external encoding, you can reset its external encoding
+with IO#set_encoding or set it at IO object creation (see IO.new
+options).</p>
+
+<h2 id="internal-encoding">Internal encoding</h2>
+
+<p>To process the data of an IO object which has an encoding different from
+its external encoding, you can set its internal encoding. Ruby will use
+this internal encoding to transcode the data when it is read from the IO
+object.</p>
+
+<p>Conversely, when data is written to the IO object it is transcoded from
+the internal encoding to the external encoding of the IO object.</p>
+
+<p>The internal encoding of an IO object can be set with <code class="highlighter-rouge">IO#set_encoding</code>
+or at IO object creation (see IO.new options).</p>
+
+<p>The internal encoding is optional and when not set, the Ruby default
+internal encoding is used. If not explicitly set this default internal
+encoding is <code class="highlighter-rouge">nil</code> meaning that by default, no transcoding occurs.</p>
+
+<p>The default internal encoding can be set with the interpreter option
+<code class="highlighter-rouge">-E</code>. Encoding.default_internal returns the current internal encoding.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s1">'p Encoding.default_internal'</span>
+<span class="kp">nil</span>
+
+<span class="err">$</span> <span class="n">ruby</span> <span class="o">-</span><span class="no">E</span> <span class="no">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span><span class="ss">:UTF</span><span class="o">-</span><span class="mi">8</span> <span class="o">-</span><span class="n">e</span> <span class="s2">"p [Encoding.default_external, \
+  Encoding.default_internal]"</span>
+<span class="p">[</span><span class="c1">#&lt;Encoding:ISO-8859-1&gt;, #&lt;Encoding:UTF-8&gt;]</span>
+</code></pre></div></div>
+
+<p>The default internal encoding may also be set through
+Encoding.default_internal=, but you should not do this as strings
+created before and after the change will have inconsistent encodings.
+Instead use <code class="highlighter-rouge">ruby -E</code> to invoke ruby with the correct internal encoding.</p>
+
+<h2 id="io-encoding-example">IO encoding example</h2>
+
+<p>In the following example a UTF-8 encoded string “Ru00E9sumu00E9” is
+transcoded for output to ISO-8859-1 encoding, then read back in and
+transcoded to UTF-8:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">string</span> <span class="o">=</span> <span class="s2">"R</span><span class="se">\u</span><span class="s2">00E9sum</span><span class="se">\u</span><span class="s2">00E9"</span>
+
+<span class="nb">open</span><span class="p">(</span><span class="s2">"transcoded.txt"</span><span class="p">,</span> <span class="s2">"w:ISO-8859-1"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">io</span><span class="o">|</span>
+  <span class="n">io</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="s2">"raw text:"</span>
+<span class="nb">p</span> <span class="no">File</span><span class="p">.</span><span class="nf">binread</span><span class="p">(</span><span class="s2">"transcoded.txt"</span><span class="p">)</span>
+<span class="nb">puts</span>
+
+<span class="nb">open</span><span class="p">(</span><span class="s2">"transcoded.txt"</span><span class="p">,</span> <span class="s2">"r:ISO-8859-1:UTF-8"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">io</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="s2">"transcoded text:"</span>
+  <span class="nb">p</span> <span class="n">io</span><span class="p">.</span><span class="nf">read</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>While writing the file, the internal encoding is not specified as it is
+only necessary for reading. While reading the file both the internal and
+external encoding must be specified to obtain the correct result.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">ruby</span> <span class="n">t</span><span class="p">.</span><span class="nf">rb</span>
+<span class="n">raw</span> <span class="ss">text:
+</span><span class="s2">"R</span><span class="se">\xE9</span><span class="s2">sum</span><span class="se">\xE9</span><span class="s2">"</span>
+
+<span class="n">transcoded</span> <span class="ss">text:
+</span><span class="s2">"R</span><span class="se">\u</span><span class="s2">00E9sum</span><span class="se">\u</span><span class="s2">00E9"</span>
+</code></pre></div></div>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Encoding.html">Encoding Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

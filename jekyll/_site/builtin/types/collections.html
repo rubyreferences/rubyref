@@ -1,0 +1,218 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 <h1 id="collections">Collections</h1>
+
+<p>TODO: some introductory notices</p>
+
+<h2 id="enumerable">Enumerable</h2>
+
+<p>The <code class="highlighter-rouge">Enumerable</code> mixin provides collection classes with several
+traversal and searching methods, and with the ability to sort. The class
+must provide a method <code class="highlighter-rouge">each</code>, which yields successive members of the
+collection. If <code class="highlighter-rouge">Enumerable#max</code>, <code class="highlighter-rouge">#min</code>, or <code class="highlighter-rouge">#sort</code> is used, the objects
+in the collection must also implement a meaningful <code class="highlighter-rouge">&lt;=&gt;</code> operator, as
+these methods rely on an ordering between members of the collection.</p>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Enumerable.html">Enumerable Reference</a></p>
+
+<h2 id="enumerator">Enumerator</h2>
+
+<p>A class which allows both internal and external iteration.</p>
+
+<p>An Enumerator can be created by the following methods.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Kernel#to_enum</code></li>
+  <li><code class="highlighter-rouge">Kernel#enum_for</code></li>
+  <li>Enumerator.new</li>
+</ul>
+
+<p>Most methods have two forms: a block form where the contents are
+evaluated for each item in the enumeration, and a non-block form which
+returns a new Enumerator wrapping the iteration.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">enumerator</span> <span class="o">=</span> <span class="sx">%w(one two three)</span><span class="p">.</span><span class="nf">each</span>
+<span class="nb">puts</span> <span class="n">enumerator</span><span class="p">.</span><span class="nf">class</span> <span class="c1"># =&gt; Enumerator</span>
+
+<span class="n">enumerator</span><span class="p">.</span><span class="nf">each_with_object</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="n">obj</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">obj</span><span class="si">}</span><span class="s2">: </span><span class="si">#{</span><span class="n">item</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+
+<span class="c1"># foo: one</span>
+<span class="c1"># foo: two</span>
+<span class="c1"># foo: three</span>
+
+<span class="n">enum_with_obj</span> <span class="o">=</span> <span class="n">enumerator</span><span class="p">.</span><span class="nf">each_with_object</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">enum_with_obj</span><span class="p">.</span><span class="nf">class</span> <span class="c1"># =&gt; Enumerator</span>
+
+<span class="n">enum_with_obj</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="n">obj</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">obj</span><span class="si">}</span><span class="s2">: </span><span class="si">#{</span><span class="n">item</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+
+<span class="c1"># foo: one</span>
+<span class="c1"># foo: two</span>
+<span class="c1"># foo: three</span>
+</code></pre></div></div>
+
+<p>This allows you to chain Enumerators together. For example, you can map
+a list’s elements to strings containing the index and the element as a
+string via:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="sx">%w[foo bar baz]</span><span class="p">.</span><span class="nf">map</span><span class="p">.</span><span class="nf">with_index</span> <span class="p">{</span> <span class="o">|</span><span class="n">w</span><span class="p">,</span> <span class="n">i</span><span class="o">|</span> <span class="s2">"</span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">:</span><span class="si">#{</span><span class="n">w</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+<span class="c1"># =&gt; ["0:foo", "1:bar", "2:baz"]</span>
+</code></pre></div></div>
+
+<p>An Enumerator can also be used as an external iterator. For example,
+Enumerator#next returns the next value of the iterator or raises
+StopIteration if the Enumerator is at the end.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">e</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nf">each</span>   <span class="c1"># returns an enumerator object.</span>
+<span class="nb">puts</span> <span class="n">e</span><span class="p">.</span><span class="nf">next</span>   <span class="c1"># =&gt; 1</span>
+<span class="nb">puts</span> <span class="n">e</span><span class="p">.</span><span class="nf">next</span>   <span class="c1"># =&gt; 2</span>
+<span class="nb">puts</span> <span class="n">e</span><span class="p">.</span><span class="nf">next</span>   <span class="c1"># =&gt; 3</span>
+<span class="nb">puts</span> <span class="n">e</span><span class="p">.</span><span class="nf">next</span>   <span class="c1"># raises StopIteration</span>
+</code></pre></div></div>
+
+<p>You can use this to implement an internal iterator as follows:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">ext_each</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+  <span class="k">while</span> <span class="kp">true</span>
+    <span class="k">begin</span>
+      <span class="n">vs</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="nf">next_values</span>
+    <span class="k">rescue</span> <span class="no">StopIteration</span>
+      <span class="k">return</span> <span class="vg">$!</span><span class="p">.</span><span class="nf">result</span>
+    <span class="k">end</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="k">yield</span><span class="p">(</span><span class="o">*</span><span class="n">vs</span><span class="p">)</span>
+    <span class="n">e</span><span class="p">.</span><span class="nf">feed</span> <span class="n">y</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">o</span> <span class="o">=</span> <span class="no">Object</span><span class="p">.</span><span class="nf">new</span>
+
+<span class="k">def</span> <span class="nc">o</span><span class="o">.</span><span class="nf">each</span>
+  <span class="nb">puts</span> <span class="k">yield</span>
+  <span class="nb">puts</span> <span class="k">yield</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="k">yield</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+  <span class="mi">3</span>
+<span class="k">end</span>
+
+<span class="c1"># use o.each as an internal iterator directly.</span>
+<span class="nb">puts</span> <span class="n">o</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span><span class="o">|*</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">x</span><span class="p">;</span> <span class="p">[</span><span class="ss">:b</span><span class="p">,</span> <span class="o">*</span><span class="n">x</span><span class="p">]</span> <span class="p">}</span>
+<span class="c1"># =&gt; [], [:b], [1], [:b, 1], [1, 2], [:b, 1, 2], 3</span>
+
+<span class="c1"># convert o.each to an external iterator for</span>
+<span class="c1"># implementing an internal iterator.</span>
+<span class="nb">puts</span> <span class="n">ext_each</span><span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="nf">to_enum</span><span class="p">)</span> <span class="p">{</span><span class="o">|*</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">x</span><span class="p">;</span> <span class="p">[</span><span class="ss">:b</span><span class="p">,</span> <span class="o">*</span><span class="n">x</span><span class="p">]</span> <span class="p">}</span>
+<span class="c1"># =&gt; [], [:b], [1], [:b, 1], [1, 2], [:b, 1, 2], 3</span>
+</code></pre></div></div>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Enumerator.html">Enumerator Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

@@ -1,0 +1,172 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 <h1 id="rdoc">RDoc</h1>
+
+<p>RDoc produces documentation for Ruby source files by parsing the source
+and extracting the definition for classes, modules, methods, includes
+and requires. It associates these with optional documentation contained
+in an immediately preceding comment block then renders the result using
+an output formatter.</p>
+
+<p>For a simple introduction to writing or generating documentation using
+RDoc see the README.</p>
+
+<h2 id="roadmap">Roadmap</h2>
+
+<p>If you think you found a bug in RDoc see CONTRIBUTING@Bugs</p>
+
+<p>If you want to use RDoc to create documentation for your Ruby source
+files, see RDoc::Markup and refer to <code class="highlighter-rouge">rdoc --help</code> for command line
+usage.</p>
+
+<p>If you want to set the default markup format see
+RDoc::Markup@Supported+Formats</p>
+
+<p>If you want to store rdoc configuration in your gem (such as the default
+markup format) see RDoc::Options@Saved+Options</p>
+
+<p>If you want to write documentation for Ruby files see RDoc::Parser::Ruby</p>
+
+<p>If you want to write documentation for extensions written in C see
+RDoc::Parser::C</p>
+
+<p>If you want to generate documentation using <code class="highlighter-rouge">rake</code> see RDoc::Task.</p>
+
+<p>If you want to drive RDoc programmatically, see RDoc::RDoc.</p>
+
+<p>If you want to use the library to format text blocks into HTML or other
+formats, look at RDoc::Markup.</p>
+
+<p>If you want to make an RDoc plugin such as a generator or directive
+handler see RDoc::RDoc.</p>
+
+<p>If you want to write your own output generator see RDoc::Generator.</p>
+
+<p>If you want an overview of how RDoc works see CONTRIBUTING</p>
+
+<h2 id="credits">Credits</h2>
+
+<p>RDoc is currently being maintained by Eric Hodel
+<a href="mailto:drbrain@segment7.net">drbrain@segment7.net</a>.</p>
+
+<p>Dave Thomas
+<a href="mailto:dave@pragmaticprogrammer.com">dave@pragmaticprogrammer.com</a> is
+the original author of RDoc.</p>
+
+<ul>
+  <li>The Ruby parser in rdoc/parse.rb is based heavily on the outstanding
+work of Keiju ISHITSUKA of Nippon Rational Inc, who produced the Ruby
+parser for irb and the rtags package.</li>
+</ul>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/rdoc/rdoc/RDoc.html">RDoc
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

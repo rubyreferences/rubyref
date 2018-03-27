@@ -1,0 +1,404 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 <h1 id="variables-and-constants">Variables and Constants</h1>
+
+<h2 id="local-variables">Local Variables</h2>
+
+<p>A local variable name must start with a lowercase US-ASCII letter or a
+character with the eight bit set. Typically local variables are US-ASCII
+compatible since the keys to type them exist on all keyboards.</p>
+
+<p>(Ruby programs must be written in a US-ASCII-compatible character set.
+In such character sets if the eight bit is set it indicates an extended
+character. Ruby allows local variables to contain such characters.)</p>
+
+<p>A local variable name may contain letters, numbers, an <code class="highlighter-rouge">_</code> (underscore
+or low line) or a character with the eighth bit set.</p>
+
+<h3 id="local-variable-scope">Local Variable Scope</h3>
+
+<p>Once a local variable name has been assigned-to all uses of the name for
+the rest of the scope are considered local variables.</p>
+
+<p>Here is an example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="nb">puts</span> <span class="s2">"local variables in the block: </span><span class="si">#{</span><span class="nb">local_variables</span><span class="p">.</span><span class="nf">join</span> <span class="s2">", "</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="s2">"no local variables outside the block"</span> <span class="k">if</span> <span class="nb">local_variables</span><span class="p">.</span><span class="nf">empty?</span>
+</code></pre></div></div>
+
+<p>This prints:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">local</span> <span class="n">variables</span> <span class="k">in</span> <span class="n">the</span> <span class="ss">block: </span><span class="n">a</span>
+<span class="n">no</span> <span class="n">local</span> <span class="n">variables</span> <span class="n">outside</span> <span class="n">the</span> <span class="n">block</span>
+</code></pre></div></div>
+
+<p>Since the block creates a new scope, any local variables created inside
+it do not leak to the surrounding scope.</p>
+
+<p>Variables defined in an outer scope appear inner scope:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="mi">1</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="s2">"local variables: </span><span class="si">#{</span><span class="nb">local_variables</span><span class="p">.</span><span class="nf">join</span> <span class="s2">", "</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This prints:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">local</span> <span class="ss">variables: </span><span class="n">a</span>
+</code></pre></div></div>
+
+<p>You may isolate variables in a block from the outer scope by listing
+them following a <code class="highlighter-rouge">;</code> in the block’s arguments. See the documentation for
+block local variables in the <a href="rdoc-ref:syntax/calling_methods.rdoc">calling
+methods</a> documentation for an
+example.</p>
+
+<p>See also <code class="highlighter-rouge">Kernel#local_variables</code>, but note that a <code class="highlighter-rouge">for</code> loop does not
+create a new scope like a block does.</p>
+
+<h3 id="local-variables-and-methods">Local Variables and Methods</h3>
+
+<p>In Ruby local variable names and method names are nearly identical. If
+you have not assigned to one of these ambiguous names ruby will assume
+you wish to call a method. Once you have assigned to the name ruby will
+assume you wish to reference a local variable.</p>
+
+<p>The local variable is created when the parser encounters the assignment,
+not when the assignment occurs:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="kp">false</span> <span class="c1"># does not assign to a</span>
+
+<span class="nb">p</span> <span class="nb">local_variables</span> <span class="c1"># prints [:a]</span>
+
+<span class="nb">p</span> <span class="n">a</span> <span class="c1"># prints nil</span>
+</code></pre></div></div>
+
+<p>The similarity between method and local variable names can lead to
+confusing code, for example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">big_calculation</span>
+  <span class="mi">42</span> <span class="c1"># pretend this takes a long time</span>
+<span class="k">end</span>
+
+<span class="n">big_calculation</span> <span class="o">=</span> <span class="n">big_calculation</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Now any reference to <code class="highlighter-rouge">big_calculation</code> is considered a local variable
+and will be cached. To call the method, use <code class="highlighter-rouge">self.big_calculation</code>.</p>
+
+<p>You can force a method call by using empty argument parentheses as shown
+above or by using an explicit receiver like <code class="highlighter-rouge">self.</code>. Using an explicit
+receiver may raise a NameError if the method’s visibility is not public.</p>
+
+<p>Another commonly confusing case is when using a modifier <code class="highlighter-rouge">if</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="n">a</span> <span class="k">if</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="nf">zero?</span>
+</code></pre></div></div>
+
+<p>Rather than printing “true” you receive a NameError, “undefined local
+variable or method <code class="highlighter-rouge">a</code>”. Since ruby parses the bare <code class="highlighter-rouge">a</code> left of the <code class="highlighter-rouge">if</code>
+first and has not yet seen an assignment to <code class="highlighter-rouge">a</code> it assumes you wish to
+call a method. Ruby then sees the assignment to <code class="highlighter-rouge">a</code> and will assume you
+are referencing a local method.</p>
+
+<p>The confusion comes from the out-of-order execution of the expression.
+First the local variable is assigned-to then you attempt to call a
+nonexistent method.</p>
+
+<h2 id="instance-variables">Instance Variables</h2>
+
+<p>Instance variables are shared across all methods for the same object.</p>
+
+<p>An instance variable must start with a <code class="highlighter-rouge">@</code> (“at” sign or commercial at).
+Otherwise instance variable names follow the rules as local variable
+names. Since the instance variable starts with an <code class="highlighter-rouge">@</code> the second
+character may be an upper-case letter.</p>
+
+<p>Here is an example of instance variable usage:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">C</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="vi">@instance_variable</span> <span class="o">=</span> <span class="n">value</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">value</span>
+    <span class="vi">@instance_variable</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">object1</span> <span class="o">=</span> <span class="no">C</span><span class="p">.</span><span class="nf">new</span> <span class="s2">"some value"</span>
+<span class="n">object2</span> <span class="o">=</span> <span class="no">C</span><span class="p">.</span><span class="nf">new</span> <span class="s2">"other value"</span>
+
+<span class="nb">p</span> <span class="n">object1</span><span class="p">.</span><span class="nf">value</span> <span class="c1"># prints "some value"</span>
+<span class="nb">p</span> <span class="n">object2</span><span class="p">.</span><span class="nf">value</span> <span class="c1"># prints "other value"</span>
+</code></pre></div></div>
+
+<p>An uninitialized instance variable has a value of <code class="highlighter-rouge">nil</code>. If you run Ruby
+with warnings enabled, you will get a warning when accessing an
+uninitialized instance variable.</p>
+
+<p>The <code class="highlighter-rouge">value</code> method has access to the value set by the <code class="highlighter-rouge">initialize</code>
+method, but only for the same object.</p>
+
+<h2 id="class-variables">Class Variables</h2>
+
+<p>Class variables are shared between a class, its subclasses and its
+instances.</p>
+
+<p>A class variable must start with a <code class="highlighter-rouge">@@</code> (two “at” signs). The rest of
+the name follows the same rules as instance variables.</p>
+
+<p>Here is an example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">A</span>
+  <span class="vc">@@class_variable</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="k">def</span> <span class="nf">value</span>
+    <span class="vc">@@class_variable</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">update</span>
+    <span class="vc">@@class_variable</span> <span class="o">=</span> <span class="vc">@@class_variable</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">B</span> <span class="o">&lt;</span> <span class="no">A</span>
+  <span class="k">def</span> <span class="nf">update</span>
+    <span class="vc">@@class_variable</span> <span class="o">=</span> <span class="vc">@@class_variable</span> <span class="o">+</span> <span class="mi">2</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="no">A</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">B</span><span class="p">.</span><span class="nf">new</span>
+
+<span class="nb">puts</span> <span class="s2">"A value: </span><span class="si">#{</span><span class="n">a</span><span class="p">.</span><span class="nf">value</span><span class="si">}</span><span class="s2">"</span>
+<span class="nb">puts</span> <span class="s2">"B value: </span><span class="si">#{</span><span class="n">b</span><span class="p">.</span><span class="nf">value</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>This prints:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">A</span> <span class="ss">value: </span><span class="mi">0</span>
+<span class="no">B</span> <span class="ss">value: </span><span class="mi">0</span>
+</code></pre></div></div>
+
+<p>Continuing with the same example, we can update using objects from
+either class and the value is shared:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"update A"</span>
+<span class="n">a</span><span class="p">.</span><span class="nf">update</span>
+
+<span class="nb">puts</span> <span class="s2">"A value: </span><span class="si">#{</span><span class="n">a</span><span class="p">.</span><span class="nf">value</span><span class="si">}</span><span class="s2">"</span>
+<span class="nb">puts</span> <span class="s2">"B value: </span><span class="si">#{</span><span class="n">b</span><span class="p">.</span><span class="nf">value</span><span class="si">}</span><span class="s2">"</span>
+
+<span class="nb">puts</span> <span class="s2">"update B"</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">update</span>
+
+<span class="nb">puts</span> <span class="s2">"A value: </span><span class="si">#{</span><span class="n">a</span><span class="p">.</span><span class="nf">value</span><span class="si">}</span><span class="s2">"</span>
+<span class="nb">puts</span> <span class="s2">"B value: </span><span class="si">#{</span><span class="n">b</span><span class="p">.</span><span class="nf">value</span><span class="si">}</span><span class="s2">"</span>
+
+<span class="nb">puts</span> <span class="s2">"update A"</span>
+<span class="n">a</span><span class="p">.</span><span class="nf">update</span>
+
+<span class="nb">puts</span> <span class="s2">"A value: </span><span class="si">#{</span><span class="n">a</span><span class="p">.</span><span class="nf">value</span><span class="si">}</span><span class="s2">"</span>
+<span class="nb">puts</span> <span class="s2">"B value: </span><span class="si">#{</span><span class="n">b</span><span class="p">.</span><span class="nf">value</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>This prints:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">update</span> <span class="no">A</span>
+<span class="no">A</span> <span class="ss">value: </span><span class="mi">1</span>
+<span class="no">B</span> <span class="ss">value: </span><span class="mi">1</span>
+<span class="n">update</span> <span class="no">B</span>
+<span class="no">A</span> <span class="ss">value: </span><span class="mi">3</span>
+<span class="no">B</span> <span class="ss">value: </span><span class="mi">3</span>
+<span class="n">update</span> <span class="no">A</span>
+<span class="no">A</span> <span class="ss">value: </span><span class="mi">4</span>
+<span class="no">B</span> <span class="ss">value: </span><span class="mi">4</span>
+</code></pre></div></div>
+
+<p>Accessing an uninitialized class variable will raise a NameError
+exception.</p>
+
+<p>Note that classes have instance variables because classes are objects,
+so try not to confuse class and instance variables.</p>
+
+<h2 id="global-variables">Global Variables</h2>
+
+<p>Global variables are accessible everywhere.</p>
+
+<p>Global variables start with a <code class="highlighter-rouge">$</code> (dollar sign). The rest of the name
+follows the same rules as instance variables.</p>
+
+<p>Here is an example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="vg">$global</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">class</span> <span class="nc">C</span>
+  <span class="nb">puts</span> <span class="s2">"in a class: </span><span class="si">#{</span><span class="vg">$global</span><span class="si">}</span><span class="s2">"</span>
+
+  <span class="k">def</span> <span class="nf">my_method</span>
+    <span class="nb">puts</span> <span class="s2">"in a method: </span><span class="si">#{</span><span class="vg">$global</span><span class="si">}</span><span class="s2">"</span>
+
+    <span class="vg">$global</span> <span class="o">=</span> <span class="vg">$global</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="vg">$other_global</span> <span class="o">=</span> <span class="mi">3</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">C</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">my_method</span>
+
+<span class="nb">puts</span> <span class="s2">"at top-level, $global: </span><span class="si">#{</span><span class="vg">$global</span><span class="si">}</span><span class="s2">, $other_global: </span><span class="si">#{</span><span class="vg">$other_global</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>This prints:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">in</span> <span class="n">a</span> <span class="ss">class: </span><span class="mi">0</span>
+<span class="k">in</span> <span class="n">a</span> <span class="ss">method: </span><span class="mi">0</span>
+<span class="n">at</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span><span class="p">,</span> <span class="vg">$global</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="vg">$other_global</span><span class="p">:</span> <span class="mi">3</span>
+</code></pre></div></div>
+
+<p>An uninitialized global variable has a value of <code class="highlighter-rouge">nil</code>.</p>
+
+<p>Ruby has some special globals that behave differently depending on
+context such as the regular expression match variables or that have a
+side-effect when assigned to. See the <a href="rdoc-ref:globals.rdoc">global variables
+documentation</a> for details.</p>
+
+<h2 id="constants">Constants</h2>
+
+<p>Constants are defined by assigning value to any identifier starting with
+<strong>upper-case letter</strong>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">X</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="no">NAMES</span> <span class="o">=</span> <span class="sx">%w[Bob Jane Jim]</span>
+</code></pre></div></div>
+
+<p>Classes and modules definition (see <a href="/language/modules-classes.html">Modules and
+Classes</a>) also define constants, assigned to
+class/module name:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">A</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+<span class="c1"># Roughly equivalent to:</span>
+<span class="no">A</span> <span class="o">=</span> <span class="no">Class</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>See also: <a href="/language/modules-classes.html#constants">Constants scoping</a> section in
+“Modules and Classes” chapter.</p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

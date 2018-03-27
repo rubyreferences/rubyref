@@ -1,0 +1,317 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 <h1 id="dir">Dir</h1>
+
+<p>Objects of class <code class="highlighter-rouge">Dir</code> are directory streams representing directories in
+the underlying file system. They provide a variety of ways to list
+directories and their contents. See also <code class="highlighter-rouge">File</code>.</p>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Dir.html">Dir Reference</a></p>
+
+<h2 id="file">File</h2>
+
+<p>A <code class="highlighter-rouge">File</code> is an abstraction of any file object accessible by the program
+and is closely associated with class <code class="highlighter-rouge">IO</code>. <code class="highlighter-rouge">File</code> includes the methods
+of module <code class="highlighter-rouge">FileTest</code> as class methods, allowing you to write (for
+example) <code class="highlighter-rouge">File.exist?("foo")</code>.</p>
+
+<p>In the description of File methods, <em>permission bits</em> are a
+platform-specific set of bits that indicate permissions of a file. On
+Unix-based systems, permissions are viewed as a set of three octets, for
+the owner, the group, and the rest of the world. For each of these
+entities, permissions may be set to read, write, or execute the file:</p>
+
+<p>The permission bits <code class="highlighter-rouge">0644</code> (in octal) would thus be interpreted as
+read/write for owner, and read-only for group and other. Higher-order
+bits may also be used to indicate the type of file (plain, directory,
+pipe, socket, and so on) and various other special features. If the
+permissions are for a directory, the meaning of the execute bit changes;
+when set the directory can be searched.</p>
+
+<p>On non-Posix operating systems, there may be only the ability to make a
+file read-only or read-write. In this case, the remaining permission
+bits will be synthesized to resemble typical values. For instance, on
+Windows NT the default permission bits are <code class="highlighter-rouge">0644</code>, which means
+read/write for owner, read-only for all others. The only change that can
+be made is to make the file read-only, which is reported as <code class="highlighter-rouge">0444</code>.</p>
+
+<p>Various constants for the methods in File can be found in
+File::Constants.</p>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/File.html">File Reference</a></p>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/FileTest.html">FileTest Reference</a></p>
+
+<h2 id="pathname">Pathname</h2>
+
+<p><em>Part of standard library. You need to <code class="highlighter-rouge">require 'pathname'</code> before
+using.</em></p>
+
+<p>Pathname represents the name of a file or directory on the filesystem,
+but not the file itself.</p>
+
+<p>The pathname depends on the Operating System: Unix, Windows, etc. This
+library works with pathnames of local OS, however non-Unix pathnames are
+supported experimentally.</p>
+
+<p>A Pathname can be relative or absolute. It’s not until you try to
+reference the file that it even matters whether the file exists or not.</p>
+
+<p>Pathname is immutable. It has no method for destructive update.</p>
+
+<p>The goal of this class is to manipulate file path information in a
+neater way than standard Ruby provides. The examples below demonstrate
+the difference.</p>
+
+<p><strong>All</strong> functionality from File, FileTest, and some from Dir and
+FileUtils is included, in an unsurprising way. It is essentially a
+facade for all of these, and more.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'pathname'</span>
+<span class="n">pn</span> <span class="o">=</span> <span class="no">Pathname</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"/usr/bin/ruby"</span><span class="p">)</span>
+<span class="n">size</span> <span class="o">=</span> <span class="n">pn</span><span class="p">.</span><span class="nf">size</span>              <span class="c1"># 27662</span>
+<span class="n">isdir</span> <span class="o">=</span> <span class="n">pn</span><span class="p">.</span><span class="nf">directory?</span>       <span class="c1"># false</span>
+<span class="n">dir</span>  <span class="o">=</span> <span class="n">pn</span><span class="p">.</span><span class="nf">dirname</span>           <span class="c1"># Pathname:/usr/bin</span>
+<span class="n">base</span> <span class="o">=</span> <span class="n">pn</span><span class="p">.</span><span class="nf">basename</span>          <span class="c1"># Pathname:ruby</span>
+<span class="n">dir</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="n">pn</span><span class="p">.</span><span class="nf">split</span>        <span class="c1"># [Pathname:/usr/bin, Pathname:ruby]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pn</span><span class="p">.</span><span class="nf">read</span>
+<span class="n">pn</span><span class="p">.</span><span class="nf">open</span> <span class="p">{</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="n">_</span> <span class="p">}</span>
+<span class="n">pn</span><span class="p">.</span><span class="nf">each_line</span> <span class="p">{</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span> <span class="n">_</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/pathname/rdoc/Pathname.html">Pathname
+Reference</a></p>
+
+<h2 id="tempfile">Tempfile</h2>
+
+<p><em>Part of standard library. You need to <code class="highlighter-rouge">require 'tempfile'</code> before
+using.</em></p>
+
+<p>A utility class for managing temporary files. When you create a Tempfile
+object, it will create a temporary file with a unique filename. A
+Tempfile objects behaves just like a File object, and you can perform
+all the usual file operations on it: reading data, writing data,
+changing its permissions, etc. So although this class does not
+explicitly document all instance methods supported by File, you can in
+fact call any File instance method on a Tempfile object.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'tempfile'</span>
+
+<span class="n">file</span> <span class="o">=</span> <span class="no">Tempfile</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">)</span>
+<span class="n">file</span><span class="p">.</span><span class="nf">path</span>      <span class="c1"># =&gt; A unique filename in the OS's temp directory,</span>
+               <span class="c1">#    e.g.: "/tmp/foo.24722.0"</span>
+               <span class="c1">#    This filename contains 'foo' in its basename.</span>
+<span class="n">file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s2">"hello world"</span><span class="p">)</span>
+<span class="n">file</span><span class="p">.</span><span class="nf">rewind</span>
+<span class="n">file</span><span class="p">.</span><span class="nf">read</span>      <span class="c1"># =&gt; "hello world"</span>
+<span class="n">file</span><span class="p">.</span><span class="nf">close</span>
+<span class="n">file</span><span class="p">.</span><span class="nf">unlink</span>    <span class="c1"># deletes the temp file</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/tempfile/rdoc/Tempfile.html">Tempfile
+Reference</a></p>
+
+<h2 id="fileutils">FileUtils</h2>
+
+<p><em>Part of standard library. You need to <code class="highlighter-rouge">require 'fileutils'</code> before
+using.</em></p>
+
+<p>Namespace for several file utility methods for copying, moving,
+removing, etc.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'fileutils'</span>
+
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">cd</span><span class="p">(</span><span class="n">dir</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">cd</span><span class="p">(</span><span class="n">dir</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">dir</span><span class="o">|</span> <span class="n">block</span> <span class="p">}</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">pwd</span><span class="p">()</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">mkdir</span><span class="p">(</span><span class="n">dir</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">mkdir</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">mkdir_p</span><span class="p">(</span><span class="n">dir</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">mkdir_p</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">rmdir</span><span class="p">(</span><span class="n">dir</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">rmdir</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">ln</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">ln</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> <span class="n">dir</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">ln_s</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">ln_s</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> <span class="n">dir</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">ln_sf</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">cp</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dest</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">cp</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="n">dir</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">cp_r</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dest</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">cp_r</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="n">dir</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">mv</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dest</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">mv</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="n">dir</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">rm</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">rm_r</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">rm_rf</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">install</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dest</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">chmod</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">list</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">chmod_R</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">list</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">chown</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">list</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">chown_R</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">list</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">touch</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">options</code> parameter is a hash of options, taken from the list
+<code class="highlighter-rouge">:force</code>, <code class="highlighter-rouge">:noop</code>, <code class="highlighter-rouge">:preserve</code>, and <code class="highlighter-rouge">:verbose</code>. <code class="highlighter-rouge">:noop</code> means that no
+changes are made. The other three are obvious. Each method documents the
+options that it honours.</p>
+
+<p>All methods that have the concept of a “source” file or directory can
+take either one file or a list of files in that argument. See the method
+documentation for examples.</p>
+
+<p>There are some <code class="highlighter-rouge">low level</code> methods, which do not accept any option:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">FileUtils</span><span class="p">.</span><span class="nf">copy_entry</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dest</span><span class="p">,</span> <span class="n">preserve</span> <span class="o">=</span> <span class="kp">false</span><span class="p">,</span> <span class="n">dereference</span> <span class="o">=</span> <span class="kp">false</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">copy_file</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dest</span><span class="p">,</span> <span class="n">preserve</span> <span class="o">=</span> <span class="kp">false</span><span class="p">,</span> <span class="n">dereference</span> <span class="o">=</span> <span class="kp">true</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">copy_stream</span><span class="p">(</span><span class="n">srcstream</span><span class="p">,</span> <span class="n">deststream</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">remove_entry</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">force</span> <span class="o">=</span> <span class="kp">false</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">remove_entry_secure</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">force</span> <span class="o">=</span> <span class="kp">false</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">remove_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">force</span> <span class="o">=</span> <span class="kp">false</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">compare_file</span><span class="p">(</span><span class="n">path_a</span><span class="p">,</span> <span class="n">path_b</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">compare_stream</span><span class="p">(</span><span class="n">stream_a</span><span class="p">,</span> <span class="n">stream_b</span><span class="p">)</span>
+<span class="no">FileUtils</span><span class="p">.</span><span class="nf">uptodate?</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">cmp_list</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/fileutils/rdoc/FileUtils.html">FileUtils
+Reference</a></p>
+
+<h2 id="find">Find</h2>
+
+<p><em>Part of standard library. You need to <code class="highlighter-rouge">require 'find'</code> before using.</em></p>
+
+<p>The <code class="highlighter-rouge">Find</code> module supports the top-down traversal of a set of file
+paths.</p>
+
+<p>For example, to total the size of all files under your home directory,
+ignoring anything in a “dot” directory (e.g. $HOME/.ssh):</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'find'</span>
+
+<span class="n">total_size</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="no">Find</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="no">ENV</span><span class="p">[</span><span class="s2">"HOME"</span><span class="p">])</span> <span class="k">do</span> <span class="o">|</span><span class="n">path</span><span class="o">|</span>
+  <span class="k">if</span> <span class="no">FileTest</span><span class="p">.</span><span class="nf">directory?</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="no">File</span><span class="p">.</span><span class="nf">basename</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">?.</span>
+      <span class="no">Find</span><span class="p">.</span><span class="nf">prune</span>       <span class="c1"># Don't look any further into this directory.</span>
+    <span class="k">else</span>
+      <span class="k">next</span>
+    <span class="k">end</span>
+  <span class="k">else</span>
+    <span class="n">total_size</span> <span class="o">+=</span> <span class="no">FileTest</span><span class="p">.</span><span class="nf">size</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/find/rdoc/Find.html">Find
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

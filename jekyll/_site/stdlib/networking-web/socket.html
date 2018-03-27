@@ -1,0 +1,175 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'socket'</span>
+</code></pre></div></div>
+
+<h1 id="socket">Socket</h1>
+
+<p>Class <code class="highlighter-rouge">Socket</code> provides access to the underlying operating system socket
+implementations. It can be used to provide more operating system
+specific functionality than the protocol-specific socket classes.</p>
+
+<p>The constants defined under Socket::Constants are also defined under
+Socket. For example, Socket::AF_INET is usable as well as
+Socket::Constants::AF_INET. See Socket::Constants for the list of
+constants.</p>
+
+<h3 id="quick-start">Quick start</h3>
+
+<p>Many of the classes, such as TCPSocket, UDPSocket or UNIXSocket, ease
+the use of sockets comparatively to the equivalent C programming
+interface.</p>
+
+<p>Let’s create an internet socket using the IPv4 protocol in a C-like
+manner:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'socket'</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="no">Socket</span><span class="p">.</span><span class="nf">new</span> <span class="no">Socket</span><span class="o">::</span><span class="no">AF_INET</span><span class="p">,</span> <span class="no">Socket</span><span class="o">::</span><span class="no">SOCK_STREAM</span>
+<span class="n">s</span><span class="p">.</span><span class="nf">connect</span> <span class="no">Socket</span><span class="p">.</span><span class="nf">pack_sockaddr_in</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="s1">'example.com'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>You could also use the TCPSocket class:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="no">TCPSocket</span><span class="p">.</span><span class="nf">new</span> <span class="s1">'example.com'</span><span class="p">,</span> <span class="mi">80</span>
+</code></pre></div></div>
+
+<p>A simple server might look like this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'socket'</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="no">TCPServer</span><span class="p">.</span><span class="nf">new</span> <span class="mi">2000</span> <span class="c1"># Server bound to port 2000</span>
+
+<span class="kp">loop</span> <span class="k">do</span>
+  <span class="n">client</span> <span class="o">=</span> <span class="n">server</span><span class="p">.</span><span class="nf">accept</span>    <span class="c1"># Wait for a client to connect</span>
+  <span class="n">client</span><span class="p">.</span><span class="nf">puts</span> <span class="s2">"Hello !"</span>
+  <span class="n">client</span><span class="p">.</span><span class="nf">puts</span> <span class="s2">"Time is </span><span class="si">#{</span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="si">}</span><span class="s2">"</span>
+  <span class="n">client</span><span class="p">.</span><span class="nf">close</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>A simple client may look like this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'socket'</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="no">TCPSocket</span><span class="p">.</span><span class="nf">new</span> <span class="s1">'localhost'</span><span class="p">,</span> <span class="mi">2000</span>
+
+<span class="k">while</span> <span class="n">line</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="nf">gets</span> <span class="c1"># Read lines from socket</span>
+  <span class="nb">puts</span> <span class="n">line</span>         <span class="c1"># and print them</span>
+<span class="k">end</span>
+
+<span class="n">s</span><span class="p">.</span><span class="nf">close</span>             <span class="c1"># close socket when done</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/socket/rdoc/Socket.html">Socket
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

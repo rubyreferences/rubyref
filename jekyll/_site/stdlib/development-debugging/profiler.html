@@ -1,0 +1,178 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 <h2 id="profile">profile</h2>
+
+<p>Profile provides a way to Profile your Ruby application.</p>
+
+<p>Profiling your program is a way of determining which methods are called
+and how long each method takes to complete. This way you can detect
+which methods are possible bottlenecks.</p>
+
+<p>Profiling your program will slow down your execution time considerably,
+so activate it only when you need it. Don’t confuse benchmarking with
+profiling.</p>
+
+<p>There are two ways to activate Profiling:</p>
+
+<h3 id="command-line">Command line</h3>
+
+<p>Run your Ruby script with <code class="highlighter-rouge">-rprofile</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ruby</span> <span class="o">-</span><span class="n">rprofile</span> <span class="n">example</span><span class="p">.</span><span class="nf">rb</span>
+</code></pre></div></div>
+
+<p>If you’re profiling an executable in your <code class="highlighter-rouge">$PATH</code> you can use <code class="highlighter-rouge">ruby
+-S</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ruby</span> <span class="o">-</span><span class="n">rprofile</span> <span class="o">-</span><span class="no">S</span> <span class="n">some_executable</span>
+</code></pre></div></div>
+
+<h3 id="from-code">From code</h3>
+
+<p>Just require ‘profile’:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'profile'</span>
+
+<span class="k">def</span> <span class="nf">slow_method</span>
+  <span class="mi">5000</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span>
+    <span class="mi">9999999999999999</span><span class="o">*</span><span class="mi">999999999</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">fast_method</span>
+  <span class="mi">5000</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span>
+    <span class="mi">9999999999999999</span><span class="o">+</span><span class="mi">999999999</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">slow_method</span>
+<span class="n">fast_method</span>
+</code></pre></div></div>
+
+<p>The output in both cases is a report when the execution is over:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ruby</span> <span class="o">-</span><span class="n">rprofile</span> <span class="n">example</span><span class="p">.</span><span class="nf">rb</span>
+
+  <span class="sx">%  </span> <span class="n">cumulative</span>   <span class="nb">self</span>              <span class="nb">self</span>     <span class="n">total</span>
+ <span class="n">time</span>   <span class="n">seconds</span>   <span class="n">seconds</span>    <span class="n">calls</span>  <span class="n">ms</span><span class="o">/</span><span class="n">call</span>  <span class="n">ms</span><span class="o">/</span><span class="n">call</span>  <span class="nb">name</span>
+ <span class="mf">68.42</span>     <span class="mf">0.13</span>      <span class="mf">0.13</span>        <span class="mi">2</span>    <span class="mf">65.00</span>    <span class="mf">95.00</span>  <span class="no">Integer</span><span class="c1">#times</span>
+ <span class="mf">15.79</span>     <span class="mf">0.16</span>      <span class="mf">0.03</span>     <span class="mi">5000</span>     <span class="mf">0.01</span>     <span class="mf">0.01</span>  <span class="no">Fixnum</span><span class="c1">#*</span>
+ <span class="mf">15.79</span>     <span class="mf">0.19</span>      <span class="mf">0.03</span>     <span class="mi">5000</span>     <span class="mf">0.01</span>     <span class="mf">0.01</span>  <span class="no">Fixnum</span><span class="c1">#+</span>
+  <span class="mf">0.00</span>     <span class="mf">0.19</span>      <span class="mf">0.00</span>        <span class="mi">2</span>     <span class="mf">0.00</span>     <span class="mf">0.00</span>  <span class="no">IO</span><span class="c1">#set_encoding</span>
+  <span class="mf">0.00</span>     <span class="mf">0.19</span>      <span class="mf">0.00</span>        <span class="mi">1</span>     <span class="mf">0.00</span>   <span class="mf">100.00</span>  <span class="no">Object</span><span class="c1">#slow_method</span>
+  <span class="mf">0.00</span>     <span class="mf">0.19</span>      <span class="mf">0.00</span>        <span class="mi">2</span>     <span class="mf">0.00</span>     <span class="mf">0.00</span>  <span class="no">Module</span><span class="c1">#method_added</span>
+  <span class="mf">0.00</span>     <span class="mf">0.19</span>      <span class="mf">0.00</span>        <span class="mi">1</span>     <span class="mf">0.00</span>    <span class="mf">90.00</span>  <span class="no">Object</span><span class="c1">#fast_method</span>
+  <span class="mf">0.00</span>     <span class="mf">0.19</span>      <span class="mf">0.00</span>        <span class="mi">1</span>     <span class="mf">0.00</span>   <span class="mf">190.00</span>  <span class="c1">#toplevel</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/profiler/rdoc/Profiler__.html">Profiler__
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

@@ -1,0 +1,178 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 <h1 id="value-types">Value Types</h1>
+
+<p>This chapter lists all classes corresponding to types of values in Ruby,
+including atomic (symbols, strings, numbers) and collection (arrays,
+hashes) types. It also includes some related standard library values and
+collections.</p>
+
+<h2 id="trueclass">TrueClass</h2>
+
+<p>The global value <code class="highlighter-rouge">true</code> is the only instance of class <code class="highlighter-rouge">TrueClass</code> and
+represents a logically true value in boolean expressions. The class
+provides operators allowing <code class="highlighter-rouge">true</code> to be used in logical expressions.</p>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/TrueClass.html">TrueClass Reference</a></p>
+
+<h2 id="falseclass">FalseClass</h2>
+
+<p>The global value <code class="highlighter-rouge">false</code> is the only instance of class <code class="highlighter-rouge">FalseClass</code> and
+represents a logically false value in boolean expressions. The class
+provides operators allowing <code class="highlighter-rouge">false</code> to participate correctly in logical
+expressions.</p>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/FalseClass.html">FalseClass Reference</a></p>
+
+<h2 id="nilclass">NilClass</h2>
+
+<p>The class of the singleton object <code class="highlighter-rouge">nil</code>.</p>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/NilClass.html">NilClass Reference</a></p>
+
+<h2 id="comparable">Comparable</h2>
+
+<p>The <code class="highlighter-rouge">Comparable</code> mixin is used by classes whose objects may be ordered.
+The class must define the <code class="highlighter-rouge">&lt;=&gt;</code> operator, which compares the receiver
+against another object, returning -1, 0, or +1 depending on whether the
+receiver is less than, equal to, or greater than the other object. If
+the other object is not comparable then the <code class="highlighter-rouge">&lt;=&gt;</code> operator should return
+nil. <code class="highlighter-rouge">Comparable</code> uses <code class="highlighter-rouge">&lt;=&gt;</code> to implement the conventional comparison
+operators (<code class="highlighter-rouge">&lt;</code>, <code class="highlighter-rouge">&lt;=</code>, <code class="highlighter-rouge">==</code>, <code class="highlighter-rouge">&gt;=</code>, and <code class="highlighter-rouge">&gt;</code>) and the method <code class="highlighter-rouge">between?</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SizeMatters</span>
+  <span class="kp">include</span> <span class="no">Comparable</span>
+  <span class="kp">attr</span> <span class="ss">:str</span>
+  <span class="k">def</span> <span class="nf">&lt;</span><span class="o">=&gt;</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+    <span class="n">str</span><span class="p">.</span><span class="nf">size</span> <span class="o">&lt;=&gt;</span> <span class="n">other</span><span class="p">.</span><span class="nf">str</span><span class="p">.</span><span class="nf">size</span>
+  <span class="k">end</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+    <span class="vi">@str</span> <span class="o">=</span> <span class="n">str</span>
+  <span class="k">end</span>
+  <span class="k">def</span> <span class="nf">inspect</span>
+    <span class="vi">@str</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">s1</span> <span class="o">=</span> <span class="no">SizeMatters</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Z"</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="no">SizeMatters</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"YY"</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="no">SizeMatters</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">)</span>
+<span class="n">s4</span> <span class="o">=</span> <span class="no">SizeMatters</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"WWWW"</span><span class="p">)</span>
+<span class="n">s5</span> <span class="o">=</span> <span class="no">SizeMatters</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"VVVVV"</span><span class="p">)</span>
+
+<span class="n">s1</span> <span class="o">&lt;</span> <span class="n">s2</span>                       <span class="c1">#=&gt; true</span>
+<span class="n">s4</span><span class="p">.</span><span class="nf">between?</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s3</span><span class="p">)</span>           <span class="c1">#=&gt; false</span>
+<span class="n">s4</span><span class="p">.</span><span class="nf">between?</span><span class="p">(</span><span class="n">s3</span><span class="p">,</span> <span class="n">s5</span><span class="p">)</span>           <span class="c1">#=&gt; true</span>
+<span class="p">[</span> <span class="n">s3</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s5</span><span class="p">,</span> <span class="n">s4</span><span class="p">,</span> <span class="n">s1</span> <span class="p">].</span><span class="nf">sort</span>   <span class="c1">#=&gt; [Z, YY, XXX, WWWW, VVVVV]</span>
+</code></pre></div></div>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Comparable.html">Comparable Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

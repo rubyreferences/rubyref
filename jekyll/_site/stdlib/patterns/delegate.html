@@ -1,0 +1,226 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'delegate'</span>
+</code></pre></div></div>
+
+<h1 id="delegator">Delegator</h1>
+
+<p>This library provides three different ways to delegate method calls to
+an object. The easiest to use is SimpleDelegator. Pass an object to the
+constructor and all methods supported by the object will be delegated.
+This object can be changed later.</p>
+
+<p>Going a step further, the top level DelegateClass method allows you to
+easily setup delegation through class inheritance. This is considerably
+more flexible and thus probably the most common use for this library.</p>
+
+<p>Finally, if you need full control over the delegation scheme, you can
+inherit from the abstract class Delegator and customize as needed. (If
+you find yourself needing this control, have a look at Forwardable which
+is also in the standard library. It may suit your needs better.)</p>
+
+<p>SimpleDelegator’s implementation serves as a nice example of the use of
+Delegator:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SimpleDelegator</span> <span class="o">&lt;</span> <span class="no">Delegator</span>
+  <span class="k">def</span> <span class="nf">__getobj__</span>
+    <span class="vi">@delegate_sd_obj</span> <span class="c1"># return object we are delegating to, required</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">__setobj__</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="vi">@delegate_sd_obj</span> <span class="o">=</span> <span class="n">obj</span> <span class="c1"># change delegation object,</span>
+                           <span class="c1"># a feature we're providing</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="notes">Notes</h2>
+
+<p>Be advised, RDoc will not detect delegated methods.</p>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/delegate/rdoc/Delegator.html">Delegator
+Reference</a></p>
+
+<h2 id="simpledelegator">SimpleDelegator</h2>
+
+<p>A concrete implementation of Delegator, this class provides the means to
+delegate all supported method calls to the object passed into the
+constructor and even to change the object being delegated to at a later
+time with <code class="highlighter-rouge">#__setobj__</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">User</span>
+  <span class="k">def</span> <span class="nf">born_on</span>
+    <span class="no">Date</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">1989</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">UserDecorator</span> <span class="o">&lt;</span> <span class="no">SimpleDelegator</span>
+  <span class="k">def</span> <span class="nf">birth_year</span>
+    <span class="n">born_on</span><span class="p">.</span><span class="nf">year</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">decorated_user</span> <span class="o">=</span> <span class="no">UserDecorator</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">User</span><span class="p">.</span><span class="nf">new</span><span class="p">)</span>
+<span class="n">decorated_user</span><span class="p">.</span><span class="nf">birth_year</span>  <span class="c1">#=&gt; 1989</span>
+<span class="n">decorated_user</span><span class="p">.</span><span class="nf">__getobj__</span>  <span class="c1">#=&gt; #&lt;User: ...&gt;</span>
+</code></pre></div></div>
+
+<p>A SimpleDelegator instance can take advantage of the fact that
+SimpleDelegator is a subclass of <code class="highlighter-rouge">Delegator</code> to call <code class="highlighter-rouge">super</code> to have
+methods called on the object being delegated to.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SuperArray</span> <span class="o">&lt;</span> <span class="no">SimpleDelegator</span>
+  <span class="k">def</span> <span class="nf">[]</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">super</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">SuperArray</span><span class="p">.</span><span class="nf">new</span><span class="p">([</span><span class="mi">1</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1">#=&gt; 2</span>
+</code></pre></div></div>
+
+<p>Here’s a simple example that takes advantage of the fact that
+SimpleDelegator’s delegation object can be changed at any time.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Stats</span>
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@source</span> <span class="o">=</span> <span class="no">SimpleDelegator</span><span class="p">.</span><span class="nf">new</span><span class="p">([])</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">stats</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+    <span class="vi">@source</span><span class="p">.</span><span class="nf">__setobj__</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+
+    <span class="s2">"Elements:  </span><span class="si">#{</span><span class="vi">@source</span><span class="p">.</span><span class="nf">size</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span>
+    <span class="s2">" Non-Nil:  </span><span class="si">#{</span><span class="vi">@source</span><span class="p">.</span><span class="nf">compact</span><span class="p">.</span><span class="nf">size</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span>
+    <span class="s2">"  Unique:  </span><span class="si">#{</span><span class="vi">@source</span><span class="p">.</span><span class="nf">uniq</span><span class="p">.</span><span class="nf">size</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="no">Stats</span><span class="p">.</span><span class="nf">new</span>
+<span class="nb">puts</span> <span class="n">s</span><span class="p">.</span><span class="nf">stats</span><span class="p">(</span><span class="sx">%w{James Edward Gray II}</span><span class="p">)</span>
+<span class="nb">puts</span>
+<span class="nb">puts</span> <span class="n">s</span><span class="p">.</span><span class="nf">stats</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>Prints:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Elements</span><span class="p">:</span>  <span class="mi">4</span>
+ <span class="no">Non</span><span class="o">-</span><span class="no">Nil</span><span class="p">:</span>  <span class="mi">4</span>
+  <span class="no">Unique</span><span class="p">:</span>  <span class="mi">4</span>
+
+<span class="no">Elements</span><span class="p">:</span>  <span class="mi">8</span>
+ <span class="no">Non</span><span class="o">-</span><span class="no">Nil</span><span class="p">:</span>  <span class="mi">7</span>
+  <span class="no">Unique</span><span class="p">:</span>  <span class="mi">6</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/delegate/rdoc/SimpleDelegator.html">SimpleDelegator
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

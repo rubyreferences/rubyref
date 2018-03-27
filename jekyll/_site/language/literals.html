@@ -1,0 +1,521 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 <h1 id="literals">Literals</h1>
+
+<p>Literals create objects you can use in your program. Literals include:</p>
+
+<ul>
+  <li>Booleans and nil</li>
+  <li>Numbers</li>
+  <li>Strings</li>
+  <li>Symbols</li>
+  <li>Arrays</li>
+  <li>Hashes</li>
+  <li>Ranges</li>
+  <li>Regular Expressions</li>
+  <li>Procs</li>
+</ul>
+
+<h2 id="booleans-and-nil">Booleans and nil</h2>
+
+<p><code class="highlighter-rouge">nil</code> and <code class="highlighter-rouge">false</code> are both false values. <code class="highlighter-rouge">nil</code> is sometimes used to
+indicate “no value” or “unknown” but evaluates to <code class="highlighter-rouge">false</code> in conditional
+expressions.</p>
+
+<p><code class="highlighter-rouge">true</code> is a true value. All objects except <code class="highlighter-rouge">nil</code> and <code class="highlighter-rouge">false</code> evaluate to
+a true value in conditional expressions.</p>
+
+<p>(There are also the constants <code class="highlighter-rouge">TRUE</code>, <code class="highlighter-rouge">FALSE</code> and <code class="highlighter-rouge">NIL</code>, but the
+lowercase literal forms are preferred.)</p>
+
+<h2 id="numbers">Numbers</h2>
+
+<p>You can write integers of any size as follows:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1234</span>
+<span class="mi">1_234</span>
+</code></pre></div></div>
+
+<p>These numbers have the same value, 1,234. The underscore may be used to
+enhance readability for humans. You may place an underscore anywhere in
+the number.</p>
+
+<p>Floating point numbers may be written as follows:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">12.34</span>
+<span class="mi">1234</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span>
+<span class="mf">1.234</span><span class="no">E1</span>
+</code></pre></div></div>
+
+<p>These numbers have the same value, 12.34. You may use underscores in
+floating point numbers as well.</p>
+
+<p>You can use a special prefix to write numbers in decimal, hexadecimal,
+octal or binary formats. For decimal numbers use a prefix of <code class="highlighter-rouge">0d</code>, for
+hexadecimal numbers use a prefix of <code class="highlighter-rouge">0x</code>, for octal numbers use a prefix
+of <code class="highlighter-rouge">0</code> or <code class="highlighter-rouge">0o</code>, for binary numbers use a prefix of <code class="highlighter-rouge">0b</code>. The alphabetic
+component of the number is not case-sensitive.</p>
+
+<p>Examples:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">0</span><span class="n">d170</span>
+<span class="mi">0</span><span class="no">D170</span>
+
+<span class="mh">0xaa</span>
+<span class="mh">0xAa</span>
+<span class="mh">0xAA</span>
+<span class="mi">0</span><span class="no">Xaa</span>
+<span class="mi">0</span><span class="no">XAa</span>
+<span class="mi">0</span><span class="no">XaA</span>
+
+<span class="mo">0252</span>
+<span class="mi">0</span><span class="n">o252</span>
+<span class="mi">0</span><span class="no">O252</span>
+
+<span class="mb">0b10101010</span>
+<span class="mi">0</span><span class="no">B10101010</span>
+</code></pre></div></div>
+
+<p>All these numbers have the same decimal value, 170. Like integers and
+floats you may use an underscore for readability.</p>
+
+<h2 id="strings">Strings</h2>
+
+<p>The most common way of writing strings is using <code class="highlighter-rouge">"</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"This is a string."</span>
+</code></pre></div></div>
+
+<p>The string may be many lines long.</p>
+
+<p>Any internal <code class="highlighter-rouge">"</code> must be escaped:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"This string has a quote: </span><span class="se">\"</span><span class="s2">.  As you can see, it is escaped"</span>
+</code></pre></div></div>
+
+<p>Double-quote strings allow escaped characters such as <code class="highlighter-rouge">\n</code> for newline,
+<code class="highlighter-rouge">\t</code> for tab, etc. The full list of supported escape sequences are as
+follows:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">\</span><span class="n">a</span>             <span class="n">bell</span><span class="p">,</span> <span class="no">ASCII</span> <span class="mo">07</span><span class="n">h</span> <span class="p">(</span><span class="no">BEL</span><span class="p">)</span>
+<span class="p">\</span><span class="n">b</span>             <span class="n">backspace</span><span class="p">,</span> <span class="no">ASCII</span> <span class="mi">08</span><span class="n">h</span> <span class="p">(</span><span class="no">BS</span><span class="p">)</span>
+<span class="p">\</span><span class="n">t</span>             <span class="n">horizontal</span> <span class="n">tab</span><span class="p">,</span> <span class="no">ASCII</span> <span class="mi">09</span><span class="n">h</span> <span class="p">(</span><span class="no">TAB</span><span class="p">)</span>
+<span class="p">\</span><span class="n">n</span>             <span class="n">newline</span> <span class="p">(</span><span class="n">line</span> <span class="n">feed</span><span class="p">),</span> <span class="no">ASCII</span> <span class="mi">0</span><span class="no">Ah</span> <span class="p">(</span><span class="no">LF</span><span class="p">)</span>
+<span class="p">\</span><span class="n">v</span>             <span class="n">vertical</span> <span class="n">tab</span><span class="p">,</span> <span class="no">ASCII</span> <span class="mi">0</span><span class="no">Bh</span> <span class="p">(</span><span class="no">VT</span><span class="p">)</span>
+<span class="p">\</span><span class="n">f</span>             <span class="n">form</span> <span class="n">feed</span><span class="p">,</span> <span class="no">ASCII</span> <span class="mi">0</span><span class="no">Ch</span> <span class="p">(</span><span class="no">FF</span><span class="p">)</span>
+<span class="p">\</span><span class="n">r</span>             <span class="n">carriage</span> <span class="k">return</span><span class="p">,</span> <span class="no">ASCII</span> <span class="mi">0</span><span class="no">Dh</span> <span class="p">(</span><span class="no">CR</span><span class="p">)</span>
+<span class="p">\</span><span class="n">e</span>             <span class="n">escape</span><span class="p">,</span> <span class="no">ASCII</span> <span class="mi">1</span><span class="no">Bh</span> <span class="p">(</span><span class="no">ESC</span><span class="p">)</span>
+<span class="p">\</span><span class="n">s</span>             <span class="n">space</span><span class="p">,</span> <span class="no">ASCII</span> <span class="mi">20</span><span class="n">h</span> <span class="p">(</span><span class="no">SPC</span><span class="p">)</span>
+<span class="p">\\</span>             <span class="n">backslash</span><span class="p">,</span> <span class="p">\</span>
+<span class="p">\</span><span class="n">nnn</span>           <span class="n">octal</span> <span class="n">bit</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">where</span> <span class="n">nnn</span> <span class="n">is</span> <span class="mi">1</span><span class="o">-</span><span class="mi">3</span> <span class="n">octal</span> <span class="n">digits</span> <span class="p">([</span><span class="mi">0</span><span class="o">-</span><span class="mi">7</span><span class="p">])</span>
+<span class="p">\</span><span class="n">xnn</span>           <span class="n">hexadecimal</span> <span class="n">bit</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">where</span> <span class="n">nn</span> <span class="n">is</span> <span class="mi">1</span><span class="o">-</span><span class="mi">2</span> <span class="n">hexadecimal</span> <span class="n">digits</span> <span class="p">([</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="n">a</span><span class="o">-</span><span class="n">fA</span><span class="o">-</span><span class="no">F</span><span class="p">])</span>
+<span class="p">\</span><span class="n">unnnn</span>         <span class="no">Unicode</span> <span class="n">character</span><span class="p">,</span> <span class="n">where</span> <span class="n">nnnn</span> <span class="n">is</span> <span class="n">exactly</span> <span class="mi">4</span> <span class="n">hexadecimal</span> <span class="n">digits</span> <span class="p">([</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="n">a</span><span class="o">-</span><span class="n">fA</span><span class="o">-</span><span class="no">F</span><span class="p">])</span>
+<span class="p">\</span><span class="n">u</span><span class="p">{</span><span class="n">nnnn</span> <span class="o">...</span><span class="p">}</span>   <span class="no">Unicode</span> <span class="n">character</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">where</span> <span class="n">each</span> <span class="n">nnnn</span> <span class="n">is</span> <span class="mi">1</span><span class="o">-</span><span class="mi">6</span> <span class="n">hexadecimal</span> <span class="n">digits</span> <span class="p">([</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="n">a</span><span class="o">-</span><span class="n">fA</span><span class="o">-</span><span class="no">F</span><span class="p">])</span>
+<span class="p">\</span><span class="n">cx</span> <span class="n">or</span> <span class="p">\</span><span class="no">C</span><span class="o">-</span><span class="n">x</span>    <span class="n">control</span> <span class="n">character</span><span class="p">,</span> <span class="n">where</span> <span class="n">x</span> <span class="n">is</span> <span class="n">an</span> <span class="no">ASCII</span> <span class="n">printable</span> <span class="n">character</span>
+<span class="p">\</span><span class="no">M</span><span class="o">-</span><span class="n">x</span>           <span class="n">meta</span> <span class="n">character</span><span class="p">,</span> <span class="n">where</span> <span class="n">x</span> <span class="n">is</span> <span class="n">an</span> <span class="no">ASCII</span> <span class="n">printable</span> <span class="n">character</span>
+<span class="p">\</span><span class="no">M</span><span class="o">-</span><span class="p">\</span><span class="no">C</span><span class="o">-</span><span class="n">x</span>        <span class="n">meta</span> <span class="n">control</span> <span class="n">character</span><span class="p">,</span> <span class="n">where</span> <span class="n">x</span> <span class="n">is</span> <span class="n">an</span> <span class="no">ASCII</span> <span class="n">printable</span> <span class="n">character</span>
+<span class="p">\</span><span class="no">M</span><span class="o">-</span><span class="p">\</span><span class="n">cx</span>         <span class="n">same</span> <span class="n">as</span> <span class="n">above</span>
+<span class="p">\</span><span class="n">c</span><span class="p">\</span><span class="no">M</span><span class="o">-</span><span class="n">x</span>         <span class="n">same</span> <span class="n">as</span> <span class="n">above</span>
+<span class="p">\</span><span class="n">c?</span> <span class="n">or</span> <span class="p">\</span><span class="no">C</span><span class="o">-</span><span class="p">?</span>    <span class="n">delete</span><span class="p">,</span> <span class="no">ASCII</span> <span class="mi">7</span><span class="no">Fh</span> <span class="p">(</span><span class="no">DEL</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Any other character following a backslash is interpreted as the
+character itself.</p>
+
+<p>Double-quote strings allow interpolation of other values using
+<code class="highlighter-rouge">#{...}</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"One plus one is two: </span><span class="si">#{</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>Any expression may be placed inside the interpolated section, but it’s
+best to keep the expression small for readability.</p>
+
+<p>Interpolation may be disabled by escaping the “#” character or using
+single-quote strings:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'#{1 + 1}'</span> <span class="c1">#=&gt; "\#{1 + 1}"</span>
+</code></pre></div></div>
+
+<p>In addition to disabling interpolation, single-quoted strings also
+disable all escape sequences except for the single-quote (<code class="highlighter-rouge">\'</code>) and
+backslash (<code class="highlighter-rouge">\\\</code>).</p>
+
+<p>You may also create strings using <code class="highlighter-rouge">%</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sx">%(1 + 1 is #{1 + 1})</span> <span class="c1">#=&gt; "1 + 1 is 2"</span>
+</code></pre></div></div>
+
+<p>There are two different types of <code class="highlighter-rouge">%</code> strings <code class="highlighter-rouge">%q(...)</code> behaves like a
+single-quote string (no interpolation or character escaping), while <code class="highlighter-rouge">%Q</code>
+behaves as a double-quote string. See Percent Strings below for more
+discussion of the syntax of percent strings.</p>
+
+<p>Adjacent string literals are automatically concatenated by the
+interpreter:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"con"</span> <span class="s2">"cat"</span> <span class="s2">"en"</span> <span class="s2">"at"</span> <span class="s2">"ion"</span> <span class="c1">#=&gt; "concatenation"</span>
+<span class="s2">"This string contains "</span><span class="p">\</span>
+<span class="s2">"no newlines."</span>              <span class="c1">#=&gt; "This string contains no newlines."</span>
+</code></pre></div></div>
+
+<p>Any combination of adjacent single-quote, double-quote, percent strings
+will be concatenated as long as a percent-string is not last.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sx">%q{a}</span> <span class="s1">'b'</span> <span class="s2">"c"</span> <span class="c1">#=&gt; "abc"</span>
+<span class="s2">"a"</span> <span class="s1">'b'</span> <span class="o">%</span><span class="n">q</span><span class="p">{</span><span class="n">c</span><span class="p">}</span> <span class="c1">#=&gt; NameError: uninitialized constant q</span>
+</code></pre></div></div>
+
+<p>There is also a character literal notation to represent single character
+strings, which syntax is a question mark (<code class="highlighter-rouge">?</code>) followed by a single
+character or escape sequence that corresponds to a single codepoint in
+the script encoding:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sc">?a</span>       <span class="c1">#=&gt; "a"</span>
+<span class="p">?</span><span class="n">abc</span>     <span class="c1">#=&gt; SyntaxError</span>
+<span class="sc">?\n</span>      <span class="c1">#=&gt; "\n"</span>
+<span class="sc">?\s</span>      <span class="c1">#=&gt; " "</span>
+<span class="sc">?\\</span>      <span class="c1">#=&gt; "\\"</span>
+<span class="p">?\</span><span class="n">u</span><span class="p">{</span><span class="mi">41</span><span class="p">}</span>  <span class="c1">#=&gt; "A"</span>
+<span class="sc">?\C-a</span>    <span class="c1">#=&gt; "\x01"</span>
+<span class="sc">?\M-a</span>    <span class="c1">#=&gt; "\xE1"</span>
+<span class="sc">?\M-\C-a</span> <span class="c1">#=&gt; "\x81"</span>
+<span class="sc">?\C-\M-a</span> <span class="c1">#=&gt; "\x81", same as above</span>
+<span class="sc">?あ</span>      <span class="c1">#=&gt; "あ"</span>
+</code></pre></div></div>
+
+<h3 id="here-documents">Here Documents</h3>
+
+<p>If you are writing a large block of text you may use a “here document”
+or “heredoc”:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">expected_result</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="no">HEREDOC</span><span class="sh">
+This would contain specially formatted text.
+
+That might span many lines
+</span><span class="no">HEREDOC</span>
+</code></pre></div></div>
+
+<p>The heredoc starts on the line following <code class="highlighter-rouge">&lt;&lt;HEREDOC</code> and ends with the
+next line that starts with <code class="highlighter-rouge">HEREDOC</code>. The result includes the ending
+newline.</p>
+
+<p>You may use any identifier with a heredoc, but all-uppercase identifiers
+are typically used.</p>
+
+<p>You may indent the ending identifier if you place a “-“ after <code class="highlighter-rouge">&lt;&lt;</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">expected_result</span> <span class="o">=</span> <span class="o">&lt;&lt;-</span><span class="no">INDENTED_HEREDOC</span><span class="sh">
+This would contain specially formatted text.
+
+That might span many lines
+</span><span class="no">  INDENTED_HEREDOC</span>
+</code></pre></div></div>
+
+<p>Note that the while the closing identifier may be indented, the content
+is always treated as if it is flush left. If you indent the content
+those spaces will appear in the output.</p>
+
+<p>To have indented content as well as an indented closing identifier, you
+can use a “squiggly” heredoc, which uses a “~” instead of a “-“ after
+<code class="highlighter-rouge">&lt;&lt;</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">expected_result</span> <span class="o">=</span> <span class="o">&lt;&lt;~</span><span class="no">SQUIGGLY_HEREDOC</span><span class="sh">
+  This would contain specially formatted text.
+
+  That might span many lines
+</span><span class="no">SQUIGGLY_HEREDOC</span>
+</code></pre></div></div>
+
+<p>The indentation of the least-indented line will be removed from each
+line of the content. Note that empty lines and lines consisting solely
+of literal tabs and spaces will be ignored for the purposes of
+determining indentation, but escaped tabs and spaces are considered
+non-indentation characters.</p>
+
+<p>A heredoc allows interpolation and escaped characters. You may disable
+interpolation and escaping by surrounding the opening identifier with
+single quotes:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">expected_result</span> <span class="o">=</span> <span class="o">&lt;&lt;-</span><span class="no">'EXPECTED'</span><span class="sh">
+One plus one is </span><span class="si">#{</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="sh">
+</span><span class="no">EXPECTED</span>
+
+<span class="nb">p</span> <span class="n">expected_result</span> <span class="c1"># prints: "One plus one is \#{1 + 1}\n"</span>
+</code></pre></div></div>
+
+<p>The identifier may also be surrounded with double quotes (which is the
+same as no quotes) or with backticks. When surrounded by backticks the
+HEREDOC behaves like Kernel#`:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="o">&lt;&lt;-</span><span class="no">`HEREDOC`</span><span class="sh">
+cat </span><span class="si">#{</span><span class="kp">__FILE__</span><span class="si">}</span><span class="sh">
+</span><span class="no">HEREDOC</span>
+</code></pre></div></div>
+
+<p>To call a method on a heredoc place it after the opening identifier:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">expected_result</span> <span class="o">=</span> <span class="o">&lt;&lt;-</span><span class="no">EXPECTED</span><span class="p">.</span><span class="nf">chomp</span><span class="sh">
+One plus one is </span><span class="si">#{</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="sh">
+</span><span class="no">EXPECTED</span>
+</code></pre></div></div>
+
+<p>You may open multiple heredocs on the same line, but this can be
+difficult to read:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span><span class="p">(</span><span class="o">&lt;&lt;-</span><span class="no">ONE</span><span class="p">,</span> <span class="o">&lt;&lt;-</span><span class="no">TWO</span><span class="p">)</span><span class="sh">
+content for heredoc one
+</span><span class="no">ONE</span><span class="sh">
+content for heredoc two
+</span><span class="no">TWO</span>
+</code></pre></div></div>
+
+<h2 id="symbols">Symbols</h2>
+
+<p>A Symbol represents a name inside the ruby interpreter. See Symbol for
+more details on what symbols are and when ruby creates them internally.</p>
+
+<p>You may reference a symbol using a colon: <code class="highlighter-rouge">:my_symbol</code>.</p>
+
+<p>You may also create symbols by interpolation:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="ss">:"my_symbol1"</span>
+<span class="ss">:"my_symbol</span><span class="si">#{</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="ss">"</span>
+</code></pre></div></div>
+
+<p>Like strings, a single-quote may be used to disable interpolation:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="ss">:'my_symbol#{1 + 1}'</span> <span class="c1">#=&gt; :"my_symbol\#{1 + 1}"</span>
+</code></pre></div></div>
+
+<p>When creating a Hash, there is a special syntax for referencing a Symbol
+as well.</p>
+
+<h2 id="arrays">Arrays</h2>
+
+<p>An array is created using the objects between <code class="highlighter-rouge">[</code> and <code class="highlighter-rouge">]</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>You may place expressions inside the array:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]]]</span>
+</code></pre></div></div>
+
+<p>See Array for the methods you may use with an array.</p>
+
+<h2 id="hashes">Hashes</h2>
+
+<p>A hash is created using key-value pairs between <code class="highlighter-rouge">{</code> and <code class="highlighter-rouge">}</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span> <span class="s2">"a"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"b"</span> <span class="o">=&gt;</span> <span class="mi">2</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Both the key and value may be any object.</p>
+
+<p>You can create a hash using symbol keys with the following syntax:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span> <span class="ss">a: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">2</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>This same syntax is used for keyword arguments for a method.</p>
+
+<p>Like Symbol literals, you can quote symbol keys.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span> <span class="s2">"a 1"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"b </span><span class="si">#{</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="mi">2</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>is equal to</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span> <span class="ss">:"a 1"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">:"b 2"</span> <span class="o">=&gt;</span> <span class="mi">2</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>See Hash for the methods you may use with a hash.</p>
+
+<h2 id="ranges">Ranges</h2>
+
+<p>A range represents an interval of values. The range may include or
+exclude its ending value.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># includes its ending value</span>
+<span class="p">(</span><span class="mi">1</span><span class="o">...</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># excludes its ending value</span>
+</code></pre></div></div>
+
+<p>You may create a range of any object. See the Range documentation for
+details on the methods you need to implement.</p>
+
+<h2 id="regular-expressions">Regular Expressions</h2>
+
+<p>A regular expression is created using “/”:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sr">/my regular expression/</span>
+</code></pre></div></div>
+
+<p>The regular expression may be followed by flags which adjust the
+matching behavior of the regular expression. The “i” flag makes the
+regular expression case-insensitive:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sr">/my regular expression/i</span>
+</code></pre></div></div>
+
+<p>Interpolation may be used inside regular expressions along with escaped
+characters. Note that a regular expression may require additional
+escaped characters than a string.</p>
+
+<p>See Regexp for a description of the syntax of regular expressions.</p>
+
+<h2 id="procs">Procs</h2>
+
+<p>A proc can be created with <code class="highlighter-rouge">-&gt;</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">-&gt;</span> <span class="p">{</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Calling the above proc will give a result of <code class="highlighter-rouge">2</code>.</p>
+
+<p>You can require arguments for the proc as follows:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">-&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="p">{</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">v</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>This proc will add one to its argument.</p>
+
+<h2 id="percent-strings">Percent Strings</h2>
+
+<p>Besides <code class="highlighter-rouge">%(...)</code> which creates a String, the <code class="highlighter-rouge">%</code> may create other types
+of object. As with strings, an uppercase letter allows interpolation and
+escaped characters while a lowercase letter disables them.</p>
+
+<p>These are the types of percent strings in ruby:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">%i</code>: Array of Symbols</li>
+  <li><code class="highlighter-rouge">%q</code>: String</li>
+  <li><code class="highlighter-rouge">%r</code>: Regular Expression</li>
+  <li><code class="highlighter-rouge">%s</code>: Symbol</li>
+  <li><code class="highlighter-rouge">%w</code>: Array of Strings</li>
+  <li><code class="highlighter-rouge">%x</code>: Backtick (capture subshell result)</li>
+</ul>
+
+<p>For the two array forms of percent string, if you wish to include a
+space in one of the array entries you must escape it with a “"
+character:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sx">%w[one one-hundred\ one]</span>
+<span class="c1">#=&gt; ["one", "one-hundred one"]</span>
+</code></pre></div></div>
+
+<p>If you are using “(“, “[”, “{”, “&lt;” you must close it with “)”, “]”,
+“}”, “&gt;” respectively. You may use most other non-alphanumeric
+characters for percent string delimiters such as “%”, “|”, “^”, etc.</p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

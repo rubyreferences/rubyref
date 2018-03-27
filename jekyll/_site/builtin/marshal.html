@@ -1,0 +1,568 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 <h1 id="marshal">Marshal</h1>
+
+<p>The marshaling library converts collections of Ruby objects into a byte
+stream, allowing them to be stored outside the currently active script.
+This data may subsequently be read and the original objects
+reconstituted.</p>
+
+<p>Marshaled data has major and minor version numbers stored along with the
+object information. In normal use, marshaling can only load data written
+with the same major version number and an equal or lower minor version
+number. If Ruby’s ``verbose`’ flag is set (normally using -d, -v, -w,
+or –verbose) the major and minor numbers must match exactly. Marshal
+versioning is independent of Ruby’s version numbers. You can extract the
+version by reading the first two bytes of marshaled data.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">str</span> <span class="o">=</span> <span class="no">Marshal</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="s2">"thing"</span><span class="p">)</span>
+<span class="no">RUBY_VERSION</span>   <span class="c1">#=&gt; "1.9.0"</span>
+<span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">ord</span>     <span class="c1">#=&gt; 4</span>
+<span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">ord</span>     <span class="c1">#=&gt; 8</span>
+</code></pre></div></div>
+
+<p>Some objects cannot be dumped: if the objects to be dumped include
+bindings, procedure or method objects, instances of class IO, or
+singleton objects, a TypeError will be raised.</p>
+
+<p>If your class has special serialization needs (for example, if you want
+to serialize in some specific format), or if it contains objects that
+would otherwise not be serializable, you can implement your own
+serialization strategy.</p>
+
+<p>There are two methods of doing this, your object can define either
+marshal_dump and marshal_load or _dump and _load. marshal_dump will
+take precedence over _dump if both are defined. marshal_dump may
+result in smaller Marshal strings.</p>
+
+<h2 id="security-considerations">Security considerations</h2>
+
+<p>By design, Marshal.load can deserialize almost any class loaded into the
+Ruby process. In many cases this can lead to remote code execution if
+the Marshal data is loaded from an untrusted source.</p>
+
+<p>As a result, Marshal.load is not suitable as a general purpose
+serialization format and you should never unmarshal user supplied input
+or other untrusted data.</p>
+
+<p>If you need to deserialize untrusted data, use JSON or another
+serialization format that is only able to load simple, ‘primitive’ types
+such as String, Array, Hash, etc. Never allow user input to specify
+arbitrary types to deserialize into.</p>
+
+<h2 id="marshal_dump-and-marshal_load">marshal_dump and marshal_load</h2>
+
+<p>When dumping an object the method marshal_dump will be called.
+marshal_dump must return a result containing the information necessary
+for marshal_load to reconstitute the object. The result can be any
+object.</p>
+
+<p>When loading an object dumped using marshal_dump the object is first
+allocated then marshal_load is called with the result from
+marshal_dump. marshal_load must recreate the object from the
+information in the result.</p>
+
+<p>Example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyObj</span>
+  <span class="k">def</span> <span class="nf">initialize</span> <span class="nb">name</span><span class="p">,</span> <span class="n">version</span><span class="p">,</span> <span class="n">data</span>
+    <span class="vi">@name</span>    <span class="o">=</span> <span class="nb">name</span>
+    <span class="vi">@version</span> <span class="o">=</span> <span class="n">version</span>
+    <span class="vi">@data</span>    <span class="o">=</span> <span class="n">data</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">marshal_dump</span>
+    <span class="p">[</span><span class="vi">@name</span><span class="p">,</span> <span class="vi">@version</span><span class="p">]</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">marshal_load</span> <span class="n">array</span>
+    <span class="vi">@name</span><span class="p">,</span> <span class="vi">@version</span> <span class="o">=</span> <span class="n">array</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="_dump-and-_load">_dump and _load</h2>
+
+<p>Use _dump and _load when you need to allocate the object you’re
+restoring yourself.</p>
+
+<p>When dumping an object the instance method _dump is called with an
+Integer which indicates the maximum depth of objects to dump (a value of
+-1 implies that you should disable depth checking). _dump must return a
+String containing the information necessary to reconstitute the object.</p>
+
+<p>The class method _load should take a String and use it to return an
+object of the same class.</p>
+
+<p>Example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyObj</span>
+  <span class="k">def</span> <span class="nf">initialize</span> <span class="nb">name</span><span class="p">,</span> <span class="n">version</span><span class="p">,</span> <span class="n">data</span>
+    <span class="vi">@name</span>    <span class="o">=</span> <span class="nb">name</span>
+    <span class="vi">@version</span> <span class="o">=</span> <span class="n">version</span>
+    <span class="vi">@data</span>    <span class="o">=</span> <span class="n">data</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">_dump</span> <span class="n">level</span>
+    <span class="p">[</span><span class="vi">@name</span><span class="p">,</span> <span class="vi">@version</span><span class="p">].</span><span class="nf">join</span> <span class="s1">':'</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">_load</span> <span class="n">args</span>
+    <span class="n">new</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">))</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Since Marshal.dump outputs a string you can have _dump return a Marshal
+string which is Marshal.loaded in _load for complex objects.</p>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Marshal.html">Marshal Reference</a></p>
+
+<h2 id="marshal-format">Marshal Format</h2>
+
+<p>The Marshal format is used to serialize ruby objects. The format can
+store arbitrary objects through three user-defined extension mechanisms.</p>
+
+<p>For documentation on using Marshal to serialize and deserialize objects,
+see the Marshal module.</p>
+
+<p>This document calls a serialized set of objects a stream. The Ruby
+implementation can load a set of objects from a String, an IO or an
+object that implements a <code class="highlighter-rouge">getc</code> method.</p>
+
+<h3 id="stream-format">Stream Format</h3>
+
+<p>The first two bytes of the stream contain the major and minor version,
+each as a single byte encoding a digit. The version implemented in Ruby
+is 4.8 (stored as “x04x08”) and is supported by ruby 1.8.0 and newer.</p>
+
+<p>Different major versions of the Marshal format are not compatible and
+cannot be understood by other major versions. Lesser minor versions of
+the format can be understood by newer minor versions. Format 4.7 can be
+loaded by a 4.8 implementation but format 4.8 cannot be loaded by a 4.7
+implementation.</p>
+
+<p>Following the version bytes is a stream describing the serialized
+object. The stream contains nested objects (the same as a Ruby object)
+but objects in the stream do not necessarily have a direct mapping to
+the Ruby object model.</p>
+
+<p>Each object in the stream is described by a byte indicating its type
+followed by one or more bytes describing the object. When “object” is
+mentioned below it means any of the types below that defines a Ruby
+object.</p>
+
+<h4 id="true-false-nil">true, false, nil</h4>
+
+<p>These objects are each one byte long. “T” is represents <code class="highlighter-rouge">true</code>, “F”
+represents <code class="highlighter-rouge">false</code> and “0” represents <code class="highlighter-rouge">nil</code>.</p>
+
+<h4 id="fixnum-and-long">Fixnum and long</h4>
+
+<p>“i” represents a signed 32 bit value using a packed format. One through
+five bytes follows the type. The value loaded will always be a Fixnum.
+On 32 bit platforms (where the precision of a Fixnum is less than 32
+bits) loading large values will cause overflow on CRuby.</p>
+
+<p>The fixnum type is used to represent both ruby Fixnum objects and the
+sizes of marshaled arrays, hashes, instance variables and other types.
+In the following sections “long” will mean the format described below,
+which supports full 32 bit precision.</p>
+
+<p>The first byte has the following special values:</p>
+
+<ul>
+  <li>
+    <p>“x00”: The value of the integer is 0. No bytes follow.</p>
+  </li>
+  <li>
+    <p>“x01”: The total size of the integer is two bytes. The following byte
+is a positive integer in the range of 0 through 255. Only values
+between 123 and 255 should be represented this way to save bytes.</p>
+  </li>
+  <li>
+    <p>“xff”: The total size of the integer is two bytes. The following byte
+is a negative integer in the range of -1 through -256.</p>
+  </li>
+  <li>
+    <p>“x02”: The total size of the integer is three bytes. The following
+two bytes are a positive little-endian integer.</p>
+  </li>
+  <li>
+    <p>“xfe”: The total size of the integer is three bytes. The following
+two bytes are a negative little-endian integer.</p>
+  </li>
+  <li>
+    <p>“x03”: The total size of the integer is four bytes. The following
+three bytes are a positive little-endian integer.</p>
+  </li>
+  <li>
+    <p>“xfd”: The total size of the integer is two bytes. The following
+three bytes are a negative little-endian integer.</p>
+  </li>
+  <li>
+    <p>“x04”: The total size of the integer is five bytes. The following
+four bytes are a positive little-endian integer. For compatibility
+with 32 bit ruby, only Fixnums less than 1073741824 should be
+represented this way. For sizes of stream objects full precision may
+be used.</p>
+  </li>
+  <li>
+    <p>“xfc”: The total size of the integer is two bytes. The following four
+bytes are a negative little-endian integer. For compatibility with 32
+bit ruby, only Fixnums greater than -10737341824 should be represented
+this way. For sizes of stream objects full precision may be used.</p>
+  </li>
+</ul>
+
+<p>Otherwise the first byte is a sign-extended eight-bit value with an
+offset. If the value is positive the value is determined by subtracting
+5 from the value. If the value is negative the value is determined by
+adding 5 to the value.</p>
+
+<p>There are multiple representations for many values. CRuby always outputs
+the shortest representation possible.</p>
+
+<h4 id="symbols-and-byte-sequence">Symbols and Byte Sequence</h4>
+
+<p>”:” represents a real symbol. A real symbol contains the data needed to
+define the symbol for the rest of the stream as future occurrences in
+the stream will instead be references (a symbol link) to this one. The
+reference is a zero-indexed 32 bit value (so the first occurrence of
+<code class="highlighter-rouge">:hello</code> is 0).</p>
+
+<p>Following the type byte is byte sequence which consists of a long
+indicating the number of bytes in the sequence followed by that many
+bytes of data. Byte sequences have no encoding.</p>
+
+<p>For example, the following stream contains the Symbol <code class="highlighter-rouge">:hello</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"</span><span class="se">\x04\x08</span><span class="s2">:</span><span class="se">\x0a</span><span class="s2">hello"</span>
+</code></pre></div></div>
+
+<p>”;” represents a Symbol link which references a previously defined
+Symbol. Following the type byte is a long containing the index in the
+lookup table for the linked (referenced) Symbol.</p>
+
+<p>For example, the following stream contains <code class="highlighter-rouge">[:hello, :hello]</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"</span><span class="se">\x04\b</span><span class="s2">[</span><span class="se">\a</span><span class="s2">:</span><span class="se">\n</span><span class="s2">hello;</span><span class="se">\x00</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>When a “symbol” is referenced below it may be either a real symbol or a
+symbol link.</p>
+
+<h4 id="object-references">Object References</h4>
+
+<p>Separate from but similar to symbol references, the stream contains only
+one copy of each object (as determined by <code class="highlighter-rouge">#object_id</code>) for all objects
+except true, false, nil, Fixnums and Symbols (which are stored
+separately as described above) a one-indexed 32 bit value will be stored
+and reused when the object is encountered again. (The first object has
+an index of 1).</p>
+
+<p>”@” represents an object link. Following the type byte is a long giving
+the index of the object.</p>
+
+<p>For example, the following stream contains an Array of the same
+<code class="highlighter-rouge">"hello"</code> object twice:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"</span><span class="se">\004\b</span><span class="s2">[</span><span class="se">\a\"\n</span><span class="s2">hello@</span><span class="se">\006</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<h4 id="instance-variables">Instance Variables</h4>
+
+<p>“I” indicates that instance variables follow the next object. An object
+follows the type byte. Following the object is a length indicating the
+number of instance variables for the object. Following the length is a
+set of name-value pairs. The names are symbols while the values are
+objects. The symbols must be instance variable names (<code class="highlighter-rouge">:@name</code>).</p>
+
+<p>An Object (“o” type, described below) uses the same format for its
+instance variables as described here.</p>
+
+<p>For a String and Regexp (described below) a special instance variable
+<code class="highlighter-rouge">:E</code> is used to indicate the Encoding.</p>
+
+<h4 id="extended">Extended</h4>
+
+<p>“e” indicates that the next object is extended by a module. An object
+follows the type byte. Following the object is a symbol that contains
+the name of the module the object is extended by.</p>
+
+<h4 id="array">Array</h4>
+
+<p>”[” represents an Array. Following the type byte is a long indicating
+the number of objects in the array. The given number of objects follow
+the length.</p>
+
+<h4 id="bignum">Bignum</h4>
+
+<p>“l” represents a Bignum which is composed of three parts:</p>
+
+<ul>
+  <li>
+    <p>sign: A single byte containing “+” for a positive value or “-“ for a
+negative value.</p>
+  </li>
+  <li>
+    <p>length: A long indicating the number of bytes of Bignum data follows,
+divided by two. Multiply the length by two to determine the number of
+bytes of data that follow.</p>
+  </li>
+  <li>
+    <p>data: Bytes of Bignum data representing the number.</p>
+  </li>
+</ul>
+
+<p>The following ruby code will reconstruct the Bignum value from an array
+of bytes:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">bytes</span><span class="p">.</span><span class="nf">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">byte</span><span class="p">,</span> <span class="n">exp</span><span class="o">|</span>
+ <span class="n">result</span> <span class="o">+=</span> <span class="p">(</span><span class="n">byte</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">exp</span> <span class="o">*</span> <span class="mi">8</span><span class="p">))</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h4 id="class-and-module">Class and Module</h4>
+
+<p>“c” represents a Class object, “m” represents a Module and “M”
+represents either a class or module (this is an old-style for
+compatibility). No class or module content is included, this type is
+only a reference. Following the type byte is a byte sequence which is
+used to look up an existing class or module, respectively.</p>
+
+<p>Instance variables are not allowed on a class or module.</p>
+
+<p>If no class or module exists an exception should be raised.</p>
+
+<p>For “c” and “m” types, the loaded object must be a class or module,
+respectively.</p>
+
+<h4 id="data">Data</h4>
+
+<p>“d” represents a Data object. (Data objects are wrapped pointers from
+ruby extensions.) Following the type byte is a symbol indicating the
+class for the Data object and an object that contains the state of the
+Data object.</p>
+
+<p>To dump a Data object Ruby calls _dump_data. To load a Data object
+Ruby calls _load_data with the state of the object on a newly
+allocated instance.</p>
+
+<h4 id="float">Float</h4>
+
+<p>“f” represents a Float object. Following the type byte is a byte
+sequence containing the float value. The following values are special:</p>
+
+<ul>
+  <li>
+    <p>“inf”: Positive infinity</p>
+  </li>
+  <li>
+    <p>“-inf”: Negative infinity</p>
+  </li>
+  <li>
+    <p>“nan”: Not a Number</p>
+  </li>
+</ul>
+
+<p>Otherwise the byte sequence contains a C double (loadable by strtod(3)).
+Older minor versions of Marshal also stored extra mantissa bits to
+ensure portability across platforms but 4.8 does not include these. See
+[ruby-talk:69518] for some explanation.</p>
+
+<h4 id="hash-and-hash-with-default-value">Hash and Hash with Default Value</h4>
+
+<p>”{” represents a Hash object while “}” represents a Hash with a default
+value set (<code class="highlighter-rouge">Hash.new 0</code>). Following the type byte is a long indicating
+the number of key-value pairs in the Hash, the size. Double the given
+number of objects follow the size.</p>
+
+<p>For a Hash with a default value, the default value follows all the
+pairs.</p>
+
+<h4 id="module-and-old-module">Module and Old Module</h4>
+
+<h4 id="object">Object</h4>
+
+<p>“o” represents an object that doesn’t have any other special form (such
+as a user-defined or built-in format). Following the type byte is a
+symbol containing the class name of the object. Following the class name
+is a long indicating the number of instance variable names and values
+for the object. Double the given number of pairs of objects follow the
+size.</p>
+
+<p>The keys in the pairs must be symbols containing instance variable
+names.</p>
+
+<h4 id="regular-expression">Regular Expression</h4>
+
+<p>”/” represents a regular expression. Following the type byte is a byte
+sequence containing the regular expression source. Following the type
+byte is a byte containing the regular expression options
+(case-insensitive, etc.) as a signed 8-bit value.</p>
+
+<p>Regular expressions can have an encoding attached through instance
+variables (see above). If no encoding is attached escapes for the
+following regexp specials not present in ruby 1.8 must be removed: g-m,
+o-q, u, y, E, F, H-L, N-V, X, Y.</p>
+
+<h4 id="string">String</h4>
+
+<p>’”’ represents a String. Following the type byte is a byte sequence
+containing the string content. When dumped from ruby 1.9 an encoding
+instance variable (<code class="highlighter-rouge">:E</code> see above) should be included unless the
+encoding is binary.</p>
+
+<h4 id="struct">Struct</h4>
+
+<p>“S” represents a Struct. Following the type byte is a symbol containing
+the name of the struct. Following the name is a long indicating the
+number of members in the struct. Double the number of objects follow the
+member count. Each member is a pair containing the member’s symbol and
+an object for the value of that member.</p>
+
+<p>If the struct name does not match a Struct subclass in the running ruby
+an exception should be raised.</p>
+
+<p>If there is a mismatch between the struct in the currently running ruby
+and the member count in the marshaled struct an exception should be
+raised.</p>
+
+<h4 id="user-class">User Class</h4>
+
+<p>“C” represents a subclass of a String, Regexp, Array or Hash. Following
+the type byte is a symbol containing the name of the subclass. Following
+the name is the wrapped object.</p>
+
+<h4 id="user-defined">User Defined</h4>
+
+<p>“u” represents an object with a user-defined serialization format using
+the <code class="highlighter-rouge">_dump</code> instance method and <code class="highlighter-rouge">_load</code> class method. Following the type
+byte is a symbol containing the class name. Following the class name is
+a byte sequence containing the user-defined representation of the
+object.</p>
+
+<p>The class method <code class="highlighter-rouge">_load</code> is called on the class with a string created
+from the byte-sequence.</p>
+
+<h4 id="user-marshal">User Marshal</h4>
+
+<p>“U” represents an object with a user-defined serialization format using
+the <code class="highlighter-rouge">marshal_dump</code> and <code class="highlighter-rouge">marshal_load</code> instance methods. Following the
+type byte is a symbol containing the class name. Following the class
+name is an object containing the data.</p>
+
+<p>Upon loading a new instance must be allocated and <code class="highlighter-rouge">marshal_load</code> must be
+called on the instance with the data.</p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

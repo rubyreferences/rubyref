@@ -1,0 +1,149 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'net/ftp'</span>
+</code></pre></div></div>
+
+<h1 id="netftp">Net::FTP</h1>
+
+<p>This class implements the File Transfer Protocol. If you have used a
+command-line FTP program, and are familiar with the commands, you will
+be able to use this class easily. Some extra features are included to
+take advantage of Ruby’s style and strengths.</p>
+
+<h2 id="example">Example</h2>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'net/ftp'</span>
+</code></pre></div></div>
+
+<h3 id="example-1">Example 1</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ftp</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">FTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'example.com'</span><span class="p">)</span>
+<span class="n">ftp</span><span class="p">.</span><span class="nf">login</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">ftp</span><span class="p">.</span><span class="nf">chdir</span><span class="p">(</span><span class="s1">'pub/lang/ruby/contrib'</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">ftp</span><span class="p">.</span><span class="nf">list</span><span class="p">(</span><span class="s1">'n*'</span><span class="p">)</span>
+<span class="n">ftp</span><span class="p">.</span><span class="nf">getbinaryfile</span><span class="p">(</span><span class="s1">'nif.rb-0.91.gz'</span><span class="p">,</span> <span class="s1">'nif.gz'</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="n">ftp</span><span class="p">.</span><span class="nf">close</span>
+</code></pre></div></div>
+
+<h3 id="example-2">Example 2</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Net</span><span class="o">::</span><span class="no">FTP</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s1">'example.com'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">ftp</span><span class="o">|</span>
+  <span class="n">ftp</span><span class="p">.</span><span class="nf">login</span>
+  <span class="n">files</span> <span class="o">=</span> <span class="n">ftp</span><span class="p">.</span><span class="nf">chdir</span><span class="p">(</span><span class="s1">'pub/lang/ruby/contrib'</span><span class="p">)</span>
+  <span class="n">files</span> <span class="o">=</span> <span class="n">ftp</span><span class="p">.</span><span class="nf">list</span><span class="p">(</span><span class="s1">'n*'</span><span class="p">)</span>
+  <span class="n">ftp</span><span class="p">.</span><span class="nf">getbinaryfile</span><span class="p">(</span><span class="s1">'nif.rb-0.91.gz'</span><span class="p">,</span> <span class="s1">'nif.gz'</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/net/ftp/rdoc/Net::FTP.html">Net::FTP
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

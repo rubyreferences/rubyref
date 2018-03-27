@@ -1,0 +1,167 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'zlib'</span>
+</code></pre></div></div>
+
+<h1 id="zlib">Zlib</h1>
+
+<p>This module provides access to the <a href="http://zlib.net">zlib library</a>. Zlib
+is designed to be a portable, free, general-purpose, legally
+unencumbered – that is, not covered by any patents – lossless
+data-compression library for use on virtually any computer hardware and
+operating system.</p>
+
+<p>The zlib compression library provides in-memory compression and
+decompression functions, including integrity checks of the uncompressed
+data.</p>
+
+<p>The zlib compressed data format is described in RFC 1950, which is a
+wrapper around a deflate stream which is described in RFC 1951.</p>
+
+<p>The library also supports reading and writing files in gzip (.gz) format
+with an interface similar to that of IO. The gzip format is described in
+RFC 1952 which is also a wrapper around a deflate stream.</p>
+
+<p>The zlib format was designed to be compact and fast for use in memory
+and on communications channels. The gzip format was designed for
+single-file compression on file systems, has a larger header than zlib
+to maintain directory information, and uses a different, slower check
+method than zlib.</p>
+
+<p>See your system’s zlib.h for further information about zlib</p>
+
+<h2 id="sample-usage">Sample usage</h2>
+
+<p>Using the wrapper to compress strings with default parameters is quite
+simple:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s2">"zlib"</span>
+
+<span class="n">data_to_compress</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="s2">"don_quixote.txt"</span><span class="p">)</span>
+
+<span class="nb">puts</span> <span class="s2">"Input size: </span><span class="si">#{</span><span class="n">data_to_compress</span><span class="p">.</span><span class="nf">size</span><span class="si">}</span><span class="s2">"</span>
+<span class="c1">#=&gt; Input size: 2347740</span>
+
+<span class="n">data_compressed</span> <span class="o">=</span> <span class="no">Zlib</span><span class="o">::</span><span class="no">Deflate</span><span class="p">.</span><span class="nf">deflate</span><span class="p">(</span><span class="n">data_to_compress</span><span class="p">)</span>
+
+<span class="nb">puts</span> <span class="s2">"Compressed size: </span><span class="si">#{</span><span class="n">data_compressed</span><span class="p">.</span><span class="nf">size</span><span class="si">}</span><span class="s2">"</span>
+<span class="c1">#=&gt; Compressed size: 887238</span>
+
+<span class="n">uncompressed_data</span> <span class="o">=</span> <span class="no">Zlib</span><span class="o">::</span><span class="no">Inflate</span><span class="p">.</span><span class="nf">inflate</span><span class="p">(</span><span class="n">data_compressed</span><span class="p">)</span>
+
+<span class="nb">puts</span> <span class="s2">"Uncompressed data is: </span><span class="si">#{</span><span class="n">uncompressed_data</span><span class="si">}</span><span class="s2">"</span>
+<span class="c1">#=&gt; Uncompressed data is: The Project Gutenberg EBook of Don Quixote...</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/zlib/rdoc/Zlib.html">Zlib
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

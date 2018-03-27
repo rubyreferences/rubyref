@@ -1,0 +1,192 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'digest'</span>
+</code></pre></div></div>
+
+<h1 id="digest">Digest</h1>
+
+<p>This module provides a framework for message digest libraries.</p>
+
+<p>You may want to look at OpenSSL::Digest as it supports more algorithms.</p>
+
+<p>A cryptographic hash function is a procedure that takes data and returns
+a fixed bit string: the hash value, also known as <em>digest</em>. Hash
+functions are also called one-way functions, it is easy to compute a
+digest from a message, but it is infeasible to generate a message from a
+digest.</p>
+
+<h2 id="examples">Examples</h2>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'digest'</span>
+
+<span class="c1"># Compute a complete digest</span>
+<span class="no">Digest</span><span class="o">::</span><span class="no">SHA256</span><span class="p">.</span><span class="nf">digest</span> <span class="s1">'message'</span>       <span class="c1">#=&gt; "\xABS\n\x13\xE4Y..."</span>
+
+<span class="n">sha256</span> <span class="o">=</span> <span class="no">Digest</span><span class="o">::</span><span class="no">SHA256</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">sha256</span><span class="p">.</span><span class="nf">digest</span> <span class="s1">'message'</span>               <span class="c1">#=&gt; "\xABS\n\x13\xE4Y..."</span>
+
+<span class="c1"># Other encoding formats</span>
+<span class="no">Digest</span><span class="o">::</span><span class="no">SHA256</span><span class="p">.</span><span class="nf">hexdigest</span> <span class="s1">'message'</span>    <span class="c1">#=&gt; "ab530a13e459..."</span>
+<span class="no">Digest</span><span class="o">::</span><span class="no">SHA256</span><span class="p">.</span><span class="nf">base64digest</span> <span class="s1">'message'</span> <span class="c1">#=&gt; "q1MKE+RZFJgr..."</span>
+
+<span class="c1"># Compute digest by chunks</span>
+<span class="n">md5</span> <span class="o">=</span> <span class="no">Digest</span><span class="o">::</span><span class="no">MD5</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">md5</span><span class="p">.</span><span class="nf">update</span> <span class="s1">'message1'</span>
+<span class="n">md5</span> <span class="o">&lt;&lt;</span> <span class="s1">'message2'</span>                     <span class="c1"># &lt;&lt; is an alias for update</span>
+
+<span class="n">md5</span><span class="p">.</span><span class="nf">hexdigest</span>                         <span class="c1">#=&gt; "94af09c09bb9..."</span>
+
+<span class="c1"># Compute digest for a file</span>
+<span class="n">sha256</span> <span class="o">=</span> <span class="no">Digest</span><span class="o">::</span><span class="no">SHA256</span><span class="p">.</span><span class="nf">file</span> <span class="s1">'testfile'</span>
+<span class="n">sha256</span><span class="p">.</span><span class="nf">hexdigest</span>
+</code></pre></div></div>
+
+<p>Additionally digests can be encoded in “bubble babble” format as a
+sequence of consonants and vowels which is more recognizable and
+comparable than a hexadecimal digest.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'digest/bubblebabble'</span>
+
+<span class="no">Digest</span><span class="o">::</span><span class="no">SHA256</span><span class="p">.</span><span class="nf">bubblebabble</span> <span class="s1">'message'</span> <span class="c1">#=&gt; "xopoh-fedac-fenyh-..."</span>
+</code></pre></div></div>
+
+<p>See the bubble babble specification at
+http://web.mit.edu/kenta/www/one/bubblebabble/spec/jrtrjwzi/draft-huima-01.txt
+.</p>
+
+<h2 id="digest-algorithms">Digest algorithms</h2>
+
+<p>Different digest algorithms (or hash functions) are available:</p>
+
+<ul>
+  <li>MD5: See RFC 1321 The MD5 Message-Digest Algorithm</li>
+  <li>
+    <p>RIPEMD-160: As Digest::RMD160. See
+http://homes.esat.kuleuven.be/~bosselae/ripemd160.html.</p>
+  </li>
+  <li>SHA1: See FIPS 180 Secure Hash Standard.</li>
+  <li>SHA2 family: See FIPS 180 Secure Hash Standard which defines the
+following algorithms:
+    <ul>
+      <li>SHA512</li>
+      <li>SHA384</li>
+      <li>SHA256</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The latest versions of the FIPS publications can be found here:
+http://csrc.nist.gov/publications/PubsFIPS.html.</p>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/digest/rdoc/Digest.html">Digest
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

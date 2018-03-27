@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     dry-inflector (0.1.1)
+    hm (0.0.3)
     kramdown (1.16.2)
 
 PLATFORMS
@@ -9,6 +10,7 @@ PLATFORMS
 
 DEPENDENCIES
   dry-inflector
+  hm
   kramdown
 
 BUNDLED WITH

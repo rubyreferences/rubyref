@@ -1,0 +1,173 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'json'</span>
+</code></pre></div></div>
+
+<h1 id="javascript-object-notation-json">JavaScript Object Notation (JSON)</h1>
+
+<p>JSON is a lightweight data-interchange format. It is easy for us humans
+to read and write. Plus, equally simple for machines to generate or
+parse. JSON is completely language agnostic, making it the ideal
+interchange format.</p>
+
+<p>Built on two universally available structures: 1. A collection of
+name/value pairs. Often referred to as an <em>object</em>, hash table, record,
+struct, keyed list, or associative array. 2. An ordered list of values.
+More commonly called an <em>array</em>, vector, sequence or list.</p>
+
+<p>To read more about JSON visit: http://json.org</p>
+
+<h2 id="parsing-json">Parsing JSON</h2>
+
+<p>To parse a JSON string received by another application or generated
+within your existing application:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">my_hash</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s1">'{"hello": "goodbye"}'</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">my_hash</span><span class="p">[</span><span class="s2">"hello"</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="s2">"goodbye"</span>
+</code></pre></div></div>
+
+<p>Notice the extra quotes <code class="highlighter-rouge">''</code> around the hash notation. Ruby expects the
+argument to be a string and can’t convert objects like a hash or array.</p>
+
+<p>Ruby converts your string into a hash</p>
+
+<h2 id="generating-json">Generating JSON</h2>
+
+<p>Creating a JSON string for communication or serialization is just as
+simple.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">my_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:hello</span> <span class="o">=&gt;</span> <span class="s2">"goodbye"</span><span class="p">}</span>
+<span class="nb">puts</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">generate</span><span class="p">(</span><span class="n">my_hash</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">hello</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">goodbye</span><span class="se">\"</span><span class="s2">}"</span>
+</code></pre></div></div>
+
+<p>Or an alternative way:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'json'</span>
+<span class="nb">puts</span> <span class="p">{</span><span class="ss">:hello</span> <span class="o">=&gt;</span> <span class="s2">"goodbye"</span><span class="p">}.</span><span class="nf">to_json</span> <span class="o">=&gt;</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">hello</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">goodbye</span><span class="se">\"</span><span class="s2">}"</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">JSON.generate</code> only allows objects or arrays to be converted to JSON
+syntax. <code class="highlighter-rouge">to_json</code>, however, accepts many Ruby classes even though it
+acts only as a method for serialization:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="mi">1</span><span class="p">.</span><span class="nf">to_json</span> <span class="o">=&gt;</span> <span class="s2">"1"</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/json/rdoc/JSON.html">JSON
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

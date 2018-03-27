@@ -1,0 +1,450 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 <h1 id="irb">IRB</h1>
+
+<p>IRB stands for “interactive Ruby” and is a tool to interactively execute
+Ruby expressions read from the standard input.</p>
+
+<p>The <code class="highlighter-rouge">irb</code> command from your shell will start the interpreter.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Use of irb is easy if you know Ruby.</p>
+
+<p>When executing irb, prompts are displayed as follows. Then, enter the
+Ruby expression. An input is executed when it is syntactically complete.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">irb</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="mi">1</span><span class="o">+</span><span class="mi">2</span>
+<span class="c1">#=&gt; 3</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">Foo</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">003</span><span class="p">:</span><span class="mi">1</span><span class="o">&gt;</span>  <span class="k">def</span> <span class="nf">foo</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">004</span><span class="p">:</span><span class="mi">2</span><span class="o">&gt;</span>    <span class="nb">print</span> <span class="mi">1</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">005</span><span class="p">:</span><span class="mi">2</span><span class="o">&gt;</span>  <span class="k">end</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">006</span><span class="p">:</span><span class="mi">1</span><span class="o">&gt;</span> <span class="k">end</span>
+<span class="c1">#=&gt; nil</span>
+</code></pre></div></div>
+
+<p>The Readline extension module can be used with irb. Use of Readline is
+default if it’s installed.</p>
+
+<h2 id="command-line-options">Command line options</h2>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Usage</span><span class="p">:</span>  <span class="n">irb</span><span class="p">.</span><span class="nf">rb</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="p">[</span><span class="n">programfile</span><span class="p">]</span> <span class="p">[</span><span class="n">arguments</span><span class="p">]</span>
+  <span class="o">-</span><span class="n">f</span>                <span class="no">Suppress</span> <span class="n">read</span> <span class="n">of</span> <span class="o">~</span><span class="sr">/.irbrc
+  -d                Set $DEBUG to true (same as `ruby -d`)
+  -r load-module    Same as `ruby -r`
+  -I path           Specify $LOAD_PATH directory
+  -U                Same as `ruby -U`
+  -E enc            Same as `ruby -E`
+  -w                Same as `ruby -w`
+  -W[level=2]       Same as `ruby -W`
+  --inspect         Use `inspect` for output (default except for bc mode)
+  --noinspect       Don't use inspect for output
+  --readline        Use Readline extension module
+  --noreadline      Don't use Readline extension module
+  --prompt prompt-mode
+  --prompt-mode prompt-mode
+                    Switch prompt mode. Pre-defined prompt modes are
+                    `default`, `simple`, `xmp` and `inf-ruby`
+  --inf-ruby-mode   Use prompt appropriate for inf-ruby-mode on emacs.
+                    Suppresses --readline.
+  --simple-prompt   Simple prompt mode
+  --noprompt        No prompt mode
+  --tracer          Display trace for each execution of commands.
+  --back-trace-limit n
+                    Display backtrace top n and tail n. The default
+                    value is 16.
+  --irb_debug n     Set internal debug level to n (not for popular use)
+  -v, --version     Print the version of irb
+</span></code></pre></div></div>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>IRB reads from <code class="highlighter-rouge">~/.irbrc</code> when it’s invoked.</p>
+
+<p>If <code class="highlighter-rouge">~/.irbrc</code> doesn’t exist, <code class="highlighter-rouge">irb</code> will try to read in the following
+order:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">.irbrc</code></li>
+  <li><code class="highlighter-rouge">irb.rc</code></li>
+  <li><code class="highlighter-rouge">_irbrc</code></li>
+  <li><code class="highlighter-rouge">$irbrc</code></li>
+</ul>
+
+<p>The following are alternatives to the command line options. To use them
+type as follows in an <code class="highlighter-rouge">irb</code> session:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:IRB_NAME</span><span class="p">]</span><span class="o">=</span><span class="s2">"irb"</span>
+<span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:INSPECT_MODE</span><span class="p">]</span><span class="o">=</span><span class="kp">nil</span>
+<span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:IRB_RC</span><span class="p">]</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:BACK_TRACE_LIMIT</span><span class="p">]</span><span class="o">=</span><span class="mi">16</span>
+<span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:USE_LOADER</span><span class="p">]</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:USE_READLINE</span><span class="p">]</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:USE_TRACER</span><span class="p">]</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:IGNORE_SIGINT</span><span class="p">]</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:IGNORE_EOF</span><span class="p">]</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:PROMPT_MODE</span><span class="p">]</span> <span class="o">=</span> <span class="ss">:DEFAULT</span>
+<span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:PROMPT</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:DEBUG_LEVEL</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+</code></pre></div></div>
+
+<h3 id="auto-indentation">Auto indentation</h3>
+
+<p>To enable auto-indent mode in irb, add the following to your <code class="highlighter-rouge">.irbrc</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:AUTO_INDENT</span><span class="p">]</span> <span class="o">=</span> <span class="kp">true</span>
+</code></pre></div></div>
+
+<h3 id="autocompletion">Autocompletion</h3>
+
+<p>To enable autocompletion for irb, add the following to your <code class="highlighter-rouge">.irbrc</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'irb/completion'</span>
+</code></pre></div></div>
+
+<h3 id="history">History</h3>
+
+<p>By default, irb disables history and will not store any commands you
+used.</p>
+
+<p>If you want to enable history, add the following to your <code class="highlighter-rouge">.irbrc</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:SAVE_HISTORY</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1000</span>
+</code></pre></div></div>
+
+<p>This will now store the last 1000 commands in <code class="highlighter-rouge">~/.irb_history</code>.</p>
+
+<p>See <code class="highlighter-rouge">IRB::Context#save_history=</code> for more information.</p>
+
+<h2 id="customizing-the-irb-prompt">Customizing the IRB Prompt</h2>
+
+<p>In order to customize the prompt, you can change the following Hash:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:PROMPT</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>This example can be used in your <code class="highlighter-rouge">.irbrc</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:PROMPT</span><span class="p">][</span><span class="ss">:MY_PROMPT</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="c1"># name of prompt mode</span>
+  <span class="ss">:AUTO_INDENT</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>           <span class="c1"># enables auto-indent mode</span>
+  <span class="ss">:PROMPT_I</span> <span class="o">=&gt;</span>  <span class="s2">"&gt;&gt; "</span><span class="p">,</span>            <span class="c1"># simple prompt</span>
+  <span class="ss">:PROMPT_S</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">,</span>               <span class="c1"># prompt for continuated strings</span>
+  <span class="ss">:PROMPT_C</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">,</span>               <span class="c1"># prompt for continuated statement</span>
+  <span class="ss">:RETURN</span> <span class="o">=&gt;</span> <span class="s2">"    ==&gt;%s</span><span class="se">\n</span><span class="s2">"</span>        <span class="c1"># format to return value</span>
+<span class="p">}</span>
+
+<span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:PROMPT_MODE</span><span class="p">]</span> <span class="o">=</span> <span class="ss">:MY_PROMPT</span>
+</code></pre></div></div>
+
+<p>Or, invoke irb with the above prompt mode by:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">irb</span> <span class="o">--</span><span class="n">prompt</span> <span class="n">my</span><span class="o">-</span><span class="n">prompt</span>
+</code></pre></div></div>
+
+<p>Constants <code class="highlighter-rouge">PROMPT_I</code>, <code class="highlighter-rouge">PROMPT_S</code> and <code class="highlighter-rouge">PROMPT_C</code> specify the format. In
+the prompt specification, some special strings are available:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="no">N</span>    <span class="c1"># command name which is running</span>
+<span class="o">%</span><span class="n">m</span>    <span class="c1"># to_s of main object (self)</span>
+<span class="o">%</span><span class="no">M</span>    <span class="c1"># inspect of main object (self)</span>
+<span class="o">%</span><span class="n">l</span>    <span class="c1"># type of string(", ', /, ]), `]' is inner %w[...]</span>
+<span class="o">%</span><span class="no">NNi</span>  <span class="c1"># indent level. NN is digits and means as same as printf("%NNd").</span>
+      <span class="c1"># It can be omitted</span>
+<span class="o">%</span><span class="no">NNn</span>  <span class="c1"># line number.</span>
+<span class="sx">%%    # %</span>
+</code></pre></div></div>
+
+<p>For instance, the default prompt mode is defined as follows:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">IRB</span><span class="p">.</span><span class="nf">conf</span><span class="p">[</span><span class="ss">:PROMPT_MODE</span><span class="p">][</span><span class="ss">:DEFAULT</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="ss">:PROMPT_I</span> <span class="o">=&gt;</span> <span class="s2">"%N(%m):%03n:%i&gt; "</span><span class="p">,</span>
+  <span class="ss">:PROMPT_S</span> <span class="o">=&gt;</span> <span class="s2">"%N(%m):%03n:%i%l "</span><span class="p">,</span>
+  <span class="ss">:PROMPT_C</span> <span class="o">=&gt;</span> <span class="s2">"%N(%m):%03n:%i* "</span><span class="p">,</span>
+  <span class="ss">:RETURN</span> <span class="o">=&gt;</span> <span class="s2">"%s</span><span class="se">\n</span><span class="s2">"</span> <span class="c1"># used to printf</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>irb comes with a number of available modes:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># :NULL:</span>
+<span class="c1">#   :PROMPT_I:</span>
+<span class="c1">#   :PROMPT_N:</span>
+<span class="c1">#   :PROMPT_S:</span>
+<span class="c1">#   :PROMPT_C:</span>
+<span class="c1">#   :RETURN: |</span>
+<span class="c1">#     %s</span>
+<span class="c1"># :DEFAULT:</span>
+<span class="c1">#   :PROMPT_I: ! '%N(%m):%03n:%i&gt; '</span>
+<span class="c1">#   :PROMPT_N: ! '%N(%m):%03n:%i&gt; '</span>
+<span class="c1">#   :PROMPT_S: ! '%N(%m):%03n:%i%l '</span>
+<span class="c1">#   :PROMPT_C: ! '%N(%m):%03n:%i* '</span>
+<span class="c1">#   :RETURN: |</span>
+<span class="c1">#     =&gt; %s</span>
+<span class="c1"># :CLASSIC:</span>
+<span class="c1">#   :PROMPT_I: ! '%N(%m):%03n:%i&gt; '</span>
+<span class="c1">#   :PROMPT_N: ! '%N(%m):%03n:%i&gt; '</span>
+<span class="c1">#   :PROMPT_S: ! '%N(%m):%03n:%i%l '</span>
+<span class="c1">#   :PROMPT_C: ! '%N(%m):%03n:%i* '</span>
+<span class="c1">#   :RETURN: |</span>
+<span class="c1">#     %s</span>
+<span class="c1"># :SIMPLE:</span>
+<span class="c1">#   :PROMPT_I: ! '&gt;&gt; '</span>
+<span class="c1">#   :PROMPT_N: ! '&gt;&gt; '</span>
+<span class="c1">#   :PROMPT_S:</span>
+<span class="c1">#   :PROMPT_C: ! '?&gt; '</span>
+<span class="c1">#   :RETURN: |</span>
+<span class="c1">#     =&gt; %s</span>
+<span class="c1"># :INF_RUBY:</span>
+<span class="c1">#   :PROMPT_I: ! '%N(%m):%03n:%i&gt; '</span>
+<span class="c1">#   :PROMPT_N:</span>
+<span class="c1">#   :PROMPT_S:</span>
+<span class="c1">#   :PROMPT_C:</span>
+<span class="c1">#   :RETURN: |</span>
+<span class="c1">#     %s</span>
+<span class="c1">#   :AUTO_INDENT: true</span>
+<span class="c1"># :XMP:</span>
+<span class="c1">#   :PROMPT_I:</span>
+<span class="c1">#   :PROMPT_N:</span>
+<span class="c1">#   :PROMPT_S:</span>
+<span class="c1">#   :PROMPT_C:</span>
+<span class="c1">#   :RETURN: |2</span>
+<span class="c1">#         ==&gt;%s</span>
+</code></pre></div></div>
+
+<h2 id="restrictions">Restrictions</h2>
+
+<p>Because irb evaluates input immediately after it is syntactically
+complete, the results may be slightly different than directly using
+Ruby.</p>
+
+<h2 id="irb-sessions">IRB Sessions</h2>
+
+<p>IRB has a special feature, that allows you to manage many sessions at
+once.</p>
+
+<p>You can create new sessions with Irb.irb, and get a list of current
+sessions with the <code class="highlighter-rouge">jobs</code> command in the prompt.</p>
+
+<h3 id="commands">Commands</h3>
+
+<p>JobManager provides commands to handle the current sessions:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">jobs</span>    <span class="c1"># List of current sessions</span>
+<span class="n">fg</span>      <span class="c1"># Switches to the session of the given number</span>
+<span class="n">kill</span>    <span class="c1"># Kills the session with the given number</span>
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">exit</code> command, or ::irb_exit, will quit the current session and
+call any exit hooks with IRB.irb_at_exit.</p>
+
+<p>A few commands for loading files within the session are also available:</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">source</code>: Loads a given file in the current session and displays the
+source lines, see IrbLoader#source_file</p>
+  </li>
+  <li><code class="highlighter-rouge">irb_load</code>: Loads the given file similarly to <code class="highlighter-rouge">Kernel#load</code>, see
+<code class="highlighter-rouge">IrbLoader#irb_load</code></li>
+  <li><code class="highlighter-rouge">irb_require</code>: Loads the given file similarly to <code class="highlighter-rouge">Kernel#require</code></li>
+</ul>
+
+<h3 id="configuration-1">Configuration</h3>
+
+<p>The command line options, or IRB.conf, specify the default behavior of
+Irb.irb.</p>
+
+<p>On the other hand, each conf in IRB@Command+line+options is used to
+individually configure IRB.irb.</p>
+
+<p>If a proc is set for <a href=":IRB_RC">IRB.conf</a>, its will be invoked after
+execution of that proc with the context of the current session as its
+argument. Each session can be configured using this mechanism.</p>
+
+<h3 id="session-variables">Session variables</h3>
+
+<p>There are a few variables in every Irb session that can come in handy:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">_</code>: The value command executed, as a local variable</li>
+  <li><code class="highlighter-rouge">__</code>: The history of evaluated commands</li>
+  <li><code class="highlighter-rouge">__[line_no]</code>: Returns the evaluation value at the given line number,
+<code class="highlighter-rouge">line_no</code>. If <code class="highlighter-rouge">line_no</code> is a negative, the return value <code class="highlighter-rouge">line_no</code> many
+lines before the most recent return value.</li>
+</ul>
+
+<h3 id="example-using-irb-sessions">Example using IRB Sessions</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># invoke a new session</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">irb</span>
+<span class="c1"># list open sessions</span>
+<span class="n">irb</span><span class="o">.</span><span class="mi">1</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">jobs</span>
+  <span class="c1">#0-&gt;irb on main (#&lt;Thread:0x400fb7e4&gt; : stop)</span>
+  <span class="c1">#1-&gt;irb#1 on main (#&lt;Thread:0x40125d64&gt; : running)</span>
+
+<span class="c1"># change the active session</span>
+<span class="n">irb</span><span class="o">.</span><span class="mi">1</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">fg</span> <span class="mi">0</span>
+<span class="c1"># define class Foo in top-level session</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">Foo</span><span class="p">;</span><span class="k">end</span>
+<span class="c1"># invoke a new session with the context of Foo</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">003</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">irb</span> <span class="no">Foo</span>
+<span class="c1"># define Foo#foo</span>
+<span class="n">irb</span><span class="o">.</span><span class="mi">2</span><span class="p">(</span><span class="no">Foo</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="k">def</span> <span class="nf">foo</span>
+<span class="n">irb</span><span class="o">.</span><span class="mi">2</span><span class="p">(</span><span class="no">Foo</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">1</span><span class="o">&gt;</span>   <span class="nb">print</span> <span class="mi">1</span>
+<span class="n">irb</span><span class="o">.</span><span class="mi">2</span><span class="p">(</span><span class="no">Foo</span><span class="p">):</span><span class="mo">003</span><span class="p">:</span><span class="mi">1</span><span class="o">&gt;</span> <span class="k">end</span>
+
+<span class="c1"># change the active session</span>
+<span class="n">irb</span><span class="o">.</span><span class="mi">2</span><span class="p">(</span><span class="no">Foo</span><span class="p">):</span><span class="mo">004</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">fg</span> <span class="mi">0</span>
+<span class="c1"># list open sessions</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">004</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">jobs</span>
+  <span class="c1">#0-&gt;irb on main (#&lt;Thread:0x400fb7e4&gt; : running)</span>
+  <span class="c1">#1-&gt;irb#1 on main (#&lt;Thread:0x40125d64&gt; : stop)</span>
+  <span class="c1">#2-&gt;irb#2 on Foo (#&lt;Thread:0x4011d54c&gt; : stop)</span>
+<span class="c1"># check if Foo#foo is available</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">005</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">Foo</span><span class="p">.</span><span class="nf">instance_methods</span> <span class="c1">#=&gt; [:foo, ...]</span>
+
+<span class="c1"># change the active sesssion</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">006</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">fg</span> <span class="mi">2</span>
+<span class="c1"># define Foo#bar in the context of Foo</span>
+<span class="n">irb</span><span class="o">.</span><span class="mi">2</span><span class="p">(</span><span class="no">Foo</span><span class="p">):</span><span class="mo">005</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="k">def</span> <span class="nf">bar</span>
+<span class="n">irb</span><span class="o">.</span><span class="mi">2</span><span class="p">(</span><span class="no">Foo</span><span class="p">):</span><span class="mo">006</span><span class="p">:</span><span class="mi">1</span><span class="o">&gt;</span>  <span class="nb">print</span> <span class="s2">"bar"</span>
+<span class="n">irb</span><span class="o">.</span><span class="mi">2</span><span class="p">(</span><span class="no">Foo</span><span class="p">):</span><span class="mo">007</span><span class="p">:</span><span class="mi">1</span><span class="o">&gt;</span> <span class="k">end</span>
+<span class="n">irb</span><span class="o">.</span><span class="mi">2</span><span class="p">(</span><span class="no">Foo</span><span class="p">):</span><span class="mo">010</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span>  <span class="no">Foo</span><span class="p">.</span><span class="nf">instance_methods</span> <span class="c1">#=&gt; [:bar, :foo, ...]</span>
+
+<span class="c1"># change the active session</span>
+<span class="n">irb</span><span class="o">.</span><span class="mi">2</span><span class="p">(</span><span class="no">Foo</span><span class="p">):</span><span class="mo">011</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">fg</span> <span class="mi">0</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">007</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="no">Foo</span><span class="p">.</span><span class="nf">new</span>  <span class="c1">#=&gt; #&lt;Foo:0x4010af3c&gt;</span>
+<span class="c1"># invoke a new session with the context of f (instance of Foo)</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">00</span><span class="mi">8</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">irb</span> <span class="n">f</span>
+<span class="c1"># list open sessions</span>
+<span class="n">irb</span><span class="o">.</span><span class="mi">3</span><span class="p">(</span><span class="o">&lt;</span><span class="no">Foo</span><span class="p">:</span><span class="mh">0x4010af3c</span><span class="o">&gt;</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">jobs</span>
+  <span class="c1">#0-&gt;irb on main (#&lt;Thread:0x400fb7e4&gt; : stop)</span>
+  <span class="c1">#1-&gt;irb#1 on main (#&lt;Thread:0x40125d64&gt; : stop)</span>
+  <span class="c1">#2-&gt;irb#2 on Foo (#&lt;Thread:0x4011d54c&gt; : stop)</span>
+  <span class="c1">#3-&gt;irb#3 on #&lt;Foo:0x4010af3c&gt; (#&lt;Thread:0x4010a1e0&gt; : running)</span>
+<span class="c1"># evaluate f.foo</span>
+<span class="n">irb</span><span class="o">.</span><span class="mi">3</span><span class="p">(</span><span class="o">&lt;</span><span class="no">Foo</span><span class="p">:</span><span class="mh">0x4010af3c</span><span class="o">&gt;</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">foo</span> <span class="c1">#=&gt; 1 =&gt; nil</span>
+<span class="c1"># evaluate f.bar</span>
+<span class="n">irb</span><span class="o">.</span><span class="mi">3</span><span class="p">(</span><span class="o">&lt;</span><span class="no">Foo</span><span class="p">:</span><span class="mh">0x4010af3c</span><span class="o">&gt;</span><span class="p">):</span><span class="mo">003</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">bar</span> <span class="c1">#=&gt; bar =&gt; nil</span>
+<span class="c1"># kill jobs 1, 2, and 3</span>
+<span class="n">irb</span><span class="o">.</span><span class="mi">3</span><span class="p">(</span><span class="o">&lt;</span><span class="no">Foo</span><span class="p">:</span><span class="mh">0x4010af3c</span><span class="o">&gt;</span><span class="p">):</span><span class="mo">004</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">kill</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+<span class="c1"># list open sessions, should only include main session</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">00</span><span class="mi">9</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">jobs</span>
+  <span class="c1">#0-&gt;irb on main (#&lt;Thread:0x400fb7e4&gt; : running)</span>
+<span class="c1"># quit irb</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">010</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">exit</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/irb/rdoc/IRB.html">IRB
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

@@ -1,0 +1,491 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 <h1 id="language-core">Language Core</h1>
+
+<p>This section describes language core objects.</p>
+
+<h2 id="kernel">Kernel</h2>
+
+<p>The Kernel module is included by class Object, so its methods are
+available in every Ruby object.</p>
+
+<p>The Kernel instance methods are documented in class Object while the
+module methods are documented here. These methods are called without a
+receiver and thus can be called in functional form:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sprintf</span> <span class="s2">"%.1f"</span><span class="p">,</span> <span class="mf">1.234</span> <span class="c1">#=&gt; "1.2"</span>
+</code></pre></div></div>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Kernel.html">Kernel Reference</a></p>
+
+<h2 id="basicobject">BasicObject</h2>
+
+<p>BasicObject is the parent class of all classes in Ruby. It’s an explicit
+blank class.</p>
+
+<p>BasicObject can be used for creating object hierarchies independent of
+Ruby’s object hierarchy, proxy objects like the Delegator class, or
+other uses where namespace pollution from Ruby’s methods and classes
+must be avoided.</p>
+
+<p>To avoid polluting BasicObject for other users an appropriately named
+subclass of BasicObject should be created instead of directly modifying
+BasicObject:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyObjectSystem</span> <span class="o">&lt;</span> <span class="no">BasicObject</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>BasicObject does not include Kernel (for methods like <code class="highlighter-rouge">puts</code>) and
+BasicObject is outside of the namespace of the standard library so
+common classes will not be found without using a full class path.</p>
+
+<p>A variety of strategies can be used to provide useful portions of the
+standard library to subclasses of BasicObject. A subclass could <code class="highlighter-rouge">include
+Kernel</code> to obtain <code class="highlighter-rouge">puts</code>, <code class="highlighter-rouge">exit</code>, etc. A custom Kernel-like module could
+be created and included or delegation can be used via
+<code class="highlighter-rouge">#method_missing</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyObjectSystem</span> <span class="o">&lt;</span> <span class="no">BasicObject</span>
+  <span class="no">DELEGATE</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:puts</span><span class="p">,</span> <span class="ss">:p</span><span class="p">]</span>
+
+  <span class="k">def</span> <span class="nf">method_missing</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+    <span class="k">super</span> <span class="k">unless</span> <span class="no">DELEGATE</span><span class="p">.</span><span class="nf">include?</span> <span class="nb">name</span>
+    <span class="o">::</span><span class="no">Kernel</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">respond_to_missing?</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">include_private</span> <span class="o">=</span> <span class="kp">false</span><span class="p">)</span>
+    <span class="no">DELEGATE</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span> <span class="n">or</span> <span class="k">super</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Access to classes and modules from the Ruby standard library can be
+obtained in a BasicObject subclass by referencing the desired constant
+from the root like <code class="highlighter-rouge">::File</code> or <code class="highlighter-rouge">::Enumerator</code>. Like <code class="highlighter-rouge">#method_missing</code>,
+<code class="highlighter-rouge">#const_missing</code> can be used to delegate constant lookup to <code class="highlighter-rouge">Object</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyObjectSystem</span> <span class="o">&lt;</span> <span class="no">BasicObject</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">const_missing</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="o">::</span><span class="no">Object</span><span class="p">.</span><span class="nf">const_get</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/BasicObject.html">BasicObject Reference</a></p>
+
+<h2 id="object">Object</h2>
+
+<p>Object is the default root of all Ruby objects. Object inherits from
+BasicObject which allows creating alternate object hierarchies. Methods
+on Object are available to all classes unless explicitly overridden.</p>
+
+<p>Object mixes in the Kernel module, making the built-in kernel functions
+globally accessible. Although the instance methods of Object are defined
+by the Kernel module, we have chosen to document them here for clarity.</p>
+
+<p>When referencing constants in classes inheriting from Object you do not
+need to use the full namespace. For example, referencing <code class="highlighter-rouge">File</code> inside
+<code class="highlighter-rouge">YourClass</code> will find the top-level File class.</p>
+
+<p>In the descriptions of Object’s methods, the parameter <em>symbol</em> refers
+to a symbol, which is either a quoted string or a Symbol (such as
+<code class="highlighter-rouge">:name</code>).</p>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Object.html">Object Reference</a></p>
+
+<h2 id="module">Module</h2>
+
+<p>A <code class="highlighter-rouge">Module</code> is a collection of methods and constants. The methods in a
+module may be instance methods or module methods. Instance methods
+appear as methods in a class when the module is included, module methods
+do not. Conversely, module methods may be called without creating an
+encapsulating object, while instance methods may not. (See
+<code class="highlighter-rouge">Module#module_function</code>.)</p>
+
+<p>In the descriptions that follow, the parameter <em>sym</em> refers to a symbol,
+which is either a quoted string or a <code class="highlighter-rouge">Symbol</code> (such as <code class="highlighter-rouge">:name</code>).</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Mod</span>
+  <span class="kp">include</span> <span class="no">Math</span>
+  <span class="no">CONST</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="k">def</span> <span class="nf">meth</span>
+    <span class="c1">#  ...</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="no">Mod</span><span class="p">.</span><span class="nf">class</span>              <span class="c1">#=&gt; Module</span>
+<span class="no">Mod</span><span class="p">.</span><span class="nf">constants</span>          <span class="c1">#=&gt; [:CONST, :PI, :E]</span>
+<span class="no">Mod</span><span class="p">.</span><span class="nf">instance_methods</span>   <span class="c1">#=&gt; [:meth]</span>
+</code></pre></div></div>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Module.html">Module Reference</a></p>
+
+<h2 id="class">Class</h2>
+
+<p>Classes in Ruby are first-class objects—each is an instance of class
+<code class="highlighter-rouge">Class</code>.</p>
+
+<p>Typically, you create a new class by using:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Name</span>
+ <span class="c1"># some code describing the class behavior</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>When a new class is created, an object of type Class is initialized and
+assigned to a global constant (<code class="highlighter-rouge">Name</code> in this case).</p>
+
+<p>When <code class="highlighter-rouge">Name.new</code> is called to create a new object, the <code class="highlighter-rouge">new</code> method in
+<code class="highlighter-rouge">Class</code> is run by default. This can be demonstrated by overriding <code class="highlighter-rouge">new</code>
+in <code class="highlighter-rouge">Class</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Class</span>
+  <span class="k">alias</span> <span class="n">old_new</span> <span class="n">new</span>
+  <span class="k">def</span> <span class="nf">new</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="s2">"Creating a new "</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="nf">name</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="n">old_new</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Name</span>
+<span class="k">end</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="no">Name</span><span class="p">.</span><span class="nf">new</span>
+</code></pre></div></div>
+
+<p><em>produces:</em></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Creating</span> <span class="n">a</span> <span class="n">new</span> <span class="no">Name</span>
+</code></pre></div></div>
+
+<p>Classes, modules, and objects are interrelated. In the diagram that
+follows, the vertical arrows represent inheritance, and the parentheses
+metaclasses. All metaclasses are instances of the class <code class="highlighter-rouge">Class</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                         <span class="o">+---------+</span>             <span class="o">+-...</span>
+                         <span class="o">|</span>         <span class="o">|</span>             <span class="o">|</span>
+         <span class="no">BasicObject</span><span class="o">-----|--&gt;</span><span class="p">(</span><span class="no">BasicObject</span><span class="p">)</span><span class="o">-------|-...</span>
+             <span class="o">^</span>           <span class="o">|</span>         <span class="o">^</span>             <span class="o">|</span>
+             <span class="o">|</span>           <span class="o">|</span>         <span class="o">|</span>             <span class="o">|</span>
+          <span class="no">Object</span><span class="o">---------|-----&gt;</span><span class="p">(</span><span class="no">Object</span><span class="p">)</span><span class="o">---------|-...</span>
+             <span class="o">^</span>           <span class="o">|</span>         <span class="o">^</span>             <span class="o">|</span>
+             <span class="o">|</span>           <span class="o">|</span>         <span class="o">|</span>             <span class="o">|</span>
+             <span class="o">+-------+</span>   <span class="o">|</span>         <span class="o">+--------+</span>    <span class="o">|</span>
+             <span class="o">|</span>       <span class="o">|</span>   <span class="o">|</span>         <span class="o">|</span>        <span class="o">|</span>    <span class="o">|</span>
+             <span class="o">|</span>    <span class="no">Module</span><span class="o">-|---------|---&gt;</span><span class="p">(</span><span class="no">Module</span><span class="p">)</span><span class="o">-|-...</span>
+             <span class="o">|</span>       <span class="o">^</span>   <span class="o">|</span>         <span class="o">|</span>        <span class="o">^</span>    <span class="o">|</span>
+             <span class="o">|</span>       <span class="o">|</span>   <span class="o">|</span>         <span class="o">|</span>        <span class="o">|</span>    <span class="o">|</span>
+             <span class="o">|</span>     <span class="no">Class</span><span class="o">-|---------|----&gt;</span><span class="p">(</span><span class="no">Class</span><span class="p">)</span><span class="o">-|-...</span>
+             <span class="o">|</span>       <span class="o">^</span>   <span class="o">|</span>         <span class="o">|</span>        <span class="o">^</span>    <span class="o">|</span>
+             <span class="o">|</span>       <span class="o">+---+</span>         <span class="o">|</span>        <span class="o">+----+</span>
+             <span class="o">|</span>                     <span class="o">|</span>
+<span class="n">obj</span><span class="o">---&gt;</span><span class="no">OtherClass</span><span class="o">----------&gt;</span><span class="p">(</span><span class="no">OtherClass</span><span class="p">)</span><span class="o">-----------...</span>
+</code></pre></div></div>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Class.html">Class Reference</a></p>
+
+<h2 id="method">Method</h2>
+
+<p>Method objects are created by <code class="highlighter-rouge">Object#method</code>, and are associated with a
+particular object (not just with a class). They may be used to invoke
+the method within the object, and as a block associated with an
+iterator. They may also be unbound from one object (creating an
+<code class="highlighter-rouge">UnboundMethod</code>) and bound to another.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Thing</span>
+  <span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">n</span><span class="o">*</span><span class="n">n</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="n">thing</span> <span class="o">=</span> <span class="no">Thing</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">meth</span>  <span class="o">=</span> <span class="n">thing</span><span class="p">.</span><span class="nf">method</span><span class="p">(</span><span class="ss">:square</span><span class="p">)</span>
+
+<span class="n">meth</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>                 <span class="c1">#=&gt; 81</span>
+<span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">].</span><span class="nf">collect</span><span class="p">(</span><span class="o">&amp;</span><span class="n">meth</span><span class="p">)</span>   <span class="c1">#=&gt; [1, 4, 9]</span>
+</code></pre></div></div>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Method.html">Method Reference</a></p>
+
+<h3 id="unboundmethod">UnboundMethod</h3>
+
+<p>Ruby supports two forms of objectified methods. Class <code class="highlighter-rouge">Method</code> is used
+to represent methods that are associated with a particular object: these
+method objects are bound to that object. Bound method objects for an
+object can be created using <code class="highlighter-rouge">Object#method</code>.</p>
+
+<p>Ruby also supports unbound methods; methods objects that are not
+associated with a particular object. These can be created either by
+calling <code class="highlighter-rouge">Module#instance_method</code> or by calling <code class="highlighter-rouge">unbind</code> on a bound
+method object. The result of both of these is an <code class="highlighter-rouge">UnboundMethod</code> object.</p>
+
+<p>Unbound methods can only be called after they are bound to an object.
+That object must be a kind_of? the method’s original class.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Square</span>
+  <span class="k">def</span> <span class="nf">area</span>
+    <span class="vi">@side</span> <span class="o">*</span> <span class="vi">@side</span>
+  <span class="k">end</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">side</span><span class="p">)</span>
+    <span class="vi">@side</span> <span class="o">=</span> <span class="n">side</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">area_un</span> <span class="o">=</span> <span class="no">Square</span><span class="p">.</span><span class="nf">instance_method</span><span class="p">(</span><span class="ss">:area</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="no">Square</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">area_un</span><span class="p">.</span><span class="nf">bind</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">area</span><span class="p">.</span><span class="nf">call</span>   <span class="c1">#=&gt; 144</span>
+</code></pre></div></div>
+
+<p>Unbound methods are a reference to the method at the time it was
+objectified: subsequent changes to the underlying class will not affect
+the unbound method.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Test</span>
+  <span class="k">def</span> <span class="nf">test</span>
+    <span class="ss">:original</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="n">um</span> <span class="o">=</span> <span class="no">Test</span><span class="p">.</span><span class="nf">instance_method</span><span class="p">(</span><span class="ss">:test</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Test</span>
+  <span class="k">def</span> <span class="nf">test</span>
+    <span class="ss">:modified</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="n">t</span> <span class="o">=</span> <span class="no">Test</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">t</span><span class="p">.</span><span class="nf">test</span>            <span class="c1">#=&gt; :modified</span>
+<span class="n">um</span><span class="p">.</span><span class="nf">bind</span><span class="p">(</span><span class="n">t</span><span class="p">).</span><span class="nf">call</span>   <span class="c1">#=&gt; :original</span>
+</code></pre></div></div>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/UnboundMethod.html">UnboundMethod
+Reference</a></p>
+
+<h2 id="proc">Proc</h2>
+
+<p><code class="highlighter-rouge">Proc</code> objects are blocks of code that have been bound to a set of local
+variables. Once bound, the code may be called in different contexts and
+still access those variables.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gen_times</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+  <span class="k">return</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="o">*</span><span class="n">factor</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="n">times3</span> <span class="o">=</span> <span class="n">gen_times</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">times5</span> <span class="o">=</span> <span class="n">gen_times</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">times3</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>               <span class="c1">#=&gt; 36</span>
+<span class="n">times5</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>                <span class="c1">#=&gt; 25</span>
+<span class="n">times3</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">times5</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>   <span class="c1">#=&gt; 60</span>
+</code></pre></div></div>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Proc.html">Proc Reference</a></p>
+
+<h2 id="fiber">Fiber</h2>
+
+<p>Fibers are primitives for implementing light weight cooperative
+concurrency in Ruby. Basically they are a means of creating code blocks
+that can be paused and resumed, much like threads. The main difference
+is that they are never preempted and that the scheduling must be done by
+the programmer and not the VM.</p>
+
+<p>As opposed to other stackless light weight concurrency models, each
+fiber comes with a stack. This enables the fiber to be paused from
+deeply nested function calls within the fiber block. See the ruby(1)
+manpage to configure the size of the fiber stack(s).</p>
+
+<p>When a fiber is created it will not run automatically. Rather it must be
+explicitly asked to run using the <code class="highlighter-rouge">Fiber#resume</code> method. The code
+running inside the fiber can give up control by calling <code class="highlighter-rouge">Fiber.yield</code> in
+which case it yields control back to caller (the caller of the
+<code class="highlighter-rouge">Fiber#resume</code>).</p>
+
+<p>Upon yielding or termination the Fiber returns the value of the last
+executed expression</p>
+
+<p>For instance:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fiber</span> <span class="o">=</span> <span class="no">Fiber</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span>
+  <span class="no">Fiber</span><span class="p">.</span><span class="nf">yield</span> <span class="mi">1</span>
+  <span class="mi">2</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="n">fiber</span><span class="p">.</span><span class="nf">resume</span>
+<span class="nb">puts</span> <span class="n">fiber</span><span class="p">.</span><span class="nf">resume</span>
+<span class="nb">puts</span> <span class="n">fiber</span><span class="p">.</span><span class="nf">resume</span>
+</code></pre></div></div>
+
+<p><em>produces</em></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span>
+<span class="mi">2</span>
+<span class="no">FiberError</span><span class="p">:</span> <span class="n">dead</span> <span class="n">fiber</span> <span class="n">called</span>
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">Fiber#resume</code> method accepts an arbitrary number of parameters, if
+it is the first call to <code class="highlighter-rouge">resume</code> then they will be passed as block
+arguments. Otherwise they will be the return value of the call to
+<code class="highlighter-rouge">Fiber.yield</code></p>
+
+<p>Example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fiber</span> <span class="o">=</span> <span class="no">Fiber</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">first</span><span class="o">|</span>
+  <span class="n">second</span> <span class="o">=</span> <span class="no">Fiber</span><span class="p">.</span><span class="nf">yield</span> <span class="n">first</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="n">fiber</span><span class="p">.</span><span class="nf">resume</span> <span class="mi">10</span>
+<span class="nb">puts</span> <span class="n">fiber</span><span class="p">.</span><span class="nf">resume</span> <span class="mi">14</span>
+<span class="nb">puts</span> <span class="n">fiber</span><span class="p">.</span><span class="nf">resume</span> <span class="mi">18</span>
+</code></pre></div></div>
+
+<p><em>produces</em></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">12</span>
+<span class="mi">14</span>
+<span class="no">FiberError</span><span class="p">:</span> <span class="n">dead</span> <span class="n">fiber</span> <span class="n">called</span>
+</code></pre></div></div>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Fiber.html">Fiber Reference</a></p>
+
+<h2 id="binding">Binding</h2>
+
+<p>Objects of class <code class="highlighter-rouge">Binding</code> encapsulate the execution context at some
+particular place in the code and retain this context for future use. The
+variables, methods, value of <code class="highlighter-rouge">self</code>, and possibly an iterator block that
+can be accessed in this context are all retained. Binding objects can be
+created using <code class="highlighter-rouge">Kernel#binding</code>, and are made available to the callback
+of <code class="highlighter-rouge">Kernel#set_trace_func</code>.</p>
+
+<p>These binding objects can be passed as the second argument of the
+<code class="highlighter-rouge">Kernel#eval</code> method, establishing an environment for the evaluation.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Demo</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="vi">@secret</span> <span class="o">=</span> <span class="n">n</span>
+  <span class="k">end</span>
+  <span class="k">def</span> <span class="nf">get_binding</span>
+    <span class="nb">binding</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">k1</span> <span class="o">=</span> <span class="no">Demo</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
+<span class="n">b1</span> <span class="o">=</span> <span class="n">k1</span><span class="p">.</span><span class="nf">get_binding</span>
+<span class="n">k2</span> <span class="o">=</span> <span class="no">Demo</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="n">k2</span><span class="p">.</span><span class="nf">get_binding</span>
+
+<span class="nb">eval</span><span class="p">(</span><span class="s2">"@secret"</span><span class="p">,</span> <span class="n">b1</span><span class="p">)</span>   <span class="c1">#=&gt; 99</span>
+<span class="nb">eval</span><span class="p">(</span><span class="s2">"@secret"</span><span class="p">,</span> <span class="n">b2</span><span class="p">)</span>   <span class="c1">#=&gt; -3</span>
+<span class="nb">eval</span><span class="p">(</span><span class="s2">"@secret"</span><span class="p">)</span>       <span class="c1">#=&gt; nil</span>
+</code></pre></div></div>
+
+<p>Binding objects have no class-specific methods.</p>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Binding.html">Binding Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

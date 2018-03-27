@@ -1,0 +1,171 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'ripper'</span>
+</code></pre></div></div>
+
+<h1 id="ripper">Ripper</h1>
+
+<p>Ripper is a Ruby script parser.</p>
+
+<p>You can get information from the parser with event-based style.
+Information such as abstract syntax trees or simple lexical analysis of
+the Ruby program.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Ripper provides an easy interface for parsing your program into a
+symbolic expression tree (or S-expression).</p>
+
+<p>Understanding the output of the parser may come as a challenge, it’s
+recommended you use PP to format the output for legibility.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'ripper'</span>
+<span class="nb">require</span> <span class="s1">'pp'</span>
+
+<span class="n">pp</span> <span class="no">Ripper</span><span class="p">.</span><span class="nf">sexp</span><span class="p">(</span><span class="s1">'def hello(world) "Hello, #{world}!"; end'</span><span class="p">)</span>
+  <span class="c1">#=&gt; [:program,</span>
+       <span class="p">[[</span><span class="ss">:def</span><span class="p">,</span>
+         <span class="p">[</span><span class="ss">:@ident</span><span class="p">,</span> <span class="s2">"hello"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span>
+         <span class="p">[</span><span class="ss">:paren</span><span class="p">,</span>
+          <span class="p">[</span><span class="ss">:params</span><span class="p">,</span> <span class="p">[[</span><span class="ss">:@ident</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]]],</span> <span class="kp">nil</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="kp">nil</span><span class="p">]],</span>
+         <span class="p">[</span><span class="ss">:bodystmt</span><span class="p">,</span>
+          <span class="p">[[</span><span class="ss">:string_literal</span><span class="p">,</span>
+            <span class="p">[</span><span class="ss">:string_content</span><span class="p">,</span>
+             <span class="p">[</span><span class="ss">:@tstring_content</span><span class="p">,</span> <span class="s2">"Hello, "</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">18</span><span class="p">]],</span>
+             <span class="p">[</span><span class="ss">:string_embexpr</span><span class="p">,</span> <span class="p">[[</span><span class="ss">:var_ref</span><span class="p">,</span> <span class="p">[</span><span class="ss">:@ident</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">27</span><span class="p">]]]]],</span>
+             <span class="p">[</span><span class="ss">:@tstring_content</span><span class="p">,</span> <span class="s2">"!"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">33</span><span class="p">]]]]],</span>
+          <span class="kp">nil</span><span class="p">,</span>
+          <span class="kp">nil</span><span class="p">,</span>
+          <span class="kp">nil</span><span class="p">]]]]</span>
+</code></pre></div></div>
+
+<p>You can see in the example above, the expression starts with <code class="highlighter-rouge">:program</code>.</p>
+
+<p>From here, a method definition at <code class="highlighter-rouge">:def</code>, followed by the method’s
+identifier <code class="highlighter-rouge">:@ident</code>. After the method’s identifier comes the
+parentheses <code class="highlighter-rouge">:paren</code> and the method parameters under <code class="highlighter-rouge">:params</code>.</p>
+
+<p>Next is the method body, starting at <code class="highlighter-rouge">:bodystmt</code> (<code class="highlighter-rouge">stmt</code> meaning
+statement), which contains the full definition of the method.</p>
+
+<p>In our case, we’re simply returning a String, so next we have the
+<code class="highlighter-rouge">:string_literal</code> expression.</p>
+
+<p>Within our <code class="highlighter-rouge">:string_literal</code> you’ll notice two <code class="highlighter-rouge">@tstring_content</code>, this
+is the literal part for <code class="highlighter-rouge">Hello, </code> and <code class="highlighter-rouge">!</code>. Between the two
+<code class="highlighter-rouge">@tstring_content</code> statements is a <code class="highlighter-rouge">:string_embexpr</code>, where <em>embexpr</em> is
+an embedded expression. Our expression consists of a local variable, or
+<code class="highlighter-rouge">var_ref</code>, with the identifier (<code class="highlighter-rouge">@ident</code>) of <code class="highlighter-rouge">world</code>.</p>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/ripper/rdoc/Ripper.html">Ripper
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

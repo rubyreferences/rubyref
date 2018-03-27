@@ -1,0 +1,179 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'open-uri'</span>
+</code></pre></div></div>
+
+<h1 id="openuri">OpenURI</h1>
+
+<p>OpenURI is an easy-to-use wrapper for Net::HTTP, Net::HTTPS and
+Net::FTP.</p>
+
+<p>It is possible to open an http, https or ftp URL as though it were a
+file:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">open</span><span class="p">(</span><span class="s2">"http://www.ruby-lang.org/"</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">f</span><span class="o">|</span>
+  <span class="n">f</span><span class="p">.</span><span class="nf">each_line</span> <span class="p">{</span><span class="o">|</span><span class="n">line</span><span class="o">|</span> <span class="nb">p</span> <span class="n">line</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The opened file has several getter methods for its meta-information, as
+follows, since it is extended by OpenURI::Meta.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">open</span><span class="p">(</span><span class="s2">"http://www.ruby-lang.org/en"</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">f</span><span class="o">|</span>
+  <span class="n">f</span><span class="p">.</span><span class="nf">each_line</span> <span class="p">{</span><span class="o">|</span><span class="n">line</span><span class="o">|</span> <span class="nb">p</span> <span class="n">line</span><span class="p">}</span>
+  <span class="nb">p</span> <span class="n">f</span><span class="p">.</span><span class="nf">base_uri</span>         <span class="c1"># &lt;URI::HTTP:0x40e6ef2 URL:http://www.ruby-lang.org/en/&gt;</span>
+  <span class="nb">p</span> <span class="n">f</span><span class="p">.</span><span class="nf">content_type</span>     <span class="c1"># "text/html"</span>
+  <span class="nb">p</span> <span class="n">f</span><span class="p">.</span><span class="nf">charset</span>          <span class="c1"># "iso-8859-1"</span>
+  <span class="nb">p</span> <span class="n">f</span><span class="p">.</span><span class="nf">content_encoding</span> <span class="c1"># []</span>
+  <span class="nb">p</span> <span class="n">f</span><span class="p">.</span><span class="nf">last_modified</span>    <span class="c1"># Thu Dec 05 02:45:02 UTC 2002</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Additional header fields can be specified by an optional hash argument.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">open</span><span class="p">(</span><span class="s2">"http://www.ruby-lang.org/en/"</span><span class="p">,</span>
+  <span class="s2">"User-Agent"</span> <span class="o">=&gt;</span> <span class="s2">"Ruby/</span><span class="si">#{</span><span class="no">RUBY_VERSION</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="s2">"From"</span> <span class="o">=&gt;</span> <span class="s2">"foo@bar.invalid"</span><span class="p">,</span>
+  <span class="s2">"Referer"</span> <span class="o">=&gt;</span> <span class="s2">"http://www.ruby-lang.org/"</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">f</span><span class="o">|</span>
+  <span class="c1"># ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The environment variables such as http_proxy, https_proxy and
+ftp_proxy are in effect by default. Here we disable proxy:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">open</span><span class="p">(</span><span class="s2">"http://www.ruby-lang.org/en/"</span><span class="p">,</span> <span class="ss">:proxy</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">f</span><span class="o">|</span>
+  <span class="c1"># ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>See OpenURI::OpenRead.open and <code class="highlighter-rouge">Kernel#open</code> for more on available
+options.</p>
+
+<p>URI objects can be opened in a similar way.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"http://www.ruby-lang.org/en/"</span><span class="p">)</span>
+<span class="n">uri</span><span class="p">.</span><span class="nf">open</span> <span class="p">{</span><span class="o">|</span><span class="n">f</span><span class="o">|</span>
+  <span class="c1"># ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>URI objects can be read directly. The returned string is also extended
+by OpenURI::Meta.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">str</span> <span class="o">=</span> <span class="n">uri</span><span class="p">.</span><span class="nf">read</span>
+<span class="nb">p</span> <span class="n">str</span><span class="p">.</span><span class="nf">base_uri</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/open-uri/rdoc/OpenURI.html">OpenURI
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

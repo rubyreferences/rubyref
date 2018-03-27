@@ -1,0 +1,515 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 <h1 id="times-and-dates">Times and Dates</h1>
+
+<h2 id="time">Time</h2>
+
+<p>Time is an abstraction of dates and times. Time is stored internally as
+the number of seconds with fraction since the <em>Epoch</em>, January 1, 1970
+00:00 UTC. Also see the library module Date. The Time class treats GMT
+(Greenwich Mean Time) and UTC (Coordinated Universal Time) as
+equivalent. GMT is the older way of referring to these baseline times
+but persists in the names of calls on POSIX systems.</p>
+
+<p>All times may have fraction. Be aware of this fact when comparing times
+with each other – times that are apparently equal when displayed may be
+different when compared.</p>
+
+<p>Since Ruby 1.9.2, Time implementation uses a signed 63 bit integer,
+Bignum or Rational. The integer is a number of nanoseconds since the
+<em>Epoch</em> which can represent 1823-11-12 to 2116-02-20. When Bignum or
+Rational is used (before 1823, after 2116, under nanosecond), Time works
+slower as when integer is used.</p>
+
+<h3 id="creating-a-new-time-instance">Creating a new Time instance</h3>
+
+<p>You can create a new instance of Time with Time::new. This will use the
+current system time. Time::now is an alias for this. You can also pass
+parts of the time to Time::new such as year, month, minute, etc. When
+you want to construct a time this way you must pass at least a year. If
+you pass the year with nothing else time will default to January 1 of
+that year at 00:00:00 with the current system timezone. Here are some
+examples:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Time</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2002</span><span class="p">)</span>         <span class="c1">#=&gt; 2002-01-01 00:00:00 -0500</span>
+<span class="no">Time</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2002</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>     <span class="c1">#=&gt; 2002-10-01 00:00:00 -0500</span>
+<span class="no">Time</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2002</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span> <span class="c1">#=&gt; 2002-10-31 00:00:00 -0500</span>
+<span class="no">Time</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2002</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"+02:00"</span><span class="p">)</span> <span class="c1">#=&gt; 2002-10-31 02:02:02 +0200</span>
+</code></pre></div></div>
+
+<p>You can also use <code class="highlighter-rouge">#gm</code>, <code class="highlighter-rouge">#local</code> and <code class="highlighter-rouge">#utc</code> to infer GMT, local and UTC
+timezones instead of using the current system setting.</p>
+
+<p>You can also create a new time using Time::at which takes the number of
+seconds (or fraction of seconds) since the <a href="http://en.wikipedia.org/wiki/Unix_time">Unix
+Epoch</a>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Time</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="mi">628232400</span><span class="p">)</span> <span class="c1">#=&gt; 1989-11-28 00:00:00 -0500</span>
+</code></pre></div></div>
+
+<h3 id="working-with-an-instance-of-time">Working with an instance of Time</h3>
+
+<p>Once you have an instance of Time there is a multitude of things you can
+do with it. Below are some examples. For all of the following examples,
+we will work on the assumption that you have done the following:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">1993</span><span class="p">,</span> <span class="mo">02</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"+09:00"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Was that a monday?</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="p">.</span><span class="nf">monday?</span> <span class="c1">#=&gt; false</span>
+</code></pre></div></div>
+
+<p>What year was that again?</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="p">.</span><span class="nf">year</span> <span class="c1">#=&gt; 1993</span>
+</code></pre></div></div>
+
+<p>Was it daylight savings at the time?</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="p">.</span><span class="nf">dst?</span> <span class="c1">#=&gt; false</span>
+</code></pre></div></div>
+
+<p>What’s the day a year later?</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span> <span class="o">+</span> <span class="p">(</span><span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mi">365</span><span class="p">)</span> <span class="c1">#=&gt; 1994-02-24 12:00:00 +0900</span>
+</code></pre></div></div>
+
+<p>How many seconds was that since the Unix Epoch?</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="p">.</span><span class="nf">to_i</span> <span class="c1">#=&gt; 730522800</span>
+</code></pre></div></div>
+
+<p>You can also do standard functions like compare two times.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t1</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2010</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2011</span><span class="p">)</span>
+
+<span class="n">t1</span> <span class="o">==</span> <span class="n">t2</span> <span class="c1">#=&gt; false</span>
+<span class="n">t1</span> <span class="o">==</span> <span class="n">t1</span> <span class="c1">#=&gt; true</span>
+<span class="n">t1</span> <span class="o">&lt;</span>  <span class="n">t2</span> <span class="c1">#=&gt; true</span>
+<span class="n">t1</span> <span class="o">&gt;</span>  <span class="n">t2</span> <span class="c1">#=&gt; false</span>
+
+<span class="no">Time</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">31</span><span class="p">).</span><span class="nf">between?</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span> <span class="c1">#=&gt; true</span>
+</code></pre></div></div>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Time.html">Time Reference</a></p>
+
+<h3 id="timerb">time.rb</h3>
+
+<p>Part of useful functionality for <code class="highlighter-rouge">Time</code> is provided by standard library
+<code class="highlighter-rouge">time</code>.</p>
+
+<p>All examples assume you have loaded Time with:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'time'</span>
+</code></pre></div></div>
+
+<p>All of these examples were done using the EST timezone which is GMT-5.</p>
+
+<h4 id="converting-to-a-string">Converting to a String</h4>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span>
+<span class="n">t</span><span class="p">.</span><span class="nf">iso8601</span>  <span class="c1"># =&gt; "2011-10-05T22:26:12-04:00"</span>
+<span class="n">t</span><span class="p">.</span><span class="nf">rfc2822</span>  <span class="c1"># =&gt; "Wed, 05 Oct 2011 22:26:12 -0400"</span>
+<span class="n">t</span><span class="p">.</span><span class="nf">httpdate</span> <span class="c1"># =&gt; "Thu, 06 Oct 2011 02:26:12 GMT"</span>
+</code></pre></div></div>
+
+<h4 id="timeparse">Time.parse</h4>
+
+<p><code class="highlighter-rouge">#parse</code> takes a string representation of a Time and attempts to parse
+it using a heuristic.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Time</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"2010-10-31"</span><span class="p">)</span> <span class="c1">#=&gt; 2010-10-31 00:00:00 -0500</span>
+</code></pre></div></div>
+
+<p>Any missing pieces of the date are inferred based on the current date.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># assuming the current date is "2011-10-31"</span>
+<span class="no">Time</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"12:00"</span><span class="p">)</span> <span class="c1">#=&gt; 2011-10-31 12:00:00 -0500</span>
+</code></pre></div></div>
+
+<p>We can change the date used to infer our missing elements by passing a
+second object that responds to <code class="highlighter-rouge">#mon</code>, <code class="highlighter-rouge">#day</code> and <code class="highlighter-rouge">#year</code>, such as Date,
+Time or DateTime. We can also use our own object.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyDate</span>
+  <span class="nb">attr_reader</span> <span class="ss">:mon</span><span class="p">,</span> <span class="ss">:day</span><span class="p">,</span> <span class="ss">:year</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">mon</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+    <span class="vi">@mon</span><span class="p">,</span> <span class="vi">@day</span><span class="p">,</span> <span class="vi">@year</span> <span class="o">=</span> <span class="n">mon</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">year</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">d</span>  <span class="o">=</span> <span class="no">Date</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"2010-10-28"</span><span class="p">)</span>
+<span class="n">t</span>  <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"2010-10-29"</span><span class="p">)</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="no">DateTime</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"2010-10-30"</span><span class="p">)</span>
+<span class="n">md</span> <span class="o">=</span> <span class="no">MyDate</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">2010</span><span class="p">)</span>
+
+<span class="no">Time</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"12:00"</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>  <span class="c1">#=&gt; 2010-10-28 12:00:00 -0500</span>
+<span class="no">Time</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"12:00"</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>  <span class="c1">#=&gt; 2010-10-29 12:00:00 -0500</span>
+<span class="no">Time</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"12:00"</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span> <span class="c1">#=&gt; 2010-10-30 12:00:00 -0500</span>
+<span class="no">Time</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"12:00"</span><span class="p">,</span> <span class="n">md</span><span class="p">)</span> <span class="c1">#=&gt; 2010-10-31 12:00:00 -0500</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">#parse</code> also accepts an optional block. You can use this block to
+specify how to handle the year component of the date. This is
+specifically designed for handling two digit years. For example, if you
+wanted to treat all two digit years prior to 70 as the year 2000+ you
+could write this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Time</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"01-10-31"</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">year</span><span class="o">|</span> <span class="n">year</span> <span class="o">+</span> <span class="p">(</span><span class="n">year</span> <span class="o">&lt;</span> <span class="mi">70</span> <span class="p">?</span> <span class="mi">2000</span> <span class="p">:</span> <span class="mi">1900</span><span class="p">)}</span>
+<span class="c1">#=&gt; 2001-10-31 00:00:00 -0500</span>
+<span class="no">Time</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">"70-10-31"</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">year</span><span class="o">|</span> <span class="n">year</span> <span class="o">+</span> <span class="p">(</span><span class="n">year</span> <span class="o">&lt;</span> <span class="mi">70</span> <span class="p">?</span> <span class="mi">2000</span> <span class="p">:</span> <span class="mi">1900</span><span class="p">)}</span>
+<span class="c1">#=&gt; 1970-10-31 00:00:00 -0500</span>
+</code></pre></div></div>
+
+<h4 id="timestrptime">Time.strptime</h4>
+
+<p><code class="highlighter-rouge">#strptime</code> works similar to <code class="highlighter-rouge">parse</code> except that instead of using a
+heuristic to detect the format of the input string, you provide a second
+argument that describes the format of the string. For example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Time</span><span class="p">.</span><span class="nf">strptime</span><span class="p">(</span><span class="s2">"2000-10-31"</span><span class="p">,</span> <span class="s2">"%Y-%m-%d"</span><span class="p">)</span> <span class="c1">#=&gt; 2000-10-31 00:00:00 -0500</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/time/rdoc/Time.html">Time
+Reference</a></p>
+
+<h3 id="date">Date</h3>
+
+<p><em>Part of standard library. You need to <code class="highlighter-rouge">require 'date'</code> before using.</em></p>
+
+<p>A subclass of Object that includes the Comparable module and easily
+handles date.</p>
+
+<p>A Date object is created with Date::new, Date::jd, Date::ordinal,
+Date::commercial, Date::parse, Date::strptime, Date::today,
+<code class="highlighter-rouge">Time#to_date</code>, etc.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'date'</span>
+
+<span class="no">Date</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2001</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+ <span class="c1">#=&gt; #&lt;Date: 2001-02-03 ...&gt;</span>
+<span class="no">Date</span><span class="p">.</span><span class="nf">jd</span><span class="p">(</span><span class="mi">2451944</span><span class="p">)</span>
+ <span class="c1">#=&gt; #&lt;Date: 2001-02-03 ...&gt;</span>
+<span class="no">Date</span><span class="p">.</span><span class="nf">ordinal</span><span class="p">(</span><span class="mi">2001</span><span class="p">,</span><span class="mi">34</span><span class="p">)</span>
+ <span class="c1">#=&gt; #&lt;Date: 2001-02-03 ...&gt;</span>
+<span class="no">Date</span><span class="p">.</span><span class="nf">commercial</span><span class="p">(</span><span class="mi">2001</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+ <span class="c1">#=&gt; #&lt;Date: 2001-02-03 ...&gt;</span>
+<span class="no">Date</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s1">'2001-02-03'</span><span class="p">)</span>
+ <span class="c1">#=&gt; #&lt;Date: 2001-02-03 ...&gt;</span>
+<span class="no">Date</span><span class="p">.</span><span class="nf">strptime</span><span class="p">(</span><span class="s1">'03-02-2001'</span><span class="p">,</span> <span class="s1">'%d-%m-%Y'</span><span class="p">)</span>
+ <span class="c1">#=&gt; #&lt;Date: 2001-02-03 ...&gt;</span>
+<span class="no">Time</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2001</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">).</span><span class="nf">to_date</span>
+ <span class="c1">#=&gt; #&lt;Date: 2001-02-03 ...&gt;</span>
+</code></pre></div></div>
+
+<p>All date objects are immutable; hence cannot modify themselves.</p>
+
+<p>The concept of a date object can be represented as a tuple of the day
+count, the offset and the day of calendar reform.</p>
+
+<p>The day count denotes the absolute position of a temporal dimension. The
+offset is relative adjustment, which determines decoded local time with
+the day count. The day of calendar reform denotes the start day of the
+new style. The old style of the West is the Julian calendar which was
+adopted by Caesar. The new style is the Gregorian calendar, which is the
+current civil calendar of many countries.</p>
+
+<p>The day count is virtually the astronomical Julian day number. The
+offset in this class is usually zero, and cannot be specified directly.</p>
+
+<p>A Date object can be created with an optional argument, the day of
+calendar reform as a Julian day number, which should be 2298874 to
+2426355 or negative/positive infinity. The default value is
+<code class="highlighter-rouge">Date::ITALY</code> (2299161=1582-10-15). See also sample/cal.rb.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">ruby</span> <span class="n">sample</span><span class="o">/</span><span class="n">cal</span><span class="p">.</span><span class="nf">rb</span> <span class="o">-</span><span class="n">c</span> <span class="n">it</span> <span class="mi">10</span> <span class="mi">1582</span>
+    <span class="no">October</span> <span class="mi">1582</span>
+ <span class="no">S</span>  <span class="no">M</span> <span class="no">Tu</span>  <span class="no">W</span> <span class="no">Th</span>  <span class="no">F</span>  <span class="no">S</span>
+    <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">4</span> <span class="mi">15</span> <span class="mi">16</span>
+<span class="mi">17</span> <span class="mi">18</span> <span class="mi">19</span> <span class="mi">20</span> <span class="mi">21</span> <span class="mi">22</span> <span class="mi">23</span>
+<span class="mi">24</span> <span class="mi">25</span> <span class="mi">26</span> <span class="mi">27</span> <span class="mi">28</span> <span class="mi">29</span> <span class="mi">30</span>
+<span class="mi">31</span>
+
+<span class="err">$</span> <span class="n">ruby</span> <span class="n">sample</span><span class="o">/</span><span class="n">cal</span><span class="p">.</span><span class="nf">rb</span> <span class="o">-</span><span class="n">c</span> <span class="n">gb</span>  <span class="mi">9</span> <span class="mi">1752</span>
+   <span class="no">September</span> <span class="mi">1752</span>
+ <span class="no">S</span>  <span class="no">M</span> <span class="no">Tu</span>  <span class="no">W</span> <span class="no">Th</span>  <span class="no">F</span>  <span class="no">S</span>
+       <span class="mi">1</span>  <span class="mi">2</span> <span class="mi">14</span> <span class="mi">15</span> <span class="mi">16</span>
+<span class="mi">17</span> <span class="mi">18</span> <span class="mi">19</span> <span class="mi">20</span> <span class="mi">21</span> <span class="mi">22</span> <span class="mi">23</span>
+<span class="mi">24</span> <span class="mi">25</span> <span class="mi">26</span> <span class="mi">27</span> <span class="mi">28</span> <span class="mi">29</span> <span class="mi">30</span>
+</code></pre></div></div>
+
+<p>A Date object has various methods. See each reference.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">d</span> <span class="o">=</span> <span class="no">Date</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s1">'3rd Feb 2001'</span><span class="p">)</span>
+                             <span class="c1">#=&gt; #&lt;Date: 2001-02-03 ...&gt;</span>
+<span class="n">d</span><span class="p">.</span><span class="nf">year</span>                       <span class="c1">#=&gt; 2001</span>
+<span class="n">d</span><span class="p">.</span><span class="nf">mon</span>                        <span class="c1">#=&gt; 2</span>
+<span class="n">d</span><span class="p">.</span><span class="nf">mday</span>                       <span class="c1">#=&gt; 3</span>
+<span class="n">d</span><span class="p">.</span><span class="nf">wday</span>                       <span class="c1">#=&gt; 6</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="mi">1</span>                       <span class="c1">#=&gt; #&lt;Date: 2001-02-04 ...&gt;</span>
+<span class="n">d</span><span class="p">.</span><span class="nf">strftime</span><span class="p">(</span><span class="s1">'%a %d %b %Y'</span><span class="p">)</span>    <span class="c1">#=&gt; "Sun 04 Feb 2001"</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/date/rdoc/Date.html">Date
+Reference</a></p>
+
+<h3 id="datetime">DateTime</h3>
+
+<p><em>Part of standard library. You need to <code class="highlighter-rouge">require 'date'</code> before using.</em></p>
+
+<p>A subclass of Date that easily handles date, hour, minute, second, and
+offset.</p>
+
+<p>DateTime does not consider any leap seconds, does not track any summer
+time rules.</p>
+
+<p>A DateTime object is created with DateTime::new, DateTime::jd,
+DateTime::ordinal, DateTime::commercial, DateTime::parse,
+DateTime::strptime, DateTime::now, <code class="highlighter-rouge">Time#to_datetime</code>, etc.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'date'</span>
+
+<span class="no">DateTime</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2001</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+                    <span class="c1">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+00:00 ...&gt;</span>
+</code></pre></div></div>
+
+<p>The last element of day, hour, minute, or second can be a fractional
+number. The fractional number’s precision is assumed at most nanosecond.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">DateTime</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2001</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.5</span><span class="p">)</span>
+                    <span class="c1">#=&gt; #&lt;DateTime: 2001-02-03T12:00:00+00:00 ...&gt;</span>
+</code></pre></div></div>
+
+<p>An optional argument, the offset, indicates the difference between the
+local time and UTC. For example, <code class="highlighter-rouge">Rational(3,24)</code> represents ahead of 3
+hours of UTC, <code class="highlighter-rouge">Rational(-5,24)</code> represents behind of 5 hours of UTC. The
+offset should be -1 to +1, and its precision is assumed at most second.
+The default value is zero (equals to UTC).</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">DateTime</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2001</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="no">Rational</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">24</span><span class="p">))</span>
+                    <span class="c1">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+03:00 ...&gt;</span>
+</code></pre></div></div>
+
+<p>The offset also accepts string form:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">DateTime</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">2001</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="s1">'+03:00'</span><span class="p">)</span>
+                    <span class="c1">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+03:00 ...&gt;</span>
+</code></pre></div></div>
+
+<p>An optional argument, the day of calendar reform (<code class="highlighter-rouge">start</code>), denotes a
+Julian day number, which should be 2298874 to 2426355 or
+negative/positive infinity. The default value is <code class="highlighter-rouge">Date::ITALY</code>
+(2299161=1582-10-15).</p>
+
+<p>A DateTime object has various methods. See each reference.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">d</span> <span class="o">=</span> <span class="no">DateTime</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s1">'3rd Feb 2001 04:05:06+03:30'</span><span class="p">)</span>
+                    <span class="c1">#=&gt; #&lt;DateTime: 2001-02-03T04:05:06+03:30 ...&gt;</span>
+<span class="n">d</span><span class="p">.</span><span class="nf">hour</span>              <span class="c1">#=&gt; 4</span>
+<span class="n">d</span><span class="p">.</span><span class="nf">min</span>               <span class="c1">#=&gt; 5</span>
+<span class="n">d</span><span class="p">.</span><span class="nf">sec</span>               <span class="c1">#=&gt; 6</span>
+<span class="n">d</span><span class="p">.</span><span class="nf">offset</span>            <span class="c1">#=&gt; (7/48)</span>
+<span class="n">d</span><span class="p">.</span><span class="nf">zone</span>              <span class="c1">#=&gt; "+03:30"</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="no">Rational</span><span class="p">(</span><span class="s1">'1.5'</span><span class="p">)</span>
+                    <span class="c1">#=&gt; #&lt;DateTime: 2001-02-04%16:05:06+03:30 ...&gt;</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="nf">new_offset</span><span class="p">(</span><span class="s1">'+09:00'</span><span class="p">)</span>
+                    <span class="c1">#=&gt; #&lt;DateTime: 2001-02-04%21:35:06+09:00 ...&gt;</span>
+<span class="n">d</span><span class="p">.</span><span class="nf">strftime</span><span class="p">(</span><span class="s1">'%I:%M:%S %p'</span><span class="p">)</span>
+                    <span class="c1">#=&gt; "09:35:06 PM"</span>
+<span class="n">d</span> <span class="o">&gt;</span> <span class="no">DateTime</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">1999</span><span class="p">)</span>
+                    <span class="c1">#=&gt; true</span>
+</code></pre></div></div>
+
+<h4 id="when-should-you-use-datetime-and-when-should-you-use-time">When should you use DateTime and when should you use Time?</h4>
+
+<p>It’s a common misconception that <a href="http://en.wikipedia.org/wiki/William_Shakespeare">William
+Shakespeare</a> and
+<a href="http://en.wikipedia.org/wiki/Miguel_de_Cervantes">Miguel de Cervantes</a>
+died on the same day in history - so much so that UNESCO named April 23
+as <a href="http://en.wikipedia.org/wiki/World_Book_Day">World Book Day because of this
+fact</a>. However, because
+England hadn’t yet adopted the <a href="http://en.wikipedia.org/wiki/Gregorian_calendar#Gregorian_reform">Gregorian Calendar
+Reform</a>
+(and wouldn’t until
+<a href="http://en.wikipedia.org/wiki/Calendar_(New_Style)_Act_1750">1752</a>)
+their deaths are actually 10 days apart. Since Ruby’s Time class
+implements a <a href="http://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar">proleptic Gregorian
+calendar</a> and
+has no concept of calendar reform there’s no way to express this with
+Time objects. This is where DateTime steps in:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">shakespeare</span> <span class="o">=</span> <span class="no">DateTime</span><span class="p">.</span><span class="nf">iso8601</span><span class="p">(</span><span class="s1">'1616-04-23'</span><span class="p">,</span> <span class="no">Date</span><span class="o">::</span><span class="no">ENGLAND</span><span class="p">)</span>
+ <span class="c1">#=&gt; Tue, 23 Apr 1616 00:00:00 +0000</span>
+<span class="n">cervantes</span> <span class="o">=</span> <span class="no">DateTime</span><span class="p">.</span><span class="nf">iso8601</span><span class="p">(</span><span class="s1">'1616-04-23'</span><span class="p">,</span> <span class="no">Date</span><span class="o">::</span><span class="no">ITALY</span><span class="p">)</span>
+ <span class="c1">#=&gt; Sat, 23 Apr 1616 00:00:00 +0000</span>
+</code></pre></div></div>
+
+<p>Already you can see something is weird - the days of the week are
+different. Taking this further:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cervantes</span> <span class="o">==</span> <span class="n">shakespeare</span>
+ <span class="c1">#=&gt; false</span>
+<span class="p">(</span><span class="n">shakespeare</span> <span class="o">-</span> <span class="n">cervantes</span><span class="p">).</span><span class="nf">to_i</span>
+ <span class="c1">#=&gt; 10</span>
+</code></pre></div></div>
+
+<p>This shows that in fact they died 10 days apart (in reality 11 days
+since Cervantes died a day earlier but was buried on the 23rd). We can
+see the actual date of Shakespeare’s death by using the <code class="highlighter-rouge">#gregorian</code>
+method to convert it:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">shakespeare</span><span class="p">.</span><span class="nf">gregorian</span>
+ <span class="c1">#=&gt; Tue, 03 May 1616 00:00:00 +0000</span>
+</code></pre></div></div>
+
+<p>So there’s an argument that all the celebrations that take place on the
+23rd April in Stratford-upon-Avon are actually the wrong date since
+England is now using the Gregorian calendar. You can see why when we
+transition across the reform date boundary:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># start off with the anniversary of Shakespeare's birth in 1751</span>
+<span class="n">shakespeare</span> <span class="o">=</span> <span class="no">DateTime</span><span class="p">.</span><span class="nf">iso8601</span><span class="p">(</span><span class="s1">'1751-04-23'</span><span class="p">,</span> <span class="no">Date</span><span class="o">::</span><span class="no">ENGLAND</span><span class="p">)</span>
+ <span class="c1">#=&gt; Tue, 23 Apr 1751 00:00:00 +0000</span>
+
+<span class="c1"># add 366 days since 1752 is a leap year and April 23 is after February 29</span>
+<span class="n">shakespeare</span> <span class="o">+</span> <span class="mi">366</span>
+ <span class="c1">#=&gt; Thu, 23 Apr 1752 00:00:00 +0000</span>
+
+<span class="c1"># add another 365 days to take us to the anniversary in 1753</span>
+<span class="n">shakespeare</span> <span class="o">+</span> <span class="mi">366</span> <span class="o">+</span> <span class="mi">365</span>
+ <span class="c1">#=&gt; Fri, 04 May 1753 00:00:00 +0000</span>
+</code></pre></div></div>
+
+<p>As you can see, if we’re accurately tracking the number of <a href="http://en.wikipedia.org/wiki/Tropical_year">solar
+years</a> since Shakespeare’s
+birthday then the correct anniversary date would be the 4th May and not
+the 23rd April.</p>
+
+<p>So when should you use DateTime in Ruby and when should you use Time?
+Almost certainly you’ll want to use Time since your app is probably
+dealing with current dates and times. However, if you need to deal with
+dates and times in a historical context you’ll want to use DateTime to
+avoid making the same mistakes as UNESCO. If you also have to deal with
+timezones then best of luck - just bear in mind that you’ll probably be
+dealing with <a href="http://en.wikipedia.org/wiki/Solar_time">local solar
+times</a>, since it wasn’t until
+the 19th century that the introduction of the railways necessitated the
+need for <a href="http://en.wikipedia.org/wiki/Standard_time#Great_Britain">Standard
+Time</a> and
+eventually timezones.</p>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/date/rdoc/DateTime.html">DateTime
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

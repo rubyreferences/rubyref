@@ -1,0 +1,245 @@
+---
+chapters:
+- title: About This Book
+  path: about-this-book.html
+- title: Language Structure
+  path: language.html
+  children:
+  - title: Keywords
+    path: language/keywords.html
+  - title: Literals
+    path: language/literals.html
+  - title: Variables and Constants
+    path: language/variables-constants.html
+  - title: Assignment
+    path: language/assignment.html
+  - title: Control Expressions
+    path: language/control-expressions.html
+  - title: Defining methods
+    path: language/methods-def.html
+  - title: Calling methods
+    path: language/methods-call.html
+  - title: Modules and Classes
+    path: language/modules-classes.html
+  - title: Exceptions
+    path: language/exceptions.html
+  - title: Refinements
+    path: language/refinements.html
+  - title: Precedence
+    path: language/precedence.html
+  - title: File Structure
+    path: language/files.html
+  - title: Globals
+    path: language/globals.html
+  - title: Metaprogramming
+    path: language/metaprogramming.html
+- title: Built-in Classes
+  path: builtin.html
+  children:
+  - title: Language Core
+    path: builtin/core.html
+  - title: Value Types
+    path: builtin/types.html
+    children:
+    - title: Numbers
+      path: builtin/types/numbers.html
+    - title: Symbol and String
+      path: builtin/types/symbol-string.html
+      children:
+      - title: Encodings
+        path: builtin/types/symbol-string/encodings.html
+    - title: Regexp
+      path: builtin/types/regexp.html
+    - title: Range
+      path: builtin/types/range.html
+    - title: Struct
+      path: builtin/types/struct.html
+    - title: Times and Dates
+      path: builtin/types/times-dates.html
+    - title: Collections
+      path: builtin/types/collections.html
+      children:
+      - title: Array
+        path: builtin/types/collections/array.html
+      - title: Hash
+        path: builtin/types/collections/hash.html
+      - title: Set
+        path: builtin/types/collections/set.html
+      - title: Matrix
+        path: builtin/types/collections/matrix.html
+  - title: Errors and Warnings
+    path: builtin/errors-warnings.html
+    children:
+    - title: Exception Classes
+      path: builtin/errors-warnings/exception-classes.html
+  - title: System Programming and CLI
+    path: builtin/system-cli.html
+    children:
+    - title: Processes and Signals
+      path: builtin/system-cli/processes-signals.html
+    - title: IO Basics
+      path: builtin/system-cli/io.html
+    - title: Filesystem
+      path: builtin/system-cli/filesystem.html
+  - title: Concurrency and Parallelism
+    path: builtin/concurrency-parallelism.html
+  - title: Interpreter Internals
+    path: builtin/internals.html
+  - title: Marshal
+    path: builtin/marshal.html
+  - title: Random
+    path: builtin/random.html
+- title: Standard Library
+  path: stdlib.html
+  children:
+  - title: Design Patterns
+    path: stdlib/patterns.html
+    children:
+    - title: forwardable
+      path: stdlib/patterns/forwardable.html
+    - title: delegate
+      path: stdlib/patterns/delegate.html
+    - title: observer
+      path: stdlib/patterns/observer.html
+    - title: singleton
+      path: stdlib/patterns/singleton.html
+  - title: Formats
+    path: stdlib/formats.html
+    children:
+    - title: csv
+      path: stdlib/formats/csv.html
+    - title: json
+      path: stdlib/formats/json.html
+    - title: yaml
+      path: stdlib/formats/yaml.html
+    - title: 'rexml: XML parser and generator'
+      path: stdlib/formats/rexml.html
+    - title: rss
+      path: stdlib/formats/rss.html
+    - title: zlib
+      path: stdlib/formats/zlib.html
+  - title: Development and Debugging
+    path: stdlib/development-debugging.html
+    children:
+    - title: benchmark
+      path: stdlib/development-debugging/benchmark.html
+    - title: coverage
+      path: stdlib/development-debugging/coverage.html
+    - title: debug
+      path: stdlib/development-debugging/debug.html
+    - title: 'fiddle: FFI wrapper'
+      path: stdlib/development-debugging/fiddle.html
+    - title: logger
+      path: stdlib/development-debugging/logger.html
+    - title: 'pp: Debug Print'
+      path: stdlib/development-debugging/pp.html
+    - title: profiler
+      path: stdlib/development-debugging/profiler.html
+    - title: 'ripper: Parsing Ruby'
+      path: stdlib/development-debugging/ripper.html
+    - title: tracer
+      path: stdlib/development-debugging/tracer.html
+  - title: String Utilities
+    path: stdlib/string-utilities.html
+    children:
+    - title: 'erb: Ruby Temlating'
+      path: stdlib/string-utilities/erb.html
+    - title: 'racc: Parser Generator'
+      path: stdlib/string-utilities/racc.html
+    - title: scanf
+      path: stdlib/string-utilities/scanf.html
+    - title: 'shellwords: Shell-aware string manipulation'
+      path: stdlib/string-utilities/shellwords.html
+    - title: 'strscan: Sequental String Scanner'
+      path: stdlib/string-utilities/strscan.html
+  - title: Networking and Web
+    path: stdlib/networking-web.html
+    children:
+    - title: cgi
+      path: stdlib/networking-web/cgi.html
+    - title: ipaddr
+      path: stdlib/networking-web/ipaddr.html
+    - title: net/ftp
+      path: stdlib/networking-web/net/ftp.html
+    - title: net/http
+      path: stdlib/networking-web/net/http.html
+    - title: net/imap
+      path: stdlib/networking-web/net/imap.html
+    - title: net/pop
+      path: stdlib/networking-web/net/pop.html
+    - title: net/smtp
+      path: stdlib/networking-web/net/smtp.html
+    - title: 'openuri: Open Files and URLs'
+      path: stdlib/networking-web/openuri.html
+    - title: 'resolv: DNS Resolver'
+      path: stdlib/networking-web/resolv.html
+    - title: socket
+      path: stdlib/networking-web/socket.html
+    - title: 'webrick: Simple Web Server'
+      path: stdlib/networking-web/webrick.html
+    - title: uri
+      path: stdlib/networking-web/uri.html
+  - title: System Programming and CLI
+    path: stdlib/cli.html
+    children:
+    - title: 'etc: Access to Unix /etc'
+      path: stdlib/cli/etc.html
+    - title: 'fcntl: POSIX file access constants'
+      path: stdlib/cli/fcntl.html
+    - title: 'open3: Flexible child processes'
+      path: stdlib/cli/open3.html
+    - title: 'optparse: CLI arguments parser'
+      path: stdlib/cli/optparse.html
+    - title: 'pty: Pseudo terminal'
+      path: stdlib/cli/pty.html
+    - title: readline
+      path: stdlib/cli/readline.html
+    - title: syslog
+      path: stdlib/cli/syslog.html
+    - title: 'shell: Ruby interface to UNIX shell'
+      path: stdlib/cli/shell.html
+    - title: win32ole
+      path: stdlib/cli/win32ole.html
+  - title: Cryptography and Encoding
+    path: stdlib/cryptography-encoding.html
+    children:
+    - title: base64
+      path: stdlib/cryptography-encoding/base64.html
+    - title: 'digest: Digests Generation'
+      path: stdlib/cryptography-encoding/digest.html
+    - title: openssl
+      path: stdlib/cryptography-encoding/openssl.html
+  - title: Miscellaneous Libraries
+    path: stdlib/misc.html
+    children:
+    - title: Concurrency Utils
+      path: stdlib/misc/concurrency-utils.html
+    - title: 'drb: Distributed Ruby'
+      path: stdlib/misc/drb.html
+    - title: dbm, gdbm, sdbm
+      path: stdlib/misc/dbm.html
+    - title: timeout
+      path: stdlib/misc/timeout.html
+    - title: Other Libraries
+      path: stdlib/misc/other.html
+- title: Advanced Topics
+  path: advanced-topics.html
+  children:
+  - title: Third-Party Libraries
+    path: advanced-topics/third-party-libraries.html
+    children:
+    - title: RubyGems and Bundler
+      path: advanced-topics/third-party-libraries/rubygems-bundler.html
+    - title: Developing C Extensions
+      path: advanced-topics/third-party-libraries/extensions.html
+  - title: Tools and Approaches
+    path: advanced-topics/tools-approaches.html
+    children:
+    - title: Interactive Console
+      path: advanced-topics/tools-approaches/irb.html
+    - title: Documenting
+      path: advanced-topics/tools-approaches/rdoc.html
+    - title: DTrace
+      path: advanced-topics/tools-approaches/dtrace.html
+  - title: Contributing To Ruby
+    path: advanced-topics/contributing.html

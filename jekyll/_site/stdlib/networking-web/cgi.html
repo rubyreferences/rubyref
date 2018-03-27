@@ -1,0 +1,403 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'cgi'</span>
+</code></pre></div></div>
+
+<h1 id="cgi">CGI</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>The Common Gateway Interface (CGI) is a simple protocol for passing an
+HTTP request from a web server to a standalone program, and returning
+the output to the web browser. Basically, a CGI program is called with
+the parameters of the request passed in either in the environment (GET)
+or via $stdin (POST), and everything it prints to $stdout is returned to
+the client.</p>
+
+<p>This file holds the CGI class. This class provides functionality for
+retrieving HTTP request parameters, managing cookies, and generating
+HTML output.</p>
+
+<p>The file CGI::Session provides session management functionality; see
+that class for more details.</p>
+
+<p>See http://www.w3.org/CGI/ for more information on the CGI protocol.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>CGI is a large class, providing several categories of methods, many of
+which are mixed in from other modules. Some of the documentation is in
+this class, some in the modules CGI::QueryExtension and
+CGI::HtmlExtension. See CGI::Cookie for specific information on handling
+cookies, and cgi/session.rb (CGI::Session) for information on sessions.</p>
+
+<p>For queries, CGI provides methods to get at environmental variables,
+parameters, cookies, and multipart request data. For responses, CGI
+provides methods for writing output and generating HTML.</p>
+
+<p>Read on for more details. Examples are provided at the bottom.</p>
+
+<h2 id="queries">Queries</h2>
+
+<p>The CGI class dynamically mixes in parameter and cookie-parsing
+functionality, environmental variable access, and support for parsing
+multipart requests (including uploaded files) from the
+CGI::QueryExtension module.</p>
+
+<h3 id="environmental-variables">Environmental Variables</h3>
+
+<p>The standard CGI environmental variables are available as read-only
+attributes of a CGI object. The following is a list of these variables:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">AUTH_TYPE</span>               <span class="no">HTTP_HOST</span>          <span class="no">REMOTE_IDENT</span>
+<span class="no">CONTENT_LENGTH</span>          <span class="no">HTTP_NEGOTIATE</span>     <span class="no">REMOTE_USER</span>
+<span class="no">CONTENT_TYPE</span>            <span class="no">HTTP_PRAGMA</span>        <span class="no">REQUEST_METHOD</span>
+<span class="no">GATEWAY_INTERFACE</span>       <span class="no">HTTP_REFERER</span>       <span class="no">SCRIPT_NAME</span>
+<span class="no">HTTP_ACCEPT</span>             <span class="no">HTTP_USER_AGENT</span>    <span class="no">SERVER_NAME</span>
+<span class="no">HTTP_ACCEPT_CHARSET</span>     <span class="no">PATH_INFO</span>          <span class="no">SERVER_PORT</span>
+<span class="no">HTTP_ACCEPT_ENCODING</span>    <span class="no">PATH_TRANSLATED</span>    <span class="no">SERVER_PROTOCOL</span>
+<span class="no">HTTP_ACCEPT_LANGUAGE</span>    <span class="no">QUERY_STRING</span>       <span class="no">SERVER_SOFTWARE</span>
+<span class="no">HTTP_CACHE_CONTROL</span>      <span class="no">REMOTE_ADDR</span>
+<span class="no">HTTP_FROM</span>               <span class="no">REMOTE_HOST</span>
+</code></pre></div></div>
+
+<p>For each of these variables, there is a corresponding attribute with the
+same name, except all lower case and without a preceding HTTP_.
+<code class="highlighter-rouge">content_length</code> and <code class="highlighter-rouge">server_port</code> are integers; the rest are strings.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>The method <code class="highlighter-rouge">#params</code>() returns a hash of all parameters in the request
+as name/value-list pairs, where the value-list is an Array of one or
+more values. The CGI object itself also behaves as a hash of parameter
+names to values, but only returns a single value (as a String) for each
+parameter name.</p>
+
+<p>For instance, suppose the request contains the parameter
+“favourite_colours” with the multiple values “blue” and “green”. The
+following behavior would occur:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cgi</span><span class="p">.</span><span class="nf">params</span><span class="p">[</span><span class="s2">"favourite_colours"</span><span class="p">]</span>  <span class="c1"># =&gt; ["blue", "green"]</span>
+<span class="n">cgi</span><span class="p">[</span><span class="s2">"favourite_colours"</span><span class="p">]</span>         <span class="c1"># =&gt; "blue"</span>
+</code></pre></div></div>
+
+<p>If a parameter does not exist, the former method will return an empty
+array, the latter an empty string. The simplest way to test for
+existence of a parameter is by the <code class="highlighter-rouge">#has_key?</code> method.</p>
+
+<h3 id="cookies">Cookies</h3>
+
+<p>HTTP Cookies are automatically parsed from the request. They are
+available from the <code class="highlighter-rouge">#cookies</code>() accessor, which returns a hash from
+cookie name to CGI::Cookie object.</p>
+
+<h3 id="multipart-requests">Multipart requests</h3>
+
+<p>If a request’s method is POST and its content type is
+multipart/form-data, then it may contain uploaded files. These are
+stored by the QueryExtension module in the parameters of the request.
+The parameter name is the name attribute of the file input field, as
+usual. However, the value is not a string, but an IO object, either an
+IOString for small files, or a Tempfile for larger ones. This object
+also has the additional singleton methods:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">#local_path</code>(): the path of the uploaded file on the local filesystem</li>
+  <li><code class="highlighter-rouge">#original_filename</code>(): the name of the file on the client computer</li>
+  <li><code class="highlighter-rouge">#content_type</code>(): the content type of the file</li>
+</ul>
+
+<h2 id="responses">Responses</h2>
+
+<p>The CGI class provides methods for sending header and content output to
+the HTTP client, and mixes in methods for programmatic HTML generation
+from CGI::HtmlExtension and CGI::TagMaker modules. The precise version
+of HTML to use for HTML generation is specified at object creation time.</p>
+
+<h3 id="writing-output">Writing output</h3>
+
+<p>The simplest way to send output to the HTTP client is using the <code class="highlighter-rouge">#out</code>()
+method. This takes the HTTP headers as a hash parameter, and the body
+content via a block. The headers can be generated as a string using the
+<code class="highlighter-rouge">#http_header</code>() method. The output stream can be written directly to
+using the <code class="highlighter-rouge">#print</code>() method.</p>
+
+<h3 id="generating-html">Generating HTML</h3>
+
+<p>Each HTML element has a corresponding method for generating that element
+as a String. The name of this method is the same as that of the element,
+all lowercase. The attributes of the element are passed in as a hash,
+and the body as a no-argument block that evaluates to a String. The HTML
+generation module knows which elements are always empty, and silently
+drops any passed-in body. It also knows which elements require matching
+closing tags and which don’t. However, it does not know what attributes
+are legal for which elements.</p>
+
+<p>There are also some additional HTML generation methods mixed in from the
+CGI::HtmlExtension module. These include individual methods for the
+different types of form inputs, and methods for elements that commonly
+take particular attributes where the attributes can be directly
+specified as arguments, rather than via a hash.</p>
+
+<h3 id="utility-html-escape-and-other-methods-like-a-function">Utility HTML escape and other methods like a function.</h3>
+
+<p>There are some utility tool defined in cgi/util.rb . And when include,
+you can use utility methods like a function.</p>
+
+<h2 id="examples-of-use">Examples of use</h2>
+
+<h3 id="get-form-values">Get form values</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s2">"cgi"</span>
+<span class="n">cgi</span> <span class="o">=</span> <span class="no">CGI</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">cgi</span><span class="p">[</span><span class="s1">'field_name'</span><span class="p">]</span>   <span class="c1"># &lt;== value string for 'field_name'</span>
+  <span class="c1"># if not 'field_name' included, then return "".</span>
+<span class="n">fields</span> <span class="o">=</span> <span class="n">cgi</span><span class="p">.</span><span class="nf">keys</span>            <span class="c1"># &lt;== array of field names</span>
+
+<span class="c1"># returns true if form has 'field_name'</span>
+<span class="n">cgi</span><span class="p">.</span><span class="nf">has_key?</span><span class="p">(</span><span class="s1">'field_name'</span><span class="p">)</span>
+<span class="n">cgi</span><span class="p">.</span><span class="nf">has_key?</span><span class="p">(</span><span class="s1">'field_name'</span><span class="p">)</span>
+<span class="n">cgi</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="s1">'field_name'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>CAUTION! <a href="'field_name'">cgi</a> returned an Array with the old
+cgi.rb(included in Ruby 1.6)</p>
+
+<h3 id="get-form-values-as-hash">Get form values as hash</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s2">"cgi"</span>
+<span class="n">cgi</span> <span class="o">=</span> <span class="no">CGI</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">cgi</span><span class="p">.</span><span class="nf">params</span>
+</code></pre></div></div>
+
+<p>cgi.params is a hash.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cgi</span><span class="p">.</span><span class="nf">params</span><span class="p">[</span><span class="s1">'new_field_name'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"value"</span><span class="p">]</span>  <span class="c1"># add new param</span>
+<span class="n">cgi</span><span class="p">.</span><span class="nf">params</span><span class="p">[</span><span class="s1">'field_name'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"new_value"</span><span class="p">]</span>  <span class="c1"># change value</span>
+<span class="n">cgi</span><span class="p">.</span><span class="nf">params</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="s1">'field_name'</span><span class="p">)</span>           <span class="c1"># delete param</span>
+<span class="n">cgi</span><span class="p">.</span><span class="nf">params</span><span class="p">.</span><span class="nf">clear</span>                          <span class="c1"># delete all params</span>
+</code></pre></div></div>
+
+<h3 id="save-form-values-to-file">Save form values to file</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s2">"pstore"</span>
+<span class="n">db</span> <span class="o">=</span> <span class="no">PStore</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"query.db"</span><span class="p">)</span>
+<span class="n">db</span><span class="p">.</span><span class="nf">transaction</span> <span class="k">do</span>
+  <span class="n">db</span><span class="p">[</span><span class="s2">"params"</span><span class="p">]</span> <span class="o">=</span> <span class="n">cgi</span><span class="p">.</span><span class="nf">params</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h3 id="restore-form-values-from-file">Restore form values from file</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s2">"pstore"</span>
+<span class="n">db</span> <span class="o">=</span> <span class="no">PStore</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"query.db"</span><span class="p">)</span>
+<span class="n">db</span><span class="p">.</span><span class="nf">transaction</span> <span class="k">do</span>
+  <span class="n">cgi</span><span class="p">.</span><span class="nf">params</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s2">"params"</span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h3 id="get-multipart-form-values">Get multipart form values</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s2">"cgi"</span>
+<span class="n">cgi</span> <span class="o">=</span> <span class="no">CGI</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">cgi</span><span class="p">[</span><span class="s1">'field_name'</span><span class="p">]</span>   <span class="c1"># &lt;== value string for 'field_name'</span>
+<span class="n">value</span><span class="p">.</span><span class="nf">read</span>                  <span class="c1"># &lt;== body of value</span>
+<span class="n">value</span><span class="p">.</span><span class="nf">local_path</span>            <span class="c1"># &lt;== path to local file of value</span>
+<span class="n">value</span><span class="p">.</span><span class="nf">original_filename</span>     <span class="c1"># &lt;== original filename of value</span>
+<span class="n">value</span><span class="p">.</span><span class="nf">content_type</span>          <span class="c1"># &lt;== content_type of value</span>
+</code></pre></div></div>
+
+<p>and value has StringIO or Tempfile class methods.</p>
+
+<h3 id="get-cookie-values">Get cookie values</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s2">"cgi"</span>
+<span class="n">cgi</span> <span class="o">=</span> <span class="no">CGI</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">cgi</span><span class="p">.</span><span class="nf">cookies</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span>  <span class="c1"># &lt;== array of 'name'</span>
+  <span class="c1"># if not 'name' included, then return [].</span>
+<span class="n">names</span> <span class="o">=</span> <span class="n">cgi</span><span class="p">.</span><span class="nf">cookies</span><span class="p">.</span><span class="nf">keys</span>      <span class="c1"># &lt;== array of cookie names</span>
+</code></pre></div></div>
+
+<p>and cgi.cookies is a hash.</p>
+
+<h3 id="get-cookie-objects">Get cookie objects</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s2">"cgi"</span>
+<span class="n">cgi</span> <span class="o">=</span> <span class="no">CGI</span><span class="p">.</span><span class="nf">new</span>
+<span class="k">for</span> <span class="nb">name</span><span class="p">,</span> <span class="n">cookie</span> <span class="k">in</span> <span class="n">cgi</span><span class="p">.</span><span class="nf">cookies</span>
+  <span class="n">cookie</span><span class="p">.</span><span class="nf">expires</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">+</span> <span class="mi">30</span>
+<span class="k">end</span>
+<span class="n">cgi</span><span class="p">.</span><span class="nf">out</span><span class="p">(</span><span class="s2">"cookie"</span> <span class="o">=&gt;</span> <span class="n">cgi</span><span class="p">.</span><span class="nf">cookies</span><span class="p">)</span> <span class="p">{</span><span class="s2">"string"</span><span class="p">}</span>
+
+<span class="n">cgi</span><span class="p">.</span><span class="nf">cookies</span> <span class="c1"># { "name1" =&gt; cookie1, "name2" =&gt; cookie2, ... }</span>
+
+<span class="nb">require</span> <span class="s2">"cgi"</span>
+<span class="n">cgi</span> <span class="o">=</span> <span class="no">CGI</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">cgi</span><span class="p">.</span><span class="nf">cookies</span><span class="p">[</span><span class="s1">'name'</span><span class="p">].</span><span class="nf">expires</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">+</span> <span class="mi">30</span>
+<span class="n">cgi</span><span class="p">.</span><span class="nf">out</span><span class="p">(</span><span class="s2">"cookie"</span> <span class="o">=&gt;</span> <span class="n">cgi</span><span class="p">.</span><span class="nf">cookies</span><span class="p">[</span><span class="s1">'name'</span><span class="p">])</span> <span class="p">{</span><span class="s2">"string"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="print-http-header-and-html-string-to-default_output-">Print http header and html string to $DEFAULT_OUTPUT ($&gt;)</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s2">"cgi"</span>
+<span class="n">cgi</span> <span class="o">=</span> <span class="no">CGI</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"html4"</span><span class="p">)</span>  <span class="c1"># add HTML generation methods</span>
+<span class="n">cgi</span><span class="p">.</span><span class="nf">out</span> <span class="k">do</span>
+  <span class="n">cgi</span><span class="p">.</span><span class="nf">html</span> <span class="k">do</span>
+    <span class="n">cgi</span><span class="p">.</span><span class="nf">head</span> <span class="k">do</span>
+      <span class="n">cgi</span><span class="p">.</span><span class="nf">title</span> <span class="p">{</span> <span class="s2">"TITLE"</span> <span class="p">}</span>
+    <span class="k">end</span> <span class="o">+</span>
+    <span class="n">cgi</span><span class="p">.</span><span class="nf">body</span> <span class="k">do</span>
+      <span class="n">cgi</span><span class="p">.</span><span class="nf">form</span><span class="p">(</span><span class="s2">"ACTION"</span> <span class="o">=&gt;</span> <span class="s2">"uri"</span><span class="p">)</span> <span class="k">do</span>
+        <span class="n">cgi</span><span class="p">.</span><span class="nf">p</span> <span class="k">do</span>
+          <span class="n">cgi</span><span class="p">.</span><span class="nf">textarea</span><span class="p">(</span><span class="s2">"get_text"</span><span class="p">)</span> <span class="o">+</span>
+          <span class="n">cgi</span><span class="p">.</span><span class="nf">br</span> <span class="o">+</span>
+          <span class="n">cgi</span><span class="p">.</span><span class="nf">submit</span>
+        <span class="k">end</span>
+      <span class="k">end</span> <span class="o">+</span>
+      <span class="n">cgi</span><span class="p">.</span><span class="nf">pre</span> <span class="k">do</span>
+        <span class="no">CGI</span><span class="o">::</span><span class="n">escapeHTML</span><span class="p">(</span>
+          <span class="s2">"params: </span><span class="si">#{</span><span class="n">cgi</span><span class="p">.</span><span class="nf">params</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span>
+          <span class="s2">"cookies: </span><span class="si">#{</span><span class="n">cgi</span><span class="p">.</span><span class="nf">cookies</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span>
+          <span class="no">ENV</span><span class="p">.</span><span class="nf">collect</span> <span class="k">do</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
+            <span class="s2">"</span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2"> --&gt; </span><span class="si">#{</span><span class="n">value</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
+          <span class="k">end</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+        <span class="p">)</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># add HTML generation methods</span>
+<span class="no">CGI</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"html3"</span><span class="p">)</span>    <span class="c1"># html3.2</span>
+<span class="no">CGI</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"html4"</span><span class="p">)</span>    <span class="c1"># html4.01 (Strict)</span>
+<span class="no">CGI</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"html4Tr"</span><span class="p">)</span>  <span class="c1"># html4.01 Transitional</span>
+<span class="no">CGI</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"html4Fr"</span><span class="p">)</span>  <span class="c1"># html4.01 Frameset</span>
+<span class="no">CGI</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"html5"</span><span class="p">)</span>    <span class="c1"># html5</span>
+</code></pre></div></div>
+
+<h3 id="some-utility-methods">Some utility methods</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'cgi/util'</span>
+<span class="no">CGI</span><span class="p">.</span><span class="nf">escapeHTML</span><span class="p">(</span><span class="s1">'Usage: foo "bar" &lt;baz&gt;'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="some-utility-methods-like-a-function">Some utility methods like a function</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'cgi/util'</span>
+<span class="kp">include</span> <span class="no">CGI</span><span class="o">::</span><span class="no">Util</span>
+<span class="n">escapeHTML</span><span class="p">(</span><span class="s1">'Usage: foo "bar" &lt;baz&gt;'</span><span class="p">)</span>
+<span class="n">h</span><span class="p">(</span><span class="s1">'Usage: foo "bar" &lt;baz&gt;'</span><span class="p">)</span> <span class="c1"># alias</span>
+</code></pre></div></div>
+
+<p><a href="https://ruby-doc.org/stdlib-2.5.0/libdoc/cgi/rdoc/CGI.html">CGI
+Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

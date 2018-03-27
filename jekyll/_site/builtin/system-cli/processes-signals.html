@@ -1,0 +1,154 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 <h1 id="process">Process</h1>
+
+<p>Module to handle processes.</p>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Process.html">Process Reference</a></p>
+
+<h2 id="signal">Signal</h2>
+
+<p>Many operating systems allow signals to be sent to running processes.
+Some signals have a defined effect on the process, while others may be
+trapped at the code level and acted upon. For example, your process may
+trap the USR1 signal and use it to toggle debugging, and may use TERM to
+initiate a controlled shutdown.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pid</span> <span class="o">=</span> <span class="nb">fork</span> <span class="k">do</span>
+  <span class="no">Signal</span><span class="p">.</span><span class="nf">trap</span><span class="p">(</span><span class="s2">"USR1"</span><span class="p">)</span> <span class="k">do</span>
+    <span class="vg">$debug</span> <span class="o">=</span> <span class="o">!</span><span class="vg">$debug</span>
+    <span class="nb">puts</span> <span class="s2">"Debug now: </span><span class="si">#$debug</span><span class="s2">"</span>
+  <span class="k">end</span>
+  <span class="no">Signal</span><span class="p">.</span><span class="nf">trap</span><span class="p">(</span><span class="s2">"TERM"</span><span class="p">)</span> <span class="k">do</span>
+    <span class="nb">puts</span> <span class="s2">"Terminating..."</span>
+    <span class="n">shutdown</span><span class="p">()</span>
+  <span class="k">end</span>
+  <span class="c1"># . . . do some work . . .</span>
+<span class="k">end</span>
+
+<span class="no">Process</span><span class="p">.</span><span class="nf">detach</span><span class="p">(</span><span class="n">pid</span><span class="p">)</span>
+
+<span class="c1"># Controlling program:</span>
+<span class="no">Process</span><span class="p">.</span><span class="nf">kill</span><span class="p">(</span><span class="s2">"USR1"</span><span class="p">,</span> <span class="n">pid</span><span class="p">)</span>
+<span class="c1"># ...</span>
+<span class="no">Process</span><span class="p">.</span><span class="nf">kill</span><span class="p">(</span><span class="s2">"USR1"</span><span class="p">,</span> <span class="n">pid</span><span class="p">)</span>
+<span class="c1"># ...</span>
+<span class="no">Process</span><span class="p">.</span><span class="nf">kill</span><span class="p">(</span><span class="s2">"TERM"</span><span class="p">,</span> <span class="n">pid</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>produces: Debug now: true Debug now: false Terminating…</p>
+
+<p>The list of available signal names and their interpretation is system
+dependent. Signal delivery semantics may also vary between systems; in
+particular signal delivery may not always be reliable.</p>
+
+<p><a href="http://ruby-doc.org/core-2.5.0/Signal.html">Signal Reference</a></p>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>

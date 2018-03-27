@@ -1,0 +1,277 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> | </title>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter">
+
+              
+              <li>
+                <a href="#about-this-book.html"> About This Book</a>
+              </li>
+              
+              <li>
+                <a href="#language.html"> Language Structure</a>
+              </li>
+              
+              <li>
+                <a href="#builtin.html"> Built-in Classes</a>
+              </li>
+              
+              <li>
+                <a href="#stdlib.html"> Standard Library</a>
+              </li>
+              
+              <li>
+                <a href="#advanced-topics.html"> Advanced Topics</a>
+              </li>
+              
+
+            </ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                 <h2 id="keywords">Keywords</h2>
+
+<p>The following keywords are used by Ruby.</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">__ENCODING__</code>: The script encoding of the current file. See
+Encoding.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">__LINE__</code>: The line number of this keyword in the current file.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">__FILE__</code>: The path to the current file.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">BEGIN</code>: Runs before any other code in the current file. See
+<a href="rdoc-ref:syntax/miscellaneous.rdoc">miscellaneous syntax</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">END</code>: Runs after any other code in the current file. See
+<a href="rdoc-ref:syntax/miscellaneous.rdoc">miscellaneous syntax</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">alias</code>: Creates an alias between two methods (and other things). See
+<a href="rdoc-ref:syntax/modules_and_classes.rdoc">modules and classes syntax</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">and</code>: Short-circuit Boolean and with lower precedence than <code class="highlighter-rouge">&amp;&amp;</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">begin</code>: Starts an exception handling block. See <a href="rdoc-ref:syntax/exceptions.rdoc">exceptions
+syntax</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">break</code>: Leaves a block early. See <a href="rdoc-ref:syntax/control_expressions.rdoc">control expressions
+syntax</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">case</code>: Starts a <code class="highlighter-rouge">case</code> expression. See <a href="rdoc-ref:syntax/control_expressions.rdoc">control expressions
+syntax</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">class</code>: Creates or opens a class. See <a href="rdoc-ref:syntax/modules_and_classes.rdoc">modules and classes
+syntax</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">def</code>: Defines a method. See <a href="rdoc-ref:syntax/methods.rdoc">methods
+syntax</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">defined?</code>: Returns a string describing its argument. See
+<a href="rdoc-ref:syntax/miscellaneous.rdoc">miscellaneous syntax</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">do</code>: Starts a block.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">else</code>: The unhandled condition in <code class="highlighter-rouge">case</code>, <code class="highlighter-rouge">if</code> and <code class="highlighter-rouge">unless</code>
+expressions. See <a href="rdoc-ref:syntax/control_expressions.rdoc">control
+expressions</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">elsif</code>: An alternate condition for an <code class="highlighter-rouge">if</code> expression. See <a href="rdoc-ref:syntax/control_expressions.rdoc">control
+expressions</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">end</code>: The end of a syntax block. Used by classes, modules, methods,
+exception handling and control expressions.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">ensure</code>: Starts a section of code that is always run when an
+exception is raised. See <a href="rdoc-ref:syntax/exceptions.rdoc">exception
+handling</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">false</code>: Boolean false. See <a href="rdoc-ref:syntax/literals.rdoc">literals</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">for</code>: A loop that is similar to using the <code class="highlighter-rouge">each</code> method. See
+<a href="rdoc-ref:syntax/control_expressions.rdoc">control expressions</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">if</code>: Used for <code class="highlighter-rouge">if</code> and modifier <code class="highlighter-rouge">if</code> expressions. See <a href="rdoc-ref:syntax/control_expressions.rdoc">control
+expressions</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">in</code>: Used to separate the iterable object and iterator variable in a
+<code class="highlighter-rouge">for</code> loop. See <a href="rdoc-ref:syntax/control_expressions.rdoc">control
+expressions</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">module</code>: Creates or opens a module. See <a href="rdoc-ref:syntax/modules_and_classes.rdoc">modules and classes
+syntax</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">next</code>: Skips the rest of the block. See <a href="rdoc-ref:syntax/control_expressions.rdoc">control
+expressions</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">nil</code>: A false value usually indicating “no value” or “unknown”. See
+<a href="rdoc-ref:syntax/literals.rdoc">literals</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">not</code>: Inverts the following boolean expression. Has a lower
+precedence than <code class="highlighter-rouge">!</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">or</code>: Boolean or with lower precedence than <code class="highlighter-rouge">||</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">redo</code>: Restarts execution in the current block. See <a href="rdoc-ref:syntax/control_expressions.rdoc">control
+expressions</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">rescue</code>: Starts an exception section of code in a <code class="highlighter-rouge">begin</code> block. See
+<a href="rdoc-ref:syntax/exceptions.rdoc">exception handling</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">retry</code>: Retries an exception block. See <a href="rdoc-ref:syntax/exceptions.rdoc">exception
+handling</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">return</code>: Exits a method. See <a href="rdoc-ref:syntax/methods.rdoc">methods</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">self</code>: The object the current method is attached to. See
+<a href="rdoc-ref:syntax/methods.rdoc">methods</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">super</code>: Calls the current method in a superclass. See
+<a href="rdoc-ref:syntax/methods.rdoc">methods</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">then</code>: Indicates the end of conditional blocks in control
+structures. See <a href="rdoc-ref:syntax/control_expressions.rdoc">control
+expressions</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">true</code>: Boolean true. See <a href="rdoc-ref:syntax/literals.rdoc">literals</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">undef</code>: Prevents a class or module from responding to a method call.
+See <a href="rdoc-ref:syntax/modules_and_classes.rdoc">modules and classes</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">unless</code>: Used for <code class="highlighter-rouge">unless</code> and modifier <code class="highlighter-rouge">unless</code> expressions. See
+<a href="rdoc-ref:syntax/control_expressions.rdoc">control expressions</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">until</code>: Creates a loop that executes until the condition is true.
+See <a href="rdoc-ref:syntax/control_expressions.rdoc">control expressions</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">when</code>: A condition in a <code class="highlighter-rouge">case</code> expression. See <a href="rdoc-ref:syntax/control_expressions.rdoc">control
+expressions</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">while</code>: Creates a loop that executes while the condition is true.
+See <a href="rdoc-ref:syntax/control_expressions.rdoc">control expressions</a></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">yield</code>: Starts execution of the block sent to the current method.
+See <a href="rdoc-ref:syntax/methods.rdoc">methods</a></p>
+  </li>
+</ul>
+
+
+
+                <!-- Mobile navigation buttons -->
+
+
+                <!--
+                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                 -->
+
+            </div>
+
+
+
+               <!--
+                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                 -->
+
+        </div>
+
+
+        <script src="js/book.js"></script>
+    </body>
+</html>
