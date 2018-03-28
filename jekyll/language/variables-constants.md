@@ -17,8 +17,6 @@ character. Ruby allows local variables to contain such characters.)
 A local variable name may contain letters, numbers, an `_` (underscore
 or low line) or a character with the eighth bit set.
 
-
-
 ### Local Variable Scope
 
 Once a local variable name has been assigned-to all uses of the name for
@@ -73,8 +71,6 @@ example.
 
 See also `Kernel#local_variables`, but note that a `for` loop does not
 create a new scope like a block does.
-
-
 
 ### Local Variables and Methods
 
@@ -169,8 +165,6 @@ uninitialized instance variable.
 The `value` method has access to the value set by the `initialize`
 method, but only for the same object.
 
-
-
 ## Class Variables
 
 Class variables are shared between a class, its subclasses and its
@@ -260,8 +254,6 @@ exception.
 
 Note that classes have instance variables because classes are objects,
 so try not to confuse class and instance variables.
-
-
 
 ## Global Variables
 

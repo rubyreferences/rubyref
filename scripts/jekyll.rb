@@ -43,10 +43,11 @@ class GFMKonverter < Kramdown::Converter::Kramdown
 end
 
 class ContentPart
-  def initialize(index:, source:, header_shift: nil, remove: [], insert: [], process: [], remove_sections: [], **)
+  def initialize(index:, source:, header_shift: nil, remove: [], insert: [], process: [], sections: [], remove_sections: [], **)
     @index = index
     @header_shift = header_shift&.to_i || (index.zero? ? 0 : 1)
     @remove = Array(remove)
+    @sections = Array(sections)
     @remove_sections = Array(remove_sections)
     @insert = insert.map { |i| i.transform_keys(&:to_sym) }
     @process = Array(process).map(&method(:Array))
@@ -130,7 +131,23 @@ class ContentPart
     elements.replace(before + after)
   end
 
+  def select_section(section)
+    if section == '_ref' # special syntax to borrow the "[ClassName Reference](...)" link
+      elements
+        .select { |e| convert(e).match(/^\[\S+ Reference\]/) }
+        .tap { |ref| ref.empty? and fail "Reference not found!" }
+    else
+      elements
+        .drop_while { |e| e.type != :header || e.options[:raw_text] != section }
+        .tap { |els| els.empty? and fail "Section #{section} not found!" }
+        .take_while { |e| e.type != :header || e.options[:raw_text] == section }
+    end
+  end
+
   def postprocess
+    unless @sections.empty?
+      elements.replace(@sections.flat_map { |title| select_section(title) })
+    end
     @process.each do |what, *arg|
       send("handle_#{what}", *arg)
     end

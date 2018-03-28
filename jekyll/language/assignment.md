@@ -10,9 +10,7 @@ v = 5
 Assignment creates a local variable if the variable was not previously
 referenced.
 
-
-
-### Abbreviated Assignment
+## Abbreviated Assignment
 
 You can mix several of the operators and assignment. To add 1 to an
 object you can write:
@@ -57,44 +55,7 @@ p a # prints 1
 Note that these two operators behave more like `a || a = 0` than `a = a
 || 0`.
 
-
-
-### Implicit Array Assignment
-
-You can implicitly create an array by listing multiple values when
-assigning:
-
-
-```ruby
-a = 1, 2, 3
-
-p a # prints [1, 2, 3]
-```
-
-This implicitly creates an Array.
-
-You can use `*` or the "splat" operator or unpack an Array when
-assigning. This is similar to multiple assignment:
-
-
-```ruby
-a = *[1, 2, 3]
-
-p a # prints [1, 2, 3]
-```
-
-You can splat anywhere in the right-hand side of the assignment:
-
-
-```ruby
-a = 1, *[2, 3]
-
-p a # prints [1, 2, 3]
-```
-
-
-
-### Multiple Assignment
+## Multiple Assignment
 
 You can assign multiple values on the right-hand side to multiple
 variables:
@@ -163,9 +124,7 @@ p a: a, b: b # prints {:a=>[1, 2], :b=>3}
 
 But you may only use one `*` in an assignment.
 
-
-
-### Array Decomposition
+## Array Decomposition
 
 Like Array decomposition in [method
 arguments](rdoc-ref:syntax/methods.rdoc) you can decompose an Array

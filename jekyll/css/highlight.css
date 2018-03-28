@@ -43,9 +43,12 @@ pre.highlight .mf {
 .hljs-string,
 .hljs-symbol,
 .hljs-bullet,
+pre.highlight .s1,
 pre.highlight .s2,
 pre.highlight .ss,
-pre.highlight .sx {
+pre.highlight .sx,
+pre.highlight .se,
+pre.highlight .si {
   color: #60ac39;
 }
 

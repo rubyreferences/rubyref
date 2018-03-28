@@ -7,6 +7,7 @@
     - source: content/language.md
     - source: "doc/syntax/miscellaneous.md#Ending an Expression"
       header_shift: 0
+    # TODO: continuing the expression on the next line
     - source: "doc/syntax/miscellaneous.md#Indentation"
       header_shift: 0
     - source: "doc/syntax/miscellaneous.md#`defined?`"
@@ -23,29 +24,36 @@
       content:
         # TODO: Needs rewrite accordingly to our structure
         - source: doc/syntax/literals.md
+    - title: Comments
+      content:
+        - source: content/language/comments.md
     - title: Variables and Constants
       content:
         - source: '# Variables and Constants'
         - source: '## Local Variables'
-        - source: "doc/syntax/assignment.md#Local Variable Names"
+        - source: doc/syntax/assignment.md
+          sections:
+            - Local Variable Names
+            - Local Variable Scope
+            - Local Variables and Methods
           remove: "## Local Variable Names"
-        - source: "doc/syntax/assignment.md#Local Variable Scope"
-        - source: "doc/syntax/assignment.md#Local Variables and Methods"
-        - source: "doc/syntax/assignment.md#Instance Variables"
-          header_shift: 0
-        - source: "doc/syntax/assignment.md#Class Variables"
-          header_shift: 0
-        - source: "doc/syntax/assignment.md#Global Variables"
+        - source: doc/syntax/assignment.md
+          sections:
+            - Instance Variables
+            - Class Variables
+            - Global Variables
           header_shift: 0
         - source: content/language/constants.md
     - title: Assignment
       content:
-        - source: "doc/syntax/assignment.md#Assignment"
-        - source: "doc/syntax/assignment.md#Abbreviated Assignment"
-        - source: "doc/syntax/assignment.md#Implicit Array Assignment"
-        - source: "doc/syntax/assignment.md#Multiple Assignment"
-        - source: "doc/syntax/assignment.md#Array Decomposition"
+        - source: doc/syntax/assignment.md
+          sections:
+            - Assignment
+            - Abbreviated Assignment
+            - Multiple Assignment
+            - Array Decomposition
         # TODO: Assignment methods: here or in Methods (with link here)?..
+        #       It is already in variables...
     - title: Control Expressions
       content:
         - source: doc/syntax/control_expressions.md

@@ -53,6 +53,15 @@
                           <li>
                             <a href="{{ site.baseurl }}/{{ section.path }}"> {{ section.title }}</a>
                           </li>
+                            {% if section.children %}
+                                <ul class="subsection">
+                                    {% for subsection in section.children %}
+                                      <li>
+                                        <a href="{{ site.baseurl }}/{{ subsection.path }}"> {{ subsection.title }}</a>
+                                      </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
                         {% endfor %}
                     </ul>
                 {% endif %}

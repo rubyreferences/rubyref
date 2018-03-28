@@ -17,7 +17,7 @@ Unlike other languages, Ruby program typically doesn't need `for` loop, using
     end
     # Still not idiomatic: just each
     odds = []
-    [1, 2, 3, 4, 5].each do |value
+    [1, 2, 3, 4, 5].each do |value|
       odds.push(value) if value.odd?
     end
     # Idiomatic: specialized Enumerable method

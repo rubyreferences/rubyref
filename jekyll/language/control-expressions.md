@@ -398,7 +398,7 @@ using [Enumerable](../../builtin/types/collections.md#enumerable)
 instead:
 
 
-```
+```ruby
 # Not idiomatic
 for i in 0..3
   # ...
@@ -415,7 +415,7 @@ for value in [1, 2, 3, 4, 5]
 end
 # Still not idiomatic: just each
 odds = []
-[1, 2, 3, 4, 5].each do |value
+[1, 2, 3, 4, 5].each do |value|
   odds.push(value) if value.odd?
 end
 # Idiomatic: specialized Enumerable method

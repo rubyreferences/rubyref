@@ -9,6 +9,8 @@ chapters:
     path: language/keywords.html
   - title: Literals
     path: language/literals.html
+  - title: Comments
+    path: language/comments.html
   - title: Variables and Constants
     path: language/variables-constants.html
   - title: Assignment

@@ -13,3 +13,5 @@ As a brief overview, it can be said that:
 * Ruby is object-oriented language, so the program is structured by defining [classes and modules](language/modules-classes.md) and their [methods](language/methods-def.md).
   * Ruby has open classes, for hygiene one can use [refinements](language/refinements.md).
 * Error reporting and handling is done with [exceptions](language/exceptions.md).
+
+Note that a lot of language constructs you will see in a typical Ruby program, are in fact, just _methods_. For example [`Kernel#raise`]() is used to raise an exception, and [`Module#private`]() is used to change method's visibility. This means that language core, described in this chapter, is pretty small, and everything else just follows usual rules for modules, methods and expressions.
