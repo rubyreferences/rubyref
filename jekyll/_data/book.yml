@@ -33,7 +33,7 @@ chapters:
     path: language/files.html
   - title: Globals
     path: language/globals.html
-  - title: Metaprogramming
+  - title: Metaprogramming and DSL
     path: language/metaprogramming.html
 - title: Built-in Classes
   path: builtin.html

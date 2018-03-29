@@ -113,7 +113,8 @@
               source: >
                 `English` standard library provides longer, more readable names for predefined
                 global variables.
-    - title: Metaprogramming
+    - title: Metaprogramming and DSL
+      id: metaprogramming
       content:
         - source: content/language/metaprogramming.md
 - title: Built-in Classes
