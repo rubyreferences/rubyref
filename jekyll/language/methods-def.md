@@ -15,7 +15,7 @@ body of the method, `return` value and the `end` keyword. When called
 the method will execute the body of the method. This method returns `2`.
 
 This section only covers defining methods. See also the [syntax
-documentation on calling methods](rdoc-ref:syntax/calling_methods.rdoc).
+documentation on calling methods](/language/method-call.md).
 
 ## Method Names
 
@@ -615,7 +615,7 @@ end
 
 If you wish to rescue an exception for only part of your method, use
 `begin` and `end`. For more details see the page on [exception
-handling](rdoc-ref:syntax/exceptions.rdoc).
+handling](/language/exceptions.md).
 
 ## Method definition as an expression
 

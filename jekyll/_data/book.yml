@@ -29,6 +29,8 @@ chapters:
     path: language/refinements.html
   - title: Precedence
     path: language/precedence.html
+  - title: Miscellaneous Syntax
+    path: language/misc.html
   - title: File Structure
     path: language/files.html
   - title: Globals

@@ -22,7 +22,7 @@ this document uses parenthesis when arguments are present to avoid
 confusion.
 
 This section only covers calling methods. See also the [syntax
-documentation on defining methods](rdoc-ref:syntax/methods.rdoc).
+documentation on defining methods](/language/methods-def.md).
 
 ## Receiver
 
@@ -464,6 +464,6 @@ If no match is found this repeats from the beginning, but looking for
 `BasicObject#method_missing` which raises a NameError when invoked.
 
 If refinements (an experimental feature) are active, the method lookup
-changes. See the [refinements
-documentation](rdoc-ref:syntax/refinements.rdoc) for details.
+changes. See the [refinements documentation](/language/refinements.md)
+for details.
 

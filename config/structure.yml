@@ -12,14 +12,15 @@
       header_shift: 0
     - source: "doc/syntax/miscellaneous.md#`defined?`"
       header_shift: 0
-    - source: "doc/syntax/miscellaneous.md#`BEGIN` and `END`"
-      header_shift: 0
     # Rewritten
     # - source: doc/syntax.md
   children:
     - title: Keywords
       content:
         - source: doc/keywords.md
+          replace:
+            - from: "* `defined?`: Returns a string describing its argument.  See [miscellaneous\n    syntax](rdoc-ref:syntax/miscellaneous.rdoc)"
+              to: "* `defined?`: Returns a string describing its argument.  See [defined?](/language.md#defined)"
     - title: Literals
       content:
         # TODO: Needs rewrite accordingly to our structure
@@ -99,6 +100,11 @@
     - title: Precedence
       content:
         - source: doc/syntax/precedence.md
+    - title: Miscellaneous Syntax
+      id: misc
+      content:
+        - source: "doc/syntax/miscellaneous.md#`BEGIN` and `END`"
+          header_shift: 0
     - title: File Structure
       id: files
       content:

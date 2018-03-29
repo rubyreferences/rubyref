@@ -21,6 +21,19 @@ class String
   end
 end
 
+RDOC_REF = {
+  'syntax/precedence.rdoc' => '/language/precedence.md',
+  'syntax/miscellaneous.rdoc' => '/language/misc.md',
+  'syntax/modules_and_classes.rdoc' => '/language/modules-classes.md',
+  'syntax/exceptions.rdoc' => '/language/exceptions.md',
+  'syntax/control_expressions.rdoc' => '/language/control_expressions.md',
+  'syntax/methods.rdoc' => '/language/methods-def.md',
+  'syntax/literals.rdoc' => '/language/literals.md',
+  'syntax/calling_methods.rdoc' => '/language/method-call.md',
+  'globals.rdoc' => '/language/globals.md',
+  'syntax/refinements.rdoc' => '/language/refinements.md'
+}
+
 class GFMKonverter < Kramdown::Converter::Kramdown
   def convert_codeblock(el, opts)
     "\n```#{code_lang(el.value)}\n#{el.value}```\n"
@@ -34,8 +47,12 @@ class GFMKonverter < Kramdown::Converter::Kramdown
   # Kramdown converts HTTP links into [link][1] with list of links at the end of the doc. It is
   # not appropriate for our tasks
   def convert_a(el, opts)
-    if el.attr['href'] =~ /^(?:http|ftp)/
+    case el.attr['href']
+    when /^(https?|ftp):/
       "[#{inner(el, opts)}](#{el.attr['href']})"
+    when /^(rdoc-ref):(.+)$/
+      reference = RDOC_REF.fetch($2) { |key| puts "REF: #{key}"; '#TODO' }
+      "[#{inner(el, opts)}](#{reference})"
     else
       super
     end
@@ -43,7 +60,18 @@ class GFMKonverter < Kramdown::Converter::Kramdown
 end
 
 class ContentPart
-  def initialize(index:, source:, header_shift: nil, remove: [], insert: [], process: [], sections: [], remove_sections: [], **)
+  def initialize(
+    index:,
+    source:,
+    header_shift: nil,
+    remove: [],
+    insert: [],
+    process: [],
+    sections: [],
+    remove_sections: [],
+    replace: [],
+    **)
+
     @index = index
     @header_shift = header_shift&.to_i || (index.zero? ? 0 : 1)
     @remove = Array(remove)
@@ -51,6 +79,7 @@ class ContentPart
     @remove_sections = Array(remove_sections)
     @insert = insert.map { |i| i.transform_keys(&:to_sym) }
     @process = Array(process).map(&method(:Array))
+    @replace = replace.map { |r| r.transform_keys(&:to_sym) }
     @source = source
     @text = parse_source(@source, main: true)
     postprocess
@@ -76,7 +105,7 @@ class ContentPart
     full_path = path.start_with?('content') ? path : File.join(SOURCE, path)
     return unless File.file?(full_path)
 
-    Kramdown::Document.new(File.read(full_path))
+    Kramdown::Document.new(postprocess_raw(File.read(full_path)))
   end
 
   def parse_partial(path)
@@ -142,6 +171,10 @@ class ContentPart
         .tap { |els| els.empty? and fail "Section #{section} not found!" }
         .take_while { |e| e.type != :header || e.options[:raw_text] == section }
     end
+  end
+
+  def postprocess_raw(source)
+    @replace.inject(source) { |src, r| src.gsub(r[:from], r[:to]) }
   end
 
   def postprocess
@@ -250,7 +283,7 @@ class Chapter
       FileUtils.mkdir_p File.dirname(full_path)
       File.write full_path, content_chunks.map(&:render).join("\n\n")
     end
-    puts "Writing #{id} #{title} #{full_path}"
+    # puts "Writing #{id} #{title} #{full_path}"
     children.each(&:write)
   end
 

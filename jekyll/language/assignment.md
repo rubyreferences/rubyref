@@ -126,9 +126,8 @@ But you may only use one `*` in an assignment.
 
 ## Array Decomposition
 
-Like Array decomposition in [method
-arguments](rdoc-ref:syntax/methods.rdoc) you can decompose an Array
-during assignment using parenthesis:
+Like Array decomposition in [method arguments](/language/methods-def.md)
+you can decompose an Array during assignment using parenthesis:
 
 
 ```ruby

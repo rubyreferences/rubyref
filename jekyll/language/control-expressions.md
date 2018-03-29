@@ -564,9 +564,8 @@ This prints \[0, 1, 3, 3, 5, 5, 7, 7, 9, 9, 11\]
 
 In Ruby 1.8, you could also use `retry` where you used `redo`. This is
 no longer true, now you will receive a SyntaxError when you use `retry`
-outside of a `rescue` block. See
-[Exceptions](rdoc-ref:syntax/exceptions.rdoc) for proper usage of
-`retry`.
+outside of a `rescue` block. See [Exceptions](/language/exceptions.md)
+for proper usage of `retry`.
 
 ## Flip-Flop
 

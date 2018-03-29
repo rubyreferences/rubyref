@@ -64,8 +64,8 @@ p defined?(1 + 1)              # prints "method"
 ```
 
 You don't need to use parenthesis with `defined?`, but they are
-recommended due to the [low precedence](rdoc-ref:syntax/precedence.rdoc)
-of `defined?`.
+recommended due to the [low precedence](/language/precedence.md) of
+`defined?`.
 
 For example, if you wish to check if an instance variable exists and
 that the instance variable is zero:
@@ -91,34 +91,4 @@ is not defined and `false` when the instance variable is not zero.
 Using the specific reflection methods such as
 instance\_variable\_defined? for instance variables or const\_defined?
 for constants is less error prone than using `defined?`.
-
-
-
-## `BEGIN` and `END`
-
-`BEGIN` defines a block that is run before any other code in the current
-file. It is typically used in one-liners with `ruby -e`. Similarly `END`
-defines a block that is run after any other code.
-
-`BEGIN` must appear at top-level and `END` will issue a warning when you
-use it inside a method.
-
-Here is an example:
-
-
-```ruby
-BEGIN {
-  count = 0
-}
-```
-
-You must use `{` and `}` you may not use `do` and `end`.
-
-Here is an example one-liner that adds numbers from standard input or
-any files in the argument list:
-
-
-```
-ruby -ne 'BEGIN { count = 0 }; END { puts count }; count += gets.to_i'
-```
 
