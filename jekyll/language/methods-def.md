@@ -666,8 +666,6 @@ p $new # prints 0
 
 You may use `alias` in any scope.
 
-
-
 ### `undef`
 
 The `undef` keyword prevents the current class from responding to calls

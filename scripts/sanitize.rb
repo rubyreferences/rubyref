@@ -43,6 +43,9 @@ Dir['intermediate/parsed/**/*.md'].each do |source|
       content
         .gsub(/\n\* (\S+):/, "\n* `\\1`:")
         .gsub(/(?<=to the |to )(\$.)/, '`\1`')
+        .sub('`$s`tderr', '`$stderr`')
+        .sub('`$``') { '<code class="highlighter-rouge">$`</code>' } # Without block, '`' has special meaning in sub
+        .gsub(/(?<!`)\$(stdin|stdout|DEBUG|VERBOSE)/, '`$\1`')
     when %r{core/Class\.md}
       content.sub('of the class `Class`.', "of the class `Class`.\n") # To properly render the diagram after
     when %r{core/Float\.md}
@@ -66,6 +69,9 @@ Dir['intermediate/parsed/**/*.md'].each do |source|
       content.gsub("returns this:\n", "returns this:\n\n")
     when %r{lib/optparse/OptionParser\.md}
       content.gsub(/((Used|output):)\n(?=    bash-3\.2)/, "\\1\n\n")
+    when %r{lib/English/English.md}
+      content.gsub(/^\* (\$.+?): (\$.+?)$/, '* `\1`: `\2`')
+        .sub('`$``') { '<code class="highlighter-rouge">$`</code>' } # Without block, '`' has special meaning in sub
     else
       content
     end

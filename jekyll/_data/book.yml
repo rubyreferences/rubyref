@@ -43,13 +43,12 @@ chapters:
   - title: Value Types
     path: builtin/types.html
     children:
+    - title: Comparable
+      path: builtin/types/comparable.html
     - title: Numbers
       path: builtin/types/numbers.html
     - title: Symbol and String
       path: builtin/types/symbol-string.html
-      children:
-      - title: Encodings
-        path: builtin/types/symbol-string/encodings.html
     - title: Regexp
       path: builtin/types/regexp.html
     - title: Range
@@ -58,17 +57,16 @@ chapters:
       path: builtin/types/struct.html
     - title: Times and Dates
       path: builtin/types/times-dates.html
-    - title: Collections
-      path: builtin/types/collections.html
-      children:
-      - title: Array
-        path: builtin/types/collections/array.html
-      - title: Hash
-        path: builtin/types/collections/hash.html
-      - title: Set
-        path: builtin/types/collections/set.html
-      - title: Matrix
-        path: builtin/types/collections/matrix.html
+    - title: Enumerable
+      path: builtin/types/enumerable.html
+    - title: Array
+      path: builtin/types/array.html
+    - title: Hash
+      path: builtin/types/hash.html
+    - title: Set
+      path: builtin/types/set.html
+    - title: Matrix
+      path: builtin/types/matrix.html
   - title: Errors and Warnings
     path: builtin/errors-warnings.html
     children:

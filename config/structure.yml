@@ -74,8 +74,10 @@
               source: "content/language/methods/_keyword_vars.md"
             - after: "If you wish to rescue an exception"
               source: "content/language/methods/_expression.md"
-        - source: "doc/syntax/miscellaneous.md#`alias`"
-        - source: "doc/syntax/miscellaneous.md#`undef`"
+        - source: doc/syntax/miscellaneous.md
+          sections:
+            - "`alias`"
+            - "`undef`"
         # TODO: Advanced methods: expressions & DSLs
     - title: Calling methods
       id: methods-call
@@ -89,6 +91,7 @@
               source: "content/language/modules_and_classes/_visibility.md"
     - title: Exceptions
       content:
+        - source: content/language/exceptions/_raise.md
         - source: doc/syntax/exceptions.md
     - title: Refinements
       content:
@@ -104,6 +107,12 @@
       content:
         - source: doc/globals.md
         - source: lib/English/English.md
+          remove: "Include the English library"
+          insert:
+            - after: '# English'
+              source: >
+                `English` standard library provides longer, more readable names for predefined
+                global variables.
     - title: Metaprogramming
       content:
         - source: content/language/metaprogramming.md
@@ -137,8 +146,10 @@
         - source: core/TrueClass.md
         - source: core/FalseClass.md
         - source: core/NilClass.md
-        - source: core/Comparable.md
       children:
+        - title: Comparable
+          content:
+            - source: core/Comparable.md
         - title: Numbers
           content:
             - source: core/Numeric.md
@@ -168,12 +179,9 @@
             - source: '# Symbol and String'
             - source: core/Symbol.md
             - source: core/String.md
-          children:
-            - title: Encodings
-              content:
-                - source: core/Encoding.md
-                # Nothing documented there
-                # - source: core/UnicodeNormalize.md
+            - source: core/Encoding.md
+            # Nothing documented there
+            # - source: core/UnicodeNormalize.md
         - title: Regexp
           id: regexp
           content:
@@ -211,34 +219,32 @@
             - source: ext/date/DateTime.md
               process:
                 - [stdlib, date]
-        - title: Collections
+        - title: Enumerable
           content:
-            - source: content/core/collections.md
             - source: core/Enumerable.md
             - source: core/Enumerator.md
-          children:
-            - title: Array
-              content:
-                - source: core/Array.md
-            - title: Hash
-              content:
-                - source: core/Hash.md
-            - title: Set
-              content:
-                - source: lib/set/Set.md
-                  remove:
-                    - '## Contact'
-                    - '    - Akinori'
-                  process:
-                    - [stdlib, set]
-                - source: lib/set/SortedSet.md
-            - title: Matrix
-              content:
-                - source: lib/matrix/Matrix.md
-                  process:
-                    - [stdlib, matrix]
-                - source: lib/matrix/Vector.md#Vector
-                - source: lib/matrix/Vector.md#_ref
+        - title: Array
+          content:
+            - source: core/Array.md
+        - title: Hash
+          content:
+            - source: core/Hash.md
+        - title: Set
+          content:
+            - source: lib/set/Set.md
+              remove:
+                - '## Contact'
+                - '    - Akinori'
+              process:
+                - [stdlib, set]
+            - source: lib/set/SortedSet.md
+        - title: Matrix
+          content:
+            - source: lib/matrix/Matrix.md
+              process:
+                - [stdlib, matrix]
+            - source: lib/matrix/Vector.md#Vector
+            - source: lib/matrix/Vector.md#_ref
 
     - title: Errors and Warnings
       content:
