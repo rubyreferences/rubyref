@@ -229,6 +229,9 @@
         - title: Enumerable
           content:
             - source: core/Enumerable.md
+              insert:
+                - source: content/core/enumerable.md
+                  after: "The `Enumerable` mixin"
             - source: core/Enumerator.md
         - title: Array
           content:
