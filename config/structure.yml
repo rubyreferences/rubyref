@@ -150,10 +150,14 @@
       id: types
       content:
         - source: content/core/types.md
-        - source: core/TrueClass.md
-        - source: core/FalseClass.md
-        - source: core/NilClass.md
       children:
+        - title: "true, false, nil"
+          id: atomic
+          content:
+            - source: "# `true`, `false` and `nil`"
+            - source: core/TrueClass.md
+            - source: core/FalseClass.md
+            - source: core/NilClass.md
         - title: Comparable
           content:
             - source: core/Comparable.md
@@ -256,10 +260,9 @@
             - source: lib/matrix/Vector.md#Vector
             - source: lib/matrix/Vector.md#_ref
 
-    - title: Errors and Warnings
+    - title: Exception
       content:
         - source: core/Exception.md
-        - source: core/Warning.md
       children:
         - title: Exception Classes
           content:
@@ -327,6 +330,9 @@
             - source: core/fatal.md
             # Definition is empty
             # - source: core/ClosedQueueError.md
+    - title: Warning
+      content:
+        - source: core/Warning.md
 
     - title: System Programming and CLI
       id: system-cli
@@ -940,6 +946,7 @@
 
 - title: Advanced Topics
   part: true
+  id: advanced
   children:
     - title: Third-Party Libraries
       content:

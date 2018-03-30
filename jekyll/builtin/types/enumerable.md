@@ -19,10 +19,10 @@ nubmers.each { |n| puts n }       # prints each number
 numbers.map { |n| n**2 }          #=> [1, 4, 64, 81, 324, 49]
 numbers.select { |n| n.odd? }     #=> [1, 9, 7]
 numbers.reject { |n| n.odd? }     #=> [2, 8, 18]
+numbers.partition { |n| n.odd? }  #=> [[1, 9, 7], [2, 8, 18]]
 numbers.sort                      #=> [1, 2, 7, 8, 9, 18]
 numbers.take_while { |n| n < 9 }  #=> [1, 2, 8]
 numbers.drop_while { |n| n < 9 }  #=> [9, 18, 7]
-numbers.partition { |n| n.odd? }  #=> [[1, 9, 7], [2, 8, 18]]
 # ...and so on
 
 # Range is Enumerable, too

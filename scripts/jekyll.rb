@@ -21,6 +21,9 @@ class String
   end
 end
 
+# Otherwise Ripper would spit some warnings on sterr
+def Warning.warn(*); end
+
 RDOC_REF = {
   'syntax/precedence.rdoc' => '/language/precedence.md',
   'syntax/miscellaneous.rdoc' => '/language/misc.md',

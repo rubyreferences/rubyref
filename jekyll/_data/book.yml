@@ -45,6 +45,8 @@ chapters:
   - title: Value Types
     path: builtin/types.html
     children:
+    - title: true, false, nil
+      path: builtin/types/atomic.html
     - title: Comparable
       path: builtin/types/comparable.html
     - title: Numbers
@@ -69,11 +71,13 @@ chapters:
       path: builtin/types/set.html
     - title: Matrix
       path: builtin/types/matrix.html
-  - title: Errors and Warnings
-    path: builtin/errors-warnings.html
+  - title: Exception
+    path: builtin/exception.html
     children:
     - title: Exception Classes
-      path: builtin/errors-warnings/exception-classes.html
+      path: builtin/exception/exception-classes.html
+  - title: Warning
+    path: builtin/warning.html
   - title: System Programming and CLI
     path: builtin/system-cli.html
     children:
@@ -225,23 +229,23 @@ chapters:
     - title: Other Libraries
       path: stdlib/misc/other.html
 - title: Advanced Topics
-  path: advanced-topics.html
+  path: advanced.html
   children:
   - title: Third-Party Libraries
-    path: advanced-topics/third-party-libraries.html
+    path: advanced/third-party-libraries.html
     children:
     - title: RubyGems and Bundler
-      path: advanced-topics/third-party-libraries/rubygems-bundler.html
+      path: advanced/third-party-libraries/rubygems-bundler.html
     - title: Developing C Extensions
-      path: advanced-topics/third-party-libraries/extensions.html
+      path: advanced/third-party-libraries/extensions.html
   - title: Tools and Approaches
-    path: advanced-topics/tools-approaches.html
+    path: advanced/tools-approaches.html
     children:
     - title: Interactive Console
-      path: advanced-topics/tools-approaches/irb.html
+      path: advanced/tools-approaches/irb.html
     - title: Documenting
-      path: advanced-topics/tools-approaches/rdoc.html
+      path: advanced/tools-approaches/rdoc.html
     - title: DTrace
-      path: advanced-topics/tools-approaches/dtrace.html
+      path: advanced/tools-approaches/dtrace.html
   - title: Contributing To Ruby
-    path: advanced-topics/contributing.html
+    path: advanced/contributing.html
