@@ -12,6 +12,6 @@ Another notable Ruby implementation is [JRuby](http://jruby.org/),
 targeting Java Virtual Machine. It is mostly MRI-compatible and actively
 maintained.
 
-See [next chapter](./installation.md) about downloading and installing
-different versions and implementations of Ruby.
+See [previous chapter](./installation.md) about downloading and
+installing different versions and implementations of Ruby.
 

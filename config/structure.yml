@@ -1,19 +1,21 @@
 - title: About This Book
   content:
     - source: README.md
-- title: Getting Started
+- title: Installation
   content:
-    - source: '# Getting Started'
+    - source: "# Installation"
+    - source: www.ruby-lang.org/en/documentation/installation/index.md
+      header_shift: 0
   children:
     - title: Versions and Implementations
       id: versions
       content:
         - source: content/getting-started/versions.md
-    - title: Installation
-      content:
-        - source: "# Installation"
-        - source: www.ruby-lang.org/en/documentation/installation/index.md
-          header_shift: 0
+- title: Interactive Console
+  id: irb
+  content:
+    - source: lib/irb/IRB.md
+    # - source: lib/irb/XMP.md
 - title: Language Structure
   id: language
   content:
@@ -991,6 +993,15 @@
         # TODO: Bundler
         # Site covered it better
         # - source: lib/rubygems/Gem.md
+    - title: Documenting
+      id: documenting
+      content:
+        - source: content/advanced/documenting.md
+        # RDoc core class documentation is not the best entry point
+        # - source: lib/rdoc/RDoc.md
+        # - source: lib/rdoc/RDocTask.md
+
+        # TODO: Code Style and Linting
     - title: Developing C Extensions
       id: extensions
       content:
@@ -1001,28 +1012,12 @@
             - "# extension.rdoc -"
             - "\\:enddoc"
         - source: lib/mkmf/MakeMakefile.md
-    - title: Tools and Approaches
-      content:
-        - source: '# Tools and Approaches'
-      children:
-        - title: Interactive Console
-          id: irb
-          content:
-            - source: lib/irb/IRB.md
-            # - source: lib/irb/XMP.md
-        - title: Documenting
-          id: rdoc
-          content:
-            - source: lib/rdoc/RDoc.md
-            # - source: lib/rdoc/RDocTask.md
-        - title: DTrace
-          content:
-            - source: doc/dtrace_probes.md
-
-        # TODO: Code Style and Linting
     - title: Security
       content:
         - source: doc/security.md
+    - title: DTrace
+      content:
+        - source: doc/dtrace_probes.md
     - title: Contributing To Ruby
       id: contributing
       content:
