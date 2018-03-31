@@ -2,6 +2,13 @@
 chapters:
 - title: About This Book
   path: about-this-book.html
+- title: Getting Started
+  path: getting-started.html
+  children:
+  - title: Versions and Implementations
+    path: getting-started/versions.html
+  - title: Installation
+    path: getting-started/installation.html
 - title: Language Structure
   path: language.html
   children:
@@ -235,13 +242,10 @@ chapters:
 - title: Advanced Topics
   path: advanced.html
   children:
-  - title: Third-Party Libraries
-    path: advanced/third-party-libraries.html
-    children:
-    - title: RubyGems and Bundler
-      path: advanced/third-party-libraries/rubygems-bundler.html
-    - title: Developing C Extensions
-      path: advanced/third-party-libraries/extensions.html
+  - title: Libraries
+    path: advanced/libraries.html
+  - title: Developing C Extensions
+    path: advanced/extensions.html
   - title: Tools and Approaches
     path: advanced/tools-approaches.html
     children:

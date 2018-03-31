@@ -1,6 +1,19 @@
 - title: About This Book
   content:
     - source: README.md
+- title: Getting Started
+  content:
+    - source: '# Getting Started'
+  children:
+    - title: Versions and Implementations
+      id: versions
+      content:
+        - source: content/getting-started/versions.md
+    - title: Installation
+      content:
+        - source: "# Installation"
+        - source: www.ruby-lang.org/en/documentation/installation/index.md
+          header_shift: 0
 - title: Language Structure
   id: language
   content:
@@ -971,31 +984,23 @@
   part: true
   id: advanced
   children:
-    - title: Third-Party Libraries
+    - title: Libraries
       content:
-        - source: '# Third-Party Libraries'
-      children:
-        - title: RubyGems and Bundler
-          content:
-            - source: "# RubyGems"
-            - source: lib/rubygems/Gem.md#Gem
-              remove: "# Gem"
-            - source: lib/rubygems/Gem.md#_ref
-            # - source: lib/rubygems/Kernel.md
-            # - source: lib/rubygems/TempIO.md
-          # TODO: Quick intro: install gems
-          # TODO: Where to find gems
-          # TODO: Bundler
-        - title: Developing C Extensions
-          id: extensions
-          content:
-            # TODO: In fact, it has a whole LOT of chapters! Should be either separated, or
-            # shortened and linked to full version.
-            - source: doc/extension.md
-              remove:
-                - "# extension.rdoc -"
-                - "\\:enddoc"
-            - source: lib/mkmf/MakeMakefile.md
+        - source: "# Libraries"
+        - source: www.ruby-lang.org/en/libraries/index.md
+        # TODO: Bundler
+        # Site covered it better
+        # - source: lib/rubygems/Gem.md
+    - title: Developing C Extensions
+      id: extensions
+      content:
+        # TODO: In fact, it has a whole LOT of chapters! Should be either separated, or
+        # shortened and linked to full version.
+        - source: doc/extension.md
+          remove:
+            - "# extension.rdoc -"
+            - "\\:enddoc"
+        - source: lib/mkmf/MakeMakefile.md
     - title: Tools and Approaches
       content:
         - source: '# Tools and Approaches'

@@ -105,10 +105,10 @@ class ContentPart
   end
 
   def parse_file(path)
-    full_path = path.start_with?('content') ? path : File.join(SOURCE, path)
+    full_path = path.match(/^(content|www\.ruby-lang\.org)/) ? path : File.join(SOURCE, path)
     return unless File.file?(full_path)
 
-    Kramdown::Document.new(postprocess_raw(File.read(full_path)))
+    Kramdown::Document.new(postprocess_raw(full_path, File.read(full_path)))
   end
 
   def parse_partial(path)
@@ -176,7 +176,18 @@ class ContentPart
     end
   end
 
-  def postprocess_raw(source)
+  def postprocess_raw(path, source)
+    if path.start_with?('www.ruby-lang.org')
+      source = source
+        .sub(/\A---\n.+?\n---\n/m, '')  # YAML frontmatter
+        .gsub(/\{:.+?\}/, '')           # {: .foo} tags
+        .gsub(/\{% highlight sh %\}\n.+?\n\{% endhighlight %\}/m) { |str|   # Shell commands
+          str.gsub(/\{%.+?%\}/, '').gsub(/^/, '    ')
+        }
+    end
+    if path == 'www.ruby-lang.org/en/documentation/installation/index.md'
+      source.sub!(/\* \[Package Management Systems.+\(\#building-from-source\)/m, '')
+    end
     @replace.inject(source) { |src, r| src.gsub(r[:from], r[:to]) }
   end
 
