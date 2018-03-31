@@ -251,5 +251,7 @@ chapters:
       path: advanced/tools-approaches/rdoc.html
     - title: DTrace
       path: advanced/tools-approaches/dtrace.html
+  - title: Security
+    path: advanced/security.html
   - title: Contributing To Ruby
     path: advanced/contributing.html

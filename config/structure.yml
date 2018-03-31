@@ -343,6 +343,7 @@
           content:
             - source: core/Process.md
             - source: core/Signal.md
+            - source: doc/signals.md
         - title: IO Basics
           id: io
           content:
@@ -1014,6 +1015,9 @@
             - source: doc/dtrace_probes.md
 
         # TODO: Code Style and Linting
+    - title: Security
+      content:
+        - source: doc/security.md
     - title: Contributing To Ruby
       id: contributing
       content:
