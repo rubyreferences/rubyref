@@ -982,9 +982,14 @@
             - source: lib/weakref/WeakRef.md
             # - source: ext/win32/Win32.md
 
-- title: Advanced Topics
-  part: true
-  id: advanced
+- title: Developing In Ruby
+  id: developing
+  content:
+    - source: >
+        # Developing in Ruby
+
+        This chapter groups some tools and approaches of professional development, including using
+        third-party libraries, documenting and testing code, code style and linting.
   children:
     - title: Libraries
       content:
@@ -993,7 +998,7 @@
         # TODO: Bundler
         # Site covered it better
         # - source: lib/rubygems/Gem.md
-    - title: Documenting
+    - title: Documenting Ruby Code
       id: documenting
       content:
         - source: content/advanced/documenting.md
@@ -1001,7 +1006,18 @@
         # - source: lib/rdoc/RDoc.md
         # - source: lib/rdoc/RDocTask.md
 
-        # TODO: Code Style and Linting
+    - title: Testing Ruby Code
+      id: testing
+      content:
+        - source: content/advanced/testing.md
+    - title: Code Style
+      content:
+        - source: content/advanced/code_style.md
+- title: Advanced Topics
+  id: advanced
+  content:
+    - source: "# Advanced Topics"
+  children:
     - title: Developing C Extensions
       id: extensions
       content:

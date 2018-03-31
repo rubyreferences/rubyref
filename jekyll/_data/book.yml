@@ -239,13 +239,20 @@ chapters:
       path: stdlib/misc/timeout.html
     - title: Other Libraries
       path: stdlib/misc/other.html
+- title: Developing In Ruby
+  path: developing.html
+  children:
+  - title: Libraries
+    path: developing/libraries.html
+  - title: Documenting Ruby Code
+    path: developing/documenting.html
+  - title: Testing Ruby Code
+    path: developing/testing.html
+  - title: Code Style
+    path: developing/code-style.html
 - title: Advanced Topics
   path: advanced.html
   children:
-  - title: Libraries
-    path: advanced/libraries.html
-  - title: Documenting
-    path: advanced/documenting.html
   - title: Developing C Extensions
     path: advanced/extensions.html
   - title: Security
