@@ -1,9 +1,6 @@
-
-```ruby
-require 'pp'
-```
-
 # PP
+
+> Since Ruby 2.5, this library is required by default
 
 A pretty-printer for Ruby objects.
 
@@ -60,8 +57,6 @@ redefine method `#pretty_print(pp)` in the class.
 `#pretty_print` takes the `pp` argument, which is an instance of the PP
 class. The method uses `#text`, `#breakable`, `#nest`, `#group` and
 `#pp` to print the object.
-
-[PP Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/pp/rdoc/PP.html)
 
 
 

@@ -136,6 +136,20 @@ unpredictably.
 
 Debug is not available in safe mode.
 
-[DEBUGGER\_\_
+[debug
 Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/debug/rdoc/DEBUGGER__.html)
+
+
+
+## Alternative debugging/breakpoint solutions
+
+Since Ruby 2.5.0, there is [Binding#irb](#TODO) method, allowing to
+enter [IRB](#TODO) session at the point of call.
+
+Third-party libraries:
+
+* [byebug](https://github.com/deivid-rodriguez/byebug) is currently most
+  used and freature-rich Ruby debugger;
+* [pry](https://github.com/pry/pry) interactive console (alternative to
+  IRB) also provides \[Binding#pry\] method.
 

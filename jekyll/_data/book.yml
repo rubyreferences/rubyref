@@ -127,26 +127,26 @@ chapters:
     - title: zlib
       path: stdlib/formats/zlib.html
   - title: Development and Debugging
-    path: stdlib/development-debugging.html
+    path: stdlib/development.html
     children:
     - title: benchmark
-      path: stdlib/development-debugging/benchmark.html
+      path: stdlib/development/benchmark.html
     - title: coverage
-      path: stdlib/development-debugging/coverage.html
+      path: stdlib/development/coverage.html
     - title: debug
-      path: stdlib/development-debugging/debug.html
+      path: stdlib/development/debug.html
     - title: 'fiddle: FFI wrapper'
-      path: stdlib/development-debugging/fiddle.html
+      path: stdlib/development/fiddle.html
     - title: logger
-      path: stdlib/development-debugging/logger.html
+      path: stdlib/development/logger.html
     - title: 'pp: Debug Print'
-      path: stdlib/development-debugging/pp.html
+      path: stdlib/development/pp.html
     - title: profiler
-      path: stdlib/development-debugging/profiler.html
+      path: stdlib/development/profiler.html
     - title: 'ripper: Parsing Ruby'
-      path: stdlib/development-debugging/ripper.html
+      path: stdlib/development/ripper.html
     - title: tracer
-      path: stdlib/development-debugging/tracer.html
+      path: stdlib/development/tracer.html
   - title: String Utilities
     path: stdlib/string-utilities.html
     children:
@@ -194,6 +194,8 @@ chapters:
       path: stdlib/cli/etc.html
     - title: 'fcntl: POSIX file access constants'
       path: stdlib/cli/fcntl.html
+    - title: 'io/*: IO class addons'
+      path: stdlib/cli/io.html
     - title: 'open3: Flexible child processes'
       path: stdlib/cli/open3.html
     - title: 'optparse: CLI arguments parser'

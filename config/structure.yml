@@ -513,6 +513,7 @@
               remove_sections: Class tree
 
     - title: Development and Debugging
+      id: development
       content:
         - source: "# Development and Debugging Tools"
       children:
@@ -535,6 +536,10 @@
               remove_sections:
                 - Going beyond basics
                 - Getting help
+              replace:
+                - from: "DEBUGGER__ Reference"
+                  to: "debug Reference"
+            - source: content/stdlib/_debug_alt.md
         - title: "fiddle: FFI wrapper"
           id: fiddle
           content:
@@ -559,17 +564,26 @@
           id: pp
           content:
             - source: lib/pp/PP.md
-              process: require_stdlib
               remove_sections:
                 - Pretty-Print JSON
                 - Author
+              insert:
+                - source: "> Since Ruby 2.5, this library is required by default"
+                  after: "# PP"
+              remove:
+                # Lost in https://ruby-doc.org/, at least for Ruby 2.5.0
+                # And anyways contained nothing useful.
+                - "[PP Reference]"
             - source: lib/prettyprint/PrettyPrint.md#_ref
         - title: profiler
           content:
             - source: "## profile"
             - source: lib/profiler/Profiler__.md
               remove: "# Profiler"
-
+              replace:
+                - from: "Profiler__ Reference"
+                  to: "profile Reference"
+            - source: content/stdlib/_profiler_alt.md
         - title: "ripper: Parsing Ruby"
           id: ripper
           content:
@@ -781,6 +795,10 @@
           content:
             - source: ext/fcntl/Fcntl.md
               process: require_stdlib
+        - title: 'io/*: IO class addons'
+          id: io
+          content:
+            - source: content/stdlib/io.md
         - title: "open3: Flexible child processes"
           id: open3
           content:

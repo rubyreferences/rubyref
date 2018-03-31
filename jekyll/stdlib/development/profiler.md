@@ -70,6 +70,14 @@ ruby -rprofile example.rb
   0.00     0.19      0.00        1     0.00   190.00  #toplevel
 ```
 
-[Profiler\_\_
+[profile
 Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/profiler/rdoc/Profiler__.html)
+
+
+
+## Alternatives
+
+[ruby-prof](https://github.com/ruby-prof/ruby-prof) is currently the
+most feature-rich and widely used third-party library for Ruby
+profiling.
 
