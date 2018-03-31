@@ -87,6 +87,8 @@ chapters:
       path: builtin/system-cli/io.html
     - title: Filesystem
       path: builtin/system-cli/filesystem.html
+    - title: Arguments and Environment
+      path: builtin/system-cli/args.html
   - title: Concurrency and Parallelism
     path: builtin/concurrency-parallelism.html
   - title: Interpreter Internals

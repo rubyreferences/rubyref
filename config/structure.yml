@@ -337,8 +337,7 @@
     - title: System Programming and CLI
       id: system-cli
       content:
-        # TODO: Intro
-        - source: core/ENV.md
+        - source: '# System Programming and Command Line'
       children:
         - title: Processes and Signals
           content:
@@ -350,7 +349,6 @@
             - source: core/IO.md
               remove_sections:
                 - "io/console"
-            - source: core/ARGF.md
             # File is repeated here (as an object of IO) and in Filesystem section (as a module for
             # file manipulations).
             - source: core/File.md
@@ -394,6 +392,12 @@
             - source: lib/find/Find.md
               process:
                 - [stdlib, find]
+        - title: Arguments and Environment
+          id: args
+          content:
+            - source: content/core/system-cli/args.md
+            - source: core/ENV.md#_ref
+            - source: core/ARGF.md
 
     - title: Concurrency and Parallelism
       content:
