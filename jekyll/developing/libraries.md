@@ -29,7 +29,7 @@ typically a `README` or `INSTALL` file is available with instructions.
 Let’s take a look at finding libraries and installing them for your own
 use.
 
-#### Finding libraries
+### Finding libraries
 
 The main place where libraries are hosted is
 [**RubyGems.org**](https://rubygems.org/), a public repository of gems
@@ -57,13 +57,13 @@ rates projects based on their popularity on RubyGems.org and GitHub.
 This makes it easy to find a gem which solves a particular problem such
 as web frameworks, documentation tools and code quality libraries.
 
-#### A few more words about RubyGems
+### A few more words about RubyGems
 
 Here is a quick review of the `gem` command for your daily use. [More
 detailed documentation](http://guides.rubygems.org/command-reference/)
 is available, covering all aspects of this packaging system.
 
-##### Searching among available gems
+#### Searching among available gems
 
 The **search** command can be used to look for gems, based on a string.
 Gems which names start with the specified string will be listed in
@@ -82,7 +82,7 @@ The `--remote` / `-r` flag indicates that we want to inspect the
 official RubyGems.org repository (default behaviour). With the `--local`
 / `-l` flag you would perform a local search among your installed gems.
 
-##### Installing a gem
+#### Installing a gem
 
 Once you know which gem you would like to **install**, for instance the
 popular Ruby on Rails framework:
@@ -100,7 +100,7 @@ You can even install just a specific version of the library, using the
 $ gem install rails --version 5.0
 ```
 
-##### Listing all gems
+#### Listing all gems
 
 For a **list** of all locally installed gems:
 
@@ -116,7 +116,7 @@ To obtain a (very long) list of all gems available on RubyGems.org:
 $ gem list -r
 ```
 
-##### Help!
+#### Help!
 
 Documentation is available inside your terminal:
 
@@ -128,7 +128,7 @@ $ gem help
 For instance, `gem help commands` is very useful as it outputs a list of
 all `gem`’s commands.
 
-##### Crafting your own gems
+#### Crafting your own gems
 
 RubyGems.org has [several guides](http://guides.rubygems.org/) about
 this topic. You may also want to investigate

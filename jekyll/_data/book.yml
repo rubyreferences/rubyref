@@ -240,6 +240,8 @@ chapters:
       path: "/stdlib/misc/timeout.html"
     - title: Other Libraries
       path: "/stdlib/misc/other.html"
+  - title: Bundled Gems
+    path: "/stdlib/bundled.html"
 - title: Developing In Ruby
   path: "/developing.html"
   children:

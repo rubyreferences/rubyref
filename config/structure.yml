@@ -162,6 +162,7 @@
       content:
         - source: content/core/core.md
         - source: core/Kernel.md
+        - source: "> See also [Appendix A](../appendix-a.md) for a brief list of Kernel methods."
         - source: core/BasicObject.md
         - source: core/Object.md
         - source: core/Module.md
@@ -995,6 +996,10 @@
                 - References
             - source: lib/weakref/WeakRef.md
             # - source: ext/win32/Win32.md
+    - title: Bundled Gems
+      id: bundled
+      content:
+        - source: content/stdlib/bundled.md
 
 - title: Developing In Ruby
   id: developing
@@ -1009,6 +1014,7 @@
       content:
         - source: "# Libraries"
         - source: www.ruby-lang.org/en/libraries/index.md
+          header_shift: 0
         # TODO: Bundler
         # Site covered it better
         # - source: lib/rubygems/Gem.md
@@ -1069,9 +1075,8 @@
 - title: "Appendix A: Kernel methods list"
   id: appendix-a
   content:
-    - source: "# Appendix A: Kernel methods list"
+    - source: "## Appendix A: Kernel methods list"
     - source: _special/kernel.md
-      header_shift: 0
       insert:
         - source: "* [gem](ref:rubygems:Kernel#gem) _(defined by RubyGems)_: Use `#gem` to activate a specific version of gem_name."
           after: "* [autoload]"

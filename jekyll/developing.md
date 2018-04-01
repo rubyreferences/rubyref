@@ -1,6 +1,6 @@
 ---
 title: Developing In Ruby
-prev: "/stdlib/misc/other.html"
+prev: "/stdlib/bundled.html"
 next: "/developing/libraries.html"
 ---
 

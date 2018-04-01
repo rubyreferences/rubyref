@@ -28,6 +28,11 @@ sprintf "%.1f", 1.234 #=> "1.2"
 
 
 
+> See also [Appendix A](../appendix-a.md) for a brief list of Kernel
+> methods.
+
+
+
 ## BasicObject
 
 BasicObject is the parent class of all classes in Ruby. It's an explicit

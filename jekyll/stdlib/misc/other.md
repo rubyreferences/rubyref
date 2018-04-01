@@ -1,7 +1,7 @@
 ---
 title: Other Libraries
 prev: "/stdlib/misc/timeout.html"
-next: "/developing.html"
+next: "/stdlib/bundled.html"
 ---
 
 # A Brief List of Less Used Libraries

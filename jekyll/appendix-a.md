@@ -4,7 +4,7 @@ prev: "/advanced/contributing.html"
 next: "/appendix-b.html"
 ---
 
-# Appendix A: Kernel methods list
+## Appendix A: Kernel methods list
 
 
 
@@ -24,7 +24,7 @@ next: "/appendix-b.html"
 * [warn](ref:`Kernel#warn`)\: If warnings have been disabled (for
   example with the `-W0` flag), does nothing.
 
-## Loading Code
+### Loading Code
 
 * [autoload](ref:`Kernel#autoload`)\: Registers *filename* to be loaded
   (using `Kernel::require`) the first time that *module* (which may be a
@@ -42,7 +42,7 @@ next: "/appendix-b.html"
 * [gem](ref:rubygems:Kernel#gem) *(defined by RubyGems)*\: Use `#gem` to
   activate a specific version of gem\_name.
 
-## Data Conversion
+### Data Conversion
 
 * [Array](ref:Kernel#Array)\: Returns `arg` as an Array.
 * [Complex](ref:Kernel#Complex)\: Returns x+i\*y;
@@ -54,7 +54,7 @@ next: "/appendix-b.html"
   Rational.
 * [String](ref:Kernel#String)\: Returns *arg* as a `String`.
 
-## Current Context
+### Current Context
 
 * [\_\_callee\_\_](ref:`Kernel#__callee__`)\: Returns the called name of
   the current method as a Symbol.
@@ -78,7 +78,7 @@ next: "/appendix-b.html"
 * [local\_variables](ref:`Kernel#local_variables`)\: Returns the names
   of the current local variables.
 
-## Execution Flow
+### Execution Flow
 
 * [abort](ref:`Kernel#abort`)\: Terminate execution immediately,
   effectively by calling `Kernel.exit(false)`.
@@ -100,7 +100,7 @@ next: "/appendix-b.html"
 * [throw](ref:`Kernel#throw`)\: Transfers control to the end of the
   active `catch` block waiting for *tag*.
 
-## IO and Strings
+### IO and Strings
 
 * [format](ref:`Kernel#format`)\: Returns the string resulting from
   applying *format\_string* to any additional arguments.
@@ -124,7 +124,7 @@ next: "/appendix-b.html"
 * [sprintf](ref:`Kernel#sprintf`)\: Returns the string resulting from
   applying *format\_string* to any additional arguments.
 
-## Files
+### Files
 
 * [open](ref:`Kernel#open`)\: Creates an IO object connected to the
   given stream, file, or subprocess.
@@ -133,7 +133,7 @@ next: "/appendix-b.html"
   various tests on `file1` (first table below) or on `file1` and `file2`
   (second table).
 
-## Tracing Execution
+### Tracing Execution
 
 * [set\_trace\_func](ref:`Kernel#set_trace_func`)\: Establishes *proc*
   as the handler for tracing, or disables tracing if the parameter is
@@ -143,7 +143,7 @@ next: "/appendix-b.html"
 * [untrace\_var](ref:`Kernel#untrace_var`)\: Removes tracing for the
   specified command on the given global variable and returns `nil`.
 
-## Processes and Commands
+### Processes and Commands
 
 * [\`](ref:Kernel#`)\: Returns the standard output of running *cmd* in a
   subshell.
