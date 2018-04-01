@@ -7,7 +7,7 @@ scanf for Ruby
 scanf is an implementation of the C function scanf(3), modified as necessary
 for Ruby compatibility.
 
-The methods provided are String#scanf, IO#scanf, and Kernel#scanf.
+the methods provided are String#scanf, IO#scanf, and Kernel#scanf.
 Kernel#scanf is a wrapper around STDIN.scanf.  IO#scanf can be used on any IO
 stream, including file handles and sockets. scanf can be called either with or
 without a block.
@@ -24,8 +24,8 @@ conversions take place from left to right, and the conversions themselves are
 returned as an array.
 
 The format string may also contain characters other than those in the
-conversion specifiers.  Whitespace (blanks, tabs, or newlines) in the format
-string matches any amount of whitespace, including none, in the input. 
+conversion specifiers.  White space (blanks, tabs, or newlines) in the format
+string matches any amount of white space, including none, in the input. 
 Everything else matches only itself.
 
 Scanning stops, and scanf returns, when any input character fails to match the
@@ -70,8 +70,8 @@ between the % and the conversion.  If no width is given, a default of
 `infinity' is used (with the exception of the %c specifier; see below). 
 Otherwise, given a field width of *n* for a given conversion, at most *n*
 characters are scanned in processing that conversion.  Before conversion
-begins, most conversions skip whitespace in the input string; this whitespace
-is not counted against the field width.
+begins, most conversions skip white space in the input string; this white
+space is not counted against the field width.
 
 The following conversions are available.
 
@@ -102,17 +102,18 @@ a, e, f, g, A, E, F, G
 
 s
 :   Matches a sequence of non-white-space character. The input string stops at
-    whitespace or at the maximum field width, whichever occurs first.
+    white space or at the maximum field width, whichever occurs first.
 
 c
 :   Matches a single character, or a sequence of *n* characters if a field
     width of *n* is specified. The usual skip of leading white space is
-    suppressed. To skip whitespace first, use an explicit space in the format.
+    suppressed. To skip white space first, use an explicit space in the
+    format.
 
 [
 :   Matches a nonempty sequence of characters from the specified set of
-    accepted characters.  The usual skip of leading whitespace is suppressed. 
-    This bracketed sub-expression is interpreted exactly like a character
+    accepted characters.  The usual skip of leading white space is suppressed.
+     This bracketed sub-expression is interpreted exactly like a character
     class in a Ruby regular expression.  (In fact, it is placed as-is in a
     regular expression.)  The matching against the input string ends with the
     appearance of a character not in (or, with a circumflex, in) the set, or

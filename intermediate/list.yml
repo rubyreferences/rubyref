@@ -1,1 +1,3 @@
---- []
+---
+- source: lib/rubygems/Kernel.md
+- source: lib/rubygems/TempIO.md

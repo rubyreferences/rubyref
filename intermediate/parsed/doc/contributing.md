@@ -84,7 +84,7 @@ FreeBSD
 Solaris
 :   Naohisa Goto (ngoto)
 RHEL, CentOS
-:   KOSAKI Motohiro (kosaki)
+:   KOSAKI Motohiro kosaki
 macOS
 :   Kenta Murata (mrkn)
 cygwin, bcc32, djgpp, wince, ...

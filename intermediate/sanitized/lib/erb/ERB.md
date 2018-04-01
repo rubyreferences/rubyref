@@ -98,7 +98,7 @@ template literally with `%q{...}` to avoid trouble with the backslash.
       James Edward Gray II
     }.gsub(/^  /, '')
 
-    message = ERB.new(template, trim_mode: "%<>")
+    message = ERB.new(template, 0, "%<>")
 
     # Set up template data.
     to = "Community Spokesman <spokesman@ruby_community.org>"

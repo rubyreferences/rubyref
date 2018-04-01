@@ -218,7 +218,7 @@ ext/win32ole
 lib/cmath.rb
 :   *unmaintained* https://github.com/ruby/cmath
 lib/csv.rb
-:   Kenta Murata (mrkn), Kouhei Sutou (kou) https://github.com/ruby/csv
+:   James Edward Gray II (jeg2) https://github.com/ruby/csv
 lib/fileutils.rb
 :   *unmaintained* https://github.com/ruby/fileutils
 lib/rdoc.rb, lib/rdoc/*
@@ -238,9 +238,9 @@ ext/date
 ext/dbm
 :   *unmaintained* https://github.com/ruby/dbm
 ext/etc
-:   Ruby core team https://github.com/ruby/etc
+:   *unmaintained* https://github.com/ruby/etc
 ext/fcntl
-:   Ruby core team https://github.com/ruby/fcntl
+:   *unmaintained* https://github.com/ruby/fcntl
 ext/fiddle
 :   Aaron Patterson (tenderlove) https://github.com/ruby/fiddle
 ext/gdbm
@@ -261,7 +261,7 @@ ext/stringio
 ext/strscan
 :   *unmaintained* https://github.com/ruby/strscan
 ext/zlib
-:   NARUSE, Yui (naruse) https://github.com/ruby/zlib
+:   *unmaintained* https://github.com/ruby/zlib
 
 
 ## Bundled gems upstream repositories

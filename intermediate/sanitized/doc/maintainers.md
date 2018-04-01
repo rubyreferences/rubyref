@@ -140,7 +140,7 @@ Zachary Scott (zzak)
 ### Libraries
 
 * lib/cmath.rb: *unmaintained* https://github.com/ruby/cmath
-* lib/csv.rb: Kenta Murata (mrkn), Kouhei Sutou (kou) https://github.com/ruby/csv
+* lib/csv.rb: James Edward Gray II (jeg2) https://github.com/ruby/csv
 * lib/fileutils.rb: *unmaintained* https://github.com/ruby/fileutils
 * lib/rdoc.rb, lib/rdoc/*: Eric Hodel (drbrain), Hiroshi SHIBATA (hsbt) https://github.com/ruby/rdoc
 * lib/scanf.rb: David A. Black (dblack) https://github.com/ruby/scanf
@@ -152,8 +152,8 @@ Zachary Scott (zzak)
 * ext/bigdecimal: Kenta Murata (mrkn) https://github.com/ruby/bigdecimal
 * ext/date: *unmaintained* https://github.com/ruby/date
 * ext/dbm: *unmaintained* https://github.com/ruby/dbm
-* ext/etc: Ruby core team https://github.com/ruby/etc
-* ext/fcntl: Ruby core team https://github.com/ruby/fcntl
+* ext/etc: *unmaintained* https://github.com/ruby/etc
+* ext/fcntl: *unmaintained* https://github.com/ruby/fcntl
 * ext/fiddle: Aaron Patterson (tenderlove) https://github.com/ruby/fiddle
 * ext/gdbm: Yukihiro Matsumoto (matz) https://github.com/ruby/gdbm
 * ext/io/console: Nobuyuki Nakada (nobu) https://github.com/ruby/io-console
@@ -165,7 +165,7 @@ Zachary Scott (zzak)
 * ext/sdbm: Yukihiro Matsumoto (matz) https://github.com/ruby/sdbm
 * ext/stringio: Nobuyuki Nakada (nobu) https://github.com/ruby/stringio
 * ext/strscan: *unmaintained* https://github.com/ruby/strscan
-* ext/zlib: NARUSE, Yui (naruse) https://github.com/ruby/zlib
+* ext/zlib: *unmaintained* https://github.com/ruby/zlib
 
 
 ## Bundled gems upstream repositories

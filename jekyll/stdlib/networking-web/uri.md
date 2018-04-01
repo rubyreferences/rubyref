@@ -58,7 +58,7 @@ end
 #=> URI::RSYNC
 
 URI.scheme_list
-#=> {"FILE"=>URI::File, "FTP"=>URI::FTP, "HTTP"=>URI::HTTP, "HTTPS"=>URI::HTTPS,
+#=> {"FTP"=>URI::FTP, "HTTP"=>URI::HTTP, "HTTPS"=>URI::HTTPS,
      "LDAP"=>URI::LDAP, "LDAPS"=>URI::LDAPS, "MAILTO"=>URI::MailTo,
      "RSYNC"=>URI::RSYNC}
 

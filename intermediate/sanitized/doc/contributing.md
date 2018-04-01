@@ -90,7 +90,7 @@ The current active platform maintainers are as follows:
 * AIX: Yutaka Kanemoto (kanemoto)
 * FreeBSD: Akinori MUSHA (knu)
 * Solaris: Naohisa Goto (ngoto)
-* RHEL, CentOS: KOSAKI Motohiro (kosaki)
+* RHEL, CentOS: KOSAKI Motohiro kosaki
 * macOS: Kenta Murata (mrkn)
 * cygwin, bcc32, djgpp, wince, ...: none. (Maintainer WANTED)
 

@@ -16,7 +16,7 @@ require 'scanf'
 scanf is an implementation of the C function scanf(3), modified as
 necessary for Ruby compatibility.
 
-The methods provided are `String#scanf`, `IO#scanf`, and `Kernel#scanf`.
+the methods provided are `String#scanf`, `IO#scanf`, and `Kernel#scanf`.
 Kernel#scanf is a wrapper around STDIN.scanf. `IO#scanf` can be used on
 any IO stream, including file handles and sockets. scanf can be called
 either with or without a block.
@@ -34,8 +34,8 @@ matches and conversions take place from left to right, and the
 conversions themselves are returned as an array.
 
 The format string may also contain characters other than those in the
-conversion specifiers. Whitespace (blanks, tabs, or newlines) in the
-format string matches any amount of whitespace, including none, in the
+conversion specifiers. White space (blanks, tabs, or newlines) in the
+format string matches any amount of white space, including none, in the
 input. Everything else matches only itself.
 
 Scanning stops, and scanf returns, when any input character fails to

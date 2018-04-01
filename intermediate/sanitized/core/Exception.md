@@ -71,8 +71,6 @@ The built-in subclasses of Exception are:
 
     *   RegexpError
     *   RuntimeError -- default for `raise`
-        *   FrozenError
-
     *   SystemCallError
         *   Errno::*
 

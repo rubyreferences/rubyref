@@ -41,7 +41,7 @@ def write_kernel(mod)
     out.puts "\n## #{section[:section]}\n\n" if section.key?(:section)
     section[:methods].sort.each { |name|
       method = methods.detect { |m| m.name == name } or fail "Method #{name} not found in Kernel"
-      comment = MARKDOWN.convert(method.comment.parse).match(/\A(.+?([.;]\s|\z))/m)[1].strip.tr("\n", ' ')
+      comment = MARKDOWN.convert(method.comment.parse).match(/\A(.*?([.;]\s|\z))/m)[1].strip.tr("\n", ' ')
       name = method.name
       case method.name
       when 'exec'

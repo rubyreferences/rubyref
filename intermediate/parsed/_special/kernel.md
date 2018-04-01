@@ -18,7 +18,7 @@
 
 * [Array](ref:Kernel#Array): Returns `arg` as an Array.
 * [Complex](ref:Kernel#Complex): Returns x+i*y;
-* [Float](ref:Kernel#Float): Returns *arg* converted to a float.
+* [Float](ref:Kernel#Float): 
 * [Hash](ref:Kernel#Hash): Converts *arg* to a `Hash` by calling *arg*`.to_hash`.
 * [Integer](ref:Kernel#Integer): Converts *arg* to an `Integer`.
 * [Rational](ref:Kernel#Rational): Returns `x/y` or `arg` as a Rational.
