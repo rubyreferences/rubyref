@@ -1,2 +1,0 @@
-## Miscellaneous Ruby Libraries
-
