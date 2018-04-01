@@ -1,0 +1,78 @@
+- methods:
+    - callcc
+    - eval
+    - lambda
+    - proc
+    - rand
+    - srand
+    - warn
+- section: Loading Code
+  methods:
+    - autoload
+    - autoload?
+    - load
+    - require
+    - require_relative
+- section: Data Conversion
+  methods:
+    - Array
+    - Complex
+    - Float
+    - Hash
+    - Integer
+    - Rational
+    - String
+- section: Current Context
+  methods:
+    - __callee__
+    - __dir__
+    - __method__
+    - binding
+    - block_given?
+    - caller
+    - caller_locations
+    - global_variables
+    - local_variables
+- section: Execution Flow
+  methods:
+    - abort
+    - at_exit
+    - exit
+    - exit!
+    - catch
+    - throw
+    - fail
+    - raise
+    - loop
+    - sleep
+- section: IO and Strings
+  methods:
+    - gets
+    - format
+    - p
+    - print
+    - printf
+    - putc
+    - puts
+    - readline
+    - readlines
+    - sprintf
+- section: Files
+  methods:
+    - open
+    - select
+    - test
+- section: Tracing Execution
+  methods:
+    - set_trace_func
+    - trace_var
+    - untrace_var
+- section: Processes and Commands
+  methods:
+    - "`"
+    - exec
+    - fork
+    - spawn
+    - syscall
+    - system
+    - trap

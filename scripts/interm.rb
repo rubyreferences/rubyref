@@ -84,7 +84,7 @@ def parse_ext
     end
 end
 
-# parse_docs
+parse_docs
 parse_core
-# parse_lib
-# parse_ext
+parse_lib
+parse_ext

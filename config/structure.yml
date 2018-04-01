@@ -1046,3 +1046,6 @@
     - source: "# Appendix A: Kernel methods list"
     - source: _special/kernel.md
       header_shift: 0
+      insert:
+        - source: "* [gem](ref:rubygems:Kernel#gem) _(defined by RubyGems)_: Use `#gem` to activate a specific version of gem_name."
+          after: "* [autoload]"
