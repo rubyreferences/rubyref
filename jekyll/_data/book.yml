@@ -262,3 +262,5 @@ chapters:
     path: "/advanced/dtrace.html"
   - title: Contributing To Ruby
     path: "/advanced/contributing.html"
+- title: 'Appendix A: Kernel methods list'
+  path: "/appendix-a.html"

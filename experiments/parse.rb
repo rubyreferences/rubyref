@@ -26,4 +26,6 @@ parsed = rdoc.parse_files(Dir['ruby/*.c'])
 # puts RDoc::Markup::ToMarkdown.new.convert(cls.comment.parse)
 
 k = parsed.flat_map(&:modules).select { |mod| mod.full_name == 'Kernel' }
-pp k.count, k.first.method_list
+m = k.first.method_list.first
+p m.methods.sort - Object.methods
+pp k.first.method_list.map(&:arglists)

@@ -4,6 +4,7 @@ require 'rdoc'
 require 'fileutils'
 require 'pp'
 require 'dry/inflector'
+require 'yaml'
 
 require_relative 'interm/utils'
 
@@ -24,8 +25,38 @@ end
 def parse_core
   Dir['ruby/{,**/}*.c'].grep_v(%r{/(ext|missing)/}).
     tap do |pathes|
-      parse_modules(*pathes).each { |mod| write_mod('core',  mod, reference: CORE_DOCS) }
+      parse_modules(*pathes).each { |mod|
+        write_kernel(mod) if mod.full_name == 'Kernel'
+        write_mod('core',  mod, reference: CORE_DOCS)
+      }
     end
+end
+
+def write_kernel(mod)
+  config = YAML.load_file('config/kernel.yml').map { |h| h.transform_keys(&:to_sym) }
+  methods = mod.method_list
+  FileUtils.mkdir_p 'intermediate/parsed/_special/'
+  out = File.open("#{INTERM}/_special/kernel.md", 'w')
+  config.each do |section|
+    out.puts "\n## #{section[:section]}\n\n" if section.key?(:section)
+    section[:methods].sort.each { |name|
+      method = methods.detect { |m| m.name == name } or fail "Method #{name} not found in Kernel"
+      comment = MARKDOWN.convert(method.comment.parse).match(/\A(.+?([.;]\s|\z))/m)[1].strip.tr("\n", ' ')
+      name = method.name
+      case method.name
+      when 'exec'
+        comment.sub!(/(?<=the given external \*command\*).+$/, '.')
+      when 'caller'
+        comment.sub!("in `method'", "in 'method'")
+      when /__(.+)__/
+        name = "\\_\\_#{$1}\\_\\_"
+      when '`'
+        name = '\\`'
+      end
+
+      out.puts "* [#{name}](ref:Kernel##{method.name}): #{comment}\n"
+    }
+  end
 end
 
 def parse_lib
@@ -53,7 +84,7 @@ def parse_ext
     end
 end
 
-parse_docs
+# parse_docs
 parse_core
-parse_lib
-parse_ext
+# parse_lib
+# parse_ext

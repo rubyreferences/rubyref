@@ -1,6 +1,7 @@
 ---
 title: Contributing To Ruby
 prev: "/advanced/dtrace.html"
+next: "/appendix-a.html"
 ---
 
 # Contributing to Ruby

@@ -1040,3 +1040,9 @@
         - source: doc/contributing.md
         # - source: doc/contributors.md
         # - source: doc/maintainers.md
+- title: "Appendix A: Kernel methods list"
+  id: appendix-a
+  content:
+    - source: "# Appendix A: Kernel methods list"
+    - source: _special/kernel.md
+      header_shift: 0
