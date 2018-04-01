@@ -1,6 +1,7 @@
 ---
 title: 'Appendix A: Kernel methods list'
 prev: "/advanced/contributing.html"
+next: "/appendix-b.html"
 ---
 
 # Appendix A: Kernel methods list

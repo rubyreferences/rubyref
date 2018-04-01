@@ -7,14 +7,28 @@
     - source: www.ruby-lang.org/en/documentation/installation/index.md
       header_shift: 0
   children:
-    - title: Versions and Implementations
-      id: versions
+    - title: Other Implementations of Ruby
+      id: implementations
       content:
-        - source: content/getting-started/versions.md
+        - source: www.ruby-lang.org/en/about/index.md
+          sections: 'Other Implementations of Ruby'
+          header_shift: -2
+        - source: >
+            > See [previous chapter](../installation.md) about downloading and installing different
+            versions and implementations of Ruby.
 - title: Interactive Console
   id: irb
   content:
     - source: lib/irb/IRB.md
+      sections:
+        - IRB
+        - Usage
+        - Session variables
+      remove:
+        - "## Usage"
+        # "Use of irb is easy if you know Ruby." does not look friendly in book intro :)
+        - "Use of irb is easy"
+    - source: "> Another popular Ruby interactive console is [pry](http://pryrepl.org/)."
     # - source: lib/irb/XMP.md
 - title: Language Structure
   id: language
@@ -998,6 +1012,18 @@
         # TODO: Bundler
         # Site covered it better
         # - source: lib/rubygems/Gem.md
+    - title: Mastering IRB
+      id: irb
+      content:
+        - source: "# Mastering IRB"
+        - source: lib/irb/IRB.md
+          header_shift: 0
+          remove_sections:
+            - Usage
+          remove:
+            - "# IRB"
+            - "IRB stands for"
+            - "The `irb` command"
     - title: Documenting Ruby Code
       id: documenting
       content:
@@ -1049,3 +1075,7 @@
       insert:
         - source: "* [gem](ref:rubygems:Kernel#gem) _(defined by RubyGems)_: Use `#gem` to activate a specific version of gem_name."
           after: "* [autoload]"
+- title: "Appendix B: Useful Links"
+  id: appendix-b
+  content:
+    - source: content/appendixes/links.md

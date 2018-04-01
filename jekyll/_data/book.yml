@@ -6,8 +6,8 @@ chapters:
 - title: Installation
   path: "/installation.html"
   children:
-  - title: Versions and Implementations
-    path: "/installation/versions.html"
+  - title: Other Implementations of Ruby
+    path: "/installation/implementations.html"
 - title: Interactive Console
   path: "/irb.html"
 - title: Language Structure
@@ -245,6 +245,8 @@ chapters:
   children:
   - title: Libraries
     path: "/developing/libraries.html"
+  - title: Mastering IRB
+    path: "/developing/irb.html"
   - title: Documenting Ruby Code
     path: "/developing/documenting.html"
   - title: Testing Ruby Code
@@ -264,3 +266,5 @@ chapters:
     path: "/advanced/contributing.html"
 - title: 'Appendix A: Kernel methods list'
   path: "/appendix-a.html"
+- title: 'Appendix B: Useful Links'
+  path: "/appendix-b.html"

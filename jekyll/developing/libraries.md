@@ -1,7 +1,7 @@
 ---
 title: Libraries
 prev: "/developing.html"
-next: "/developing/documenting.html"
+next: "/developing/irb.html"
 ---
 
 # Libraries

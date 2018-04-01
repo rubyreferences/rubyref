@@ -1,6 +1,6 @@
 ---
 title: Documenting Ruby Code
-prev: "/developing/libraries.html"
+prev: "/developing/irb.html"
 next: "/developing/testing.html"
 ---
 
