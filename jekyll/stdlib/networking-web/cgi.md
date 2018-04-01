@@ -1,3 +1,9 @@
+---
+title: cgi
+prev: "/stdlib/networking-web.html"
+next: "/stdlib/networking-web/ipaddr.html"
+---
+
 
 ```ruby
 require 'cgi'

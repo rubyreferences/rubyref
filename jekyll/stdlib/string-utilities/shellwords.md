@@ -1,3 +1,9 @@
+---
+title: 'shellwords: Shell-aware string manipulation'
+prev: "/stdlib/string-utilities/scanf.html"
+next: "/stdlib/string-utilities/strscan.html"
+---
+
 
 ```ruby
 require 'shellwords'

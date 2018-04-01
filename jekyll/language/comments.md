@@ -1,3 +1,9 @@
+---
+title: Comments
+prev: "/language/literals.html"
+next: "/language/variables-constants.html"
+---
+
 # Comments
 
 Ruby has two types of comments: inline and block.

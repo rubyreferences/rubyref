@@ -1,3 +1,9 @@
+---
+title: csv
+prev: "/stdlib/formats.html"
+next: "/stdlib/formats/json.html"
+---
+
 
 ```ruby
 require 'csv'

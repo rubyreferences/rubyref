@@ -1,3 +1,9 @@
+---
+title: Security
+prev: "/advanced/extensions.html"
+next: "/advanced/dtrace.html"
+---
+
 # Ruby Security
 
 The Ruby programming language is large and complex and there are many

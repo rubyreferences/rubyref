@@ -1,3 +1,9 @@
+---
+title: net/imap
+prev: "/stdlib/networking-web/net/http.html"
+next: "/stdlib/networking-web/net/pop.html"
+---
+
 
 ```ruby
 require 'net/imap'

@@ -1,3 +1,9 @@
+---
+title: Hash
+prev: "/builtin/types/array.html"
+next: "/builtin/types/set.html"
+---
+
 # Hash
 
 A Hash is a dictionary-like collection of unique keys and their values.

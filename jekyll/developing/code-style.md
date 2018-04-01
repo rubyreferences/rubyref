@@ -1,3 +1,9 @@
+---
+title: Code Style
+prev: "/developing/testing.html"
+next: "/advanced.html"
+---
+
 # Ruby Code Style
 
 There is no single preferred or enforced style for Ruby code. Several

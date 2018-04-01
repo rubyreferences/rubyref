@@ -1,3 +1,9 @@
+---
+title: Exception Classes
+prev: "/builtin/exception.html"
+next: "/builtin/warning.html"
+---
+
 # Built-in Exception Classes
 
 

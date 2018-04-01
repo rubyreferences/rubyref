@@ -1,3 +1,9 @@
+---
+title: Random
+prev: "/builtin/marshal.html"
+next: "/stdlib.html"
+---
+
 # Random
 
 Random provides an interface to Ruby's pseudo-random number generator,

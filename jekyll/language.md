@@ -1,3 +1,9 @@
+---
+title: Language Structure
+prev: "/irb.html"
+next: "/language/keywords.html"
+---
+
 # Ruby Language Structure
 
 This chapter describes all syntax constructs and general structure of

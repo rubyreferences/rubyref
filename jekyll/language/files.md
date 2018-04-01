@@ -1,3 +1,9 @@
+---
+title: File Structure
+prev: "/language/misc.html"
+next: "/language/globals.html"
+---
+
 # File Structure of Ruby Program
 
 Ruby does not enforces any particular file structure. Loading of code

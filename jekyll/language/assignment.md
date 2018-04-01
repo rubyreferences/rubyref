@@ -1,3 +1,9 @@
+---
+title: Assignment
+prev: "/language/variables-constants.html"
+next: "/language/control-expressions.html"
+---
+
 # Assignment
 
 In Ruby, assignment uses the `=` (equals sign) character. This example

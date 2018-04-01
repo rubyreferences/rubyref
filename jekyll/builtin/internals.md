@@ -1,3 +1,9 @@
+---
+title: Interpreter Internals
+prev: "/builtin/concurrency-parallelism.html"
+next: "/builtin/marshal.html"
+---
+
 # Interpreter Internals
 
 This chapter lists several modules that allow to introspect and hack

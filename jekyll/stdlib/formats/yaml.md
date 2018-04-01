@@ -1,3 +1,9 @@
+---
+title: yaml
+prev: "/stdlib/formats/json.html"
+next: "/stdlib/formats/rexml.html"
+---
+
 
 ```ruby
 require 'yaml'

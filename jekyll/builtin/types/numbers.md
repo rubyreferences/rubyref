@@ -1,3 +1,9 @@
+---
+title: Numbers
+prev: "/builtin/types/comparable.html"
+next: "/builtin/types/symbol-string.html"
+---
+
 # Numeric
 
 Numeric is the class from which all higher-level numeric classes should

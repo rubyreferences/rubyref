@@ -1,3 +1,9 @@
+---
+title: Array
+prev: "/builtin/types/enumerable.html"
+next: "/builtin/types/hash.html"
+---
+
 # Array
 
 Arrays are ordered, integer-indexed collections of any object.

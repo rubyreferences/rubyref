@@ -1,3 +1,9 @@
+---
+title: Developing In Ruby
+prev: "/stdlib/misc/other.html"
+next: "/developing/libraries.html"
+---
+
 # Developing in Ruby
 
 This chapter groups some tools and approaches of professional

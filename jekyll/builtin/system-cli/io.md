@@ -1,3 +1,9 @@
+---
+title: IO Basics
+prev: "/builtin/system-cli/processes-signals.html"
+next: "/builtin/system-cli/filesystem.html"
+---
+
 # IO
 
 The IO class is the basis for all input and output in Ruby. An I/O

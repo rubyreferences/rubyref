@@ -1,3 +1,9 @@
+---
+title: Exception
+prev: "/builtin/types/matrix.html"
+next: "/builtin/exception/exception-classes.html"
+---
+
 # Exception
 
 Descendants of class Exception are used to communicate between

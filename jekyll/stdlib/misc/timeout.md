@@ -1,3 +1,9 @@
+---
+title: timeout
+prev: "/stdlib/misc/dbm.html"
+next: "/stdlib/misc/other.html"
+---
+
 
 ```ruby
 require 'timeout'

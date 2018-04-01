@@ -1,3 +1,9 @@
+---
+title: ipaddr
+prev: "/stdlib/networking-web/cgi.html"
+next: "/stdlib/networking-web/net/ftp.html"
+---
+
 
 ```ruby
 require 'ipaddr'

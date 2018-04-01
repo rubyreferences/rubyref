@@ -1,3 +1,9 @@
+---
+title: win32ole
+prev: "/stdlib/cli/shell.html"
+next: "/stdlib/cryptography-encoding.html"
+---
+
 
 ```ruby
 require 'win32ole'

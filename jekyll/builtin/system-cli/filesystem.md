@@ -1,3 +1,9 @@
+---
+title: Filesystem
+prev: "/builtin/system-cli/io.html"
+next: "/builtin/system-cli/args.html"
+---
+
 # Dir
 
 Objects of class `Dir` are directory streams representing directories in

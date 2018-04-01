@@ -1,3 +1,9 @@
+---
+title: Interactive Console
+prev: "/installation/versions.html"
+next: "/language.html"
+---
+
 # IRB
 
 IRB stands for "interactive Ruby" and is a tool to interactively execute

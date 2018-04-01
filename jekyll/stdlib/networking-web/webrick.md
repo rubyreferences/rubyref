@@ -1,3 +1,9 @@
+---
+title: 'webrick: Simple Web Server'
+prev: "/stdlib/networking-web/socket.html"
+next: "/stdlib/networking-web/uri.html"
+---
+
 
 ```ruby
 require 'webrick'

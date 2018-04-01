@@ -1,3 +1,9 @@
+---
+title: socket
+prev: "/stdlib/networking-web/resolv.html"
+next: "/stdlib/networking-web/webrick.html"
+---
+
 
 ```ruby
 require 'socket'

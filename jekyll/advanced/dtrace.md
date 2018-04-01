@@ -1,3 +1,9 @@
+---
+title: DTrace
+prev: "/advanced/security.html"
+next: "/advanced/contributing.html"
+---
+
 # DTrace Probes
 
 A list of DTrace probes and their functionality. "Module" and "Function"

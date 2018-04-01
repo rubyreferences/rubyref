@@ -1,3 +1,9 @@
+---
+title: Testing Ruby Code
+prev: "/developing/documenting.html"
+next: "/developing/code-style.html"
+---
+
 # Testing Ruby Code
 
 Recent Ruby versions come with *bundled gem* for testing, named

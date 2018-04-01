@@ -1,3 +1,9 @@
+---
+title: Times and Dates
+prev: "/builtin/types/struct.html"
+next: "/builtin/types/enumerable.html"
+---
+
 # Times and Dates
 
 

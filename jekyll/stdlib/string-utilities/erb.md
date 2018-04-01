@@ -1,3 +1,9 @@
+---
+title: 'erb: Ruby Temlating'
+prev: "/stdlib/string-utilities.html"
+next: "/stdlib/string-utilities/racc.html"
+---
+
 
 ```ruby
 require 'erb'

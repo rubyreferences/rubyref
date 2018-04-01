@@ -1,3 +1,9 @@
+---
+title: forwardable
+prev: "/stdlib/patterns.html"
+next: "/stdlib/patterns/delegate.html"
+---
+
 
 ```ruby
 require 'forwardable'

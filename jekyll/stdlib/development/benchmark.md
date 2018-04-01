@@ -1,3 +1,9 @@
+---
+title: benchmark
+prev: "/stdlib/development.html"
+next: "/stdlib/development/coverage.html"
+---
+
 
 ```ruby
 require 'benchmark'

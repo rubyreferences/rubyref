@@ -1,3 +1,9 @@
+---
+title: 'ripper: Parsing Ruby'
+prev: "/stdlib/development/profiler.html"
+next: "/stdlib/development/tracer.html"
+---
+
 
 ```ruby
 require 'ripper'

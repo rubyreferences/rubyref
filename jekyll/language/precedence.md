@@ -1,3 +1,9 @@
+---
+title: Precedence
+prev: "/language/refinements.html"
+next: "/language/misc.html"
+---
+
 # Precedence
 
 From highest to lowest, this is the precedence table for ruby. High

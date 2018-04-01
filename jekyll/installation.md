@@ -1,3 +1,9 @@
+---
+title: Installation
+prev: "/about-this-book.html"
+next: "/installation/versions.html"
+---
+
 # Installation
 
 

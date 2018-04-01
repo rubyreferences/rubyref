@@ -1,3 +1,9 @@
+---
+title: Metaprogramming and DSL
+prev: "/language/globals.html"
+next: "/builtin.html"
+---
+
 # Metaprogramming and Domain-Specific Languages
 
 This chapter briefly investigates two advanced concepts which Ruby

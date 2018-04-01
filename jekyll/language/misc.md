@@ -1,3 +1,9 @@
+---
+title: Miscellaneous Syntax
+prev: "/language/precedence.html"
+next: "/language/files.html"
+---
+
 ## `BEGIN` and `END`
 
 `BEGIN` defines a block that is run before any other code in the current

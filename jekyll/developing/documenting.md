@@ -1,3 +1,9 @@
+---
+title: Documenting Ruby Code
+prev: "/developing/libraries.html"
+next: "/developing/testing.html"
+---
+
 # Documenting Ruby Code
 
 Ruby Standard Library includes [RDoc](https://ruby.github.io/rdoc/) tool

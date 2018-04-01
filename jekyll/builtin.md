@@ -1,3 +1,9 @@
+---
+title: Built-in Classes
+prev: "/language/metaprogramming.html"
+next: "/builtin/core.html"
+---
+
 # Builting (Core) Classes
 
 This chapter describes classes that are always available in a language,

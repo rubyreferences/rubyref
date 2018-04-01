@@ -1,3 +1,9 @@
+---
+title: zlib
+prev: "/stdlib/formats/rss.html"
+next: "/stdlib/development.html"
+---
+
 
 ```ruby
 require 'zlib'

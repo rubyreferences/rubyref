@@ -1,3 +1,9 @@
+---
+title: openssl
+prev: "/stdlib/cryptography-encoding/digest.html"
+next: "/stdlib/misc.html"
+---
+
 
 ```ruby
 require 'openssl'

@@ -1,3 +1,9 @@
+---
+title: 'racc: Parser Generator'
+prev: "/stdlib/string-utilities/erb.html"
+next: "/stdlib/string-utilities/scanf.html"
+---
+
 
 ```ruby
 require 'racc'

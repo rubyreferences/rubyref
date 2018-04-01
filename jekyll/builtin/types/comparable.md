@@ -1,3 +1,9 @@
+---
+title: Comparable
+prev: "/builtin/types/atomic.html"
+next: "/builtin/types/numbers.html"
+---
+
 # Comparable
 
 The `Comparable` mixin is used by classes whose objects may be ordered.

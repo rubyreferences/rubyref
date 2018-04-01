@@ -1,3 +1,9 @@
+---
+title: observer
+prev: "/stdlib/patterns/delegate.html"
+next: "/stdlib/patterns/singleton.html"
+---
+
 
 ```ruby
 require 'observer'

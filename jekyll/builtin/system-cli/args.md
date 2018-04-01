@@ -1,3 +1,9 @@
+---
+title: Arguments and Environment
+prev: "/builtin/system-cli/filesystem.html"
+next: "/builtin/concurrency-parallelism.html"
+---
+
 # Arguments and Enviroment
 
 Ruby core provides several contants for access to command's arguments

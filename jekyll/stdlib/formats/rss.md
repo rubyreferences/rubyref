@@ -1,3 +1,9 @@
+---
+title: rss
+prev: "/stdlib/formats/rexml.html"
+next: "/stdlib/formats/zlib.html"
+---
+
 
 ```ruby
 require 'rss'

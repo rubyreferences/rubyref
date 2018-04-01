@@ -1,3 +1,9 @@
+---
+title: Matrix
+prev: "/builtin/types/set.html"
+next: "/builtin/exception.html"
+---
+
 # Matrix
 
 *Part of standard library. You need to `require 'matrix'` before using.*

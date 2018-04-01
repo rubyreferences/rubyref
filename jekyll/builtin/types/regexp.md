@@ -1,3 +1,9 @@
+---
+title: Regexp
+prev: "/builtin/types/symbol-string.html"
+next: "/builtin/types/range.html"
+---
+
 # Regexp
 
 A `Regexp` holds a regular expression, used to match a pattern against

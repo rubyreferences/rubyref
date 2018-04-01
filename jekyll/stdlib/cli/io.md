@@ -1,3 +1,9 @@
+---
+title: 'io/*: IO class addons'
+prev: "/stdlib/cli/fcntl.html"
+next: "/stdlib/cli/open3.html"
+---
+
 # `io/*` libraries
 
 This family of libraries extends [IO](#TODO) class with several methods.

@@ -1,3 +1,9 @@
+---
+title: 'pp: Debug Print'
+prev: "/stdlib/development/logger.html"
+next: "/stdlib/development/profiler.html"
+---
+
 # PP
 
 > Since Ruby 2.5, this library is required by default

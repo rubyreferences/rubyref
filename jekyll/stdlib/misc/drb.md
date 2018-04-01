@@ -1,3 +1,9 @@
+---
+title: 'drb: Distributed Ruby'
+prev: "/stdlib/misc/concurrency-utils.html"
+next: "/stdlib/misc/dbm.html"
+---
+
 
 ```ruby
 require 'drb'

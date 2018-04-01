@@ -1,3 +1,9 @@
+---
+title: json
+prev: "/stdlib/formats/csv.html"
+next: "/stdlib/formats/yaml.html"
+---
+
 
 ```ruby
 require 'json'

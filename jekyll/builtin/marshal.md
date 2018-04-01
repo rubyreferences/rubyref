@@ -1,3 +1,9 @@
+---
+title: Marshal
+prev: "/builtin/internals.html"
+next: "/builtin/random.html"
+---
+
 # Marshal
 
 The marshaling library converts collections of Ruby objects into a byte

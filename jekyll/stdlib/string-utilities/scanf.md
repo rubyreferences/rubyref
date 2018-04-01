@@ -1,3 +1,9 @@
+---
+title: scanf
+prev: "/stdlib/string-utilities/racc.html"
+next: "/stdlib/string-utilities/shellwords.html"
+---
+
 
 ```ruby
 require 'scanf'

@@ -1,3 +1,9 @@
+---
+title: base64
+prev: "/stdlib/cryptography-encoding.html"
+next: "/stdlib/cryptography-encoding/digest.html"
+---
+
 
 ```ruby
 require 'base64'

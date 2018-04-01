@@ -1,3 +1,9 @@
+---
+title: Developing C Extensions
+prev: "/advanced.html"
+next: "/advanced/security.html"
+---
+
 # Creating Extension Libraries for Ruby
 
 This document explains how to make extension libraries for Ruby.

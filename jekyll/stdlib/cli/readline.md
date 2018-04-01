@@ -1,3 +1,9 @@
+---
+title: readline
+prev: "/stdlib/cli/pty.html"
+next: "/stdlib/cli/syslog.html"
+---
+
 
 ```ruby
 require 'readline'

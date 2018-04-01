@@ -1,3 +1,9 @@
+---
+title: Concurrency and Parallelism
+prev: "/builtin/system-cli/args.html"
+next: "/builtin/internals.html"
+---
+
 # Thread
 
 Threads are the Ruby implementation for a concurrent programming model.

@@ -1,3 +1,9 @@
+---
+title: 'fiddle: FFI wrapper'
+prev: "/stdlib/development/debug.html"
+next: "/stdlib/development/logger.html"
+---
+
 
 ```ruby
 require 'fiddle'

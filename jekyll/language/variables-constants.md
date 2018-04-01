@@ -1,3 +1,9 @@
+---
+title: Variables and Constants
+prev: "/language/comments.html"
+next: "/language/assignment.html"
+---
+
 # Variables and Constants
 
 

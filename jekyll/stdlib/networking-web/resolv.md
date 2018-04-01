@@ -1,3 +1,9 @@
+---
+title: 'resolv: DNS Resolver'
+prev: "/stdlib/networking-web/openuri.html"
+next: "/stdlib/networking-web/socket.html"
+---
+
 
 ```ruby
 require 'resolv'

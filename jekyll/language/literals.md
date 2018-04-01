@@ -1,3 +1,9 @@
+---
+title: Literals
+prev: "/language/keywords.html"
+next: "/language/comments.html"
+---
+
 # Literals
 
 Literals create objects you can use in your program. Literals include:

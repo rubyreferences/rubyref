@@ -1,3 +1,9 @@
+---
+title: Other Libraries
+prev: "/stdlib/misc/timeout.html"
+next: "/developing.html"
+---
+
 # A Brief List of Less Used Libraries
 
 

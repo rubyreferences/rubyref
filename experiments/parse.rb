@@ -14,13 +14,16 @@ rdoc.instance_variable_set(
   )
 )
 
-# parsed = rdoc.parse_file('ruby/array.c')
+parsed = rdoc.parse_files(Dir['ruby/*.c'])
 # parsed = rdoc.parse_files(Dir['ruby/lib/rexml'])
 # parsed = rdoc.parse_files(Dir['ruby/lib/erb.rb'])
-parsed = rdoc.parse_files(["ruby/lib/net/http", "ruby/lib/net/http.rb"])
-cls = parsed
-  .flat_map { |context| [*context.classes, *context.modules] }
-p cls.first.classes.map(&:full_name)
+# parsed = rdoc.parse_files(["ruby/lib/net/http", "ruby/lib/net/http.rb"])
+# cls = parsed
+#   .flat_map { |context| [*context.classes, *context.modules] }
+# p cls.first.classes.map(&:full_name)
 # p cls.select { |c| c.full_name == 'ERB' }.map(&:comment_location).first
 # p cls.select { |c| c.full_name == 'ERB' }.first.comment_location.first
 # puts RDoc::Markup::ToMarkdown.new.convert(cls.comment.parse)
+
+k = parsed.flat_map(&:modules).select { |mod| mod.full_name == 'Kernel' }
+pp k.count, k.first.method_list

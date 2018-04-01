@@ -1,3 +1,9 @@
+---
+title: true, false, nil
+prev: "/builtin/types.html"
+next: "/builtin/types/comparable.html"
+---
+
 # `true`, `false` and `nil`
 
 

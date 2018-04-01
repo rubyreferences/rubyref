@@ -1,3 +1,9 @@
+---
+title: Control Expressions
+prev: "/language/assignment.html"
+next: "/language/methods-def.html"
+---
+
 # Control Expressions
 
 Ruby has a variety of ways to control execution. All the expressions

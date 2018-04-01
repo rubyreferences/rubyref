@@ -1,3 +1,9 @@
+---
+title: Range
+prev: "/builtin/types/regexp.html"
+next: "/builtin/types/struct.html"
+---
+
 # Range
 
 A `Range` represents an interval—a set of values with a beginning and an

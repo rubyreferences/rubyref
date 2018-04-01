@@ -1,3 +1,9 @@
+---
+title: Warning
+prev: "/builtin/exception/exception-classes.html"
+next: "/builtin/system-cli.html"
+---
+
 # Warning
 
 The Warning module contains a single method named `#warn`, and the

@@ -1,3 +1,9 @@
+---
+title: Defining methods
+prev: "/language/control-expressions.html"
+next: "/language/methods-call.html"
+---
+
 # Methods
 
 Methods implement the functionality of your program. Here is a simple

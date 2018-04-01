@@ -1,3 +1,9 @@
+---
+title: 'open3: Flexible child processes'
+prev: "/stdlib/cli/io.html"
+next: "/stdlib/cli/optparse.html"
+---
+
 
 ```ruby
 require 'open3'

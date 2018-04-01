@@ -1,3 +1,9 @@
+---
+title: uri
+prev: "/stdlib/networking-web/webrick.html"
+next: "/stdlib/cli.html"
+---
+
 
 ```ruby
 require 'uri'

@@ -1,3 +1,9 @@
+---
+title: Refinements
+prev: "/language/exceptions.html"
+next: "/language/precedence.html"
+---
+
 # Refinements
 
 Due to Ruby's open classes you can redefine or add functionality to

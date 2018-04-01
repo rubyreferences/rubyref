@@ -1,3 +1,9 @@
+---
+title: dbm, gdbm, sdbm
+prev: "/stdlib/misc/drb.html"
+next: "/stdlib/misc/timeout.html"
+---
+
 # DBM-alike Database Implementations
 
 

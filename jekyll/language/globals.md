@@ -1,3 +1,9 @@
+---
+title: Globals
+prev: "/language/files.html"
+next: "/language/metaprogramming.html"
+---
+
 ## Pre-defined variables
 
 * `$!`: The exception information message set by 'raise'.

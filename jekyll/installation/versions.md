@@ -1,3 +1,9 @@
+---
+title: Versions and Implementations
+prev: "/installation.html"
+next: "/irb.html"
+---
+
 # Ruby implementations and versions
 
 The main Ruby implementation is called MRI (Matz's Ruby Implementation)

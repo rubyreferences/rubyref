@@ -1,3 +1,9 @@
+---
+title: syslog
+prev: "/stdlib/cli/readline.html"
+next: "/stdlib/cli/shell.html"
+---
+
 
 ```ruby
 require 'syslog'

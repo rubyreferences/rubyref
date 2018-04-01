@@ -1,3 +1,9 @@
+---
+title: Modules and Classes
+prev: "/language/methods-call.html"
+next: "/language/exceptions.html"
+---
+
 # Modules
 
 Modules serve two purposes in Ruby, namespacing and mix-in

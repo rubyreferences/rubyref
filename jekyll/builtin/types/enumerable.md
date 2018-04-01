@@ -1,3 +1,9 @@
+---
+title: Enumerable
+prev: "/builtin/types/times-dates.html"
+next: "/builtin/types/array.html"
+---
+
 # Enumerable
 
 The `Enumerable` mixin provides collection classes with several

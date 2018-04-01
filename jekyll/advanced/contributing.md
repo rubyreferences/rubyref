@@ -1,3 +1,8 @@
+---
+title: Contributing To Ruby
+prev: "/advanced/dtrace.html"
+---
+
 # Contributing to Ruby
 
 Ruby has a vast and friendly community with hundreds of people

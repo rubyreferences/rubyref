@@ -1,3 +1,9 @@
+---
+title: tracer
+prev: "/stdlib/development/ripper.html"
+next: "/stdlib/string-utilities.html"
+---
+
 # Tracer
 
 Outputs a source level execution trace of a Ruby program.

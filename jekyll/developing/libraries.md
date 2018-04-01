@@ -1,3 +1,9 @@
+---
+title: Libraries
+prev: "/developing.html"
+next: "/developing/documenting.html"
+---
+
 # Libraries
 
 

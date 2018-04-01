@@ -1,3 +1,9 @@
+---
+title: Keywords
+prev: "/language.html"
+next: "/language/literals.html"
+---
+
 ## Keywords
 
 The following keywords are used by Ruby.

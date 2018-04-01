@@ -1,3 +1,9 @@
+---
+title: singleton
+prev: "/stdlib/patterns/observer.html"
+next: "/stdlib/formats.html"
+---
+
 
 ```ruby
 require 'singleton'

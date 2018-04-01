@@ -1,3 +1,9 @@
+---
+title: Struct
+prev: "/builtin/types/range.html"
+next: "/builtin/types/times-dates.html"
+---
+
 # Struct
 
 A Struct is a convenient way to bundle a number of attributes together,

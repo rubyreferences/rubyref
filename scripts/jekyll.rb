@@ -241,6 +241,7 @@ end
 
 class Chapter
   attr_reader :id, :title, :parent, :children, :content_chunks
+  attr_accessor :prev_chapter, :next_chapter
 
   def self.parse(hash, parent: nil)
     new(parent: parent, **hash.transform_keys(&:to_sym))
@@ -271,7 +272,7 @@ class Chapter
   end
 
   def html_path
-    "#{dir_path}.html"
+    "/#{dir_path}.html"
   end
 
   def full_path
@@ -292,21 +293,28 @@ class Chapter
     }.compact
   end
 
+  def with_children
+    [self, *children.flat_map(&:with_children)]
+  end
+
+  def front_matter
+    {
+      title: title,
+      prev: prev_chapter&.html_path,
+      next: next_chapter&.html_path,
+    }.compact.transform_keys(&:to_s)
+  end
+
   def write
     unless part?
       FileUtils.mkdir_p File.dirname(full_path)
-      File.write full_path, content_chunks.map(&:render).join("\n\n")
+      File.write(full_path,
+        "#{front_matter.to_yaml}---\n\n" +
+        content_chunks.map(&:render).join("\n\n")
+      )
     end
     # puts "Writing #{id} #{title} #{full_path}"
     children.each(&:write)
-  end
-
-  def toc_entry
-    if part?
-      "\n## #{title}\n\n"
-    else
-      "%s* [%s](%s)\n" % ['  ' * depth, title, file_path]
-    end + children.map(&:toc_entry).join("\n")
   end
 end
 
@@ -319,21 +327,25 @@ class Book
 
   def initialize(chapters)
     @chapters = chapters
+    @chapters.map(&:with_children).flatten.each_cons(2) { |before, after|
+      before.next_chapter = after
+      after.prev_chapter = before
+    }
   end
 
-  HEADER = <<~TOC
-    # The Ruby Reference
-  TOC
+  META = {
+    ruby_version: RUBY_VERSION # TODO: version for which we are generating
+  }
 
-  def toc
-    Hm(chapters: chapters.map(&:to_h)).transform_keys(&:to_s).to_h
+  def meta
+    Hm(META.merge(chapters: chapters.map(&:to_h))).transform_keys(&:to_s).to_h
   end
 
   LEAVE = %r{jekyll/(README|_|Gemfile|css|js)}
 
   def write
     Dir['jekyll/*'].grep_v(LEAVE).each(&FileUtils.method(:rm_rf))
-    File.write 'jekyll/_data/book.yml', toc.to_yaml
+    File.write 'jekyll/_data/book.yml', meta.to_yaml
     chapters.each(&:write)
     FileUtils.touch 'jekyll/README.md'
   end

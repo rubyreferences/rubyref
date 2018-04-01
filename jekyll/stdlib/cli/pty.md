@@ -1,3 +1,9 @@
+---
+title: 'pty: Pseudo terminal'
+prev: "/stdlib/cli/optparse.html"
+next: "/stdlib/cli/readline.html"
+---
+
 
 ```ruby
 require 'pty'

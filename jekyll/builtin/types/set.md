@@ -1,3 +1,9 @@
+---
+title: Set
+prev: "/builtin/types/hash.html"
+next: "/builtin/types/matrix.html"
+---
+
 # Set
 
 *Part of standard library. You need to `require 'set'` before using.*

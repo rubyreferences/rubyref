@@ -1,3 +1,9 @@
+---
+title: net/http
+prev: "/stdlib/networking-web/net/ftp.html"
+next: "/stdlib/networking-web/net/imap.html"
+---
+
 
 ```ruby
 require 'net/http'

@@ -1,3 +1,9 @@
+---
+title: 'strscan: Sequental String Scanner'
+prev: "/stdlib/string-utilities/shellwords.html"
+next: "/stdlib/networking-web.html"
+---
+
 
 ```ruby
 require 'strscan'

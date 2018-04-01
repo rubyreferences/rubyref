@@ -1,3 +1,9 @@
+---
+title: 'etc: Access to Unix /etc'
+prev: "/stdlib/cli.html"
+next: "/stdlib/cli/fcntl.html"
+---
+
 
 ```ruby
 require 'etc'

@@ -1,3 +1,9 @@
+---
+title: Standard Library
+prev: "/builtin/random.html"
+next: "/stdlib/patterns.html"
+---
+
 # Standard Library
 
 The Ruby Standard Library is a vast collection of classes and modules

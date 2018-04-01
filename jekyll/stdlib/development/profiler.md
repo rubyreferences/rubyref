@@ -1,3 +1,9 @@
+---
+title: profiler
+prev: "/stdlib/development/pp.html"
+next: "/stdlib/development/ripper.html"
+---
+
 ## profile
 
 

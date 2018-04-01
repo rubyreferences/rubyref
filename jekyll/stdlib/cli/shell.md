@@ -1,3 +1,9 @@
+---
+title: 'shell: Ruby interface to UNIX shell'
+prev: "/stdlib/cli/syslog.html"
+next: "/stdlib/cli/win32ole.html"
+---
+
 
 ```ruby
 require 'shell'

@@ -1,3 +1,9 @@
+---
+title: Calling methods
+prev: "/language/methods-def.html"
+next: "/language/modules-classes.html"
+---
+
 # Calling Methods
 
 Calling a method sends a message to an object so it can perform some

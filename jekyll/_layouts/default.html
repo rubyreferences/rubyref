@@ -6,110 +6,124 @@
 
 <!DOCTYPE HTML>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>{{ book.title }} | {{ book.author.name }}</title>
+  <head>
+    <meta charset="UTF-8">
+    <title>Ruby Reference</title>
 
-        <link rel="stylesheet" href="{{ site.baseurl }}/css/style.css">
-        <link rel="stylesheet" href="{{ site.baseurl }}/css/highlight.css">
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+    <!-- CSS stolen from mdBook -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/book.css">
+    <!-- ...and our additions to it -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/book-aux.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/highlight.css">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
 
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-        <!-- Fetch JQuery from CDN but have a local fallback -->
-        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script>
-            if (typeof jQuery == 'undefined') {
-                document.write(unescape("%3Cscript src='{{ site.baseurl }}/jquery.js'%3E%3C/script%3E"));
-            }
-        </script>
-    </head>
-    <body>
-        <!-- Set the theme before any content is loaded, prevents flash -->
-        <script>
-            var theme = localStorage.getItem('theme');
-            if (theme == null) { theme = 'light'; }
-            $('body').removeClass().addClass(theme);
-        </script>
+    <!-- Fetch JQuery from CDN but have a local fallback -->
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+      if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='{{ site.baseurl }}/jquery.js'%3E%3C/script%3E"));
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script>
+      var theme = localStorage.getItem('theme');
+      if (theme == null) { theme = 'light'; }
+      $('body').removeClass().addClass(theme);
+    </script>
 
-        <!-- Hide / unhide sidebar before it is displayed -->
-        <script>
-            var sidebar = localStorage.getItem('sidebar');
-            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
-            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
-        </script>
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script>
+      var sidebar = localStorage.getItem('sidebar');
+      if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+      else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+    </script>
 
-        <div id="sidebar" class="sidebar">
-            <ul class="chapter">
+    <nav id="sidebar" class="sidebar">
+      <ul class="chapter">
 
-              {% for chapter in book.chapters %}
-              <li>
-                <a href="{{ site.baseurl }}/{{ chapter.path }}"> {{ chapter.title }}</a>
-              </li>
-                {% if chapter.children %}
-                    <ul class="section">
-                        {% for section in chapter.children %}
-                          <li>
-                            <a href="{{ site.baseurl }}/{{ section.path }}"> {{ section.title }}</a>
-                          </li>
-                            {% if section.children %}
-                                <ul class="subsection">
-                                    {% for subsection in section.children %}
-                                      <li>
-                                        <a href="{{ site.baseurl }}/{{ subsection.path }}"> {{ subsection.title }}</a>
-                                      </li>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
+        {% for chapter in book.chapters %}
+          <li>
+            <a href="{{ site.baseurl }}{{ chapter.path }}"{% if page.url == chapter.path %}class="active"{% endif %} > {{ chapter.title }}</a>
+          </li>
+          {% if chapter.children %}
+            <ul class="section">
+              {% for section in chapter.children %}
+                <li>
+                  <a href="{{ site.baseurl }}{{ section.path }}" {% if page.url == section.path %}class="active"{% endif %}> {{ section.title }}</a>
+                </li>
+                {% if section.children %}
+                  <ul class="subsection">
+                    {% for subsection in section.children %}
+                      <li>
+                        <a href="{{ site.baseurl }}{{ subsection.path }}" {% if page.url == subsection.path %}class="active"{% endif %}> {{ subsection.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
                 {% endif %}
               {% endfor %}
-
             </ul>
-        </div>
+          {% endif %}
+        {% endfor %}
 
-        <div id="page-wrapper" class="page-wrapper">
+      </ul>
+    </nav>
 
-            <div class="page">
-                <div id="menu-bar" class="menu-bar">
-                    <div class="left-buttons">
-                        <i id="sidebar-toggle" class="fa fa-bars"></i>
-                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
-                    </div>
+    <div id="page-wrapper" class="page-wrapper">
 
-                    <h1 class="menu-title">{{ book.title }}</h1>
-
-                    <div class="right-buttons">
-                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
-                    </div>
-                </div>
-
-                 {{ content }}
-
-                <!-- Mobile navigation buttons -->
-
-
-                <!--
-                    <a href="cli/cli-tool.html" class="mobile-nav-chapters next">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                 -->
-
+      <div class="page">
+        <div id="menu-bar" class="menu-bar bordered">
+          <div id="menu-bar-sticky-container">
+            <div class="left-buttons">
+              <i id="sidebar-toggle" class="fa fa-bars"></i>
+              <!-- <i id="theme-toggle" class="fa fa-paint-brush"></i> -->
             </div>
 
+            <h1 class="menu-title">Ruby <small>{{ book.ruby_version }}</small> Reference</h1>
 
-
-               <!--
-                <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                 -->
-
+            <div class="right-buttons">
+              <i id="print-button" class="fa fa-print" title="Print this book"></i>
+            </div>
+          </div>
         </div>
 
+        <div id="content" class="content">
+          <main>{{ content }}</main>
 
-        <script src="{{ site.baseurl }}/js/book.js"></script>
-    </body>
+          <nav class="nav-wrapper">
+            <!-- Mobile navigation buttons -->
+            {% if page.prev %}
+              <a rel="prev" href="{{page.prev}}" class="mobile-nav-chapters previous" title="Previous chapter">
+                <i class="fa fa-angle-left"></i>
+              </a>
+            {% endif %}
+
+            {% if page.next %}
+              <a rel="next" href="{{page.next}}" class="mobile-nav-chapters next" title="Next chapter">
+                <i class="fa fa-angle-right"></i>
+              </a>
+            {% endif %}
+
+            <div style="clear: both"></div>
+          </nav>
+        </div>
+      </div>
+
+
+
+         <!--
+        <a href="cli/cli-tool.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+          <i class="fa fa-angle-right"></i>
+        </a>
+         -->
+
+    </div>
+
+
+    <script src="{{ site.baseurl }}/js/book.js"></script>
+  </body>
 </html>

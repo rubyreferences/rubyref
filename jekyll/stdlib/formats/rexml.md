@@ -1,3 +1,9 @@
+---
+title: 'rexml: XML parser and generator'
+prev: "/stdlib/formats/yaml.html"
+next: "/stdlib/formats/rss.html"
+---
+
 
 ```ruby
 require 'rexml'

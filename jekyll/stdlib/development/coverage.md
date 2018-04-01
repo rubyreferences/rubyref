@@ -1,3 +1,9 @@
+---
+title: coverage
+prev: "/stdlib/development/benchmark.html"
+next: "/stdlib/development/debug.html"
+---
+
 
 ```ruby
 require 'coverage'
