@@ -39,9 +39,14 @@
 
     <!-- Hide / unhide sidebar before it is displayed -->
     <script>
-      var sidebar = localStorage.getItem('sidebar');
-      if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
-      else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+      var html = document.querySelector('html');
+      var sidebar = 'hidden';
+      if (document.body.clientWidth >= 1080) {
+          try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+          sidebar = sidebar || 'visible';
+      }
+      html.classList.remove('sidebar-visible');
+      html.classList.add("sidebar-" + sidebar);
     </script>
 
     <nav id="sidebar" class="sidebar">
