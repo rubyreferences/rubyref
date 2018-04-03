@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'kramdown'
-gem 'dry-inflector'
-gem 'hm'
-gem 'did_you'
+gem 'github-pages', group: :jekyll_plugins
+
+# gem 'jekyll'
+# gem 'kramdown'
+# gem 'jekyll-readme-index'

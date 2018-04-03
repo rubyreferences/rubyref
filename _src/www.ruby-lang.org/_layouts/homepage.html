@@ -1,0 +1,46 @@
+---
+layout: page
+
+javascript:
+ - examples
+
+---
+
+{{ content }}
+
+{% assign number_of_excerpts = 4 %}
+{% assign number_of_other    = 6 %}
+
+{% if site.locales.news[page.lang] %}
+  {% assign news = site.locales.news[page.lang] %}
+{% else %}
+  {% assign news = site.locales.news['en'] %}
+{% endif %}
+
+{% for post in site.categories[page.lang] limit:number_of_excerpts %}
+<div class="post">
+  <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+
+  {{ post.excerpt | markdownify }}
+
+  <p class="post-link"><a href="{{ post.url }}">{{ news.continue }}</a></p>
+
+  <p class="post-info">{{ post.date | posted_by:post.author }}</p>
+</div>
+{% endfor %}
+
+<div id="news">
+  <h3>{{ news.other_news }}</h3>
+  <ul>
+    {% for post in site.categories[page.lang] offset:number_of_excerpts limit:number_of_other %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a><br>
+      <span class="post-info">{{ post.date | posted_by:post.author }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <p class="more">
+    <a href="news/">{{ news.more_news }}</a>
+  </p>
+</div>

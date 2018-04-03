@@ -1,6 +1,6 @@
 [submodule "ruby"]
-	path = ruby
+	path = _src/ruby
 	url = git@github.com:ruby/ruby.git
 [submodule "www.ruby-lang.org"]
-	path = www.ruby-lang.org
+	path = _src/www.ruby-lang.org
 	url = https://github.com/ruby/www.ruby-lang.org.git

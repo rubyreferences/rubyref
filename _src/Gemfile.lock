@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    did_you (0.0.1)
+    dry-inflector (0.1.1)
+    hm (0.0.3)
+    kramdown (1.16.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  did_you
+  dry-inflector
+  hm
+  kramdown
+
+BUNDLED WITH
+   1.16.0

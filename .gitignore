@@ -1,4 +1,2 @@
-_book
-book/_book
-tmp
-/jekyll/_site
+/_src/tmp
+/_site

@@ -1,0 +1,108 @@
+# Copyright (C) 2011 Urabe, Shyouhei.  All rights reserved.
+#
+# This file is  a part of the programming language  Ruby.  Permission is hereby
+# granted,  to either  redistribute  or  modify this  file,  provided that  the
+# conditions  mentioned in  the file  COPYING are  met.  Consult  the  file for
+# details.
+
+# This is  a Travis-CI  build configuration file.   The list  of configurations
+# available is located in
+#
+#     http://about.travis-ci.org/docs/user/build-configuration/
+#
+# and as Ruby itself is a project written in C language,
+#
+#     http://about.travis-ci.org/docs/user/languages/c/
+#
+# is also a good place to look at.
+
+language: c
+dist: trusty
+
+# temporary workaround for https://github.com/travis-ci/travis-ci/issues/8892
+sudo: required
+group: deprecated-2017Q4
+
+compiler:
+  - gcc
+
+os:
+  - linux
+
+before_install:
+  - "CONFIG_FLAG="
+  - "JOBS=-j`nproc`"
+
+before_script:
+  - "echo JOBS=$JOBS"
+  - "uname -a"
+  - "uname -r"
+  - "rm -fr .ext autom4te.cache"
+  - "echo $TERM"
+  - "> config.status"
+  - "sed -f tool/prereq.status Makefile.in common.mk > Makefile"
+  - "make update-config_files"
+  - "make touch-unicode-files"
+  - "make -s $JOBS srcs UNICODE_FILES=."
+  - "requests=; for req in ${RUBYSPEC_PULL_REQUEST//,/ }; do
+      requests=\"$requests +refs/pull/$req/merge:\";
+    done"
+  - "${requests:+git -C spec/ruby -c user.email=none -c user.name=none pull --no-edit origin $requests}"
+  - "${requests:+git -C spec/ruby log --oneline origin/master..@}"
+  - "rm config.status Makefile rbconfig.rb .rbconfig.time"
+  - "mkdir build config_1st config_2nd"
+  - "chmod -R a-w ."
+  - "chmod u+w build config_1st config_2nd"
+  - "cd build"
+  - "../configure -C --disable-install-doc --with-gcc=$CC $CONFIG_FLAG"
+  - "cp -pr config.cache config.status .ext/include ../config_1st"
+  - "make reconfig"
+  - "cp -pr config.cache config.status .ext/include ../config_2nd"
+  - "(cd .. && exec diff -ru config_1st config_2nd)"
+  - "make -s $JOBS"
+
+script:
+  - "make -s test TESTOPTS=--color=never"
+  - "make -s $JOBS test-all -o exts TESTOPTS='-q --color=never --job-status=normal'"
+  - "make -s $JOBS test-spec MSPECOPT=-j"
+
+# Branch matrix.  Not all branches are Travis-ready so we limit branches here.
+branches:
+  only:
+    - trunk
+    - ruby_2_2
+    - ruby_2_3
+    - ruby_2_4
+    - /^feature\//
+    - /^bug\//
+
+# We want to be notified when something happens.
+notifications:
+  irc:
+    channels:
+      - "chat.freenode.net#ruby-core"
+      - "chat.freenode.net#ruby-ja"
+    on_success: change # [always|never|change] # default: always
+    on_failure: always # [always|never|change] # default: always
+    template:
+      - "%{message} by @%{author}: See %{build_url}"
+
+  slack:
+    rooms:
+      - secure: i1GLETSKye85ea6dGNA3MxI/5myChmMFiZtBd5C69xK+s1sBFqEgOSbaSf9KHc0CYrHVyNhQMaZRruieV7xS+6Pfs0Zvxf1DO6QQTWC2KhkqwFDLvZncAzjoyASdR90hbr+iRPOngQ+HJuE94zemALAwEqNAinzA74PMiJXktqY= # ruby:<token>#commits
+      - secure: ah7UEHBvncXT7bM5mvYIQAO+tIyV/wl7nXLb7wQD16dO2v8Gragy0mWjB79Q09hrrMGmp6H9bCDpdGS80boIA5EHaHoG4QaP0i9bsSt8U2AMWgZtfyIgQKJ4H2kXkGlrjO+AXTgnIkP7LNjdgAVUUTGQPb26T3QmoN2Splt+fIQ= # ruby:<token>#alerts
+    on_pull_requests: false
+    on_success: change
+    on_failure: always
+
+  email:
+    - ko1c-failure@atdot.net
+
+# Local Variables:
+# mode: YAML
+# coding: utf-8-unix
+# indent-tabs-mode: nil
+# tab-width: 4
+# fill-column: 79
+# default-justification: full
+# End:
