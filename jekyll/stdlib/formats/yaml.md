@@ -39,11 +39,11 @@ Do not use YAML to load untrusted data. Doing so is unsafe and could
 allow malicious input to execute arbitrary code inside your application.
 Please see doc/security.rdoc for more information.
 
-[YAML
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/yaml/rdoc/YAML.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/yaml/rdoc/YAML.html'
+class='ruby-doc remote reference' target='_blank'>YAML Reference</a>
 
 
 
-[Psych
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/psych/rdoc/Psych.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/psych/rdoc/Psych.html'
+class='ruby-doc remote reference' target='_blank'>Psych Reference</a>
 

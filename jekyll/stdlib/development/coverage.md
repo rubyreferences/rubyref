@@ -43,6 +43,7 @@ require "foo.rb"
 p Coverage.result  #=> {"foo.rb"=>[1, 1, 10, nil, nil, 1, 1, nil, 0, nil]}
 ```
 
-[Coverage
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/coverage/rdoc/Coverage.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/coverage/rdoc/Coverage.html'
+class='ruby-doc remote reference' target='_blank'>Coverage Reference</a>
 

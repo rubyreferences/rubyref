@@ -68,6 +68,8 @@ You can use this method to create an escaped string out of an array of
 tokens separated by a space. In this example we used the literal
 shortcut for Array.new.
 
-[Shellwords
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/shellwords/rdoc/Shellwords.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/shellwords/rdoc/Shellwords.html'
+class='ruby-doc remote reference' target='_blank'>Shellwords
+Reference</a>
 

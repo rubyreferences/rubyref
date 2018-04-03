@@ -167,8 +167,8 @@ The following metacharacters also behave like character classes:
 * `/./m` - Any character (the `m` modifier enables multiline mode)
 * `/\w/` - A word character (`[a-zA-Z0-9_]`)
 * `/\W/` - A non-word character (`[^a-zA-Z0-9_]`). Please take a look at
-  [Bug #4044](https://bugs.ruby-lang.org/issues/4044) if using `/\W/`
-  with the `/i` modifier.
+  <a href='https://bugs.ruby-lang.org/issues/4044' class='remote'
+  target='_blank'>Bug #4044</a> if using `/\W/` with the `/i` modifier.
 
 * `/\d/` - A digit character (`[0-9]`)
 * `/\D/` - A non-digit character (`[^0-9]`)
@@ -848,7 +848,8 @@ at once with *a\{0,29}*\:
 Regexp.new('a{0,29}' + 'a' * 29) =~ 'a' * 29
 ```
 
-[Regexp Reference](http://ruby-doc.org/core-2.5.0/Regexp.html)
+<a href='http://ruby-doc.org/core-2.5.0/Regexp.html' class='ruby-doc
+remote reference' target='_blank'>Regexp Reference</a>
 
 
 
@@ -860,5 +861,6 @@ encapsulates all the results of a pattern match, results normally
 accessed through the special variables `$&`, `$'`, `$``, `$1`, `$2\`,
 and so on.
 
-[MatchData Reference](http://ruby-doc.org/core-2.5.0/MatchData.html)
+<a href='http://ruby-doc.org/core-2.5.0/MatchData.html' class='ruby-doc
+remote reference' target='_blank'>MatchData Reference</a>
 

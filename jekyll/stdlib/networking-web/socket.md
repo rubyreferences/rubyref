@@ -75,6 +75,7 @@ end
 s.close             # close socket when done
 ```
 
-[Socket
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/socket/rdoc/Socket.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/socket/rdoc/Socket.html'
+class='ruby-doc remote reference' target='_blank'>Socket Reference</a>
 

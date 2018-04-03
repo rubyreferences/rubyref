@@ -27,5 +27,5 @@ Some notes about chapter's structure:
   chapter.
 
 For installing and developing third-party libraries, see
-[RubyGems](#TODO) chapter.
+[RubyGems](developing/libraries.md) chapter.
 

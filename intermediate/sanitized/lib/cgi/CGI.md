@@ -147,7 +147,7 @@ use utility methods like a function.
     cgi.has_key?('field_name')
     cgi.include?('field_name')
 
-CAUTION! [cgi]('field_name') returned an Array with the old cgi.rb(included in
+CAUTION! `cgi['field_name']` returned an Array with the old cgi.rb(included in
 Ruby 1.6)
 
 ### Get form values as hash

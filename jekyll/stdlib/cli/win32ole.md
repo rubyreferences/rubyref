@@ -61,6 +61,7 @@ oleobj.method(arg1, arg2, refargv3)
 p refargv3.value # the value of refargv3 after called oleobj.method.
 ```
 
-[WIN32OLE
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/win32ole/rdoc/WIN32OLE.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/win32ole/rdoc/WIN32OLE.html'
+class='ruby-doc remote reference' target='_blank'>WIN32OLE Reference</a>
 

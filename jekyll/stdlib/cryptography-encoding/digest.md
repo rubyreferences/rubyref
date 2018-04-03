@@ -82,6 +82,7 @@ Different digest algorithms (or hash functions) are available:
 The latest versions of the FIPS publications can be found here:
 http://csrc.nist.gov/publications/PubsFIPS.html.
 
-[Digest
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/digest/rdoc/Digest.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/digest/rdoc/Digest.html'
+class='ruby-doc remote reference' target='_blank'>Digest Reference</a>
 

@@ -42,6 +42,6 @@ There are a few variables in every Irb session that can come in handy:
 
 
 
-> Another popular Ruby interactive console is
-> [pry](http://pryrepl.org/).
+> Another popular Ruby interactive console is <a
+> href='http://pryrepl.org/' class='remote' target='_blank'>pry</a>.
 

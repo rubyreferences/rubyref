@@ -327,5 +327,6 @@ arr.keep_if { |a| a < 4 } #=> [1, 2, 3]
 arr                       #=> [1, 2, 3]
 ```
 
-[Array Reference](http://ruby-doc.org/core-2.5.0/Array.html)
+<a href='http://ruby-doc.org/core-2.5.0/Array.html' class='ruby-doc
+remote reference' target='_blank'>Array Reference</a>
 

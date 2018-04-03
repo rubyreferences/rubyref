@@ -83,6 +83,7 @@ str = uri.read
 p str.base_uri
 ```
 
-[OpenURI
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/open-uri/rdoc/OpenURI.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/open-uri/rdoc/OpenURI.html'
+class='ruby-doc remote reference' target='_blank'>OpenURI Reference</a>
 

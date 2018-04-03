@@ -27,8 +27,10 @@ Except when there is difference between using and omitting parentheses,
 this document uses parenthesis when arguments are present to avoid
 confusion.
 
-This section only covers calling methods. See also the [syntax
-documentation on defining methods](/language/methods-def.md).
+This section only covers calling methods. See also the <a
+href='/language/methods-def.md' class='remote' target='_blank'>syntax
+documentation
+on defining methods</a>.
 
 ## Receiver
 
@@ -470,6 +472,6 @@ If no match is found this repeats from the beginning, but looking for
 `BasicObject#method_missing` which raises a NameError when invoked.
 
 If refinements (an experimental feature) are active, the method lookup
-changes. See the [refinements documentation](/language/refinements.md)
-for details.
+changes. See the <a href='/language/refinements.md' class='remote'
+target='_blank'>refinements documentation</a> for details.
 

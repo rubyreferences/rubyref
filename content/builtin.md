@@ -2,7 +2,7 @@
 
 This chapter describes classes that are always available in a language, so-called "core" classes.
 
-This is very important topic: in Ruby everything is object, and all expressions except those listed in [dedicated chapter](../language/control-expressions.md) are in fact method calls.
+This is very important topic: in Ruby everything is object, and all expressions except those listed in [dedicated chapter](language/control-expressions.md) are in fact method calls.
 
 For example, this code (which prints "5" to the standard output)
 
@@ -16,4 +16,4 @@ The structure of chapter mostly obvious. One important thing to notice: most "ba
 
 Also, the chapter includes parts of standard library documentation where appropriate. E.g., class `Date` (standard library) is documented besides class `Time` (core class). When chapter or section dedicated to standard library class or module, the instructions how to `require` it are mentioned.
 
-The rest of standard library documented in the separate [book part](./stlib.md).
+The rest of standard library documented in the separate [book part](stdlib.md).

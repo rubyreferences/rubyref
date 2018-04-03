@@ -46,8 +46,10 @@ end
 
 Be advised, RDoc will not detect delegated methods.
 
-[Delegator
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/delegate/rdoc/Delegator.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/delegate/rdoc/Delegator.html'
+class='ruby-doc remote reference' target='_blank'>Delegator
+Reference</a>
 
 
 
@@ -130,6 +132,8 @@ Elements:  8
   Unique:  6
 ```
 
-[SimpleDelegator
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/delegate/rdoc/SimpleDelegator.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/delegate/rdoc/SimpleDelegator.html'
+class='ruby-doc remote reference' target='_blank'>SimpleDelegator
+Reference</a>
 

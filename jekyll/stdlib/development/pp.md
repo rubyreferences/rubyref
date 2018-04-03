@@ -66,6 +66,8 @@ class. The method uses `#text`, `#breakable`, `#nest`, `#group` and
 
 
 
-[PrettyPrint
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/prettyprint/rdoc/PrettyPrint.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/prettyprint/rdoc/PrettyPrint.html'
+class='ruby-doc remote reference' target='_blank'>PrettyPrint
+Reference</a>
 

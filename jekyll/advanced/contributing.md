@@ -17,34 +17,37 @@ patches, and trying out beta releases with your applications.
 ## How To Report
 
 If you've encountered a bug in Ruby please report it to the redmine
-issue tracker available at
-[bugs.ruby-lang.org](https://bugs.ruby-lang.org/). Do not report
-security vulnerabilities here, there is a [separate
-channel](#label-Reporting+Security+Issues) for them.
+issue tracker available at <a href='https://bugs.ruby-lang.org/'
+class='remote' target='_blank'>bugs.ruby-lang.org</a>. Do not report
+security vulnerabilities here, there is a separate channel for them.
 
 There are a few simple steps you should follow in order to receive
 feedback on your ticket.
 
-* If you haven't already, [sign up for an
-  account](https://bugs.ruby-lang.org/account/register) on the bug
-  tracker.
+* If you haven't already, <a
+  href='https://bugs.ruby-lang.org/account/register' class='remote'
+  target='_blank'>sign up for an
+  account</a> on the bug tracker.
 
 * Try the latest version.
   
   If you aren't already using the latest version, try installing a newer
-  stable release. See [Downloading
-  Ruby](https://www.ruby-lang.org/en/downloads/).
+  stable release. See <a href='https://www.ruby-lang.org/en/downloads/'
+  class='remote' target='_blank'>Downloading
+  Ruby</a>.
 
-* Look to see if anyone already reported your issue, try [searching on
-  redmine](https://bugs.ruby-lang.org/projects/ruby-trunk/issues) for
-  your problem.
+* Look to see if anyone already reported your issue, try <a
+  href='https://bugs.ruby-lang.org/projects/ruby-trunk/issues'
+  class='remote' target='_blank'>searching on
+  redmine</a> for your problem.
 
-* If you can't find a ticket addressing your issue, [create a new
-  one](https://bugs.ruby-lang.org/projects/ruby-trunk/issues/new).
+* If you can't find a ticket addressing your issue, <a
+  href='https://bugs.ruby-lang.org/projects/ruby-trunk/issues/new'
+  class='remote' target='_blank'>create a new
+  one</a>.
 
 * Choose the target version, usually current. Bugs will be first fixed
-  in the current release and then
-  [backported](#label-Backport+Requests).
+  in the current release and then backported.
 
 * Fill in the Ruby version you're using when experiencing this issue
   (`ruby
@@ -59,10 +62,11 @@ feedback on your ticket.
 * Pick a category, such as core for common problems, or lib for a
   standard library.
 
-* Check the [Maintainers
-  list](https://bugs.ruby-lang.org/projects/ruby/wiki/Maintainers) and
-  assign the ticket if there is an active maintainer for the library or
-  feature.
+* Check the <a
+  href='https://bugs.ruby-lang.org/projects/ruby/wiki/Maintainers'
+  class='remote' target='_blank'>Maintainers
+  list</a> and assign the ticket if there is an active maintainer for
+  the library or feature.
 
 * If the ticket doesn't have any replies after 10 days, you can send a
   reminder.
@@ -75,13 +79,19 @@ feedback on your ticket.
 You can report downstream issues for the following distributions via
 their bug tracker:
 
-* [debian](http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=ruby-defaults)
-* [freebsd](http://www.freebsd.org/cgi/query-pr-summary.cgi?text=ruby)
-* [redhat](https://bugzilla.redhat.com/buglist.cgi?bug_status=NEW&bug_status
-  =ASSIGNED&bug_status=REOPENED&bug_status=MODIFIED)
+* <a
+  href='http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=ruby-defaults'
+  class='remote' target='_blank'>debian</a>
+* <a href='http://www.freebsd.org/cgi/query-pr-summary.cgi?text=ruby'
+  class='remote' target='_blank'>freebsd</a>
+* <a
+  href='https://bugzilla.redhat.com/buglist.cgi?bug_status=NEW&bug_status
+  =ASSIGNED&bug_status=REOPENED&bug_status=MODIFIED' class='remote'
+  target='_blank'>redhat</a>
 
-* [macports](http://trac.macports.org/query?status=assigned&status=new&statu
-  s=reopened&port=~ruby)
+* <a
+  href='http://trac.macports.org/query?status=assigned&status=new&statu
+  s=reopened&port=~ruby' class='remote' target='_blank'>macports</a>
 
 * etc (add your distribution bug tracker here)
 
@@ -109,8 +119,9 @@ negatively affect many users. There is a private mailing list that all
 security issues should be reported to and will be handled discretely.
 Email the mailto:security@ruby-lang.org list and the problem will be
 published after fixes have been released. You can also encrypt the issue
-using [the PGP public key](https://www.ruby-lang.org/security.asc) for
-the list.
+using <a href='https://www.ruby-lang.org/security.asc' class='remote'
+target='_blank'>the PGP public
+key</a> for the list.
 
 ## Reporting Other Issues
 
@@ -124,7 +135,8 @@ The current webmaster is:
 You can also report issues with the ruby-lang.org website on the issue
 tracker:
 
-* [issue tracker](https://github.com/ruby/www.ruby-lang.org/issues)
+* <a href='https://github.com/ruby/www.ruby-lang.org/issues'
+  class='remote' target='_blank'>issue tracker</a>
 
 ## Resolve Existing Issues
 
@@ -134,9 +146,10 @@ GitHub Issues, you will find a lot of issues already requiring
 attention. What can you do for these? Quite a bit, actually:
 
 When a bug report goes for a while without any feedback, it goes to the
-bug graveyard which is unfortunate. If you check the [issues
-list](https://bugs.ruby-lang.org/projects/ruby-trunk/issues) you will
-find lots of delinquent bugs that require attention.
+bug graveyard which is unfortunate. If you check the <a
+href='https://bugs.ruby-lang.org/projects/ruby-trunk/issues'
+class='remote' target='_blank'>issues
+list</a> you will find lots of delinquent bugs that require attention.
 
 You can help by verifying the existing tickets, try to reproduce the
 reported issue on your own and comment if you still experience the bug.
@@ -178,12 +191,14 @@ time to review the patch.
 If there's a new feature that you want to see added to Ruby, you will
 need to write a convincing proposal and patch to implement the feature.
 
-For new features in CRuby, use the ['Feature'
-tracker](https://bugs.ruby-lang.org/projects/ruby-trunk/issues?set_filter=1&tr
-acker_id=2) on ruby-trunk. For non-CRuby dependent features, features
+For new features in CRuby, use the <a
+href='https://bugs.ruby-lang.org/projects/ruby-trunk/issues?set_filter=1&tr
+acker_id=2' class='remote' target='_blank'>‘Feature’
+tracker</a> on ruby-trunk. For non-CRuby dependent features, features
 that would apply to alternate Ruby implementations such as JRuby and
-Rubinius, use the [CommonRuby
-tracker](https://bugs.ruby-lang.org/projects/common-ruby).
+Rubinius, use the <a
+href='https://bugs.ruby-lang.org/projects/common-ruby' class='remote'
+target='_blank'>CommonRuby tracker</a>.
 
 When writing a proposal be sure to check for previous discussions on the
 topic and have a solid use case. You will need to be persuasive and
@@ -265,13 +280,15 @@ Ruby.
 
 Each major version of Ruby has a release manager that should be assigned
 to handle backport requests. You can find the list of release managers
-on the
-[wiki](https://bugs.ruby-lang.org/projects/ruby/wiki/ReleaseEngineering).
+on the <a
+href='https://bugs.ruby-lang.org/projects/ruby/wiki/ReleaseEngineering'
+class='remote' target='_blank'>wiki</a>.
 
 ### Branches
 
-Status and maintainers of branches are listed on the
-[wiki](https://bugs.ruby-lang.org/projects/ruby/wiki/ReleaseEngineering).
+Status and maintainers of branches are listed on the <a
+href='https://bugs.ruby-lang.org/projects/ruby/wiki/ReleaseEngineering'
+class='remote' target='_blank'>wiki</a>.
 
 ## Running tests
 
@@ -279,15 +296,19 @@ In order to help resolve existing issues and contributing patches to
 Ruby you need to be able to run the test suite.
 
 CRuby uses subversion for source control, you can find installation
-instructions and lots of great info to learn subversion on the
-[svnbook.red-bean.com](http://svnbook.red-bean.com/). For other
-resources see the [ruby-core documentation on
-ruby-lang.org](https://www.ruby-lang.org/en/community/ruby-core/).
+instructions and lots of great info to learn subversion on the <a
+href='http://svnbook.red-bean.com/' class='remote'
+target='_blank'>svnbook.red-bean.com</a>. For other resources see the <a
+href='https://www.ruby-lang.org/en/community/ruby-core/' class='remote'
+target='_blank'>ruby-core documentation on
+ruby-lang.org</a>.
 
-This guide will use git for contributing. The [git
-homepage](http://git-scm.com/) has installation instructions with links
-to documentation for learning more about git. There is a mirror of the
-subversion repository on [github](https://github.com/ruby/ruby).
+This guide will use git for contributing. The <a
+href='http://git-scm.com/' class='remote' target='_blank'>git
+homepage</a> has installation instructions with links to documentation
+for learning more about git. There is a mirror of the subversion
+repository on <a href='https://github.com/ruby/ruby' class='remote'
+target='_blank'>github</a>.
 
 Install the prerequisite dependencies for building the CRuby interpreter
 to run tests.
@@ -390,11 +411,13 @@ make love
 ## Contributing Documentation
 
 If you're interested in contributing documentation directly to CRuby
-there is a wealth of information available at
-[documenting-ruby.org](http://documenting-ruby.org/).
+there is a wealth of information available at <a
+href='http://documenting-ruby.org/' class='remote'
+target='_blank'>documenting-ruby.org</a>.
 
-There is also the [Ruby Reference
-Manual](https://bugs.ruby-lang.org/projects/rurema) in Japanese.
+There is also the <a href='https://bugs.ruby-lang.org/projects/rurema'
+class='remote' target='_blank'>Ruby Reference
+Manual</a> in Japanese.
 
 ## Contributing A Patch
 
@@ -481,9 +504,10 @@ Thu Jan  1 00:00:00 2004  Your Name  <yourmail@example.com>
 	* filename2 (function2): additional description for this file/function.
 ```
 
-This follows [GNU Coding Standards for Change
-Logs](http://www.gnu.org/prep/standards/html_node/Change-Logs.html#Change-Logs),
-some other requirements and tips:
+This follows <a
+href='http://www.gnu.org/prep/standards/html_node/Change-Logs.html#Change-Logs'
+class='remote' target='_blank'>GNU Coding Standards for Change
+Logs</a>, some other requirements and tips:
 
 * Timestamps must be in JST (+09:00) in the style as above.
 * Two spaces between the timestamp and your name. Two spaces between
@@ -517,10 +541,11 @@ git rebase remotes/origin/master
 ```
 
 Now that you've got some code you want to contribute, let's get set up
-to generate a patch. Start by forking the github mirror, check the
-[github docs on forking](https://help.github.com/articles/fork-a-repo)
-if you get stuck here. You will only need a github account if you intend
-to host your repository on github.
+to generate a patch. Start by forking the github mirror, check the <a
+href='https://help.github.com/articles/fork-a-repo' class='remote'
+target='_blank'>github docs
+on forking</a> if you get stuck here. You will only need a github
+account if you intend to host your repository on github.
 
 Next copy the writable url for your fork and add it as a git remote,
 replace "my\_username" with your github account name:
@@ -543,13 +568,19 @@ the best chances to receive feedback add it is recommended you add it to
 redmine.
 
 Since git is a distributed system, you are welcome to host your git
-repository on any [publicly accessible hosting
-site](https://git.wiki.kernel.org/index.php/GitHosting), including
-[hosting your
-own](https://www.kernel.org/pub/software/scm/git/docs/user-manual.html#public-
-repositories) You may use the ['git
-format-patch'](http://git-scm.com/docs/git-format-patch) command to
-generate patch files to upload to redmine. You may also use the ['git
-request-pull'](http://git-scm.com/docs/git-request-pull) command for
-formatting pull request messages to redmine.
+repository on any <a
+href='https://git.wiki.kernel.org/index.php/GitHosting' class='remote'
+target='_blank'>publicly accessible hosting
+site</a>, including <a
+href='https://www.kernel.org/pub/software/scm/git/docs/user-manual.html#public-
+repositories' class='remote' target='_blank'>hosting
+your
+own</a> You may use the <a
+href='http://git-scm.com/docs/git-format-patch' class='remote'
+target='_blank'>‘git
+format-patch’</a> command to generate patch files to upload to redmine.
+You may also use the <a href='http://git-scm.com/docs/git-request-pull'
+class='remote' target='_blank'>‘git
+request-pull’</a> command for formatting pull request messages to
+redmine.
 

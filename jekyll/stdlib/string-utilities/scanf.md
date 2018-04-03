@@ -80,6 +80,6 @@ str.scanf("%d%s") { |num,str| [ num * 2, str.upcase ] }
 
 
 
-[Scanf
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/scanf/rdoc/Scanf.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/scanf/rdoc/Scanf.html'
+class='ruby-doc remote reference' target='_blank'>Scanf Reference</a>
 

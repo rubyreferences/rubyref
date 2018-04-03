@@ -42,5 +42,6 @@ s4.between?(s3, s5)           #=> true
 [ s3, s2, s5, s4, s1 ].sort   #=> [Z, YY, XXX, WWWW, VVVVV]
 ```
 
-[Comparable Reference](http://ruby-doc.org/core-2.5.0/Comparable.html)
+<a href='http://ruby-doc.org/core-2.5.0/Comparable.html' class='ruby-doc
+remote reference' target='_blank'>Comparable Reference</a>
 

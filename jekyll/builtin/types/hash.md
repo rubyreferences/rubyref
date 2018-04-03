@@ -148,5 +148,6 @@ reviews.length #=> 1
 
 See also `Object#hash` and `Object#eql?`
 
-[Hash Reference](http://ruby-doc.org/core-2.5.0/Hash.html)
+<a href='http://ruby-doc.org/core-2.5.0/Hash.html' class='ruby-doc
+remote reference' target='_blank'>Hash Reference</a>
 

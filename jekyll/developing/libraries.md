@@ -13,14 +13,16 @@ libraries.
 
 Nearly all of these libraries are released in the form of a **gem**, a
 packaged library or application that can be installed with a tool called
-[**RubyGems**](https://rubygems.org/).
+<a href='https://rubygems.org/' class='remote'
+target='_blank'><strong>RubyGems</strong></a>.
 
 RubyGems is a Ruby packaging system designed to facilitate the creation,
 sharing and installation of libraries (in some ways, it is a
 distribution packaging system similar to, say, `apt-get`, but targeted
 at Ruby software). Ruby comes with RubyGems by default since version
-1.9, previous Ruby versions require RubyGems to be [installed by
-hand](https://rubygems.org/pages/download/).
+1.9, previous Ruby versions require RubyGems to be <a
+href='https://rubygems.org/pages/download/' class='remote'
+target='_blank'>installed by hand</a>.
 
 Some other libraries are released as archived (.zip or .tar.gz)
 directories of **source code**. Installation processes may vary,
@@ -31,25 +33,30 @@ use.
 
 ### Finding libraries
 
-The main place where libraries are hosted is
-[**RubyGems.org**](https://rubygems.org/), a public repository of gems
-that can be searched and installed onto your machine. You may browse and
-search for gems using the RubyGems website, or use the `gem` command.
+The main place where libraries are hosted is <a
+href='https://rubygems.org/' class='remote'
+target='_blank'><strong>RubyGems.org</strong></a>, a public repository
+of gems that can be searched and installed onto your machine. You may
+browse and search for gems using the RubyGems website, or use the `gem`
+command.
 
 Using `gem search -r`, you can search RubyGems' repository. For
 instance, `gem search -r rails` will return a list of Rails-related
 gems. With the `--local` (`-l`) option, you would perform a local search
 through your installed gems. To install a gem, use `gem install [gem]`.
 Browsing installed gems is done with `gem list`. For more information
-about the `gem` command, see below or head to [RubyGems’
-docs](http://guides.rubygems.org/).
+about the `gem` command, see below or head to <a
+href='http://guides.rubygems.org/' class='remote'
+target='_blank'>RubyGems’ docs</a>.
 
-There are other sources of libraries though.
-[**GitHub**](https://github.com/) is the main Ruby-related content
-repository. Most often a gem source code will be hosted on GitHub while
-being published as a fully-fledged gem to RubyGems.org.
+There are other sources of libraries though. <a
+href='https://github.com/' class='remote'
+target='_blank'><strong>GitHub</strong></a> is the main Ruby-related
+content repository. Most often a gem source code will be hosted on
+GitHub while being published as a fully-fledged gem to RubyGems.org.
 
-[**The Ruby Toolbox**](https://www.ruby-toolbox.com/) is a project that
+<a href='https://www.ruby-toolbox.com/' class='remote'
+target='_blank'><strong>The Ruby Toolbox</strong></a> is a project that
 makes it easy to explore open source Ruby projects. It has categories
 for various common development tasks, collects a lot of information
 about the projects like release and commit activity or dependencies and
@@ -59,9 +66,10 @@ as web frameworks, documentation tools and code quality libraries.
 
 ### A few more words about RubyGems
 
-Here is a quick review of the `gem` command for your daily use. [More
-detailed documentation](http://guides.rubygems.org/command-reference/)
-is available, covering all aspects of this packaging system.
+Here is a quick review of the `gem` command for your daily use. <a
+href='http://guides.rubygems.org/command-reference/' class='remote'
+target='_blank'>More detailed documentation</a> is available, covering
+all aspects of this packaging system.
 
 #### Searching among available gems
 
@@ -130,8 +138,9 @@ all `gem`’s commands.
 
 #### Crafting your own gems
 
-RubyGems.org has [several guides](http://guides.rubygems.org/) about
-this topic. You may also want to investigate
-[Bundler](http://bundler.io/), a generic tool which helps you manage an
+RubyGems.org has <a href='http://guides.rubygems.org/' class='remote'
+target='_blank'>several guides</a> about this topic. You may also want
+to investigate <a href='http://bundler.io/' class='remote'
+target='_blank'>Bundler</a>, a generic tool which helps you manage an
 application’s dependencies and may be used along RubyGems.
 

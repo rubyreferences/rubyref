@@ -51,8 +51,8 @@ s1.subset?(s2)                        #=> false
 s2.subset?(s1)                        #=> true
 ```
 
-[Set
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/set/rdoc/Set.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/set/rdoc/Set.html'
+class='ruby-doc remote reference' target='_blank'>Set Reference</a>
 
 
 
@@ -88,6 +88,8 @@ set2 = SortedSet.new([1, 2, "3"])
 set2.each { |obj| } # => raises ArgumentError: comparison of Fixnum with String failed
 ```
 
-[SortedSet
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/set/rdoc/SortedSet.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/set/rdoc/SortedSet.html'
+class='ruby-doc remote reference' target='_blank'>SortedSet
+Reference</a>
 

@@ -12,17 +12,21 @@ require 'net/smtp'
 # Net::SMTP
 
 This library provides functionality to send internet mail via SMTP, the
-Simple Mail Transfer Protocol. For details of SMTP itself, see
-[RFC2821](http://www.ietf.org/rfc/rfc2821.txt).
+Simple Mail Transfer Protocol. For details of SMTP itself, see <a
+href='http://www.ietf.org/rfc/rfc2821.txt' class='remote'
+target='_blank'>RFC2821</a>.
 
 This library does NOT provide functions to compose internet mails. You
 must create them by yourself. If you want better mail support, try
-RubyMail or TMail or search for alternatives in
-[RubyGems.org](https://rubygems.org/) or [The Ruby
-Toolbox](https://www.ruby-toolbox.com/).
+RubyMail or TMail or search for alternatives in <a
+href='https://rubygems.org/' class='remote'
+target='_blank'>RubyGems.org</a> or <a
+href='https://www.ruby-toolbox.com/' class='remote' target='_blank'>The
+Ruby Toolbox</a>.
 
-FYI: the official documentation on internet mail is:
-[RFC2822](http://www.ietf.org/rfc/rfc2822.txt).
+FYI: the official documentation on internet mail is: <a
+href='http://www.ietf.org/rfc/rfc2822.txt' class='remote'
+target='_blank'>RFC2822</a>.
 
 ## Examples
 
@@ -127,6 +131,8 @@ Net::SMTP.start('your.smtp.server', 25, 'mail.from.domain',
                 'Your Account', 'Your Password', :cram_md5)
 ```
 
-[Net::SMTP
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/net/smtp/rdoc/Net::SMTP.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/net/smtp/rdoc/Net::SMTP.html'
+class='ruby-doc remote reference' target='_blank'>Net::SMTP
+Reference</a>
 

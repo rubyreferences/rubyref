@@ -12,8 +12,9 @@ require 'net/pop'
 # Net::POP3
 
 This library provides functionality for retrieving email via POP3, the
-Post Office Protocol version 3. For details of POP3, see
-[RFC1939](http://www.ietf.org/rfc/rfc1939.txt).
+Post Office Protocol version 3. For details of POP3, see <a
+href='http://www.ietf.org/rfc/rfc1939.txt' class='remote'
+target='_blank'>RFC1939</a>.
 
 ## Examples
 
@@ -179,11 +180,15 @@ end
 The `POPMail#unique_id`() method returns the unique-id of the message as
 a String. Normally the unique-id is a hash of the message.
 
-[Net::POP3
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/net/pop/rdoc/Net::POP3.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/net/pop/rdoc/Net::POP3.html'
+class='ruby-doc remote reference' target='_blank'>Net::POP3
+Reference</a>
 
 
 
-[Net::APOP
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/net/pop/rdoc/Net::APOP.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/net/pop/rdoc/Net::APOP.html'
+class='ruby-doc remote reference' target='_blank'>Net::APOP
+Reference</a>
 

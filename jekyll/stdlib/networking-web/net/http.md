@@ -14,8 +14,9 @@ require 'net/http'
 ## An HTTP client API for Ruby.
 
 Net::HTTP provides a rich library which can be used to build HTTP
-user-agents. For more details about HTTP see
-[RFC2616](http://www.ietf.org/rfc/rfc2616.txt)
+user-agents. For more details about HTTP see <a
+href='http://www.ietf.org/rfc/rfc2616.txt' class='remote'
+target='_blank'>RFC2616</a>
 
 Net::HTTP is designed to work closely with URI. `URI::HTTP#host`,
 U`RI::HTTP#port` and `URI::HTTP#request_uri` are designed to work with
@@ -238,8 +239,9 @@ end if res.is_a?(Net::HTTPSuccess)
 
 ### Basic Authentication
 
-Basic authentication is performed according to
-[RFC2617](http://www.ietf.org/rfc/rfc2617.txt)
+Basic authentication is performed according to <a
+href='http://www.ietf.org/rfc/rfc2617.txt' class='remote'
+target='_blank'>RFC2617</a>
 
 
 ```ruby
@@ -334,6 +336,8 @@ a Range header was sent.
 Compression can be disabled through the Accept-Encoding: identity
 header.
 
-[Net::HTTP
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/net/http/rdoc/Net::HTTP.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/net/http/rdoc/Net::HTTP.html'
+class='ruby-doc remote reference' target='_blank'>Net::HTTP
+Reference</a>
 

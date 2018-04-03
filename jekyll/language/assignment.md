@@ -132,8 +132,9 @@ But you may only use one `*` in an assignment.
 
 ## Array Decomposition
 
-Like Array decomposition in [method arguments](/language/methods-def.md)
-you can decompose an Array during assignment using parenthesis:
+Like Array decomposition in <a href='/language/methods-def.md'
+class='remote' target='_blank'>method arguments</a> you can decompose an
+Array during assignment using parenthesis:
 
 
 ```ruby

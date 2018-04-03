@@ -311,6 +311,6 @@ specify their own id or "name". A dRuby reference can be made persistent
 across processes by having each process register an object using the
 same dRuby name.
 
-[DRb
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/drb/rdoc/DRb.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/drb/rdoc/DRb.html'
+class='ruby-doc remote reference' target='_blank'>DRb Reference</a>
 

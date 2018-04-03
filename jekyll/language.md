@@ -12,10 +12,11 @@ Ruby programs.
 As a brief overview, it can be said that:
 
 * Ruby program consists of expressions dealing with
-  [literals](language/literals.md), [variables](language/variables.md)
-  and [constants](language/variables.md#constants).
+  [literals](language/literals.md),
+  [variables](language/variables-constants.md) and
+  [constants](language/variables-constants.md#constants).
 * Expressions are:
-  * [assignments](language/assignments.md);
+  * [assignments](language/assignment.md);
   * [control expressions](language/control-expressions.md);
   * [method calls](language/methods-call.md);
   * definitions of modules, classes and methods.
@@ -30,11 +31,15 @@ As a brief overview, it can be said that:
   [exceptions](language/exceptions.md).
 
 Note that a lot of language constructs you will see in a typical Ruby
-program, are in fact, just *methods*. For example [`Kernel#raise`]() is
-used to raise an exception, and [`Module#private`]() is used to change
-method's visibility. This means that language core, described in this
-chapter, is pretty small, and everything else just follows usual rules
-for modules, methods and expressions.
+program, are in fact, just *methods*. For example <a
+href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-raise'
+class='ruby-doc remote' target='_blank'><code>Kernel#raise</code></a> is
+used to raise an exception, and <a
+href='https://ruby-doc.org/core-2.5.0/Module.html#method-i-private'
+class='ruby-doc remote' target='_blank'><code>Module#private</code></a>
+is used to change method's visibility. This means that language core,
+described in this chapter, is pretty small, and everything else just
+follows usual rules for modules, methods and expressions.
 
 
 
@@ -70,8 +75,8 @@ p defined?(1 + 1)              # prints "method"
 ```
 
 You don't need to use parenthesis with `defined?`, but they are
-recommended due to the [low precedence](/language/precedence.md) of
-`defined?`.
+recommended due to the <a href='/language/precedence.md' class='remote'
+target='_blank'>low precedence</a> of `defined?`.
 
 For example, if you wish to check if an instance variable exists and
 that the instance variable is zero:

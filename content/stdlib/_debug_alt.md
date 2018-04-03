@@ -1,6 +1,6 @@
 # Alternative debugging/breakpoint solutions
 
-Since Ruby 2.5.0, there is [Binding#irb](#TODO) method, allowing to enter [IRB](#TODO) session at the point of call.
+Since Ruby 2.5.0, there is [Binding#irb](ref:Binding#irb) method, allowing to enter [IRB](../../irb.md) session at the point of call.
 
 Third-party libraries:
 

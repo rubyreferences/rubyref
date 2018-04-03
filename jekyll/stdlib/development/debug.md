@@ -142,20 +142,25 @@ unpredictably.
 
 Debug is not available in safe mode.
 
-[debug
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/debug/rdoc/DEBUGGER__.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/debug/rdoc/DEBUGGER__.html'
+class='ruby-doc remote reference' target='_blank'>debug Reference</a>
 
 
 
 ## Alternative debugging/breakpoint solutions
 
-Since Ruby 2.5.0, there is [Binding#irb](#TODO) method, allowing to
-enter [IRB](#TODO) session at the point of call.
+Since Ruby 2.5.0, there is <a
+href='https://ruby-doc.org/core-2.5.0/Binding.html#method-i-irb'
+class='ruby-doc remote' target='_blank'>Binding#irb</a> method, allowing
+to enter [IRB](../../irb.md) session at the point of call.
 
 Third-party libraries:
 
-* [byebug](https://github.com/deivid-rodriguez/byebug) is currently most
-  used and freature-rich Ruby debugger;
-* [pry](https://github.com/pry/pry) interactive console (alternative to
-  IRB) also provides \[Binding#pry\] method.
+* <a href='https://github.com/deivid-rodriguez/byebug' class='remote'
+  target='_blank'>byebug</a> is currently most used and freature-rich
+  Ruby debugger;
+* <a href='https://github.com/pry/pry' class='remote'
+  target='_blank'>pry</a> interactive console (alternative to IRB) also
+  provides \[Binding#pry\] method.
 

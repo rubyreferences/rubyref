@@ -12,18 +12,21 @@ those gems could be updated independently from Ruby itself.
 
 Current list of bundled gems:
 
-* [DidYouMean](https://github.com/yuki24/did_you_mean)\: "Did you mean?"
-  experience in Ruby
-* [MiniTest](https://github.com/seattlerb/minitest)\: A test suite with
-  TDD, BDD, mocking and benchmarking
-* [Net::Telnet](https://github.com/ruby/net-telnet)\: Telnet client
-  library for Ruby
-* [PowerAssert](https://github.com/k-tsj/power_assert)\: Power Assert
-  for Ruby.
-* [Rake](https://github.com/ruby/rake)\: Ruby build program with
-  capabilities similar to make
-* [Test::Unit](https://github.com/test-unit/test-unit)\: A compatibility
-  layer for MiniTest
-* [XMLRPC](https://github.com/ruby/xmlrpc)\: Remote Procedure Call over
-  HTTP support for Ruby
+* <a href='https://github.com/yuki24/did_you_mean' class='remote'
+  target='_blank'>DidYouMean</a>\: "Did you mean?" experience in Ruby
+* <a href='https://github.com/seattlerb/minitest' class='remote'
+  target='_blank'>MiniTest</a>\: A test suite with TDD, BDD, mocking and
+  benchmarking
+* <a href='https://github.com/ruby/net-telnet' class='remote'
+  target='_blank'>Net::Telnet</a>\: Telnet client library for Ruby
+* <a href='https://github.com/k-tsj/power_assert' class='remote'
+  target='_blank'>PowerAssert</a>\: Power Assert for Ruby.
+* <a href='https://github.com/ruby/rake' class='remote'
+  target='_blank'>Rake</a>\: Ruby build program with capabilities
+  similar to make
+* <a href='https://github.com/test-unit/test-unit' class='remote'
+  target='_blank'>Test::Unit</a>\: A compatibility layer for MiniTest
+* <a href='https://github.com/ruby/xmlrpc' class='remote'
+  target='_blank'>XMLRPC</a>\: Remote Procedure Call over HTTP support
+  for Ruby
 

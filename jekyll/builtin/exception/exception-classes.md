@@ -12,8 +12,9 @@ next: "/builtin/warning.html"
 
 Raised when memory allocation fails.
 
-[NoMemoryError
-Reference](http://ruby-doc.org/core-2.5.0/NoMemoryError.html)
+<a href='http://ruby-doc.org/core-2.5.0/NoMemoryError.html'
+class='ruby-doc remote reference' target='_blank'>NoMemoryError
+Reference</a>
 
 
 
@@ -25,7 +26,9 @@ executed because of a `LoadError`, `NotImplementedError` or a
 and will not be rescued unless it is specified explicitly (or its
 ancestor `Exception`).
 
-[ScriptError Reference](http://ruby-doc.org/core-2.5.0/ScriptError.html)
+<a href='http://ruby-doc.org/core-2.5.0/ScriptError.html'
+class='ruby-doc remote reference' target='_blank'>ScriptError
+Reference</a>
 
 
 
@@ -46,7 +49,8 @@ require 'this/file/does/not/exist'
 LoadError: no such file to load -- this/file/does/not/exist
 ```
 
-[LoadError Reference](http://ruby-doc.org/core-2.5.0/LoadError.html)
+<a href='http://ruby-doc.org/core-2.5.0/LoadError.html' class='ruby-doc
+remote reference' target='_blank'>LoadError Reference</a>
 
 
 
@@ -60,8 +64,9 @@ does not support them.
 Note that if `fork` raises a `NotImplementedError`, then
 `respond_to?(:fork)` returns `false`.
 
-[NotImplementedError
-Reference](http://ruby-doc.org/core-2.5.0/NotImplementedError.html)
+<a href='http://ruby-doc.org/core-2.5.0/NotImplementedError.html'
+class='ruby-doc remote reference' target='_blank'>NotImplementedError
+Reference</a>
 
 
 
@@ -81,7 +86,9 @@ eval("1+1=2")
 SyntaxError: (eval):1: syntax error, unexpected '=', expecting $end
 ```
 
-[SyntaxError Reference](http://ruby-doc.org/core-2.5.0/SyntaxError.html)
+<a href='http://ruby-doc.org/core-2.5.0/SyntaxError.html'
+class='ruby-doc remote reference' target='_blank'>SyntaxError
+Reference</a>
 
 
 
@@ -107,8 +114,9 @@ proc.call
 SecurityError: Insecure: Insecure operation `untaint` at level 3
 ```
 
-[SecurityError
-Reference](http://ruby-doc.org/core-2.5.0/SecurityError.html)
+<a href='http://ruby-doc.org/core-2.5.0/SecurityError.html'
+class='ruby-doc remote reference' target='_blank'>SecurityError
+Reference</a>
 
 
 
@@ -133,8 +141,9 @@ end
 received Exception SIGHUP
 ```
 
-[SignalException
-Reference](http://ruby-doc.org/core-2.5.0/SignalException.html)
+<a href='http://ruby-doc.org/core-2.5.0/SignalException.html'
+class='ruby-doc remote reference' target='_blank'>SignalException
+Reference</a>
 
 
 
@@ -168,7 +177,8 @@ Press ctrl-C when you get bored
 Note: You will typically use Signal.trap instead.
 ```
 
-[Interrupt Reference](http://ruby-doc.org/core-2.5.0/Interrupt.html)
+<a href='http://ruby-doc.org/core-2.5.0/Interrupt.html' class='ruby-doc
+remote reference' target='_blank'>Interrupt Reference</a>
 
 
 
@@ -200,8 +210,9 @@ require 'does/not/exist' rescue "Hi"
 LoadError: no such file to load -- does/not/exist
 ```
 
-[StandardError
-Reference](http://ruby-doc.org/core-2.5.0/StandardError.html)
+<a href='http://ruby-doc.org/core-2.5.0/StandardError.html'
+class='ruby-doc remote reference' target='_blank'>StandardError
+Reference</a>
 
 
 
@@ -238,8 +249,9 @@ Ex: passing an argument that is not acceptable:
 ArgumentError: negative array size
 ```
 
-[ArgumentError
-Reference](http://ruby-doc.org/core-2.5.0/ArgumentError.html)
+<a href='http://ruby-doc.org/core-2.5.0/ArgumentError.html'
+class='ruby-doc remote reference' target='_blank'>ArgumentError
+Reference</a>
 
 
 
@@ -260,8 +272,9 @@ throw "foo", "bar"
 UncaughtThrowError: uncaught throw "foo"
 ```
 
-[UncaughtThrowError
-Reference](http://ruby-doc.org/core-2.5.0/UncaughtThrowError.html)
+<a href='http://ruby-doc.org/core-2.5.0/UncaughtThrowError.html'
+class='ruby-doc remote reference' target='_blank'>UncaughtThrowError
+Reference</a>
 
 
 
@@ -269,8 +282,9 @@ Reference](http://ruby-doc.org/core-2.5.0/UncaughtThrowError.html)
 
 EncodingError is the base class for encoding errors.
 
-[EncodingError
-Reference](http://ruby-doc.org/core-2.5.0/EncodingError.html)
+<a href='http://ruby-doc.org/core-2.5.0/EncodingError.html'
+class='ruby-doc remote reference' target='_blank'>EncodingError
+Reference</a>
 
 
 
@@ -287,7 +301,8 @@ fiber.resume #=> nil
 fiber.resume #=> FiberError: dead fiber called
 ```
 
-[FiberError Reference](http://ruby-doc.org/core-2.5.0/FiberError.html)
+<a href='http://ruby-doc.org/core-2.5.0/FiberError.html' class='ruby-doc
+remote reference' target='_blank'>FiberError Reference</a>
 
 
 
@@ -313,7 +328,8 @@ File.open("does/not/exist")
   #=> Errno::ENOENT: No such file or directory - does/not/exist
 ```
 
-[IOError Reference](http://ruby-doc.org/core-2.5.0/IOError.html)
+<a href='http://ruby-doc.org/core-2.5.0/IOError.html' class='ruby-doc
+remote reference' target='_blank'>IOError Reference</a>
 
 
 
@@ -335,7 +351,8 @@ file.gets     #=> nil
 file.readline #=> EOFError: end of file reached
 ```
 
-[EOFError Reference](http://ruby-doc.org/core-2.5.0/EOFError.html)
+<a href='http://ruby-doc.org/core-2.5.0/EOFError.html' class='ruby-doc
+remote reference' target='_blank'>EOFError Reference</a>
 
 
 
@@ -351,7 +368,8 @@ a[4]         #=> nil
 a.fetch(4)   #=> IndexError: index 4 outside of array bounds: -2...2
 ```
 
-[IndexError Reference](http://ruby-doc.org/core-2.5.0/IndexError.html)
+<a href='http://ruby-doc.org/core-2.5.0/IndexError.html' class='ruby-doc
+remote reference' target='_blank'>IndexError Reference</a>
 
 
 
@@ -367,7 +385,8 @@ h.fetch("foo") #=> :bar
 h.fetch("baz") #=> KeyError: key not found: "baz"
 ```
 
-[KeyError Reference](http://ruby-doc.org/core-2.5.0/KeyError.html)
+<a href='http://ruby-doc.org/core-2.5.0/KeyError.html' class='ruby-doc
+remote reference' target='_blank'>KeyError Reference</a>
 
 
 
@@ -394,8 +413,9 @@ Hello
 Done!
 ```
 
-[StopIteration
-Reference](http://ruby-doc.org/core-2.5.0/StopIteration.html)
+<a href='http://ruby-doc.org/core-2.5.0/StopIteration.html'
+class='ruby-doc remote reference' target='_blank'>StopIteration
+Reference</a>
 
 
 
@@ -437,8 +457,9 @@ get_me_a_return.call
 LocalJumpError: unexpected return
 ```
 
-[LocalJumpError
-Reference](http://ruby-doc.org/core-2.5.0/LocalJumpError.html)
+<a href='http://ruby-doc.org/core-2.5.0/LocalJumpError.html'
+class='ruby-doc remote reference' target='_blank'>LocalJumpError
+Reference</a>
 
 
 
@@ -472,7 +493,8 @@ Integer.const_set :answer, 42
 NameError: wrong constant name answer
 ```
 
-[NameError Reference](http://ruby-doc.org/core-2.5.0/NameError.html)
+<a href='http://ruby-doc.org/core-2.5.0/NameError.html' class='ruby-doc
+remote reference' target='_blank'>NameError Reference</a>
 
 
 
@@ -493,8 +515,9 @@ defined and also fails to respond with `method_missing`.
 NoMethodError: undefined method `to_ary` for "hello":String
 ```
 
-[NoMethodError
-Reference](http://ruby-doc.org/core-2.5.0/NoMethodError.html)
+<a href='http://ruby-doc.org/core-2.5.0/NoMethodError.html'
+class='ruby-doc remote reference' target='_blank'>NoMethodError
+Reference</a>
 
 
 
@@ -514,7 +537,8 @@ Raised when a given numerical value is out of range.
 RangeError: bignum too big to convert into `long`
 ```
 
-[RangeError Reference](http://ruby-doc.org/core-2.5.0/RangeError.html)
+<a href='http://ruby-doc.org/core-2.5.0/RangeError.html' class='ruby-doc
+remote reference' target='_blank'>RangeError Reference</a>
 
 
 
@@ -528,8 +552,9 @@ Raised when attempting to convert special float values (in particular
 Float::INFINITY.to_r   #=> FloatDomainError: Infinity
 ```
 
-[FloatDomainError
-Reference](http://ruby-doc.org/core-2.5.0/FloatDomainError.html)
+<a href='http://ruby-doc.org/core-2.5.0/FloatDomainError.html'
+class='ruby-doc remote reference' target='_blank'>FloatDomainError
+Reference</a>
 
 
 
@@ -549,7 +574,9 @@ Regexp.new("?")
 RegexpError: target of repeat operator is not specified: /?/
 ```
 
-[RegexpError Reference](http://ruby-doc.org/core-2.5.0/RegexpError.html)
+<a href='http://ruby-doc.org/core-2.5.0/RegexpError.html'
+class='ruby-doc remote reference' target='_blank'>RegexpError
+Reference</a>
 
 
 
@@ -571,8 +598,9 @@ raise "ouch"
 RuntimeError: ouch
 ```
 
-[RuntimeError
-Reference](http://ruby-doc.org/core-2.5.0/RuntimeError.html)
+<a href='http://ruby-doc.org/core-2.5.0/RuntimeError.html'
+class='ruby-doc remote reference' target='_blank'>RuntimeError
+Reference</a>
 
 
 
@@ -592,7 +620,9 @@ Raised when there is an attempt to modify a frozen object.
 FrozenError: can't modify frozen Array
 ```
 
-[FrozenError Reference](http://ruby-doc.org/core-2.5.0/FrozenError.html)
+<a href='http://ruby-doc.org/core-2.5.0/FrozenError.html'
+class='ruby-doc remote reference' target='_blank'>FrozenError
+Reference</a>
 
 
 
@@ -616,8 +646,9 @@ File.open("does/not/exist")
 Errno::ENOENT: No such file or directory - does/not/exist
 ```
 
-[SystemCallError
-Reference](http://ruby-doc.org/core-2.5.0/SystemCallError.html)
+<a href='http://ruby-doc.org/core-2.5.0/SystemCallError.html'
+class='ruby-doc remote reference' target='_blank'>SystemCallError
+Reference</a>
 
 
 
@@ -653,7 +684,8 @@ available as the constants of `Errno`.
 Errno.constants   #=> :E2BIG, :EACCES, :EADDRINUSE, :EADDRNOTAVAIL, ...
 ```
 
-[Errno Reference](http://ruby-doc.org/core-2.5.0/Errno.html)
+<a href='http://ruby-doc.org/core-2.5.0/Errno.html' class='ruby-doc
+remote reference' target='_blank'>Errno Reference</a>
 
 
 
@@ -676,7 +708,9 @@ ThreadError: stopping only thread
 note: use sleep to stop forever
 ```
 
-[ThreadError Reference](http://ruby-doc.org/core-2.5.0/ThreadError.html)
+<a href='http://ruby-doc.org/core-2.5.0/ThreadError.html'
+class='ruby-doc remote reference' target='_blank'>ThreadError
+Reference</a>
 
 
 
@@ -696,7 +730,8 @@ Raised when encountering an object that is not of the expected type.
 TypeError: no implicit conversion of String into Integer
 ```
 
-[TypeError Reference](http://ruby-doc.org/core-2.5.0/TypeError.html)
+<a href='http://ruby-doc.org/core-2.5.0/TypeError.html' class='ruby-doc
+remote reference' target='_blank'>TypeError Reference</a>
 
 
 
@@ -718,8 +753,9 @@ Note that only division by an exact 0 will raise the exception:
 0  /  0.0   #=> NaN
 ```
 
-[ZeroDivisionError
-Reference](http://ruby-doc.org/core-2.5.0/ZeroDivisionError.html)
+<a href='http://ruby-doc.org/core-2.5.0/ZeroDivisionError.html'
+class='ruby-doc remote reference' target='_blank'>ZeroDivisionError
+Reference</a>
 
 
 
@@ -727,7 +763,8 @@ Reference](http://ruby-doc.org/core-2.5.0/ZeroDivisionError.html)
 
 Raised by `exit` to initiate the termination of the script.
 
-[SystemExit Reference](http://ruby-doc.org/core-2.5.0/SystemExit.html)
+<a href='http://ruby-doc.org/core-2.5.0/SystemExit.html' class='ruby-doc
+remote reference' target='_blank'>SystemExit Reference</a>
 
 
 
@@ -750,8 +787,9 @@ me_myself_and_i
 SystemStackError: stack level too deep
 ```
 
-[SystemStackError
-Reference](http://ruby-doc.org/core-2.5.0/SystemStackError.html)
+<a href='http://ruby-doc.org/core-2.5.0/SystemStackError.html'
+class='ruby-doc remote reference' target='_blank'>SystemStackError
+Reference</a>
 
 
 
@@ -760,5 +798,6 @@ Reference](http://ruby-doc.org/core-2.5.0/SystemStackError.html)
 fatal is an Exception that is raised when Ruby has encountered a fatal
 error and must exit. You are not able to rescue fatal.
 
-[fatal Reference](http://ruby-doc.org/core-2.5.0/fatal.html)
+<a href='http://ruby-doc.org/core-2.5.0/fatal.html' class='ruby-doc
+remote reference' target='_blank'>fatal Reference</a>
 

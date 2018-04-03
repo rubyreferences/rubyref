@@ -10,8 +10,9 @@ next: "/stdlib/misc/timeout.html"
 
 ## DBM
 
-The DBM class provides a wrapper to a Unix-style
-[dbm](http://en.wikipedia.org/wiki/Dbm) or Database Manager library.
+The DBM class provides a wrapper to a Unix-style <a
+href='http://en.wikipedia.org/wiki/Dbm' class='remote'
+target='_blank'>dbm</a> or Database Manager library.
 
 Dbm databases do not have tables or columns; they are simple key-value
 data stores, like a Ruby Hash except not resident in RAM. Keys and
@@ -24,23 +25,23 @@ of the following:
   library in Unix Version 7 but has different API to support multiple
   databases in a process.
 
-* [Berkeley DB](http://en.wikipedia.org/wiki/Berkeley_DB) versions 1
-  thru 5, also known as BDB and Sleepycat DB, now owned by Oracle
-  Corporation.
+* <a href='http://en.wikipedia.org/wiki/Berkeley_DB' class='remote'
+  target='_blank'>Berkeley DB</a> versions 1 thru 5, also known as BDB
+  and Sleepycat DB, now owned by Oracle Corporation.
 
 * Berkeley DB 1.x, still found in 4.4BSD derivatives (FreeBSD, OpenBSD,
   etc).
 
-* [gdbm](http://www.gnu.org/software/gdbm/), the GNU implementation of
-  dbm.
-* [qdbm](http://fallabs.com/qdbm/index.html), another open source
-  reimplementation of dbm.
+* <a href='http://www.gnu.org/software/gdbm/' class='remote'
+  target='_blank'>gdbm</a>, the GNU implementation of dbm.
+* <a href='http://fallabs.com/qdbm/index.html' class='remote'
+  target='_blank'>qdbm</a>, another open source reimplementation of dbm.
 
 All of these dbm implementations have their own Ruby interfaces
 available, which provide richer (but varying) APIs.
 
-[DBM
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/dbm/rdoc/DBM.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/dbm/rdoc/DBM.html'
+class='ruby-doc remote reference' target='_blank'>DBM Reference</a>
 
 
 
@@ -53,8 +54,8 @@ storing key-value pairs on disk.
 
 
 
-[GDBM
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/gdbm/rdoc/GDBM.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/gdbm/rdoc/GDBM.html'
+class='ruby-doc remote reference' target='_blank'>GDBM Reference</a>
 
 
 
@@ -68,6 +69,6 @@ GDBM standard libraries rely on external libraries and headers.
 
 
 
-[SDBM
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/sdbm/rdoc/SDBM.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/sdbm/rdoc/SDBM.html'
+class='ruby-doc remote reference' target='_blank'>SDBM Reference</a>
 

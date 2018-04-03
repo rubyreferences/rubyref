@@ -7,6 +7,8 @@ require 'yaml'
 require 'kramdown'
 require 'hm'
 require 'ripper'
+require 'pathname'
+require 'did_you'
 
 INFLECTOR = Dry::Inflector.new
 
@@ -37,7 +39,17 @@ RDOC_REF = {
   'syntax/refinements.rdoc' => '/language/refinements.md'
 }
 
-class GFMKonverter < Kramdown::Converter::Kramdown
+class GFMConverter < Kramdown::Converter::Kramdown
+  # class << self
+  #   public :new
+  # end
+
+  # def initialize(tree, file_path, book)
+  #   @file_path = file_path
+  #   @book = book
+  #   super(tree, ::Kramdown::Options.merge({}))
+  # end
+
   def convert_codeblock(el, opts)
     "\n```#{code_lang(el.value)}\n#{el.value}```\n"
   end
@@ -47,17 +59,70 @@ class GFMKonverter < Kramdown::Converter::Kramdown
     Ripper.sexp(str).nil? ? '' : 'ruby'
   end
 
-  # Kramdown converts HTTP links into [link][1] with list of links at the end of the doc. It is
-  # not appropriate for our tasks
-  def convert_a(el, opts)
-    case el.attr['href']
-    when /^(https?|ftp):/
-      "[#{inner(el, opts)}](#{el.attr['href']})"
-    when /^(rdoc-ref):(.+)$/
-      reference = RDOC_REF.fetch($2) { |key| puts "REF: #{key}"; '#TODO' }
-      "[#{inner(el, opts)}](#{reference})"
+  def md_path
+    @options[:file_path]
+  end
+
+  def book
+    @options[:book]
+  end
+
+  def md_source
+    @options[:md_source]
+  end
+
+  def reference_link(text)
+    case text
+    when /^([A-Z][a-zA-Z]+)\#([A-Za-z_]+[!?]?)$/
+      mod, meth = $1, $2
+      'https://ruby-doc.org/core-2.5.0/%s.html#method-i-%s' % [mod, meth.sub('?', '-3F').sub('!', '-21')]
+    when 'Kernel#`'
+      'https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-60'
+    when %r{^(.+)/([A-Z][a-zA-Z]+)$}
+      lib, mod = $1, $2
+      'https://ruby-doc.org/stdlib-2.5.0/libdoc/%s/rdoc/%s.html' % [lib, mod]
+    when %r{^(.+)/([A-Z][a-zA-Z]+)\#([a-z_]+\??)$}
+      lib, mod, meth = $1, $2, $3
+      'https://ruby-doc.org/stdlib-2.5.0/libdoc/%s/rdoc/%s.html#method-i-%s' % [lib, mod, meth.sub('?', '-3F')]
     else
-      super
+      fail "Can't understand ref: link #{text} at #{md_path} (#{md_source}"
+    end
+  end
+
+  # Kramdown converts HTTP links into [link][1] with list of links at the end of the doc. It is
+  # not appropriate for our tasks. Plus, we want different styles for different kinds of external links.
+  def convert_a(el, opts)
+    href = el.attr['href']
+    local = false
+    real_href = case href
+    when /^(https?|ftp):/
+      el.attr['href']
+    when /^rdoc-ref:(.+)$/
+      RDOC_REF.fetch($1) { |key| warn "Unidentified rdoc-ref: #{key} at #{md_path}"; '#TODO' }
+    when /^ref:(.+)$/
+      reference_link($1)
+    when /^[^:]+\.md(\#.+)?$/
+      book.validate_link!(href, md_path, "#{md_path} (#{md_source})")
+      local = true
+      href
+    when '#rvm', '#rbenv', '#chruby', '#ruby-install', '#ruby-build' # internal links in installation, imported from site
+      return inner(el, opts)
+    when '/en/downloads/'
+      'http://ruby-lang.org/en/downloads/'
+    else
+      fail "Unidentified link address: #{href} at #{md_path} (#{md_source}"
+    end
+
+    if local
+      "[#{inner(el, opts)}](#{real_href})"
+    else
+      t, el.type = el.type, :root
+      el.options[:encoding] = 'UTF-8'
+      inner = Kramdown::Converter::Html.convert(el).first
+      el.type = t # Or it will have consequences on further rendering
+      cls = real_href.match(%r{^https?://ruby-doc\.org}) ? "ruby-doc remote" : "remote"
+      cls << " reference" if inner.end_with?(' Reference')
+      "<a href='#{real_href}' class='#{cls}' target='_blank'>#{inner}</a>"
     end
   end
 end
@@ -66,6 +131,7 @@ class ContentPart
   def initialize(
     index:,
     source:,
+    owner:,
     header_shift: nil,
     remove: [],
     insert: [],
@@ -75,6 +141,7 @@ class ContentPart
     replace: [],
     **)
 
+    @owner = owner
     @index = index
     @header_shift = header_shift&.to_i || (index.zero? ? 0 : 1)
     @remove = Array(remove)
@@ -89,7 +156,8 @@ class ContentPart
   end
 
   def render
-    GFMKonverter.convert(@text.root).first
+    GFMConverter
+      .convert(@text.root, file_path: @owner.file_path, book: @owner.book, md_source: @source).first
       .gsub(/^(?=\#[a-z])/, '\\')       # Again! New methods could be at the beginning of the line after Kramdown render
       .gsub(/([`'])\\:\s/, '\1: ')      # IDK why Kramdown turns "`something`: definition" into "`something`\: definition"
       .gsub_r(/(https?:\S+)\\_/, '\1_') # Kramdown helpfully screens _ in URLs... And then GitBook screens them again.
@@ -240,20 +308,22 @@ class ContentPart
 end
 
 class Chapter
-  attr_reader :id, :title, :parent, :children, :content_chunks
+  attr_reader :book, :id, :title, :parent, :children, :content_chunks
   attr_accessor :prev_chapter, :next_chapter
 
-  def self.parse(hash, parent: nil)
-    new(parent: parent, **hash.transform_keys(&:to_sym))
+  def self.parse(hash, book, parent: nil)
+    new(book, parent: parent, **hash.transform_keys(&:to_sym))
   end
 
-  def initialize(title:, id: nil, parent: nil, part: false, children: [], content: [])
+  def initialize(book, title:, id: nil, parent: nil, part: false, children: [], content: [])
+    @book = book
+
     # "Modules and Classes" => "modules-classes"
     @id = id || title.downcase.gsub(' and ', ' ').tr(' ', '-')
     @title = title
     @part = part
     @parent = parent
-    @children = children.map { |c| Chapter.parse(c, parent: self) }
+    @children = children.map { |c| Chapter.parse(c, book, parent: self) }
     @content_chunks = content.each_with_index.map { |c, i|
       ContentPart.new(index: i, owner: self, **c.transform_keys(&:to_sym))
     }
@@ -320,17 +390,31 @@ end
 
 class Book
   def self.load
-    new(YAML.load_file('config/structure.yml').map(&Chapter.method(:parse)))
+    new(YAML.load_file('config/structure.yml'))
   end
 
   attr_reader :chapters
 
   def initialize(chapters)
-    @chapters = chapters
-    @chapters.map(&:with_children).flatten.each_cons(2) { |before, after|
+    @chapters = chapters.map { |c| Chapter.parse(c, self) }
+    all_chapters.each_cons(2) { |before, after|
       before.next_chapter = after
       after.prev_chapter = before
     }
+  end
+
+  def all_chapters
+    @chapters.map(&:with_children).flatten
+  end
+
+  def validate_link!(path, relative_to, context)
+    path, anchor = path.split('#', 2) # TODO: check if this anchor links anywhere?
+    full_path = (Pathname.new(relative_to).dirname + path).to_s
+    @all_pathes ||= all_chapters.map(&:file_path)
+
+    return if @all_pathes.include?(full_path)
+    candidates = DidYou::Spell.check(full_path, @all_pathes)
+    fail "at #{context}: #{path} resolved to #{full_path}, but it does not exist. Candidates: #{candidates.join(', ')}"
   end
 
   META = {
@@ -341,7 +425,7 @@ class Book
     Hm(META.merge(chapters: chapters.map(&:to_h))).transform_keys(&:to_s).to_h
   end
 
-  LEAVE = %r{jekyll/(README|_|Gemfile|css|js)}
+  LEAVE = %r{jekyll/(README|_|Gemfile|css|js|images)}
 
   def write
     Dir['jekyll/*'].grep_v(LEAVE).each(&FileUtils.method(:rm_rf))

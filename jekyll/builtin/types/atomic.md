@@ -14,7 +14,8 @@ The global value `true` is the only instance of class `TrueClass` and
 represents a logically true value in boolean expressions. The class
 provides operators allowing `true` to be used in logical expressions.
 
-[TrueClass Reference](http://ruby-doc.org/core-2.5.0/TrueClass.html)
+<a href='http://ruby-doc.org/core-2.5.0/TrueClass.html' class='ruby-doc
+remote reference' target='_blank'>TrueClass Reference</a>
 
 
 
@@ -25,7 +26,8 @@ represents a logically false value in boolean expressions. The class
 provides operators allowing `false` to participate correctly in logical
 expressions.
 
-[FalseClass Reference](http://ruby-doc.org/core-2.5.0/FalseClass.html)
+<a href='http://ruby-doc.org/core-2.5.0/FalseClass.html' class='ruby-doc
+remote reference' target='_blank'>FalseClass Reference</a>
 
 
 
@@ -33,5 +35,6 @@ expressions.
 
 The class of the singleton object `nil`.
 
-[NilClass Reference](http://ruby-doc.org/core-2.5.0/NilClass.html)
+<a href='http://ruby-doc.org/core-2.5.0/NilClass.html' class='ruby-doc
+remote reference' target='_blank'>NilClass Reference</a>
 

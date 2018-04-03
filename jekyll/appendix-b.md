@@ -5,42 +5,56 @@ prev: "/appendix-a.html"
 
 ## Appendix B: Useful Links
 
-* [Ruby Site](https://www.ruby-lang.org/). It also has a [huge
-  list](https://www.ruby-lang.org/en/documentation/) of useful links.
-* [Ruby Official Bug Tracker](https://bugs.ruby-lang.org/)
+* <a href='https://www.ruby-lang.org/' class='remote'
+  target='_blank'>Ruby Site</a>. It also has a <a
+  href='https://www.ruby-lang.org/en/documentation/' class='remote'
+  target='_blank'>huge list</a> of useful links.
+* <a href='https://bugs.ruby-lang.org/' class='remote'
+  target='_blank'>Ruby Official Bug Tracker</a>
 
 ### Documentation
 
-* [Ruby-Doc.org](http://www.ruby-doc.org/) hosts rendered reference
-  documentation for all [core](http://www.ruby-doc.org/core) and
-  [standard library](http://www.ruby-doc.org/stdlib) classes and
-  methods. This reference links there a lot.
-* [RubyDoc.info](http://www.rubydoc.info/) hosts rendered documentation
-  for all published gems (generated with YARD).
+* <a href='http://www.ruby-doc.org/' class='remote'
+  target='_blank'>Ruby-Doc.org</a> hosts rendered reference
+  documentation for all <a href='http://www.ruby-doc.org/core'
+  class='remote' target='_blank'>core</a> and <a
+  href='http://www.ruby-doc.org/stdlib' class='remote'
+  target='_blank'>standard library</a> classes and methods. This
+  reference links there a lot.
+* <a href='http://www.rubydoc.info/' class='remote'
+  target='_blank'>RubyDoc.info</a> hosts rendered documentation for all
+  published gems (generated with YARD).
 
 ### Libraries
 
-* [RubyGems](https://rubygems.org/) is the central repository of Ruby
+* <a href='https://rubygems.org/' class='remote'
+  target='_blank'>RubyGems</a> is the central repository of Ruby
   Libraries;
-* [The Ruby Toolbox](https://www.ruby-toolbox.com/) is community-curated
-  categorized list of libraries;
-* [Awesome Ruby](http://awesome-ruby.com/) is another one.
+* <a href='https://www.ruby-toolbox.com/' class='remote'
+  target='_blank'>The Ruby Toolbox</a> is community-curated categorized
+  list of libraries;
+* <a href='http://awesome-ruby.com/' class='remote'
+  target='_blank'>Awesome Ruby</a> is another one.
 
 ### News and Community
 
-* [Conferences List](http://rubyconferences.org/)
-* [Ruby Weekly Digest](https://rubyweekly.com/)
-* [Ruby Maling
-  Lists](https://www.ruby-lang.org/en/community/mailing-lists/)
+* <a href='http://rubyconferences.org/' class='remote'
+  target='_blank'>Conferences List</a>
+* <a href='https://rubyweekly.com/' class='remote' target='_blank'>Ruby
+  Weekly Digest</a>
+* <a href='https://www.ruby-lang.org/en/community/mailing-lists/'
+  class='remote' target='_blank'>Ruby Maling Lists</a>
 
 ### Organizations
 
-* [Ruby Association](http://www.ruby.or.jp/en/) is a non-profit
-  organization devoted to the advancement of the Ruby programming
-  language.
-* [Ruby Together](https://rubytogether.org/) is a grassroots initiative
-  committed to supporting the critical Ruby infrastructure: Bundler,
-  RubyGems, and other shared tools.
-* [Ruby Central](http://rubycentral.org/) is a nonprofit organization
-  dedicated to the support and advocacy of the worldwide Ruby community.
+* <a href='http://www.ruby.or.jp/en/' class='remote'
+  target='_blank'>Ruby Association</a> is a non-profit organization
+  devoted to the advancement of the Ruby programming language.
+* <a href='https://rubytogether.org/' class='remote'
+  target='_blank'>Ruby Together</a> is a grassroots initiative committed
+  to supporting the critical Ruby infrastructure: Bundler, RubyGems, and
+  other shared tools.
+* <a href='http://rubycentral.org/' class='remote' target='_blank'>Ruby
+  Central</a> is a nonprofit organization dedicated to the support and
+  advocacy of the worldwide Ruby community.
 

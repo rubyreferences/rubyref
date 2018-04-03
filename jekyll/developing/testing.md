@@ -6,10 +6,10 @@ next: "/developing/code-style.html"
 
 # Testing Ruby Code
 
-Recent Ruby versions come with *bundled gem* for testing, named
-[minitest](https://github.com/seattlerb/minitest). It provides a
-complete suite of testing facilities supporting TDD, BDD, mocking, and
-benchmarking.
+Recent Ruby versions come with *bundled gem* for testing, named <a
+href='https://github.com/seattlerb/minitest' class='remote'
+target='_blank'>minitest</a>. It provides a complete suite of testing
+facilities supporting TDD, BDD, mocking, and benchmarking.
 
 Example of unit test with minitest, taken from its README:
 
@@ -36,9 +36,9 @@ class TestMeme < Minitest::Test
 end
 ```
 
-Another widely popular library for testing is
-[RSpec](http://rspec.info/). Here is example of its syntax, take from
-the README:
+Another widely popular library for testing is <a
+href='http://rspec.info/' class='remote' target='_blank'>RSpec</a>. Here
+is example of its syntax, take from the README:
 
 
 ```ruby

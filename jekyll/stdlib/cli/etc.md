@@ -39,6 +39,6 @@ should be used for informational purposes, and not for security.
 All operations defined in this module are class methods, so that you can
 include the Etc module into your class.
 
-[Etc
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/etc/rdoc/Etc.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/etc/rdoc/Etc.html'
+class='ruby-doc remote reference' target='_blank'>Etc Reference</a>
 

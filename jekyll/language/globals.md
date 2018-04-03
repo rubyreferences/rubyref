@@ -139,6 +139,7 @@ variable:
 * `$POSTMATCH`: `$'`
 * `$LAST_PAREN_MATCH`: `$+`
 
-[English
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/English/rdoc/English.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/English/rdoc/English.html'
+class='ruby-doc remote reference' target='_blank'>English Reference</a>
 

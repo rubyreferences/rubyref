@@ -56,7 +56,8 @@ stream which allows access to all files mentioned on the command line
 `ARGF#filename` are provided to access the name of the file currently
 being read.
 
-[IO Reference](http://ruby-doc.org/core-2.5.0/IO.html)
+<a href='http://ruby-doc.org/core-2.5.0/IO.html' class='ruby-doc remote
+reference' target='_blank'>IO Reference</a>
 
 
 
@@ -90,7 +91,8 @@ be made is to make the file read-only, which is reported as `0444`.
 Various constants for the methods in File can be found in
 File::Constants.
 
-[File Reference](http://ruby-doc.org/core-2.5.0/File.html)
+<a href='http://ruby-doc.org/core-2.5.0/File.html' class='ruby-doc
+remote reference' target='_blank'>File Reference</a>
 
 
 
@@ -114,6 +116,7 @@ io.puts "Hello World"
 io.string #=> "Hello World\n"
 ```
 
-[StringIO
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/stringio/rdoc/StringIO.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/stringio/rdoc/StringIO.html'
+class='ruby-doc remote reference' target='_blank'>StringIO Reference</a>
 

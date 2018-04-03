@@ -142,6 +142,8 @@ upto:     1.030000   0.000000   1.030000 (  1.028098)
   >avg:     0.960000   0.000000   0.960000 (  0.961255)
   ```
 
-[Benchmark
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/benchmark/rdoc/Benchmark.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/benchmark/rdoc/Benchmark.html'
+class='ruby-doc remote reference' target='_blank'>Benchmark
+Reference</a>
 

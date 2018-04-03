@@ -34,6 +34,7 @@ Resolv::DNS.open do |dns|
 end
 ```
 
-[Resolv
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/resolv/rdoc/Resolv.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/resolv/rdoc/Resolv.html'
+class='ruby-doc remote reference' target='_blank'>Resolv Reference</a>
 

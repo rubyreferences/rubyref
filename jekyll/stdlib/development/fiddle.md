@@ -14,14 +14,17 @@ require 'fiddle'
 Fiddle is an extension to translate a foreign function interface (FFI)
 with ruby.
 
-It wraps [libffi](http://sourceware.org/libffi/), a popular C library
-which provides a portable interface that allows code written in one
-language to call code written in another language.
+It wraps <a href='http://sourceware.org/libffi/' class='remote'
+target='_blank'>libffi</a>, a popular C library which provides a
+portable interface that allows code written in one language to call code
+written in another language.
 
 ## Example
 
-Here we will use Fiddle::Function to wrap [floor(3) from
-libm](http://linux.die.net/man/3/floor)
+Here we will use Fiddle::Function to wrap <a
+href='http://linux.die.net/man/3/floor' class='remote'
+target='_blank'>floor(3) from
+libm</a>
 
 
 ```ruby
@@ -38,6 +41,7 @@ floor = Fiddle::Function.new(
 puts floor.call(3.14159) #=> 3.0
 ```
 
-[Fiddle
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/fiddle/rdoc/Fiddle.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/fiddle/rdoc/Fiddle.html'
+class='ruby-doc remote reference' target='_blank'>Fiddle Reference</a>
 

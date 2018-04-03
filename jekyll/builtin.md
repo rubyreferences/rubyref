@@ -11,7 +11,7 @@ so-called "core" classes.
 
 This is very important topic: in Ruby everything is object, and all
 expressions except those listed in [dedicated
-chapter](../language/control-expressions.md) are in fact method calls.
+chapter](language/control-expressions.md) are in fact method calls.
 
 For example, this code (which prints "5" to the standard output)
 
@@ -41,5 +41,5 @@ library class or module, the instructions how to `require` it are
 mentioned.
 
 The rest of standard library documented in the separate [book
-part](./stlib.md).
+part](stdlib.md).
 

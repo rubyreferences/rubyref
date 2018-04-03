@@ -53,6 +53,6 @@ Set the non-blocking flag on `f` in addition to the existing flags in
 f.fcntl(Fcntl::F_SETFL, Fcntl::O_NONBLOCK|m)
 ```
 
-[Fcntl
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/fcntl/rdoc/Fcntl.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/fcntl/rdoc/Fcntl.html'
+class='ruby-doc remote reference' target='_blank'>Fcntl Reference</a>
 

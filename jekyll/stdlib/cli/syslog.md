@@ -25,6 +25,7 @@ to allow secure tamper-proof logging.
 
 The syslog protocol is standardized in RFC 5424.
 
-[Syslog
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/syslog/rdoc/Syslog.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/syslog/rdoc/Syslog.html'
+class='ruby-doc remote reference' target='_blank'>Syslog Reference</a>
 

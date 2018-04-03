@@ -18,7 +18,8 @@ declaring and parsing command-line arguments as options.
 
 
 
-[ENV Reference](http://ruby-doc.org/core-2.5.0/ENV.html)
+<a href='http://ruby-doc.org/core-2.5.0/ENV.html' class='ruby-doc remote
+reference' target='_blank'>ENV Reference</a>
 
 
 
@@ -70,5 +71,6 @@ $ echo "glark" | ruby -e 'p ARGF.read'
 "glark\n"
 ```
 
-[ARGF Reference](http://ruby-doc.org/core-2.5.0/ARGF.html)
+<a href='http://ruby-doc.org/core-2.5.0/ARGF.html' class='ruby-doc
+remote reference' target='_blank'>ARGF Reference</a>
 

@@ -149,8 +149,10 @@ end
 
 ### Methods
 
-For method definition documentation see the [syntax documentation for
-methods](/language/methods-def.md).
+For method definition documentation see the <a
+href='/language/methods-def.md' class='remote' target='_blank'>syntax
+documentation for
+methods</a>.
 
 Class methods may be called directly. (This is slightly confusing, but a
 method on a module is often called a "class method" instead of a "module
@@ -282,8 +284,9 @@ keywords or some special syntax, they are just regular methods of
 ### `alias` and `undef`
 
 You may also alias or undefine methods, but these operations are not
-restricted to modules or classes. See the [miscellaneous syntax
-section](/language/misc.md) for documentation.
+restricted to modules or classes. See the <a href='/language/misc.md'
+class='remote' target='_blank'>miscellaneous syntax
+section</a> for documentation.
 
 # Classes
 

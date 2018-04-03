@@ -24,7 +24,8 @@ receiver and thus can be called in functional form:
 sprintf "%.1f", 1.234 #=> "1.2"
 ```
 
-[Kernel Reference](http://ruby-doc.org/core-2.5.0/Kernel.html)
+<a href='http://ruby-doc.org/core-2.5.0/Kernel.html' class='ruby-doc
+remote reference' target='_blank'>Kernel Reference</a>
 
 
 
@@ -91,7 +92,9 @@ class MyObjectSystem < BasicObject
 end
 ```
 
-[BasicObject Reference](http://ruby-doc.org/core-2.5.0/BasicObject.html)
+<a href='http://ruby-doc.org/core-2.5.0/BasicObject.html'
+class='ruby-doc remote reference' target='_blank'>BasicObject
+Reference</a>
 
 
 
@@ -113,7 +116,8 @@ In the descriptions of Object's methods, the parameter *symbol* refers
 to a symbol, which is either a quoted string or a Symbol (such as
 `:name`).
 
-[Object Reference](http://ruby-doc.org/core-2.5.0/Object.html)
+<a href='http://ruby-doc.org/core-2.5.0/Object.html' class='ruby-doc
+remote reference' target='_blank'>Object Reference</a>
 
 
 
@@ -143,7 +147,8 @@ Mod.constants          #=> [:CONST, :PI, :E]
 Mod.instance_methods   #=> [:meth]
 ```
 
-[Module Reference](http://ruby-doc.org/core-2.5.0/Module.html)
+<a href='http://ruby-doc.org/core-2.5.0/Module.html' class='ruby-doc
+remote reference' target='_blank'>Module Reference</a>
 
 
 
@@ -216,7 +221,8 @@ metaclasses. All metaclasses are instances of the class `Class`.
 obj--->OtherClass---------->(OtherClass)-----------...
 ```
 
-[Class Reference](http://ruby-doc.org/core-2.5.0/Class.html)
+<a href='http://ruby-doc.org/core-2.5.0/Class.html' class='ruby-doc
+remote reference' target='_blank'>Class Reference</a>
 
 
 
@@ -242,7 +248,8 @@ meth.call(9)                 #=> 81
 [ 1, 2, 3 ].collect(&meth)   #=> [1, 4, 9]
 ```
 
-[Method Reference](http://ruby-doc.org/core-2.5.0/Method.html)
+<a href='http://ruby-doc.org/core-2.5.0/Method.html' class='ruby-doc
+remote reference' target='_blank'>Method Reference</a>
 
 
 
@@ -301,8 +308,9 @@ t.test            #=> :modified
 um.bind(t).call   #=> :original
 ```
 
-[UnboundMethod
-Reference](http://ruby-doc.org/core-2.5.0/UnboundMethod.html)
+<a href='http://ruby-doc.org/core-2.5.0/UnboundMethod.html'
+class='ruby-doc remote reference' target='_blank'>UnboundMethod
+Reference</a>
 
 
 
@@ -326,7 +334,8 @@ times5.call(5)                #=> 25
 times3.call(times5.call(4))   #=> 60
 ```
 
-[Proc Reference](http://ruby-doc.org/core-2.5.0/Proc.html)
+<a href='http://ruby-doc.org/core-2.5.0/Proc.html' class='ruby-doc
+remote reference' target='_blank'>Proc Reference</a>
 
 
 
@@ -402,7 +411,8 @@ puts fiber.resume 18
 FiberError: dead fiber called
 ```
 
-[Fiber Reference](http://ruby-doc.org/core-2.5.0/Fiber.html)
+<a href='http://ruby-doc.org/core-2.5.0/Fiber.html' class='ruby-doc
+remote reference' target='_blank'>Fiber Reference</a>
 
 
 
@@ -441,5 +451,6 @@ eval("@secret")       #=> nil
 
 Binding objects have no class-specific methods.
 
-[Binding Reference](http://ruby-doc.org/core-2.5.0/Binding.html)
+<a href='http://ruby-doc.org/core-2.5.0/Binding.html' class='ruby-doc
+remote reference' target='_blank'>Binding Reference</a>
 

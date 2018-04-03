@@ -66,5 +66,6 @@ r.to_a                     #=> [xxx, xxxx, xxxxx, xxxxxx]
 r.member?(Xs.new(5))       #=> true
 ```
 
-[Range Reference](http://ruby-doc.org/core-2.5.0/Range.html)
+<a href='http://ruby-doc.org/core-2.5.0/Range.html' class='ruby-doc
+remote reference' target='_blank'>Range Reference</a>
 

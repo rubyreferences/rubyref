@@ -20,8 +20,10 @@ A method definition consists of the `def` keyword, a method name, the
 body of the method, `return` value and the `end` keyword. When called
 the method will execute the body of the method. This method returns `2`.
 
-This section only covers defining methods. See also the [syntax
-documentation on calling methods](/language/method-call.md).
+This section only covers defining methods. See also the <a
+href='/language/method-call.md' class='remote' target='_blank'>syntax
+documentation
+on calling methods</a>.
 
 ## Method Names
 
@@ -620,8 +622,9 @@ end
 ```
 
 If you wish to rescue an exception for only part of your method, use
-`begin` and `end`. For more details see the page on [exception
-handling](/language/exceptions.md).
+`begin` and `end`. For more details see the page on <a
+href='/language/exceptions.md' class='remote' target='_blank'>exception
+handling</a>.
 
 ## Method definition as an expression
 

@@ -33,7 +33,8 @@ In the method descriptions that follow, a "member" parameter refers to a
 struct member which is either a quoted string (`"name"`) or a Symbol
 (`:name`).
 
-[Struct Reference](http://ruby-doc.org/core-2.5.0/Struct.html)
+<a href='http://ruby-doc.org/core-2.5.0/Struct.html' class='ruby-doc
+remote reference' target='_blank'>Struct Reference</a>
 
 
 
@@ -116,6 +117,8 @@ performance of the objects that are created, as there is much more
 overhead in the setting of these properties compared to using a Hash or
 a Struct.
 
-[OpenStruct
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/ostruct/rdoc/OpenStruct.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/ostruct/rdoc/OpenStruct.html'
+class='ruby-doc remote reference' target='_blank'>OpenStruct
+Reference</a>
 

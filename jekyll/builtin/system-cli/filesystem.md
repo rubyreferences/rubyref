@@ -10,7 +10,8 @@ Objects of class `Dir` are directory streams representing directories in
 the underlying file system. They provide a variety of ways to list
 directories and their contents. See also `File`.
 
-[Dir Reference](http://ruby-doc.org/core-2.5.0/Dir.html)
+<a href='http://ruby-doc.org/core-2.5.0/Dir.html' class='ruby-doc remote
+reference' target='_blank'>Dir Reference</a>
 
 
 
@@ -44,11 +45,13 @@ be made is to make the file read-only, which is reported as `0444`.
 Various constants for the methods in File can be found in
 File::Constants.
 
-[File Reference](http://ruby-doc.org/core-2.5.0/File.html)
+<a href='http://ruby-doc.org/core-2.5.0/File.html' class='ruby-doc
+remote reference' target='_blank'>File Reference</a>
 
 
 
-[FileTest Reference](http://ruby-doc.org/core-2.5.0/FileTest.html)
+<a href='http://ruby-doc.org/core-2.5.0/FileTest.html' class='ruby-doc
+remote reference' target='_blank'>FileTest Reference</a>
 
 
 
@@ -95,8 +98,9 @@ pn.each_line { |line| _ }
 
 
 
-[Pathname
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/pathname/rdoc/Pathname.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/pathname/rdoc/Pathname.html'
+class='ruby-doc remote reference' target='_blank'>Pathname Reference</a>
 
 
 
@@ -132,8 +136,9 @@ file.unlink    # deletes the temp file
 
 
 
-[Tempfile
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/tempfile/rdoc/Tempfile.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/tempfile/rdoc/Tempfile.html'
+class='ruby-doc remote reference' target='_blank'>Tempfile Reference</a>
 
 
 
@@ -210,8 +215,10 @@ FileUtils.uptodate?(file, cmp_list)
 
 
 
-[FileUtils
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/fileutils/rdoc/FileUtils.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/fileutils/rdoc/FileUtils.html'
+class='ruby-doc remote reference' target='_blank'>FileUtils
+Reference</a>
 
 
 
@@ -244,6 +251,6 @@ Find.find(ENV["HOME"]) do |path|
 end
 ```
 
-[Find
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/find/rdoc/Find.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/find/rdoc/Find.html'
+class='ruby-doc remote reference' target='_blank'>Find Reference</a>
 

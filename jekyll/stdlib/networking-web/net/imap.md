@@ -98,6 +98,8 @@ imap.disconnect
 This script invokes the FETCH command and the SEARCH command
 concurrently.
 
-[Net::IMAP
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/net/imap/rdoc/Net::IMAP.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/net/imap/rdoc/Net::IMAP.html'
+class='ruby-doc remote reference' target='_blank'>Net::IMAP
+Reference</a>
 

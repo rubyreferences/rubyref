@@ -12,7 +12,8 @@ require 'openssl'
 # OpenSSL
 
 OpenSSL provides SSL, TLS and general purpose cryptography. It wraps the
-[OpenSSL](https://www.openssl.org/) library.
+<a href='https://www.openssl.org/' class='remote'
+target='_blank'>OpenSSL</a> library.
 
 # Examples
 
@@ -168,11 +169,12 @@ Encryption should use the features of PKCS5. If not supported or if
 required by legacy applications, the older, less secure methods
 specified in RFC 2898 are also supported (see below).
 
-PKCS5 supports PBKDF2 as it was specified in PKCS#5
-[v2.0](http://www.rsa.com/rsalabs/node.asp?id=2127). It still uses a
-password, a salt, and additionally a number of iterations that will slow
-the key derivation process down. The slower this is, the more work it
-requires being able to brute-force the resulting key.
+PKCS5 supports PBKDF2 as it was specified in PKCS#5 <a
+href='http://www.rsa.com/rsalabs/node.asp?id=2127' class='remote'
+target='_blank'>v2.0</a>. It still uses a password, a salt, and
+additionally a number of iterations that will slow the key derivation
+process down. The slower this is, the more work it requires being able
+to brute-force the resulting key.
 
 ### Encryption
 
@@ -230,11 +232,11 @@ decrypted << cipher.final
 
 ## PKCS #5 Password-based Encryption
 
-PKCS #5 is a password-based encryption standard documented at
-[RFC2898](http://www.ietf.org/rfc/rfc2898.txt). It allows a short
-password or passphrase to be used to create a secure encryption key. If
-possible, PBKDF2 as described above should be used if the circumstances
-allow it.
+PKCS #5 is a password-based encryption standard documented at <a
+href='http://www.ietf.org/rfc/rfc2898.txt' class='remote'
+target='_blank'>RFC2898</a>. It allows a short password or passphrase to
+be used to create a secure encryption key. If possible, PBKDF2 as
+described above should be used if the circumstances allow it.
 
 PKCS #5 uses a Cipher, a pass phrase and a salt to generate an
 encryption key.
@@ -618,6 +620,7 @@ puts ssl_client.gets
 If the server certificate is invalid or `context.ca_file` is not set
 when verifying peers an OpenSSL::SSL::SSLError will be raised.
 
-[OpenSSL
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/openssl/rdoc/OpenSSL.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/openssl/rdoc/OpenSSL.html'
+class='ruby-doc remote reference' target='_blank'>OpenSSL Reference</a>
 

@@ -12,7 +12,8 @@ require 'uri'
 # URI
 
 URI is a module providing classes to handle Uniform Resource Identifiers
-([RFC2396](http://tools.ietf.org/html/rfc2396))
+(<a href='http://tools.ietf.org/html/rfc2396' class='remote'
+target='_blank'>RFC2396</a>)
 
 ## Features
 
@@ -66,6 +67,6 @@ uri = URI("rsync://rsync.foo.com")
 #=> #<URI::RSYNC:0x00000000f648c8 URL:rsync://rsync.foo.com>
 ```
 
-[URI
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/uri/rdoc/URI.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/uri/rdoc/URI.html'
+class='ruby-doc remote reference' target='_blank'>URI Reference</a>
 

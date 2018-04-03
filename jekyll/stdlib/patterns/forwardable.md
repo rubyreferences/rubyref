@@ -127,8 +127,10 @@ Be advised, RDoc will not detect delegated methods.
 def\_delegator and def\_delegators methods. For full-class delegation
 via DelegateClass, see `delegate.rb`.
 
-[Forwardable
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/forwardable/rdoc/Forwardable.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/forwardable/rdoc/Forwardable.html'
+class='ruby-doc remote reference' target='_blank'>Forwardable
+Reference</a>
 
 
 
@@ -167,6 +169,8 @@ Facade.service #=> serviced!
 If you want to use both Forwardable and SingleForwardable, you can use
 methods def\_instance\_delegator and def\_single\_delegator, etc.
 
-[SingleForwardable
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/forwardable/rdoc/SingleForwardable.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/forwardable/rdoc/SingleForwardable.html'
+class='ruby-doc remote reference' target='_blank'>SingleForwardable
+Reference</a>
 

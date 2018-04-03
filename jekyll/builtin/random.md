@@ -26,7 +26,8 @@ marshaled, allowing sequences to be saved and resumed.
 PRNGs are currently implemented as a modified Mersenne Twister with a
 period of 2\*\*19937-1.
 
-[Random Reference](http://ruby-doc.org/core-2.5.0/Random.html)
+<a href='http://ruby-doc.org/core-2.5.0/Random.html' class='ruby-doc
+remote reference' target='_blank'>Random Reference</a>
 
 
 
@@ -91,6 +92,8 @@ p SecureRandom.uuid #=> "2d931510-d99f-494a-8c67-87feb05e1594"
 p SecureRandom.uuid #=> "bad85eb9-0713-4da7-8d36-07a8e4b00eab"
 ```
 
-[SecureRandom
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/securerandom/rdoc/SecureRandom.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/securerandom/rdoc/SecureRandom.html'
+class='ruby-doc remote reference' target='_blank'>SecureRandom
+Reference</a>
 

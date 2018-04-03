@@ -219,6 +219,8 @@ bash-3.2$ ruby optparse-test.rb --user 3
 optparse-test.rb:15:in `block in find_user`: No User Found for id 3 (RuntimeError)
 ```
 
-[OptionParser
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/optparse/rdoc/OptionParser.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/optparse/rdoc/OptionParser.html'
+class='ruby-doc remote reference' target='_blank'>OptionParser
+Reference</a>
 

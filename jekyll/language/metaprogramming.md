@@ -103,9 +103,9 @@ end
 ```
 
 > **Note**\: This implementation is naive and just shows the principle.
-> See third-party libraries like
-> [memoist](https://github.com/matthewrudy/memoist) for a proper
-> implementation.
+> See third-party libraries like <a
+> href='https://github.com/matthewrudy/memoist' class='remote'
+> target='_blank'>memoist</a> for a proper implementation.
 
 See [Language Core](../builtin/core.md) classes documentation to
 understand what you can do with core objects.
@@ -114,7 +114,8 @@ understand what you can do with core objects.
 
 Ruby is naturally flexible enough for defining clean and readable
 sublanguages by means of *methods* and *blocks*. Short example (taken
-from the syntax of the [RSpec](http://rspec.info/) testing library):
+from the syntax of the <a href='http://rspec.info/' class='remote'
+target='_blank'>RSpec</a> testing library):
 
 
 ```ruby

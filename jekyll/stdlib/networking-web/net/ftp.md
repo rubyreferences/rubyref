@@ -47,6 +47,7 @@ Net::FTP.open('example.com') do |ftp|
 end
 ```
 
-[Net::FTP
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/net/ftp/rdoc/Net::FTP.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/net/ftp/rdoc/Net::FTP.html'
+class='ruby-doc remote reference' target='_blank'>Net::FTP Reference</a>
 

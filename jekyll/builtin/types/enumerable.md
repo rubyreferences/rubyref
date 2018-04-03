@@ -46,7 +46,8 @@ is also `Enumerable`, and can be processed in the same manner:
 test".each_char.sort                      #=> ["e", "s", "t", "t"]
 ```
 
-[Enumerable Reference](http://ruby-doc.org/core-2.5.0/Enumerable.html)
+<a href='http://ruby-doc.org/core-2.5.0/Enumerable.html' class='ruby-doc
+remote reference' target='_blank'>Enumerable Reference</a>
 
 
 
@@ -147,5 +148,6 @@ puts ext_each(o.to_enum) {|*x| puts x; [:b, *x] }
 # => [], [:b], [1], [:b, 1], [1, 2], [:b, 1, 2], 3
 ```
 
-[Enumerator Reference](http://ruby-doc.org/core-2.5.0/Enumerator.html)
+<a href='http://ruby-doc.org/core-2.5.0/Enumerator.html' class='ruby-doc
+remote reference' target='_blank'>Enumerator Reference</a>
 

@@ -24,11 +24,15 @@ format. Here are some links to the standards documents for these
 formats:
 
 * RSS
-  * [0.9.1](http://www.rssboard.org/rss-0-9-1-netscape)
-  * [1.0](http://web.resource.org/rss/1.0/)
-  * [2.0](http://www.rssboard.org/rss-specification)
+  * <a href='http://www.rssboard.org/rss-0-9-1-netscape' class='remote'
+    target='_blank'>0.9.1</a>
+  * <a href='http://web.resource.org/rss/1.0/' class='remote'
+    target='_blank'>1.0</a>
+  * <a href='http://www.rssboard.org/rss-specification' class='remote'
+    target='_blank'>2.0</a>
 
-* [Atom](http://tools.ietf.org/html/rfc4287)
+* <a href='http://tools.ietf.org/html/rfc4287' class='remote'
+  target='_blank'>Atom</a>
 
 ## Consuming RSS
 
@@ -86,6 +90,6 @@ As you can see, this is a very Builder-like DSL. This code will spit out
 an Atom feed with one item. If we needed a second item, we'd make
 another block with maker.items.new\_item and build a second one.
 
-[RSS
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/rss/rdoc/RSS.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/rss/rdoc/RSS.html'
+class='ruby-doc remote reference' target='_blank'>RSS Reference</a>
 

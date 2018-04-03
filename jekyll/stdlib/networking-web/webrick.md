@@ -71,6 +71,7 @@ Remember that `server.mount_proc` must precede `server.start`.
 
 
 
-[WEBrick
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/webrick/rdoc/WEBrick.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/webrick/rdoc/WEBrick.html'
+class='ruby-doc remote reference' target='_blank'>WEBrick Reference</a>
 

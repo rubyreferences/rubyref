@@ -11,11 +11,11 @@ require 'zlib'
 
 # Zlib
 
-This module provides access to the [zlib library](http://zlib.net). Zlib
-is designed to be a portable, free, general-purpose, legally
-unencumbered -- that is, not covered by any patents -- lossless
-data-compression library for use on virtually any computer hardware and
-operating system.
+This module provides access to the <a href='http://zlib.net'
+class='remote' target='_blank'>zlib library</a>. Zlib is designed to be
+a portable, free, general-purpose, legally unencumbered -- that is, not
+covered by any patents -- lossless data-compression library for use on
+virtually any computer hardware and operating system.
 
 The zlib compression library provides in-memory compression and
 decompression functions, including integrity checks of the uncompressed
@@ -61,6 +61,6 @@ puts "Uncompressed data is: #{uncompressed_data}"
 #=> Uncompressed data is: The Project Gutenberg EBook of Don Quixote...
 ```
 
-[Zlib
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/zlib/rdoc/Zlib.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/zlib/rdoc/Zlib.html'
+class='ruby-doc remote reference' target='_blank'>Zlib Reference</a>
 

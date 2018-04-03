@@ -105,6 +105,6 @@ csv = CSV.new(io, options)
 # ... read (with gets() or each()) from and write (with <<) to csv here ...
 ```
 
-[CSV
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/csv/rdoc/CSV.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/csv/rdoc/CSV.html'
+class='ruby-doc remote reference' target='_blank'>CSV Reference</a>
 

@@ -49,8 +49,10 @@ You can also use `#gm`, `#local` and `#utc` to infer GMT, local and UTC
 timezones instead of using the current system setting.
 
 You can also create a new time using Time::at which takes the number of
-seconds (or fraction of seconds) since the [Unix
-Epoch](http://en.wikipedia.org/wiki/Unix_time).
+seconds (or fraction of seconds) since the <a
+href='http://en.wikipedia.org/wiki/Unix_time' class='remote'
+target='_blank'>Unix
+Epoch</a>.
 
 
 ```ruby
@@ -118,7 +120,8 @@ t1 >  t2 #=> false
 Time.new(2010,10,31).between?(t1, t2) #=> true
 ```
 
-[Time Reference](http://ruby-doc.org/core-2.5.0/Time.html)
+<a href='http://ruby-doc.org/core-2.5.0/Time.html' class='ruby-doc
+remote reference' target='_blank'>Time Reference</a>
 
 
 
@@ -222,8 +225,8 @@ argument that describes the format of the string. For example:
 Time.strptime("2000-10-31", "%Y-%m-%d") #=> 2000-10-31 00:00:00 -0500
 ```
 
-[Time
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/time/rdoc/Time.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/time/rdoc/Time.html'
+class='ruby-doc remote reference' target='_blank'>Time Reference</a>
 
 
 
@@ -310,8 +313,8 @@ d += 1                       #=> #<Date: 2001-02-04 ...>
 d.strftime('%a %d %b %Y')    #=> "Sun 04 Feb 2001"
 ```
 
-[Date
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/date/rdoc/Date.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/date/rdoc/Date.html'
+class='ruby-doc remote reference' target='_blank'>Date Reference</a>
 
 
 
@@ -394,21 +397,27 @@ d > DateTime.new(1999)
 
 #### When should you use DateTime and when should you use Time?
 
-It's a common misconception that [William
-Shakespeare](http://en.wikipedia.org/wiki/William_Shakespeare) and
-[Miguel de Cervantes](http://en.wikipedia.org/wiki/Miguel_de_Cervantes)
-died on the same day in history - so much so that UNESCO named April 23
-as [World Book Day because of this
-fact](http://en.wikipedia.org/wiki/World_Book_Day). However, because
-England hadn't yet adopted the [Gregorian Calendar
-Reform](http://en.wikipedia.org/wiki/Gregorian_calendar#Gregorian_reform)
-(and wouldn't until
-[1752](http://en.wikipedia.org/wiki/Calendar_(New_Style)_Act_1750))
-their deaths are actually 10 days apart. Since Ruby's Time class
-implements a [proleptic Gregorian
-calendar](http://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar) and
-has no concept of calendar reform there's no way to express this with
-Time objects. This is where DateTime steps in:
+It's a common misconception that <a
+href='http://en.wikipedia.org/wiki/William_Shakespeare' class='remote'
+target='_blank'>William
+Shakespeare</a> and <a
+href='http://en.wikipedia.org/wiki/Miguel_de_Cervantes' class='remote'
+target='_blank'>Miguel de
+Cervantes</a> died on the same day in history - so much so that UNESCO
+named April 23 as <a href='http://en.wikipedia.org/wiki/World_Book_Day'
+class='remote' target='_blank'>World Book Day
+because of this fact</a>. However, because England hadn't yet adopted
+the <a
+href='http://en.wikipedia.org/wiki/Gregorian_calendar#Gregorian_reform'
+class='remote' target='_blank'>Gregorian Calendar
+Reform</a> (and wouldn't until <a
+href='http://en.wikipedia.org/wiki/Calendar_(New_Style)_Act_1750'
+class='remote' target='_blank'>1752</a>) their deaths are actually 10
+days apart. Since Ruby's Time class implements a <a
+href='http://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar'
+class='remote' target='_blank'>proleptic Gregorian
+calendar</a> and has no concept of calendar reform there's no way to
+express this with Time objects. This is where DateTime steps in:
 
 
 ```ruby
@@ -460,10 +469,11 @@ shakespeare + 366 + 365
  #=> Fri, 04 May 1753 00:00:00 +0000
 ```
 
-As you can see, if we're accurately tracking the number of [solar
-years](http://en.wikipedia.org/wiki/Tropical_year) since Shakespeare's
-birthday then the correct anniversary date would be the 4th May and not
-the 23rd April.
+As you can see, if we're accurately tracking the number of <a
+href='http://en.wikipedia.org/wiki/Tropical_year' class='remote'
+target='_blank'>solar
+years</a> since Shakespeare's birthday then the correct anniversary date
+would be the 4th May and not the 23rd April.
 
 So when should you use DateTime in Ruby and when should you use Time?
 Almost certainly you'll want to use Time since your app is probably
@@ -471,13 +481,15 @@ dealing with current dates and times. However, if you need to deal with
 dates and times in a historical context you'll want to use DateTime to
 avoid making the same mistakes as UNESCO. If you also have to deal with
 timezones then best of luck - just bear in mind that you'll probably be
-dealing with [local solar
-times](http://en.wikipedia.org/wiki/Solar_time), since it wasn't until
-the 19th century that the introduction of the railways necessitated the
-need for [Standard
-Time](http://en.wikipedia.org/wiki/Standard_time#Great_Britain) and
-eventually timezones.
+dealing with <a href='http://en.wikipedia.org/wiki/Solar_time'
+class='remote' target='_blank'>local solar
+times</a>, since it wasn't until the 19th century that the introduction
+of the railways necessitated the need for <a
+href='http://en.wikipedia.org/wiki/Standard_time#Great_Britain'
+class='remote' target='_blank'>Standard Time</a> and eventually
+timezones.
 
-[DateTime
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/date/rdoc/DateTime.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/date/rdoc/DateTime.html'
+class='ruby-doc remote reference' target='_blank'>DateTime Reference</a>
 

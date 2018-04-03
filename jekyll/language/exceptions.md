@@ -8,8 +8,10 @@ next: "/language/refinements.html"
 
 ## Raising Exceptions
 
-Exceptions are raised with [`Kernel#raise`]() method. It has three
-forms:
+Exceptions are raised with <a
+href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-raise'
+class='ruby-doc remote' target='_blank'><code>Kernel#raise</code></a>
+method. It has three forms:
 
 
 ```ruby
@@ -19,10 +21,11 @@ raise ErrorClass, "Some message" # Custom error with custom message
 ```
 
 `ErrorClass` should be a subclass of
-[Exception](../builtin/errors-warnings.md).
+[Exception](../builtin/exception.md).
 
-See [`Kernel#raise`]() documentation for more details on raising
-exceptions.
+See <a href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-raise'
+class='ruby-doc remote' target='_blank'><code>Kernel#raise</code></a>
+documentation for more details on raising exceptions.
 
 
 
@@ -114,8 +117,8 @@ to create an infinite loop.
 
 Inside a rescue block is the only valid location for `retry`, all other
 uses will raise a SyntaxError. If you wish to retry a block iteration
-use `redo`. See [Control Expressions](/language/control_expressions.md)
-for details.
+use `redo`. See <a href='/language/control_expressions.md'
+class='remote' target='_blank'>Control Expressions</a> for details.
 
 To always run some code whether an exception was raised or not, use
 `ensure`: 

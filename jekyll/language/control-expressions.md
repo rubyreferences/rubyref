@@ -400,8 +400,7 @@ The result value of a `for` loop is the value iterated over unless
 `break` is used.
 
 Unlike other languages, Ruby program typically doesn't need `for` loop,
-using [Enumerable](../../builtin/types/collections.md#enumerable)
-instead:
+using [Enumerable](../builtin/types/enumerable.md) instead:
 
 
 ```ruby
@@ -570,8 +569,9 @@ This prints \[0, 1, 3, 3, 5, 5, 7, 7, 9, 9, 11\]
 
 In Ruby 1.8, you could also use `retry` where you used `redo`. This is
 no longer true, now you will receive a SyntaxError when you use `retry`
-outside of a `rescue` block. See [Exceptions](/language/exceptions.md)
-for proper usage of `retry`.
+outside of a `rescue` block. See <a href='/language/exceptions.md'
+class='remote' target='_blank'>Exceptions</a> for proper usage of
+`retry`.
 
 ## Flip-Flop
 

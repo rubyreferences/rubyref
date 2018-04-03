@@ -170,7 +170,7 @@ cgi.has_key?('field_name')
 cgi.include?('field_name')
 ```
 
-CAUTION! [cgi]('field_name') returned an Array with the old
+CAUTION! `cgi['field_name']` returned an Array with the old
 cgi.rb(included in Ruby 1.6)
 
 ### Get form values as hash
@@ -319,6 +319,6 @@ escapeHTML('Usage: foo "bar" <baz>')
 h('Usage: foo "bar" <baz>') # alias
 ```
 
-[CGI
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/cgi/rdoc/CGI.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/cgi/rdoc/CGI.html'
+class='ruby-doc remote reference' target='_blank'>CGI Reference</a>
 

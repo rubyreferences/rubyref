@@ -255,7 +255,7 @@ Irb.irb.
 On the other hand, each conf in IRB@Command+line+options is used to
 individually configure IRB.irb.
 
-If a proc is set for [IRB.conf](:IRB_RC), its will be invoked after
+If a proc is set for `IRB.conf[:IRB_RC]`, its will be invoked after
 execution of that proc with the context of the current session as its
 argument. Each session can be configured using this mechanism.
 
@@ -333,6 +333,6 @@ irb(main):009:0> jobs
 irb(main):010:0> exit
 ```
 
-[IRB
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/irb/rdoc/IRB.html)
+<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/irb/rdoc/IRB.html'
+class='ruby-doc remote reference' target='_blank'>IRB Reference</a>
 

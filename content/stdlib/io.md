@@ -1,6 +1,6 @@
 # `io/*` libraries
 
-This family of libraries extends [IO](#TODO) class with several methods.
+This family of libraries extends [IO](../../builtin/system-cli/io.md) class with several methods.
 
     require 'io/console'
 

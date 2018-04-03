@@ -71,8 +71,9 @@ local variables: a
 
 You may isolate variables in a block from the outer scope by listing
 them following a `;` in the block's arguments. See the documentation for
-block local variables in the [calling methods](/language/method-call.md)
-documentation for an example.
+block local variables in the <a href='/language/method-call.md'
+class='remote' target='_blank'>calling methods</a> documentation for an
+example.
 
 See also `Kernel#local_variables`, but note that a `for` loop does not
 create a new scope like a block does.
@@ -302,8 +303,9 @@ An uninitialized global variable has a value of `nil`.
 
 Ruby has some special globals that behave differently depending on
 context such as the regular expression match variables or that have a
-side-effect when assigned to. See the [global variables
-documentation](/language/globals.md) for details.
+side-effect when assigned to. See the <a href='/language/globals.md'
+class='remote' target='_blank'>global variables documentation</a> for
+details.
 
 
 

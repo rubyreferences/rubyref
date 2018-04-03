@@ -33,6 +33,7 @@ plain = Base64.decode64(enc)
 The purpose of using base64 to encode data is that it translates any
 binary data into purely printable characters.
 
-[Base64
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/base64/rdoc/Base64.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/base64/rdoc/Base64.html'
+class='ruby-doc remote reference' target='_blank'>Base64 Reference</a>
 

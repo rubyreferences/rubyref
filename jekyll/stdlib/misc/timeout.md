@@ -28,6 +28,7 @@ Previous versions didn't use a module for namespacing, however
 `#timeout` is provided for backwards compatibility. You should prefer
 Timeout.timeout instead.
 
-[Timeout
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/timeout/rdoc/Timeout.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/timeout/rdoc/Timeout.html'
+class='ruby-doc remote reference' target='_blank'>Timeout Reference</a>
 

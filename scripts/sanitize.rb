@@ -50,6 +50,10 @@ Dir['intermediate/parsed/**/*.md'].each do |source|
       content.sub('of the class `Class`.', "of the class `Class`.\n") # To properly render the diagram after
     when %r{core/Float\.md}
       content.sub("wiki-floats_i\n    mprecise\n\n", "wiki-floats_imprecise\n")
+    when %r{lib/cgi/CGI\.md}
+      content.sub("[cgi]('field_name')", "`cgi['field_name']`")
+    when %r{lib/irb/IRB\.md}
+      content.sub('[IRB.conf](:IRB_RC)', '`IRB.conf[:IRB_RC]`')
     when %r{lib/prime/Prime\.md}
       content
         .sub("e.g.\n    Prime", "e.g.\n\n    Prime")
@@ -72,6 +76,8 @@ Dir['intermediate/parsed/**/*.md'].each do |source|
     when %r{lib/English/English.md}
       content.gsub(/^\* (\$.+?): (\$.+?)$/, '* `\1`: `\2`')
         .sub('`$``') { '<code class="highlighter-rouge">$`</code>' } # Without block, '`' has special meaning in sub
+    when %r{_special/kernel\.md}
+      content.gsub(/ref:\`(.+?)\`/, 'ref:\1')
     else
       content
     end

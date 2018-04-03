@@ -11,7 +11,7 @@ require_relative 'interm/utils'
 MARKDOWN = RDoc::Markup::ToMarkdown.new
 
 # TODO: currently rendered Ruby version
-CORE_DOCS = 'http://ruby-doc.org/core-2.5.0'
+CORE_DOCS = 'https://ruby-doc.org/core-2.5.0'
 LIB_DOCS = 'https://ruby-doc.org/stdlib-2.5.0/libdoc/%s/rdoc'
 
 def parse_docs

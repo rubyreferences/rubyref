@@ -126,7 +126,8 @@ end
 Since Marshal.dump outputs a string you can have \_dump return a Marshal
 string which is Marshal.loaded in \_load for complex objects.
 
-[Marshal Reference](http://ruby-doc.org/core-2.5.0/Marshal.html)
+<a href='http://ruby-doc.org/core-2.5.0/Marshal.html' class='ruby-doc
+remote reference' target='_blank'>Marshal Reference</a>
 
 
 

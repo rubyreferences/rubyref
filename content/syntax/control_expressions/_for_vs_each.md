@@ -1,5 +1,5 @@
 Unlike other languages, Ruby program typically doesn't need `for` loop, using
-[Enumerable](../../builtin/types/collections.md#enumerable) instead:
+[Enumerable](../builtin/types/enumerable.md) instead:
 
     # Not idiomatic
     for i in 0..3

@@ -124,6 +124,8 @@ Current price: 79
 --- Sun Jun 09 00:10:25 CDT 2002: Price below 80: 79
 ```
 
-[Observable
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/observer/rdoc/Observable.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/observer/rdoc/Observable.html'
+class='ruby-doc remote reference' target='_blank'>Observable
+Reference</a>
 

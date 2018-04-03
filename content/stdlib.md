@@ -11,4 +11,4 @@ Some notes about chapter's structure:
 * Some libraries documentation is moved to previous part of this Reference (Built-in Classes) with attached note that it is a part of standard library. For example, Set is documented besides Hash and Array, Pathname is documented besides File and Dir, and so on.
 * IRB (Ruby interactive console) and RDoc (Ruby documentation tool), despite being formally parts of standard library, documented in Tools chapter.
 
-For installing and developing third-party libraries, see [RubyGems](#TODO) chapter.
+For installing and developing third-party libraries, see [RubyGems](developing/libraries.md) chapter.

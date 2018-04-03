@@ -1696,8 +1696,10 @@ comments in thread.c.
 ### I/O Multiplexing
 
 Ruby supports I/O multiplexing based on the select(2) system call. The
-Linux select\_tut(2) manpage
-[http://man7.org/linux/man-pages/man2/select_tut.2.html](http://man7.org/linux/man-pages/man2/select_tut.2.html)
+Linux select\_tut(2) manpage <a
+href='http://man7.org/linux/man-pages/man2/select_tut.2.html'
+class='remote'
+target='_blank'>http://man7.org/linux/man-pages/man2/select_tut.2.html</a>
 provides a good overview on how to use select(2), and the Ruby API has
 analogous functions and data structures to the well-known select API.
 Understanding of select(2) is required to understand this section.
@@ -1831,7 +1833,8 @@ Some macros to check API compatibilities are available by default.
 
 ## Appendix C. Functions available for use in extconf.rb
 
-See documentation for [mkmf](#TODO).
+See documentation for <a href='#TODO' class='remote'
+target='_blank'>mkmf</a>.
 
 ## Appendix D. Generational GC
 
@@ -1926,8 +1929,10 @@ Before inserting write barriers, you need to know about RGenGC algorithm
 (gc.c will help you). Macros and functions to insert write barriers are
 available in include/ruby/ruby.h. An example is available in iseq.c.
 
-For a complete guide for RGenGC and write barriers, please refer to
-[https://bugs.ruby-lang.org/projects/ruby-trunk/wiki/RGenGC](https://bugs.ruby-lang.org/projects/ruby-trunk/wiki/RGenGC).
+For a complete guide for RGenGC and write barriers, please refer to <a
+href='https://bugs.ruby-lang.org/projects/ruby-trunk/wiki/RGenGC'
+class='remote'
+target='_blank'>https://bugs.ruby-lang.org/projects/ruby-trunk/wiki/RGenGC</a>.
 
 ## Appendix E. RB\_GC\_GUARD to protect from premature GC
 
@@ -1992,6 +1997,8 @@ mkmf.rb is used by Ruby C extensions to generate a Makefile which will
 correctly compile and link the C extension to Ruby and a third-party
 library.
 
-[MakeMakefile
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/mkmf/rdoc/MakeMakefile.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/mkmf/rdoc/MakeMakefile.html'
+class='ruby-doc remote reference' target='_blank'>MakeMakefile
+Reference</a>
 

@@ -140,6 +140,7 @@ Logger.new(logdev, formatter: proc {|severity, datetime, progname, msg|
 })
 ```
 
-[Logger
-Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/logger/rdoc/Logger.html)
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/logger/rdoc/Logger.html'
+class='ruby-doc remote reference' target='_blank'>Logger Reference</a>
 
