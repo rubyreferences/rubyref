@@ -1,7 +1,7 @@
 ---
 title: Other Implementations of Ruby
-prev: "/installation.html"
-next: "/irb.html"
+prev: "/intro/installation.html"
+next: "/intro/irb.html"
 ---
 
 # Other Implementations of Ruby
@@ -44,6 +44,6 @@ Here’s a list:
 
 
 
-> See [previous chapter](../installation.md) about downloading and
+> See [previous chapter](installation.md) about downloading and
 > installing different versions and implementations of Ruby.
 

@@ -1,7 +1,7 @@
 ---
 title: Installation
-prev: "/about-this-book.html"
-next: "/installation/implementations.html"
+prev: "/intro.html"
+next: "/intro/implementations.html"
 ---
 
 # Installation

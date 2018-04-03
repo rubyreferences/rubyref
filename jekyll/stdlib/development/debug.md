@@ -153,7 +153,7 @@ class='ruby-doc remote reference' target='_blank'>debug Reference</a>
 Since Ruby 2.5.0, there is <a
 href='https://ruby-doc.org/core-2.5.0/Binding.html#method-i-irb'
 class='ruby-doc remote' target='_blank'>Binding#irb</a> method, allowing
-to enter [IRB](../../irb.md) session at the point of call.
+to enter [IRB](../../intro/irb.md) session at the point of call.
 
 Third-party libraries:
 

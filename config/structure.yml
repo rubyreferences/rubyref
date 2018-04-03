@@ -1,12 +1,11 @@
-- title: About This Book
-  content:
-    - source: README.md
-- title: Installation
-  content:
-    - source: "# Installation"
-    - source: www.ruby-lang.org/en/documentation/installation/index.md
-      header_shift: 0
+- title: Introduction
+  id: intro
   children:
+    - title: Installation
+      content:
+        - source: "# Installation"
+        - source: www.ruby-lang.org/en/documentation/installation/index.md
+          header_shift: 0
     - title: Other Implementations of Ruby
       id: implementations
       content:
@@ -14,22 +13,22 @@
           sections: 'Other Implementations of Ruby'
           header_shift: -2
         - source: >
-            > See [previous chapter](../installation.md) about downloading and installing different
+            > See [previous chapter](installation.md) about downloading and installing different
             versions and implementations of Ruby.
-- title: Interactive Console
-  id: irb
-  content:
-    - source: lib/irb/IRB.md
-      sections:
-        - IRB
-        - Usage
-        - Session variables
-      remove:
-        - "## Usage"
-        # "Use of irb is easy if you know Ruby." does not look friendly in book intro :)
-        - "Use of irb is easy"
-    - source: "> Another popular Ruby interactive console is [pry](http://pryrepl.org/)."
-    # - source: lib/irb/XMP.md
+    - title: Interactive Console
+      id: irb
+      content:
+        - source: lib/irb/IRB.md
+          sections:
+            - IRB
+            - Usage
+            - Session variables
+          remove:
+            - "## Usage"
+            # "Use of irb is easy if you know Ruby." does not look friendly in book intro :)
+            - "Use of irb is easy"
+        - source: "> Another popular Ruby interactive console is [pry](http://pryrepl.org/)."
+        # - source: lib/irb/XMP.md
 - title: Language Structure
   id: language
   content:

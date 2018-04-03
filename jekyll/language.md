@@ -1,6 +1,6 @@
 ---
 title: Language Structure
-prev: "/irb.html"
+prev: "/intro/irb.html"
 next: "/language/keywords.html"
 ---
 

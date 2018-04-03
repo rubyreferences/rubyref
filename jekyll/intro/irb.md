@@ -1,6 +1,6 @@
 ---
 title: Interactive Console
-prev: "/installation/implementations.html"
+prev: "/intro/implementations.html"
 next: "/language.html"
 ---
 
