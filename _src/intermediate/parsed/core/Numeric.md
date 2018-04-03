@@ -69,4 +69,4 @@ classes.
     puts tally * 2            #=> "||||"
     puts tally > 1            #=> true
 
-[Numeric Reference](http://ruby-doc.org/core-2.5.0/Numeric.html)
+[Numeric Reference](https://ruby-doc.org/core-2.5.0/Numeric.html)

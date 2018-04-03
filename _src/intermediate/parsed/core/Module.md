@@ -20,4 +20,4 @@ is either a quoted string or a `Symbol` (such as `:name`).
     Mod.constants          #=> [:CONST, :PI, :E]
     Mod.instance_methods   #=> [:meth]
 
-[Module Reference](http://ruby-doc.org/core-2.5.0/Module.html)
+[Module Reference](https://ruby-doc.org/core-2.5.0/Module.html)

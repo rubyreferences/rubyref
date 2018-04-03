@@ -15,4 +15,4 @@ access those variables.
     times5.call(5)                #=> 25
     times3.call(times5.call(4))   #=> 60
 
-[Proc Reference](http://ruby-doc.org/core-2.5.0/Proc.html)
+[Proc Reference](https://ruby-doc.org/core-2.5.0/Proc.html)

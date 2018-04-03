@@ -13,4 +13,4 @@ Raised when a signal is received.
 
     received Exception SIGHUP
 
-[SignalException Reference](http://ruby-doc.org/core-2.5.0/SignalException.html)
+[SignalException Reference](https://ruby-doc.org/core-2.5.0/SignalException.html)

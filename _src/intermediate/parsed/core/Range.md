@@ -49,4 +49,4 @@ An example of using `Xs` to construct a range:
     r.to_a                     #=> [xxx, xxxx, xxxxx, xxxxxx]
     r.member?(Xs.new(5))       #=> true
 
-[Range Reference](http://ruby-doc.org/core-2.5.0/Range.html)
+[Range Reference](https://ruby-doc.org/core-2.5.0/Range.html)

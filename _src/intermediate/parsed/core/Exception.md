@@ -71,6 +71,8 @@ The built-in subclasses of Exception are:
 
     *   RegexpError
     *   RuntimeError -- default for `raise`
+        *   FrozenError
+
     *   SystemCallError
         *   Errno::*
 
@@ -83,4 +85,4 @@ The built-in subclasses of Exception are:
 *   fatal -- impossible to rescue
 
 
-[Exception Reference](http://ruby-doc.org/core-2.5.0/Exception.html)
+[Exception Reference](https://ruby-doc.org/core-2.5.0/Exception.html)

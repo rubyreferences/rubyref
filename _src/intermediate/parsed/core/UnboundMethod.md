@@ -46,4 +46,4 @@ subsequent changes to the underlying class will not affect the unbound method.
     t.test            #=> :modified
     um.bind(t).call   #=> :original
 
-[UnboundMethod Reference](http://ruby-doc.org/core-2.5.0/UnboundMethod.html)
+[UnboundMethod Reference](https://ruby-doc.org/core-2.5.0/UnboundMethod.html)
