@@ -33,12 +33,12 @@
   id: language
   content:
     - source: content/language.md
-    - source: "doc/syntax/miscellaneous.md#Ending an Expression"
-      header_shift: 0
-    # TODO: continuing the expression on the next line
-    - source: "doc/syntax/miscellaneous.md#Indentation"
-      header_shift: 0
-    - source: "doc/syntax/miscellaneous.md#`defined?`"
+    - source: "doc/syntax/miscellaneous.md"
+      sections:
+        - Ending an Expression
+        - Indentation
+        - "`defined?`"
+        # TODO: continuing the expression on the next line
       header_shift: 0
     # Rewritten
     # - source: doc/syntax.md
@@ -131,7 +131,9 @@
     - title: Miscellaneous Syntax
       id: misc
       content:
-        - source: "doc/syntax/miscellaneous.md#`BEGIN` and `END`"
+        - source: doc/syntax/miscellaneous.md
+          sections:
+            - "`BEGIN` and `END`"
           header_shift: 0
     - title: File Structure
       id: files
@@ -198,11 +200,13 @@
             - source: core/Rational.md
             - source: core/Complex.md
             - source: '## BigDecimal'
-            - source: ext/bigdecimal/BigDecimal.md#Introduction
+            - source: ext/bigdecimal/BigDecimal.md
+              sections:
+                - Introduction
+                - _ref
               remove: '## Introduction'
               process:
                 - [stdlib, bigdecimal]
-            - source: ext/bigdecimal/BigDecimal.md#_ref
             # - source: ext/bigdecimal/BigMath.md
             # - source: ext/bigdecimal/Jacobian.md
             # - source: ext/bigdecimal/LUSolve.md
@@ -247,13 +251,16 @@
                 - "All of these examples"
 
             - source: content/builtin/core/time/_timerb.md
-            - source: lib/time/Time.md#Examples
+            - source: lib/time/Time.md
+              sections:
+                - Examples
+                - Converting to a String
+                - Time.parse
+                - Time.strptime
               remove: "## Examples"
-            - source: "lib/time/Time.md#Converting to a String"
-            - source: "lib/time/Time.md#Time.parse"
-            - source: "lib/time/Time.md#Time.strptime"
-
-            - source: ext/date/Date.md#Date
+            - source: ext/date/Date.md
+              sections:
+                - Date
               process:
                 - [stdlib, date]
             - source: ext/date/DateTime.md
@@ -286,8 +293,10 @@
             - source: lib/matrix/Matrix.md
               process:
                 - [stdlib, matrix]
-            - source: lib/matrix/Vector.md#Vector
-            - source: lib/matrix/Vector.md#_ref
+            - source: lib/matrix/Vector.md
+              sections:
+                - Vector
+                - _ref
 
     - title: Exception
       content:
@@ -396,27 +405,34 @@
             - source: core/Dir.md
               remove: "The directory used"
             - source: core/File.md
-            - source: core/FileTest.md#_ref
-            - source: ext/pathname/Pathname.md#Pathname
+            - source: core/FileTest.md
+              sections: _ref
+            - source: ext/pathname/Pathname.md
+              sections:
+                - Pathname
+                - "Example 1: Using Pathname"
+                - _ref
+              remove: "### Example 1"
               process:
                 - [stdlib, pathname]
-            - source: "ext/pathname/Pathname.md#Example 1: Using Pathname"
-              remove: "### Example 1"
-            - source: ext/pathname/Pathname.md#_ref
-            - source: lib/tempfile/Tempfile.md#Tempfile
+            - source: lib/tempfile/Tempfile.md
+              sections:
+                - Tempfile
+                - Synopsis
+                - _ref
               process:
                 - [stdlib, tempfile]
-            - source: lib/tempfile/Tempfile.md#Synopsis
               remove: "## Synopsis"
-            - source: lib/tempfile/Tempfile.md#_ref
             - source: "## FileUtils"
               process:
                 - [stdlib, fileutils]
-            - source: "lib/fileutils/FileUtils.md#module FileUtils"
+            - source: lib/fileutils/FileUtils.md
+              sections:
+                - module FileUtils
+                - Module Functions
+                - _ref
               remove: "## module FileUtils"
-            - source: "lib/fileutils/FileUtils.md#Module Functions"
               remove: "### Module Functions"
-            - source: lib/fileutils/FileUtils.md#_ref
             - source: lib/find/Find.md
               process:
                 - [stdlib, find]
@@ -424,7 +440,8 @@
           id: args
           content:
             - source: content/core/system-cli/args.md
-            - source: core/ENV.md#_ref
+            - source: core/ENV.md
+              sections: _ref
             - source: core/ARGF.md
 
     - title: Concurrency and Parallelism
@@ -523,7 +540,8 @@
               remove_sections:
                 - History
                 - More info
-            - source: ext/psych/Psych.md#_ref
+            - source: ext/psych/Psych.md
+              sections: _ref
         - title: "rexml: XML parser and generator"
           id: rexml
           content:
@@ -602,7 +620,8 @@
                 # Lost in https://ruby-doc.org/, at least for Ruby 2.5.0
                 # And anyways contained nothing useful.
                 - "[PP Reference]"
-            - source: lib/prettyprint/PrettyPrint.md#_ref
+            - source: lib/prettyprint/PrettyPrint.md
+              sections: _ref
         - title: profiler
           content:
             - source: "## profile"
@@ -636,11 +655,13 @@
           content:
             - source: "## ERB"
               process: [[require_stdlib, erb]]
-            - source: lib/erb/ERB.md#Introduction
+            - source: lib/erb/ERB.md
+              sections:
+                - Introduction
+                - Recognized Tags
+                - Options
+                - _ref
               remove: "## Introduction"
-            - source: lib/erb/ERB.md#Recognized Tags
-            - source: lib/erb/ERB.md#Options
-            - source: lib/erb/ERB.md#_ref
         - title: "racc: Parser Generator"
           id: racc
           content:
@@ -650,11 +671,13 @@
           content:
             - source: '# scanf'
               process: [[require_stdlib, scanf]]
-            - source: lib/scanf/Scanf.md#Description
+            - source: lib/scanf/Scanf.md
+              sections:
+                - Description
+                - Basic usage
+                - Block usage
+                - _ref
               remove: '## Description'
-            - source: "lib/scanf/Scanf.md#Basic usage"
-            - source: "lib/scanf/Scanf.md#Block usage"
-            - source: "lib/scanf/Scanf.md#_ref"
         - title: "shellwords: Shell-aware string manipulation"
           id: shellwords
           content:
@@ -671,9 +694,11 @@
         - title: "strscan: Sequental String Scanner"
           id: strscan
           content:
-            - source: ext/strscan/StringScanner.md#StringScanner
+            - source: ext/strscan/StringScanner.md
+              sections:
+                - StringScanner
+                - _ref
               process: require_stdlib
-            - source: ext/strscan/StringScanner.md#_ref
 
     - title: Networking and Web
       content:
@@ -726,7 +751,8 @@
               process: require_stdlib
               remove:
                 - "## What is This Library?"
-            - source: lib/net/pop/Net--APOP.md#_ref
+            - source: lib/net/pop/Net--APOP.md
+              sections: _ref
             # - source: lib/net/pop/Net--APOPSession.md
             # - source: lib/net/pop/Net--POPAuthenticationError.md
             # - source: lib/net/pop/Net--POPBadResponse.md
@@ -792,11 +818,13 @@
         - title: "webrick: Simple Web Server"
           id: webrick
           content:
-            - source: "lib/webrick/WEBrick.md#WEB server toolkit."
+            - source: lib/webrick/WEBrick.md
+              sections:
+                - "WEB server toolkit."
+                - Starting an HTTP server
+                - Custom Behavior
+                - _ref
               process: require_stdlib
-            - source: "lib/webrick/WEBrick.md#Starting an HTTP server"
-            - source: "lib/webrick/WEBrick.md#Custom Behavior"
-            - source: lib/webrick/WEBrick.md#_ref
             # - source: lib/webrick/Errno.md
         - title: uri
           content:
@@ -943,11 +971,15 @@
                 - Example
             # - source: ext/dbm/DBMError.md
             - source: '## GDBM'
-            - source: ext/gdbm/GDBM.md#Summary
+            - source: ext/gdbm/GDBM.md
+              sections:
+                - Summary
+                - _ref
               remove: '## Summary'
-            - source: ext/gdbm/GDBM.md#_ref
-            - source: ext/sdbm/SDBM.md#SDBM
-            - source: ext/sdbm/SDBM.md#_ref
+            - source: ext/sdbm/SDBM.md
+              sections:
+                - SDBM
+                - _ref
             # - source: ext/sdbm/SDBMError.md
         - title: timeout
           content:
@@ -968,11 +1000,15 @@
               remove_sections: [Usage]
             - source: lib/getoptlong/GetoptLong.md
 
-            - source: lib/e2mmap/Exception2MessageMapper.md#Exception2MessageMapper
-            - source: lib/e2mmap/Exception2MessageMapper.md#_ref
+            - source: lib/e2mmap/Exception2MessageMapper.md
+              sections:
+                - Exception2MessageMapper
+                - _ref
 
-            - source: ext/nkf/NKF.md#NKF
-            - source: ext/nkf/NKF.md#_ref
+            - source: ext/nkf/NKF.md
+              sections:
+                - NKF
+                - _ref
             # - source: ext/nkf/Kconv.md
 
             - source: lib/pstore/PStore.md
