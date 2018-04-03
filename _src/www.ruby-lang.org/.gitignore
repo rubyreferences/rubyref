@@ -1,9 +1,0 @@
-_site/
-.DS_Store
-*.swp
-*.swo
-.bundle
-.ruby-version
-vendor
-.env
-bin
