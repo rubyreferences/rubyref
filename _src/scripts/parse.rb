@@ -96,7 +96,10 @@ def parse_ext
     end
 end
 
+puts "Removing #{OUT}..."
+FileUtils.rm_rf OUT
+
 parse_docs
-# parse_core
-# parse_lib
-# parse_ext
+parse_core
+parse_lib
+parse_ext
