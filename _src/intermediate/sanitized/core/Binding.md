@@ -30,4 +30,4 @@ These binding objects can be passed as the second argument of the
 
 Binding objects have no class-specific methods.
 
-[Binding Reference](http://ruby-doc.org/core-2.5.0/Binding.html)
+[Binding Reference](https://ruby-doc.org/core-2.5.0/Binding.html)

@@ -17,4 +17,4 @@ On the other hand:
 
     LoadError: no such file to load -- does/not/exist
 
-[StandardError Reference](http://ruby-doc.org/core-2.5.0/StandardError.html)
+[StandardError Reference](https://ruby-doc.org/core-2.5.0/StandardError.html)

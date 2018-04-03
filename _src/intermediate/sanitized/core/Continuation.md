@@ -62,4 +62,4 @@ early:
     2:  10 11 12 13 14
     3:  15 16
 
-[Continuation Reference](http://ruby-doc.org/core-2.5.0/Continuation.html)
+[Continuation Reference](https://ruby-doc.org/core-2.5.0/Continuation.html)

@@ -7,4 +7,4 @@ method `each`, which yields successive members of the collection. If
 must also implement a meaningful `<=>` operator, as these methods rely on an
 ordering between members of the collection.
 
-[Enumerable Reference](http://ruby-doc.org/core-2.5.0/Enumerable.html)
+[Enumerable Reference](https://ruby-doc.org/core-2.5.0/Enumerable.html)

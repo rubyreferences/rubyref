@@ -5,6 +5,9 @@ require 'kramdown'
 require 'yaml'
 require 'fileutils'
 
+IN = File.expand_path('../intermediate/parsed', __dir__)
+OUT = File.expand_path('../intermediate/sanitized', __dir__)
+
 def sanitize_line(source, ln)
   return ln if ln.start_with?('    ') # It's code, don't touch it!
 
@@ -16,7 +19,9 @@ def sanitize_line(source, ln)
     .gsub('---', '—')                                                                   # Just dash. Probably should be done smarter
 end
 
-Dir['intermediate/parsed/**/*.md'].each do |source|
+FileUtils.rm_rf OUT
+
+Dir["#{IN}/**/*.md"].each do |source|
   target = source.sub('/parsed/', '/sanitized/')
   content = File.read(source)
     .sub(/\A\#\s*-\*-[^\n]+\n/, '') # First line with settings to editor

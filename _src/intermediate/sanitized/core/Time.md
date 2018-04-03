@@ -84,4 +84,4 @@ You can also do standard functions like compare two times.
 
     Time.new(2010,10,31).between?(t1, t2) #=> true
 
-[Time Reference](http://ruby-doc.org/core-2.5.0/Time.html)
+[Time Reference](https://ruby-doc.org/core-2.5.0/Time.html)

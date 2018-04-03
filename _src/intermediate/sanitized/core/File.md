@@ -27,4 +27,4 @@ read-only, which is reported as `0444`.
 
 Various constants for the methods in File can be found in File::Constants.
 
-[File Reference](http://ruby-doc.org/core-2.5.0/File.html)
+[File Reference](https://ruby-doc.org/core-2.5.0/File.html)

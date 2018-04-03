@@ -75,4 +75,4 @@ Example:
     rows, columns = $stdout.winsize
     puts "Your screen is #{columns} wide and #{rows} tall"
 
-[IO Reference](http://ruby-doc.org/core-2.5.0/IO.html)
+[IO Reference](https://ruby-doc.org/core-2.5.0/IO.html)

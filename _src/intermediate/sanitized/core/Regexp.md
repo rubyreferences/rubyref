@@ -696,4 +696,4 @@ optional *a*s, a range of optional *a*s can be matched all at once with
 
     Regexp.new('a{0,29}' + 'a' * 29) =~ 'a' * 29
 
-[Regexp Reference](http://ruby-doc.org/core-2.5.0/Regexp.html)
+[Regexp Reference](https://ruby-doc.org/core-2.5.0/Regexp.html)
