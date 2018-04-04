@@ -29,7 +29,7 @@ class Content
 
   def render
     Renderer
-      .convert(@text.root, file_path: @owner.file_path, book: @owner.book, md_source: @source).first
+      .convert(@text.root, md_path: @owner.md_path, book: @owner.book, md_source: @source).first
       .gsub(/^(?=\#[a-z])/, '\\')       # Again! New methods could be at the beginning of the line after Kramdown render
       .gsub(/([`'])\\:\s/, '\1: ')      # IDK why Kramdown turns "`something`: definition" into "`something`\: definition"
       .gsub_r(/(https?:\S+)\\_/, '\1_') # Kramdown helpfully screens _ in URLs... And then GitBook screens them again.
@@ -108,7 +108,7 @@ class Content
   end
 
   def postprocess_raw(path, source)
-    if path.start_with?('ruby-lang.org')
+    if path.include?('ruby-lang.org')
       source = source
         .sub(/\A---\n.+?\n---\n/m, '')  # YAML frontmatter
         .gsub(/\{:.+?\}/, '')           # {: .foo} tags
@@ -116,7 +116,7 @@ class Content
           str.gsub(/\{%.+?%\}/, '').gsub(/^/, '    ')
         }
     end
-    if path == 'ruby-lang.org/en/documentation/installation/index.md'
+    if path.end_with?('ruby-lang.org/en/documentation/installation/index.md')
       source.sub!(/\* \[Package Management Systems.+\(\#building-from-source\)/m, '')
     end
     @replace.inject(source) { |src, r| src.gsub(r[:from], r[:to]) }

@@ -12,28 +12,28 @@ class Linker
     'syntax/refinements.rdoc' => '/language/refinements.md'
   }
   # internal links in installation.md, imported from site
-  IGNORE_LINKS = %w[#rvm #rbenv #chruby #ruby-install #ruby-build]
+  IGNORE_LINKS = %w[#rvm #rbenv #chruby #ruby-install #ruby-build #package-management-systems]
 
   CORE_METHOD_REFERENCE = "https://ruby-doc.org/core-#{BOOK_RUBY_VERSION}.0/%s.html#method-i-%s"
   LIB_MODULE_REFERENCE = "https://ruby-doc.org/stdlib-#{BOOK_RUBY_VERSION}.0/libdoc/%s/rdoc/%s.html"
   LIB_METHOD_REFERENCE = "https://ruby-doc.org/stdlib-#{BOOK_RUBY_VERSION}.0/libdoc/%s/rdoc/%s.html#method-i-%s"
 
-  def initialize(converter, book:, file_path:, md_source:, **)
+  def initialize(converter, book:, md_path:, md_source:, **)
     @converter = converter
-    @md_path = file_path
+    @md_path = md_path
     @book = book
     @md_source = md_source
   end
 
   def call(element, opts)
-    return inner(el, opts) if IGNORE_LINKS.include?(element['href'])
+    return inner(element, opts) if IGNORE_LINKS.include?(element.attr['href'])
 
-    href = prepare_href(element['href'])
+    href = prepare_href(element.attr['href'])
 
     if href.match?(/^https?:/)
       remote_link(element, href)
     else
-      "[#{inner(el, opts)}](#{real_href})"
+      "[#{inner(element, opts)}](#{href})"
     end
   end
 

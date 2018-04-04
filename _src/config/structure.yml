@@ -4,12 +4,12 @@
     - title: Installation
       content:
         - source: "# Installation"
-        - source: www.ruby-lang.org/en/documentation/installation/index.md
+        - source: ruby-lang.org/en/documentation/installation/index.md
           header_shift: 0
     - title: Other Implementations of Ruby
       id: implementations
       content:
-        - source: www.ruby-lang.org/en/about/index.md
+        - source: ruby-lang.org/en/about/index.md
           sections: 'Other Implementations of Ruby'
           header_shift: -2
         - source: >
@@ -378,7 +378,7 @@
         - title: Processes and Signals
           content:
             # TODO: Process has NO DOCS at 2.5!!!
-            - source: core/Process.md
+            # - source: core/Process.md
             - source: core/Signal.md
         - title: IO Basics
           id: io
@@ -519,7 +519,7 @@
 
     - title: Formats
       content:
-        - source: content/stdlib/formats.md
+        - source: "# Data Format Parsers and Renderers"
       children:
         - title: csv
           content:
@@ -1045,7 +1045,7 @@
     - title: Libraries
       content:
         - source: "# Libraries"
-        - source: www.ruby-lang.org/en/libraries/index.md
+        - source: ruby-lang.org/en/libraries/index.md
           header_shift: 0
         # TODO: Bundler
         # Site covered it better

@@ -5,7 +5,6 @@ class Book
   META = {
     ruby_version: BOOK_RUBY_VERSION
   }
-  LEAVE = %r{^(_|Gemfile|css|js|images)}
 
   def self.load(root, path)
     new(root, YAML.load_file(path))
@@ -42,7 +41,6 @@ class Book
   end
 
   def write(path)
-    Dir[File.join(path, '*')].grep_v(LEAVE).each(&FileUtils.method(:rm_rf))
     File.write File.join(path, '_data/book.yml'), meta.to_yaml
     chapters.each { |c| c.write(path) }
   end

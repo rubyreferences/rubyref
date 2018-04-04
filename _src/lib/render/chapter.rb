@@ -59,7 +59,7 @@ class Chapter
     FileUtils.mkdir_p File.dirname(full_path)
     File.write full_path,
       "#{front_matter.to_yaml}---\n\n" +
-      content_chunks.map(&:render).join("\n\n")
+      @content.map(&:render).join("\n\n")
     children.each { |c| c.write(dir) }
   end
 end
