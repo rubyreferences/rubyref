@@ -1,5 +1,9 @@
 - title: Introduction
   id: intro
+  md_path: README.md
+  html_path: '/'
+  content:
+    - source: content/intro.md
   children:
     - title: Installation
       content:

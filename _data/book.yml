@@ -2,7 +2,7 @@
 ruby_version: '2.5'
 chapters:
 - title: Introduction
-  path: "/intro.html"
+  path: "/"
   children:
   - title: Installation
     path: "/intro/installation.html"

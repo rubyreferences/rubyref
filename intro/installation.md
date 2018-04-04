@@ -1,6 +1,6 @@
 ---
 title: Installation
-prev: "/intro.html"
+prev: "/"
 next: "/intro/implementations.html"
 ---
 
