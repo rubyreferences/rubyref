@@ -1,14 +1,9 @@
 #!/usr/bin/env ruby
 
 require 'rdoc'
-require 'fileutils'
-require 'pp'
-require 'dry/inflector'
-require 'yaml'
 
 require_relative 'parse/utils'
 
-BOOK_RUBY_VERSION = File.read(File.expand_path('../config/ruby_version.txt', __dir__)).chomp
 MARKDOWN = RDoc::Markup::ToMarkdown.new
 
 CORE_REFERENCE = "https://ruby-doc.org/core-#{BOOK_RUBY_VERSION}.0"
