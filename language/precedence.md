@@ -4,7 +4,7 @@ prev: "/language/refinements.html"
 next: "/language/misc.html"
 ---
 
-# Precedence
+## Precedence
 
 From highest to lowest, this is the precedence table for ruby. High
 precedence operations happen before low precedence operations.

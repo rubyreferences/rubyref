@@ -4,13 +4,13 @@ prev: "/language/globals.html"
 next: "/builtin.html"
 ---
 
-# Metaprogramming and Domain-Specific Languages
+## Metaprogramming and Domain-Specific Languages
 
 This chapter briefly investigates two advanced concepts which Ruby
 provides: metaprogramming and building domain-specific languages which
 are also valid Ruby code.
 
-## Metaprogramming
+### Metaprogramming
 
 Ruby is known to have very powerful **metaprogramming** capabilities,
 that is, defining language structures (classes, modules, methods) at
@@ -22,7 +22,7 @@ two facts:
 * Everything is an object;
 * Core classes are hackable.
 
-### Everything is an object
+#### Everything is an object
 
 That also include core language concepts like classes and methods. They
 can be inspected and changed at runtime.
@@ -40,7 +40,7 @@ A.instance_method(:m) #=> #<UnboundMethod: A#m>
 A.instance_method(:m).parameters #=> [[:req, :x], [:req, :y]]
 ```
 
-### Core classes are hackable
+#### Core classes are hackable
 
 Core classes (like `Class`, `Module`, `Method`) provide methods to
 change their behavior and define new concepts with regular Ruby code:
@@ -63,7 +63,7 @@ end
 [:A, :B, :C].each { |name| Kernel.const_set(name, Class.new) }
 ```
 
-### Example of the metaprogramming
+#### Example of the metaprogramming
 
 It is a common pattern to have some variable calculated on first method
 call:
@@ -110,7 +110,7 @@ end
 See [Language Core](../builtin/core.md) classes documentation to
 understand what you can do with core objects.
 
-## Domain-Specific Languages
+### Domain-Specific Languages
 
 Ruby is naturally flexible enough for defining clean and readable
 sublanguages by means of *methods* and *blocks*. Short example (taken

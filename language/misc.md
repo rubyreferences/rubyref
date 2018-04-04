@@ -4,7 +4,7 @@ prev: "/language/precedence.html"
 next: "/language/files.html"
 ---
 
-## `BEGIN` and `END`
+### `BEGIN` and `END`
 
 `BEGIN` defines a block that is run before any other code in the current
 file. It is typically used in one-liners with `ruby -e`. Similarly `END`

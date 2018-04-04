@@ -9,9 +9,9 @@ next: "/stdlib/misc/dbm.html"
 require 'drb'
 ```
 
-# DRb
+## DRb
 
-## Overview
+### Overview
 
 dRuby is a distributed object system for Ruby. It is written in pure
 Ruby and uses its own protocol. No add-in services are needed beyond
@@ -87,18 +87,18 @@ execution context to be collected, before the collected values are
 finally returned to the local context as the return value of the method
 invocation.
 
-## Examples of usage
+### Examples of usage
 
 For more dRuby samples, see the `samples` directory in the full dRuby
 distribution.
 
-### dRuby in client/server mode
+#### dRuby in client/server mode
 
 This illustrates setting up a simple client-server drb system. Run the
 server and client code in different terminals, starting the server code
 first.
 
-#### Server code
+##### Server code
 
 
 ```ruby
@@ -125,7 +125,7 @@ DRb.start_service(URI, FRONT_OBJECT)
 DRb.thread.join
 ```
 
-#### Client code
+##### Client code
 
 
 ```ruby
@@ -148,14 +148,14 @@ timeserver = DRbObject.new_with_uri(SERVER_URI)
 puts timeserver.get_current_time
 ```
 
-### Remote objects under dRuby
+#### Remote objects under dRuby
 
 This example illustrates returning a reference to an object from a dRuby
 call. The Logger instances live in the server process. References to
 them are returned to the client process, where methods can be invoked
 upon them. These methods are executed in the server process.
 
-#### Server code
+##### Server code
 
 
 ```ruby
@@ -214,7 +214,7 @@ DRb.start_service(URI, FRONT_OBJECT)
 DRb.thread.join
 ```
 
-#### Client code
+##### Client code
 
 
 ```ruby
@@ -237,7 +237,7 @@ log_service=DRbObject.new_with_uri(SERVER_URI)
 end
 ```
 
-## Security
+### Security
 
 As with all network services, security needs to be considered when using
 dRuby. By allowing external access to a Ruby object, you are not only
@@ -266,7 +266,7 @@ distribution provides the ACL class for this purpose. In general, this
 mechanism should only be used alongside, rather than as a replacement
 for, a good firewall.
 
-## dRuby internals
+### dRuby internals
 
 dRuby is implemented using three main components: a remote method call
 marshaller/unmarshaller; a transport protocol; and an ID-to-object

@@ -4,7 +4,7 @@ next: "/intro/installation.html"
 permalink: "/index.html"
 ---
 
-# The Ruby Reference
+## The Ruby Reference
 
 This Book is the reference for the Ruby programming language.
 

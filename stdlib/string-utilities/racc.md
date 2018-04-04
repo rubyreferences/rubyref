@@ -9,12 +9,12 @@ next: "/stdlib/string-utilities/scanf.html"
 require 'racc'
 ```
 
-# Racc
+## Racc
 
 Racc is a LALR(1) parser generator. It is written in Ruby itself, and
 generates Ruby programs.
 
-## Command-line Reference
+### Command-line Reference
 
 
 ```
@@ -58,7 +58,7 @@ racc [-o<var>filename</var>] [--output-file=<var>filename</var>]
 * --copyright: Print copyright and quit.
 * --help: Print usage and quit.
 
-## Generating Parser Using Racc
+### Generating Parser Using Racc
 
 To compile Racc grammar file, simply type:
 
@@ -70,7 +70,7 @@ $ racc parse.y
 This creates Ruby script file "parse.tab.y". The -o option can change
 the output filename.
 
-## Writing A Racc Grammar File
+### Writing A Racc Grammar File
 
 If you want your own parser, you have to write a grammar file. A grammar
 file contains the name of your parser class, grammar for the parser,
@@ -100,7 +100,7 @@ and $-1, $-2... is an array called '\_values'.
 See the [Grammar File Reference](#TODO) for more information on grammar
 files.
 
-## Parser
+### Parser
 
 Then you must prepare the parse entry method. There are two types of
 parse methods in Racc, `Racc::Parser#do_parse` and
@@ -120,7 +120,7 @@ use Racc::`Parser#next_token`, instead it gets tokens from any iterator.
 For example, `yyparse(obj, :scan)` causes calling +obj#scan+, and you
 can return tokens by yielding them from +obj#scan+.
 
-## Debugging
+### Debugging
 
 When debugging, "-v" or/and the "-g" option is helpful.
 
@@ -130,24 +130,24 @@ it's *not* automatic. You must use -g option and set +@yydebug+ to
 `true` in order to get output. -g option only creates the verbose
 parser.
 
-### Racc reported syntax error.
+#### Racc reported syntax error.
 
 Isn't there too many "end"? grammar of racc file is changed in v0.10.
 
 Racc does not use '%' mark, while yacc uses huge number of '%' marks..
 
-### Racc reported "XXXX conflicts".
+#### Racc reported "XXXX conflicts".
 
 Try "racc -v xxxx.y". It causes producing racc's internal log file,
 xxxx.output.
 
-### Generated parsers does not work correctly
+#### Generated parsers does not work correctly
 
 Try "racc -g xxxx.y". This command let racc generate "debugging parser".
 Then set @yydebug=true in your parser. It produces a working log of your
 parser.
 
-## Re-distributing Racc runtime
+### Re-distributing Racc runtime
 
 A parser, which is created by Racc, requires the Racc runtime module;
 racc/parser.rb.

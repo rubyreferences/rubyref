@@ -4,7 +4,7 @@ prev: "/builtin/types/times-dates.html"
 next: "/builtin/types/array.html"
 ---
 
-# Enumerable
+## Enumerable
 
 The `Enumerable` mixin provides collection classes with several
 traversal and searching methods, and with the ability to sort. The class
@@ -51,7 +51,7 @@ class='ruby-doc remote' target='_blank'>Enumerable Reference</a>
 
 
 
-## Enumerator
+### Enumerator
 
 A class which allows both internal and external iteration.
 

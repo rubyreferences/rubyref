@@ -4,14 +4,14 @@ prev: "/builtin/concurrency-parallelism.html"
 next: "/builtin/marshal.html"
 ---
 
-# Interpreter Internals
+## Interpreter Internals
 
 This chapter lists several modules that allow to introspect and hack
 Ruby interpreter at execution time.
 
 
 
-## ObjectSpace
+### ObjectSpace
 
 The ObjectSpace module contains a number of routines that interact with
 the garbage collection facility and allow you to traverse all living
@@ -68,7 +68,7 @@ class='ruby-doc remote' target='_blank'>ObjectSpace Reference</a>
 
 
 
-## GC
+### GC
 
 The GC module provides an interface to Ruby's mark and sweep garbage
 collection mechanism.
@@ -84,12 +84,12 @@ remote' target='_blank'>GC Reference</a>
 
 
 
-## TracePoint
+### TracePoint
 
 A class that provides the functionality of `Kernel#set_trace_func` in a
 nice Object-Oriented API.
 
-### Example
+#### Example
 
 We can use TracePoint to gather information specifically for exceptions:
 
@@ -107,7 +107,7 @@ trace.enable
 #=> [5, :raise, #<ZeroDivisionError: divided by 0>]
 ```
 
-### Events
+#### Events
 
 If you don't specify the type of events you want to listen for,
 TracePoint will include all available events.

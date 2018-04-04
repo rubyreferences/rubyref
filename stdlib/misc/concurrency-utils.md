@@ -4,11 +4,11 @@ prev: "/stdlib/misc.html"
 next: "/stdlib/misc/drb.html"
 ---
 
-# Concurrency Utils
+## Concurrency Utils
 
 
 
-## Monitor
+### Monitor
 
 Use the Monitor class when you want to have a lock object for blocks
 with mutual exclusion.
@@ -29,7 +29,7 @@ class='ruby-doc remote' target='_blank'>Monitor Reference</a>
 
 
 
-## MonitorMixin
+### MonitorMixin
 
 In concurrent programming, a monitor is an object or module intended to
 be used safely by more than one thread. The defining characteristic of a
@@ -43,9 +43,9 @@ You can read more about the general principles on the Wikipedia page for
 <a href='http://en.wikipedia.org/wiki/Monitor_%28synchronization%29'
 class='remote' target='_blank'>Monitors</a>
 
-### Examples
+#### Examples
 
-#### Simple object.extend
+##### Simple object.extend
 
 
 ```ruby
@@ -79,7 +79,7 @@ while `buf.empty?`. The producer thread (main thread) reads a line from
 ARGF and pushes it into buf then calls `empty_cond.signal` to notify the
 consumer thread of new data.
 
-#### Simple Class include
+##### Simple Class include
 
 
 ```ruby
@@ -122,9 +122,9 @@ class='ruby-doc remote' target='_blank'>MonitorMixin Reference</a>
 
 
 
-## Mutex\_m
+### Mutex\_m
 
-## mutex\_m.rb
+### mutex\_m.rb
 
 When 'mutex\_m' is required, any object that extends or includes
 Mutex\_m will be treated like a Mutex.
@@ -163,7 +163,7 @@ class='ruby-doc remote' target='_blank'>Mutex_m Reference</a>
 
 
 
-## Sync
+### Sync
 
 A class that provides two-phase lock with a counter. See Sync\_m for
 details.
@@ -173,7 +173,7 @@ class='ruby-doc remote' target='_blank'>Sync Reference</a>
 
 
 
-## Sync\_m
+### Sync\_m
 
 A module that provides a two-phase lock with a counter.
 
@@ -182,7 +182,7 @@ class='ruby-doc remote' target='_blank'>Sync_m Reference</a>
 
 
 
-## Synchronizer
+### Synchronizer
 
 A class that provides two-phase lock with a counter. See Sync\_m for
 details.
@@ -193,7 +193,7 @@ class='ruby-doc remote' target='_blank'>Synchronizer Reference</a>
 
 
 
-## Synchronizer\_m
+### Synchronizer\_m
 
 A module that provides a two-phase lock with a counter.
 

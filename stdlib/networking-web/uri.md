@@ -9,20 +9,20 @@ next: "/stdlib/cli.html"
 require 'uri'
 ```
 
-# URI
+## URI
 
 URI is a module providing classes to handle Uniform Resource Identifiers
 (<a href='http://tools.ietf.org/html/rfc2396' class='remote'
 target='_blank'>RFC2396</a>)
 
-## Features
+### Features
 
 * Uniform handling of handling URIs
 * Flexibility to introduce custom URI schemes
 * Flexibility to have an alternate URI::Parser (or just different
   patterns and regexp's)
 
-## Basic example
+### Basic example
 
 
 ```
@@ -46,7 +46,7 @@ uri.to_s
 #=> "http://foo.com/posts?id=30&limit=5#time=1305298413"
 ```
 
-## Adding custom URIs
+### Adding custom URIs
 
 
 ```

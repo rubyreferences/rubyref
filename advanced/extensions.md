@@ -4,11 +4,11 @@ prev: "/advanced.html"
 next: "/advanced/security.html"
 ---
 
-# Creating Extension Libraries for Ruby
+## Creating Extension Libraries for Ruby
 
 This document explains how to make extension libraries for Ruby.
 
-## Basic Knowledge
+### Basic Knowledge
 
 In C, variables have types and data do not have types. In contrast, Ruby
 variables do not have a static type, and data themselves have types, so
@@ -24,7 +24,7 @@ To retrieve C data from a VALUE, you need to:
 
 Converting to the wrong data type may cause serious problems.
 
-### Data Types
+#### Data Types
 
 The Ruby interpreter has the following data types:
 
@@ -58,7 +58,7 @@ In addition, there are several other types used internally:
 
 Most of the types are represented by C structures.
 
-### Check Data Type of the VALUE
+#### Check Data Type of the VALUE
 
 The macro TYPE() defined in ruby.h shows the data type of the VALUE.
 TYPE() returns the constant number T\_XXXX described above. To handle
@@ -100,7 +100,7 @@ FIXNUM_P(obj)
 NIL_P(obj)
 ```
 
-### Convert VALUE into C Data
+#### Convert VALUE into C Data
 
 The data for type T\_NIL, T\_FALSE, T\_TRUE are nil, false, true
 respectively. They are singletons for the data type. The equivalent C
@@ -151,7 +151,7 @@ Notice: Do not change the value of the structure directly, unless you
 are responsible for the result. This ends up being the cause of
 interesting bugs.
 
-### Convert C Data into VALUE
+#### Convert C Data into VALUE
 
 To convert C data to Ruby values:
 
@@ -174,14 +174,14 @@ To convert C numbers to Ruby values, use these macros:
 INT2NUM() converts an integer into a Bignum if it is out of the FIXNUM
 range, but is a bit slower.
 
-### Manipulating Ruby Data
+#### Manipulating Ruby Data
 
 As I already mentioned, it is not recommended to modify an object's
 internal structure. To manipulate objects, use the functions supplied by
 the Ruby interpreter. Some (not all) of the useful functions are listed
 below:
 
-#### String Functions
+##### String Functions
 
 * rb\_str\_new(const char \*ptr, long len): Creates a new Ruby string.
 
@@ -270,7 +270,7 @@ rb\_utf8\_str\_new(const char \*ptr, long len)
   This function preserves the content up to len bytes, regardless
   RSTRING\_LEN(str). len must not exceed the capacity of str.
 
-#### Array Functions
+##### Array Functions
 
 * rb\_ary\_new(): Creates an array with no elements.
 
@@ -313,9 +313,9 @@ rb\_ary\_shift(VALUE ary)
 * rb\_ary\_cat(VALUE ary, const VALUE \*ptr, long len): Appends len
   elements of objects from ptr to the array.
 
-## Extending Ruby with C
+### Extending Ruby with C
 
-### Adding New Features to Ruby
+#### Adding New Features to Ruby
 
 You can add new features (classes, methods, etc.) to the Ruby
 interpreter. Ruby provides APIs for defining the following things:
@@ -324,7 +324,7 @@ interpreter. Ruby provides APIs for defining the following things:
 * Methods, Singleton Methods
 * Constants
 
-#### Class and Module Definition
+##### Class and Module Definition
 
 To define a class or module, use the functions below:
 
@@ -345,7 +345,7 @@ VALUE rb_define_class_under(VALUE outer, const char *name, VALUE super)
 VALUE rb_define_module_under(VALUE outer, const char *name)
 ```
 
-#### Method and Singleton Method Definition
+##### Method and Singleton Method Definition
 
 To define methods or singleton methods, use these functions:
 
@@ -480,7 +480,7 @@ available), you can use:
 VALUE rb_current_receiver(void)
 ```
 
-#### Constant Definition
+##### Constant Definition
 
 We have 2 functions to define constants:
 
@@ -493,11 +493,11 @@ void rb_define_global_const(const char *name, VALUE val)
 The former is to define a constant under specified class/module. The
 latter is to define a global constant.
 
-### Use Ruby Features from C
+#### Use Ruby Features from C
 
 There are several ways to invoke Ruby's features from C code.
 
-#### Evaluate Ruby Programs in a String
+##### Evaluate Ruby Programs in a String
 
 The easiest way to use Ruby's functionality from a C program is to
 evaluate the string as Ruby program. This function will do the job:
@@ -522,7 +522,7 @@ VALUE rb_eval_string_protect(const char *str, int *state)
 It returns nil when an error occurred. Moreover, \*state is zero if str
 was successfully evaluated, or nonzero otherwise.
 
-#### ID or Symbol
+##### ID or Symbol
 
 You can invoke methods directly, without parsing the string. First I
 need to explain about ID. ID is the integer number to represent Ruby's
@@ -593,7 +593,7 @@ and to convert Ruby Symbol object to ID, use
 ID SYM2ID(VALUE symbol)
 ```
 
-#### Invoke Ruby Method from C
+##### Invoke Ruby Method from C
 
 To invoke methods directly, you can use the function below
 
@@ -605,7 +605,7 @@ VALUE rb_funcall(VALUE recv, ID mid, int argc, ...)
 This function invokes a method on the recv, with the method name
 specified by the symbol mid.
 
-#### Accessing the Variables and Constants
+##### Accessing the Variables and Constants
 
 You can access class variables and instance variables using access
 functions. Also, global variables can be shared between both
@@ -630,9 +630,9 @@ VALUE rb_const_get(VALUE obj, ID id)
 
 See also Constant Definition above.
 
-## Information Sharing Between Ruby and C
+### Information Sharing Between Ruby and C
 
-### Ruby Constants That Can Be Accessed From C
+#### Ruby Constants That Can Be Accessed From C
 
 As stated in section 1.3, the following Ruby constants can be referred
 from C.
@@ -643,7 +643,7 @@ Qtrue
 
 * Qnil: Ruby nil in C scope.
 
-### Global Variables Shared Between C and Ruby
+#### Global Variables Shared Between C and Ruby
 
 Information can be shared between the two environments using shared
 global variables. To define them, you can use functions listed below:
@@ -703,7 +703,7 @@ VALUE (*getter)(ID id);
 void (*setter)(VALUE val, ID id);
 ```
 
-### Encapsulate C Data into a Ruby Object
+#### Encapsulate C Data into a Ruby Object
 
 Sometimes you need to expose your struct in the C world as a Ruby
 object. In a situation like this, making use of the TypedData\_XXX macro
@@ -713,7 +713,7 @@ converted.
 -- The old (non-Typed) Data\_XXX macro family has been deprecated. In
 the future version of Ruby, it is possible old macros will not work. ++
 
-#### C struct to Ruby object
+##### C struct to Ruby object
 
 You can convert sval, a pointer to your struct, into a Ruby object with
 the next macro.
@@ -824,7 +824,7 @@ Arguments klass and data\_type work like their counterparts in
 TypedData\_Wrap\_Struct(). A pointer to the allocated structure will be
 assigned to sval, which should be a pointer of the type specified.
 
-#### Ruby object to C struct
+##### Ruby object to C struct
 
 To retrieve the C pointer from the Data object, use the macro
 Data\_Get\_Struct().
@@ -838,13 +838,13 @@ A pointer to the structure will be assigned to the variable sval.
 
 See the example below for details.
 
-## Example - Creating the dbm Extension
+### Example - Creating the dbm Extension
 
 OK, here's the example of making an extension library. This is the
 extension to access DBMs. The full source is included in the ext/
 directory in the Ruby's source tree.
 
-### Make the Directory
+#### Make the Directory
 
 
 ```
@@ -853,11 +853,11 @@ directory in the Ruby's source tree.
 
 Make a directory for the extension library under ext directory.
 
-### Design the Library
+#### Design the Library
 
 You need to design the library features, before making it.
 
-### Write the C Code
+#### Write the C Code
 
 You need to write C code for your extension library. If your library has
 only one source file, choosing `` LIBRARY.c`' as a file name is
@@ -1007,7 +1007,7 @@ them by
 void rb_global_variable(VALUE *var)
 ```
 
-### Prepare extconf.rb
+#### Prepare extconf.rb
 
 If the file named extconf.rb exists, it will be executed to generate
 Makefile.
@@ -1065,7 +1065,7 @@ If a compilation condition is not fulfilled, you should not call
 \`\`create\_makefile\`'. The Makefile will not be generated, compilation
 will not be done.
 
-### Prepare Depend (Optional)
+#### Prepare Depend (Optional)
 
 If the file named depend exists, Makefile will include that file to
 check dependencies. You can make this file by invoking
@@ -1077,7 +1077,7 @@ check dependencies. You can make this file by invoking
 
 It's harmless. Prepare it.
 
-### Generate Makefile
+#### Generate Makefile
 
 Try generating the Makefile by:
 
@@ -1098,7 +1098,7 @@ You don't need this step if you put the extension library under the ext
 directory of the ruby source tree. In that case, compilation of the
 interpreter will do this step for you.
 
-### Run make
+#### Run make
 
 Type
 
@@ -1111,21 +1111,21 @@ to compile your extension. You don't need this step either if you have
 put the extension library under the ext directory of the ruby source
 tree.
 
-### Debug
+#### Debug
 
 You may need to rb\_debug the extension. Extensions can be linked
 statically by adding the directory name in the ext/Setup file so that
 you can inspect the extension with the debugger.
 
-### Done! Now You Have the Extension Library
+#### Done! Now You Have the Extension Library
 
 You can do anything you want with your library. The author of Ruby will
 not claim any restrictions on your code depending on the Ruby API. Feel
 free to use, modify, distribute or sell your program.
 
-## Appendix A. Ruby Source Files Overview
+### Appendix A. Ruby Source Files Overview
 
-### Ruby Language Core
+#### Ruby Language Core
 
 * class.c: classes and modules
 * error.c: exception classes and exception mechanism
@@ -1134,14 +1134,14 @@ free to use, modify, distribute or sell your program.
 * object.c: objects
 * variable.c: variables and constants
 
-### Ruby Syntax Parser
+#### Ruby Syntax Parser
 
 * parse.y: grammar definition
 * parse.c: automatically generated from parse.y
 * defs/keywords: reserved keywords
 * lex.c: automatically generated from keywords
 
-### Ruby Evaluator (a.k.a. YARV)
+#### Ruby Evaluator (a.k.a. YARV)
 
 
 ```
@@ -1170,7 +1170,7 @@ defs/opt_operand.def     : definitions for optimization
   -> vm.inc              : automatically generated
 ```
 
-### Regular Expression Engine (Oniguruma)
+#### Regular Expression Engine (Oniguruma)
 
 
 ```ruby
@@ -1183,7 +1183,7 @@ regparse.c
 regsyntax.c
 ```
 
-### Utility Functions
+#### Utility Functions
 
 * debug.c: debug symbols for C debugger
 * dln.c: dynamic loading
@@ -1191,7 +1191,7 @@ regsyntax.c
 * strftime.c: formatting times
 * util.c: misc utilities
 
-### Ruby Interpreter Implementation
+#### Ruby Interpreter Implementation
 
 
 ```ruby
@@ -1208,7 +1208,7 @@ gem_prelude.rb
 prelude.rb
 ```
 
-### Class Library
+#### Class Library
 
 * array.c: Array
 * bignum.c: Bignum
@@ -1240,14 +1240,14 @@ prelude.rb
 * defs/known\_errors.def: Errno::\* exception classes
 * -> known\_errors.inc: automatically generated
 
-### Multilingualization
+#### Multilingualization
 
 * encoding.c: Encoding
 * transcode.c: Encoding::Converter
 * enc/\*.c: encoding classes
 * enc/trans/\*: codepoint mapping tables
 
-### goruby Interpreter Implementation
+#### goruby Interpreter Implementation
 
 
 ```
@@ -1256,15 +1256,15 @@ golf_prelude.rb     : goruby specific libraries.
   -> golf_prelude.c : automatically generated
 ```
 
-## Appendix B. Ruby Extension API Reference
+### Appendix B. Ruby Extension API Reference
 
-### Types
+#### Types
 
 * VALUE: The type for the Ruby object. Actual structures are defined in
   ruby.h, such as struct RString, etc. To refer the values in
   structures, use casting macros like RSTRING(obj).
 
-### Variables and Constants
+#### Variables and Constants
 
 * Qnil: nil object
 
@@ -1272,7 +1272,7 @@ golf_prelude.rb     : goruby specific libraries.
 
 * Qfalse: false object
 
-### C Pointer Wrapping
+#### C Pointer Wrapping
 
 * Data\_Wrap\_Struct(VALUE klass, void (*mark)(), void (*free)(), void
   \*sval): Wrap a C pointer into a Ruby object. If object has references
@@ -1288,7 +1288,7 @@ golf_prelude.rb     : goruby specific libraries.
 * Data\_Get\_Struct(data, type, sval): This macro retrieves the pointer
   value from DATA, and assigns it to the variable sval.
 
-### Checking Data Types
+#### Checking Data Types
 
 * RB\_TYPE\_P(value, type): Is `value` an internal type (T\_NIL,
   T\_FIXNUM, etc.)?
@@ -1309,7 +1309,7 @@ golf_prelude.rb     : goruby specific libraries.
 * SafeStringValue(value): Checks that `value` is a String and is not
   tainted
 
-### Data Type Conversion
+#### Data Type Conversion
 
 * FIX2INT(value), INT2FIX(i): Fixnum <-> integer
 
@@ -1356,7 +1356,7 @@ golf_prelude.rb     : goruby specific libraries.
 
 * rb\_str\_new2(s): char \* -> String
 
-### Defining Classes and Modules
+#### Defining Classes and Modules
 
 * VALUE rb\_define\_class(const char \*name, VALUE super): Defines a new
   Ruby class as a subclass of super.
@@ -1377,7 +1377,7 @@ golf_prelude.rb     : goruby specific libraries.
 * void rb\_extend\_object(VALUE object, VALUE module): Extend the object
   with the module's attributes.
 
-### Defining Global Variables
+#### Defining Global Variables
 
 * void rb\_define\_variable(const char \*name, VALUE \*var): Defines a
   global variable which is shared between C and Ruby. If name contains a
@@ -1423,7 +1423,7 @@ golf_prelude.rb     : goruby specific libraries.
   which hold Ruby values to be marked. rb\_global\_variable tells GC to
   protect these variables.
 
-### Constant Definition
+#### Constant Definition
 
 * void rb\_define\_const(VALUE klass, const char \*name, VALUE val):
   Defines a new constant under the class/module.
@@ -1436,7 +1436,7 @@ golf_prelude.rb     : goruby specific libraries.
     rb_define_const(rb_cObject, name, val)
   ```
 
-### Method Definition
+#### Method Definition
 
 * rb\_define\_method(VALUE klass, const char *name, VALUE
   (*func)(ANYARGS), int argc): Defines a method for the class. func is
@@ -1536,7 +1536,7 @@ golf_prelude.rb     : goruby specific libraries.
   they are copied to another hash and the new hash is stored through
   `original_hash`, else 0 is stored.
 
-### Invoking Ruby method
+#### Invoking Ruby method
 
 * VALUE rb\_funcall(VALUE recv, ID mid, int narg, ...): Invokes a
   method. To retrieve mid from a method name, use rb\_intern(). Able to
@@ -1565,7 +1565,7 @@ VALUE rb\_funcall2(VALUE recv, ID mid, int argc, VALUE \*argv)
 * int rb\_respond\_to(VALUE obj, ID id): Returns true if the object
   responds to the message specified by id.
 
-### Instance Variables
+#### Instance Variables
 
 * VALUE rb\_iv\_get(VALUE obj, const char \*name): Retrieve the value of
   the instance variable. If the name is not prefixed by \`@', that
@@ -1574,7 +1574,7 @@ VALUE rb\_funcall2(VALUE recv, ID mid, int argc, VALUE \*argv)
 * VALUE rb\_iv\_set(VALUE obj, const char \*name, VALUE val): Sets the
   value of the instance variable.
 
-### Control Structure
+#### Control Structure
 
 * VALUE rb\_block\_call(VALUE recv, ID mid, int argc, VALUE \* argv,
   VALUE (\*func) (ANYARGS), VALUE data2): Calls a method on the recv,
@@ -1630,7 +1630,7 @@ VALUE rb\_funcall2(VALUE recv, ID mid, int argc, VALUE \*argv)
   innermost block with the value. The block will return the given
   argument value. This function never return to the caller.
 
-### Exceptions and Errors
+#### Exceptions and Errors
 
 * void rb\_warn(const char \*fmt, ...): Prints a warning message
   according to a printf-like format.
@@ -1658,7 +1658,7 @@ Note: In the format string, "%"PRIsVALUE can be used for `Object#to_s`
 be a VALUE). Since it conflicts with "%i", for integers in format
 strings, use "%d".
 
-### Threading
+#### Threading
 
 As of Ruby 1.9, Ruby supports native 1:1 threading with one kernel
 thread per Ruby Thread object. Currently, there is a GVL (Global VM
@@ -1671,7 +1671,7 @@ comments in thread.c.
 * void rb\_thread\_schedule(void): Give the scheduler a hint to pass
   execution to another thread.
 
-### Input/Output (IO) on a single file descriptor
+#### Input/Output (IO) on a single file descriptor
 
 * int rb\_io\_wait\_readable(int fd): Wait indefinitely for the given FD
   to become readable, allowing other threads to be scheduled. Returns a
@@ -1693,7 +1693,7 @@ comments in thread.c.
   
   Use a NULL `timeout` to wait indefinitely.
 
-### I/O Multiplexing
+#### I/O Multiplexing
 
 Ruby supports I/O multiplexing based on the select(2) system call. The
 Linux select\_tut(2) manpage <a
@@ -1739,7 +1739,7 @@ Understanding of select(2) is required to understand this section.
   rb\_io\_wait\_writable, or rb\_wait\_for\_single\_fd functions since
   they can be optimized for specific platforms (currently, only Linux).
 
-### Initialize and Start the Interpreter
+#### Initialize and Start the Interpreter
 
 The embedding API functions are below (not needed for extension
 libraries):
@@ -1757,7 +1757,7 @@ libraries):
 
 * void ruby\_script(char \*name): Specifies the name of the script ($0).
 
-### Hooks for the Interpreter Events
+#### Hooks for the Interpreter Events
 
 * void rb\_add\_event\_hook(rb\_event\_hook\_func\_t func,
   rb\_event\_flag\_t events, VALUE data): Adds a hook function for the
@@ -1791,7 +1791,7 @@ libraries):
 * int rb\_remove\_event\_hook(rb\_event\_hook\_func\_t func): Removes
   the specified hook function.
 
-### Memory usage
+#### Memory usage
 
 * void rb\_gc\_adjust\_memory\_usage(ssize\_t diff): Adjusts the amount
   of registered external memory. You can tell GC how much memory is used
@@ -1802,7 +1802,7 @@ libraries):
   memory block is freed or a block is reallocated as smaller size. This
   function may trigger the GC.
 
-### Macros for Compatibility
+#### Macros for Compatibility
 
 Some macros to check API compatibilities are available by default.
 
@@ -1831,11 +1831,11 @@ Some macros to check API compatibilities are available by default.
   rb\_add\_event\_hook() takes the third argument `data`, to be passed
   to the given event hook function.
 
-## Appendix C. Functions available for use in extconf.rb
+### Appendix C. Functions available for use in extconf.rb
 
 See documentation for [mkmf](#TODO).
 
-## Appendix D. Generational GC
+### Appendix D. Generational GC
 
 Ruby 2.1 introduced a generational garbage collector (called RGenGC).
 RGenGC (mostly) keeps compatibility.
@@ -1849,7 +1849,7 @@ If your library adheres to the following tips, performance can be
 further improved. Especially, the "Don't touch pointers directly"
 section is important.
 
-### Incompatibility
+#### Incompatibility
 
 You can't write RBASIC(obj)->klass field directly because it is const
 value now.
@@ -1865,13 +1865,13 @@ use the following functions:
 * VALUE rb\_obj\_reveal(VALUE obj, VALUE klass): Reset RBasic::klass to
   be klass. We expect the `klass` is hidden class by rb\_obj\_hide().
 
-### Write barriers
+#### Write barriers
 
 RGenGC doesn't require write barriers to support generational GC.
 However, caring about write barrier can improve the performance of
 RGenGC. Please check the following tips.
 
-#### Don't touch pointers directly
+##### Don't touch pointers directly
 
 In MRI (include/ruby/ruby.h), some macros to acquire pointers to the
 internal data structures are supported such as RARRAY\_PTR(),
@@ -1880,7 +1880,7 @@ RSTRUCT\_PTR() and so on.
 DO NOT USE THESE MACROS and instead use the corresponding C-APIs such as
 rb\_ary\_aref(), rb\_ary\_store() and so on.
 
-#### Consider whether to insert write barriers
+##### Consider whether to insert write barriers
 
 You don't need to care about write barriers if you only use built-in
 types.
@@ -1902,7 +1902,7 @@ introduce critical bugs. And inserting write barriers has several areas
 of overhead. Basically we don't recommend you insert write barriers.
 Please carefully consider the risks.
 
-#### Combine with built-in types
+##### Combine with built-in types
 
 Please consider utilizing built-in types. Most built-in types support
 write barrier, so you can use them to avoid manually inserting write
@@ -1917,7 +1917,7 @@ contains references.
 With use of such techniques, you don't need to insert write barriers
 anymore.
 
-#### Insert write barriers
+##### Insert write barriers
 
 \[AGAIN\] Inserting write barriers is a very difficult hack, and it is
 easy to introduce critical bugs. And inserting write barriers has
@@ -1933,7 +1933,7 @@ href='https://bugs.ruby-lang.org/projects/ruby-trunk/wiki/RGenGC'
 class='remote'
 target='_blank'>https://bugs.ruby-lang.org/projects/ruby-trunk/wiki/RGenGC</a>.
 
-## Appendix E. RB\_GC\_GUARD to protect from premature GC
+### Appendix E. RB\_GC\_GUARD to protect from premature GC
 
 C Ruby currently uses conservative garbage collection, thus VALUE
 variables must remain visible on the stack or registers to ensure any
@@ -1990,7 +1990,7 @@ keyword in C. RB\_GC\_GUARD has the following advantages:
 
 
 
-## MakeMakefile
+### MakeMakefile
 
 mkmf.rb is used by Ruby C extensions to generate a Makefile which will
 correctly compile and link the C extension to Ruby and a third-party

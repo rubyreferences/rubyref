@@ -4,7 +4,7 @@ prev: "/language/literals.html"
 next: "/language/variables-constants.html"
 ---
 
-# Comments
+## Comments
 
 Ruby has two types of comments: inline and block.
 
@@ -45,7 +45,7 @@ class Foo
 end
 ```
 
-## Comments as documentation
+### Comments as documentation
 
 Ruby standard library comes with \[RDoc\] tool for generating
 documentation from code. RDoc format is "unobtrusive" (plain text)

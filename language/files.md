@@ -4,7 +4,7 @@ prev: "/language/misc.html"
 next: "/language/globals.html"
 ---
 
-# File Structure of Ruby Program
+## File Structure of Ruby Program
 
 Ruby does not enforces any particular file structure. Loading of code
 from different files is performed by <a

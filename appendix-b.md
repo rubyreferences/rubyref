@@ -3,7 +3,7 @@ title: 'Appendix B: Useful Links'
 prev: "/appendix-a.html"
 ---
 
-## Appendix B: Useful Links
+### Appendix B: Useful Links
 
 * <a href='https://www.ruby-lang.org/' class='remote'
   target='_blank'>Ruby Site</a>. It also has a <a
@@ -12,7 +12,7 @@ prev: "/appendix-a.html"
 * <a href='https://bugs.ruby-lang.org/' class='remote'
   target='_blank'>Ruby Official Bug Tracker</a>
 
-### Documentation
+#### Documentation
 
 * <a href='http://ruby-doc.org/' class='ruby-doc remote'
   target='_blank'>Ruby-Doc.org</a> hosts rendered reference
@@ -25,7 +25,7 @@ prev: "/appendix-a.html"
   target='_blank'>RubyDoc.info</a> hosts rendered documentation for all
   published gems (generated with YARD).
 
-### Libraries
+#### Libraries
 
 * <a href='https://rubygems.org/' class='remote'
   target='_blank'>RubyGems</a> is the central repository of Ruby
@@ -36,7 +36,7 @@ prev: "/appendix-a.html"
 * <a href='http://awesome-ruby.com/' class='remote'
   target='_blank'>Awesome Ruby</a> is another one.
 
-### News and Community
+#### News and Community
 
 * <a href='http://rubyconferences.org/' class='remote'
   target='_blank'>Conferences List</a>
@@ -45,7 +45,7 @@ prev: "/appendix-a.html"
 * <a href='https://www.ruby-lang.org/en/community/mailing-lists/'
   class='remote' target='_blank'>Ruby Maling Lists</a>
 
-### Organizations
+#### Organizations
 
 * <a href='http://www.ruby.or.jp/en/' class='remote'
   target='_blank'>Ruby Association</a> is a non-profit organization

@@ -44,7 +44,7 @@ exhausted, or when everything in the format string has been matched. All
 matches found up to the stopping point are returned in the return array
 (or yielded to the block, if a block was given).
 
-### Basic usage
+#### Basic usage
 
 
 ```ruby
@@ -58,7 +58,7 @@ array = an_io.scanf("%d%s")
 array = scanf("%d%s")
 ```
 
-### Block usage
+#### Block usage
 
 When called with a block, scanf keeps scanning the input, cycling back
 to the beginning of the format string, and yields a new array of

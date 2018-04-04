@@ -9,7 +9,7 @@ next: "/stdlib/cryptography-encoding/openssl.html"
 require 'digest'
 ```
 
-# Digest
+## Digest
 
 This module provides a framework for message digest libraries.
 
@@ -21,7 +21,7 @@ functions are also called one-way functions, it is easy to compute a
 digest from a message, but it is infeasible to generate a message from a
 digest.
 
-## Examples
+### Examples
 
 
 ```ruby
@@ -64,7 +64,7 @@ See the bubble babble specification at
 http://web.mit.edu/kenta/www/one/bubblebabble/spec/jrtrjwzi/draft-huima-01.txt
 .
 
-## Digest algorithms
+### Digest algorithms
 
 Different digest algorithms (or hash functions) are available:
 

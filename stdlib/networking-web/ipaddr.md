@@ -9,7 +9,7 @@ next: "/stdlib/networking-web/net/ftp.html"
 require 'ipaddr'
 ```
 
-# IPAddr
+## IPAddr
 
 IPAddr provides a set of methods to manipulate an IP address. Both IPv4
 and IPv6 are supported.

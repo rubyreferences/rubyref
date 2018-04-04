@@ -4,7 +4,7 @@ prev: "/builtin/random.html"
 next: "/stdlib/patterns.html"
 ---
 
-# Standard Library
+## Standard Library
 
 The Ruby Standard Library is a vast collection of classes and modules
 that you can require in your code for additional features.

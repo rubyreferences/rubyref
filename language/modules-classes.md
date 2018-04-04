@@ -4,7 +4,7 @@ prev: "/language/methods-call.html"
 next: "/language/exceptions.html"
 ---
 
-# Modules
+## Modules
 
 Modules serve two purposes in Ruby, namespacing and mix-in
 functionality.
@@ -24,7 +24,7 @@ Note that there are many similarities between modules and classes.
 Besides the ability to mix-in a module, the description of modules below
 also applies to classes.
 
-## Module Definition
+### Module Definition
 
 A module is created using the `module` keyword:
 
@@ -58,7 +58,7 @@ Reopening classes is a very powerful feature of Ruby, but it is best to
 only reopen classes you own. Reopening classes you do not own may lead
 to naming conflicts or difficult to diagnose bugs.
 
-## Nesting
+### Nesting
 
 Modules may be nested:
 
@@ -91,14 +91,14 @@ necessary. However, the scope of constant lookup is different for
 creating a namespace using this syntax instead of the more verbose
 syntax.
 
-## Scope
+### Scope
 
-### `self`
+#### `self`
 
 `self` refers to the object that defines the current scope. `self` will
 change when entering a different method or when defining a new module.
 
-### Constants
+#### Constants
 
 Accessible constants are different depending on the module nesting
 (which syntax was used to define the module). In the following example
@@ -147,7 +147,7 @@ module A
 end
 ```
 
-### Methods
+#### Methods
 
 For method definition documentation see the [syntax documentation for
 methods](/language/methods-def.md).
@@ -180,7 +180,7 @@ p self.class.ancestors #=> [Object, A, Kernel, BasicObject]
 p z #=> 1
 ```
 
-### Visibility
+#### Visibility
 
 Ruby has three types of visibility. The default is `public`. A public
 method may be called from any other object.
@@ -279,20 +279,20 @@ Note also that `public`, `private` and `protected` are not, in fact,
 keywords or some special syntax, they are just regular methods of
 [Module](../builtin/core.md#Module) class.
 
-### `alias` and `undef`
+#### `alias` and `undef`
 
 You may also alias or undefine methods, but these operations are not
 restricted to modules or classes. See the [miscellaneous syntax
 section](/language/misc.md) for documentation.
 
-# Classes
+## Classes
 
 Every class is also a module, but unlike modules a class may not be
 mixed-in to another module (or class). Like a module, a class can be
 used as a namespace. A class also inherits methods and constants from
 its superclass.
 
-## Defining a class
+### Defining a class
 
 Use the `class` keyword to create a class:
 
@@ -319,7 +319,7 @@ and includes a minimum of built-in methods. You can use BasicObject to
 create an independent inheritance structure. See the BasicObject
 documentation for further details.
 
-## Inheritance
+### Inheritance
 
 Any method defined on a class is callable from its subclass:
 
@@ -402,7 +402,7 @@ them manually like `super(2)`.
 
 `super` may be called as many times as you like in the subclass method.
 
-# Singleton Classes
+## Singleton Classes
 
 The singleton class (also known as the metaclass or eigenclass) of an
 object is a class that holds methods for only that instance. You can

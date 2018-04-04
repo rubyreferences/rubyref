@@ -9,17 +9,17 @@ next: "/stdlib/formats/json.html"
 require 'csv'
 ```
 
-# CSV
+## CSV
 
 This class provides a complete interface to CSV files and data. It
 offers tools to enable you to read and write to and from Strings or IO
 objects, as needed.
 
-## Reading
+### Reading
 
-### From a File
+#### From a File
 
-#### A Line at a Time
+##### A Line at a Time
 
 
 ```ruby
@@ -28,16 +28,16 @@ CSV.foreach("path/to/file.csv") do |row|
 end
 ```
 
-#### All at Once
+##### All at Once
 
 
 ```ruby
 arr_of_arrs = CSV.read("path/to/file.csv")
 ```
 
-### From a String
+#### From a String
 
-#### A Line at a Time
+##### A Line at a Time
 
 
 ```ruby
@@ -46,16 +46,16 @@ CSV.parse("CSV,data,String") do |row|
 end
 ```
 
-#### All at Once
+##### All at Once
 
 
 ```ruby
 arr_of_arrs = CSV.parse("CSV,data,String")
 ```
 
-## Writing
+### Writing
 
-### To a File
+#### To a File
 
 
 ```ruby
@@ -66,7 +66,7 @@ CSV.open("path/to/file.csv", "wb") do |csv|
 end
 ```
 
-### To a String
+#### To a String
 
 
 ```ruby
@@ -77,7 +77,7 @@ csv_string = CSV.generate do |csv|
 end
 ```
 
-## Convert a Single Line
+### Convert a Single Line
 
 
 ```ruby
@@ -85,7 +85,7 @@ csv_string = ["CSV", "data"].to_csv   # to CSV
 csv_array  = "CSV,String".parse_csv   # from CSV
 ```
 
-## Shortcut Interface
+### Shortcut Interface
 
 
 ```ruby
@@ -95,9 +95,9 @@ CSV($stderr)    { |csv_err| csv_err << %w{my data here} }  # to $stderr
 CSV($stdin)     { |csv_in|  csv_in.each { |row| p row } }  # from $stdin
 ```
 
-## Advanced Usage
+### Advanced Usage
 
-### Wrap an IO Object
+#### Wrap an IO Object
 
 
 ```ruby

@@ -4,7 +4,7 @@ prev: "/language/methods-def.html"
 next: "/language/modules-classes.html"
 ---
 
-# Calling Methods
+## Calling Methods
 
 Calling a method sends a message to an object so it can perform some
 work.
@@ -30,7 +30,7 @@ confusion.
 This section only covers calling methods. See also the [syntax
 documentation on defining methods](/language/methods-def.md).
 
-## Receiver
+### Receiver
 
 `self` is the default receiver. If you don't specify any receiver `self`
 will be used. To specify a receiver use `.`: 
@@ -50,7 +50,7 @@ case, the arguments of `my_method` are not evaluated.
 You may also use `::` to designate a receiver, but this is rarely used
 due to the potential for confusion with `::` for namespaces.
 
-## Arguments
+### Arguments
 
 There are three types of arguments when sending a message, the
 positional arguments, keyword (or named) arguments and the block
@@ -88,7 +88,7 @@ positional arguments, but may be mixed:
 my_method('a' => 1, b: 2, 'c' => 3)
 ```
 
-### Positional Arguments
+#### Positional Arguments
 
 The positional arguments for the message follow the method name:
 
@@ -131,7 +131,7 @@ my_method('a' => 1, b: 2) # prints: {'a'=>1, :b=>2}
 
 If too many positional arguments are given, an ArgumentError is raised.
 
-### Default Positional Arguments
+#### Default Positional Arguments
 
 When the method defines default arguments you do not need to supply all
 the arguments to the method. Ruby will fill in the missing arguments
@@ -205,7 +205,7 @@ only the arguments with default values. Since `5` has not been assigned
 to a value yet, it is given to `b` and `c` uses its default value of
 `3`.
 
-### Keyword Arguments
+#### Keyword Arguments
 
 Keyword arguments follow any positional arguments and are separated by
 commas like positional arguments:
@@ -219,7 +219,7 @@ Any keyword arguments not given will use the default value from the
 method definition. If a keyword argument is given that the method did
 not list an ArgumentError will be raised.
 
-### Block Argument
+#### Block Argument
 
 The block argument sends a closure from the calling scope to the method.
 
@@ -272,7 +272,7 @@ my_method do |argument1, argument2|
 end
 ```
 
-#### Block Local Arguments
+##### Block Local Arguments
 
 You may also declare block-local arguments to a block using `;` in the
 block arguments list. Assigning to a block-local argument will not
@@ -312,7 +312,7 @@ hello main this is block
 place is block
 ```
 
-### Array to Arguments Conversion
+#### Array to Arguments Conversion
 
 Given the following method:
 
@@ -367,7 +367,7 @@ arguments for the method, an ArgumentError will be raised.
 If the splat operator comes first in the call, parentheses must be used
 to avoid a warning.
 
-### Hash to Keyword Arguments Conversion
+#### Hash to Keyword Arguments Conversion
 
 Given the following method:
 
@@ -421,7 +421,7 @@ Prints:
 Unlike the splat operator described above, the `**` operator has no
 commonly recognized name.
 
-### Proc to Block Conversion
+#### Proc to Block Conversion
 
 Given a method that use a block:
 
@@ -448,7 +448,7 @@ to avoid a warning.
 Unlike the splat operator described above, the `&` operator has no
 commonly recognized name.
 
-## Method Lookup
+### Method Lookup
 
 When you send a message, Ruby looks up the method that matches the name
 of the message for the receiver. Methods are stored in classes and

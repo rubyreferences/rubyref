@@ -4,7 +4,7 @@ prev: "/builtin/marshal.html"
 next: "/stdlib.html"
 ---
 
-# Random
+## Random
 
 Random provides an interface to Ruby's pseudo-random number generator,
 or PRNG. The PRNG produces a deterministic sequence of bits which

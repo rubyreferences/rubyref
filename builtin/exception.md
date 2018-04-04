@@ -4,7 +4,7 @@ prev: "/builtin/types/matrix.html"
 next: "/builtin/exception/exception-classes.html"
 ---
 
-# Exception
+## Exception
 
 Descendants of class Exception are used to communicate between
 `Kernel#raise` and `rescue` statements in `begin ... end` blocks.

@@ -9,14 +9,14 @@ next: "/stdlib/cryptography-encoding/digest.html"
 require 'base64'
 ```
 
-# Base64
+## Base64
 
 The Base64 module provides for the encoding (#encode64,
 `#strict_encode`64, `#urlsafe_encode`64) and decoding (#decode64,
 `#strict_decode`64, `#urlsafe_decode`64) of binary data using a Base64
 representation.
 
-## Example
+### Example
 
 A simple encoding and decoding.
 

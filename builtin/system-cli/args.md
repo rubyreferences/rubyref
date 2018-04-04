@@ -4,7 +4,7 @@ prev: "/builtin/system-cli/filesystem.html"
 next: "/builtin/concurrency-parallelism.html"
 ---
 
-# Arguments and Enviroment
+## Arguments and Enviroment
 
 Ruby core provides several contants for access to command's arguments
 and environment:
@@ -23,7 +23,7 @@ remote' target='_blank'>ENV Reference</a>
 
 
 
-## ARGF
+### ARGF
 
 `ARGF` is a stream designed for use in scripts that process files given
 as command-line arguments or passed in via STDIN.

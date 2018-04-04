@@ -9,7 +9,7 @@ next: "/stdlib/development.html"
 require 'zlib'
 ```
 
-# Zlib
+## Zlib
 
 This module provides access to the <a href='http://zlib.net'
 class='remote' target='_blank'>zlib library</a>. Zlib is designed to be
@@ -36,7 +36,7 @@ method than zlib.
 
 See your system's zlib.h for further information about zlib
 
-## Sample usage
+### Sample usage
 
 Using the wrapper to compress strings with default parameters is quite
 simple:

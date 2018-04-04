@@ -9,7 +9,7 @@ next: "/stdlib/networking-web/socket.html"
 require 'resolv'
 ```
 
-# Resolv
+## Resolv
 
 Resolv is a thread-aware DNS resolver library written in Ruby. Resolv
 can handle multiple DNS requests concurrently without blocking the

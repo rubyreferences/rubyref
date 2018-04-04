@@ -4,7 +4,7 @@ prev: "/language.html"
 next: "/language/literals.html"
 ---
 
-## Keywords
+### Keywords
 
 The following keywords are used by Ruby.
 

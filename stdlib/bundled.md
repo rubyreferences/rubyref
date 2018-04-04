@@ -4,7 +4,7 @@ prev: "/stdlib/misc/other.html"
 next: "/developing.html"
 ---
 
-## Bundled Ruby Gems
+### Bundled Ruby Gems
 
 **Bundled gems** are Ruby Gems (third-party libraries) that are
 installed by default when Ruby is installed. Unlike standard library,

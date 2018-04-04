@@ -4,13 +4,13 @@ prev: "/builtin.html"
 next: "/builtin/types.html"
 ---
 
-# Language Core
+## Language Core
 
 This section describes language core objects.
 
 
 
-## Kernel
+### Kernel
 
 The Kernel module is included by class Object, so its methods are
 available in every Ruby object.
@@ -34,7 +34,7 @@ remote' target='_blank'>Kernel Reference</a>
 
 
 
-## BasicObject
+### BasicObject
 
 BasicObject is the parent class of all classes in Ruby. It's an explicit
 blank class.
@@ -97,7 +97,7 @@ class='ruby-doc remote' target='_blank'>BasicObject Reference</a>
 
 
 
-## Object
+### Object
 
 Object is the default root of all Ruby objects. Object inherits from
 BasicObject which allows creating alternate object hierarchies. Methods
@@ -120,7 +120,7 @@ remote' target='_blank'>Object Reference</a>
 
 
 
-## Module
+### Module
 
 A `Module` is a collection of methods and constants. The methods in a
 module may be instance methods or module methods. Instance methods
@@ -151,7 +151,7 @@ remote' target='_blank'>Module Reference</a>
 
 
 
-## Class
+### Class
 
 Classes in Ruby are first-class objects—each is an instance of class
 `Class`.
@@ -225,7 +225,7 @@ remote' target='_blank'>Class Reference</a>
 
 
 
-## Method
+### Method
 
 Method objects are created by `Object#method`, and are associated with a
 particular object (not just with a class). They may be used to invoke
@@ -312,7 +312,7 @@ class='ruby-doc remote' target='_blank'>UnboundMethod Reference</a>
 
 
 
-## Proc
+### Proc
 
 `Proc` objects are blocks of code that have been bound to a set of local
 variables. Once bound, the code may be called in different contexts and
@@ -337,7 +337,7 @@ remote' target='_blank'>Proc Reference</a>
 
 
 
-## Fiber
+### Fiber
 
 Fibers are primitives for implementing light weight cooperative
 concurrency in Ruby. Basically they are a means of creating code blocks
@@ -414,7 +414,7 @@ remote' target='_blank'>Fiber Reference</a>
 
 
 
-## Binding
+### Binding
 
 Objects of class `Binding` encapsulate the execution context at some
 particular place in the code and retain this context for future use. The

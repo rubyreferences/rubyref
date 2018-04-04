@@ -7,15 +7,15 @@
   children:
     - title: Installation
       content:
-        - source: "# Installation"
+        - source: "## Installation"
         - source: ruby-lang.org/en/documentation/installation/index.md
-          header_shift: 0
+          header_shift: 1
     - title: Other Implementations of Ruby
       id: implementations
       content:
         - source: ruby-lang.org/en/about/index.md
           sections: 'Other Implementations of Ruby'
-          header_shift: -2
+          header_shift: -1
         - source: >
             > See [previous chapter](installation.md) about downloading and installing different
             versions and implementations of Ruby.
@@ -43,7 +43,7 @@
         - Indentation
         - "`defined?`"
         # TODO: continuing the expression on the next line
-      header_shift: 0
+      header_shift: 1
     # Rewritten
     # - source: doc/syntax.md
   children:
@@ -62,8 +62,8 @@
         - source: content/language/comments.md
     - title: Variables and Constants
       content:
-        - source: '# Variables and Constants'
-        - source: '## Local Variables'
+        - source: '## Variables and Constants'
+        - source: '### Local Variables'
         - source: doc/syntax/assignment.md
           sections:
             - Local Variable Names
@@ -75,7 +75,7 @@
             - Instance Variables
             - Class Variables
             - Global Variables
-          header_shift: 0
+          header_shift: 1
         - source: content/language/constants.md
     - title: Assignment
       content:
@@ -138,7 +138,7 @@
         - source: doc/syntax/miscellaneous.md
           sections:
             - "`BEGIN` and `END`"
-          header_shift: 0
+          header_shift: 1
     - title: File Structure
       id: files
       content:
@@ -189,7 +189,7 @@
         - title: "true, false, nil"
           id: atomic
           content:
-            - source: "# `true`, `false` and `nil`"
+            - source: "## `true`, `false` and `nil`"
             - source: core/TrueClass.md
             - source: core/FalseClass.md
             - source: core/NilClass.md
@@ -308,7 +308,7 @@
       children:
         - title: Exception Classes
           content:
-            - source: "# Built-in Exception Classes"
+            - source: "## Built-in Exception Classes"
             # Order and depth here are corresponding to explanation in Exception class docs
             - source: core/NoMemoryError.md
             - source: core/ScriptError.md
@@ -427,7 +427,7 @@
               process:
                 - [stdlib, tempfile]
               remove: "## Synopsis"
-            - source: "## FileUtils"
+            - source: "### FileUtils"
               process:
                 - [stdlib, fileutils]
             - source: lib/fileutils/FileUtils.md
@@ -497,7 +497,7 @@
     - title: Design Patterns
       id: patterns
       content:
-        - source: "# Ruby implementation of common design patterns"
+        - source: "## Ruby implementation of common design patterns"
       children:
         - title: forwardable
           content:
@@ -523,7 +523,7 @@
 
     - title: Formats
       content:
-        - source: "# Data Format Parsers and Renderers"
+        - source: "## Data Format Parsers and Renderers"
       children:
         - title: csv
           content:
@@ -565,7 +565,7 @@
     - title: Development and Debugging
       id: development
       content:
-        - source: "# Development and Debugging Tools"
+        - source: "## Development and Debugging Tools"
       children:
         - title: benchmark
           content:
@@ -628,7 +628,7 @@
               sections: _ref
         - title: profiler
           content:
-            - source: "## profile"
+            - source: "### profile"
             - source: lib/profiler/Profiler__.md
               remove: "# Profiler"
               replace:
@@ -652,12 +652,12 @@
 
     - title: String Utilities
       content:
-        - source: "# String Utilities"
+        - source: "## String Utilities"
       children:
         - title: "erb: Ruby Temlating"
           id: erb
           content:
-            - source: "## ERB"
+            - source: "### ERB"
               process: [[require_stdlib, erb]]
             - source: lib/erb/ERB.md
               sections:
@@ -706,7 +706,7 @@
 
     - title: Networking and Web
       content:
-        - source: "## Networking and Web Libraries"
+        - source: "### Networking and Web Libraries"
       children:
         - title: cgi
           content:
@@ -842,7 +842,7 @@
     - title: System Programming and CLI
       id: cli
       content:
-        - source: "# Libraries for CLI and OS services access"
+        - source: "## Libraries for CLI and OS services access"
       children:
         - title: "etc: Access to Unix /etc"
           id: etc
@@ -945,12 +945,12 @@
     - title: Miscellaneous Libraries
       id: misc
       content:
-        - source: "## Miscellaneous Ruby Libraries"
+        - source: "### Miscellaneous Ruby Libraries"
       children:
         # FIXME: If any of this used at all?..
         - title: Concurrency Utils
           content:
-            - source: "# Concurrency Utils"
+            - source: "## Concurrency Utils"
             - source: lib/monitor/Monitor.md
             - source: lib/monitor/MonitorMixin.md
             - source: lib/mutex_m/Mutex_m.md
@@ -997,7 +997,7 @@
         - title: Other Libraries
           id: other
           content:
-            - source: "# A Brief List of Less Used Libraries"
+            - source: "## A Brief List of Less Used Libraries"
             - source: lib/abbrev/Abbrev.md
             - source: lib/cmath/CMath.md
               remove: "# Trigonometric and transcendental"
@@ -1048,18 +1048,18 @@
   children:
     - title: Libraries
       content:
-        - source: "# Libraries"
+        - source: "## Libraries"
         - source: ruby-lang.org/en/libraries/index.md
-          header_shift: 0
+          header_shift: 1
         # TODO: Bundler
         # Site covered it better
         # - source: lib/rubygems/Gem.md
     - title: Mastering IRB
       id: irb
       content:
-        - source: "# Mastering IRB"
+        - source: "## Mastering IRB"
         - source: lib/irb/IRB.md
-          header_shift: 0
+          header_shift: 1
           remove_sections:
             - Usage
           remove:
@@ -1084,7 +1084,7 @@
 - title: Advanced Topics
   id: advanced
   content:
-    - source: "# Advanced Topics"
+    - source: "## Advanced Topics"
   children:
     - title: Developing C Extensions
       id: extensions
@@ -1116,7 +1116,7 @@
 - title: "Appendix A: Kernel methods list"
   id: appendix-a
   content:
-    - source: "## Appendix A: Kernel methods list"
+    - source: "### Appendix A: Kernel methods list"
     - source: _special/kernel.md
       insert:
         - source: "* [gem](ref:rubygems/Kernel#gem) _(defined by RubyGems)_: Use `#gem` to activate a specific version of gem_name."

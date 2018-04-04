@@ -4,7 +4,7 @@ prev: "/builtin/core.html"
 next: "/builtin/types/atomic.html"
 ---
 
-# Value Types
+## Value Types
 
 This chapter lists all classes corresponding to types of values in Ruby,
 including atomic (symbols, strings, numbers) and collection (arrays,

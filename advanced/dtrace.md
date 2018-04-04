@@ -4,7 +4,7 @@ prev: "/advanced/security.html"
 next: "/advanced/contributing.html"
 ---
 
-# DTrace Probes
+## DTrace Probes
 
 A list of DTrace probes and their functionality. "Module" and "Function"
 cannot be defined in user defined probes (known as USDT), so they will
@@ -31,9 +31,9 @@ the probe name is "method-entry", and the probe takes four arguments:
 * file name
 * line number
 
-## Probes List
+### Probes List
 
-### Stability
+#### Stability
 
 Before we list the specific probes, let's talk about stability. Probe
 stability is declared in the probes.d file at the bottom on the
@@ -56,7 +56,7 @@ stability declarations.
   likely to change in the future, so they are marked as "Evolving".
   Consumers should not depend on these to be stable.
 
-### Declared probes
+#### Declared probes
 
 Probes are defined in the probes.d file. Here are the declared probes
 along with when they are fired and the arguments they take:

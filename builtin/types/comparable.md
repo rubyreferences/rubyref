@@ -4,7 +4,7 @@ prev: "/builtin/types/atomic.html"
 next: "/builtin/types/numbers.html"
 ---
 
-# Comparable
+## Comparable
 
 The `Comparable` mixin is used by classes whose objects may be ordered.
 The class must define the `<=>` operator, which compares the receiver

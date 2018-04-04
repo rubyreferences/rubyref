@@ -9,9 +9,9 @@ next: "/stdlib/networking-web/ipaddr.html"
 require 'cgi'
 ```
 
-# CGI
+## CGI
 
-## Overview
+### Overview
 
 The Common Gateway Interface (CGI) is a simple protocol for passing an
 HTTP request from a web server to a standalone program, and returning
@@ -29,7 +29,7 @@ that class for more details.
 
 See http://www.w3.org/CGI/ for more information on the CGI protocol.
 
-## Introduction
+### Introduction
 
 CGI is a large class, providing several categories of methods, many of
 which are mixed in from other modules. Some of the documentation is in
@@ -43,14 +43,14 @@ provides methods for writing output and generating HTML.
 
 Read on for more details. Examples are provided at the bottom.
 
-## Queries
+### Queries
 
 The CGI class dynamically mixes in parameter and cookie-parsing
 functionality, environmental variable access, and support for parsing
 multipart requests (including uploaded files) from the
 CGI::QueryExtension module.
 
-### Environmental Variables
+#### Environmental Variables
 
 The standard CGI environmental variables are available as read-only
 attributes of a CGI object. The following is a list of these variables:
@@ -73,7 +73,7 @@ For each of these variables, there is a corresponding attribute with the
 same name, except all lower case and without a preceding HTTP\_.
 `content_length` and `server_port` are integers; the rest are strings.
 
-### Parameters
+#### Parameters
 
 The method `#params`() returns a hash of all parameters in the request
 as name/value-list pairs, where the value-list is an Array of one or
@@ -95,13 +95,13 @@ If a parameter does not exist, the former method will return an empty
 array, the latter an empty string. The simplest way to test for
 existence of a parameter is by the `#has_key?` method.
 
-### Cookies
+#### Cookies
 
 HTTP Cookies are automatically parsed from the request. They are
 available from the `#cookies`() accessor, which returns a hash from
 cookie name to CGI::Cookie object.
 
-### Multipart requests
+#### Multipart requests
 
 If a request's method is POST and its content type is
 multipart/form-data, then it may contain uploaded files. These are
@@ -115,14 +115,14 @@ also has the additional singleton methods:
 * `#original_filename`(): the name of the file on the client computer
 * `#content_type`(): the content type of the file
 
-## Responses
+### Responses
 
 The CGI class provides methods for sending header and content output to
 the HTTP client, and mixes in methods for programmatic HTML generation
 from CGI::HtmlExtension and CGI::TagMaker modules. The precise version
 of HTML to use for HTML generation is specified at object creation time.
 
-### Writing output
+#### Writing output
 
 The simplest way to send output to the HTTP client is using the `#out`()
 method. This takes the HTTP headers as a hash parameter, and the body
@@ -130,7 +130,7 @@ content via a block. The headers can be generated as a string using the
 `#http_header`() method. The output stream can be written directly to
 using the `#print`() method.
 
-### Generating HTML
+#### Generating HTML
 
 Each HTML element has a corresponding method for generating that element
 as a String. The name of this method is the same as that of the element,
@@ -147,14 +147,14 @@ different types of form inputs, and methods for elements that commonly
 take particular attributes where the attributes can be directly
 specified as arguments, rather than via a hash.
 
-### Utility HTML escape and other methods like a function.
+#### Utility HTML escape and other methods like a function.
 
 There are some utility tool defined in cgi/util.rb . And when include,
 you can use utility methods like a function.
 
-## Examples of use
+### Examples of use
 
-### Get form values
+#### Get form values
 
 
 ```ruby
@@ -173,7 +173,7 @@ cgi.include?('field_name')
 CAUTION! `cgi['field_name']` returned an Array with the old
 cgi.rb(included in Ruby 1.6)
 
-### Get form values as hash
+#### Get form values as hash
 
 
 ```ruby
@@ -192,7 +192,7 @@ cgi.params.delete('field_name')           # delete param
 cgi.params.clear                          # delete all params
 ```
 
-### Save form values to file
+#### Save form values to file
 
 
 ```ruby
@@ -203,7 +203,7 @@ db.transaction do
 end
 ```
 
-### Restore form values from file
+#### Restore form values from file
 
 
 ```ruby
@@ -214,7 +214,7 @@ db.transaction do
 end
 ```
 
-### Get multipart form values
+#### Get multipart form values
 
 
 ```ruby
@@ -229,7 +229,7 @@ value.content_type          # <== content_type of value
 
 and value has StringIO or Tempfile class methods.
 
-### Get cookie values
+#### Get cookie values
 
 
 ```ruby
@@ -242,7 +242,7 @@ names = cgi.cookies.keys      # <== array of cookie names
 
 and cgi.cookies is a hash.
 
-### Get cookie objects
+#### Get cookie objects
 
 
 ```ruby
@@ -261,7 +261,7 @@ cgi.cookies['name'].expires = Time.now + 30
 cgi.out("cookie" => cgi.cookies['name']) {"string"}
 ```
 
-### Print http header and html string to $DEFAULT\_OUTPUT ($>)
+#### Print http header and html string to $DEFAULT\_OUTPUT ($>)
 
 
 ```ruby
@@ -301,7 +301,7 @@ CGI.new("html4Fr")  # html4.01 Frameset
 CGI.new("html5")    # html5
 ```
 
-### Some utility methods
+#### Some utility methods
 
 
 ```ruby
@@ -309,7 +309,7 @@ require 'cgi/util'
 CGI.escapeHTML('Usage: foo "bar" <baz>')
 ```
 
-### Some utility methods like a function
+#### Some utility methods like a function
 
 
 ```ruby

@@ -4,7 +4,7 @@ prev: "/stdlib/development/ripper.html"
 next: "/stdlib/string-utilities.html"
 ---
 
-# Tracer
+## Tracer
 
 Outputs a source level execution trace of a Ruby program.
 
@@ -13,7 +13,7 @@ It does this by registering an event handler with
 methods for filtering unwanted trace output (see Tracer.add\_filter,
 Tracer.on, and Tracer.off).
 
-## Example
+### Example
 
 Consider the following Ruby script
 

@@ -15,7 +15,8 @@ class Content
 
     @owner = owner
     @index = index
-    @header_shift = header_shift&.to_i || (index.zero? ? 0 : 1)
+    # Top good-looking header is ##, all other should be deeper
+    @header_shift = header_shift&.to_i || (index.zero? ? 1 : 2)
     @remove = Array(remove)
     @sections = Array(sections)
     @remove_sections = Array(remove_sections)

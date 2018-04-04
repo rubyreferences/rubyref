@@ -4,7 +4,7 @@ prev: "/builtin/types/array.html"
 next: "/builtin/types/set.html"
 ---
 
-# Hash
+## Hash
 
 A Hash is a dictionary-like collection of unique keys and their values.
 Also called associative arrays, they are similar to Arrays, but where an
@@ -74,7 +74,7 @@ Accessing a value in a Hash requires using its key:
 puts grades["Jane Doe"] # => 0
 ```
 
-### Common Uses
+#### Common Uses
 
 Hashes are an easy way to represent data structures, such as
 
@@ -100,7 +100,7 @@ def self.create(params)
 end
 ```
 
-### Hash Keys
+#### Hash Keys
 
 Two objects refer to the same hash key when their `hash` value is
 identical and the two objects are `eql?` to each other.

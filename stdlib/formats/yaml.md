@@ -9,7 +9,7 @@ next: "/stdlib/formats/rexml.html"
 require 'yaml'
 ```
 
-# YAML
+## YAML
 
 YAML Ain't Markup Language
 
@@ -18,7 +18,7 @@ format.
 
 The underlying implementation is the libyaml wrapper Psych.
 
-## Usage
+### Usage
 
 Working with YAML can be very simple, for example:
 
@@ -33,7 +33,7 @@ YAML.dump("foo")     # => "--- foo\n...\n"
 { :a => 'b'}.to_yaml  # => "---\n:a: b\n"
 ```
 
-## Security
+### Security
 
 Do not use YAML to load untrusted data. Doing so is unsafe and could
 allow malicious input to execute arbitrary code inside your application.

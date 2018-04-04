@@ -4,7 +4,7 @@ prev: "/language/keywords.html"
 next: "/language/comments.html"
 ---
 
-# Literals
+## Literals
 
 Literals create objects you can use in your program. Literals include:
 
@@ -18,7 +18,7 @@ Literals create objects you can use in your program. Literals include:
 * Regular Expressions
 * Procs
 
-## Booleans and nil
+### Booleans and nil
 
 `nil` and `false` are both false values. `nil` is sometimes used to
 indicate "no value" or "unknown" but evaluates to `false` in conditional
@@ -30,7 +30,7 @@ a true value in conditional expressions.
 (There are also the constants `TRUE`, `FALSE` and `NIL`, but the
 lowercase literal forms are preferred.)
 
-## Numbers
+### Numbers
 
 You can write integers of any size as follows:
 
@@ -87,7 +87,7 @@ Examples:
 All these numbers have the same decimal value, 170. Like integers and
 floats you may use an underscore for readability.
 
-## Strings
+### Strings
 
 The most common way of writing strings is using `"`: 
 
@@ -207,7 +207,7 @@ the script encoding:
 ?あ      #=> "あ"
 ```
 
-### Here Documents
+#### Here Documents
 
 If you are writing a large block of text you may use a "here document"
 or "heredoc"\:
@@ -305,7 +305,7 @@ content for heredoc two
 TWO
 ```
 
-## Symbols
+### Symbols
 
 A Symbol represents a name inside the ruby interpreter. See Symbol for
 more details on what symbols are and when ruby creates them internally.
@@ -330,7 +330,7 @@ Like strings, a single-quote may be used to disable interpolation:
 When creating a Hash, there is a special syntax for referencing a Symbol
 as well.
 
-## Arrays
+### Arrays
 
 An array is created using the objects between `[` and `]`: 
 
@@ -348,7 +348,7 @@ You may place expressions inside the array:
 
 See Array for the methods you may use with an array.
 
-## Hashes
+### Hashes
 
 A hash is created using key-value pairs between `{` and `}`: 
 
@@ -383,7 +383,7 @@ is equal to
 
 See Hash for the methods you may use with a hash.
 
-## Ranges
+### Ranges
 
 A range represents an interval of values. The range may include or
 exclude its ending value.
@@ -397,7 +397,7 @@ exclude its ending value.
 You may create a range of any object. See the Range documentation for
 details on the methods you need to implement.
 
-## Regular Expressions
+### Regular Expressions
 
 A regular expression is created using "/"\:
 
@@ -421,7 +421,7 @@ escaped characters than a string.
 
 See Regexp for a description of the syntax of regular expressions.
 
-## Procs
+### Procs
 
 A proc can be created with `->`: 
 
@@ -440,7 +440,7 @@ You can require arguments for the proc as follows:
 
 This proc will add one to its argument.
 
-## Percent Strings
+### Percent Strings
 
 Besides `%(...)` which creates a String, the `%` may create other types
 of object. As with strings, an uppercase letter allows interpolation and

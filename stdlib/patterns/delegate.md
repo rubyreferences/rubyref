@@ -9,7 +9,7 @@ next: "/stdlib/patterns/observer.html"
 require 'delegate'
 ```
 
-# Delegator
+## Delegator
 
 This library provides three different ways to delegate method calls to
 an object. The easiest to use is SimpleDelegator. Pass an object to the
@@ -42,7 +42,7 @@ class SimpleDelegator < Delegator
 end
 ```
 
-## Notes
+### Notes
 
 Be advised, RDoc will not detect delegated methods.
 
@@ -52,7 +52,7 @@ class='ruby-doc remote' target='_blank'>Delegator Reference</a>
 
 
 
-## SimpleDelegator
+### SimpleDelegator
 
 A concrete implementation of Delegator, this class provides the means to
 delegate all supported method calls to the object passed into the

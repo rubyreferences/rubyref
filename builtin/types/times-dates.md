@@ -8,7 +8,7 @@ next: "/builtin/types/enumerable.html"
 
 
 
-## Time
+### Time
 
 Time is an abstraction of dates and times. Time is stored internally as
 the number of seconds with fraction since the *Epoch*, January 1, 1970
@@ -27,7 +27,7 @@ Bignum or Rational. The integer is a number of nanoseconds since the
 Rational is used (before 1823, after 2116, under nanosecond), Time works
 slower as when integer is used.
 
-### Creating a new Time instance
+#### Creating a new Time instance
 
 You can create a new instance of Time with Time::new. This will use the
 current system time. Time::now is an alias for this. You can also pass
@@ -59,7 +59,7 @@ Epoch</a>.
 Time.at(628232400) #=> 1989-11-28 00:00:00 -0500
 ```
 
-### Working with an instance of Time
+#### Working with an instance of Time
 
 Once you have an instance of Time there is a multitude of things you can
 do with it. Below are some examples. For all of the following examples,
@@ -125,7 +125,7 @@ remote' target='_blank'>Time Reference</a>
 
 
 
-### time.rb
+#### time.rb
 
 Part of useful functionality for `Time` is provided by standard library
 `time`.
@@ -141,7 +141,7 @@ require 'time'
 
 All of these examples were done using the EST timezone which is GMT-5.
 
-#### Converting to a String
+##### Converting to a String
 
 
 ```ruby
@@ -151,7 +151,7 @@ t.rfc2822  # => "Wed, 05 Oct 2011 22:26:12 -0400"
 t.httpdate # => "Thu, 06 Oct 2011 02:26:12 GMT"
 ```
 
-#### Time.parse
+##### Time.parse
 
 `#parse` takes a string representation of a Time and attempts to parse
 it using a heuristic.
@@ -208,7 +208,7 @@ Time.parse("70-10-31") {|year| year + (year < 70 ? 2000 : 1900)}
 #=> 1970-10-31 00:00:00 -0500
 ```
 
-#### Time.strptime
+##### Time.strptime
 
 `#strptime` works similar to `parse` except that instead of using a
 heuristic to detect the format of the input string, you provide a second
@@ -224,7 +224,7 @@ class='ruby-doc remote' target='_blank'>Time Reference</a>
 
 
 
-### Date
+#### Date
 
 *Part of standard library. You need to `require 'date'` before using.*
 
@@ -312,7 +312,7 @@ class='ruby-doc remote' target='_blank'>Date Reference</a>
 
 
 
-### DateTime
+#### DateTime
 
 *Part of standard library. You need to `require 'date'` before using.*
 
@@ -389,7 +389,7 @@ d > DateTime.new(1999)
                     #=> true
 ```
 
-#### When should you use DateTime and when should you use Time?
+##### When should you use DateTime and when should you use Time?
 
 It's a common misconception that <a
 href='http://en.wikipedia.org/wiki/William_Shakespeare' class='remote'

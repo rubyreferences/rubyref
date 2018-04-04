@@ -9,7 +9,7 @@ next: "/stdlib/development/tracer.html"
 require 'ripper'
 ```
 
-# Ripper
+## Ripper
 
 Ripper is a Ruby script parser.
 
@@ -17,7 +17,7 @@ You can get information from the parser with event-based style.
 Information such as abstract syntax trees or simple lexical analysis of
 the Ruby program.
 
-## Usage
+### Usage
 
 Ripper provides an easy interface for parsing your program into a
 symbolic expression tree (or S-expression).

@@ -9,7 +9,7 @@ next: "/stdlib/development/logger.html"
 require 'fiddle'
 ```
 
-# Fiddle
+## Fiddle
 
 Fiddle is an extension to translate a foreign function interface (FFI)
 with ruby.
@@ -19,7 +19,7 @@ target='_blank'>libffi</a>, a popular C library which provides a
 portable interface that allows code written in one language to call code
 written in another language.
 
-## Example
+### Example
 
 Here we will use Fiddle::Function to wrap <a
 href='http://linux.die.net/man/3/floor' class='remote'

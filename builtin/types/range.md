@@ -4,7 +4,7 @@ prev: "/builtin/types/regexp.html"
 next: "/builtin/types/struct.html"
 ---
 
-# Range
+## Range
 
 A `Range` represents an interval—a set of values with a beginning and an
 end. Ranges may be constructed using the *s*`..`*e* and *s*`...`*e*
@@ -21,7 +21,7 @@ sequence.
 ('a'...'e').to_a   #=> ["a", "b", "c", "d"]
 ```
 
-## Custom Objects in Ranges
+### Custom Objects in Ranges
 
 Ranges can be constructed using any objects that can be compared using
 the `<=>` operator. Methods that treat the range as a sequence (#each

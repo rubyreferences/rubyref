@@ -4,7 +4,7 @@ prev: "/builtin/internals.html"
 next: "/builtin/random.html"
 ---
 
-# Marshal
+## Marshal
 
 The marshaling library converts collections of Ruby objects into a byte
 stream, allowing them to be stored outside the currently active script.
@@ -41,7 +41,7 @@ marshal\_dump and marshal\_load or \_dump and \_load. marshal\_dump will
 take precedence over \_dump if both are defined. marshal\_dump may
 result in smaller Marshal strings.
 
-## Security considerations
+### Security considerations
 
 By design, Marshal.load can deserialize almost any class loaded into the
 Ruby process. In many cases this can lead to remote code execution if
@@ -56,7 +56,7 @@ serialization format that is only able to load simple, 'primitive' types
 such as String, Array, Hash, etc. Never allow user input to specify
 arbitrary types to deserialize into.
 
-## marshal\_dump and marshal\_load
+### marshal\_dump and marshal\_load
 
 When dumping an object the method marshal\_dump will be called.
 marshal\_dump must return a result containing the information necessary
@@ -89,7 +89,7 @@ class MyObj
 end
 ```
 
-## \_dump and \_load
+### \_dump and \_load
 
 Use \_dump and \_load when you need to allocate the object you're
 restoring yourself.
@@ -131,7 +131,7 @@ remote' target='_blank'>Marshal Reference</a>
 
 
 
-## Marshal Format
+### Marshal Format
 
 The Marshal format is used to serialize ruby objects. The format can
 store arbitrary objects through three user-defined extension mechanisms.
@@ -143,7 +143,7 @@ This document calls a serialized set of objects a stream. The Ruby
 implementation can load a set of objects from a String, an IO or an
 object that implements a `getc` method.
 
-### Stream Format
+#### Stream Format
 
 The first two bytes of the stream contain the major and minor version,
 each as a single byte encoding a digit. The version implemented in Ruby
@@ -165,12 +165,12 @@ followed by one or more bytes describing the object. When "object" is
 mentioned below it means any of the types below that defines a Ruby
 object.
 
-#### true, false, nil
+##### true, false, nil
 
 These objects are each one byte long. "T" is represents `true`, "F"
 represents `false` and "0" represents `nil`.
 
-#### Fixnum and long
+##### Fixnum and long
 
 "i" represents a signed 32 bit value using a packed format. One through
 five bytes follows the type. The value loaded will always be a Fixnum.
@@ -224,7 +224,7 @@ adding 5 to the value.
 There are multiple representations for many values. CRuby always outputs
 the shortest representation possible.
 
-#### Symbols and Byte Sequence
+##### Symbols and Byte Sequence
 
 "\:" represents a real symbol. A real symbol contains the data needed to
 define the symbol for the rest of the stream as future occurrences in
@@ -255,7 +255,7 @@ For example, the following stream contains `[:hello, :hello]`:
 When a "symbol" is referenced below it may be either a real symbol or a
 symbol link.
 
-#### Object References
+##### Object References
 
 Separate from but similar to symbol references, the stream contains only
 one copy of each object (as determined by `#object_id`) for all objects
@@ -275,7 +275,7 @@ For example, the following stream contains an Array of the same
 "\004\b[\a\"\nhello@\006"
 ```
 
-#### Instance Variables
+##### Instance Variables
 
 "I" indicates that instance variables follow the next object. An object
 follows the type byte. Following the object is a length indicating the
@@ -289,19 +289,19 @@ instance variables as described here.
 For a String and Regexp (described below) a special instance variable
 `:E` is used to indicate the Encoding.
 
-#### Extended
+##### Extended
 
 "e" indicates that the next object is extended by a module. An object
 follows the type byte. Following the object is a symbol that contains
 the name of the module the object is extended by.
 
-#### Array
+##### Array
 
 "\[" represents an Array. Following the type byte is a long indicating
 the number of objects in the array. The given number of objects follow
 the length.
 
-#### Bignum
+##### Bignum
 
 "l" represents a Bignum which is composed of three parts:
 
@@ -326,7 +326,7 @@ bytes.each_with_index do |byte, exp|
 end
 ```
 
-#### Class and Module
+##### Class and Module
 
 "c" represents a Class object, "m" represents a Module and "M"
 represents either a class or module (this is an old-style for
@@ -341,7 +341,7 @@ If no class or module exists an exception should be raised.
 For "c" and "m" types, the loaded object must be a class or module,
 respectively.
 
-#### Data
+##### Data
 
 "d" represents a Data object. (Data objects are wrapped pointers from
 ruby extensions.) Following the type byte is a symbol indicating the
@@ -352,7 +352,7 @@ To dump a Data object Ruby calls \_dump\_data. To load a Data object
 Ruby calls \_load\_data with the state of the object on a newly
 allocated instance.
 
-#### Float
+##### Float
 
 "f" represents a Float object. Following the type byte is a byte
 sequence containing the float value. The following values are special:
@@ -368,7 +368,7 @@ Older minor versions of Marshal also stored extra mantissa bits to
 ensure portability across platforms but 4.8 does not include these. See
 \[ruby-talk:69518\] for some explanation.
 
-#### Hash and Hash with Default Value
+##### Hash and Hash with Default Value
 
 "\{" represents a Hash object while "}" represents a Hash with a default
 value set (`Hash.new 0`). Following the type byte is a long indicating
@@ -378,9 +378,9 @@ number of objects follow the size.
 For a Hash with a default value, the default value follows all the
 pairs.
 
-#### Module and Old Module
+##### Module and Old Module
 
-#### Object
+##### Object
 
 "o" represents an object that doesn't have any other special form (such
 as a user-defined or built-in format). Following the type byte is a
@@ -392,7 +392,7 @@ size.
 The keys in the pairs must be symbols containing instance variable
 names.
 
-#### Regular Expression
+##### Regular Expression
 
 "/" represents a regular expression. Following the type byte is a byte
 sequence containing the regular expression source. Following the type
@@ -404,14 +404,14 @@ variables (see above). If no encoding is attached escapes for the
 following regexp specials not present in ruby 1.8 must be removed: g-m,
 o-q, u, y, E, F, H-L, N-V, X, Y.
 
-#### String
+##### String
 
 '"' represents a String. Following the type byte is a byte sequence
 containing the string content. When dumped from ruby 1.9 an encoding
 instance variable (`:E` see above) should be included unless the
 encoding is binary.
 
-#### Struct
+##### Struct
 
 "S" represents a Struct. Following the type byte is a symbol containing
 the name of the struct. Following the name is a long indicating the
@@ -426,13 +426,13 @@ If there is a mismatch between the struct in the currently running ruby
 and the member count in the marshaled struct an exception should be
 raised.
 
-#### User Class
+##### User Class
 
 "C" represents a subclass of a String, Regexp, Array or Hash. Following
 the type byte is a symbol containing the name of the subclass. Following
 the name is the wrapped object.
 
-#### User Defined
+##### User Defined
 
 "u" represents an object with a user-defined serialization format using
 the `_dump` instance method and `_load` class method. Following the type
@@ -443,7 +443,7 @@ object.
 The class method `_load` is called on the class with a string created
 from the byte-sequence.
 
-#### User Marshal
+##### User Marshal
 
 "U" represents an object with a user-defined serialization format using
 the `marshal_dump` and `marshal_load` instance methods. Following the

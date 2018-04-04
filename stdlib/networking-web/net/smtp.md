@@ -9,7 +9,7 @@ next: "/stdlib/networking-web/openuri.html"
 require 'net/smtp'
 ```
 
-# Net::SMTP
+## Net::SMTP
 
 This library provides functionality to send internet mail via SMTP, the
 Simple Mail Transfer Protocol. For details of SMTP itself, see <a
@@ -28,9 +28,9 @@ FYI: the official documentation on internet mail is: <a
 href='http://www.ietf.org/rfc/rfc2822.txt' class='remote'
 target='_blank'>RFC2822</a>.
 
-## Examples
+### Examples
 
-### Sending Messages
+#### Sending Messages
 
 You must open a connection to an SMTP server before sending messages.
 The first argument is the address of your SMTP server, and the second
@@ -71,7 +71,7 @@ Net::SMTP.start('your.smtp.server', 25) do |smtp|
 end
 ```
 
-### Closing the Session
+#### Closing the Session
 
 You MUST close the SMTP session after sending messages, by calling the
 `#finish` method:
@@ -97,7 +97,7 @@ end
 
 I strongly recommend this scheme. This form is simpler and more robust.
 
-### HELO domain
+#### HELO domain
 
 In almost all situations, you must provide a third argument to
 SMTP.start/`SMTP#start`. This is the domain name which you are on (the
@@ -111,7 +111,7 @@ Net::SMTP.start('your.smtp.server', 25,
                 'mail.from.domain') { |smtp| ... }
 ```
 
-### SMTP Authentication
+#### SMTP Authentication
 
 The Net::SMTP class supports three authentication schemes; PLAIN, LOGIN
 and CRAM MD5. (SMTP Authentication: \[RFC2554\]) To use SMTP

@@ -8,7 +8,7 @@ next: "/stdlib/misc/timeout.html"
 
 
 
-## DBM
+### DBM
 
 The DBM class provides a wrapper to a Unix-style <a
 href='http://en.wikipedia.org/wiki/Dbm' class='remote'
@@ -57,7 +57,7 @@ class='ruby-doc remote' target='_blank'>GDBM Reference</a>
 
 
 
-## SDBM
+### SDBM
 
 SDBM provides a simple file-based key-value store, which can only store
 String keys and values.

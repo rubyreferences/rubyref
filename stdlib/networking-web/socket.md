@@ -9,7 +9,7 @@ next: "/stdlib/networking-web/webrick.html"
 require 'socket'
 ```
 
-# Socket
+## Socket
 
 Class `Socket` provides access to the underlying operating system socket
 implementations. It can be used to provide more operating system
@@ -20,7 +20,7 @@ Socket. For example, Socket::AF\_INET is usable as well as
 Socket::Constants::AF\_INET. See Socket::Constants for the list of
 constants.
 
-### Quick start
+#### Quick start
 
 Many of the classes, such as TCPSocket, UDPSocket or UNIXSocket, ease
 the use of sockets comparatively to the equivalent C programming

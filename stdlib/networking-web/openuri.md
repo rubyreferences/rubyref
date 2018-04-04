@@ -9,7 +9,7 @@ next: "/stdlib/networking-web/resolv.html"
 require 'open-uri'
 ```
 
-# OpenURI
+## OpenURI
 
 OpenURI is an easy-to-use wrapper for Net::HTTP, Net::HTTPS and
 Net::FTP.

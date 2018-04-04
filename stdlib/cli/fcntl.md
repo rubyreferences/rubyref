@@ -9,7 +9,7 @@ next: "/stdlib/cli/io.html"
 require 'fcntl'
 ```
 
-# Fcntl
+## Fcntl
 
 Fcntl loads the constants defined in the system's <fcntl.h> C header
 file, and used with both the fcntl(2) and open(2) POSIX system

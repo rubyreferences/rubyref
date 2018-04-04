@@ -9,7 +9,7 @@ next: "/stdlib/formats/yaml.html"
 require 'json'
 ```
 
-# JavaScript Object Notation (JSON)
+## JavaScript Object Notation (JSON)
 
 JSON is a lightweight data-interchange format. It is easy for us humans
 to read and write. Plus, equally simple for machines to generate or
@@ -23,7 +23,7 @@ More commonly called an *array*, vector, sequence or list.
 
 To read more about JSON visit: http://json.org
 
-## Parsing JSON
+### Parsing JSON
 
 To parse a JSON string received by another application or generated
 within your existing application:
@@ -41,7 +41,7 @@ argument to be a string and can't convert objects like a hash or array.
 
 Ruby converts your string into a hash
 
-## Generating JSON
+### Generating JSON
 
 Creating a JSON string for communication or serialization is just as
 simple.

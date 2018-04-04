@@ -9,16 +9,16 @@ next: "/stdlib/networking-web/net/smtp.html"
 require 'net/pop'
 ```
 
-# Net::POP3
+## Net::POP3
 
 This library provides functionality for retrieving email via POP3, the
 Post Office Protocol version 3. For details of POP3, see <a
 href='http://www.ietf.org/rfc/rfc1939.txt' class='remote'
 target='_blank'>RFC1939</a>.
 
-## Examples
+### Examples
 
-### Retrieving Messages
+#### Retrieving Messages
 
 This example retrieves messages from the server and deletes them on the
 server.
@@ -54,7 +54,7 @@ pop.finish                                           # (3)
 3.  Close POP session by calling POP3#finish or use the block form of
     `#start`.
 
-### Shortened Code
+#### Shortened Code
 
 The example above is very verbose. You can shorten the code by using
 some utility methods. First, the block form of Net::POP3.start can be
@@ -120,7 +120,7 @@ Net::POP3.delete_all('pop.example.com', 110,
 end
 ```
 
-### Memory Space Issues
+#### Memory Space Issues
 
 All the examples above get each message as one big string. This example
 avoids this.
@@ -141,7 +141,7 @@ Net::POP3.delete_all('pop.example.com', 110,
 end
 ```
 
-### Using APOP
+#### Using APOP
 
 The net/pop library supports APOP authentication. To use APOP, use the
 Net::APOP class instead of the Net::POP3 class. You can use the utility
@@ -158,7 +158,7 @@ pop.start('YourAccount', 'YourPassword') do |pop|
 end
 ```
 
-### Fetch Only Selected Mail Using 'UIDL' POP Command
+#### Fetch Only Selected Mail Using 'UIDL' POP Command
 
 If your POP server provides UIDL functionality, you can grab only
 selected mails from the POP server. e.g.

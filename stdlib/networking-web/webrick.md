@@ -9,7 +9,7 @@ next: "/stdlib/networking-web/uri.html"
 require 'webrick'
 ```
 
-# WEB server toolkit.
+## WEB server toolkit.
 
 WEBrick is an HTTP server toolkit that can be configured as an HTTPS
 server, a proxy server, and a virtual-host server. WEBrick features
@@ -25,7 +25,7 @@ directory listings.
 WEBrick also includes tools for daemonizing a process and starting a
 process at a higher privilege level and dropping permissions.
 
-## Starting an HTTP server
+### Starting an HTTP server
 
 To create a new WEBrick::HTTPServer that will listen to connections on
 port 8000 and serve documents from the current user's public\_html
@@ -49,7 +49,7 @@ trap 'INT' do server.shutdown end
 server.start
 ```
 
-## Custom Behavior
+### Custom Behavior
 
 The easiest way to have a server perform custom operations is through
 W`EBrick::HTTPServer#mount_proc`. The block given will be called with a

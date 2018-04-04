@@ -4,7 +4,7 @@ prev: "/language/metaprogramming.html"
 next: "/builtin/core.html"
 ---
 
-# Builting (Core) Classes
+## Builting (Core) Classes
 
 This chapter describes classes that are always available in a language,
 so-called "core" classes.

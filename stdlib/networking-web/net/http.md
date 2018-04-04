@@ -9,9 +9,9 @@ next: "/stdlib/networking-web/net/imap.html"
 require 'net/http'
 ```
 
-# Net::HTTP
+## Net::HTTP
 
-## An HTTP client API for Ruby.
+### An HTTP client API for Ruby.
 
 Net::HTTP provides a rich library which can be used to build HTTP
 user-agents. For more details about HTTP see <a
@@ -24,7 +24,7 @@ Net::HTTP.
 
 If you are only performing a few GET requests you should try OpenURI.
 
-## Simple Examples
+### Simple Examples
 
 All examples assume you have loaded Net::HTTP with:
 
@@ -39,14 +39,14 @@ The Net::HTTP methods in the following section do not persist
 connections. They are not recommended if you are performing many HTTP
 requests.
 
-### GET
+#### GET
 
 
 ```ruby
 Net::HTTP.get('example.com', '/index.html') # => String
 ```
 
-### GET by URI
+#### GET by URI
 
 
 ```ruby
@@ -54,7 +54,7 @@ uri = URI('http://example.com/index.html?count=10')
 Net::HTTP.get(uri) # => String
 ```
 
-### GET with Dynamic Parameters
+#### GET with Dynamic Parameters
 
 
 ```ruby
@@ -66,7 +66,7 @@ res = Net::HTTP.get_response(uri)
 puts res.body if res.is_a?(Net::HTTPSuccess)
 ```
 
-### POST
+#### POST
 
 
 ```ruby
@@ -75,7 +75,7 @@ res = Net::HTTP.post_form(uri, 'q' => 'ruby', 'max' => '50')
 puts res.body
 ```
 
-### POST with Multiple Values
+#### POST with Multiple Values
 
 
 ```ruby
@@ -84,7 +84,7 @@ res = Net::HTTP.post_form(uri, 'q' => ['ruby', 'perl'], 'max' => '50')
 puts res.body
 ```
 
-## How to use Net::HTTP
+### How to use Net::HTTP
 
 The following example code can be used as the basis of a HTTP user-agent
 which can perform a variety of request types using persistent
@@ -119,7 +119,7 @@ For all the Net::HTTP request objects and shortcut request methods you
 may supply either a String for the request path or a URI from which
 Net::HTTP will extract the request path.
 
-### Response Data
+#### Response Data
 
 
 ```ruby
@@ -141,7 +141,7 @@ puts res.class.name # => 'HTTPOK'
 puts res.body if res.response_body_permitted?
 ```
 
-### Following Redirection
+#### Following Redirection
 
 Each Net::HTTPResponse object belongs to a class for its response code.
 
@@ -177,7 +177,7 @@ end
 print fetch('http://www.ruby-lang.org')
 ```
 
-### POST
+#### POST
 
 A POST can be made using the Net::HTTP::Post request class. This example
 creates a urlencoded POST body:
@@ -213,7 +213,7 @@ req.content_type = 'multipart/form-data'
 Other requests that can contain a body such as PUT can be created in the
 same way using the corresponding request class (Net::HTTP::Put).
 
-### Setting Headers
+#### Setting Headers
 
 The following example performs a conditional GET using the
 If-Modified-Since header. If the files has not been modified since the
@@ -237,7 +237,7 @@ open 'cached_response', 'w' do |io|
 end if res.is_a?(Net::HTTPSuccess)
 ```
 
-### Basic Authentication
+#### Basic Authentication
 
 Basic authentication is performed according to <a
 href='http://www.ietf.org/rfc/rfc2617.txt' class='remote'
@@ -256,7 +256,7 @@ res = Net::HTTP.start(uri.hostname, uri.port) {|http|
 puts res.body
 ```
 
-### Streaming Response Bodies
+#### Streaming Response Bodies
 
 By default Net::HTTP reads an entire response into memory. If you are
 handling large files or wish to implement a progress bar you can instead
@@ -279,7 +279,7 @@ Net::HTTP.start(uri.host, uri.port) do |http|
 end
 ```
 
-### HTTPS
+#### HTTPS
 
 HTTPS is enabled for an HTTP connection by `Net::HTTP#use_ssl=`.
 
@@ -306,7 +306,7 @@ Net::HTTP.get(uri) # => String
 In previous versions of Ruby you would need to require 'net/https' to
 use HTTPS. This is no longer true.
 
-### Proxies
+#### Proxies
 
 Net::HTTP will automatically create a proxy from the `http_proxy`
 environment variable if it is present. To disable use of `http_proxy`,
@@ -327,7 +327,7 @@ Net::HTTP.new('example.com', nil, proxy_addr, proxy_port).start { |http|
 See Net::HTTP.new for further details and examples such as proxies that
 require a username and password.
 
-### Compression
+#### Compression
 
 Net::HTTP automatically adds Accept-Encoding for compression of response
 bodies and automatically decompresses gzip and deflate responses unless

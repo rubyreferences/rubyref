@@ -4,11 +4,11 @@ prev: "/stdlib/misc/timeout.html"
 next: "/stdlib/bundled.html"
 ---
 
-# A Brief List of Less Used Libraries
+## A Brief List of Less Used Libraries
 
 
 
-## Abbrev
+### Abbrev
 
 Calculates the set of unambiguous abbreviations for a given set of
 strings.
@@ -66,7 +66,7 @@ class='ruby-doc remote' target='_blank'>Abbrev Reference</a>
 
 
 
-## CMath
+### CMath
 
 CMath is a library that provides trigonometric and transcendental
 functions for complex numbers. The functions in this module accept
@@ -85,7 +85,7 @@ class='ruby-doc remote' target='_blank'>CMath Reference</a>
 
 
 
-## GetoptLong
+### GetoptLong
 
 The GetoptLong class allows you to parse command line options similarly
 to the GNU getopt\_long() C library call. Note, however, that GetoptLong
@@ -171,7 +171,7 @@ class='ruby-doc remote' target='_blank'>GetoptLong Reference</a>
 
 
 
-## Exception2MessageMapper
+### Exception2MessageMapper
 
 Helper module for easily defining exceptions with predefined messages.
 
@@ -182,7 +182,7 @@ Reference</a>
 
 
 
-## NKF
+### NKF
 
 NKF - Ruby extension for Network Kanji Filter
 
@@ -191,7 +191,7 @@ class='ruby-doc remote' target='_blank'>NKF Reference</a>
 
 
 
-## PStore
+### PStore
 
 PStore implements a file based persistence mechanism based on a Hash.
 User code can store hierarchies of Ruby objects (values) into the data
@@ -213,7 +213,7 @@ class='ruby-doc remote' target='_blank'>PStore Reference</a>
 
 
 
-## Rinda
+### Rinda
 
 A module to implement the Linda distributed computing paradigm in Ruby.
 
@@ -224,7 +224,7 @@ class='ruby-doc remote' target='_blank'>Rinda Reference</a>
 
 
 
-## ThreadsWait
+### ThreadsWait
 
 This class watches for termination of multiple threads. Basic
 functionality (wait until specified threads have terminated) can be
@@ -249,7 +249,7 @@ class='ruby-doc remote' target='_blank'>ThreadsWait Reference</a>
 
 
 
-## TSort
+### TSort
 
 TSort implements topological sorting using Tarjan's algorithm for
 strongly connected components.
@@ -271,7 +271,7 @@ class='ruby-doc remote' target='_blank'>TSort Reference</a>
 
 
 
-## WeakRef
+### WeakRef
 
 Weak Reference class that allows a referenced object to be
 garbage-collected.

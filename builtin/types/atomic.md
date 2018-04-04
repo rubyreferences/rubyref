@@ -4,11 +4,11 @@ prev: "/builtin/types.html"
 next: "/builtin/types/comparable.html"
 ---
 
-# `true`, `false` and `nil`
+## `true`, `false` and `nil`
 
 
 
-## TrueClass
+### TrueClass
 
 The global value `true` is the only instance of class `TrueClass` and
 represents a logically true value in boolean expressions. The class
@@ -19,7 +19,7 @@ remote' target='_blank'>TrueClass Reference</a>
 
 
 
-## FalseClass
+### FalseClass
 
 The global value `false` is the only instance of class `FalseClass` and
 represents a logically false value in boolean expressions. The class
@@ -31,7 +31,7 @@ class='ruby-doc remote' target='_blank'>FalseClass Reference</a>
 
 
 
-## NilClass
+### NilClass
 
 The class of the singleton object `nil`.
 

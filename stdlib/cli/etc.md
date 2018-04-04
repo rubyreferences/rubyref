@@ -9,7 +9,7 @@ next: "/stdlib/cli/fcntl.html"
 require 'etc'
 ```
 
-# Etc
+## Etc
 
 The Etc module provides access to information typically stored in files
 in the /etc directory on Unix systems.
@@ -21,7 +21,7 @@ temporary directory (/tmp) and configuration directory (/etc).
 The Etc module provides a more reliable way to access information about
 the logged in user than environment variables such as +$USER+.
 
-## Example:
+### Example:
 
 
 ```ruby

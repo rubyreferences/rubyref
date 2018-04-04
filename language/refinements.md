@@ -4,7 +4,7 @@ prev: "/language/exceptions.html"
 next: "/language/precedence.html"
 ---
 
-# Refinements
+## Refinements
 
 Due to Ruby's open classes you can redefine or add functionality to
 existing classes. This is called a "monkey patch". Unfortunately the
@@ -53,7 +53,7 @@ c = C.new
 c.foo # prints "C#foo in M"
 ```
 
-## Scope
+### Scope
 
 You may activate refinements at top-level, and inside classes and
 modules. You may not activate refinements in method scope. Refinements
@@ -253,7 +253,7 @@ using ToJSON
 p [{1=>2}, {3=>4}].to_json # prints "[{\"1\":2},{\"3\":4}]"
 ```
 
-## Method Lookup
+### Method Lookup
 
 When looking up a method for an instance of class `C` Ruby checks:
 
@@ -280,7 +280,7 @@ superclass Numeric. Since the method `/` is also present in child
 However, if a method `foo` is defined on Numeric in a refinement,
 `1.foo` invokes that method since `foo` does not exist on Integer.
 
-## `super`
+### `super`
 
 When `super` is invoked method lookup checks:
 
@@ -297,7 +297,7 @@ Note that `super` in a method of a refinement invokes the method in the
 refined class even if there is another refinement which has been
 activated in the same context.
 
-## Indirect Method Calls
+### Indirect Method Calls
 
 When using indirect method access such as `Kernel#send`, `Kernel#method`
 or Kernel#respond\_to? refinements are not honored for the caller
@@ -305,7 +305,7 @@ context during method lookup.
 
 This behavior may be changed in the future.
 
-## Refinement inheritance by `Module#include`
+### Refinement inheritance by `Module#include`
 
 When a module X is included into a module Y, Y inherits refinements from
 X.
@@ -333,7 +333,7 @@ using C
 Refinements in descendants have higher precedence than those of
 ancestors.
 
-## Further Reading
+### Further Reading
 
 See https://bugs.ruby-lang.org/projects/ruby-trunk/wiki/RefinementsSpec
 for the current specification for implementing refinements. The

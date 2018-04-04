@@ -4,11 +4,11 @@ prev: "/builtin/exception.html"
 next: "/builtin/warning.html"
 ---
 
-# Built-in Exception Classes
+## Built-in Exception Classes
 
 
 
-## NoMemoryError
+### NoMemoryError
 
 Raised when memory allocation fails.
 
@@ -17,7 +17,7 @@ class='ruby-doc remote' target='_blank'>NoMemoryError Reference</a>
 
 
 
-## ScriptError
+### ScriptError
 
 ScriptError is the superclass for errors raised when a script can not be
 executed because of a `LoadError`, `NotImplementedError` or a
@@ -89,7 +89,7 @@ class='ruby-doc remote' target='_blank'>SyntaxError Reference</a>
 
 
 
-## SecurityError
+### SecurityError
 
 Raised when attempting a potential unsafe operation, typically when the
 $SAFE level is raised above 0.
@@ -116,7 +116,7 @@ class='ruby-doc remote' target='_blank'>SecurityError Reference</a>
 
 
 
-## SignalException
+### SignalException
 
 Raised when a signal is received.
 
@@ -177,7 +177,7 @@ remote' target='_blank'>Interrupt Reference</a>
 
 
 
-## StandardError
+### StandardError
 
 The most standard error types are subclasses of StandardError. A rescue
 clause without an explicit Exception class will rescue all
@@ -740,7 +740,7 @@ class='ruby-doc remote' target='_blank'>ZeroDivisionError Reference</a>
 
 
 
-## SystemExit
+### SystemExit
 
 Raised by `exit` to initiate the termination of the script.
 
@@ -749,7 +749,7 @@ class='ruby-doc remote' target='_blank'>SystemExit Reference</a>
 
 
 
-## SystemStackError
+### SystemStackError
 
 Raised in case of a stack overflow.
 
@@ -773,7 +773,7 @@ class='ruby-doc remote' target='_blank'>SystemStackError Reference</a>
 
 
 
-## fatal
+### fatal
 
 fatal is an Exception that is raised when Ruby has encountered a fatal
 error and must exit. You are not able to rescue fatal.

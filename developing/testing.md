@@ -4,7 +4,7 @@ prev: "/developing/documenting.html"
 next: "/developing/code-style.html"
 ---
 
-# Testing Ruby Code
+## Testing Ruby Code
 
 Recent Ruby versions come with *bundled gem* for testing, named <a
 href='https://github.com/seattlerb/minitest' class='remote'

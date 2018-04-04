@@ -4,7 +4,7 @@ prev: "/developing/irb.html"
 next: "/developing/testing.html"
 ---
 
-# Documenting Ruby Code
+## Documenting Ruby Code
 
 Ruby Standard Library includes <a href='https://ruby.github.io/rdoc/'
 class='remote' target='_blank'>RDoc</a> tool for generating code

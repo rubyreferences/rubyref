@@ -9,7 +9,7 @@ next: "/stdlib/networking-web.html"
 require 'strscan'
 ```
 
-# StringScanner
+## StringScanner
 
 StringScanner provides for lexical scanning operations on a String. Here
 is an example of its usage:
