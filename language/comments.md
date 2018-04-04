@@ -47,9 +47,11 @@ end
 
 ### Comments as documentation
 
-Ruby standard library comes with \[RDoc\] tool for generating
-documentation from code. RDoc format is "unobtrusive" (plain text)
-documentation. Ruby gem \[YARD\] is also frequently used for generate
-documentation, providing more strict format allowing to render "tags"
-(param types, return type, examples and so on).
+Ruby standard library comes with [RDoc](../developing/documenting.md)
+tool for generating documentation from code. RDoc format is
+"unobtrusive" (plain text) documentation. Ruby gem <a
+href='https://yardoc.org/' class='remote' target='_blank'>YARD</a> is
+also frequently used for generate documentation, providing more strict
+format allowing to render "tags" (param types, return type, examples and
+so on).
 

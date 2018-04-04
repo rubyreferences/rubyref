@@ -1833,7 +1833,7 @@ Some macros to check API compatibilities are available by default.
 
 ### Appendix C. Functions available for use in extconf.rb
 
-See documentation for [mkmf](#TODO).
+See documentation for [mkmf](../language.md).
 
 ### Appendix D. Generational GC
 

@@ -44,6 +44,7 @@ Here’s a list:
 
 
 
-> See [previous chapter](installation.md) about downloading and
-> installing different versions and implementations of Ruby.
+> See "Installers" and "Managers" sections of the [previous
+> chapter](installation.md) about downloading and installing different
+> versions and implementations of Ruby.
 

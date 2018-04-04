@@ -1,15 +1,15 @@
 class Linker
   RDOC_REF = {
-    'syntax/precedence.rdoc' => '/language/precedence.md',
-    'syntax/miscellaneous.rdoc' => '/language/misc.md',
-    'syntax/modules_and_classes.rdoc' => '/language/modules-classes.md',
-    'syntax/exceptions.rdoc' => '/language/exceptions.md',
-    'syntax/control_expressions.rdoc' => '/language/control_expressions.md',
-    'syntax/methods.rdoc' => '/language/methods-def.md',
-    'syntax/literals.rdoc' => '/language/literals.md',
-    'syntax/calling_methods.rdoc' => '/language/method-call.md',
-    'globals.rdoc' => '/language/globals.md',
-    'syntax/refinements.rdoc' => '/language/refinements.md'
+    'syntax/precedence.rdoc' => 'language/precedence.md',
+    'syntax/miscellaneous.rdoc' => 'language/misc.md',
+    'syntax/modules_and_classes.rdoc' => 'language/modules-classes.md',
+    'syntax/exceptions.rdoc' => 'language/exceptions.md',
+    'syntax/control_expressions.rdoc' => 'language/control-expressions.md',
+    'syntax/methods.rdoc' => 'language/methods-def.md',
+    'syntax/literals.rdoc' => 'language/literals.md',
+    'syntax/calling_methods.rdoc' => 'language/methods-call.md',
+    'globals.rdoc' => 'language/globals.md',
+    'syntax/refinements.rdoc' => 'language/refinements.md'
   }
   # internal links in installation.md, imported from site
   IGNORE_LINKS = %w[#rvm #rbenv #chruby #ruby-install #ruby-build #package-management-systems]
@@ -33,6 +33,7 @@ class Linker
     if href.match?(/^https?:/)
       remote_link(element, href)
     else
+      @book.validate_link!(href, @md_path, "#{@md_path} (#{@md_source})")
       "[#{inner(element, opts)}](#{href})"
     end
   end
@@ -68,12 +69,18 @@ class Linker
     when /^rdoc-ref:(.+)$/
       RDOC_REF.fetch($1) { |key|
         puts "Unidentified rdoc-ref: #{key} at #{@md_path} (#{@md_source})"
-        '#TODO'
+        'language.md'
+      }.yield_self { |lnk|
+        depth = @md_path.count('/')
+        if @md_path.start_with?('language/')
+          '../' * (depth - 1) + lnk.sub('language/', '')
+        else
+          '../' * depth + lnk
+        end
       }
     when /^ref:(.+)$/
       reference_href($1)
     when /^[^:]+\.md(\#.+)?$/
-      @book.validate_link!(href, @md_path, "#{@md_path} (#{@md_source})")
       href
     when '/en/downloads/' # In installation.md
       'http://ruby-lang.org/en/downloads/'

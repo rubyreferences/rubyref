@@ -97,8 +97,8 @@ Racc grammar files resemble yacc files. But (of course), this is Ruby
 code. yacc's \$$ is the 'result', $0, $1... is an array called 'val',
 and $-1, $-2... is an array called '\_values'.
 
-See the [Grammar File Reference](#TODO) for more information on grammar
-files.
+See the [Grammar File Reference](../../language.md) for more information
+on grammar files.
 
 ### Parser
 

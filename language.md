@@ -24,7 +24,9 @@ As a brief overview, it can be said that:
 * Ruby is object-oriented language, so the program is structured by
   defining [classes and modules](language/modules-classes.md) and their
   [methods](language/methods-def.md).
-  * Ruby has open classes, for hygiene one can use
+  * Ruby has open classes that can be changed any time (even the core
+    ones, like `String`). For localize class changes and implement
+    hygienic extensions, one can use
     [refinements](language/refinements.md).
 
 * Error reporting and handling is done with
@@ -71,7 +73,7 @@ p defined?(1 + 1)              # prints "method"
 ```
 
 You don't need to use parenthesis with `defined?`, but they are
-recommended due to the [low precedence](/language/precedence.md) of
+recommended due to the [low precedence](language/precedence.md) of
 `defined?`.
 
 For example, if you wish to check if an instance variable exists and
