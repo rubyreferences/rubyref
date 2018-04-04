@@ -10,9 +10,7 @@ require 'ripper'
 require 'pathname'
 require 'did_you'
 
-require_relative 'base'
-
-$:.unshift 'lib'
+require_relative '../lib/common'
 require 'render/book'
 
 # Otherwise Ripper would spit some warnings on sterr

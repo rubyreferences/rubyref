@@ -2,7 +2,8 @@
 
 require 'rdoc'
 
-require_relative 'parse/utils'
+require_relative '../lib/common'
+require 'parse/utils'
 
 MARKDOWN = RDoc::Markup::ToMarkdown.new
 
