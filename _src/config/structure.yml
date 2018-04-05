@@ -55,8 +55,27 @@
               to: "* `defined?`: Returns a string describing its argument.  See [defined?](../language.md#defined)"
     - title: Literals
       content:
-        # TODO: Needs rewrite accordingly to our structure
         - source: doc/syntax/literals.md
+          insert:
+            - after: "(There are also the constants"
+              source: "See also [TrueClass, FalseClass, NilClass](../builtin/types/atomic.md)."
+            - after: "All these numbers have"
+              source: "See also [number classes](../builtin/types/numbers.md)."
+            - after: "    puts(<<-ONE, <<-TWO)"
+              source: "See also [String](../builtin/types/symbol-string.md#string) class."
+            - after: "When creating a Hash, there is"
+              source: "See also [Symbol](../builtin/types/symbol-string.md#symbol) class."
+            - after: "This proc will add one"
+              source: "See also [Proc](../builtin/core/method-proc.md#proc) class."
+          replace:
+            - from: "See Array for the methods"
+              to: "See [Array](../builtin/types/array.md) for the methods"
+            - from: "See Hash for the methods"
+              to: "See [Hash](../builtin/types/hash.md) for the methods"
+            - from: "See the Range documentation"
+              to: "See the [Range](../builtin/types/range.md) documentation"
+            - from: "See Regexp for a description of the syntax"
+              to: "See [Regexp](../builtin/types/regexp.md) for a description of the syntax"
     - title: Comments
       content:
         - source: content/language/comments.md
@@ -166,20 +185,34 @@
       id: core
       content:
         - source: content/core/core.md
-        - source: core/Kernel.md
-        - source: "> See also [Appendix A](../appendix-a.md) for a brief list of Kernel methods."
-        - source: core/BasicObject.md
-        - source: core/Object.md
-        - source: core/Module.md
-        - source: core/Class.md
-        - source: core/Method.md
-        - source: core/UnboundMethod.md
-          header_shift: 2
-        - source: core/Proc.md
-        - source: core/Fiber.md
-        - source: core/Binding.md
         # Deprecated/obsolete, see https://bugs.ruby-lang.org/issues/10548
         # - source: core/Continuation.md
+      children:
+        - title: Kernel
+          content:
+            - source: core/Kernel.md
+            - source: "> See also [Appendix A](../../appendix-a.md) for a brief list of Kernel methods."
+        - title: Object
+          content:
+            - source: '## BasicObject and Object'
+            - source: core/BasicObject.md
+            - source: core/Object.md
+        - title: Module and Class
+          content:
+            - source: core/Module.md
+            - source: core/Class.md
+        - title: Method and Proc
+          content:
+            - source: core/Method.md
+            - source: core/UnboundMethod.md
+              header_shift: 2
+            - source: core/Proc.md
+        - title: Binding
+          content:
+            - source: core/Binding.md
+        - title: Fiber
+          content:
+            - source: core/Fiber.md
 
     - title: Value Types
       id: types

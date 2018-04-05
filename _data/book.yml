@@ -50,6 +50,19 @@ chapters:
   children:
   - title: Language Core
     path: "/builtin/core.html"
+    children:
+    - title: Kernel
+      path: "/builtin/core/kernel.html"
+    - title: Object
+      path: "/builtin/core/object.html"
+    - title: Module and Class
+      path: "/builtin/core/module-class.html"
+    - title: Method and Proc
+      path: "/builtin/core/method-proc.html"
+    - title: Binding
+      path: "/builtin/core/binding.html"
+    - title: Fiber
+      path: "/builtin/core/fiber.html"
   - title: Value Types
     path: "/builtin/types.html"
     children:

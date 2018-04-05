@@ -30,6 +30,8 @@ a true value in conditional expressions.
 (There are also the constants `TRUE`, `FALSE` and `NIL`, but the
 lowercase literal forms are preferred.)
 
+See also [TrueClass, FalseClass, NilClass](../builtin/types/atomic.md).
+
 ### Numbers
 
 You can write integers of any size as follows:
@@ -86,6 +88,8 @@ Examples:
 
 All these numbers have the same decimal value, 170. Like integers and
 floats you may use an underscore for readability.
+
+See also [number classes](../builtin/types/numbers.md).
 
 ### Strings
 
@@ -305,6 +309,8 @@ content for heredoc two
 TWO
 ```
 
+See also [String](../builtin/types/symbol-string.md#string) class.
+
 ### Symbols
 
 A Symbol represents a name inside the ruby interpreter. See Symbol for
@@ -330,6 +336,8 @@ Like strings, a single-quote may be used to disable interpolation:
 When creating a Hash, there is a special syntax for referencing a Symbol
 as well.
 
+See also [Symbol](../builtin/types/symbol-string.md#symbol) class.
+
 ### Arrays
 
 An array is created using the objects between `[` and `]`: 
@@ -346,7 +354,8 @@ You may place expressions inside the array:
 [1, [1 + 1, [1 + 2]]]
 ```
 
-See Array for the methods you may use with an array.
+See [Array](../builtin/types/array.md) for the methods you may use with
+an array.
 
 ### Hashes
 
@@ -381,7 +390,8 @@ is equal to
 { :"a 1" => 1, :"b 2" => 2 }
 ```
 
-See Hash for the methods you may use with a hash.
+See [Hash](../builtin/types/hash.md) for the methods you may use with a
+hash.
 
 ### Ranges
 
@@ -394,8 +404,9 @@ exclude its ending value.
 (1...2) # excludes its ending value
 ```
 
-You may create a range of any object. See the Range documentation for
-details on the methods you need to implement.
+You may create a range of any object. See the
+[Range](../builtin/types/range.md) documentation for details on the
+methods you need to implement.
 
 ### Regular Expressions
 
@@ -419,7 +430,8 @@ Interpolation may be used inside regular expressions along with escaped
 characters. Note that a regular expression may require additional
 escaped characters than a string.
 
-See Regexp for a description of the syntax of regular expressions.
+See [Regexp](../builtin/types/regexp.md) for a description of the syntax
+of regular expressions.
 
 ### Procs
 
@@ -439,6 +451,8 @@ You can require arguments for the proc as follows:
 ```
 
 This proc will add one to its argument.
+
+See also [Proc](../builtin/core/method-proc.md#proc) class.
 
 ### Percent Strings
 

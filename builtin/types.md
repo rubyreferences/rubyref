@@ -1,6 +1,6 @@
 ---
 title: Value Types
-prev: "/builtin/core.html"
+prev: "/builtin/core/fiber.html"
 next: "/builtin/types/atomic.html"
 ---
 
