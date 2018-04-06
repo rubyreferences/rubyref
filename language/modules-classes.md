@@ -277,7 +277,7 @@ that `def` is an expression returning method name.
 
 Note also that `public`, `private` and `protected` are not, in fact,
 keywords or some special syntax, they are just regular methods of
-[Module](../builtin/core.md#Module) class.
+[Module](../builtin/core/module-class.md#module) class.
 
 #### `alias` and `undef`
 

@@ -9,13 +9,13 @@ next: "/stdlib/cli/pty.html"
 require 'optparse'
 ```
 
-# OptionParser
+## OptionParser
 
 OptionParser is a class for command-line option analysis. It is much
 more advanced, yet also easier to use, than GetoptLong, and is a more
 Ruby-oriented solution.
 
-## Features
+#### Features
 
 1.  The argument specification and the code to handle it are written in
     the same place.
@@ -28,7 +28,7 @@ Ruby-oriented solution.
 All of these features are demonstrated in the examples below. See
 `#make_switch` for full documentation.
 
-## Minimal example
+#### Minimal example
 
 
 ```ruby
@@ -47,7 +47,7 @@ p options
 p ARGV
 ```
 
-## Generating Help
+#### Generating Help
 
 OptionParser can be used to automatically generate help for the commands
 you write:
@@ -87,7 +87,7 @@ options = Parser.parse %w[--help]
    #     -h, --help                       Prints this help
 ```
 
-## Required Arguments
+#### Required Arguments
 
 For options that require an argument, option specification strings may
 include an option name in all caps. If an option is used without the
@@ -114,7 +114,7 @@ bash-3.2$ ruby optparse-test.rb -r my-library
 You required my-library!
 ```
 
-## Type Coercion
+#### Type Coercion
 
 OptionParser supports the ability to coerce command line arguments into
 objects for us.
@@ -142,7 +142,7 @@ are:
 
 We can also add our own coercions, which we will cover soon.
 
-### Using Built-in Conversions
+##### Using Built-in Conversions
 
 As an example, the built-in `Time` conversion is used. The other
 built-in conversions behave in the same way. OptionParser will attempt
@@ -174,7 +174,7 @@ bash-3.2$ ruby optparse-test.rb  -t 9:30
 2014-08-13 09:30:00 -0400
 ```
 
-### Creating Custom Conversions
+##### Creating Custom Conversions
 
 The `accept` method on OptionParser may be used to create converters. It
 specifies which conversion block to call whenever a class is specified.

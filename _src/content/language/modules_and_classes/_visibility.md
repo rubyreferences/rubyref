@@ -41,4 +41,4 @@ The third one is in fact the same as the second, just utilizing the fact that `d
 returning method name.
 
 Note also that `public`, `private` and `protected` are not, in fact, keywords or some special syntax,
-they are just regular methods of [Module](../builtin/core.md#Module) class.
+they are just regular methods of [Module](../builtin/core/module-class.md#module) class.

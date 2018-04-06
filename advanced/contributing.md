@@ -26,25 +26,22 @@ feedback on your ticket.
 
 * If you haven't already, <a
   href='https://bugs.ruby-lang.org/account/register' class='remote'
-  target='_blank'>sign up for an
-  account</a> on the bug tracker.
+  target='_blank'>sign up for an account</a> on the bug tracker.
 
 * Try the latest version.
   
   If you aren't already using the latest version, try installing a newer
   stable release. See <a href='https://www.ruby-lang.org/en/downloads/'
-  class='remote' target='_blank'>Downloading
-  Ruby</a>.
+  class='remote' target='_blank'>Downloading Ruby</a>.
 
 * Look to see if anyone already reported your issue, try <a
   href='https://bugs.ruby-lang.org/projects/ruby-trunk/issues'
-  class='remote' target='_blank'>searching on
-  redmine</a> for your problem.
+  class='remote' target='_blank'>searching on redmine</a> for your
+  problem.
 
 * If you can't find a ticket addressing your issue, <a
   href='https://bugs.ruby-lang.org/projects/ruby-trunk/issues/new'
-  class='remote' target='_blank'>create a new
-  one</a>.
+  class='remote' target='_blank'>create a new one</a>.
 
 * Choose the target version, usually current. Bugs will be first fixed
   in the current release and then backported.
@@ -64,9 +61,8 @@ feedback on your ticket.
 
 * Check the <a
   href='https://bugs.ruby-lang.org/projects/ruby/wiki/Maintainers'
-  class='remote' target='_blank'>Maintainers
-  list</a> and assign the ticket if there is an active maintainer for
-  the library or feature.
+  class='remote' target='_blank'>Maintainers list</a> and assign the
+  ticket if there is an active maintainer for the library or feature.
 
 * If the ticket doesn't have any replies after 10 days, you can send a
   reminder.
@@ -120,8 +116,7 @@ security issues should be reported to and will be handled discretely.
 Email the mailto:security@ruby-lang.org list and the problem will be
 published after fixes have been released. You can also encrypt the issue
 using <a href='https://www.ruby-lang.org/security.asc' class='remote'
-target='_blank'>the PGP public
-key</a> for the list.
+target='_blank'>the PGP public key</a> for the list.
 
 ### Reporting Other Issues
 
@@ -148,8 +143,8 @@ attention. What can you do for these? Quite a bit, actually:
 When a bug report goes for a while without any feedback, it goes to the
 bug graveyard which is unfortunate. If you check the <a
 href='https://bugs.ruby-lang.org/projects/ruby-trunk/issues'
-class='remote' target='_blank'>issues
-list</a> you will find lots of delinquent bugs that require attention.
+class='remote' target='_blank'>issues list</a> you will find lots of
+delinquent bugs that require attention.
 
 You can help by verifying the existing tickets, try to reproduce the
 reported issue on your own and comment if you still experience the bug.
@@ -193,10 +188,9 @@ need to write a convincing proposal and patch to implement the feature.
 
 For new features in CRuby, use the <a
 href='https://bugs.ruby-lang.org/projects/ruby-trunk/issues?set_filter=1&tr
-acker_id=2' class='remote' target='_blank'>‘Feature’
-tracker</a> on ruby-trunk. For non-CRuby dependent features, features
-that would apply to alternate Ruby implementations such as JRuby and
-Rubinius, use the <a
+acker_id=2' class='remote' target='_blank'>'Feature' tracker</a> on
+ruby-trunk. For non-CRuby dependent features, features that would apply
+to alternate Ruby implementations such as JRuby and Rubinius, use the <a
 href='https://bugs.ruby-lang.org/projects/common-ruby' class='remote'
 target='_blank'>CommonRuby tracker</a>.
 
@@ -300,8 +294,7 @@ instructions and lots of great info to learn subversion on the <a
 href='http://svnbook.red-bean.com/' class='remote'
 target='_blank'>svnbook.red-bean.com</a>. For other resources see the <a
 href='https://www.ruby-lang.org/en/community/ruby-core/' class='remote'
-target='_blank'>ruby-core documentation on
-ruby-lang.org</a>.
+target='_blank'>ruby-core documentation on ruby-lang.org</a>.
 
 This guide will use git for contributing. The <a
 href='http://git-scm.com/' class='remote' target='_blank'>git
@@ -416,8 +409,7 @@ href='http://documenting-ruby.org/' class='remote'
 target='_blank'>documenting-ruby.org</a>.
 
 There is also the <a href='https://bugs.ruby-lang.org/projects/rurema'
-class='remote' target='_blank'>Ruby Reference
-Manual</a> in Japanese.
+class='remote' target='_blank'>Ruby Reference Manual</a> in Japanese.
 
 ### Contributing A Patch
 
@@ -506,8 +498,8 @@ Thu Jan  1 00:00:00 2004  Your Name  <yourmail@example.com>
 
 This follows <a
 href='http://www.gnu.org/prep/standards/html_node/Change-Logs.html#Change-Logs'
-class='remote' target='_blank'>GNU Coding Standards for Change
-Logs</a>, some other requirements and tips:
+class='remote' target='_blank'>GNU Coding Standards for Change Logs</a>,
+some other requirements and tips:
 
 * Timestamps must be in JST (+09:00) in the style as above.
 * Two spaces between the timestamp and your name. Two spaces between
@@ -543,9 +535,9 @@ git rebase remotes/origin/master
 Now that you've got some code you want to contribute, let's get set up
 to generate a patch. Start by forking the github mirror, check the <a
 href='https://help.github.com/articles/fork-a-repo' class='remote'
-target='_blank'>github docs
-on forking</a> if you get stuck here. You will only need a github
-account if you intend to host your repository on github.
+target='_blank'>github docs on forking</a> if you get stuck here. You
+will only need a github account if you intend to host your repository on
+github.
 
 Next copy the writable url for your fork and add it as a git remote,
 replace "my\_username" with your github account name:
@@ -570,17 +562,13 @@ redmine.
 Since git is a distributed system, you are welcome to host your git
 repository on any <a
 href='https://git.wiki.kernel.org/index.php/GitHosting' class='remote'
-target='_blank'>publicly accessible hosting
-site</a>, including <a
+target='_blank'>publicly accessible hosting site</a>, including <a
 href='https://www.kernel.org/pub/software/scm/git/docs/user-manual.html#public-
-repositories' class='remote' target='_blank'>hosting
-your
-own</a> You may use the <a
-href='http://git-scm.com/docs/git-format-patch' class='remote'
-target='_blank'>‘git
-format-patch’</a> command to generate patch files to upload to redmine.
-You may also use the <a href='http://git-scm.com/docs/git-request-pull'
-class='remote' target='_blank'>‘git
-request-pull’</a> command for formatting pull request messages to
-redmine.
+repositories' class='remote' target='_blank'>hosting your own</a> You
+may use the <a href='http://git-scm.com/docs/git-format-patch'
+class='remote' target='_blank'>'git format-patch'</a> command to
+generate patch files to upload to redmine. You may also use the <a
+href='http://git-scm.com/docs/git-request-pull' class='remote'
+target='_blank'>'git request-pull'</a> command for formatting pull
+request messages to redmine.
 

@@ -162,5 +162,7 @@ Third-party libraries:
   Ruby debugger;
 * <a href='https://github.com/pry/pry' class='remote'
   target='_blank'>pry</a> interactive console (alternative to IRB) also
-  provides \[Binding#pry\] method.
+  provides <a
+  href='http://www.rubydoc.info/github/pry/pry/master/Object#pry-instance_method'
+  class='remote' target='_blank'>#pry</a> method.
 

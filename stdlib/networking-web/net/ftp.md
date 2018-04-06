@@ -16,15 +16,6 @@ command-line FTP program, and are familiar with the commands, you will
 be able to use this class easily. Some extra features are included to
 take advantage of Ruby's style and strengths.
 
-### Example
-
-
-```ruby
-require 'net/ftp'
-```
-
-#### Example 1
-
 
 ```ruby
 ftp = Net::FTP.new('example.com')
@@ -35,7 +26,7 @@ ftp.getbinaryfile('nif.rb-0.91.gz', 'nif.gz', 1024)
 ftp.close
 ```
 
-#### Example 2
+Block form:
 
 
 ```ruby

@@ -26,15 +26,16 @@ class Linker
   end
 
   def call(element, opts)
-    return inner(element, opts) if IGNORE_LINKS.include?(element.attr['href'])
+    inner_text = inner(element, opts)
+    return inner_text if IGNORE_LINKS.include?(element.attr['href'])
 
     href = prepare_href(element.attr['href'])
 
     if href.match?(/^https?:/)
-      remote_link(element, href)
+      remote_link(inner_text, href)
     else
       @book.validate_link!(href, @md_path, "#{@md_path} (#{@md_source})")
-      "[#{inner(element, opts)}](#{href})"
+      "[#{inner_text}](#{href})"
     end
   end
 
@@ -89,17 +90,9 @@ class Linker
     end
   end
 
-  def remote_link(el, href)
-    inner_html = el.dup
-      .tap { |e|
-        e.type = :root
-        e.options[:encoding] = 'UTF-8'
-      }
-      .yield_self(&Kramdown::Converter::Html.method(:convert))
-      .first
-
+  def remote_link(inner_text, href)
     cls = href.match(%r{^https?://ruby-doc\.org}) ? "ruby-doc remote" : "remote"
 
-    "<a href='#{href}' class='#{cls}' target='_blank'>#{inner_html}</a>"
+    "<a href='#{href}' class='#{cls}' target='_blank'>#{inner_text}</a>"
   end
 end

@@ -1,5 +1,5 @@
 ---
-title: Developing In Ruby
+title: Developing in Ruby
 prev: "/stdlib/bundled.html"
 next: "/developing/libraries.html"
 ---

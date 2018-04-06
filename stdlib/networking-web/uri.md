@@ -25,12 +25,12 @@ target='_blank'>RFC2396</a>)
 ### Basic example
 
 
-```
+```ruby
 require 'uri'
 
 uri = URI("http://foo.com/posts?id=30&limit=5#time=1305298413")
 #=> #<URI::HTTP:0x00000000b14880
-      URL:http://foo.com/posts?id=30&limit=5#time=1305298413>
+#      URL:http://foo.com/posts?id=30&limit=5#time=1305298413>
 uri.scheme
 #=> "http"
 uri.host
@@ -49,7 +49,7 @@ uri.to_s
 ### Adding custom URIs
 
 
-```
+```ruby
 module URI
   class RSYNC < Generic
     DEFAULT_PORT = 873
@@ -60,8 +60,8 @@ end
 
 URI.scheme_list
 #=> {"FTP"=>URI::FTP, "HTTP"=>URI::HTTP, "HTTPS"=>URI::HTTPS,
-     "LDAP"=>URI::LDAP, "LDAPS"=>URI::LDAPS, "MAILTO"=>URI::MailTo,
-     "RSYNC"=>URI::RSYNC}
+#     "LDAP"=>URI::LDAP, "LDAPS"=>URI::LDAPS, "MAILTO"=>URI::MailTo,
+#     "RSYNC"=>URI::RSYNC}
 
 uri = URI("rsync://rsync.foo.com")
 #=> #<URI::RSYNC:0x00000000f648c8 URL:rsync://rsync.foo.com>

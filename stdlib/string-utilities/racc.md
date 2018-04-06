@@ -97,8 +97,10 @@ Racc grammar files resemble yacc files. But (of course), this is Ruby
 code. yacc's \$$ is the 'result', $0, $1... is an array called 'val',
 and $-1, $-2... is an array called '\_values'.
 
-See the [Grammar File Reference](../../language.md) for more information
-on grammar files.
+See the <a
+href='https://ruby-doc.org/core-2.5.0/_lib/racc/rdoc/grammar_en_rdoc.html'
+class='ruby-doc remote' target='_blank'>Grammar File Reference</a> for
+more information on grammar files.
 
 ### Parser
 
@@ -169,6 +171,7 @@ must do is to distribute your parser file (myparser.rb).
 Note: parser.rb is LGPL, but your parser is not. Your own parser is
 completely yours.
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/racc/rdoc/Racc.html'
+<a
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/racc/parser/rdoc/Racc.html'
 class='ruby-doc remote' target='_blank'>Racc Reference</a>
 

@@ -159,7 +159,7 @@ obj = Foo.new
 
 <a
 href='https://ruby-doc.org/stdlib-2.5.0/libdoc/mutex_m/rdoc/Mutex_m.html'
-class='ruby-doc remote' target='_blank'>Mutex_m Reference</a>
+class='ruby-doc remote' target='_blank'>Mutex\_m Reference</a>
 
 
 
@@ -178,7 +178,7 @@ class='ruby-doc remote' target='_blank'>Sync Reference</a>
 A module that provides a two-phase lock with a counter.
 
 <a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/sync/rdoc/Sync_m.html'
-class='ruby-doc remote' target='_blank'>Sync_m Reference</a>
+class='ruby-doc remote' target='_blank'>Sync\_m Reference</a>
 
 
 
@@ -199,5 +199,5 @@ A module that provides a two-phase lock with a counter.
 
 <a
 href='https://ruby-doc.org/stdlib-2.5.0/libdoc/sync/rdoc/Synchronizer_m.html'
-class='ruby-doc remote' target='_blank'>Synchronizer_m Reference</a>
+class='ruby-doc remote' target='_blank'>Synchronizer\_m Reference</a>
 

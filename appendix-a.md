@@ -53,7 +53,7 @@ next: "/appendix-b.html"
   already loaded.
 * <a
   href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-require_relative'
-  class='ruby-doc remote' target='_blank'>require_relative</a>\: Ruby
+  class='ruby-doc remote' target='_blank'>require\_relative</a>\: Ruby
   tries to load the library named *string* relative to the requiring
   file's path.
 ^
@@ -90,23 +90,23 @@ next: "/appendix-b.html"
 
 * <a
   href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-__callee__'
-  class='ruby-doc remote' target='_blank'>__callee__</a>\: Returns the
-  called name of the current method as a Symbol.
+  class='ruby-doc remote' target='_blank'>\_\_callee\_\_</a>\: Returns
+  the called name of the current method as a Symbol.
 * <a href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-__dir__'
-  class='ruby-doc remote' target='_blank'>__dir__</a>\: Returns the
+  class='ruby-doc remote' target='_blank'>\_\_dir\_\_</a>\: Returns the
   canonicalized absolute path of the directory of the file from which
   this method is called.
 * <a
   href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-__method__'
-  class='ruby-doc remote' target='_blank'>__method__</a>\: Returns the
-  name at the definition of the current method as a Symbol.
+  class='ruby-doc remote' target='_blank'>\_\_method\_\_</a>\: Returns
+  the name at the definition of the current method as a Symbol.
 * <a href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-binding'
   class='ruby-doc remote' target='_blank'>binding</a>\: Returns a
   `Binding` object, describing the variable and method bindings at the
   point of call.
 * <a
   href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-block_given-3F'
-  class='ruby-doc remote' target='_blank'>block_given?</a>\: Returns
+  class='ruby-doc remote' target='_blank'>block\_given?</a>\: Returns
   `true` if `yield` would execute a block in the current context.
 * <a href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-caller'
   class='ruby-doc remote' target='_blank'>caller</a>\: Returns the
@@ -114,16 +114,16 @@ next: "/appendix-b.html"
   `file:line` or `file:line: in `method'\`.
 * <a
   href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-caller_locations'
-  class='ruby-doc remote' target='_blank'>caller_locations</a>\: Returns
-  the current execution stack—an array containing backtrace location
-  objects.
+  class='ruby-doc remote' target='_blank'>caller\_locations</a>\:
+  Returns the current execution stack—an array containing backtrace
+  location objects.
 * <a
   href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-global_variables'
-  class='ruby-doc remote' target='_blank'>global_variables</a>\: Returns
-  an array of the names of global variables.
+  class='ruby-doc remote' target='_blank'>global\_variables</a>\:
+  Returns an array of the names of global variables.
 * <a
   href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-local_variables'
-  class='ruby-doc remote' target='_blank'>local_variables</a>\: Returns
+  class='ruby-doc remote' target='_blank'>local\_variables</a>\: Returns
   the names of the current local variables.
 
 #### Execution Flow
@@ -132,9 +132,9 @@ next: "/appendix-b.html"
   class='ruby-doc remote' target='_blank'>abort</a>\: Terminate
   execution immediately, effectively by calling `Kernel.exit(false)`.
 * <a href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-at_exit'
-  class='ruby-doc remote' target='_blank'>at_exit</a>\: Converts *block*
-  to a `Proc` object (and therefore binds it at the point of call) and
-  registers it for execution when the program exits.
+  class='ruby-doc remote' target='_blank'>at\_exit</a>\: Converts
+  *block* to a `Proc` object (and therefore binds it at the point of
+  call) and registers it for execution when the program exits.
 * <a href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-catch'
   class='ruby-doc remote' target='_blank'>catch</a>\: `catch` executes
   its block.
@@ -223,23 +223,23 @@ next: "/appendix-b.html"
 
 * <a
   href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-set_trace_func'
-  class='ruby-doc remote' target='_blank'>set_trace_func</a>\:
+  class='ruby-doc remote' target='_blank'>set\_trace\_func</a>\:
   Establishes *proc* as the handler for tracing, or disables tracing if
   the parameter is `nil`.
 * <a
   href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-trace_var'
-  class='ruby-doc remote' target='_blank'>trace_var</a>\: Controls
+  class='ruby-doc remote' target='_blank'>trace\_var</a>\: Controls
   tracing of assignments to global variables.
 * <a
   href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-untrace_var'
-  class='ruby-doc remote' target='_blank'>untrace_var</a>\: Removes
+  class='ruby-doc remote' target='_blank'>untrace\_var</a>\: Removes
   tracing for the specified command on the given global variable and
   returns `nil`.
 
 #### Processes and Commands
 
 * <a href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-60'
-  class='ruby-doc remote' target='_blank'>`</a>\: Returns the standard
+  class='ruby-doc remote' target='_blank'>\`</a>\: Returns the standard
   output of running *cmd* in a subshell.
 * <a href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-exec'
   class='ruby-doc remote' target='_blank'>exec</a>\: Replaces the

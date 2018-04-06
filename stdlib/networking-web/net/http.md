@@ -11,8 +11,6 @@ require 'net/http'
 
 ## Net::HTTP
 
-### An HTTP client API for Ruby.
-
 Net::HTTP provides a rich library which can be used to build HTTP
 user-agents. For more details about HTTP see <a
 href='http://www.ietf.org/rfc/rfc2616.txt' class='remote'

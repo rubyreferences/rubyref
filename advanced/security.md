@@ -21,9 +21,8 @@ https://www.ruby-lang.org/ja/security/
 Security vulnerabilities should be reported via an email to
 mailto:security@ruby-lang.org (<a
 href='https://www.ruby-lang.org/security.asc' class='remote'
-target='_blank'>the PGP public
-key</a>), which is a private mailing list. Reported problems will be
-published after fixes.
+target='_blank'>the PGP public key</a>), which is a private mailing
+list. Reported problems will be published after fixes.
 
 ### `$SAFE`
 

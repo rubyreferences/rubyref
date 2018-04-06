@@ -23,8 +23,7 @@ written in another language.
 
 Here we will use Fiddle::Function to wrap <a
 href='http://linux.die.net/man/3/floor' class='remote'
-target='_blank'>floor(3) from
-libm</a>
+target='_blank'>floor(3) from libm</a>
 
 
 ```ruby

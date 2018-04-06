@@ -191,7 +191,7 @@
         - title: Kernel
           content:
             - source: core/Kernel.md
-            - source: "> See also [Appendix A](../../appendix-a.md) for a brief list of Kernel methods."
+            - source: "> See also [Appendix A](../../appendix-a.md) for a structured list of Kernel methods."
         - title: Object
           content:
             - source: '## BasicObject and Object'
@@ -468,8 +468,9 @@
                 - module FileUtils
                 - Module Functions
                 - _ref
-              remove: "## module FileUtils"
-              remove: "### Module Functions"
+              remove:
+                - "## module FileUtils"
+                - "### Module Functions"
             - source: lib/find/Find.md
               process:
                 - [stdlib, find]
@@ -518,6 +519,8 @@
           process:
             - [stdlib, securerandom]
           header_shift: 2
+          remove:
+            - "## Secure random number"
     # deprecated
     # - source: core/Data.md
 
@@ -704,6 +707,11 @@
           content:
             - source: lib/racc/Racc.md
               process: require_stdlib
+              replace:
+                - from: "libdoc/racc/rdoc"
+                  to: "libdoc/racc/parser/rdoc"
+                - from: "rdoc-ref:lib/racc/rdoc/grammar.en.rdoc"
+                  to: "https://ruby-doc.org/core-2.5.0/_lib/racc/rdoc/grammar_en_rdoc.html"
         - title: scanf
           content:
             - source: '# scanf'
@@ -745,6 +753,10 @@
           content:
             - source: lib/cgi/CGI.md
               process: require_stdlib
+              remove_sections:
+                - Overview
+              remove:
+                - "## Introduction"
         - title: ipaddr
           content:
             - source: lib/ipaddr/IPAddr.md
@@ -757,6 +769,12 @@
               process: require_stdlib
               remove_sections:
                 - Major Methods
+                - Example
+              remove:
+                - "### Example 1"
+              replace:
+                - from: "### Example 2"
+                  to: "Block form:"
         - title: net/http
           content:
             - source: lib/net/http/Net--HTTP.md
@@ -764,6 +782,8 @@
               remove_sections:
                 - HTTP Request Classes
                 - HTTP Response Classes
+              remove:
+                - "## An HTTP client API"
             # - source: lib/net/http/Net--HTTPExceptions.md
             # - source: lib/net/http/Net--HTTPGenericRequest.md
             # - source: lib/net/http/Net--HTTPHeader.md
@@ -782,6 +802,9 @@
               remove_sections:
                 - Errors
                 - References
+              replace:
+                - from: "The protocol is described in [IMAP]."
+                  to: ""
         - title: net/pop
           content:
             - source: lib/net/pop/Net--POP3.md
@@ -871,6 +894,14 @@
                 - RFC References
                 - Class tree
                 - Copyright Info
+              replace:
+                # Continuation of inspect without comment sign, messes the highlighting
+                - from: "      URL:http://foo.com"
+                  to: "#      URL:http://foo.com"
+                - from: '     "LDAP"=>URI::LDAP'
+                  to: '#     "LDAP"=>URI::LDAP'
+                - from: '     "RSYNC"=>URI::RSYNC}'
+                  to: '#     "RSYNC"=>URI::RSYNC}'
 
     - title: System Programming and CLI
       id: cli
@@ -901,7 +932,6 @@
           content:
             - source: lib/optparse/OptionParser.md
               process: require_stdlib
-              header_shift: -1
               remove:
                 - "## OptionParser"
                 - "### Introduction"
@@ -965,8 +995,7 @@
           content:
             - source: lib/base64/Base64.md
               process: require_stdlib
-        - title: 'digest: Digests Generation'
-          id: digest
+        - title: digest
           content:
             - source: ext/digest/Digest.md
               process: require_stdlib
@@ -996,18 +1025,20 @@
           content:
             - source: lib/drb/DRb.md
               process: require_stdlib
+              remove:
+                - '## Overview'
             # - source: lib/drb/ACL.md
         - title: "dbm, gdbm, sdbm"
           id: dbm
           content:
-            - source: '# DBM-alike Database Implementations'
+            - source: '## DBM-alike Database Implementations'
             - source: ext/dbm/DBM.md
               remove: '## Introduction'
               remove_sections:
                 - Cautions
                 - Example
             # - source: ext/dbm/DBMError.md
-            - source: '## GDBM'
+            - source: '### GDBM'
             - source: ext/gdbm/GDBM.md
               sections:
                 - Summary
@@ -1070,7 +1101,7 @@
       content:
         - source: content/stdlib/bundled.md
 
-- title: Developing In Ruby
+- title: Developing in Ruby
   id: developing
   content:
     - source: >
@@ -1084,7 +1115,6 @@
         - source: "## Libraries"
         - source: ruby-lang.org/en/libraries/index.md
           header_shift: 1
-        # TODO: Bundler
         # Site covered it better
         # - source: lib/rubygems/Gem.md
     - title: Mastering IRB

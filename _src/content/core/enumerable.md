@@ -19,5 +19,5 @@ Also, lot of Ruby classes that are not `Enumerable` by themselves (like `String`
 
     "test".each_char                          #=> #<Enumerator: "test":each_char>
     "test".each_char.select { |c| c < 't' }   #=> ["e", "s"]
-    test".each_char.sort                      #=> ["e", "s", "t", "t"]
+    "test".each_char.sort                     #=> ["e", "s", "t", "t"]
 

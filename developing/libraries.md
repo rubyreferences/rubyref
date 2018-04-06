@@ -14,7 +14,7 @@ libraries.
 Nearly all of these libraries are released in the form of a **gem**, a
 packaged library or application that can be installed with a tool called
 <a href='https://rubygems.org/' class='remote'
-target='_blank'><strong>RubyGems</strong></a>.
+target='_blank'>**RubyGems**</a>.
 
 RubyGems is a Ruby packaging system designed to facilitate the creation,
 sharing and installation of libraries (in some ways, it is a
@@ -35,10 +35,9 @@ use.
 
 The main place where libraries are hosted is <a
 href='https://rubygems.org/' class='remote'
-target='_blank'><strong>RubyGems.org</strong></a>, a public repository
-of gems that can be searched and installed onto your machine. You may
-browse and search for gems using the RubyGems website, or use the `gem`
-command.
+target='_blank'>**RubyGems.org**</a>, a public repository of gems that
+can be searched and installed onto your machine. You may browse and
+search for gems using the RubyGems website, or use the `gem` command.
 
 Using `gem search -r`, you can search RubyGems' repository. For
 instance, `gem search -r rails` will return a list of Rails-related
@@ -50,19 +49,19 @@ href='http://guides.rubygems.org/' class='remote'
 target='_blank'>RubyGems’ docs</a>.
 
 There are other sources of libraries though. <a
-href='https://github.com/' class='remote'
-target='_blank'><strong>GitHub</strong></a> is the main Ruby-related
-content repository. Most often a gem source code will be hosted on
-GitHub while being published as a fully-fledged gem to RubyGems.org.
+href='https://github.com/' class='remote' target='_blank'>**GitHub**</a>
+is the main Ruby-related content repository. Most often a gem source
+code will be hosted on GitHub while being published as a fully-fledged
+gem to RubyGems.org.
 
 <a href='https://www.ruby-toolbox.com/' class='remote'
-target='_blank'><strong>The Ruby Toolbox</strong></a> is a project that
-makes it easy to explore open source Ruby projects. It has categories
-for various common development tasks, collects a lot of information
-about the projects like release and commit activity or dependencies and
-rates projects based on their popularity on RubyGems.org and GitHub.
-This makes it easy to find a gem which solves a particular problem such
-as web frameworks, documentation tools and code quality libraries.
+target='_blank'>**The Ruby Toolbox**</a> is a project that makes it easy
+to explore open source Ruby projects. It has categories for various
+common development tasks, collects a lot of information about the
+projects like release and commit activity or dependencies and rates
+projects based on their popularity on RubyGems.org and GitHub. This
+makes it easy to find a gem which solves a particular problem such as
+web frameworks, documentation tools and code quality libraries.
 
 #### A few more words about RubyGems
 

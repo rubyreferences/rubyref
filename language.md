@@ -35,13 +35,13 @@ As a brief overview, it can be said that:
 Note that a lot of language constructs you will see in a typical Ruby
 program, are in fact, just *methods*. For example <a
 href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-raise'
-class='ruby-doc remote' target='_blank'><code>Kernel#raise</code></a> is
-used to raise an exception, and <a
+class='ruby-doc remote' target='_blank'>`Kernel#raise`</a> is used to
+raise an exception, and <a
 href='https://ruby-doc.org/core-2.5.0/Module.html#method-i-private'
-class='ruby-doc remote' target='_blank'><code>Module#private</code></a>
-is used to change method's visibility. This means that language core,
-described in this chapter, is pretty small, and everything else just
-follows usual rules for modules, methods and expressions.
+class='ruby-doc remote' target='_blank'>`Module#private`</a> is used to
+change method's visibility. This means that language core, described in
+this chapter, is pretty small, and everything else just follows usual
+rules for modules, methods and expressions.
 
 
 

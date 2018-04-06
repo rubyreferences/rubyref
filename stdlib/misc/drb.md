@@ -11,8 +11,6 @@ require 'drb'
 
 ## DRb
 
-### Overview
-
 dRuby is a distributed object system for Ruby. It is written in pure
 Ruby and uses its own protocol. No add-in services are needed beyond
 those provided by the Ruby runtime, such as TCP sockets. It does not

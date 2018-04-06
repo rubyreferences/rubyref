@@ -1,5 +1,5 @@
 ---
-title: 'digest: Digests Generation'
+title: digest
 prev: "/stdlib/cryptography-encoding/base64.html"
 next: "/stdlib/cryptography-encoding/openssl.html"
 ---

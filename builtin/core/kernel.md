@@ -23,6 +23,6 @@ remote' target='_blank'>Kernel Reference</a>
 
 
 
-> See also [Appendix A](../../appendix-a.md) for a brief list of Kernel
-> methods.
+> See also [Appendix A](../../appendix-a.md) for a structured list of
+> Kernel methods.
 

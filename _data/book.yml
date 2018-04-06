@@ -236,7 +236,7 @@ chapters:
     children:
     - title: base64
       path: "/stdlib/cryptography-encoding/base64.html"
-    - title: 'digest: Digests Generation'
+    - title: digest
       path: "/stdlib/cryptography-encoding/digest.html"
     - title: openssl
       path: "/stdlib/cryptography-encoding/openssl.html"
@@ -255,7 +255,7 @@ chapters:
       path: "/stdlib/misc/other.html"
   - title: Bundled Gems
     path: "/stdlib/bundled.html"
-- title: Developing In Ruby
+- title: Developing in Ruby
   path: "/developing.html"
   children:
   - title: Libraries

@@ -20,7 +20,7 @@ For example, this code (which prints "5" to the standard output)
 puts 2 + 3
 ```
 
-Is, in fact, call of a `Kernel#puts` method, which receives one
+is, in fact, call of a `Kernel#puts` method, which receives one
 argument: result of `Integer#+` method of object `2` with argument `3`.
 
 > **Note**\: Documentation convention is to write instance methods as
@@ -32,7 +32,8 @@ The structure of chapter mostly obvious. One important thing to notice:
 most "basic" methods, available everywhere without target object (like
 `puts`, or `exit`) are described in [`Kernel`
 module](builtin/core.md#kernel). This module is included in every
-object, therefore `puts` is, in fact, `self.puts`.
+object, therefore `puts` is, in fact, `self.puts`. See [Appendix
+A](appendix-a.md) for a structured list of `Kernel` methods.
 
 Also, the chapter includes parts of standard library documentation where
 appropriate. E.g., class `Date` (standard library) is documented besides

@@ -11,7 +11,7 @@ from different files is performed by <a
 href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-require'
 class='ruby-doc remote' target='_blank'>require</a>, <a
 href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-require_relative'
-class='ruby-doc remote' target='_blank'>require_relative</a> or <a
+class='ruby-doc remote' target='_blank'>require\_relative</a> or <a
 href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-require_relative'
 class='ruby-doc remote' target='_blank'>load</a>. Filesystem structure
 is not related to modules structure, because all constants (including

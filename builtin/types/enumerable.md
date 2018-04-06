@@ -40,10 +40,10 @@ Also, lot of Ruby classes that are not `Enumerable` by themselves (like
 is also `Enumerable`, and can be processed in the same manner:
 
 
-```
+```ruby
 "test".each_char                          #=> #<Enumerator: "test":each_char>
 "test".each_char.select { |c| c < 't' }   #=> ["e", "s"]
-test".each_char.sort                      #=> ["e", "s", "t", "t"]
+"test".each_char.sort                     #=> ["e", "s", "t", "t"]
 ```
 
 <a href='https://ruby-doc.org/core-2.5.0/Enumerable.html'

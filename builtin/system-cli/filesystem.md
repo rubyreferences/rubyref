@@ -141,8 +141,6 @@ using.*
 
 
 
-#### module FileUtils
-
 Namespace for several file utility methods for copying, moving,
 removing, etc.
 
