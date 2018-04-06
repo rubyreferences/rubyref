@@ -19,8 +19,10 @@ classes and modules) from loaded files are imported into the global
 namespace.
 
 Where Ruby looks for the `require`-d files is controlled by `$LOAD_PATH`
-constant. If the file not found, `LoadError` exception is raised and can
-be caught. This allows implementation of "optional library" pattern:
+constant. If the file not found,
+[LoadError](../builtin/exception/exception-classes.md#loaderror)
+exception is raised and can be caught. This allows implementation of
+"optional library" pattern:
 
 
 ```ruby
@@ -39,7 +41,7 @@ enforced by default.
 
 See also:
 
-* \[Standard Library\]
-* \[Third-party Libraries\]
-* \[Code Style and Linting\]
+* [Standard Library](../stdlib.md)
+* [Third-party Libraries](../developing/libraries.md)
+* [Code Style and Linting](../developing/code-style.md)
 

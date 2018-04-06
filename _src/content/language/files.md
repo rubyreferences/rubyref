@@ -2,7 +2,7 @@
 
 Ruby does not enforces any particular file structure. Loading of code from different files is performed by [require](ref:Kernel#require), [require_relative](ref:Kernel#require_relative) or [load](ref:Kernel#require_relative). Filesystem structure is not related to modules structure, because all constants (including classes and modules) from loaded files are imported into the global namespace.
 
-Where Ruby looks for the `require`-d files is controlled by `$LOAD_PATH` constant. If the file not found, `LoadError` exception is raised and can be caught. This allows implementation of "optional library" pattern:
+Where Ruby looks for the `require`-d files is controlled by `$LOAD_PATH` constant. If the file not found, [LoadError](../builtin/exception/exception-classes.md#loaderror) exception is raised and can be caught. This allows implementation of "optional library" pattern:
 
     begin
       require 'somelibrary'
@@ -16,6 +16,6 @@ between filesystem and module structure (e.g. `require 'library_name/namespace/f
 
 See also:
 
-* [Standard Library]
-* [Third-party Libraries]
-* [Code Style and Linting]
+* [Standard Library](../stdlib.md)
+* [Third-party Libraries](../developing/libraries.md)
+* [Code Style and Linting](../developing/code-style.md)
