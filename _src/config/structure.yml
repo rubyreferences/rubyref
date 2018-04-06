@@ -1117,6 +1117,8 @@
           header_shift: 1
         # Site covered it better
         # - source: lib/rubygems/Gem.md
+        # - source: lib/rubygems/Kernel.md
+        # - source: lib/rubygems/TempIO.md
     - title: Mastering IRB
       id: irb
       content:
