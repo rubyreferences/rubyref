@@ -21,8 +21,8 @@ augumented with some quotes from <a href='https://ruby-lang.org'
 class='remote' target='_blank'>Ruby website</a>, and some missing
 content that is written specifically for the book. The source of the
 book (rendering scripts, config, and unique content) can be found at <a
-href='https://github.com/rubyref/rubyreference' class='remote'
-target='_blank'>GitHub</a>.
+href='https://github.com/rubyreferences/rubyref/tree/master/_src'
+class='remote' target='_blank'>GitHub</a>.
 
 Happy Hacking!
 
