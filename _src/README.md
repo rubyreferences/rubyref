@@ -2,10 +2,10 @@
 
 This folder contains sources for the Ruby reference, hosted at [rubyreferences.github.io](https://rubyreferences.github.io/rubyref).
 
-The idea is that, reference should be:
+The idea is that reference should be:
 
-* **full**: cover all aspects of the language, core classes and standard library;
-* **continuous**: provide unambigous reading order from the simplest concepts to advanced development techniques;
+* **full**: cover all aspects of the language, core classes, and standard library;
+* **continuous**: provide unambiguous reading order from the simplest concepts to advanced development techniques;
 * **actual**: correspond to the latest version of Ruby;
 * **accessible**: easy to find, navigate and read from any device.
 
@@ -17,9 +17,9 @@ This is achieved by creating the reference with 90% of content taken from _offic
 * continuous:
   * core docs are structured in a logical manner and formatted in a modern GitBook-alike style, the way they can be read for _studying_ Ruby from basics to advanced topics;
 * actual:
-  * as most of docs are taken from Ruby sources (and some from ruby-lang.org repository), the reference is relatively easy to update for the new version of Ruby;
+  * as most of the docs are taken from Ruby sources (and some from ruby-lang.org repository), the reference is relatively easy to update for the new version of Ruby;
 * accessible:
-  * static site with modern, mobile-ready design is easy to bookmark, read from mobile, and navigate in continous or random way.
+  * static site with modern, mobile-ready design is easy to bookmark, read from mobile, and navigate in a continuous or random way.
 
 ## Source guide
 
@@ -27,8 +27,8 @@ This is achieved by creating the reference with 90% of content taken from _offic
   * it also renders `intermediate/parsed/_special/kernel.md` structured list of `Kernel` methods (structure is described in `config/kernel.yml`)
 * `exe/sanitize.rb` is an ad-hoc script to cleanup Markdown output of RDoc and put it into `intermediate/sanitized/`
 * `exe/render.rb` takes book structure from `config/structure.yml`, and renders it into `../_data/book.yml` (book structure for Jekyll) and a lot of `.md` files in `..`, which can be further rendered for Jekyll into a book;
-  * it also uses the content written specially for this reference from `content/` folder, and imported from Ruby site in `ruby-lang.org` folder;
-* `exe/list.rb` is utility script which compares list of extracted files in `intermediate/parsed` with list of files to render in `config/structure.yml` (it is easy to use it for the next versions to not forget new emerged docs).
+  * it also uses the content written especially for this reference from `content/` folder, and imported from Ruby site in `ruby-lang.org` folder;
+* `exe/list.rb` is utility script which compares list of extracted files in `intermediate/parsed` with list of files to render in `config/structure.yml` (it is easy to use it for the next versions to not forget newly emerged docs).
 
 **For the next version of Ruby**, this things should be done:
 
@@ -45,7 +45,7 @@ The areas that require most care, as of now, are:
 
 * content editing, in `content` folder (that was written specifically for this reference), I am Ukrainian :)
 * content structuring review and discussion;
-* review of content convered from RDoc, in search for broken formatting and updating scripts to make it cleaner (for example, Regexp chapter definitely have some minor problems).
+* review of content converted from RDoc, in search for broken formatting and updating scripts to make it cleaner (for example, Regexp chapter definitely have some minor problems).
 
 ## Credits and licenses
 
