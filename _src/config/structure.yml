@@ -690,7 +690,7 @@
       content:
         - source: "## String Utilities"
       children:
-        - title: "erb: Ruby Temlating"
+        - title: "erb: Ruby Templating"
           id: erb
           content:
             - source: "### ERB"
