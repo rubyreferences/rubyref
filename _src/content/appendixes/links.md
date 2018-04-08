@@ -22,6 +22,6 @@
 
 ### Organizations
 
-* [Ruby Association](http://www.ruby.or.jp/en/)  is a non-profit organization devoted to the advancement of the Ruby programming language.
+* [Ruby Association](http://www.ruby.or.jp/en/) is a non-profit organization devoted to the advancement of the Ruby programming language.
 * [Ruby Together](https://rubytogether.org/) is a grassroots initiative committed to supporting the critical Ruby infrastructure: Bundler, RubyGems, and other shared tools.
 * [Ruby Central](http://rubycentral.org/) is a nonprofit organization dedicated to the support and advocacy of the worldwide Ruby community.

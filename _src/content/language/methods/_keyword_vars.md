@@ -1,4 +1,4 @@
-It is possible to define keyword argument with name that is not acceptable for variable name,
+It is possible to define a keyword argument with name that is not acceptable for a variable name,
 like `class` or `next` (keywords). In this case, argument's value can be obtained via
 [Binding](../builtin/core.md#binding).
 

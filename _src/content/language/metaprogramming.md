@@ -14,7 +14,7 @@ decorators or templates. The power of Ruby's metaprogramming comes from two fact
 
 ### Everything is an object
 
-That also include core language concepts like classes and methods. They can be inspected and changed
+That also includes core language concepts like classes and methods. They can be inspected and changed
 at runtime.
 
     class A
@@ -47,7 +47,7 @@ new concepts with regular Ruby code:
     # Create classes and assign to constants
     [:A, :B, :C].each { |name| Kernel.const_set(name, Class.new) }
 
-### Example of the metaprogramming
+### Metaprogramming example
 
 It is a common pattern to have some variable calculated on first method call:
 
@@ -56,7 +56,7 @@ It is a common pattern to have some variable calculated on first method call:
       @value ||= expensive_calculation
     end
 
-With metaprogramming, we can encapsulate this pattern into `memoize` method, allowing to write code like this:
+With metaprogramming, we can encapsulate this pattern into `memoize` method, allowing us to write code like this:
 
     memoize def value
       expensive_calculation
@@ -83,7 +83,7 @@ core objects.
 
 ## Domain-Specific Languages
 
-Ruby is naturally flexible enough for defining clean and readable sublanguages by means of _methods_ and _blocks_. Short example (taken from the syntax of the [RSpec](http://rspec.info/) testing library):
+Ruby is naturally flexible enough for defining clean and readable sublanguages by means of _methods_ and _blocks_. Short example (from the syntax of the [RSpec](http://rspec.info/) testing library):
 
     RSpec.describe Calculator do
       subject { Calculator.add(number1, number2) }
@@ -95,7 +95,7 @@ Ruby is naturally flexible enough for defining clean and readable sublanguages b
       end
     end
 
-All components this example built with are just methods, their arguments and blocks:
+All components in this example are built with just methods, their arguments and blocks:
 
     RSpec.describe Calculator do                          # Method RSpec.describe() with argument Calculator and
                                                           # block of code (which will be later evaluated)
@@ -109,4 +109,4 @@ All components this example built with are just methods, their arguments and blo
       end
     end
 
-Note how varying of elements of syntax (optional paretheses around method arguments and `{}` vs `do / end` around blocks) allow to create boilerplate-less definition of tests.
+Note how varying elements of syntax (optional paretheses around method arguments and `{}` vs `do / end` around blocks) allows the creation of boilerplate-less tests.
