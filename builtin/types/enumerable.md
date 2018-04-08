@@ -13,9 +13,10 @@ collection. If `Enumerable#max`, `#min`, or `#sort` is used, the objects
 in the collection must also implement a meaningful `<=>` operator, as
 these methods rely on an ordering between members of the collection.
 
-**`Enumerable` is very important module.** It is Ruby's way for doing
-almost any cycles. The module is included in collections, like `Array`
-and `Hash` (see next chapters), and some other classes (like `Range`).
+**`Enumerable` is a very important module.** It is Ruby's way for
+performing almost any cycle. The module is included in collections, like
+`Array` and `Hash` (see next chapters), and some other classes (like
+`Range`).
 
 
 ```ruby
@@ -35,7 +36,7 @@ numbers.drop_while { |n| n < 9 }  #=> [9, 18, 7]
 (1..10).select { |n| n.odd? }   #=> [1, 3, 5, 7, 9]
 ```
 
-Also, lot of Ruby classes that are not `Enumerable` by themselves (like
+Also, many Ruby classes that are not `Enumerable` by themselves (like
 `String`) provide methods which return `Enumerator` (see below), which
 is also `Enumerable`, and can be processed in the same manner:
 

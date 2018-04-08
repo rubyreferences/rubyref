@@ -150,10 +150,10 @@ class='ruby-doc remote' target='_blank'>debug Reference</a>
 
 ### Alternative debugging/breakpoint solutions
 
-Since Ruby 2.5.0, there is <a
+Since Ruby 2.5.0, there is the <a
 href='https://ruby-doc.org/core-2.5.0/Binding.html#method-i-irb'
-class='ruby-doc remote' target='_blank'>Binding#irb</a> method, allowing
-to enter [IRB](../../intro/irb.md) session at the point of call.
+class='ruby-doc remote' target='_blank'>Binding#irb</a> method, which
+enters an [IRB](../../intro/irb.md) session at the point of call.
 
 Third-party libraries:
 

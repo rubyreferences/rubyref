@@ -8,7 +8,7 @@ next: "/language/refinements.html"
 
 ### Raising Exceptions
 
-Exceptions are raised with <a
+Exceptions are raised with the <a
 href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-raise'
 class='ruby-doc remote' target='_blank'>`Kernel#raise`</a> method. It
 has three forms:
@@ -24,8 +24,8 @@ raise ErrorClass, "Some message" # Custom error with custom message
 [Exception](../builtin/exception.md).
 
 See <a href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-raise'
-class='ruby-doc remote' target='_blank'>`Kernel#raise`</a> documentation
-for more details on raising exceptions.
+class='ruby-doc remote' target='_blank'>`Kernel#raise`</a> for more
+details on raising exceptions.
 
 
 

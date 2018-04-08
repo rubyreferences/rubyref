@@ -6,7 +6,7 @@ next: "/language/keywords.html"
 
 ## Ruby Language Structure
 
-This chapter describes all syntax constructs and general structure of
+This chapter describes the syntax constructs and general structure of
 Ruby programs.
 
 As a brief overview, it can be said that:
@@ -21,26 +21,26 @@ As a brief overview, it can be said that:
   * [method calls](language/methods-call.md);
   * definitions of modules, classes and methods.
 
-* Ruby is object-oriented language, so the program is structured by
+* Ruby is an object-oriented language, so the program is structured by
   defining [classes and modules](language/modules-classes.md) and their
   [methods](language/methods-def.md).
   * Ruby has open classes that can be changed any time (even the core
-    ones, like `String`). For localize class changes and implement
+    ones, like `String`). To localize class changes and implement
     hygienic extensions, one can use
     [refinements](language/refinements.md).
 
 * Error reporting and handling is done with
   [exceptions](language/exceptions.md).
 
-Note that a lot of language constructs you will see in a typical Ruby
+Note that many of the language constructs you will see in a typical Ruby
 program, are in fact, just *methods*. For example <a
 href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-raise'
 class='ruby-doc remote' target='_blank'>`Kernel#raise`</a> is used to
 raise an exception, and <a
 href='https://ruby-doc.org/core-2.5.0/Module.html#method-i-private'
 class='ruby-doc remote' target='_blank'>`Module#private`</a> is used to
-change method's visibility. This means that language core, described in
-this chapter, is pretty small, and everything else just follows usual
+change a method's visibility. As a result, the language core described
+in this chapter is pretty small, and everything else just follows usual
 rules for modules, methods and expressions.
 
 

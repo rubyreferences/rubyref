@@ -6,20 +6,20 @@ next: "/language/globals.html"
 
 ## File Structure of Ruby Program
 
-Ruby does not enforces any particular file structure. Loading of code
-from different files is performed by <a
+Ruby does not enforce any particular file structure. Loading code from
+different files is performed by <a
 href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-require'
 class='ruby-doc remote' target='_blank'>require</a>, <a
 href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-require_relative'
 class='ruby-doc remote' target='_blank'>require\_relative</a> or <a
 href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-require_relative'
-class='ruby-doc remote' target='_blank'>load</a>. Filesystem structure
-is not related to modules structure, because all constants (including
-classes and modules) from loaded files are imported into the global
-namespace.
+class='ruby-doc remote' target='_blank'>load</a>. The filesystem
+structure is not related to the module structure, because all constants
+(including classes and modules) from loaded files are imported into the
+global namespace.
 
-Where Ruby looks for the `require`-d files is controlled by `$LOAD_PATH`
-constant. If the file not found,
+Ruby looks for the `require`-d files in the `$LOAD_PATH` constant. If
+the file is not found,
 [LoadError](../builtin/exception/exception-classes.md#loaderror)
 exception is raised and can be caught. This allows implementation of
 "optional library" pattern:

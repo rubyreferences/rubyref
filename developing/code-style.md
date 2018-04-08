@@ -7,13 +7,13 @@ next: "/advanced.html"
 ## Ruby Code Style
 
 There is no single preferred or enforced style for Ruby code. Several
-community- or privately authored styles guides exist, the most widely
+community or privately authored style guides exist, the most widely
 adopted is <a href='https://github.com/bbatsov/ruby-style-guide'
 class='remote' target='_blank'>The Ruby Style Guide</a>.
 
 The popular <a href='http://rubocop.readthedocs.io/en/latest/'
 class='remote' target='_blank'>rubocop</a> code analyzer and linter is
-by default set to the rules of this guide. Though, the tool is flexible
-enought to support any style guide, and it is common to have changed
-`.rubocop.yml` included with alternative style guides.
+by default set to the rules of this guide. Rubocop is flexible enough to
+support any style guide, and it is common to change the `.rubocop.yml`
+with alternative style guides.
 

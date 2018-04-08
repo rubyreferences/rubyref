@@ -24,7 +24,7 @@ two facts:
 
 #### Everything is an object
 
-That also include core language concepts like classes and methods. They
+That also includes core language concepts like classes and methods. They
 can be inspected and changed at runtime.
 
 
@@ -63,7 +63,7 @@ end
 [:A, :B, :C].each { |name| Kernel.const_set(name, Class.new) }
 ```
 
-#### Example of the metaprogramming
+#### Metaprogramming example
 
 It is a common pattern to have some variable calculated on first method
 call:
@@ -76,7 +76,7 @@ end
 ```
 
 With metaprogramming, we can encapsulate this pattern into `memoize`
-method, allowing to write code like this:
+method, allowing us to write code like this:
 
 
 ```ruby
@@ -113,8 +113,8 @@ understand what you can do with core objects.
 ### Domain-Specific Languages
 
 Ruby is naturally flexible enough for defining clean and readable
-sublanguages by means of *methods* and *blocks*. Short example (taken
-from the syntax of the <a href='http://rspec.info/' class='remote'
+sublanguages by means of *methods* and *blocks*. Short example (from the
+syntax of the <a href='http://rspec.info/' class='remote'
 target='_blank'>RSpec</a> testing library):
 
 
@@ -130,8 +130,8 @@ RSpec.describe Calculator do
 end
 ```
 
-All components this example built with are just methods, their arguments
-and blocks:
+All components in this example are built with just methods, their
+arguments and blocks:
 
 
 ```ruby
@@ -148,7 +148,7 @@ RSpec.describe Calculator do                          # Method RSpec.describe() 
 end
 ```
 
-Note how varying of elements of syntax (optional paretheses around
-method arguments and `{}` vs `do / end` around blocks) allow to create
-boilerplate-less definition of tests.
+Note how varying elements of syntax (optional paretheses around method
+arguments and `{}` vs `do / end` around blocks) allows the creation of
+boilerplate-less tests.
 
