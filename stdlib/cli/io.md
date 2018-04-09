@@ -14,7 +14,7 @@ class with several methods.
 require 'io/console'
 ```
 
-Extend IO with class and instance methods for working with terminal
+Extend IO with class and instance methods for working with a terminal
 console.
 
 <a

@@ -1,6 +1,6 @@
 # Arguments and Enviroment
 
-Ruby core provides several contants for access to command's arguments and environment:
+Ruby core provides several contants for access to a command's arguments and environment:
 
 * `ARGV`: Array of command-line arguments;
 * `ARGF`: IO-like object for reading from file arguments;

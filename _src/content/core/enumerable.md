@@ -1,4 +1,4 @@
-**`Enumerable` is very important module.** It is Ruby's way for doing almost any cycles. The module is included in collections, like `Array` and `Hash` (see next chapters), and some other classes (like `Range`).
+**`Enumerable` is a very important module.** It is Ruby's way for performing almost any cycle. The module is included in collections, like `Array` and `Hash` (see next chapters), and some other classes (like `Range`).
 
     numbers = [1, 2, 8, 9, 18, 7]
 
@@ -15,7 +15,7 @@
     # Range is Enumerable, too
     (1..10).select { |n| n.odd? }   #=> [1, 3, 5, 7, 9]
 
-Also, lot of Ruby classes that are not `Enumerable` by themselves (like `String`) provide methods which return `Enumerator` (see below), which is also `Enumerable`, and can be processed in the same manner:
+Also, many Ruby classes that are not `Enumerable` by themselves (like `String`) provide methods which return `Enumerator` (see below), which is also `Enumerable`, and can be processed in the same manner:
 
     "test".each_char                          #=> #<Enumerator: "test":each_char>
     "test".each_char.select { |c| c < 't' }   #=> ["e", "s"]

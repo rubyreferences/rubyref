@@ -326,8 +326,8 @@ end
 When called, the arguments must be provided in the exact order. In other
 words, the arguments are positional.
 
-Repeated argument names is syntax error. There is one exception: special
-name `_` to designate unused argument(s).
+Repeated argument names is syntax error. There is one exception: the
+special name `_` to designate unused argument(s).
 
 
 ```
@@ -340,7 +340,7 @@ def some_method(_, y, _) # OK
 end
 ```
 
-This is useful for redefining methods, when client code expects
+This is useful for redefining methods, when client code expects a
 particular calling convention.
 
 #### Default Values
@@ -534,9 +534,9 @@ ArgumentError is raised.
 When mixing keyword arguments and positional arguments, all positional
 arguments must appear before any keyword arguments.
 
-It is possible to define keyword argument with name that is not
-acceptable for variable name, like `class` or `next` (keywords). In this
-case, argument's value can be obtained via
+It is possible to define a keyword argument with name that is not
+acceptable for a variable name, like `class` or `next` (keywords). In
+this case, argument's value can be obtained via
 [Binding](../builtin/core.md#binding).
 
 
@@ -626,7 +626,7 @@ handling](exceptions.md).
 ### Method definition as an expression
 
 `def` (method definition) is an *expression* returning the name of the
-defined method. This fact is mostly useful for method decoration:
+defined method. This feature is mostly useful for method decoration:
 
 
 ```ruby
@@ -641,7 +641,7 @@ memoize def some_expensive_method
 end
 ```
 
-Both `private` and `memoize` above are just a method calls, receiving
+`private` and `memoize` above are just method calls, receiving the
 result of `def` (method name to make private/cached) as their argument.
 
 

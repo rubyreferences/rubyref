@@ -1,4 +1,4 @@
-Unlike other languages, Ruby program typically doesn't need `for` loop, using
+Unlike other languages, a Ruby program typically doesn't need a `for` loop, using
 [Enumerable](../builtin/types/enumerable.md) instead:
 
     # Not idiomatic

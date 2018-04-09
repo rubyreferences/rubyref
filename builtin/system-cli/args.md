@@ -6,7 +6,7 @@ next: "/builtin/concurrency-parallelism.html"
 
 ## Arguments and Enviroment
 
-Ruby core provides several contants for access to command's arguments
+Ruby core provides several contants for access to a command's arguments
 and environment:
 
 * `ARGV`: Array of command-line arguments;

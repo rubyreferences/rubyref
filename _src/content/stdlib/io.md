@@ -4,7 +4,7 @@ This family of libraries extends [IO](../../builtin/system-cli/io.md) class with
 
     require 'io/console'
 
-Extend IO with class and instance methods for working with terminal console.
+Extend IO with class and instance methods for working with a terminal console.
 
 [io/console Reference](ref:io/console/IO)
 

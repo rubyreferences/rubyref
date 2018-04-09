@@ -399,8 +399,8 @@ Like `while` and `until`, the `do` is optional.
 The result value of a `for` loop is the value iterated over unless
 `break` is used.
 
-Unlike other languages, Ruby program typically doesn't need `for` loop,
-using [Enumerable](../builtin/types/enumerable.md) instead:
+Unlike other languages, a Ruby program typically doesn't need a `for`
+loop, using [Enumerable](../builtin/types/enumerable.md) instead:
 
 
 ```ruby

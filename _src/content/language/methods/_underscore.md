@@ -1,4 +1,4 @@
-Repeated argument names is syntax error. There is one exception: special name `_` to designate
+Repeated argument names is syntax error. There is one exception: the special name `_` to designate
 unused argument(s).
 
     def some_method(x, y, x) # Syntax error
@@ -9,4 +9,4 @@ unused argument(s).
       # ...
     end
 
-This is useful for redefining methods, when client code expects particular calling convention.
+This is useful for redefining methods, when client code expects a particular calling convention.

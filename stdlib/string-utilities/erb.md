@@ -1,5 +1,5 @@
 ---
-title: 'erb: Ruby Temlating'
+title: 'erb: Ruby Templating'
 prev: "/stdlib/string-utilities.html"
 next: "/stdlib/string-utilities/racc.html"
 ---

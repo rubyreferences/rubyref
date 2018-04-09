@@ -1,6 +1,6 @@
 ## Bundled Ruby Gems
 
-**Bundled gems** are Ruby Gems (third-party libraries) that are installed by default when Ruby is installed. Unlike standard library, those gems could be updated independently from Ruby itself.
+**Bundled gems** are Ruby Gems (third-party libraries) that are installed by default when Ruby is installed. Unlike standard library, these gems can be updated independently from Ruby itself.
 
 Current list of bundled gems:
 

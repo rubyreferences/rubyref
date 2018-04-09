@@ -1,12 +1,12 @@
 # Constants
 
-Constants are defined by assigning value to any identifier starting with **upper-case letter**:
+Constants are defined by assigning a value to any identifier starting with an **upper-case letter**:
 
     X = 1
     NAMES = %w[Bob Jane Jim]
 
-Classes and modules definition (see [Modules and Classes](./modules-classes.md)) also define constants,
-assigned to class/module name:
+Class and module definitions (see [Modules and Classes](./modules-classes.md)) also define constants,
+assigned to the class/module name:
 
     class A
       # ...
