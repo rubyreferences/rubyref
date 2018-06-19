@@ -415,4 +415,4 @@ HTTPNetworkAuthenticationRequired
 There is also the Net::HTTPBadResponse exception which is raised when there is
 a protocol error.
 
-[Net::HTTP Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/net/http/rdoc/Net::HTTP.html)
+[Net::HTTP Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/net/http/rdoc/Net/HTTP.html)

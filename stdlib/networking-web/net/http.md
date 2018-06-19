@@ -335,6 +335,6 @@ Compression can be disabled through the Accept-Encoding: identity
 header.
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/net/http/rdoc/Net::HTTP.html'
+href='https://ruby-doc.org/stdlib-2.5.0/libdoc/net/http/rdoc/Net/HTTP.html'
 class='ruby-doc remote' target='_blank'>Net::HTTP Reference</a>
 

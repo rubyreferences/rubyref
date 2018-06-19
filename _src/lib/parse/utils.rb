@@ -67,7 +67,7 @@ def write_mod(path, mod, reference: '#TODO', source: nil)
     "#{path}/#{mod.full_name.gsub('::', '--')}",
     "# #{mod.full_name}\n\n" +
     MARKDOWN.convert(comment.parse) +
-    "\n[#{mod.full_name} Reference](#{reference}/#{mod.full_name}.html)\n",
+    "\n[#{mod.full_name} Reference](#{reference}/#{mod.full_name.gsub('::', '/')}.html)\n",
     source: source
   )
 end

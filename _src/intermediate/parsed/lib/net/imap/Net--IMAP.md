@@ -168,4 +168,4 @@ non-parseable.
     Unicode", RFC 2152, May 1997.
 
 
-[Net::IMAP Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/net/imap/rdoc/Net::IMAP.html)
+[Net::IMAP Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/net/imap/rdoc/Net/IMAP.html)
