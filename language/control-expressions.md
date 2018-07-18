@@ -572,6 +572,28 @@ no longer true, now you will receive a SyntaxError when you use `retry`
 outside of a `rescue` block. See [Exceptions](exceptions.md) for proper
 usage of `retry`.
 
+### Use `throw` to exit from nested loops.
+
+When searching for one condition in a recursive data structure, such as
+nested arrays, one can use `throw` to exit from the nested loops.
+This is convenient because `break` only exits one loop. 
+
+```
+def found_value(matrix, &block)
+  value = catch(:found) do
+    matrix.each do |row|
+      row.each do |item|
+        throw :found, item if yield(item)
+      end
+    end
+  end
+end
+```
+
+This funtions returns the first element matching a condition in a two dimensions matrix.
+This is faster than using exceptions, because there is no stack trace to build here. 
+Please also note the `catch` and the `throw` do not have to be in the same method. 
+
 ### Flip-Flop
 
 The flip-flop is a rarely seen conditional expression. It's primary use
