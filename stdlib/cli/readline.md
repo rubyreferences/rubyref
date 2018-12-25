@@ -9,7 +9,7 @@ next: "/stdlib/cli/syslog.html"
 require 'readline'
 ```
 
-## Readline
+## Readline[](#readline)
 
 The Readline module provides interface for GNU Readline. This module
 defines a number of methods to facilitate completion and accesses input

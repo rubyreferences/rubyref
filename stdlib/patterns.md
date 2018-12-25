@@ -4,5 +4,5 @@ prev: "/stdlib.html"
 next: "/stdlib/patterns/forwardable.html"
 ---
 
-## Ruby implementation of common design patterns
+## Ruby implementation of common design patterns[](#ruby-implementation-of-common-design-patterns)
 

@@ -9,7 +9,7 @@ next: "/stdlib/patterns/delegate.html"
 require 'forwardable'
 ```
 
-## Forwardable
+## Forwardable[](#forwardable)
 
 The Forwardable module provides delegation of specified methods to a
 designated object, using the methods `#def_delegator` and
@@ -67,7 +67,7 @@ my_hash.def_delegator "STDOUT", "puts"  # add delegation for STDOUT.puts()
 my_hash.puts "Howdy!"
 ```
 
-### Another example
+### Another example[](#another-example)
 
 We want to rely on what has come before obviously, but with delegation
 we can take just the methods we need and even rename them as
@@ -119,7 +119,7 @@ Ruby
 nil
 ```
 
-### Notes
+### Notes[](#notes)
 
 Be advised, RDoc will not detect delegated methods.
 
@@ -133,7 +133,7 @@ class='ruby-doc remote' target='_blank'>Forwardable Reference</a>
 
 
 
-### SingleForwardable
+### SingleForwardable[](#singleforwardable)
 
 SingleForwardable can be used to setup delegation at the object level as
 well.

@@ -4,7 +4,7 @@ prev: "/builtin/exception/exception-classes.html"
 next: "/builtin/system-cli.html"
 ---
 
-## Warning
+## Warning[](#warning)
 
 The Warning module contains a single method named `#warn`, and the
 module extends itself, making `Warning.warn` available. Warning.warn is

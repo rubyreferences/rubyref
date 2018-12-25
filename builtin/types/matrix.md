@@ -4,7 +4,7 @@ prev: "/builtin/types/set.html"
 next: "/builtin/exception.html"
 ---
 
-## Matrix
+## Matrix[](#matrix)
 
 *Part of standard library. You need to `require 'matrix'` before using.*
 
@@ -19,7 +19,7 @@ class='ruby-doc remote' target='_blank'>Matrix Reference</a>
 
 
 
-### Vector
+### Vector[](#vector)
 
 The `Vector` class represents a mathematical vector, which is useful in
 its own right, and also constitutes a row or column of a Matrix.

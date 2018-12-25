@@ -4,11 +4,11 @@ prev: "/builtin/types/struct.html"
 next: "/builtin/types/enumerable.html"
 ---
 
-# Times and Dates
+# Times and Dates[](#times-and-dates)
 
 
 
-### Time
+### Time[](#time)
 
 Time is an abstraction of dates and times. Time is stored internally as
 the number of seconds with fraction since the *Epoch*, January 1, 1970
@@ -27,7 +27,7 @@ Bignum or Rational. The integer is a number of nanoseconds since the
 Rational is used (before 1823, after 2116, under nanosecond), Time works
 slower as when integer is used.
 
-#### Creating a new Time instance
+#### Creating a new Time instance[](#creating-a-new-time-instance)
 
 You can create a new instance of Time with Time::new. This will use the
 current system time. Time::now is an alias for this. You can also pass
@@ -58,7 +58,7 @@ target='_blank'>Unix Epoch</a>.
 Time.at(628232400) #=> 1989-11-28 00:00:00 -0500
 ```
 
-#### Working with an instance of Time
+#### Working with an instance of Time[](#working-with-an-instance-of-time)
 
 Once you have an instance of Time there is a multitude of things you can
 do with it. Below are some examples. For all of the following examples,
@@ -124,7 +124,7 @@ remote' target='_blank'>Time Reference</a>
 
 
 
-#### time.rb
+#### time.rb[](#timerb)
 
 Part of the useful functionality for `Time` is provided by the standard
 library `time`.
@@ -140,7 +140,7 @@ require 'time'
 
 All of these examples were done using the EST timezone which is GMT-5.
 
-##### Converting to a String
+##### Converting to a String[](#converting-to-a-string)
 
 
 ```ruby
@@ -150,7 +150,7 @@ t.rfc2822  # => "Wed, 05 Oct 2011 22:26:12 -0400"
 t.httpdate # => "Thu, 06 Oct 2011 02:26:12 GMT"
 ```
 
-##### Time.parse
+##### Time.parse[](#timeparse)
 
 `#parse` takes a string representation of a Time and attempts to parse
 it using a heuristic.
@@ -207,7 +207,7 @@ Time.parse("70-10-31") {|year| year + (year < 70 ? 2000 : 1900)}
 #=> 1970-10-31 00:00:00 -0500
 ```
 
-##### Time.strptime
+##### Time.strptime[](#timestrptime)
 
 `#strptime` works similar to `parse` except that instead of using a
 heuristic to detect the format of the input string, you provide a second
@@ -223,7 +223,7 @@ class='ruby-doc remote' target='_blank'>Time Reference</a>
 
 
 
-#### Date
+#### Date[](#date)
 
 *Part of standard library. You need to `require 'date'` before using.*
 
@@ -311,7 +311,7 @@ class='ruby-doc remote' target='_blank'>Date Reference</a>
 
 
 
-#### DateTime
+#### DateTime[](#datetime)
 
 *Part of standard library. You need to `require 'date'` before using.*
 
@@ -388,7 +388,7 @@ d > DateTime.new(1999)
                     #=> true
 ```
 
-##### When should you use DateTime and when should you use Time?
+##### When should you use DateTime and when should you use Time?[](#when-should-you-use-datetime-and-when-should-you-use-time)
 
 It's a common misconception that <a
 href='http://en.wikipedia.org/wiki/William_Shakespeare' class='remote'

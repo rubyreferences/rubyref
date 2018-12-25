@@ -4,9 +4,9 @@ prev: "/language/modules-classes.html"
 next: "/language/refinements.html"
 ---
 
-## Exceptions
+## Exceptions[](#exceptions)
 
-### Raising Exceptions
+### Raising Exceptions[](#raising-exceptions)
 
 Exceptions are raised with the <a
 href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-raise'
@@ -29,7 +29,7 @@ details on raising exceptions.
 
 
 
-### Exception Handling
+### Exception Handling[](#exception-handling)
 
 Exceptions are rescued in a `begin`/`end` block:
 

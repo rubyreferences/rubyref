@@ -5,6 +5,7 @@ GEM
     dry-inflector (0.1.1)
     hm (0.0.3)
     kramdown (1.16.2)
+    memoist (0.16.0)
 
 PLATFORMS
   ruby
@@ -14,6 +15,7 @@ DEPENDENCIES
   dry-inflector
   hm
   kramdown
+  memoist
 
 BUNDLED WITH
-   1.16.0
+   1.16.4

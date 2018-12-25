@@ -4,11 +4,11 @@ prev: "/language/comments.html"
 next: "/language/assignment.html"
 ---
 
-## Variables and Constants
+## Variables and Constants[](#variables-and-constants)
 
 
 
-### Local Variables
+### Local Variables[](#local-variables)
 
 
 
@@ -23,7 +23,7 @@ character. Ruby allows local variables to contain such characters.)
 A local variable name may contain letters, numbers, an `_` (underscore
 or low line) or a character with the eighth bit set.
 
-#### Local Variable Scope
+#### Local Variable Scope[](#local-variable-scope)
 
 Once a local variable name has been assigned-to all uses of the name for
 the rest of the scope are considered local variables.
@@ -77,7 +77,7 @@ documentation for an example.
 See also `Kernel#local_variables`, but note that a `for` loop does not
 create a new scope like a block does.
 
-#### Local Variables and Methods
+#### Local Variables and Methods[](#local-variables-and-methods)
 
 In Ruby local variable names and method names are nearly identical. If
 you have not assigned to one of these ambiguous names ruby will assume
@@ -133,7 +133,7 @@ nonexistent method.
 
 
 
-### Instance Variables
+### Instance Variables[](#instance-variables)
 
 Instance variables are shared across all methods for the same object.
 
@@ -170,7 +170,7 @@ uninitialized instance variable.
 The `value` method has access to the value set by the `initialize`
 method, but only for the same object.
 
-### Class Variables
+### Class Variables[](#class-variables)
 
 Class variables are shared between a class, its subclasses and its
 instances.
@@ -260,7 +260,7 @@ exception.
 Note that classes have instance variables because classes are objects,
 so try not to confuse class and instance variables.
 
-### Global Variables
+### Global Variables[](#global-variables)
 
 Global variables are accessible everywhere.
 
@@ -307,7 +307,7 @@ documentation](globals.md) for details.
 
 
 
-### Constants
+### Constants[](#constants)
 
 Constants are defined by assigning a value to any identifier starting
 with an **upper-case letter**\:

@@ -9,12 +9,12 @@ next: "/stdlib/networking-web/net/pop.html"
 require 'net/imap'
 ```
 
-## Net::IMAP
+## Net::IMAP[](#netimap)
 
 Net::IMAP implements Internet Message Access Protocol (IMAP) client
 functionality.
 
-### IMAP Overview
+### IMAP Overview[](#imap-overview)
 
 An IMAP client connects to a server, and then authenticates itself using
 either `#authenticate`() or `#login`(). Having authenticated itself,
@@ -48,9 +48,9 @@ non-IMAP client rearranges the order of mailitems within a mailbox, the
 UIDs have to be reassigned. An IMAP client thus cannot rearrange message
 orders.
 
-### Examples of Usage
+### Examples of Usage[](#examples-of-usage)
 
-#### List sender and subject of all recent messages in the default mailbox
+#### List sender and subject of all recent messages in the default mailbox[](#list-sender-and-subject-of-all-recent-messages-in-the-default-mailbox)
 
 
 ```ruby
@@ -63,7 +63,7 @@ imap.search(["RECENT"]).each do |message_id|
 end
 ```
 
-#### Move all messages from April 2003 from "Mail/sent-mail" to "Mail/sent-apr03"
+#### Move all messages from April 2003 from "Mail/sent-mail" to "Mail/sent-apr03"[](#move-all-messages-from-april-2003-from-mailsent-mail-to-mailsent-apr03)
 
 
 ```ruby
@@ -80,7 +80,7 @@ end
 imap.expunge
 ```
 
-### Thread Safety
+### Thread Safety[](#thread-safety)
 
 Net::IMAP supports concurrent threads. For example,
 

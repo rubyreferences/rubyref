@@ -4,11 +4,11 @@ prev: "/builtin/types/numbers.html"
 next: "/builtin/types/regexp.html"
 ---
 
-# Symbol and String
+# Symbol and String[](#symbol-and-string)
 
 
 
-### Symbol
+### Symbol[](#symbol)
 
 `Symbol` objects represent names and some strings inside the Ruby
 interpreter. They are generated using the `:name` and `:"string"`
@@ -43,7 +43,7 @@ remote' target='_blank'>Symbol Reference</a>
 
 
 
-### String
+### String[](#string)
 
 A `String` object holds and manipulates an arbitrary sequence of bytes,
 typically representing characters. String objects may be created using
@@ -60,7 +60,7 @@ remote' target='_blank'>String Reference</a>
 
 
 
-### Encoding
+### Encoding[](#encoding)
 
 An Encoding instance represents a character encoding usable in Ruby. It
 is defined as a constant under the Encoding namespace. It has a name and
@@ -99,7 +99,7 @@ characters in the range of ASCII are considered as ASCII characters.
 This is useful when you use ASCII-8BIT characters with other ASCII
 compatible characters.
 
-#### Changing an encoding
+#### Changing an encoding[](#changing-an-encoding)
 
 The associated Encoding of a String can be changed in two different
 ways.
@@ -137,7 +137,7 @@ string.encoding
 #=> #<Encoding::ISO-8859-1>
 ```
 
-#### Script encoding
+#### Script encoding[](#script-encoding)
 
 All Ruby script code has an associated Encoding which any String literal
 created in the source code will be associated to.
@@ -172,20 +172,20 @@ recommended. Ruby source files should declare its script encoding by a
 magic comment even when they only depend on US-ASCII strings or regular
 expressions.
 
-#### Locale encoding
+#### Locale encoding[](#locale-encoding)
 
 The default encoding of the environment. Usually derived from locale.
 
 see Encoding.locale\_charmap, Encoding.find('locale')
 
-#### Filesystem encoding
+#### Filesystem encoding[](#filesystem-encoding)
 
 The default encoding of strings from the filesystem of the environment.
 This is used for strings of file names or paths.
 
 see Encoding.find('filesystem')
 
-#### External encoding
+#### External encoding[](#external-encoding)
 
 Each IO object has an external encoding which indicates the encoding
 that Ruby will use to read its data. By default Ruby sets the external
@@ -218,7 +218,7 @@ not the default external encoding, you can reset its external encoding
 with IO#set\_encoding or set it at IO object creation (see IO.new
 options).
 
-#### Internal encoding
+#### Internal encoding[](#internal-encoding)
 
 To process the data of an IO object which has an encoding different from
 its external encoding, you can set its internal encoding. Ruby will use
@@ -253,7 +253,7 @@ Encoding.default\_internal=, but you should not do this as strings
 created before and after the change will have inconsistent encodings.
 Instead use `ruby -E` to invoke ruby with the correct internal encoding.
 
-#### IO encoding example
+#### IO encoding example[](#io-encoding-example)
 
 In the following example a UTF-8 encoded string "Ru00E9sumu00E9" is
 transcoded for output to ISO-8859-1 encoding, then read back in and

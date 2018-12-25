@@ -4,7 +4,7 @@ prev: "/builtin/core/object.html"
 next: "/builtin/core/method-proc.html"
 ---
 
-## Module
+## Module[](#module)
 
 A `Module` is a collection of methods and constants. The methods in a
 module may be instance methods or module methods. Instance methods
@@ -35,7 +35,7 @@ remote' target='_blank'>Module Reference</a>
 
 
 
-### Class
+### Class[](#class)
 
 Classes in Ruby are first-class objects—each is an instance of class
 `Class`.

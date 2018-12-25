@@ -4,7 +4,7 @@ prev: "/builtin/types/symbol-string.html"
 next: "/builtin/types/range.html"
 ---
 
-## Regexp
+## Regexp[](#regexp)
 
 A `Regexp` holds a regular expression, used to match a pattern against
 strings. Regexps are created using the `/.../` and `%r{...}` literals,
@@ -45,12 +45,12 @@ Here 'haystack' contains the pattern 'hay', so it matches:
 Specifically, `/st/` requires that the string contains the letter *s*
 followed by the letter *t*, so it matches *haystack*, also.
 
-### `=~` and `Regexp#match`
+### `=~` and `Regexp#match`[](#and-regexpmatch)
 
 Pattern matching may be achieved by using `=~` operator or
 `Regexp#match` method.
 
-#### `=~` operator
+#### `=~` operator[](#operator)
 
 `=~` is Ruby's basic pattern-matching operator. When one operand is a
 regular expression and the other is a string then the regular expression
@@ -72,7 +72,7 @@ Using `=~` operator with a String and Regexp the `$~` global variable is
 set after a successful match. `$~` holds a MatchData object.
 Regexp.last\_match is equivalent to `$~`.
 
-#### `Regexp#match` method
+#### `Regexp#match` method[](#regexpmatch-method)
 
 The `#match` method returns a MatchData object:
 
@@ -81,7 +81,7 @@ The `#match` method returns a MatchData object:
 /st/.match('haystack')   #=> #<MatchData "st">
 ```
 
-### Metacharacters and Escapes
+### Metacharacters and Escapes[](#metacharacters-and-escapes)
 
 The following are *metacharacters* `(`, `)`, `[`, `]`, `{`, `}`, `.`,
 `?`, `+`, `*`. They have a specific meaning when appearing in a pattern.
@@ -113,7 +113,7 @@ place = "東京都"
     #=> #<MatchData "東京都">
 ```
 
-### Character Classes
+### Character Classes[](#character-classes)
 
 A *character class* is delimited with square brackets (`[`, `]`) and
 lists characters that may appear at that point in the match. `/[ab]/`
@@ -216,7 +216,7 @@ Ruby also supports the following non-POSIX character classes:
   /[[:xdigit:]][[:xdigit:]]/.match("A6")  #=> #<MatchData "A6">
   ```
 
-### Repetition
+### Repetition[](#repetition)
 
 The constructs described so far match a single character. They can be
 followed by a repetition metacharacter to specify how many times they
@@ -258,7 +258,7 @@ matched it does not backtrack. They behave like greedy quantifiers, but
 having matched they refuse to "give up" their match even if this
 jeopardises the overall match.
 
-### Capturing
+### Capturing[](#capturing)
 
 Parentheses can be used for *capturing*. The text enclosed by the
 *n*<sup>th</sup> group of parentheses can be subsequently referred to
@@ -313,7 +313,7 @@ is also assigned to local variables with corresponding names.
 dollars #=> "3"
 ```
 
-### Grouping
+### Grouping[](#grouping)
 
 Parentheses also *group* the terms they enclose, allowing them to be
 quantified as one *atomic* whole.
@@ -357,7 +357,7 @@ backreference `\1` now refers to 'ti'.
     #=> #<MatchData "Investigations" 1:"ti">
 ```
 
-#### Atomic Grouping
+#### Atomic Grouping[](#atomic-grouping)
 
 Grouping can be made *atomic* with `(?>`*pat*`)`. This causes the
 subexpression *pat* to be matched independently of the rest of the
@@ -385,7 +385,7 @@ though this means that the overall match fails
 /"(?>.*)"/.match('"Quote"') #=> nil
 ```
 
-### Subexpression Calls
+### Subexpression Calls[](#subexpression-calls)
 
 The `\g<`*name*`>` syntax matches the previous subexpression named
 *name*, which can be a group name or number, again. This differs from
@@ -427,7 +427,7 @@ then matches a literal *)*\:
 9.  Match a literal *)*, the fourth character in the string
 10. Match the end of the string
 
-### Alternation
+### Alternation[](#alternation)
 
 The vertical bar metacharacter (`|`) combines two expressions into a
 single one that matches either of the expressions. Each expression is an
@@ -440,7 +440,7 @@ single one that matches either of the expressions. Each expression is an
 /\w(and|or)\w/.match("dissemblance") #=> nil
 ```
 
-### Character Properties
+### Character Properties[](#character-properties)
 
 The `\p{}` construct matches characters with the named property, much
 like POSIX bracket classes.
@@ -548,7 +548,7 @@ this match succeeds:
 /\p{^Ll}/.match("A") #=> #<MatchData "A">
 ```
 
-### Anchors
+### Anchors[](#anchors)
 
 Anchors are metacharacter that match the zero-width positions between
 characters, *anchoring* the match to a specific position.
@@ -643,7 +643,7 @@ match text appearing in tags without including the tags in the match:
     #=> #<MatchData "bold">
 ```
 
-### Options
+### Options[](#options)
 
 The end delimiter for a regexp can be followed by one or more
 single-letter options which control how the pattern can match.
@@ -672,7 +672,7 @@ Regexp.new("abc # Comment", Regexp::EXTENDED)             #=> /abc # Comment/x
 Regexp.new("abc", Regexp::IGNORECASE | Regexp::MULTILINE) #=> /abc/mi
 ```
 
-### Free-Spacing Mode and Comments
+### Free-Spacing Mode and Comments[](#free-spacing-mode-and-comments)
 
 As mentioned above, the `x` option enables *free-spacing* mode. Literal
 white space inside the pattern is ignored, and the octothorpe (`#`)
@@ -707,7 +707,7 @@ engine.
 Comments in regexp literals cannot include unescaped terminator
 characters.
 
-### Encoding
+### Encoding[](#encoding)
 
 Regular expressions are assumed to use the source encoding. This can be
 overridden with one of the following modifiers.
@@ -736,7 +736,7 @@ r =~ "a\u3042"
    #         (ISO-8859-1 regexp with UTF-8 string)
 ```
 
-### Special global variables
+### Special global variables[](#special-global-variables)
 
 Pattern matching sets some global variables :
 
@@ -775,7 +775,7 @@ $+      #=> "c"
 
 These global variables are thread-local and method-local variables.
 
-### Performance
+### Performance[](#performance)
 
 Certain pathological combinations of constructs can lead to abysmally
 bad performance.
@@ -853,7 +853,7 @@ remote' target='_blank'>Regexp Reference</a>
 
 
 
-### MatchData
+### MatchData[](#matchdata)
 
 `MatchData` is the type of the special variable `$~`, and is the type of
 the object returned by `Regexp#match` and `Regexp.last_match`. It

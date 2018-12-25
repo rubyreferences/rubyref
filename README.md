@@ -4,7 +4,7 @@ next: "/intro/installation.html"
 permalink: "/index.html"
 ---
 
-## The Ruby Reference
+## The Ruby Reference[](#the-ruby-reference)
 
 This book is the reference for the Ruby programming language created by
 Yukihiro "Matz" Matsumoto. It describes the language structure, its core

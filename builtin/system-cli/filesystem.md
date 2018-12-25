@@ -4,7 +4,7 @@ prev: "/builtin/system-cli/io.html"
 next: "/builtin/system-cli/args.html"
 ---
 
-## Dir
+## Dir[](#dir)
 
 Objects of class `Dir` are directory streams representing directories in
 the underlying file system. They provide a variety of ways to list
@@ -15,7 +15,7 @@ remote' target='_blank'>Dir Reference</a>
 
 
 
-### File
+### File[](#file)
 
 A `File` is an abstraction of any file object accessible by the program
 and is closely associated with class `IO`. `File` includes the methods
@@ -55,7 +55,7 @@ remote' target='_blank'>FileTest Reference</a>
 
 
 
-### Pathname
+### Pathname[](#pathname)
 
 *Part of standard library. You need to `require 'pathname'` before
 using.*
@@ -100,7 +100,7 @@ class='ruby-doc remote' target='_blank'>Pathname Reference</a>
 
 
 
-### Tempfile
+### Tempfile[](#tempfile)
 
 *Part of standard library. You need to `require 'tempfile'` before
 using.*
@@ -134,7 +134,7 @@ class='ruby-doc remote' target='_blank'>Tempfile Reference</a>
 
 
 
-### FileUtils
+### FileUtils[](#fileutils)
 
 *Part of standard library. You need to `require 'fileutils'` before
 using.*
@@ -209,7 +209,7 @@ class='ruby-doc remote' target='_blank'>FileUtils Reference</a>
 
 
 
-### Find
+### Find[](#find)
 
 *Part of standard library. You need to `require 'find'` before using.*
 

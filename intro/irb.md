@@ -4,7 +4,7 @@ prev: "/intro/implementations.html"
 next: "/language.html"
 ---
 
-## IRB
+## IRB[](#irb)
 
 IRB stands for "interactive Ruby" and is a tool to interactively execute
 Ruby expressions read from the standard input.
@@ -30,7 +30,7 @@ irb(main):006:1> end
 The Readline extension module can be used with irb. Use of Readline is
 default if it's installed.
 
-#### Session variables
+#### Session variables[](#session-variables)
 
 There are a few variables in every Irb session that can come in handy:
 

@@ -9,7 +9,7 @@ next: "/stdlib/misc/other.html"
 require 'timeout'
 ```
 
-## Timeout
+## Timeout[](#timeout)
 
 Timeout long-running blocks
 

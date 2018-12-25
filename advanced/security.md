@@ -4,7 +4,7 @@ prev: "/advanced/extensions.html"
 next: "/advanced/dtrace.html"
 ---
 
-## Ruby Security
+## Ruby Security[](#ruby-security)
 
 The Ruby programming language is large and complex and there are many
 security pitfalls often encountered by newcomers and experienced
@@ -24,7 +24,7 @@ href='https://www.ruby-lang.org/security.asc' class='remote'
 target='_blank'>the PGP public key</a>), which is a private mailing
 list. Reported problems will be published after fixes.
 
-### `$SAFE`
+### `$SAFE`[](#safe)
 
 Ruby provides a mechanism to restrict what operations can be performed
 by Ruby code in the form of the `$SAFE` variable.
@@ -37,7 +37,7 @@ system level sandboxing mechanism. On Linux, ptrace or LXC can be used
 to sandbox potentially malicious code. Other similar mechanisms exist on
 every major operating system.
 
-### `Marshal.load`
+### `Marshal.load`[](#marshalload)
 
 Ruby's `Marshal` module provides methods for serializing and
 deserializing Ruby object trees to and from a binary data format.
@@ -53,7 +53,7 @@ hashes, numbers and nil. If you need to deserialize other classes, you
 should handle this manually. Never deserialize to a user specified
 class.
 
-### YAML
+### YAML[](#yaml)
 
 YAML is a popular human readable data serialization format used by many
 Ruby programs for configuration and database persistence of Ruby object
@@ -73,7 +73,7 @@ Because of this, many of the security considerations applying to Marshal
 are also applicable to YAML. Do not use YAML to deserialize untrusted
 data.
 
-### Symbols
+### Symbols[](#symbols)
 
 Symbols are often seen as syntax sugar for simple strings, but they play
 a much more crucial role. The MRI Ruby implementation uses Symbols
@@ -108,7 +108,7 @@ methods that used to be vulnerable such as `to_sym`, `respond_to?`,
 `method`, `instance_variable_get`, `const_get`, etc. are no longer a
 threat.
 
-### Regular expressions
+### Regular expressions[](#regular-expressions)
 
 Ruby's regular expression syntax has some minor differences when
 compared to other languages. In Ruby, the `^` and `$` anchors do not
@@ -123,7 +123,7 @@ of their choosing.
 If you want to match the beginning and end of the entire string in Ruby,
 use the anchors `\A` and `\z`.
 
-### `eval`
+### `eval`[](#eval)
 
 Never pass untrusted or user controlled input to `eval`.
 
@@ -133,7 +133,7 @@ passing it to `eval` - this approach is fraught with danger and will
 most likely open your application up to a serious remote code execution
 vulnerability.
 
-### `send`
+### `send`[](#send)
 
 'Global functions' in Ruby (`puts`, `exit`, etc.) are actually private
 instance methods on `Object`. This means it is possible to invoke these
@@ -177,7 +177,7 @@ is public:
 1.public_send("send", "eval", "...ruby code to be executed...")
 ```
 
-### DRb
+### DRb[](#drb)
 
 As DRb allows remote clients to invoke arbitrary methods, it is not
 suitable to expose to untrusted clients.

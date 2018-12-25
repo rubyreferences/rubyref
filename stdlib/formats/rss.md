@@ -9,9 +9,9 @@ next: "/stdlib/formats/zlib.html"
 require 'rss'
 ```
 
-## RSS
+## RSS[](#rss)
 
-## RSS reading and writing
+## RSS reading and writing[](#rss-reading-and-writing)
 
 Really Simple Syndication (RSS) is a family of formats that describe
 'feeds,' specially constructed XML documents that allow an interested
@@ -34,7 +34,7 @@ formats:
 * <a href='http://tools.ietf.org/html/rfc4287' class='remote'
   target='_blank'>Atom</a>
 
-### Consuming RSS
+### Consuming RSS[](#consuming-rss)
 
 If you'd like to read someone's RSS feed with your Ruby code, you've
 come to the right place. It's really easy to do this, but we'll need the
@@ -61,7 +61,7 @@ We get back an object that has all of the data from our feed, accessible
 through methods. This example shows getting the title out of the channel
 element, and looping through the list of items.
 
-### Producing RSS
+### Producing RSS[](#producing-rss)
 
 Producing our own RSS feeds is easy as well. Let's make a very basic
 feed:

@@ -4,7 +4,7 @@ prev: "/builtin/core/method-proc.html"
 next: "/builtin/core/fiber.html"
 ---
 
-## Binding
+## Binding[](#binding)
 
 Objects of class `Binding` encapsulate the execution context at some
 particular place in the code and retain this context for future use. The

@@ -4,7 +4,7 @@ prev: "/builtin/system-cli.html"
 next: "/builtin/system-cli/io.html"
 ---
 
-## Signal
+## Signal[](#signal)
 
 Many operating systems allow signals to be sent to running processes.
 Some signals have a defined effect on the process, while others may be

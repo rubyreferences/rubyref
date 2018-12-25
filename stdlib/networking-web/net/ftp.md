@@ -9,7 +9,7 @@ next: "/stdlib/networking-web/net/http.html"
 require 'net/ftp'
 ```
 
-## Net::FTP
+## Net::FTP[](#netftp)
 
 This class implements the File Transfer Protocol. If you have used a
 command-line FTP program, and are familiar with the commands, you will

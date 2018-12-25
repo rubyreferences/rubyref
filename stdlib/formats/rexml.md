@@ -9,7 +9,7 @@ next: "/stdlib/formats/rss.html"
 require 'rexml'
 ```
 
-## REXML
+## REXML[](#rexml)
 
 REXML is an XML toolkit for <a href='http://www.ruby-lang.org'
 class='remote' target='_blank'>Ruby</a>, in Ruby.

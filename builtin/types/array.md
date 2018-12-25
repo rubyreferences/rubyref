@@ -4,7 +4,7 @@ prev: "/builtin/types/enumerable.html"
 next: "/builtin/types/hash.html"
 ---
 
-## Array
+## Array[](#array)
 
 Arrays are ordered, integer-indexed collections of any object.
 
@@ -13,7 +13,7 @@ to be relative to the end of the array—that is, an index of -1 indicates
 the last element of the array, -2 is the next to last element in the
 array, and so on.
 
-### Creating Arrays
+### Creating Arrays[](#creating-arrays)
 
 A new array can be created by using the literal constructor `[]`. Arrays
 can contain different types of objects. For example, the array below
@@ -66,7 +66,7 @@ Kernel, which tries to call `#to_ary`, then `#to_a` on its argument.
 Array({:a => "a", :b => "b"}) #=> [[:a, "a"], [:b, "b"]]
 ```
 
-### Example Usage
+### Example Usage[](#example-usage)
 
 In addition to the methods it mixes in through the Enumerable module,
 the Array class has proprietary methods for accessing, searching and
@@ -74,7 +74,7 @@ otherwise manipulating arrays.
 
 Some of the more common ones are illustrated below.
 
-### Accessing Elements
+### Accessing Elements[](#accessing-elements)
 
 Elements in an array can be retrieved using the `Array#[]` method. It
 can take a single integer argument (a numeric index), a pair of
@@ -136,7 +136,7 @@ arr.take(3) #=> [1, 2, 3]
 arr.drop(3) #=> [4, 5, 6]
 ```
 
-### Obtaining Information about an Array
+### Obtaining Information about an Array[](#obtaining-information-about-an-array)
 
 Arrays keep track of their own length at all times. To query an array
 about the number of elements it contains, use `#length`, `#count` or
@@ -163,7 +163,7 @@ To check whether a particular item is included in the array
 browsers.include?('Konqueror') #=> false
 ```
 
-### Adding Items to Arrays
+### Adding Items to Arrays[](#adding-items-to-arrays)
 
 Items can be added to the end of an array by using either `#push` or #<<
 
@@ -196,7 +196,7 @@ arr.insert(3, 'orange', 'pear', 'grapefruit')
 #=> [0, 1, 2, "orange", "pear", "grapefruit", "apple", 3, 4, 5, 6]
 ```
 
-### Removing Items from an Array
+### Removing Items from an Array[](#removing-items-from-an-array)
 
 The method `#pop` removes the last element in an array and returns it:
 
@@ -251,7 +251,7 @@ arr = [2, 5, 6, 556, 6, 6, 8, 9, 0, 123, 556]
 arr.uniq #=> [2, 5, 6, 556, 8, 9, 0, 123]
 ```
 
-### Iterating over Arrays
+### Iterating over Arrays[](#iterating-over-arrays)
 
 Like all classes that include the Enumerable module, Array has an each
 method, which defines what elements should be iterated over and how. In
@@ -290,7 +290,7 @@ arr.map! { |a| a**2 } #=> [1, 4, 9, 16, 25]
 arr                   #=> [1, 4, 9, 16, 25]
 ```
 
-### Selecting Items from an Array
+### Selecting Items from an Array[](#selecting-items-from-an-array)
 
 Elements can be selected from an array according to criteria defined in
 a block. The selection can happen in a destructive or a non-destructive
@@ -298,7 +298,7 @@ manner. While the destructive operations will modify the array they were
 called on, the non-destructive methods usually return a new array with
 the selected elements, but leave the original array unchanged.
 
-#### Non-destructive Selection
+#### Non-destructive Selection[](#non-destructive-selection)
 
 
 ```ruby
@@ -309,7 +309,7 @@ arr.drop_while { |a| a < 4 } #=> [4, 5, 6]
 arr                          #=> [1, 2, 3, 4, 5, 6]
 ```
 
-#### Destructive Selection
+#### Destructive Selection[](#destructive-selection)
 
 `#select!` and `#reject!` are the corresponding destructive methods to
 `#select` and `#reject`

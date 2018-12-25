@@ -4,7 +4,7 @@ prev: "/builtin/core.html"
 next: "/builtin/core/object.html"
 ---
 
-## Kernel
+## Kernel[](#kernel)
 
 The Kernel module is included by class Object, so its methods are
 available in every Ruby object.

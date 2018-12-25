@@ -4,7 +4,7 @@ prev: "/builtin/types/range.html"
 next: "/builtin/types/times-dates.html"
 ---
 
-## Struct
+## Struct[](#struct)
 
 A Struct is a convenient way to bundle a number of attributes together,
 using accessor methods, without having to write an explicit class.
@@ -38,7 +38,7 @@ remote' target='_blank'>Struct Reference</a>
 
 
 
-### OpenStruct
+### OpenStruct[](#openstruct)
 
 *Part of standard library. You need to `require 'ostruct'` before
 using.*
@@ -48,7 +48,7 @@ definition of arbitrary attributes with their accompanying values. This
 is accomplished by using Ruby's metaprogramming to define methods on the
 class itself.
 
-#### Examples
+#### Examples[](#examples)
 
 
 ```ruby
@@ -106,7 +106,7 @@ first_pet                 # => #<OpenStruct name="Rowdy">
 first_pet == second_pet   # => true
 ```
 
-#### Implementation
+#### Implementation[](#implementation)
 
 An OpenStruct utilizes Ruby's method lookup structure to find and define
 the necessary methods for properties. This is accomplished through the

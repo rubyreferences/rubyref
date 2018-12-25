@@ -9,7 +9,7 @@ next: "/stdlib/development/debug.html"
 require 'coverage'
 ```
 
-## Coverage
+## Coverage[](#coverage)
 
 Coverage provides coverage measurement feature for Ruby. This feature is
 experimental, so these APIs may be changed in future.

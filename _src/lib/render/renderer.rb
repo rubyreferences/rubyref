@@ -6,16 +6,25 @@ class Renderer < Kramdown::Converter::Kramdown
     "\n```#{code_lang(el.value)}\n#{el.value}```\n"
   end
 
-  def code_lang(str)
-    # If Ripper can't parse it, it is not Ruby (console output, or diagram, or whatever)
-    Ripper.sexp(str).nil? ? '' : 'ruby'
-  end
+  def convert_header(el, opts)
+    # Jekyll will generate them later, but with the same Kramdown logic, so it is safe to
+    # insert links-to-self now.
+    id = generate_id(el.options[:raw_text])
 
-  def linker
-    @linker ||= Linker.new(self, **@options)
+    super.sub(/\n\z/, "[](##{id})\n")
   end
 
   def convert_a(el, opts)
     linker.call(el, opts)
   end
+
+  def code_lang(str)
+    # If Ripper can't parse it, it is not Ruby (console output, or diagram, or whatever)
+    'ruby' unless Ripper.sexp(str).nil?
+  end
+
+  memoize def linker
+    Linker.new(self, **@options)
+  end
+
 end

@@ -9,7 +9,7 @@ next: "/stdlib/string-utilities/racc.html"
 require 'erb'
 ```
 
-### ERB
+### ERB[](#erb)
 
 
 
@@ -35,7 +35,7 @@ puts template.result(binding)
 
 More complex examples are given below.
 
-#### Recognized Tags
+#### Recognized Tags[](#recognized-tags)
 
 ERB recognizes certain tags in the provided template and converts them
 based on the rules below:
@@ -52,7 +52,7 @@ based on the rules below:
 
 All other text is passed through ERB filtering unchanged.
 
-#### Options
+#### Options[](#options)
 
 There are several settings you can change when you use ERB:
 

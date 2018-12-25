@@ -4,11 +4,11 @@ prev: "/stdlib/misc/drb.html"
 next: "/stdlib/misc/timeout.html"
 ---
 
-## DBM-alike Database Implementations
+## DBM-alike Database Implementations[](#dbm-alike-database-implementations)
 
 
 
-### DBM
+### DBM[](#dbm)
 
 The DBM class provides a wrapper to a Unix-style <a
 href='http://en.wikipedia.org/wiki/Dbm' class='remote'
@@ -45,7 +45,7 @@ class='ruby-doc remote' target='_blank'>DBM Reference</a>
 
 
 
-### GDBM
+### GDBM[](#gdbm)
 
 
 
@@ -57,7 +57,7 @@ class='ruby-doc remote' target='_blank'>GDBM Reference</a>
 
 
 
-### SDBM
+### SDBM[](#sdbm)
 
 SDBM provides a simple file-based key-value store, which can only store
 String keys and values.

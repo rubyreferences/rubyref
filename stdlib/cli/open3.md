@@ -9,7 +9,7 @@ next: "/stdlib/cli/optparse.html"
 require 'open3'
 ```
 
-## Open3
+## Open3[](#open3)
 
 Open3 grants you access to stdin, stdout, stderr and a thread to wait
 for the child process when running another program. You can specify

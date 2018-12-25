@@ -4,7 +4,7 @@ prev: "/builtin/core/binding.html"
 next: "/builtin/types.html"
 ---
 
-## Fiber
+## Fiber[](#fiber)
 
 Fibers are primitives for implementing light weight cooperative
 concurrency in Ruby. Basically they are a means of creating code blocks

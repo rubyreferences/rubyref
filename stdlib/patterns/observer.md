@@ -9,13 +9,13 @@ next: "/stdlib/patterns/singleton.html"
 require 'observer'
 ```
 
-## Observable
+## Observable[](#observable)
 
 The Observer pattern (also known as publish/subscribe) provides a simple
 mechanism for one object to inform a set of interested third-party
 objects when its state changes.
 
-### Mechanism
+### Mechanism[](#mechanism)
 
 The notifying class mixes in the `Observable` module, which provides the
 methods for managing the associated observer objects.
@@ -29,7 +29,7 @@ An observer subscribes to updates using `Observable#add_observer`, which
 also specifies the method called via `#notify_observers`. The default
 method for `#notify_observers` is `#update`.
 
-#### Example
+#### Example[](#example)
 
 The following example demonstrates this nicely. A `Ticker`, when run,
 continually receives the stock `Price` for its `@symbol`. A `Warner` is

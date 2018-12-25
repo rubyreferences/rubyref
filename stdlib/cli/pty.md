@@ -9,7 +9,7 @@ next: "/stdlib/cli/readline.html"
 require 'pty'
 ```
 
-## PTY
+## PTY[](#pty)
 
 Creates and managed pseudo terminals (PTYs). See also
 http://en.wikipedia.org/wiki/Pseudo_terminal
@@ -17,7 +17,7 @@ http://en.wikipedia.org/wiki/Pseudo_terminal
 PTY allows you to allocate new terminals using ::open or ::spawn a new
 terminal with a specific command.
 
-### Example
+### Example[](#example)
 
 In this example we will change the buffering type in the `factor`
 command, assuming that factor uses stdio for stdout buffering.

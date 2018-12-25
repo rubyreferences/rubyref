@@ -4,7 +4,7 @@ prev: "/intro/installation.html"
 next: "/intro/irb.html"
 ---
 
-## Other Implementations of Ruby
+## Other Implementations of Ruby[](#other-implementations-of-ruby)
 
 Ruby, as a language, has a few different implementations. This page has
 been discussing the reference implementation, in the community often

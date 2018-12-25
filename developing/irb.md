@@ -4,11 +4,11 @@ prev: "/developing/libraries.html"
 next: "/developing/documenting.html"
 ---
 
-## Mastering IRB
+## Mastering IRB[](#mastering-irb)
 
 
 
-### Command line options
+### Command line options[](#command-line-options)
 
 
 ```
@@ -41,7 +41,7 @@ Usage:  irb.rb [options] [programfile] [arguments]
   -v, --version     Print the version of irb
 ```
 
-### Configuration
+### Configuration[](#configuration)
 
 IRB reads from `~/.irbrc` when it's invoked.
 
@@ -72,7 +72,7 @@ IRB.conf[:PROMPT] = {...}
 IRB.conf[:DEBUG_LEVEL]=0
 ```
 
-#### Auto indentation
+#### Auto indentation[](#auto-indentation)
 
 To enable auto-indent mode in irb, add the following to your `.irbrc`: 
 
@@ -80,7 +80,7 @@ To enable auto-indent mode in irb, add the following to your `.irbrc`:
 IRB.conf[:AUTO_INDENT] = true
 ```
 
-#### Autocompletion
+#### Autocompletion[](#autocompletion)
 
 To enable autocompletion for irb, add the following to your `.irbrc`: 
 
@@ -88,7 +88,7 @@ To enable autocompletion for irb, add the following to your `.irbrc`:
 require 'irb/completion'
 ```
 
-#### History
+#### History[](#history)
 
 By default, irb disables history and will not store any commands you
 used.
@@ -103,7 +103,7 @@ This will now store the last 1000 commands in `~/.irb_history`.
 
 See `IRB::Context#save_history=` for more information.
 
-### Customizing the IRB Prompt
+### Customizing the IRB Prompt[](#customizing-the-irb-prompt)
 
 In order to customize the prompt, you can change the following Hash:
 
@@ -210,13 +210,13 @@ irb comes with a number of available modes:
 #         ==>%s
 ```
 
-### Restrictions
+### Restrictions[](#restrictions)
 
 Because irb evaluates input immediately after it is syntactically
 complete, the results may be slightly different than directly using
 Ruby.
 
-### IRB Sessions
+### IRB Sessions[](#irb-sessions)
 
 IRB has a special feature, that allows you to manage many sessions at
 once.
@@ -224,7 +224,7 @@ once.
 You can create new sessions with Irb.irb, and get a list of current
 sessions with the `jobs` command in the prompt.
 
-#### Commands
+#### Commands[](#commands)
 
 JobManager provides commands to handle the current sessions:
 
@@ -247,7 +247,7 @@ A few commands for loading files within the session are also available:
   `IrbLoader#irb_load`
 * `irb_require`: Loads the given file similarly to `Kernel#require`
 
-#### Configuration
+#### Configuration[](#configuration-1)
 
 The command line options, or IRB.conf, specify the default behavior of
 Irb.irb.
@@ -259,7 +259,7 @@ If a proc is set for `IRB.conf[:IRB_RC]`, its will be invoked after
 execution of that proc with the context of the current session as its
 argument. Each session can be configured using this mechanism.
 
-#### Session variables
+#### Session variables[](#session-variables)
 
 There are a few variables in every Irb session that can come in handy:
 
@@ -269,7 +269,7 @@ There are a few variables in every Irb session that can come in handy:
   `line_no`. If `line_no` is a negative, the return value `line_no` many
   lines before the most recent return value.
 
-#### Example using IRB Sessions
+#### Example using IRB Sessions[](#example-using-irb-sessions)
 
 
 ```

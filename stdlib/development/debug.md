@@ -4,7 +4,7 @@ prev: "/stdlib/development/coverage.html"
 next: "/stdlib/development/fiddle.html"
 ---
 
-# debug
+# debug[](#debug)
 
 
 
@@ -32,12 +32,12 @@ Once you're inside the prompt, you can start debugging your program.
 "hello"
 ```
 
-#### Usage
+#### Usage[](#usage)
 
 The following is a list of common functionalities that the debugger
 provides.
 
-##### Navigating through your code
+##### Navigating through your code[](#navigating-through-your-code)
 
 In general, a debugger is used to find bugs in your program, which often
 means pausing execution and inspecting variables at some point in time.
@@ -86,7 +86,7 @@ Other useful commands for navigating through your code are:
 * `r`: Restart the program.
 * `q`: Quit the program.
 
-##### Inspecting variables
+##### Inspecting variables[](#inspecting-variables)
 
 You can use the debugger to easily inspect both local and global
 variables. We've seen how to inspect local variables before:
@@ -134,7 +134,7 @@ expression
 25
 ```
 
-#### Staying out of trouble
+#### Staying out of trouble[](#staying-out-of-trouble)
 
 Make sure you remove every instance of +require 'debug'+ before shipping
 your code. Failing to do so may result in your program hanging
@@ -148,7 +148,7 @@ class='ruby-doc remote' target='_blank'>debug Reference</a>
 
 
 
-### Alternative debugging/breakpoint solutions
+### Alternative debugging/breakpoint solutions[](#alternative-debuggingbreakpoint-solutions)
 
 Since Ruby 2.5.0, there is the <a
 href='https://ruby-doc.org/core-2.5.0/Binding.html#method-i-irb'

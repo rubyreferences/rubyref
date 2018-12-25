@@ -4,7 +4,7 @@ prev: "/builtin/system-cli/args.html"
 next: "/builtin/internals.html"
 ---
 
-## Thread
+## Thread[](#thread)
 
 Threads are the Ruby implementation for a concurrent programming model.
 
@@ -47,7 +47,7 @@ consecutively.
 threads.each { |thr| thr.join }
 ```
 
-#### Thread initialization
+#### Thread initialization[](#thread-initialization)
 
 In order to create new threads, Ruby provides ::new, ::start, and
 ::fork. A block must be provided with each of these methods, otherwise a
@@ -57,7 +57,7 @@ When subclassing the Thread class, the `initialize` method of your
 subclass will be ignored by ::start and ::fork. Otherwise, be sure to
 call super in your `initialize` method.
 
-#### Thread termination
+#### Thread termination[](#thread-termination)
 
 For terminating threads, Ruby provides a variety of ways to do this.
 
@@ -77,7 +77,7 @@ aliases `#kill` or `#terminate`.
 thr.exit
 ```
 
-#### Thread status
+#### Thread status[](#thread-status)
 
 Ruby provides a few instance methods for querying the state of a given
 thread. To get a string with the current thread's state use `#status`
@@ -93,13 +93,13 @@ thr.status # => false
 You can also use `#alive?` to tell if the thread is running or sleeping,
 and `#stop?` if the thread is dead or sleeping.
 
-#### Thread variables and scope
+#### Thread variables and scope[](#thread-variables-and-scope)
 
 Since threads are created with blocks, the same rules apply to other
 Ruby blocks for variable scope. Any local variables created within this
 block are accessible to only this thread.
 
-##### Fiber-local vs. Thread-local
+##### Fiber-local vs. Thread-local[](#fiber-local-vs-thread-local)
 
 Each fiber has its own bucket for `Thread#[]` storage. When you set a
 new fiber-local it is only accessible within this Fiber. To illustrate:
@@ -143,7 +143,7 @@ thread-locals, and `#thread_variable_get` to reference them.
 There is also `#thread_variables` to list all thread-locals, and
 `#thread_variable?` to check if a given thread-local exists.
 
-#### Exception handling
+#### Exception handling[](#exception-handling)
 
 Any thread can raise an exception using the `#raise` instance method,
 which operates similarly to `Kernel#raise`.
@@ -158,7 +158,7 @@ or `#value`. You can change this default by either
 With the addition of the class method ::handle\_interrupt, you can now
 handle exceptions asynchronously with threads.
 
-#### Scheduling
+#### Scheduling[](#scheduling)
 
 Ruby provides a few ways to support scheduling threads in your program.
 
@@ -180,7 +180,7 @@ remote' target='_blank'>Thread Reference</a>
 
 
 
-### ThreadGroup
+### ThreadGroup[](#threadgroup)
 
 ThreadGroup provides a means of keeping track of a number of threads as
 a group.
@@ -196,7 +196,7 @@ class='ruby-doc remote' target='_blank'>ThreadGroup Reference</a>
 
 
 
-### Mutex
+### Mutex[](#mutex)
 
 Mutex implements a simple semaphore that can be used to coordinate
 access to shared data from multiple concurrent threads.
@@ -225,7 +225,7 @@ remote' target='_blank'>Mutex Reference</a>
 
 
 
-### ConditionVariable
+### ConditionVariable[](#conditionvariable)
 
 ConditionVariable objects augment class Mutex. Using condition
 variables, it is possible to suspend while in the middle of a critical
@@ -259,7 +259,7 @@ class='ruby-doc remote' target='_blank'>ConditionVariable Reference</a>
 
 
 
-### Queue
+### Queue[](#queue)
 
 The Queue class implements multi-producer, multi-consumer queues. It is
 especially useful in threaded programming when information must be
@@ -297,7 +297,7 @@ remote' target='_blank'>Queue Reference</a>
 
 
 
-### SizedQueue
+### SizedQueue[](#sizedqueue)
 
 This class represents queues of specified size capacity. The push
 operation may be blocked if the capacity is full.

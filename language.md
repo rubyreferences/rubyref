@@ -4,7 +4,7 @@ prev: "/intro/irb.html"
 next: "/language/keywords.html"
 ---
 
-## Ruby Language Structure
+## Ruby Language Structure[](#ruby-language-structure)
 
 This chapter describes the syntax constructs and general structure of
 Ruby programs.
@@ -45,7 +45,7 @@ rules for modules, methods and expressions.
 
 
 
-### Ending an Expression
+### Ending an Expression[](#ending-an-expression)
 
 Ruby uses a newline as the end of an expression. When ending a line with
 an operator, open parentheses, comma, etc. the expression will continue.
@@ -53,7 +53,7 @@ an operator, open parentheses, comma, etc. the expression will continue.
 You can end an expression with a `;` (semicolon). Semicolons are most
 frequently used with `ruby -e`.
 
-### Indentation
+### Indentation[](#indentation)
 
 Ruby does not require any indentation. Typically, ruby programs are
 indented two spaces.
@@ -61,7 +61,7 @@ indented two spaces.
 If you run ruby with warnings enabled and have an indentation mis-match,
 you will receive a warning.
 
-### `defined?`
+### `defined?`[](#defined)
 
 `defined?` is a keyword that returns a string describing its argument:
 

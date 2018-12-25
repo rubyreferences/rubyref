@@ -4,7 +4,7 @@ prev: "/developing/testing.html"
 next: "/advanced.html"
 ---
 
-## Ruby Code Style
+## Ruby Code Style[](#ruby-code-style)
 
 There is no single preferred or enforced style for Ruby code. Several
 community or privately authored style guides exist, the most widely

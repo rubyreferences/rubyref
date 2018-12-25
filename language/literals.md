@@ -4,7 +4,7 @@ prev: "/language/keywords.html"
 next: "/language/comments.html"
 ---
 
-## Literals
+## Literals[](#literals)
 
 Literals create objects you can use in your program. Literals include:
 
@@ -18,7 +18,7 @@ Literals create objects you can use in your program. Literals include:
 * Regular Expressions
 * Procs
 
-### Booleans and nil
+### Booleans and nil[](#booleans-and-nil)
 
 `nil` and `false` are both false values. `nil` is sometimes used to
 indicate "no value" or "unknown" but evaluates to `false` in conditional
@@ -32,7 +32,7 @@ lowercase literal forms are preferred.)
 
 See also [TrueClass, FalseClass, NilClass](../builtin/types/atomic.md).
 
-### Numbers
+### Numbers[](#numbers)
 
 You can write integers of any size as follows:
 
@@ -91,7 +91,7 @@ floats you may use an underscore for readability.
 
 See also [number classes](../builtin/types/numbers.md).
 
-### Strings
+### Strings[](#strings)
 
 The most common way of writing strings is using `"`: 
 
@@ -211,7 +211,7 @@ the script encoding:
 ?あ      #=> "あ"
 ```
 
-#### Here Documents
+#### Here Documents[](#here-documents)
 
 If you are writing a large block of text you may use a "here document"
 or "heredoc"\:
@@ -311,7 +311,7 @@ TWO
 
 See also [String](../builtin/types/symbol-string.md#string) class.
 
-### Symbols
+### Symbols[](#symbols)
 
 A Symbol represents a name inside the ruby interpreter. See Symbol for
 more details on what symbols are and when ruby creates them internally.
@@ -338,7 +338,7 @@ as well.
 
 See also [Symbol](../builtin/types/symbol-string.md#symbol) class.
 
-### Arrays
+### Arrays[](#arrays)
 
 An array is created using the objects between `[` and `]`: 
 
@@ -357,7 +357,7 @@ You may place expressions inside the array:
 See [Array](../builtin/types/array.md) for the methods you may use with
 an array.
 
-### Hashes
+### Hashes[](#hashes)
 
 A hash is created using key-value pairs between `{` and `}`: 
 
@@ -393,7 +393,7 @@ is equal to
 See [Hash](../builtin/types/hash.md) for the methods you may use with a
 hash.
 
-### Ranges
+### Ranges[](#ranges)
 
 A range represents an interval of values. The range may include or
 exclude its ending value.
@@ -408,7 +408,7 @@ You may create a range of any object. See the
 [Range](../builtin/types/range.md) documentation for details on the
 methods you need to implement.
 
-### Regular Expressions
+### Regular Expressions[](#regular-expressions)
 
 A regular expression is created using "/"\:
 
@@ -433,7 +433,7 @@ escaped characters than a string.
 See [Regexp](../builtin/types/regexp.md) for a description of the syntax
 of regular expressions.
 
-### Procs
+### Procs[](#procs)
 
 A proc can be created with `->`: 
 
@@ -454,7 +454,7 @@ This proc will add one to its argument.
 
 See also [Proc](../builtin/core/method-proc.md#proc) class.
 
-### Percent Strings
+### Percent Strings[](#percent-strings)
 
 Besides `%(...)` which creates a String, the `%` may create other types
 of object. As with strings, an uppercase letter allows interpolation and

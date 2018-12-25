@@ -4,7 +4,7 @@ prev: "/language/variables-constants.html"
 next: "/language/control-expressions.html"
 ---
 
-## Assignment
+## Assignment[](#assignment)
 
 In Ruby, assignment uses the `=` (equals sign) character. This example
 assigns the number five to the local variable `v`: 
@@ -16,7 +16,7 @@ v = 5
 Assignment creates a local variable if the variable was not previously
 referenced.
 
-### Abbreviated Assignment
+### Abbreviated Assignment[](#abbreviated-assignment)
 
 You can mix several of the operators and assignment. To add 1 to an
 object you can write:
@@ -61,7 +61,7 @@ p a # prints 1
 Note that these two operators behave more like `a || a = 0` than `a = a
 || 0`.
 
-### Multiple Assignment
+### Multiple Assignment[](#multiple-assignment)
 
 You can assign multiple values on the right-hand side to multiple
 variables:
@@ -130,7 +130,7 @@ p a: a, b: b # prints {:a=>[1, 2], :b=>3}
 
 But you may only use one `*` in an assignment.
 
-### Array Decomposition
+### Array Decomposition[](#array-decomposition)
 
 Like Array decomposition in [method arguments](methods-def.md) you can
 decompose an Array during assignment using parenthesis:

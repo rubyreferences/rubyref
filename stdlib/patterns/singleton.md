@@ -9,11 +9,11 @@ next: "/stdlib/formats.html"
 require 'singleton'
 ```
 
-## Singleton
+## Singleton[](#singleton)
 
 The Singleton module implements the Singleton pattern.
 
-### Usage
+### Usage[](#usage)
 
 To use Singleton, include the module in your class.
 

@@ -4,7 +4,7 @@ prev: "/builtin/types/hash.html"
 next: "/builtin/types/matrix.html"
 ---
 
-## Set
+## Set[](#set)
 
 *Part of standard library. You need to `require 'set'` before using.*
 
@@ -30,14 +30,14 @@ Set uses Hash as storage, so you must note the following points:
 * When a string is to be stored, a frozen copy of the string is stored
   instead unless the original string is already frozen.
 
-### Comparison
+### Comparison[](#comparison)
 
 The comparison operators <, >, <=, and >= are implemented as shorthand
 for the \{proper\_,}\{subset?,superset?} methods. However, the <=>
 operator is intentionally left out because not every pair of sets is
 comparable (\{x, y} vs. \{x, z} for example).
 
-### Example
+### Example[](#example)
 
 
 ```ruby
@@ -56,7 +56,7 @@ class='ruby-doc remote' target='_blank'>Set Reference</a>
 
 
 
-### SortedSet
+### SortedSet[](#sortedset)
 
 SortedSet implements a Set that guarantees that its elements are yielded
 in sorted order (according to the return values of their #<=> methods)
@@ -69,7 +69,7 @@ Also, all elements must be *mutually comparable*\: `el1 <=> el2` must
 not return `nil` for any elements `el1` and `el2`, else an ArgumentError
 will be raised when iterating over the SortedSet.
 
-#### Example
+#### Example[](#example)
 
 
 ```ruby

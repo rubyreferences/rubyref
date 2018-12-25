@@ -9,7 +9,7 @@ next: "/stdlib/development/pp.html"
 require 'logger'
 ```
 
-## Logger
+## Logger[](#logger)
 
 The Logger class provides a simple but sophisticated logging utility
 that you can use to output messages.
@@ -54,7 +54,7 @@ logger.formatter = proc { |severity, datetime, progname, msg|
 logger.info(input)
 ```
 
-#### Example
+#### Example[](#example)
 
 This creates a Logger that outputs to the standard output stream, with a
 level of `WARN`: 
@@ -87,7 +87,7 @@ Because the Logger's level is set to `WARN`, only the warning, error,
 and fatal messages are recorded. The debug and info messages are
 silently discarded.
 
-### Format
+### Format[](#format)
 
 Log messages are rendered in the output stream in a certain format by
 default. The default format and a sample are shown below:

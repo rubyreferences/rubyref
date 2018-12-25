@@ -4,7 +4,7 @@ prev: "/builtin/core/module-class.html"
 next: "/builtin/core/binding.html"
 ---
 
-## Method
+## Method[](#method)
 
 Method objects are created by `Object#method`, and are associated with a
 particular object (not just with a class). They may be used to invoke
@@ -31,7 +31,7 @@ remote' target='_blank'>Method Reference</a>
 
 
 
-### UnboundMethod
+### UnboundMethod[](#unboundmethod)
 
 Ruby supports two forms of objectified methods. Class `Method` is used
 to represent methods that are associated with a particular object: these
@@ -91,7 +91,7 @@ class='ruby-doc remote' target='_blank'>UnboundMethod Reference</a>
 
 
 
-### Proc
+### Proc[](#proc)
 
 `Proc` objects are blocks of code that have been bound to a set of local
 variables. Once bound, the code may be called in different contexts and

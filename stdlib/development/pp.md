@@ -4,13 +4,13 @@ prev: "/stdlib/development/logger.html"
 next: "/stdlib/development/profiler.html"
 ---
 
-## PP
+## PP[](#pp)
 
 > Since Ruby 2.5, this library is required by default
 
 A pretty-printer for Ruby objects.
 
-### What PP Does
+### What PP Does[](#what-pp-does)
 
 Standard output by `#p` returns this:
 
@@ -41,7 +41,7 @@ Pretty-printed output returns this:
  @output_width=2>
 ```
 
-### Usage
+### Usage[](#usage)
 
 
 ```
@@ -55,7 +55,7 @@ Output `obj(s)` to `$>` in pretty printed format.
 
 It returns `obj(s)`.
 
-### Output Customization
+### Output Customization[](#output-customization)
 
 To define a customized pretty printing function for your classes,
 redefine method `#pretty_print(pp)` in the class.

@@ -4,7 +4,7 @@ prev: "/advanced/dtrace.html"
 next: "/appendix-a.html"
 ---
 
-## Contributing to Ruby
+## Contributing to Ruby[](#contributing-to-ruby)
 
 Ruby has a vast and friendly community with hundreds of people
 contributing to a thriving open-source ecosystem. This guide is designed
@@ -14,7 +14,7 @@ There are plenty of ways for you to help even if you're not ready to
 write code or documentation. You can help by reporting issues, testing
 patches, and trying out beta releases with your applications.
 
-### How To Report
+### How To Report[](#how-to-report)
 
 If you've encountered a bug in Ruby please report it to the redmine
 issue tracker available at <a href='https://bugs.ruby-lang.org/'
@@ -70,7 +70,7 @@ feedback on your ticket.
 * Please reply to feedback requests. If a bug report doesn't get any
   feedback, it'll eventually get rejected.
 
-#### Reporting to downstream distributions
+#### Reporting to downstream distributions[](#reporting-to-downstream-distributions)
 
 You can report downstream issues for the following distributions via
 their bug tracker:
@@ -91,7 +91,7 @@ their bug tracker:
 
 * etc (add your distribution bug tracker here)
 
-#### Platform Maintainers
+#### Platform Maintainers[](#platform-maintainers)
 
 For platform specific bugs in Ruby, you can assign your ticket to the
 current maintainer for a specific platform.
@@ -108,7 +108,7 @@ The current active platform maintainers are as follows:
 * macOS: Kenta Murata (mrkn)
 * cygwin, bcc32, djgpp, wince, ...\: none. (Maintainer WANTED)
 
-### Reporting Security Issues
+### Reporting Security Issues[](#reporting-security-issues)
 
 Security vulnerabilities receive special treatment since they may
 negatively affect many users. There is a private mailing list that all
@@ -118,7 +118,7 @@ published after fixes have been released. You can also encrypt the issue
 using <a href='https://www.ruby-lang.org/security.asc' class='remote'
 target='_blank'>the PGP public key</a> for the list.
 
-### Reporting Other Issues
+### Reporting Other Issues[](#reporting-other-issues)
 
 If you're having an issue with the website, or maybe the mailing list,
 you can contact the webmaster to help resolve the problem.
@@ -133,7 +133,7 @@ tracker:
 * <a href='https://github.com/ruby/www.ruby-lang.org/issues'
   class='remote' target='_blank'>issue tracker</a>
 
-### Resolve Existing Issues
+### Resolve Existing Issues[](#resolve-existing-issues)
 
 As a next step beyond reporting issues you can help the core team
 resolve existing issues. If you check the Everyone's Issues list in
@@ -181,7 +181,7 @@ track. If your comment simply says "+1", then odds are that other
 reviewers aren't going to take it too seriously. Show that you took the
 time to review the patch.
 
-### How To Request Features
+### How To Request Features[](#how-to-request-features)
 
 If there's a new feature that you want to see added to Ruby, you will
 need to write a convincing proposal and patch to implement the feature.
@@ -223,7 +223,7 @@ A good template for a feature proposal should look something like this:
   them.
 * See also: Links to the other related resources
 
-#### Slideshow
+#### Slideshow[](#slideshow)
 
 At the Ruby Developer Meeting in Japan, committers discuss Feature
 Proposals together in Tokyo. We will judge proposals and then accept,
@@ -250,7 +250,7 @@ Please note:
 
 * Slide's example: DevelopersMeeting20130727Japan
 
-### Backport Requests
+### Backport Requests[](#backport-requests)
 
 When a new version of Ruby is released, it starts at patch level 0 (p0),
 and bugs will be fixed first on the trunk branch. If it's determined
@@ -278,13 +278,13 @@ on the <a
 href='https://bugs.ruby-lang.org/projects/ruby/wiki/ReleaseEngineering'
 class='remote' target='_blank'>wiki</a>.
 
-#### Branches
+#### Branches[](#branches)
 
 Status and maintainers of branches are listed on the <a
 href='https://bugs.ruby-lang.org/projects/ruby/wiki/ReleaseEngineering'
 class='remote' target='_blank'>wiki</a>.
 
-### Running tests
+### Running tests[](#running-tests)
 
 In order to help resolve existing issues and contributing patches to
 Ruby you need to be able to run the test suite.
@@ -401,7 +401,7 @@ Or, update, build, install and check, by just:
 make love
 ```
 
-### Contributing Documentation
+### Contributing Documentation[](#contributing-documentation)
 
 If you're interested in contributing documentation directly to CRuby
 there is a wealth of information available at <a
@@ -411,9 +411,9 @@ target='_blank'>documenting-ruby.org</a>.
 There is also the <a href='https://bugs.ruby-lang.org/projects/rurema'
 class='remote' target='_blank'>Ruby Reference Manual</a> in Japanese.
 
-### Contributing A Patch
+### Contributing A Patch[](#contributing-a-patch)
 
-#### Deciding what to patch
+#### Deciding what to patch[](#deciding-what-to-patch)
 
 Before you submit a patch, there are a few things you should know:
 
@@ -459,7 +459,7 @@ on your local computer and won't be part of the official Ruby
 repository. It will be used to create patches based on the differences
 between your branch and trunk, or edge Ruby.
 
-#### Coding style
+#### Coding style[](#coding-style)
 
 Here are some general rules to follow when writing Ruby and C code for
 CRuby:
@@ -477,7 +477,7 @@ CRuby:
 * ABBRs should be all upper case.
 * Do as others do
 
-#### ChangeLog
+#### ChangeLog[](#changelog)
 
 Although not required, if you wish to add a ChangeLog entry for your
 change please note:

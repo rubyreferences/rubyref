@@ -9,3 +9,9 @@ end
 class MatchData
   def at(i); self[i] end
 end
+
+require 'memoist'
+
+class Object
+  extend Memoist
+end

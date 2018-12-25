@@ -4,7 +4,7 @@ prev: "/builtin/system-cli/processes-signals.html"
 next: "/builtin/system-cli/filesystem.html"
 ---
 
-## IO
+## IO[](#io)
 
 The IO class is the basis for all input and output in Ruby. An I/O
 stream may be *duplexed* (that is, bidirectional), and so may use more
@@ -61,7 +61,7 @@ remote' target='_blank'>IO Reference</a>
 
 
 
-### File
+### File[](#file)
 
 A `File` is an abstraction of any file object accessible by the program
 and is closely associated with class `IO`. `File` includes the methods
@@ -96,7 +96,7 @@ remote' target='_blank'>File Reference</a>
 
 
 
-### StringIO
+### StringIO[](#stringio)
 
 *Part of standard library. You need to `require 'stringio'` before
 using.*
@@ -105,7 +105,7 @@ Pseudo I/O on String object.
 
 Commonly used to simulate `$stdio` or `$stderr`
 
-##### Examples
+##### Examples[](#examples)
 
 
 ```ruby

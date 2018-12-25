@@ -9,13 +9,13 @@ next: "/stdlib/misc.html"
 require 'openssl'
 ```
 
-## OpenSSL
+## OpenSSL[](#openssl)
 
 OpenSSL provides SSL, TLS and general purpose cryptography. It wraps the
 <a href='https://www.openssl.org/' class='remote'
 target='_blank'>OpenSSL</a> library.
 
-## Examples
+## Examples[](#examples)
 
 All examples assume you have loaded OpenSSL with:
 
@@ -27,9 +27,9 @@ require 'openssl'
 These examples build atop each other. For example the key created in the
 next is used in throughout these examples.
 
-### Keys
+### Keys[](#keys)
 
-#### Creating a Key
+#### Creating a Key[](#creating-a-key)
 
 This example creates a 2048 bit RSA keypair and writes it to the current
 directory.
@@ -42,7 +42,7 @@ open 'private_key.pem', 'w' do |io| io.write key.to_pem end
 open 'public_key.pem', 'w' do |io| io.write key.public_key.to_pem end
 ```
 
-#### Exporting a Key
+#### Exporting a Key[](#exporting-a-key)
 
 Keys saved to disk without encryption are not secure as anyone who gets
 ahold of the key may use it unless it is encrypted. In order to securely
@@ -62,7 +62,7 @@ end
 
 OpenSSL::Cipher.ciphers returns a list of available ciphers.
 
-#### Loading a Key
+#### Loading a Key[](#loading-a-key)
 
 A key can also be loaded from a file.
 
@@ -82,7 +82,7 @@ key3.public? # => true
 key3.private? # => false
 ```
 
-#### Loading an Encrypted Key
+#### Loading an Encrypted Key[](#loading-an-encrypted-key)
 
 OpenSSL will prompt you for your pass phrase when loading an encrypted
 key. If you will not be able to type in the pass phrase you may provide
@@ -95,13 +95,13 @@ pass_phrase = 'my secure pass phrase goes here'
 key4 = OpenSSL::PKey::RSA.new key4_pem, pass_phrase
 ```
 
-### RSA Encryption
+### RSA Encryption[](#rsa-encryption)
 
 RSA provides encryption and decryption using the public and private
 keys. You can use a variety of padding methods depending upon the
 intended use of encrypted data.
 
-#### Encryption & Decryption
+#### Encryption & Decryption[](#encryption--decryption)
 
 Asymmetric public/private key encryption is slow and victim to attack in
 cases where it is used without padding or directly to encrypt larger
@@ -128,7 +128,7 @@ original_key = key.private_decrypt wrapped_key
 By default PKCS#1 padding will be used, but it is also possible to use
 other forms of padding, see PKey::RSA for further details.
 
-#### Signatures
+#### Signatures[](#signatures)
 
 Using "private\_encrypt" to encrypt some data with the private key is
 equivalent to applying a digital signature to the data. A verifying
@@ -162,7 +162,7 @@ else
 end
 ```
 
-### PBKDF2 Password-based Encryption
+### PBKDF2 Password-based Encryption[](#pbkdf2-password-based-encryption)
 
 If supported by the underlying OpenSSL version used, Password-based
 Encryption should use the features of PKCS5. If not supported or if
@@ -176,7 +176,7 @@ additionally a number of iterations that will slow the key derivation
 process down. The slower this is, the more work it requires being able
 to brute-force the resulting key.
 
-#### Encryption
+#### Encryption[](#encryption)
 
 The strategy is to first instantiate a Cipher for encryption, and then
 to generate a random IV plus a key derived from the password using
@@ -204,7 +204,7 @@ encrypted = cipher.update document
 encrypted << cipher.final
 ```
 
-#### Decryption
+#### Decryption[](#decryption)
 
 Use the same steps as before to derive the symmetric AES key, this time
 setting the Cipher up for decryption.
@@ -230,7 +230,7 @@ decrypted = cipher.update encrypted
 decrypted << cipher.final
 ```
 
-### PKCS #5 Password-based Encryption
+### PKCS #5 Password-based Encryption[](#pkcs-5-password-based-encryption)
 
 PKCS #5 is a password-based encryption standard documented at <a
 href='http://www.ietf.org/rfc/rfc2898.txt' class='remote'
@@ -247,7 +247,7 @@ pass_phrase = 'my secure pass phrase goes here'
 salt = '8 octets'
 ```
 
-#### Encryption
+#### Encryption[](#encryption-1)
 
 First set up the cipher for encryption
 
@@ -266,7 +266,7 @@ encrypted = encryptor.update 'top secret document'
 encrypted << encryptor.final
 ```
 
-#### Decryption
+#### Decryption[](#decryption-1)
 
 Use a new Cipher instance set up for decryption
 
@@ -285,9 +285,9 @@ plain = decryptor.update encrypted
 plain << decryptor.final
 ```
 
-### X509 Certificates
+### X509 Certificates[](#x509-certificates)
 
-#### Creating a Certificate
+#### Creating a Certificate[](#creating-a-certificate)
 
 This example creates a self-signed certificate using an RSA key and a
 SHA1 signature.
@@ -307,7 +307,7 @@ cert.public_key = key.public_key
 cert.subject = name
 ```
 
-#### Certificate Extensions
+#### Certificate Extensions[](#certificate-extensions)
 
 You can add extensions to the certificate with
 OpenSSL::SSL::ExtensionFactory to indicate the purpose of the
@@ -332,7 +332,7 @@ The list of supported extensions (and in some cases their possible
 values) can be derived from the "objects.h" file in the OpenSSL source
 code.
 
-#### Signing a Certificate
+#### Signing a Certificate[](#signing-a-certificate)
 
 To sign a certificate set the issuer and use
 OpenSSL::X509::`Certificate#sign` with a digest algorithm. This creates
@@ -347,7 +347,7 @@ cert.sign key, OpenSSL::Digest::SHA1.new
 open 'certificate.pem', 'w' do |io| io.write cert.to_pem end
 ```
 
-#### Loading a Certificate
+#### Loading a Certificate[](#loading-a-certificate)
 
 Like a key, a cert can also be loaded from a file.
 
@@ -356,7 +356,7 @@ Like a key, a cert can also be loaded from a file.
 cert2 = OpenSSL::X509::Certificate.new File.read 'certificate.pem'
 ```
 
-#### Verifying a Certificate
+#### Verifying a Certificate[](#verifying-a-certificate)
 
 Certificate#verify will return true when a certificate was signed with
 the given public key.
@@ -366,7 +366,7 @@ the given public key.
 raise 'certificate can not be verified' unless cert2.verify key
 ```
 
-### Certificate Authority
+### Certificate Authority[](#certificate-authority)
 
 A certificate authority (CA) is a trusted third party that allows you to
 verify the ownership of unknown certificates. The CA issues key
@@ -374,7 +374,7 @@ signatures that indicate it trusts the user of that key. A user
 encountering the key can verify the signature by using the CA's public
 key.
 
-#### CA Key
+#### CA Key[](#ca-key)
 
 CA keys are valuable, so we encrypt and save it to disk and make sure it
 is not readable by other users.
@@ -391,7 +391,7 @@ open 'ca_key.pem', 'w', 0400 do |io|
 end
 ```
 
-#### CA Certificate
+#### CA Certificate[](#ca-certificate)
 
 A CA certificate is created the same way we created a certificate above,
 but with different extensions.
@@ -453,7 +453,7 @@ open 'ca_cert.pem', 'w' do |io|
 end
 ```
 
-#### Certificate Signing Request
+#### Certificate Signing Request[](#certificate-signing-request)
 
 The CA signs keys through a Certificate Signing Request (CSR). The CSR
 contains the information necessary to identify the key.
@@ -476,7 +476,7 @@ open 'csr.pem', 'w' do |io|
 end
 ```
 
-#### Creating a Certificate from a CSR
+#### Creating a Certificate from a CSR[](#creating-a-certificate-from-a-csr)
 
 Upon receiving a CSR the CA will verify it before signing it. A minimal
 verification would be to check the CSR's signature.
@@ -524,7 +524,7 @@ open 'csr_cert.pem', 'w' do |io|
 end
 ```
 
-### SSL and TLS Connections
+### SSL and TLS Connections[](#ssl-and-tls-connections)
 
 Using our created key and certificate we can create an SSL or TLS
 connection. An SSLContext is used to set up an SSL session.
@@ -534,7 +534,7 @@ connection. An SSLContext is used to set up an SSL session.
 context = OpenSSL::SSL::SSLContext.new
 ```
 
-#### SSL Server
+#### SSL Server[](#ssl-server)
 
 An SSL server requires the certificate and private key to communicate
 securely with its clients:
@@ -568,7 +568,7 @@ loop do
 end
 ```
 
-#### SSL client
+#### SSL client[](#ssl-client)
 
 An SSL client is created with a TCP socket and the context.
 `SSLSocket#connect` must be called to initiate the SSL handshake and
@@ -593,7 +593,7 @@ puts ssl_client.gets
 ssl_client.close # shutdown the TLS connection and close tcp_socket
 ```
 
-#### Peer Verification
+#### Peer Verification[](#peer-verification)
 
 An unverified SSL connection does not provide much security. For
 enhanced security the client or server can verify the certificate of its

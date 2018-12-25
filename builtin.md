@@ -4,7 +4,7 @@ prev: "/language/metaprogramming.html"
 next: "/builtin/core.html"
 ---
 
-## Built-in (Core) Classes
+## Built-in (Core) Classes[](#built-in-core-classes)
 
 This chapter describes classes that are always available in the
 language, the so-called "core" classes.

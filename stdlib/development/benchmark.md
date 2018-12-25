@@ -9,7 +9,7 @@ next: "/stdlib/development/coverage.html"
 require 'benchmark'
 ```
 
-## Benchmark
+## Benchmark[](#benchmark)
 
 The Benchmark module provides methods to measure and report the time
 used to execute Ruby code.

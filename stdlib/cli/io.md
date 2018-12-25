@@ -4,7 +4,7 @@ prev: "/stdlib/cli/fcntl.html"
 next: "/stdlib/cli/open3.html"
 ---
 
-## `io/*` libraries
+## `io/*` libraries[](#io-libraries)
 
 This family of libraries extends [IO](../../builtin/system-cli/io.md)
 class with several methods.

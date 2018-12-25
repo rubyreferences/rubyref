@@ -4,7 +4,7 @@ prev: "/builtin/types/comparable.html"
 next: "/builtin/types/symbol-string.html"
 ---
 
-## Numeric
+## Numeric[](#numeric)
 
 Numeric is the class from which all higher-level numeric classes should
 inherit.
@@ -91,7 +91,7 @@ remote' target='_blank'>Numeric Reference</a>
 
 
 
-### Integer
+### Integer[](#integer)
 
 Holds Integer values. You cannot add a singleton method to an Integer
 object, any attempt to do so will raise a TypeError.
@@ -101,7 +101,7 @@ remote' target='_blank'>Integer Reference</a>
 
 
 
-### Float
+### Float[](#float)
 
 Float objects represent inexact real numbers using the native
 architecture's double-precision floating point representation.
@@ -118,7 +118,7 @@ remote' target='_blank'>Float Reference</a>
 
 
 
-### Rational
+### Rational[](#rational)
 
 A rational number can be represented as a pair of integer numbers: a/b
 (b>0), where a is the numerator and b is the denominator. Integer a
@@ -178,7 +178,7 @@ remote' target='_blank'>Rational Reference</a>
 
 
 
-### Complex
+### Complex[](#complex)
 
 A complex number can be represented as a paired real number with
 imaginary unit; a+bi. Where a is real part, b is imaginary part and i is
@@ -225,7 +225,7 @@ remote' target='_blank'>Complex Reference</a>
 
 
 
-## BigDecimal
+## BigDecimal[](#bigdecimal)
 
 
 
@@ -289,11 +289,11 @@ class='ruby-doc remote' target='_blank'>BigDecimal Reference</a>
 
 
 
-## Number Utilities
+## Number Utilities[](#number-utilities)
 
 
 
-### Math
+### Math[](#math)
 
 The Math module contains module functions for basic trigonometric and
 transcendental functions. See class Float for a list of constants that
@@ -306,13 +306,13 @@ remote' target='_blank'>Math Reference</a>
 
 
 
-### Prime
+### Prime[](#prime)
 
 *Part of standard library. You need to `require 'prime'` before using.*
 
 The set of all prime numbers.
 
-#### Example
+#### Example[](#example)
 
 
 ```ruby
@@ -328,7 +328,7 @@ Prime is Enumerable:
 Prime.first 5 # => [2, 3, 5, 7, 11]
 ```
 
-#### Retrieving the instance
+#### Retrieving the instance[](#retrieving-the-instance)
 
 For convenience, each instance method of `Prime.instance` can be
 accessed as a class method of `Prime`.
@@ -341,7 +341,7 @@ Prime.instance.prime?(2)  #=> true
 Prime.prime?(2)           #=> true
 ```
 
-#### Generators
+#### Generators[](#generators)
 
 A "generator" provides an implementation of enumerating pseudo-prime
 numbers and it remembers the position of enumeration and upper bound.

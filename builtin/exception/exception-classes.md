@@ -4,11 +4,11 @@ prev: "/builtin/exception.html"
 next: "/builtin/warning.html"
 ---
 
-## Built-in Exception Classes
+## Built-in Exception Classes[](#built-in-exception-classes)
 
 
 
-### NoMemoryError
+### NoMemoryError[](#nomemoryerror)
 
 Raised when memory allocation fails.
 
@@ -17,7 +17,7 @@ class='ruby-doc remote' target='_blank'>NoMemoryError Reference</a>
 
 
 
-### ScriptError
+### ScriptError[](#scripterror)
 
 ScriptError is the superclass for errors raised when a script can not be
 executed because of a `LoadError`, `NotImplementedError` or a
@@ -30,7 +30,7 @@ class='ruby-doc remote' target='_blank'>ScriptError Reference</a>
 
 
 
-### LoadError
+### LoadError[](#loaderror)
 
 Raised when a file required (a Ruby script, extension library, ...)
 fails to load.
@@ -52,7 +52,7 @@ remote' target='_blank'>LoadError Reference</a>
 
 
 
-### NotImplementedError
+### NotImplementedError[](#notimplementederror)
 
 Raised when a feature is not implemented on the current platform. For
 example, methods depending on the `fsync` or `fork` system calls may
@@ -68,7 +68,7 @@ Reference</a>
 
 
 
-### SyntaxError
+### SyntaxError[](#syntaxerror)
 
 Raised when encountering Ruby code with an invalid syntax.
 
@@ -89,7 +89,7 @@ class='ruby-doc remote' target='_blank'>SyntaxError Reference</a>
 
 
 
-### SecurityError
+### SecurityError[](#securityerror)
 
 Raised when attempting a potential unsafe operation, typically when the
 $SAFE level is raised above 0.
@@ -116,7 +116,7 @@ class='ruby-doc remote' target='_blank'>SecurityError Reference</a>
 
 
 
-### SignalException
+### SignalException[](#signalexception)
 
 Raised when a signal is received.
 
@@ -142,7 +142,7 @@ class='ruby-doc remote' target='_blank'>SignalException Reference</a>
 
 
 
-### Interrupt
+### Interrupt[](#interrupt)
 
 Raised with the interrupt signal is received, typically because the user
 pressed on Control-C (on most posix platforms). As such, it is a
@@ -177,7 +177,7 @@ remote' target='_blank'>Interrupt Reference</a>
 
 
 
-### StandardError
+### StandardError[](#standarderror)
 
 The most standard error types are subclasses of StandardError. A rescue
 clause without an explicit Exception class will rescue all
@@ -210,7 +210,7 @@ class='ruby-doc remote' target='_blank'>StandardError Reference</a>
 
 
 
-### ArgumentError
+### ArgumentError[](#argumenterror)
 
 Raised when the arguments are wrong and there isn't a more specific
 Exception class.
@@ -248,7 +248,7 @@ class='ruby-doc remote' target='_blank'>ArgumentError Reference</a>
 
 
 
-#### UncaughtThrowError
+#### UncaughtThrowError[](#uncaughtthrowerror)
 
 Raised when `throw` is called with a *tag* which does not have
 corresponding `catch` block.
@@ -270,7 +270,7 @@ class='ruby-doc remote' target='_blank'>UncaughtThrowError Reference</a>
 
 
 
-### EncodingError
+### EncodingError[](#encodingerror)
 
 EncodingError is the base class for encoding errors.
 
@@ -279,7 +279,7 @@ class='ruby-doc remote' target='_blank'>EncodingError Reference</a>
 
 
 
-### FiberError
+### FiberError[](#fibererror)
 
 Raised when an invalid operation is attempted on a Fiber, in particular
 when attempting to call/resume a dead fiber, attempting to yield from
@@ -297,7 +297,7 @@ class='ruby-doc remote' target='_blank'>FiberError Reference</a>
 
 
 
-### IOError
+### IOError[](#ioerror)
 
 Raised when an IO operation fails.
 
@@ -324,7 +324,7 @@ remote' target='_blank'>IOError Reference</a>
 
 
 
-#### EOFError
+#### EOFError[](#eoferror)
 
 Raised by some IO operations when reaching the end of file. Many IO
 methods exist in two forms,
@@ -347,7 +347,7 @@ remote' target='_blank'>EOFError Reference</a>
 
 
 
-### IndexError
+### IndexError[](#indexerror)
 
 Raised when the given index is invalid.
 
@@ -364,7 +364,7 @@ class='ruby-doc remote' target='_blank'>IndexError Reference</a>
 
 
 
-#### KeyError
+#### KeyError[](#keyerror)
 
 Raised when the specified key is not found. It is a subclass of
 IndexError.
@@ -381,7 +381,7 @@ remote' target='_blank'>KeyError Reference</a>
 
 
 
-#### StopIteration
+#### StopIteration[](#stopiteration)
 
 Raised to stop the iteration, in particular by `Enumerator#next`. It is
 rescued by `Kernel#loop`.
@@ -409,7 +409,7 @@ class='ruby-doc remote' target='_blank'>StopIteration Reference</a>
 
 
 
-### LocalJumpError
+### LocalJumpError[](#localjumperror)
 
 Raised when Ruby can't yield as requested.
 
@@ -452,7 +452,7 @@ class='ruby-doc remote' target='_blank'>LocalJumpError Reference</a>
 
 
 
-### NameError
+### NameError[](#nameerror)
 
 Raised when a given name is invalid or undefined.
 
@@ -487,7 +487,7 @@ remote' target='_blank'>NameError Reference</a>
 
 
 
-#### NoMethodError
+#### NoMethodError[](#nomethoderror)
 
 Raised when a method is called on a receiver which doesn't have it
 defined and also fails to respond with `method_missing`.
@@ -509,7 +509,7 @@ class='ruby-doc remote' target='_blank'>NoMethodError Reference</a>
 
 
 
-### RangeError
+### RangeError[](#rangeerror)
 
 Raised when a given numerical value is out of range.
 
@@ -530,7 +530,7 @@ class='ruby-doc remote' target='_blank'>RangeError Reference</a>
 
 
 
-#### FloatDomainError
+#### FloatDomainError[](#floatdomainerror)
 
 Raised when attempting to convert special float values (in particular
 `Infinity` or `NaN`) to numerical classes which don't support them.
@@ -545,7 +545,7 @@ class='ruby-doc remote' target='_blank'>FloatDomainError Reference</a>
 
 
 
-### RegexpError
+### RegexpError[](#regexperror)
 
 Raised when given an invalid regexp expression.
 
@@ -566,7 +566,7 @@ class='ruby-doc remote' target='_blank'>RegexpError Reference</a>
 
 
 
-### RuntimeError
+### RuntimeError[](#runtimeerror)
 
 A generic error class raised when an invalid operation is attempted.
 Kernel#raise will raise a RuntimeError if no Exception class is
@@ -589,7 +589,7 @@ class='ruby-doc remote' target='_blank'>RuntimeError Reference</a>
 
 
 
-#### FrozenError
+#### FrozenError[](#frozenerror)
 
 Raised when there is an attempt to modify a frozen object.
 
@@ -610,7 +610,7 @@ class='ruby-doc remote' target='_blank'>FrozenError Reference</a>
 
 
 
-### SystemCallError
+### SystemCallError[](#systemcallerror)
 
 SystemCallError is the base class for all low-level platform-dependent
 errors.
@@ -635,7 +635,7 @@ class='ruby-doc remote' target='_blank'>SystemCallError Reference</a>
 
 
 
-#### Errno
+#### Errno[](#errno)
 
 Ruby exception objects are subclasses of `Exception`. However, operating
 systems typically report errors using plain integers. Module `Errno` is
@@ -672,7 +672,7 @@ remote' target='_blank'>Errno Reference</a>
 
 
 
-### ThreadError
+### ThreadError[](#threaderror)
 
 Raised when an invalid operation is attempted on a thread.
 
@@ -696,7 +696,7 @@ class='ruby-doc remote' target='_blank'>ThreadError Reference</a>
 
 
 
-### TypeError
+### TypeError[](#typeerror)
 
 Raised when encountering an object that is not of the expected type.
 
@@ -717,7 +717,7 @@ remote' target='_blank'>TypeError Reference</a>
 
 
 
-### ZeroDivisionError
+### ZeroDivisionError[](#zerodivisionerror)
 
 Raised when attempting to divide an integer by 0.
 
@@ -740,7 +740,7 @@ class='ruby-doc remote' target='_blank'>ZeroDivisionError Reference</a>
 
 
 
-### SystemExit
+### SystemExit[](#systemexit)
 
 Raised by `exit` to initiate the termination of the script.
 
@@ -749,7 +749,7 @@ class='ruby-doc remote' target='_blank'>SystemExit Reference</a>
 
 
 
-### SystemStackError
+### SystemStackError[](#systemstackerror)
 
 Raised in case of a stack overflow.
 
@@ -773,7 +773,7 @@ class='ruby-doc remote' target='_blank'>SystemStackError Reference</a>
 
 
 
-### fatal
+### fatal[](#fatal)
 
 fatal is an Exception that is raised when Ruby has encountered a fatal
 error and must exit. You are not able to rescue fatal.

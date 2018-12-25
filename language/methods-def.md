@@ -4,7 +4,7 @@ prev: "/language/control-expressions.html"
 next: "/language/methods-call.html"
 ---
 
-## Methods
+## Methods[](#methods)
 
 Methods implement the functionality of your program. Here is a simple
 method definition:
@@ -23,7 +23,7 @@ the method will execute the body of the method. This method returns `2`.
 This section only covers defining methods. See also the [syntax
 documentation on calling methods](methods-call.md).
 
-### Method Names
+### Method Names[](#method-names)
 
 Method names may be one of the operators or must start a letter or a
 character with the eight bit set. It may contain letters, numbers, an
@@ -149,7 +149,7 @@ obj[2, 3]     # prints "5"
 obj[2, 3] = 4 # prints "10"
 ```
 
-### Return Values
+### Return Values[](#return-values)
 
 By default, a method returns the last expression that was evaluated in
 the body of the method. In the example above, the last (and only)
@@ -194,7 +194,7 @@ directly:
 p send(:a=, 5) # prints 6
 ```
 
-### Scope
+### Scope[](#scope)
 
 The standard syntax to define a method:
 
@@ -263,7 +263,7 @@ A method defined like this is called a "singleton method". `broaden`
 will only exist on the string instance `greeting`. Other strings will
 not have `broaden`.
 
-### Overriding
+### Overriding[](#overriding)
 
 When Ruby encounters the `def` keyword, it doesn't consider it an error
 if the method already exists: it simply redefines it. This is called
@@ -288,7 +288,7 @@ unexpected results. For example, consider this irb session:
 This will effectively sabotage any code which makes use of the method
 `String#to_i` to parse numbers from strings.
 
-### Arguments
+### Arguments[](#arguments)
 
 A method may accept arguments. The argument list follows the method
 name:
@@ -343,7 +343,7 @@ end
 This is useful for redefining methods, when client code expects a
 particular calling convention.
 
-#### Default Values
+#### Default Values[](#default-values)
 
 Arguments may have default values:
 
@@ -373,7 +373,7 @@ def add_values(a = 1, b, c = 1)
 end
 ```
 
-#### Array Decomposition
+#### Array Decomposition[](#array-decomposition)
 
 You can decompose (unpack or extract values from) an Array using extra
 parentheses in the arguments:
@@ -458,7 +458,7 @@ def my_method(((a, b), c))
 end
 ```
 
-#### Array/Hash Argument
+#### Array/Hash Argument[](#arrayhash-argument)
 
 Prefixing an argument with `*` causes any remaining arguments to be
 converted to an Array:
@@ -504,7 +504,7 @@ def ignore_arguments(*)
 end
 ```
 
-#### Keyword Arguments
+#### Keyword Arguments[](#keyword-arguments)
 
 Keyword arguments are similar to positional arguments with default
 values:
@@ -550,7 +550,7 @@ def html_tag(name, class:)
 end
 ```
 
-### Block Argument
+### Block Argument[](#block-argument)
 
 The block argument is indicated by `&` and must come last:
 
@@ -592,7 +592,7 @@ If you only need to use the block sometimes you can use Proc.new to
 create a proc from the block that was passed to your method. See
 Proc.new for further details.
 
-### Exception Handling
+### Exception Handling[](#exception-handling)
 
 Methods have an implied exception handling block so you do not need to
 use `begin` or `end` to handle exceptions. This:
@@ -623,7 +623,7 @@ If you wish to rescue an exception for only part of your method, use
 `begin` and `end`. For more details see the page on [exception
 handling](exceptions.md).
 
-### Method definition as an expression
+### Method definition as an expression[](#method-definition-as-an-expression)
 
 `def` (method definition) is an *expression* returning the name of the
 defined method. This feature is mostly useful for method decoration:
@@ -646,7 +646,7 @@ result of `def` (method name to make private/cached) as their argument.
 
 
 
-#### `alias`
+#### `alias`[](#alias)
 
 The `alias` keyword is most frequently used to alias methods. When
 aliasing a method, you can use either its name or a symbol:
@@ -672,7 +672,7 @@ p $new # prints 0
 
 You may use `alias` in any scope.
 
-#### `undef`
+#### `undef`[](#undef)
 
 The `undef` keyword prevents the current class from responding to calls
 to the named methods.

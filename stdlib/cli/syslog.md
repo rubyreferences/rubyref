@@ -9,7 +9,7 @@ next: "/stdlib/cli/shell.html"
 require 'syslog'
 ```
 
-## Syslog
+## Syslog[](#syslog)
 
 The syslog package provides a Ruby interface to the POSIX system logging
 facility.

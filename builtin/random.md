@@ -4,7 +4,7 @@ prev: "/builtin/marshal.html"
 next: "/stdlib.html"
 ---
 
-## Random
+## Random[](#random)
 
 Random provides an interface to Ruby's pseudo-random number generator,
 or PRNG. The PRNG produces a deterministic sequence of bits which
@@ -31,7 +31,7 @@ remote' target='_blank'>Random Reference</a>
 
 
 
-### SecureRandom
+### SecureRandom[](#securerandom)
 
 *Part of standard library. You need to `require 'securerandom'` before
 using.*
@@ -52,7 +52,7 @@ It supports the following secure random number generators:
 * /dev/urandom
 * Win32
 
-##### Examples
+##### Examples[](#examples)
 
 Generate random hexadecimal strings:
 

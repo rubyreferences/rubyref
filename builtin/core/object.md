@@ -4,11 +4,11 @@ prev: "/builtin/core/kernel.html"
 next: "/builtin/core/module-class.html"
 ---
 
-## BasicObject and Object
+## BasicObject and Object[](#basicobject-and-object)
 
 
 
-### BasicObject
+### BasicObject[](#basicobject)
 
 BasicObject is the parent class of all classes in Ruby. It's an explicit
 blank class.
@@ -71,7 +71,7 @@ class='ruby-doc remote' target='_blank'>BasicObject Reference</a>
 
 
 
-### Object
+### Object[](#object)
 
 Object is the default root of all Ruby objects. Object inherits from
 BasicObject which allows creating alternate object hierarchies. Methods

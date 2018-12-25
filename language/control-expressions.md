@@ -4,7 +4,7 @@ prev: "/language/assignment.html"
 next: "/language/methods-def.html"
 ---
 
-## Control Expressions
+## Control Expressions[](#control-expressions)
 
 Ruby has a variety of ways to control execution. All the expressions
 described here return a value.
@@ -14,7 +14,7 @@ false-values and `true` and any other object are true-values. In this
 document "true" will mean "true-value" and "false" will mean
 "false-value".
 
-### `if` Expression
+### `if` Expression[](#if-expression)
 
 The simplest `if` expression has two parts, a "test" expression and a
 "then" expression. If the "test" expression evaluates to a true then the
@@ -112,7 +112,7 @@ end
 The result value of an `if` expression is the last value executed in the
 expression.
 
-### Ternary if
+### Ternary if[](#ternary-if)
 
 You may also write a if-then-else expression using `?` and `:`. This
 ternary if:
@@ -139,7 +139,7 @@ form, for readability it is recommended that the ternary if is only used
 for simple conditionals. Also, avoid using multiple ternary conditions
 in the same expression as this can be confusing.
 
-### `unless` Expression
+### `unless` Expression[](#unless-expression)
 
 The `unless` expression is the opposite of the `if` expression. If the
 value is false, the "then" expression is executed:
@@ -181,7 +181,7 @@ You may not use `elsif` with an `unless` expression.
 The result value of an `unless` expression is the last value executed in
 the expression.
 
-### Modifier `if` and `unless`
+### Modifier `if` and `unless`[](#modifier-if-and-unless)
 
 `if` and `unless` can also be used to modify an expression. When used as
 a modifier the left-hand side is the "then" expression and the
@@ -233,7 +233,7 @@ NameError is raised.
 
 The same is true for `unless`.
 
-### `case` Expression
+### `case` Expression[](#case-expression)
 
 The `case` expression can be used in two ways.
 
@@ -318,7 +318,7 @@ Again, the `then` and `else` are optional.
 The result value of a `case` expression is the last value executed in
 the expression.
 
-### `while` Loop
+### `while` Loop[](#while-loop)
 
 The `while` loop executes while a condition is true:
 
@@ -353,7 +353,7 @@ end
 The result of a `while` loop is `nil` unless `break` is used to supply a
 value.
 
-### `until` Loop
+### `until` Loop[](#until-loop)
 
 The `until` loop executes while a condition is false:
 
@@ -379,7 +379,7 @@ Like a `while` loop, the `do` is optional.
 Like a `while` loop, the result of an `until` loop is nil unless `break`
 is used.
 
-### `for` Loop
+### `for` Loop[](#for-loop)
 
 The `for` loop consists of `for` followed by a variable to contain the
 iteration argument followed by `in` and the value to iterate over using
@@ -433,7 +433,7 @@ Note that in a lot of cases `until` and `while` loops also could be
 replaced with `Enumerable` methods like `#take_while`, `#drop_while` and
 others.
 
-### Modifier `while` and `until`
+### Modifier `while` and `until`[](#modifier-while-and-until)
 
 Like `if` and `unless`, `while` and `until` can be used as modifiers:
 
@@ -474,7 +474,7 @@ p a # prints 10
 If you don't use `rescue` or `ensure`, Ruby optimizes away any exception
 handling overhead.
 
-### `break` Statement
+### `break` Statement[](#break-statement)
 
 Use `break` to leave a block early. This will stop iterating over the
 items in `values` if one of them is even:
@@ -517,7 +517,7 @@ end
 p result # prints 4
 ```
 
-### `next` Statement
+### `next` Statement[](#next-statement)
 
 Use `next` to skip the rest of the current iteration:
 
@@ -546,7 +546,7 @@ end
 p result # prints [2, 2, 6]
 ```
 
-### `redo` Statement
+### `redo` Statement[](#redo-statement)
 
 Use `redo` to redo the current iteration:
 
@@ -572,7 +572,7 @@ no longer true, now you will receive a SyntaxError when you use `retry`
 outside of a `rescue` block. See [Exceptions](exceptions.md) for proper
 usage of `retry`.
 
-### Flip-Flop
+### Flip-Flop[](#flip-flop)
 
 The flip-flop is a rarely seen conditional expression. It's primary use
 is for processing text from ruby one-line programs used with `ruby -n`
