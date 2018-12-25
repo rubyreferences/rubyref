@@ -20,8 +20,7 @@ raise "Some message" # RuntimeError with custom message
 raise ErrorClass, "Some message" # Custom error with custom message
 ```
 
-`ErrorClass` must be a subclass of
-[Exception](../builtin/exception.md).
+`ErrorClass` must be a subclass of [Exception](../builtin/exception.md).
 
 See <a href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-raise'
 class='ruby-doc remote' target='_blank'>`Kernel#raise`</a> for more
