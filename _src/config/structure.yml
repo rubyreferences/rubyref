@@ -476,8 +476,10 @@
             - source: core/Dir.md
               remove: "The directory used"
             - source: core/File.md
+            - source: core/File--Constants.md
+              remove: 'Document-module'
+            - source: core/File--Stat.md
             - source: core/FileTest.md
-              sections: _ref
             - source: ext/pathname/Pathname.md
               sections:
                 - Pathname

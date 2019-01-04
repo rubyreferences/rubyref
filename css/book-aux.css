@@ -30,3 +30,7 @@ h1:hover a:after, h2:hover a:after, h3:hover a:after, h4:hover a:after, h5:hover
 .content h1:hover a:hover, .content h2:hover a:hover, .content h3:hover a:hover, .content h4:hover a:hover, .content h5:hover a:hover {
   text-decoration: none;
 }
+
+em > code {
+  font-style: normal;
+}

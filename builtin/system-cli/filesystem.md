@@ -50,6 +50,45 @@ remote' target='_blank'>File Reference</a>
 
 
 
+### File::Constants[](#fileconstants)
+
+File::Constants provides file-related constants. All possible file
+constants are listed in the documentation but they may not all be
+present on your platform.
+
+If the underlying platform doesn't define a constant the corresponding
+Ruby constant is not defined.
+
+Your platform documentations (e.g. man open(2)) may describe more
+detailed information.
+
+<a href='https://ruby-doc.org/core-2.6/File/Constants.html'
+class='ruby-doc remote' target='_blank'>File::Constants Reference</a>
+
+
+
+### File::Stat[](#filestat)
+
+Objects of class `File::Stat` encapsulate common status information for
+`File` objects. The information is recorded at the moment the
+`File::Stat` object is created; changes made to the file after that
+point will not be reflected. `File::Stat` objects are returned by
+`IO#stat`, `File::stat`, `File#lstat`, and `File::lstat`. Many of these
+methods return platform-specific values, and not all values are
+meaningful on all systems. See also `Kernel#test`.
+
+<a href='https://ruby-doc.org/core-2.6/File/Stat.html' class='ruby-doc
+remote' target='_blank'>File::Stat Reference</a>
+
+
+
+### FileTest[](#filetest)
+
+`FileTest` implements file test operations similar to those used in
+`File::Stat`. It exists as a standalone module, and its methods are also
+insinuated into the `File` class. (Note that this is not done by
+inclusion: the interpreter cheats).
+
 <a href='https://ruby-doc.org/core-2.6/FileTest.html' class='ruby-doc
 remote' target='_blank'>FileTest Reference</a>
 
