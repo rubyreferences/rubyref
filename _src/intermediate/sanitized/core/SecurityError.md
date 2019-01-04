@@ -14,4 +14,4 @@ level is raised above 0.
 
     SecurityError: Insecure: Insecure operation `untaint` at level 3
 
-[SecurityError Reference](https://ruby-doc.org/core-2.5.0/SecurityError.html)
+[SecurityError Reference](https://ruby-doc.org/core-2.6/SecurityError.html)

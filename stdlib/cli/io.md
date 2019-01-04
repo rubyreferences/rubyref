@@ -18,7 +18,7 @@ Extend IO with class and instance methods for working with a terminal
 console.
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/io/console/rdoc/IO.html'
+href='https://ruby-doc.org/stdlib-2.6.0/libdoc/io/console/rdoc/IO.html'
 class='ruby-doc remote' target='_blank'>io/console Reference</a>
 
 
@@ -30,7 +30,7 @@ Extends IO with `#nonblock`, `#nonblock=` and `#nonblock?` instance
 methods for using IO object in nonblocking mode.
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/io/nonblock/rdoc/IO.html'
+href='https://ruby-doc.org/stdlib-2.6.0/libdoc/io/nonblock/rdoc/IO.html'
 class='ruby-doc remote' target='_blank'>io/nonblock Reference</a>
 
 
@@ -41,6 +41,6 @@ require 'io/wait'
 Extends IO for methods to wait until it is readable or writable, without
 blocking.
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/io/wait/rdoc/IO.html'
+<a href='https://ruby-doc.org/stdlib-2.6.0/libdoc/io/wait/rdoc/IO.html'
 class='ruby-doc remote' target='_blank'>io/wait Reference</a>
 

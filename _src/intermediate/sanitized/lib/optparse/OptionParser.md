@@ -80,6 +80,7 @@ write:
 For options that require an argument, option specification strings may include
 an option name in all caps. If an option is used without the required
 argument, an exception will be raised.
+
     require 'optparse'
 
     options = {}
@@ -92,9 +93,9 @@ argument, an exception will be raised.
 
 Used:
 
-    bash-3.2$ ruby optparse-test.rb -r
+    $ ruby optparse-test.rb -r
     optparse-test.rb:9:in `<main>': missing argument: -r (OptionParser::MissingArgument)
-    bash-3.2$ ruby optparse-test.rb -r my-library
+    $ ruby optparse-test.rb -r my-library
     You required my-library!
 
 ### Type Coercion
@@ -141,13 +142,11 @@ block. Otherwise, an exception will be raised.
 
 Used:
 
-    bash-3.2$ ruby optparse-test.rb  -t nonsense
+    $ ruby optparse-test.rb  -t nonsense
     ... invalid argument: -t nonsense (OptionParser::InvalidArgument)
-    from ... time.rb:5:in `block in <top (required)>`
-    from optparse-test.rb:31:in `<main>'
-    bash-3.2$ ruby optparse-test.rb  -t 10-11-12
+    $ ruby optparse-test.rb  -t 10-11-12
     2010-11-12 00:00:00 -0500
-    bash-3.2$ ruby optparse-test.rb  -t 9:30
+    $ ruby optparse-test.rb  -t 9:30
     2014-08-13 09:30:00 -0400
 
 #### Creating Custom Conversions
@@ -180,14 +179,39 @@ receives it.
 
     op.parse!
 
-output:
+Used:
 
-    bash-3.2$ ruby optparse-test.rb --user 1
+    $ ruby optparse-test.rb --user 1
     #<struct User id=1, name="Sam">
-    bash-3.2$ ruby optparse-test.rb --user 2
+    $ ruby optparse-test.rb --user 2
     #<struct User id=2, name="Gandalf">
-    bash-3.2$ ruby optparse-test.rb --user 3
+    $ ruby optparse-test.rb --user 3
     optparse-test.rb:15:in `block in find_user`: No User Found for id 3 (RuntimeError)
+
+### Store options to a Hash
+
+The `into` option of `order`, `parse` and so on methods stores command line
+options into a Hash.
+
+    require 'optparse'
+
+    params = {}
+    OptionParser.new do |opts|
+      opts.on('-a')
+      opts.on('-b NUM', Integer)
+      opts.on('-v', '--verbose')
+    end.parse!(into: params)
+
+    p params
+
+Used:
+
+    $ ruby optparse-test.rb -a
+    {:a=>true}
+    $ ruby optparse-test.rb -a -v
+    {:a=>true, :verbose=>true}
+    $ ruby optparse-test.rb -a -b 100
+    {:a=>true, :b=>100}
 
 ### Complete example
 
@@ -349,4 +373,4 @@ command line options.
 The above examples should be enough to learn how to use this class.  If you
 have any questions, file a ticket at http://bugs.ruby-lang.org.
 
-[OptionParser Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/optparse/rdoc/OptionParser.html)
+[OptionParser Reference](https://ruby-doc.org/stdlib-2.6/libdoc/optparse/rdoc/OptionParser.html)

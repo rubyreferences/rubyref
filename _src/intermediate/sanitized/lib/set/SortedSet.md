@@ -27,4 +27,4 @@ raised when iterating over the SortedSet.
     set2 = SortedSet.new([1, 2, "3"])
     set2.each { |obj| } # => raises ArgumentError: comparison of Fixnum with String failed
 
-[SortedSet Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/set/rdoc/SortedSet.html)
+[SortedSet Reference](https://ruby-doc.org/stdlib-2.6/libdoc/set/rdoc/SortedSet.html)

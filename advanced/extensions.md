@@ -827,7 +827,7 @@ assigned to sval, which should be a pointer of the type specified.
 ##### Ruby object to C struct[](#ruby-object-to-c-struct)
 
 To retrieve the C pointer from the Data object, use the macro
-Data\_Get\_Struct().
+TypedData\_Get\_Struct().
 
 
 ```
@@ -1005,6 +1005,13 @@ them by
 
 ```ruby
 void rb_global_variable(VALUE *var)
+```
+
+or the objects themselves by
+
+
+```ruby
+void rb_gc_register_mark_object(VALUE object)
 ```
 
 #### Prepare extconf.rb[](#prepare-extconfrb)
@@ -1419,9 +1426,11 @@ golf_prelude.rb     : goruby specific libraries.
     void setter(VALUE val, ID id, VALUE *var)
   ```
 
-* void rb\_global\_variable(VALUE \*var): GC requires C global variables
-  which hold Ruby values to be marked. rb\_global\_variable tells GC to
-  protect these variables.
+* void rb\_global\_variable(VALUE \*var): Tells GC to protect C global
+  variable, which holds Ruby value to be marked.
+
+* void rb\_gc\_register\_mark\_object(VALUE object): Tells GC to protect
+  the `object`, which may not be referenced anywhere.
 
 #### Constant Definition[](#constant-definition-1)
 
@@ -1997,6 +2006,6 @@ correctly compile and link the C extension to Ruby and a third-party
 library.
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/mkmf/rdoc/MakeMakefile.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/mkmf/rdoc/MakeMakefile.html'
 class='ruby-doc remote' target='_blank'>MakeMakefile Reference</a>
 

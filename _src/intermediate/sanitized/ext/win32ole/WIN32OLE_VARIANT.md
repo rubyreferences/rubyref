@@ -13,4 +13,4 @@ variant type by using WIN32OLE_VARIANT class.
 WIN32OLE_VARIANT does not support VT_RECORD variant. Use WIN32OLE_RECORD class
 instead of WIN32OLE_VARIANT if the VT_RECORD variant is needed.
 
-[WIN32OLE_VARIANT Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/win32ole/rdoc/WIN32OLE_VARIANT.html)
+[WIN32OLE_VARIANT Reference](https://ruby-doc.org/stdlib-2.6/libdoc/win32ole/rdoc/WIN32OLE_VARIANT.html)

@@ -26,7 +26,7 @@ marshaled, allowing sequences to be saved and resumed.
 PRNGs are currently implemented as a modified Mersenne Twister with a
 period of 2\*\*19937-1.
 
-<a href='https://ruby-doc.org/core-2.5.0/Random.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Random.html' class='ruby-doc
 remote' target='_blank'>Random Reference</a>
 
 
@@ -60,37 +60,45 @@ Generate random hexadecimal strings:
 ```ruby
 require 'securerandom'
 
-p SecureRandom.hex(10) #=> "52750b30ffbc7de3b362"
-p SecureRandom.hex(10) #=> "92b15d6c8dc4beb5f559"
-p SecureRandom.hex(13) #=> "39b290146bea6ce975c37cfc23"
+SecureRandom.hex(10) #=> "52750b30ffbc7de3b362"
+SecureRandom.hex(10) #=> "92b15d6c8dc4beb5f559"
+SecureRandom.hex(13) #=> "39b290146bea6ce975c37cfc23"
 ```
 
 Generate random base64 strings:
 
 
 ```ruby
-p SecureRandom.base64(10) #=> "EcmTPZwWRAozdA=="
-p SecureRandom.base64(10) #=> "KO1nIU+p9DKxGg=="
-p SecureRandom.base64(12) #=> "7kJSM/MzBJI+75j8"
+SecureRandom.base64(10) #=> "EcmTPZwWRAozdA=="
+SecureRandom.base64(10) #=> "KO1nIU+p9DKxGg=="
+SecureRandom.base64(12) #=> "7kJSM/MzBJI+75j8"
 ```
 
 Generate random binary strings:
 
 
 ```ruby
-p SecureRandom.random_bytes(10) #=> "\016\t{\370g\310pbr\301"
-p SecureRandom.random_bytes(10) #=> "\323U\030TO\234\357\020\a\337"
+SecureRandom.random_bytes(10) #=> "\016\t{\370g\310pbr\301"
+SecureRandom.random_bytes(10) #=> "\323U\030TO\234\357\020\a\337"
+```
+
+Generate alphanumeric strings:
+
+
+```ruby
+SecureRandom.alphanumeric(10) #=> "S8baxMJnPl"
+SecureRandom.alphanumeric(10) #=> "aOxAg8BAJe"
 ```
 
 Generate UUIDs:
 
 
 ```ruby
-p SecureRandom.uuid #=> "2d931510-d99f-494a-8c67-87feb05e1594"
-p SecureRandom.uuid #=> "bad85eb9-0713-4da7-8d36-07a8e4b00eab"
+SecureRandom.uuid #=> "2d931510-d99f-494a-8c67-87feb05e1594"
+SecureRandom.uuid #=> "bad85eb9-0713-4da7-8d36-07a8e4b00eab"
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/securerandom/rdoc/SecureRandom.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/securerandom/rdoc/SecureRandom.html'
 class='ruby-doc remote' target='_blank'>SecureRandom Reference</a>
 

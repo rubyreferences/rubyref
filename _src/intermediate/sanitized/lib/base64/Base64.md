@@ -18,4 +18,4 @@ A simple encoding and decoding.
 The purpose of using base64 to encode data is that it translates any binary
 data into purely printable characters.
 
-[Base64 Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/base64/rdoc/Base64.html)
+[Base64 Reference](https://ruby-doc.org/stdlib-2.6/libdoc/base64/rdoc/Base64.html)

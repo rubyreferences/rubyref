@@ -56,7 +56,7 @@ documentation for examples.
 
 There are some `low level' methods, which do not accept any option:
 
-    FileUtils.copy_entry(src, dest, preserve = false, dereference = false)
+    FileUtils.copy_entry(src, dest, preserve = false, dereference_root = false, remove_destination = false)
     FileUtils.copy_file(src, dest, preserve = false, dereference = true)
     FileUtils.copy_stream(srcstream, deststream)
     FileUtils.remove_entry(path, force = false)
@@ -84,4 +84,4 @@ This module has all methods of FileUtils module, but never changes
 files/directories.  This equates to passing the `:noop` and `:verbose` flags
 to methods in FileUtils.
 
-[FileUtils Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/fileutils/rdoc/FileUtils.html)
+[FileUtils Reference](https://ruby-doc.org/stdlib-2.6/libdoc/fileutils/rdoc/FileUtils.html)

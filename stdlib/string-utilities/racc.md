@@ -172,6 +172,6 @@ Note: parser.rb is LGPL, but your parser is not. Your own parser is
 completely yours.
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/racc/parser/rdoc/Racc.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/racc/parser/rdoc/Racc.html'
 class='ruby-doc remote' target='_blank'>Racc Reference</a>
 

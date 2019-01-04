@@ -60,8 +60,7 @@ pp %w{ summer winter }.abbrev
   "w"       => "winter" }
 ```
 
-<a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/abbrev/rdoc/Abbrev.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/abbrev/rdoc/Abbrev.html'
 class='ruby-doc remote' target='_blank'>Abbrev Reference</a>
 
 
@@ -80,7 +79,7 @@ than return a complex number.
 
 For more information you can see Complex class.
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/cmath/rdoc/CMath.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/cmath/rdoc/CMath.html'
 class='ruby-doc remote' target='_blank'>CMath Reference</a>
 
 
@@ -166,7 +165,7 @@ hello -n 6 --name -- /tmp
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/getoptlong/rdoc/GetoptLong.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/getoptlong/rdoc/GetoptLong.html'
 class='ruby-doc remote' target='_blank'>GetoptLong Reference</a>
 
 
@@ -176,7 +175,7 @@ class='ruby-doc remote' target='_blank'>GetoptLong Reference</a>
 Helper module for easily defining exceptions with predefined messages.
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/e2mmap/rdoc/Exception2MessageMapper.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/e2mmap/rdoc/Exception2MessageMapper.html'
 class='ruby-doc remote' target='_blank'>Exception2MessageMapper
 Reference</a>
 
@@ -186,7 +185,7 @@ Reference</a>
 
 NKF - Ruby extension for Network Kanji Filter
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/nkf/rdoc/NKF.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/nkf/rdoc/NKF.html'
 class='ruby-doc remote' target='_blank'>NKF Reference</a>
 
 
@@ -207,8 +206,7 @@ Behind the scenes, Ruby objects are stored to the data store file with
 Marshal. That carries the usual limitations. Proc objects cannot be
 marshalled, for example.
 
-<a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/pstore/rdoc/PStore.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/pstore/rdoc/PStore.html'
 class='ruby-doc remote' target='_blank'>PStore Reference</a>
 
 
@@ -219,7 +217,7 @@ A module to implement the Linda distributed computing paradigm in Ruby.
 
 Rinda is part of DRb (dRuby).
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/rinda/rdoc/Rinda.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/rinda/rdoc/Rinda.html'
 class='ruby-doc remote' target='_blank'>Rinda Reference</a>
 
 
@@ -244,7 +242,7 @@ th.next_wait # next one to be done
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/thwait/rdoc/ThreadsWait.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/thwait/rdoc/ThreadsWait.html'
 class='ruby-doc remote' target='_blank'>ThreadsWait Reference</a>
 
 
@@ -266,7 +264,7 @@ tsort\_each\_node and tsort\_each\_child.
 The equality of nodes are defined by eql? and hash since TSort uses Hash
 internally.
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/tsort/rdoc/TSort.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/tsort/rdoc/TSort.html'
 class='ruby-doc remote' target='_blank'>TSort Reference</a>
 
 
@@ -291,6 +289,6 @@ p foo.to_s                  # should raise exception (recycled)
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/weakref/rdoc/WeakRef.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/weakref/rdoc/WeakRef.html'
 class='ruby-doc remote' target='_blank'>WeakRef Reference</a>
 

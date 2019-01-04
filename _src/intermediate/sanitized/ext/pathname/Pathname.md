@@ -187,4 +187,4 @@ FileTest.writable?", as you should be familiar with the original method
 anyway, and its documentation (e.g. through `ri`) will contain more
 information.  In some cases, a brief description will follow.
 
-[Pathname Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/pathname/rdoc/Pathname.html)
+[Pathname Reference](https://ruby-doc.org/stdlib-2.6/libdoc/pathname/rdoc/Pathname.html)

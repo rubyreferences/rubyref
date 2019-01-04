@@ -73,6 +73,6 @@ require 'json'
 1.to_json => "1"
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/json/rdoc/JSON.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/json/rdoc/JSON.html'
 class='ruby-doc remote' target='_blank'>JSON Reference</a>
 

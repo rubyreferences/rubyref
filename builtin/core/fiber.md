@@ -76,6 +76,6 @@ puts fiber.resume 18
 FiberError: dead fiber called
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/Fiber.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Fiber.html' class='ruby-doc
 remote' target='_blank'>Fiber Reference</a>
 

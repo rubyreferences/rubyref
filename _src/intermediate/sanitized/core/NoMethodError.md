@@ -9,4 +9,4 @@ also fails to respond with `method_missing`.
 
     NoMethodError: undefined method `to_ary` for "hello":String
 
-[NoMethodError Reference](https://ruby-doc.org/core-2.5.0/NoMethodError.html)
+[NoMethodError Reference](https://ruby-doc.org/core-2.6/NoMethodError.html)

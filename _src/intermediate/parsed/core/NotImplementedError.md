@@ -8,4 +8,4 @@ them.
 Note that if `fork` raises a `NotImplementedError`, then `respond_to?(:fork)`
 returns `false`.
 
-[NotImplementedError Reference](https://ruby-doc.org/core-2.5.0/NotImplementedError.html)
+[NotImplementedError Reference](https://ruby-doc.org/core-2.6/NotImplementedError.html)

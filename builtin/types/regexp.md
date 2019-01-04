@@ -655,12 +655,20 @@ single-letter options which control how the pattern can match.
 
 `i`, `m`, and `x` can also be applied on the subexpression level with
 the `(?`*on*`-`*off*`)` construct, which enables options *on*, and
-disables options *off* for the expression enclosed by the parentheses.
+disables options *off* for the expression enclosed by the parentheses:
 
 
 ```ruby
-/a(?i:b)c/.match('aBc') #=> #<MatchData "aBc">
-/a(?i:b)c/.match('abc') #=> #<MatchData "abc">
+/a(?i:b)c/.match('aBc')   #=> #<MatchData "aBc">
+/a(?-i:b)c/i.match('ABC') #=> nil
+```
+
+Additionally, these options can also be toggled for the remainder of the
+pattern:
+
+
+```ruby
+/a(?i)bc/.match('abC') #=> #<MatchData "abC">
 ```
 
 Options may also be used with `Regexp.new`: 
@@ -848,19 +856,60 @@ at once with *a\{0,29}*\:
 Regexp.new('a{0,29}' + 'a' * 29) =~ 'a' * 29
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/Regexp.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Regexp.html' class='ruby-doc
 remote' target='_blank'>Regexp Reference</a>
 
 
 
 ### MatchData[](#matchdata)
 
-`MatchData` is the type of the special variable `$~`, and is the type of
-the object returned by `Regexp#match` and `Regexp.last_match`. It
-encapsulates all the results of a pattern match, results normally
-accessed through the special variables `$&`, `$'`, `$``, `$1`, `$2\`,
-and so on.
+`MatchData` encapsulates the result of matching a Regexp against string.
+It is returned by `Regexp#match` and `String#match`, and also stored in
+a global variable returned by Regexp.last\_match.
 
-<a href='https://ruby-doc.org/core-2.5.0/MatchData.html' class='ruby-doc
+Usage:
+
+
+```ruby
+url = 'https://docs.ruby-lang.org/en/2.5.0/MatchData.html'
+m = url.match(/(\d\.?)+/)   # => #<MatchData "2.5.0" 1:"0">
+m.string                    # => "https://docs.ruby-lang.org/en/2.5.0/MatchData.html"
+m.regexp                    # => /(\d\.?)+/
+# entire matched substring:
+m[0]                        # => "2.5.0"
+
+# Working with unnamed captures
+m = url.match(%r{([^/]+)/([^/]+)\.html$})
+m.captures                  # => ["2.5.0", "MatchData"]
+m[1]                        # => "2.5.0"
+m.values_at(1, 2)           # => ["2.5.0", "MatchData"]
+
+# Working with named captures
+m = url.match(%r{(?<version>[^/]+)/(?<module>[^/]+)\.html$})
+m.captures                  # => ["2.5.0", "MatchData"]
+m.named_captures            # => {"version"=>"2.5.0", "module"=>"MatchData"}
+m[:version]                 # => "2.5.0"
+m.values_at(:version, :module)
+                            # => ["2.5.0", "MatchData"]
+# Numerical indexes are working, too
+m[1]                        # => "2.5.0"
+m.values_at(1, 2)           # => ["2.5.0", "MatchData"]
+```
+
+#### Global variables equivalence[](#global-variables-equivalence)
+
+Parts of last `MatchData` (returned by Regexp.last\_match) are also
+aliased as global variables:
+
+* `$~` is `Regexp.last_match`;
+* `$&` is `Regexp.last_match[0]`;
+* `$1`, `$2`, and so on are `Regexp.last_match[i]` (captures by number);
+* `$`` is `Regexp.last\_match.pre\_match\`;
+* `$'` is `Regexp.last_match.post_match`;
+* `$+` is `Regexp.last_match[-1]` (the last capture).
+
+See also "Special global variables" section in Regexp documentation.
+
+<a href='https://ruby-doc.org/core-2.6/MatchData.html' class='ruby-doc
 remote' target='_blank'>MatchData Reference</a>
 

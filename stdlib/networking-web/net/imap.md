@@ -99,6 +99,6 @@ This script invokes the FETCH command and the SEARCH command
 concurrently.
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/net/imap/rdoc/Net/IMAP.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/net/imap/rdoc/Net/IMAP.html'
 class='ruby-doc remote' target='_blank'>Net::IMAP Reference</a>
 

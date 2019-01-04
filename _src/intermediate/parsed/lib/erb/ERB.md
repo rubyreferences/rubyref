@@ -97,7 +97,7 @@ template literally with `%q{...}` to avoid trouble with the backslash.
       James Edward Gray II
     }.gsub(/^  /, '')
 
-    message = ERB.new(template, 0, "%<>")
+    message = ERB.new(template, trim_mode: "%<>")
 
     # Set up template data.
     to = "Community Spokesman <spokesman@ruby_community.org>"
@@ -242,4 +242,4 @@ projects:
 
 Rails, the web application framework, uses ERB to create views.
 
-[ERB Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/erb/rdoc/ERB.html)
+[ERB Reference](https://ruby-doc.org/stdlib-2.6/libdoc/erb/rdoc/ERB.html)

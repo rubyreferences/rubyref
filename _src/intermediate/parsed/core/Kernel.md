@@ -9,4 +9,4 @@ thus can be called in functional form:
 
     sprintf "%.1f", 1.234 #=> "1.2"
 
-[Kernel Reference](https://ruby-doc.org/core-2.5.0/Kernel.html)
+[Kernel Reference](https://ruby-doc.org/core-2.6/Kernel.html)

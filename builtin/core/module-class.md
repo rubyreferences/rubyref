@@ -30,7 +30,7 @@ Mod.constants          #=> [:CONST, :PI, :E]
 Mod.instance_methods   #=> [:meth]
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/Module.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Module.html' class='ruby-doc
 remote' target='_blank'>Module Reference</a>
 
 
@@ -104,6 +104,6 @@ metaclasses. All metaclasses are instances of the class `Class`.
 obj--->OtherClass---------->(OtherClass)-----------...
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/Class.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Class.html' class='ruby-doc
 remote' target='_blank'>Class Reference</a>
 

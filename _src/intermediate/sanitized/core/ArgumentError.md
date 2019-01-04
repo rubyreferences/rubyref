@@ -19,4 +19,4 @@ Ex: passing an argument that is not acceptable:
 
     ArgumentError: negative array size
 
-[ArgumentError Reference](https://ruby-doc.org/core-2.5.0/ArgumentError.html)
+[ArgumentError Reference](https://ruby-doc.org/core-2.6/ArgumentError.html)

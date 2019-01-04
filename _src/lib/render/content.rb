@@ -103,7 +103,7 @@ class Content
     else
       elements
         .drop_while { |e| e.type != :header || e.options[:raw_text] != section }
-        .tap { |els| els.empty? and fail "Section #{section} not found!" }
+        .tap { |els| els.empty? and fail "Section #{section} not found in #{@source}!" }
         .take_while { |e| e.type != :header || e.options[:raw_text] == section }
     end
   end
@@ -113,14 +113,19 @@ class Content
       source = source
         .sub(/\A---\n.+?\n---\n/m, '')  # YAML frontmatter
         .gsub(/\{:.+?\}/, '')           # {: .foo} tags
-        .gsub(/\{% highlight sh %\}\n.+?\n\{% endhighlight %\}/m) { |str|   # Shell commands
+        .gsub(/\{% highlight (sh|ruby|c) %\}\n.+?\n\{% endhighlight %\}/m) { |str| # Shell commands, Ruby code
           str.gsub(/\{%.+?%\}/, '').gsub(/^/, '    ')
+        }
+        .gsub(/\{% highlight irb %\}\n.+?\n\{% endhighlight %\}/m) { |str|   # IRB
+          # in one place it is too close to list above. ^ is Kramdown's end-of-block marker
+          # https://kramdown.gettalong.org/syntax.html#eob-marker
+          str.gsub(/\{%.+?%\}/, '').gsub(/^/, '    ').prepend("\n^\n")
         }
     end
     if path.end_with?('ruby-lang.org/en/documentation/installation/index.md')
       source.sub!(/\* \[Package Management Systems.+\(\#building-from-source\)/m, '')
     end
-    @replace.inject(source) { |src, r| src.gsub(r[:from], r[:to]) }
+    @replace.inject(source) { |src, from:, to:| src.gsub(from, to) }
   end
 
   def postprocess

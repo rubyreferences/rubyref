@@ -5,4 +5,4 @@ backing store.
 
 This is available when rubygems/test_utilities is required.
 
-[TempIO Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/rubygems/rdoc/TempIO.html)
+[TempIO Reference](https://ruby-doc.org/stdlib-2.6/libdoc/rubygems/rdoc/TempIO.html)

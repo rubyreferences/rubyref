@@ -64,7 +64,6 @@ Symbol table used for displaying incoming events:
 * +^+: raise an exception
 * +<+: return from a Ruby method
 
-<a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/tracer/rdoc/Tracer.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/tracer/rdoc/Tracer.html'
 class='ruby-doc remote' target='_blank'>Tracer Reference</a>
 

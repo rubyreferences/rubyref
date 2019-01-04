@@ -40,4 +40,4 @@ operation), it will produce an inexact result.
     Rational(-8) ** Rational(1, 3)
                        #=> (1.0000000000000002+1.7320508075688772i)
 
-[Rational Reference](https://ruby-doc.org/core-2.5.0/Rational.html)
+[Rational Reference](https://ruby-doc.org/core-2.6/Rational.html)

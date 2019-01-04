@@ -10,4 +10,4 @@ mutual exclusion.
       # exclusive access
     end
 
-[Monitor Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/monitor/rdoc/Monitor.html)
+[Monitor Reference](https://ruby-doc.org/stdlib-2.6/libdoc/monitor/rdoc/Monitor.html)

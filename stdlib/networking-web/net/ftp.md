@@ -39,6 +39,6 @@ end
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/net/ftp/rdoc/Net/FTP.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/net/ftp/rdoc/Net/FTP.html'
 class='ruby-doc remote' target='_blank'>Net::FTP Reference</a>
 

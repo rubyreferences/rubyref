@@ -11,4 +11,4 @@ This will raises the following exception:
     ThreadError: stopping only thread
     note: use sleep to stop forever
 
-[ThreadError Reference](https://ruby-doc.org/core-2.5.0/ThreadError.html)
+[ThreadError Reference](https://ruby-doc.org/core-2.6/ThreadError.html)

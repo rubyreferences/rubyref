@@ -85,6 +85,8 @@ class Linker
       href
     when '/en/downloads/' # In installation.md
       'http://ruby-lang.org/en/downloads/'
+    when %r{^/en} # Links from site to itself
+      "http://ruby-lang.org#{href}"
     else
       fail "Unidentified link address: #{href} at #{@md_path} (#{@md_source})"
     end

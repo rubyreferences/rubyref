@@ -140,6 +140,6 @@ variable:
 * `$LAST_PAREN_MATCH`: `$+`
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/English/rdoc/English.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/English/rdoc/English.html'
 class='ruby-doc remote' target='_blank'>English Reference</a>
 

@@ -1,6 +1,6 @@
 # PTY
 
-Creates and managed pseudo terminals (PTYs).  See also
+Creates and manages pseudo terminals (PTYs).  See also
 http://en.wikipedia.org/wiki/Pseudo_terminal
 
 PTY allows you to allocate new terminals using ::open or ::spawn a new
@@ -55,4 +55,4 @@ stdout is fully buffered.
     limited to warranty of fitness of purpose, or merchantability, or
     results obtained from use of this software.
 
-[PTY Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/pty/rdoc/PTY.html)
+[PTY Reference](https://ruby-doc.org/stdlib-2.6/libdoc/pty/rdoc/PTY.html)

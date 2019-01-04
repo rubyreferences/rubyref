@@ -32,4 +32,4 @@ Delegator:
 
 Be advised, RDoc will not detect delegated methods.
 
-[Delegator Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/delegate/rdoc/Delegator.html)
+[Delegator Reference](https://ruby-doc.org/stdlib-2.6/libdoc/delegate/rdoc/Delegator.html)

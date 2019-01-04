@@ -29,4 +29,4 @@ can be accessed by Readline::HISTORY constant.
 
 Documented by Kouji Takao <kouji dot takao at gmail dot com>.
 
-[Readline Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/readline/rdoc/Readline.html)
+[Readline Reference](https://ruby-doc.org/stdlib-2.6/libdoc/readline/rdoc/Readline.html)

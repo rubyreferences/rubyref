@@ -11,7 +11,7 @@ require 'pty'
 
 ## PTY[](#pty)
 
-Creates and managed pseudo terminals (PTYs). See also
+Creates and manages pseudo terminals (PTYs). See also
 http://en.wikipedia.org/wiki/Pseudo_terminal
 
 PTY allows you to allocate new terminals using ::open or ::spawn a new
@@ -56,6 +56,6 @@ ret = begin
 p ret #=> nil
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/pty/rdoc/PTY.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/pty/rdoc/PTY.html'
 class='ruby-doc remote' target='_blank'>PTY Reference</a>
 

@@ -22,24 +22,29 @@ Generate random hexadecimal strings:
 
     require 'securerandom'
 
-    p SecureRandom.hex(10) #=> "52750b30ffbc7de3b362"
-    p SecureRandom.hex(10) #=> "92b15d6c8dc4beb5f559"
-    p SecureRandom.hex(13) #=> "39b290146bea6ce975c37cfc23"
+    SecureRandom.hex(10) #=> "52750b30ffbc7de3b362"
+    SecureRandom.hex(10) #=> "92b15d6c8dc4beb5f559"
+    SecureRandom.hex(13) #=> "39b290146bea6ce975c37cfc23"
 
 Generate random base64 strings:
 
-    p SecureRandom.base64(10) #=> "EcmTPZwWRAozdA=="
-    p SecureRandom.base64(10) #=> "KO1nIU+p9DKxGg=="
-    p SecureRandom.base64(12) #=> "7kJSM/MzBJI+75j8"
+    SecureRandom.base64(10) #=> "EcmTPZwWRAozdA=="
+    SecureRandom.base64(10) #=> "KO1nIU+p9DKxGg=="
+    SecureRandom.base64(12) #=> "7kJSM/MzBJI+75j8"
 
 Generate random binary strings:
 
-    p SecureRandom.random_bytes(10) #=> "\016\t{\370g\310pbr\301"
-    p SecureRandom.random_bytes(10) #=> "\323U\030TO\234\357\020\a\337"
+    SecureRandom.random_bytes(10) #=> "\016\t{\370g\310pbr\301"
+    SecureRandom.random_bytes(10) #=> "\323U\030TO\234\357\020\a\337"
+
+Generate alphanumeric strings:
+
+    SecureRandom.alphanumeric(10) #=> "S8baxMJnPl"
+    SecureRandom.alphanumeric(10) #=> "aOxAg8BAJe"
 
 Generate UUIDs:
 
-    p SecureRandom.uuid #=> "2d931510-d99f-494a-8c67-87feb05e1594"
-    p SecureRandom.uuid #=> "bad85eb9-0713-4da7-8d36-07a8e4b00eab"
+    SecureRandom.uuid #=> "2d931510-d99f-494a-8c67-87feb05e1594"
+    SecureRandom.uuid #=> "bad85eb9-0713-4da7-8d36-07a8e4b00eab"
 
-[SecureRandom Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/securerandom/rdoc/SecureRandom.html)
+[SecureRandom Reference](https://ruby-doc.org/stdlib-2.6/libdoc/securerandom/rdoc/SecureRandom.html)

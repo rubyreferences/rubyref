@@ -3,10 +3,10 @@
 # Overview
 
 Psych is a YAML parser and emitter. Psych leverages libyaml [Home page:
-http://pyyaml.org/wiki/LibYAML] or [HG repo: https://bitbucket.org/xi/libyaml]
-for its YAML parsing and emitting capabilities. In addition to wrapping
-libyaml, Psych also knows how to serialize and de-serialize most Ruby objects
-to and from the YAML format.
+https://pyyaml.org/wiki/LibYAML] or [HG repo:
+https://bitbucket.org/xi/libyaml] for its YAML parsing and emitting
+capabilities. In addition to wrapping libyaml, Psych also knows how to
+serialize and de-serialize most Ruby objects to and from the YAML format.
 
 # I NEED TO PARSE OR EMIT YAML RIGHT NOW!
 
@@ -198,4 +198,4 @@ advance or speed is a concern.  See Psych::Emitter for more information.
     Psych::Visitors::ToRuby.new.accept(parser.handler.root.first)
     # => "a"
 
-[Psych Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/psych/rdoc/Psych.html)
+[Psych Reference](https://ruby-doc.org/stdlib-2.6/libdoc/psych/rdoc/Psych.html)

@@ -41,4 +41,4 @@ few implementations of generator.
     e.g. for Prime#prime? .
 
 
-[Prime Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/prime/rdoc/Prime.html)
+[Prime Reference](https://ruby-doc.org/stdlib-2.6/libdoc/prime/rdoc/Prime.html)

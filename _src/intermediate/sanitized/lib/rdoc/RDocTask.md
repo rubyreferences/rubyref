@@ -53,4 +53,4 @@ For example:
 
 This will create the tasks `:rdoc`, `:rdoc:clean` and `:rdoc:force`.
 
-[RDocTask Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/rdoc/rdoc/RDocTask.html)
+[RDocTask Reference](https://ruby-doc.org/stdlib-2.6/libdoc/rdoc/rdoc/RDocTask.html)

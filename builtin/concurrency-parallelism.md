@@ -175,7 +175,7 @@ scheduler which threads you want to take precedence when passing
 execution. This method is also dependent on the OS and may be ignored on
 some platforms.
 
-<a href='https://ruby-doc.org/core-2.5.0/Thread.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Thread.html' class='ruby-doc
 remote' target='_blank'>Thread Reference</a>
 
 
@@ -191,8 +191,8 @@ adding a thread to a new group will remove it from any previous group.
 Newly created threads belong to the same group as the thread from which
 they were created.
 
-<a href='https://ruby-doc.org/core-2.5.0/ThreadGroup.html'
-class='ruby-doc remote' target='_blank'>ThreadGroup Reference</a>
+<a href='https://ruby-doc.org/core-2.6/ThreadGroup.html' class='ruby-doc
+remote' target='_blank'>ThreadGroup Reference</a>
 
 
 
@@ -220,7 +220,7 @@ b = Thread.new {
 }
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/Mutex.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Mutex.html' class='ruby-doc
 remote' target='_blank'>Mutex Reference</a>
 
 
@@ -254,7 +254,7 @@ b = Thread.new {
 }
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/ConditionVariable.html'
+<a href='https://ruby-doc.org/core-2.6/ConditionVariable.html'
 class='ruby-doc remote' target='_blank'>ConditionVariable Reference</a>
 
 
@@ -290,9 +290,11 @@ consumer = Thread.new do
      puts "consumed #{value}"
   end
 end
+
+consumer.join
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/Queue.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Queue.html' class='ruby-doc
 remote' target='_blank'>Queue Reference</a>
 
 
@@ -304,6 +306,6 @@ operation may be blocked if the capacity is full.
 
 See Queue for an example of how a SizedQueue works.
 
-<a href='https://ruby-doc.org/core-2.5.0/SizedQueue.html'
-class='ruby-doc remote' target='_blank'>SizedQueue Reference</a>
+<a href='https://ruby-doc.org/core-2.6/SizedQueue.html' class='ruby-doc
+remote' target='_blank'>SizedQueue Reference</a>
 

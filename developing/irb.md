@@ -272,7 +272,7 @@ There are a few variables in every Irb session that can come in handy:
 #### Example using IRB Sessions[](#example-using-irb-sessions)
 
 
-```
+```irb
 # invoke a new session
 irb(main):001:0> irb
 # list open sessions
@@ -333,6 +333,6 @@ irb(main):009:0> jobs
 irb(main):010:0> exit
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/irb/rdoc/IRB.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/irb/rdoc/IRB.html'
 class='ruby-doc remote' target='_blank'>IRB Reference</a>
 

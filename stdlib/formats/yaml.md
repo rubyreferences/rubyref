@@ -16,7 +16,7 @@ YAML Ain't Markup Language
 This module provides a Ruby interface for data serialization in YAML
 format.
 
-The underlying implementation is the libyaml wrapper Psych.
+The YAML module is an alias of Psych, the YAML engine for Ruby.
 
 ### Usage[](#usage)
 
@@ -33,17 +33,21 @@ YAML.dump("foo")     # => "--- foo\n...\n"
 { :a => 'b'}.to_yaml  # => "---\n:a: b\n"
 ```
 
+As the implementation is provided by the Psych library, detailed
+documentation can be found in that library's docs (also part of standard
+library).
+
 ### Security[](#security)
 
 Do not use YAML to load untrusted data. Doing so is unsafe and could
 allow malicious input to execute arbitrary code inside your application.
 Please see doc/security.rdoc for more information.
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/yaml/rdoc/YAML.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/yaml/rdoc/YAML.html'
 class='ruby-doc remote' target='_blank'>YAML Reference</a>
 
 
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/psych/rdoc/Psych.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/psych/rdoc/Psych.html'
 class='ruby-doc remote' target='_blank'>Psych Reference</a>
 

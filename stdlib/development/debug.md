@@ -143,7 +143,7 @@ unpredictably.
 Debug is not available in safe mode.
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/debug/rdoc/DEBUGGER__.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/debug/rdoc/DEBUGGER__.html'
 class='ruby-doc remote' target='_blank'>debug Reference</a>
 
 
@@ -151,7 +151,7 @@ class='ruby-doc remote' target='_blank'>debug Reference</a>
 ### Alternative debugging/breakpoint solutions[](#alternative-debuggingbreakpoint-solutions)
 
 Since Ruby 2.5.0, there is the <a
-href='https://ruby-doc.org/core-2.5.0/Binding.html#method-i-irb'
+href='https://ruby-doc.org/core-2.6.0/Binding.html#method-i-irb'
 class='ruby-doc remote' target='_blank'>Binding#irb</a> method, which
 enters an [IRB](../../intro/irb.md) session at the point of call.
 

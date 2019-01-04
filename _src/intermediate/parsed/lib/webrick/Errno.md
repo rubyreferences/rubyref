@@ -11,4 +11,4 @@ ECONNABORTED
     requested by client.
 
 
-[Errno Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/webrick/rdoc/Errno.html)
+[Errno Reference](https://ruby-doc.org/stdlib-2.6/libdoc/webrick/rdoc/Errno.html)

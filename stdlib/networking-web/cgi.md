@@ -299,6 +299,6 @@ escapeHTML('Usage: foo "bar" <baz>')
 h('Usage: foo "bar" <baz>') # alias
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/cgi/rdoc/CGI.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/cgi/rdoc/CGI.html'
 class='ruby-doc remote' target='_blank'>CGI Reference</a>
 

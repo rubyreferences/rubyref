@@ -11,6 +11,33 @@ used as an iterator, ranges return each value in the sequence.
     ('a'..'e').to_a    #=> ["a", "b", "c", "d", "e"]
     ('a'...'e').to_a   #=> ["a", "b", "c", "d"]
 
+## Endless Ranges
+
+An "endless range" represents a semi-infinite range. Literal notation for an
+endless range is:
+
+    (1..)
+    # or similarly
+    (1...)
+
+Which is equivalent to
+
+    (1..nil)  # or similarly (1...nil)
+    Range.new(1, nil) # or Range.new(1, nil, true)
+
+Endless ranges are useful, for example, for idiomatic slicing of arrays:
+
+    [1, 2, 3, 4, 5][2...]   # => [3, 4, 5]
+
+Some implementation details:
+
+*   `end` of endless range is `nil`;
+*   `each` of endless range enumerates infinite sequence (may be useful in
+    combination with Enumerable#take_while or similar methods);
+*   `(1..)` and `(1...)` are not equal, although technically representing the
+    same sequence.
+
+
 ## Custom Objects in Ranges
 
 Ranges can be constructed using any objects that can be compared using the
@@ -49,4 +76,4 @@ An example of using `Xs` to construct a range:
     r.to_a                     #=> [xxx, xxxx, xxxxx, xxxxxx]
     r.member?(Xs.new(5))       #=> true
 
-[Range Reference](https://ruby-doc.org/core-2.5.0/Range.html)
+[Range Reference](https://ruby-doc.org/core-2.6/Range.html)

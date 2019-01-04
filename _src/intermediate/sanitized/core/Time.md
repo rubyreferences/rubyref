@@ -33,10 +33,18 @@ the current system timezone. Here are some examples:
     Time.new(2002)         #=> 2002-01-01 00:00:00 -0500
     Time.new(2002, 10)     #=> 2002-10-01 00:00:00 -0500
     Time.new(2002, 10, 31) #=> 2002-10-31 00:00:00 -0500
+
+You can pass a UTC offset:
+
     Time.new(2002, 10, 31, 2, 2, 2, "+02:00") #=> 2002-10-31 02:02:02 +0200
 
-You can also use `#gm`, `#local` and `#utc` to infer GMT, local and UTC timezones
-instead of using the current system setting.
+Or a timezone object:
+
+    tz = timezone("Europe/Athens") # Eastern European Time, UTC+2
+    Time.new(2002, 10, 31, 2, 2, 2, tz) #=> 2002-10-31 02:02:02 +0200
+
+You can also use Time::gm, Time::local and Time::utc to infer GMT, local and
+UTC timezones instead of using the current system setting.
 
 You can also create a new time using Time::at which takes the number of
 seconds (or fraction of seconds) since the [Unix
@@ -84,4 +92,33 @@ You can also do standard functions like compare two times.
 
     Time.new(2010,10,31).between?(t1, t2) #=> true
 
-[Time Reference](https://ruby-doc.org/core-2.5.0/Time.html)
+## Timezone argument
+
+A timezone argument must have `local_to_utc` and `utc_to_local` methods, and
+may have `name` and `abbr` methods.
+
+The `local_to_utc` method should convert a Time-like object from the timezone
+to UTC, and `utc_to_local` is the opposite.  The result also should be a Time
+or Time-like object (not necessary to be the same class).  The `#zone` of the
+result is just ignored. Time-like argument to these methods is similar to a
+Time object in UTC without sub-second; it has attribute readers for the parts,
+e.g. `#year`, `#month`, and so on, and epoch time readers, `#to_i`.  The sub-second
+attributes are fixed as 0, and `#utc_offset`, `#zone`, `#isdst`, and their aliases
+are same as a Time object in UTC. Also `#to_time`, #+, and #- methods are
+defined.
+
+The `name` method is used for marshaling. If this method is not defined on a
+timezone object, Time objects using that timezone object can not be dumped by
+Marshal.
+
+The `abbr` method is used by '%Z' in `#strftime`.
+
+### Auto conversion to Timezone
+
+At loading marshaled data, a timezone name will be converted to a timezone
+object by `find_timezone` class method, if the method is defined.
+
+Similary, that class method will be called when a timezone argument does not
+have the necessary methods mentioned above.
+
+[Time Reference](https://ruby-doc.org/core-2.6/Time.html)

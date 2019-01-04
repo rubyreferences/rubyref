@@ -65,7 +65,6 @@ is the literal part for `Hello, ` and `!`. Between the two
 an embedded expression. Our expression consists of a local variable, or
 `var_ref`, with the identifier (`@ident`) of `world`.
 
-<a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/ripper/rdoc/Ripper.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/ripper/rdoc/Ripper.html'
 class='ruby-doc remote' target='_blank'>Ripper Reference</a>
 

@@ -46,7 +46,7 @@ or other arrays:
 
 
 ```ruby
-Array.new(4) { Hash.new }  #=> [{}, {}, {}, {}]
+Array.new(4) {Hash.new}    #=> [{}, {}, {}, {}]
 Array.new(4) {|i| i.to_s } #=> ["0", "1", "2", "3"]
 ```
 
@@ -54,7 +54,7 @@ This is also a quick way to build up multi-dimensional arrays:
 
 
 ```ruby
-empty_table = Array.new(3) { Array.new(3) }
+empty_table = Array.new(3) {Array.new(3)}
 #=> [[nil, nil, nil], [nil, nil, nil], [nil, nil, nil]]
 ```
 
@@ -263,7 +263,7 @@ Note that this operation leaves the array unchanged.
 
 ```ruby
 arr = [1, 2, 3, 4, 5]
-arr.each { |a| print a -= 10, " " }
+arr.each {|a| print a -= 10, " "}
 # prints: -9 -8 -7 -6 -5
 #=> [1, 2, 3, 4, 5]
 ```
@@ -275,7 +275,7 @@ over the elements in the array in reverse order.
 ```ruby
 words = %w[first second third fourth fifth sixth]
 str = ""
-words.reverse_each { |word| str += "#{word} " }
+words.reverse_each {|word| str += "#{word} "}
 p str #=> "sixth fifth fourth third second first "
 ```
 
@@ -284,9 +284,9 @@ original array, but with the values modified by the supplied block:
 
 
 ```ruby
-arr.map { |a| 2*a }   #=> [2, 4, 6, 8, 10]
+arr.map {|a| 2*a}     #=> [2, 4, 6, 8, 10]
 arr                   #=> [1, 2, 3, 4, 5]
-arr.map! { |a| a**2 } #=> [1, 4, 9, 16, 25]
+arr.map! {|a| a**2}   #=> [1, 4, 9, 16, 25]
 arr                   #=> [1, 4, 9, 16, 25]
 ```
 
@@ -303,9 +303,9 @@ the selected elements, but leave the original array unchanged.
 
 ```ruby
 arr = [1, 2, 3, 4, 5, 6]
-arr.select { |a| a > 3 }     #=> [4, 5, 6]
-arr.reject { |a| a < 3 }     #=> [3, 4, 5, 6]
-arr.drop_while { |a| a < 4 } #=> [4, 5, 6]
+arr.select {|a| a > 3}       #=> [4, 5, 6]
+arr.reject {|a| a < 3}       #=> [3, 4, 5, 6]
+arr.drop_while {|a| a < 4}   #=> [4, 5, 6]
 arr                          #=> [1, 2, 3, 4, 5, 6]
 ```
 
@@ -319,14 +319,14 @@ exact opposite result when supplied with the same block:
 
 
 ```ruby
-arr.delete_if { |a| a < 4 } #=> [4, 5, 6]
+arr.delete_if {|a| a < 4}   #=> [4, 5, 6]
 arr                         #=> [4, 5, 6]
 
 arr = [1, 2, 3, 4, 5, 6]
-arr.keep_if { |a| a < 4 } #=> [1, 2, 3]
+arr.keep_if {|a| a < 4}   #=> [1, 2, 3]
 arr                       #=> [1, 2, 3]
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/Array.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Array.html' class='ruby-doc
 remote' target='_blank'>Array Reference</a>
 

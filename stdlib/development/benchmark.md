@@ -143,6 +143,6 @@ upto:     1.030000   0.000000   1.030000 (  1.028098)
   ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/benchmark/rdoc/Benchmark.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/benchmark/rdoc/Benchmark.html'
 class='ruby-doc remote' target='_blank'>Benchmark Reference</a>
 

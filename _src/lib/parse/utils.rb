@@ -24,13 +24,28 @@ def prepare_rdoc
   end
 end
 
+module RDoc::Encoding
+  OLD_READ_FILE = method(:read_file)
+
+  # There is unfortunate :stopdoc: in
+  # https://github.com/ruby/ruby/commit/8ea6c92eb3877bef97c289c3c2c5624366395b5d
+  # Ideas of dealing with it with more grace?..
+  def self.read_file(path, *args)
+    OLD_READ_FILE.call(path, *args)
+      .yield_self { |res|
+        next res unless path.end_with?('lib/time.rb')
+        res.sub("# :stopdoc:\n", "").sub("# :startdoc:\n", "")
+      }
+  end
+end
+
 def parse_files(*pathes)
   prepare_rdoc.parse_files(pathes)
 end
 
 
-# Net::* and IO::* are separate libraries.
-WITH_SUBMODULES = %w[Net IO]
+# Net::* and IO::* are separate libraries, Enumerator includes Enumerator::Lazy, which is also separate concept.
+WITH_SUBMODULES = %w[Net IO Enumerator]
 
 def root_module?(mod)
   !mod.full_name.include?('::') ||

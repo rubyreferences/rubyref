@@ -95,4 +95,4 @@ Thanks!
 
 -The RubyGems Team
 
-[Gem Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/rubygems/rdoc/Gem.html)
+[Gem Reference](https://ruby-doc.org/stdlib-2.6/libdoc/rubygems/rdoc/Gem.html)

@@ -7,8 +7,12 @@ require 'parse/utils'
 
 MARKDOWN = RDoc::Markup::ToMarkdown.new
 
-CORE_REFERENCE = "https://ruby-doc.org/core-#{BOOK_RUBY_VERSION}.0"
-LIB_REFERENCE = "https://ruby-doc.org/stdlib-#{BOOK_RUBY_VERSION}.0/libdoc/%s/rdoc"
+# CORE_REFERENCE = "https://ruby-doc.org/core-#{BOOK_RUBY_VERSION}.0"
+# LIB_REFERENCE = "https://ruby-doc.org/stdlib-#{BOOK_RUBY_VERSION}.0/libdoc/%s/rdoc"
+
+# For 2.6, ruby-doc somehow made only /2.6/ links...
+CORE_REFERENCE = "https://ruby-doc.org/core-#{BOOK_RUBY_VERSION}"
+LIB_REFERENCE = "https://ruby-doc.org/stdlib-#{BOOK_RUBY_VERSION}/libdoc/%s/rdoc"
 
 OUT = File.expand_path('../intermediate/parsed', __dir__)
 

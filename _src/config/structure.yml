@@ -33,6 +33,32 @@
             - "Use of irb is easy"
         - source: "> Another popular Ruby interactive console is [pry](http://pryrepl.org/)."
         # - source: lib/irb/XMP.md
+    - title: Ruby in Twenty Minutes
+      id: quickstart
+      content:
+        - source: '## Ruby in Twenty Minutes'
+        - source: '### Step 1'
+        - source: ruby-lang.org/en/documentation/quickstart/index.md
+          replace:
+            - from: '[so let’s go back to that.](2/)'
+              to: 'so let’s go back to that.'
+            # in one unfortunate place it is too close to list above and gets kramdown confused
+            # - from: "\n  irb(main):001:0>\n"
+            #   to: "\n```irb\nirb(main):001:0>\n```\n"
+        - source: '### Step 2'
+        - source: ruby-lang.org/en/documentation/quickstart/2/index.md
+          replace:
+            - from: '[Create an object.](../3/)'
+              to: 'Create an object.'
+        - source: '### Step 3'
+        - source: ruby-lang.org/en/documentation/quickstart/3/index.md
+          replace:
+            - from: '[can take a deeper look at.](../4/)'
+              to: 'can take a deeper look at.'
+        - source: ruby-lang.org/en/documentation/quickstart/4/index.md
+          remove:
+            - "If so, please head on over"
+            - "Or, if you’d really like to dig into a book"
 - title: Language Structure
   id: language
   content:
@@ -288,13 +314,14 @@
                 - "All of these examples"
 
             - source: content/builtin/core/time/_timerb.md
-            - source: lib/time/Time.md
-              sections:
-                - Examples
-                - Converting to a String
-                - Time.parse
-                - Time.strptime
-              remove: "## Examples"
+            # TODO: now we need manually explain there is Time.parse and strtime!
+            # - source: lib/time/Time.md
+            #   sections:
+            #     - Examples
+            #     - Converting to a String
+            #     - Time.parse
+            #     - Time.strptime
+            #   remove: "## Examples"
             - source: ext/date/Date.md
               sections:
                 - Date
@@ -310,6 +337,12 @@
                 - source: content/core/enumerable.md
                   after: "The `Enumerable` mixin"
             - source: core/Enumerator.md
+            - source: core/Enumerator--Lazy.md
+            - source: core/Enumerator--ArithmeticSequence.md
+            - source: core/Enumerator--Chain.md
+            # Internal classes
+            # - source: core/Enumerator--Generator.md
+            # - source: core/Enumerator--Yielder.md
         - title: Array
           content:
             - source: core/Array.md
@@ -374,6 +407,8 @@
               header_shift: 3
             - source: core/StopIteration.md
               header_shift: 3
+            - source: core/ClosedQueueError.md
+              header_shift: 4
             - source: core/LocalJumpError.md
               header_shift: 2
             - source: core/NameError.md
@@ -414,8 +449,7 @@
       children:
         - title: Processes and Signals
           content:
-            # TODO: Process has NO DOCS at 2.5!!!
-            # - source: core/Process.md
+            - source: core/Process.md
             - source: core/Signal.md
         - title: IO Basics
           id: io
@@ -680,6 +714,8 @@
                 - Resources
                 - Requirements
                 - License
+            # Nothing useful there:
+            # - source: ext/ripper/DSL.md
         - title: tracer
           content:
             - source: lib/tracer/Tracer.md
@@ -824,6 +860,7 @@
         #     - source: lib/net/protocol/Net--OpenTimeout.md
         #     - source: lib/net/protocol/Net--ReadTimeout.md
         #     - source: lib/net/protocol/Net--WriteAdapter.md
+        #     - source: lib/net/protocol/Net--WriteTimeout.md
         - title: net/smtp
           content:
             - source: lib/net/smtp/Net--SMTP.md
@@ -1167,6 +1204,10 @@
     - title: DTrace
       content:
         - source: doc/dtrace_probes.md
+    - title: Implementing Signal.trap callbacks
+      id: signals
+      content:
+        - source: doc/signals.md
     - title: Contributing To Ruby
       id: contributing
       content:

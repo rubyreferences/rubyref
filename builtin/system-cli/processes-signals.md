@@ -4,7 +4,16 @@ prev: "/builtin/system-cli.html"
 next: "/builtin/system-cli/io.html"
 ---
 
-## Signal[](#signal)
+## Process[](#process)
+
+Module to handle processes.
+
+<a href='https://ruby-doc.org/core-2.6/Process.html' class='ruby-doc
+remote' target='_blank'>Process Reference</a>
+
+
+
+### Signal[](#signal)
 
 Many operating systems allow signals to be sent to running processes.
 Some signals have a defined effect on the process, while others may be
@@ -42,6 +51,6 @@ The list of available signal names and their interpretation is system
 dependent. Signal delivery semantics may also vary between systems; in
 particular signal delivery may not always be reliable.
 
-<a href='https://ruby-doc.org/core-2.5.0/Signal.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Signal.html' class='ruby-doc
 remote' target='_blank'>Signal Reference</a>
 

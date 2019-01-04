@@ -9,4 +9,4 @@ Generally, you *SHOULD NOT* use this library if you do not know about the MRI
 implementation.  Mainly, this library is for (memory) profiler developers and
 MRI developers who need to know about MRI memory usage.
 
-[ObjectSpace Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/objspace/rdoc/ObjectSpace.html)
+[ObjectSpace Reference](https://ruby-doc.org/stdlib-2.6/libdoc/objspace/rdoc/ObjectSpace.html)

@@ -10,8 +10,8 @@ Objects of class `Dir` are directory streams representing directories in
 the underlying file system. They provide a variety of ways to list
 directories and their contents. See also `File`.
 
-<a href='https://ruby-doc.org/core-2.5.0/Dir.html' class='ruby-doc
-remote' target='_blank'>Dir Reference</a>
+<a href='https://ruby-doc.org/core-2.6/Dir.html' class='ruby-doc remote'
+target='_blank'>Dir Reference</a>
 
 
 
@@ -45,12 +45,12 @@ be made is to make the file read-only, which is reported as `0444`.
 Various constants for the methods in File can be found in
 File::Constants.
 
-<a href='https://ruby-doc.org/core-2.5.0/File.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/File.html' class='ruby-doc
 remote' target='_blank'>File Reference</a>
 
 
 
-<a href='https://ruby-doc.org/core-2.5.0/FileTest.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/FileTest.html' class='ruby-doc
 remote' target='_blank'>FileTest Reference</a>
 
 
@@ -95,7 +95,7 @@ pn.each_line { |line| _ }
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/pathname/rdoc/Pathname.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/pathname/rdoc/Pathname.html'
 class='ruby-doc remote' target='_blank'>Pathname Reference</a>
 
 
@@ -129,7 +129,7 @@ file.unlink    # deletes the temp file
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/tempfile/rdoc/Tempfile.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/tempfile/rdoc/Tempfile.html'
 class='ruby-doc remote' target='_blank'>Tempfile Reference</a>
 
 
@@ -192,7 +192,7 @@ There are some `low level` methods, which do not accept any option:
 
 
 ```ruby
-FileUtils.copy_entry(src, dest, preserve = false, dereference = false)
+FileUtils.copy_entry(src, dest, preserve = false, dereference_root = false, remove_destination = false)
 FileUtils.copy_file(src, dest, preserve = false, dereference = true)
 FileUtils.copy_stream(srcstream, deststream)
 FileUtils.remove_entry(path, force = false)
@@ -204,7 +204,7 @@ FileUtils.uptodate?(file, cmp_list)
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/fileutils/rdoc/FileUtils.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/fileutils/rdoc/FileUtils.html'
 class='ruby-doc remote' target='_blank'>FileUtils Reference</a>
 
 
@@ -238,6 +238,6 @@ Find.find(ENV["HOME"]) do |path|
 end
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/find/rdoc/Find.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/find/rdoc/Find.html'
 class='ruby-doc remote' target='_blank'>Find Reference</a>
 

@@ -671,7 +671,7 @@ assigned to sval, which should be a pointer of the type specified.
 #### Ruby object to C struct
 
 To retrieve the C pointer from the Data object, use the macro
-Data_Get_Struct().
+TypedData_Get_Struct().
 
     TypedData_Get_Struct(obj, type, &data_type, sval)
 
@@ -816,6 +816,10 @@ contains the arguments to the method.
 objects, but are not exported to the Ruby world.  You need to protect them by
 
     void rb_global_variable(VALUE *var)
+
+or the objects themselves by
+
+    void rb_gc_register_mark_object(VALUE object)
 
 ### Prepare extconf.rb
 
@@ -1176,8 +1180,10 @@ use, modify, distribute or sell your program.
 
         void setter(VALUE val, ID id, VALUE *var)
 
-* void rb_global_variable(VALUE *var): GC requires C global variables which hold Ruby values to be marked.
-    rb_global_variable tells GC to protect these variables.
+* void rb_global_variable(VALUE *var): Tells GC to protect C global variable, which holds Ruby value to be
+    marked.
+
+* void rb_gc_register_mark_object(VALUE object): Tells GC to protect the `object`, which may not be referenced anywhere.
 
 
 ### Constant Definition

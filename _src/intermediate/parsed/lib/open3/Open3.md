@@ -19,4 +19,4 @@ way as for Process.spawn.
 *   Open3.pipeline : run a pipeline and wait for its completion
 
 
-[Open3 Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/open3/rdoc/Open3.html)
+[Open3 Reference](https://ruby-doc.org/stdlib-2.6/libdoc/open3/rdoc/Open3.html)

@@ -92,4 +92,4 @@ _dump(depth) methods to retain some of the previous state of the instance.
     p a.keep  #  => "keep this"
     p a.strip #  => nil
 
-[Singleton Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/singleton/rdoc/Singleton.html)
+[Singleton Reference](https://ruby-doc.org/stdlib-2.6/libdoc/singleton/rdoc/Singleton.html)

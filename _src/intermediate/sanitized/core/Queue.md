@@ -28,4 +28,6 @@ Example:
       end
     end
 
-[Queue Reference](https://ruby-doc.org/core-2.5.0/Queue.html)
+    consumer.join
+
+[Queue Reference](https://ruby-doc.org/core-2.6/Queue.html)

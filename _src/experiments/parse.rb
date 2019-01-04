@@ -27,5 +27,6 @@ parsed = rdoc.parse_files(Dir['ruby/*.c'])
 
 k = parsed.flat_map(&:modules).select { |mod| mod.full_name == 'Kernel' }
 m = k.first.method_list.first
+p [k.first.class, m.class]
 p m.methods.sort - Object.methods
-pp k.first.method_list.map(&:arglists)
+# pp k.first.method_list.map(&:arglists)

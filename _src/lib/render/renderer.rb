@@ -19,8 +19,12 @@ class Renderer < Kramdown::Converter::Kramdown
   end
 
   def code_lang(str)
-    # If Ripper can't parse it, it is not Ruby (console output, or diagram, or whatever)
-    'ruby' unless Ripper.sexp(str).nil?
+    case
+    when !Ripper.sexp(str).nil? # If Ripper can't parse it, it is not Ruby (console output, or diagram, or whatever)
+      'ruby'
+    when str.match?(/^irb\(main\)/) # FIXME: fragile, only for `quickstart.md`
+      'irb'
+    end
   end
 
   memoize def linker

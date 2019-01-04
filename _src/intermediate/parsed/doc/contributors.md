@@ -111,7 +111,7 @@ Christoph
 
 
 Sean Chittenden
-*   pathces for net/http, cgi
+*   patches for net/http, cgi
 
 
 William D. Clinger
@@ -137,7 +137,7 @@ Martin Duerst (duerst)
 
 
 Paul Duncan
-*   pathces for rdoc
+*   patches for rdoc
 
 
 Alexander Dymo

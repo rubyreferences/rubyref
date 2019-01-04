@@ -1,7 +1,7 @@
 ---
 title: Interactive Console
 prev: "/intro/implementations.html"
-next: "/language.html"
+next: "/intro/quickstart.html"
 ---
 
 ## IRB[](#irb)
@@ -15,7 +15,7 @@ When executing irb, prompts are displayed as follows. Then, enter the
 Ruby expression. An input is executed when it is syntactically complete.
 
 
-```
+```irb
 $ irb
 irb(main):001:0> 1+2
 #=> 3

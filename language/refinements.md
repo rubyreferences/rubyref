@@ -14,7 +14,7 @@ of programs.
 
 Refinements are designed to reduce the impact of monkey patching on
 other users of the monkey-patched class. Refinements provide a way to
-extend a class locally.
+extend a class locally. Refinements can modify both classes and modules.
 
 Here is a basic refinement:
 
@@ -36,8 +36,7 @@ end
 ```
 
 First, a class `C` is defined. Next a refinement for `C` is created
-using Module#refine. Refinements only modify classes, not modules so the
-argument must be a class.
+using Module#refine.
 
 Module#refine creates an anonymous module that contains the changes or
 refinements to the class (`C` in the example). `self` in the refine
@@ -310,7 +309,7 @@ This behavior may be changed in the future.
 When a module X is included into a module Y, Y inherits refinements from
 X.
 
-For exmaple, C inherits refinements from A and B in the following code:
+For example, C inherits refinements from A and B in the following code:
 
 
 ```

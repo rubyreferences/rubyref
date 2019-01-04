@@ -18,6 +18,11 @@ To access elements:
 *   `#[]`(i)
 
 
+To set elements:
+
+*   `#[]=`(i, v)
+
+
 To enumerate the elements:
 
 *   `#each`2(v)
@@ -47,8 +52,10 @@ Vector functions:
 *   `#inner_product`(v), dot(v)
 *   `#cross_product`(v), cross(v)
 *   `#collect`
+*   `#collect!`
 *   `#magnitude`
 *   `#map`
+*   `#map!`
 *   `#map`2(v)
 *   `#norm`
 *   `#normalize`
@@ -70,4 +77,4 @@ String representations:
 *   `#inspect`
 
 
-[Vector Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/matrix/rdoc/Vector.html)
+[Vector Reference](https://ruby-doc.org/stdlib-2.6/libdoc/matrix/rdoc/Vector.html)

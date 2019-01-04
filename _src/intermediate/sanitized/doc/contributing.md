@@ -66,13 +66,13 @@ your ticket.
 You can report downstream issues for the following distributions via their bug
 tracker:
 
-*   [debian](http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=ruby-defaults)
+*   [debian](https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=ruby-defaults)
 *   [freebsd](http://www.freebsd.org/cgi/query-pr-summary.cgi?text=ruby)
 *   [redhat](https://bugzilla.redhat.com/buglist.cgi?bug_status=NEW&bug_status
     =ASSIGNED&bug_status=REOPENED&bug_status=MODIFIED)
 
-*   [macports](http://trac.macports.org/query?status=assigned&status=new&statu
-    s=reopened&port=~ruby)
+*   [macports](https://trac.macports.org/query?status=assigned&status=new&stat
+    us=reopened&port=~ruby)
 
 *   etc (add your distribution bug tracker here)
 
@@ -86,11 +86,10 @@ The current active platform maintainers are as follows:
 
 * mswin64 (Microsoft Windows): NAKAMURA Usaku (usa)
 * mingw32 (Minimalist GNU for Windows): Nobuyoshi Nakada (nobu)
-* IA-64 (Debian GNU/Linux): TAKANO Mitsuhiro (takano32)
 * AIX: Yutaka Kanemoto (kanemoto)
 * FreeBSD: Akinori MUSHA (knu)
 * Solaris: Naohisa Goto (ngoto)
-* RHEL, CentOS: KOSAKI Motohiro kosaki
+* RHEL, CentOS: KOSAKI Motohiro (kosaki)
 * macOS: Kenta Murata (mrkn)
 * cygwin, bcc32, djgpp, wince, ...: none. (Maintainer WANTED)
 
@@ -272,7 +271,7 @@ the [ruby-core documentation on
 ruby-lang.org](https://www.ruby-lang.org/en/community/ruby-core/).
 
 This guide will use git for contributing.  The [git
-homepage](http://git-scm.com/) has installation instructions with links to
+homepage](https://git-scm.com/) has installation instructions with links to
 documentation for learning more about git. There is a mirror of the subversion
 repository on [github](https://github.com/ruby/ruby).
 
@@ -305,7 +304,7 @@ Now let's build CRuby:
 
 *   Checkout the CRuby source code:
 
-        git clone git://github.com/ruby/ruby.git ruby-trunk
+        git clone https://github.com/ruby/ruby.git ruby-trunk
 
 *   Generate the configuration files and build:
 
@@ -338,7 +337,7 @@ For older versions of Ruby you will need to run the build setup again after
 checking out the associated branch in git, for example if you wanted to
 checkout 1.9.3:
 
-    git clone git://github.com/ruby/ruby.git --branch ruby_1_9_3
+    git clone https://github.com/ruby/ruby.git --branch ruby_1_9_3
 
 Once you checked out the source code, you can update the local copy by:
 
@@ -351,11 +350,11 @@ Or, update, build, install and check, by just:
 ## Contributing Documentation
 
 If you're interested in contributing documentation directly to CRuby there is
-a wealth of information available at
-[documenting-ruby.org](http://documenting-ruby.org/).
+some information available at
+[Contributing](https://github.com/ruby/ruby#contributing).
 
 There is also the [Ruby Reference
-Manual](https://bugs.ruby-lang.org/projects/rurema) in Japanese.
+Manual](https://github.com/rurema/doctree/wiki) in Japanese.
 
 ## Contributing A Patch
 
@@ -389,7 +388,7 @@ rules:
 
 First thing you should do is check out the code if you haven't already:
 
-    git clone git://github.com/ruby/ruby.git ruby-trunk
+    git clone https://github.com/ruby/ruby.git ruby-trunk
 
 Now create a dedicated branch:
 
@@ -405,8 +404,8 @@ trunk, or edge Ruby.
 
 Here are some general rules to follow when writing Ruby and C code for CRuby:
 
-*   Indent 4 spaces for C with tabs for eight-space indentation (emacs
-    default)
+*   Indent 4 spaces for C without tabs (old codes might use tabs for
+    eight-space indentation, but newer codes recommend to use spaces only)
 
 *   Indent 2 space tabs for Ruby
 *   Do not use TABs in ruby codes
@@ -492,7 +491,7 @@ site](https://git.wiki.kernel.org/index.php/GitHosting), including [hosting
 your
 own](https://www.kernel.org/pub/software/scm/git/docs/user-manual.html#public-
 repositories) You may use the ['git
-format-patch'](http://git-scm.com/docs/git-format-patch) command to generate
+format-patch'](https://git-scm.com/docs/git-format-patch) command to generate
 patch files to upload to redmine.  You may also use the ['git
-request-pull'](http://git-scm.com/docs/git-request-pull) command for
+request-pull'](https://git-scm.com/docs/git-request-pull) command for
 formatting pull request messages to redmine.

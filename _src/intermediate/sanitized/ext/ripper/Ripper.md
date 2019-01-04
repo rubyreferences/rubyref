@@ -72,4 +72,4 @@ Ruby License.
 *   http://i.loveruby.net
 
 
-[Ripper Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/ripper/rdoc/Ripper.html)
+[Ripper Reference](https://ruby-doc.org/stdlib-2.6/libdoc/ripper/rdoc/Ripper.html)

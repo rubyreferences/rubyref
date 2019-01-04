@@ -40,7 +40,6 @@ floor = Fiddle::Function.new(
 puts floor.call(3.14159) #=> 3.0
 ```
 
-<a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/fiddle/rdoc/Fiddle.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/fiddle/rdoc/Fiddle.html'
 class='ruby-doc remote' target='_blank'>Fiddle Reference</a>
 

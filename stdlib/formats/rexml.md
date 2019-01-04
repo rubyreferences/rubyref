@@ -40,6 +40,6 @@ or can be accessed <a
 href='http://www.germane-software.com/software/rexml/docs/tutorial.html'
 class='remote' target='_blank'>online</a>
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/rexml/rdoc/REXML.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/rexml/rdoc/REXML.html'
 class='ruby-doc remote' target='_blank'>REXML Reference</a>
 

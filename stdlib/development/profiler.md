@@ -77,7 +77,7 @@ ruby -rprofile example.rb
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/profiler/rdoc/Profiler__.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/profiler/rdoc/Profiler__.html'
 class='ruby-doc remote' target='_blank'>profile Reference</a>
 
 

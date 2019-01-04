@@ -17,6 +17,6 @@ somewhere other than $stderr. When Warning.warn is overridden, super can
 be called to get the default behavior of printing the warning to
 $stderr.
 
-<a href='https://ruby-doc.org/core-2.5.0/Warning.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Warning.html' class='ruby-doc
 remote' target='_blank'>Warning Reference</a>
 

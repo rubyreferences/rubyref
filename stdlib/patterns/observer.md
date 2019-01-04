@@ -125,6 +125,6 @@ Current price: 79
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/observer/rdoc/Observable.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/observer/rdoc/Observable.html'
 class='ruby-doc remote' target='_blank'>Observable Reference</a>
 

@@ -31,4 +31,4 @@ expressions in the given binding:
     ctx.eval 'today # is what?'
     #=> "a good day"
 
-[XMP Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/irb/rdoc/XMP.html)
+[XMP Reference](https://ruby-doc.org/stdlib-2.6/libdoc/irb/rdoc/XMP.html)

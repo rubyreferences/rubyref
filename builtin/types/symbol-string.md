@@ -38,7 +38,7 @@ $f2.object_id   #=> 2514190
 $f3.object_id   #=> 2514190
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/Symbol.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Symbol.html' class='ruby-doc
 remote' target='_blank'>Symbol Reference</a>
 
 
@@ -55,7 +55,7 @@ methods with names ending in `!` modify their receiver, while those
 without a `!` return a new `String`. However, there are exceptions, such
 as `String#[]=`.
 
-<a href='https://ruby-doc.org/core-2.5.0/String.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/String.html' class='ruby-doc
 remote' target='_blank'>String Reference</a>
 
 
@@ -291,6 +291,6 @@ transcoded text:
 "R\u00E9sum\u00E9"
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/Encoding.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Encoding.html' class='ruby-doc
 remote' target='_blank'>Encoding Reference</a>
 
