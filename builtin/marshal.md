@@ -1,6 +1,6 @@
 ---
 title: Marshal
-prev: "/builtin/internals.html"
+prev: "/builtin/internals/rubyvm.html"
 next: "/builtin/random.html"
 ---
 

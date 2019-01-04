@@ -93,6 +93,8 @@
               source: "See also [Symbol](../builtin/types/symbol-string.md#symbol) class."
             - after: "This proc will add one"
               source: "See also [Proc](../builtin/core/method-proc.md#proc) class."
+            - after: "The indentation of the least-indented"
+              macros: since(2.3)
           replace:
             - from: "See Array for the methods"
               to: "See [Array](../builtin/types/array.md) for the methods"
@@ -299,6 +301,9 @@
         - title: Range
           content:
             - source: core/Range.md
+              insert:
+                - after: '## Endless Ranges'
+                  macros: since(2.6)
         - title: Struct
           content:
             - source: core/Struct.md
@@ -312,16 +317,10 @@
               remove:
                 - "# Examples"
                 - "All of these examples"
-
+              insert:
+                - after: '## Timezone argument'
+                  macros: since(2.6)
             - source: content/builtin/core/time/_timerb.md
-            # TODO: now we need manually explain there is Time.parse and strtime!
-            # - source: lib/time/Time.md
-            #   sections:
-            #     - Examples
-            #     - Converting to a String
-            #     - Time.parse
-            #     - Time.strptime
-            #   remove: "## Examples"
             - source: ext/date/Date.md
               sections:
                 - Date
@@ -339,7 +338,13 @@
             - source: core/Enumerator.md
             - source: core/Enumerator--Lazy.md
             - source: core/Enumerator--ArithmeticSequence.md
+              insert:
+                - after: '# Enumerator::ArithmeticSequence'
+                  macros: since(2.6)
             - source: core/Enumerator--Chain.md
+              insert:
+                - after: '# Enumerator::Chain'
+                  macros: since(2.6)
             # Internal classes
             # - source: core/Enumerator--Generator.md
             # - source: core/Enumerator--Yielder.md
@@ -542,8 +547,16 @@
           remove: "# ObjectSpace"
         - source: core/GC.md
         - source: core/TracePoint.md
-        # TODO: RubyVM::InstructionSequence have some docs!
-        # - source: core/RubyVM.md
+      children:
+        - title: RubyVM
+          content:
+            - source: core/RubyVM.md
+            - source: core/RubyVM--AbstractSyntaxTree.md
+              insert:
+                - after: '# RubyVM::AbstractSyntaxTree'
+                  macros: since(2.6)
+            - source: core/RubyVM--InstructionSequence.md
+            - source: core/RubyVM--MJIT.md
     - title: Marshal
       content:
         - source: core/Marshal.md

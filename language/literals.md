@@ -306,6 +306,8 @@ of literal tabs and spaces will be ignored for the purposes of
 determining indentation, but escaped tabs and spaces are considered
 non-indentation characters.
 
+<div class="since-version">Since Ruby 2.3</div>
+
 A heredoc allows interpolation and escaped characters. You may disable
 interpolation and escaping by surrounding the opening identifier with
 single quotes:

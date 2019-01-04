@@ -23,6 +23,8 @@ sequence.
 
 ### Endless Ranges[](#endless-ranges)
 
+<div class="since-version">Since Ruby 2.6</div>
+
 An "endless range" represents a semi-infinite range. Literal notation
 for an endless range is:
 

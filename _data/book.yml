@@ -116,6 +116,9 @@ chapters:
     path: "/builtin/concurrency-parallelism.html"
   - title: Interpreter Internals
     path: "/builtin/internals.html"
+    children:
+    - title: RubyVM
+      path: "/builtin/internals/rubyvm.html"
   - title: Marshal
     path: "/builtin/marshal.html"
   - title: Random

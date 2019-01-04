@@ -135,6 +135,8 @@ Time.new(2010,10,31).between?(t1, t2) #=> true
 
 #### Timezone argument[](#timezone-argument)
 
+<div class="since-version">Since Ruby 2.6</div>
+
 A timezone argument must have `local_to_utc` and `utc_to_local` methods,
 and may have `name` and `abbr` methods.
 
@@ -172,6 +174,24 @@ remote' target='_blank'>Time Reference</a>
 
 Part of the useful functionality for `Time` is provided by the standard
 library `time`.
+
+Examples:
+
+
+```ruby
+require 'time'
+
+t = Time.now
+t.iso8601  # => "2011-10-05T22:26:12-04:00"
+t.rfc2822  # => "Wed, 05 Oct 2011 22:26:12 -0400"
+t.httpdate # => "Thu, 06 Oct 2011 02:26:12 GMT"
+
+Time.parse("2010-10-31") #=> 2010-10-31 00:00:00 -0500
+Time.strptime("2000-10-31", "%Y-%m-%d") #=> 2000-10-31 00:00:00 -0500
+```
+
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/time/rdoc/Time.html'
+class='ruby-doc remote' target='_blank'>Time Reference</a>
 
 
 

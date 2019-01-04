@@ -34,3 +34,10 @@ h1:hover a:after, h2:hover a:after, h3:hover a:after, h4:hover a:after, h5:hover
 em > code {
   font-style: normal;
 }
+
+.since-version {
+  font-weight: bold;
+  font-size: 0.75em;
+  margin-top: -10px;
+  margin-left: -10px;
+}

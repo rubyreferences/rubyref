@@ -60,7 +60,7 @@ end
 # Net::* and IO::* are separate libraries
 # Enumerator includes Enumerator::Lazy, which is also separate concept
 # File include Constants and Stat
-WITH_SUBMODULES = %w[Net IO Enumerator File]
+WITH_SUBMODULES = %w[Net IO Enumerator File RubyVM]
 
 # We want them anyways!
 ROOT_EXCEPTIONS = %w[]

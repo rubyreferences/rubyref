@@ -146,9 +146,11 @@ class Content
       elements.delete_at(idx)
     end
 
-    @insert.each do |after:, source:|
+    @insert.each do |after:, source: nil, macros: nil|
       idx = para_idx(after)
+      source ||= macros&.then(&method(:process_macros)) or fail "source or macros is required for insert"
       source = parse_source(source)
+
       elements.insert(idx + 1, *source.root.children)
     end
 
@@ -157,12 +159,18 @@ class Content
     }
   end
 
+  def process_macros(text)
+    m = text.match(/^(\w+)\((.+)\)$/) or fail ArgumentError, "Unparseable macros #{text}"
+    send("macro_#{m[1]}", m[2])
+  end
+
   STDLIB = <<~DOC
     _Part of standard library. You need to `require '%s'` before using._
 
   DOC
 
   REQ_STDLIB = "    require '%s'\n\n"
+  SINCE_RUBY_VER = "<div class='since-version'>Since Ruby %s</div>\n\n"
 
   def handle_stdlib(libname)
     idx = para_idx('#') # First header
@@ -174,5 +182,9 @@ class Content
       @source.match(%r{(?:lib|ext)/([^/]+)})&.at(1) or fail("Can't guess libname by #{@source}")
 
     elements.insert(0, *parse_source(REQ_STDLIB % libname).root.children)
+  end
+
+  def macro_since(ver)
+    SINCE_RUBY_VER % ver
   end
 end
