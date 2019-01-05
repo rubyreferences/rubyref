@@ -336,7 +336,10 @@
                 - source: content/core/enumerable.md
                   after: "The `Enumerable` mixin"
             - source: core/Enumerator.md
+            - source: content/core/enumerator_lazy.md
             - source: core/Enumerator--Lazy.md
+              sections:
+                - _ref
             - source: core/Enumerator--ArithmeticSequence.md
               insert:
                 - after: '# Enumerator::ArithmeticSequence'
@@ -629,6 +632,9 @@
               remove_sections:
                 - History
                 - More info
+              replace:
+                - from: 'doc/security.rdoc'
+                  to: '[Security](rdoc-ref:doc/security.rdoc) section'
             - source: ext/psych/Psych.md
               sections: _ref
         - title: "rexml: XML parser and generator"

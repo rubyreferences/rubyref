@@ -41,7 +41,8 @@ library).
 
 Do not use YAML to load untrusted data. Doing so is unsafe and could
 allow malicious input to execute arbitrary code inside your application.
-Please see doc/security.rdoc for more information.
+Please see [Security](../../advanced/security.md) section for more
+information.
 
 <a href='https://ruby-doc.org/stdlib-2.6/libdoc/yaml/rdoc/YAML.html'
 class='ruby-doc remote' target='_blank'>YAML Reference</a>

@@ -37,8 +37,8 @@ There are three ways to define method's visibility, the first one being most use
       # ...
     end
 
-The third one is in fact the same as the second, just utilizing the fact that `def` is an expression
-returning method name.
+The third one is in fact the same as the second (passing method name to `private`), just utilizing
+the fact that `def` is an expression returning method name.
 
 Note also that `public`, `private` and `protected` are not, in fact, keywords or some special syntax,
 they are just regular methods of [Module](../builtin/core/module-class.md#module) class.

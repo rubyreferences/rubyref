@@ -16,9 +16,9 @@ prev: "/appendix-a.html"
 
 * <a href='http://ruby-doc.org/' class='ruby-doc remote'
   target='_blank'>Ruby-Doc.org</a> hosts rendered reference
-  documentation for all <a href='http://www.ruby-doc.org/core'
-  class='remote' target='_blank'>core</a> and <a
-  href='http://www.ruby-doc.org/stdlib' class='remote'
+  documentation for all <a href='http://ruby-doc.org/core'
+  class='ruby-doc remote' target='_blank'>core</a> and <a
+  href='http://ruby-doc.org/stdlib' class='ruby-doc remote'
   target='_blank'>standard library</a> classes and methods. This
   reference links there a lot, marking those links with red icon.
 * <a href='http://www.rubydoc.info/' class='remote'

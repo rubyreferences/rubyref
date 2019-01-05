@@ -9,7 +9,8 @@ class Linker
     'syntax/literals.rdoc' => 'language/literals.md',
     'syntax/calling_methods.rdoc' => 'language/methods-call.md',
     'globals.rdoc' => 'language/globals.md',
-    'syntax/refinements.rdoc' => 'language/refinements.md'
+    'syntax/refinements.rdoc' => 'language/refinements.md',
+    'doc/security.rdoc' => 'advanced/security.md'
   }
   # internal links in installation.md, imported from site
   IGNORE_LINKS = %w[#rvm #rbenv #chruby #ruby-install #ruby-build #package-management-systems]

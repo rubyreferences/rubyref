@@ -5,7 +5,7 @@
 
 ### Documentation
 
-* [Ruby-Doc.org](http://ruby-doc.org/) hosts rendered reference documentation for all [core](http://www.ruby-doc.org/core) and [standard library](http://www.ruby-doc.org/stdlib) classes and methods. This reference links there a lot, marking those links with red icon.
+* [Ruby-Doc.org](http://ruby-doc.org/) hosts rendered reference documentation for all [core](http://ruby-doc.org/core) and [standard library](http://ruby-doc.org/stdlib) classes and methods. This reference links there a lot, marking those links with red icon.
 * [RubyDoc.info](http://www.rubydoc.info/) hosts rendered documentation for all published gems (generated with YARD).
 
 ### Libraries

@@ -6,10 +6,11 @@ permalink: "/index.html"
 
 ## The Ruby Reference[](#the-ruby-reference)
 
-This book is the reference for the Ruby programming language created by
-Yukihiro "Matz" Matsumoto. It describes the language structure, its core
-classes and standard library, and provides some additional useful
-information and links for Ruby development.
+This book is the reference for the <a href='https://www.ruby-lang.org/'
+class='remote' target='_blank'>Ruby programming language</a>. It
+describes the language structure, its core classes and standard library,
+and provides some additional useful information and links for Ruby
+development.
 
 The Reference is intended to be always up-to-date with the current Ruby
 version.
