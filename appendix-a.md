@@ -4,7 +4,7 @@ prev: "/advanced/contributing.html"
 next: "/appendix-b.html"
 ---
 
-### Appendix A: Kernel methods list[](#appendix-a-kernel-methods-list)
+## Appendix A: Kernel methods list[](#appendix-a-kernel-methods-list)
 
 
 
@@ -33,7 +33,7 @@ next: "/appendix-b.html"
   class='ruby-doc remote' target='_blank'>warn</a>\: If warnings have
   been disabled (for example with the `-W0` flag), does nothing.
 
-#### Loading Code[](#loading-code)
+### Loading Code[](#loading-code)
 
 * <a
   href='https://ruby-doc.org/core-2.6.0/Kernel.html#method-i-autoload'
@@ -63,7 +63,7 @@ next: "/appendix-b.html"
   class='ruby-doc remote' target='_blank'>gem</a> *(defined by
   RubyGems)*\: Use `#gem` to activate a specific version of gem\_name.
 
-#### Data Conversion[](#data-conversion)
+### Data Conversion[](#data-conversion)
 
 * <a href='https://ruby-doc.org/core-2.6.0/Kernel.html#method-i-Array'
   class='ruby-doc remote' target='_blank'>Array</a>\: Returns `arg` as
@@ -87,7 +87,7 @@ next: "/appendix-b.html"
   class='ruby-doc remote' target='_blank'>String</a>\: Returns *arg* as
   a `String`.
 
-#### Current Context[](#current-context)
+### Current Context[](#current-context)
 
 * <a
   href='https://ruby-doc.org/core-2.6.0/Kernel.html#method-i-__callee__'
@@ -127,7 +127,7 @@ next: "/appendix-b.html"
   class='ruby-doc remote' target='_blank'>local\_variables</a>\: Returns
   the names of the current local variables.
 
-#### Execution Flow[](#execution-flow)
+### Execution Flow[](#execution-flow)
 
 * <a href='https://ruby-doc.org/core-2.6.0/Kernel.html#method-i-abort'
   class='ruby-doc remote' target='_blank'>abort</a>\: Terminate
@@ -164,7 +164,7 @@ next: "/appendix-b.html"
   class='ruby-doc remote' target='_blank'>throw</a>\: Transfers control
   to the end of the active `catch` block waiting for *tag*.
 
-#### IO and Strings[](#io-and-strings)
+### IO and Strings[](#io-and-strings)
 
 * <a href='https://ruby-doc.org/core-2.6.0/Kernel.html#method-i-format'
   class='ruby-doc remote' target='_blank'>format</a>\: Returns the
@@ -207,7 +207,7 @@ next: "/appendix-b.html"
   string resulting from applying *format\_string* to any additional
   arguments.
 
-#### Files[](#files)
+### Files[](#files)
 
 * <a href='https://ruby-doc.org/core-2.6.0/Kernel.html#method-i-open'
   class='ruby-doc remote' target='_blank'>open</a>\: Creates an IO
@@ -220,7 +220,7 @@ next: "/appendix-b.html"
   `cmd` to perform various tests on `file1` (first table below) or on
   `file1` and `file2` (second table).
 
-#### Tracing Execution[](#tracing-execution)
+### Tracing Execution[](#tracing-execution)
 
 * <a
   href='https://ruby-doc.org/core-2.6.0/Kernel.html#method-i-set_trace_func'
@@ -237,7 +237,7 @@ next: "/appendix-b.html"
   tracing for the specified command on the given global variable and
   returns `nil`.
 
-#### Processes and Commands[](#processes-and-commands)
+### Processes and Commands[](#processes-and-commands)
 
 * <a href='https://ruby-doc.org/core-2.6.0/Kernel.html#method-i-60'
   class='ruby-doc remote' target='_blank'>\`</a>\: Returns the standard

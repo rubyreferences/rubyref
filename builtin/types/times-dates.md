@@ -4,7 +4,7 @@ prev: "/builtin/types/struct.html"
 next: "/builtin/types/enumerable.html"
 ---
 
-# Times and Dates[](#times-and-dates)
+## Times and Dates[](#times-and-dates)
 
 
 

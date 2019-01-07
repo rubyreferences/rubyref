@@ -9,7 +9,7 @@ next: "/stdlib/string-utilities/racc.html"
 require 'erb'
 ```
 
-### ERB[](#erb)
+## ERB[](#erb)
 
 
 

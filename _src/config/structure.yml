@@ -42,9 +42,6 @@
           replace:
             - from: '[so let’s go back to that.](2/)'
               to: 'so let’s go back to that.'
-            # in one unfortunate place it is too close to list above and gets kramdown confused
-            # - from: "\n  irb(main):001:0>\n"
-            #   to: "\n```irb\nirb(main):001:0>\n```\n"
         - source: '### Step 2'
         - source: ruby-lang.org/en/documentation/quickstart/2/index.md
           replace:
@@ -76,6 +73,7 @@
     - title: Keywords
       content:
         - source: doc/keywords.md
+          header_shift: 0
           replace:
             - from: "* `defined?`: Returns a string describing its argument.  See [miscellaneous\n    syntax](rdoc-ref:syntax/miscellaneous.rdoc)"
               to: "* `defined?`: Returns a string describing its argument.  See [defined?](../language.md#defined)"
@@ -185,7 +183,7 @@
         - source: doc/syntax/miscellaneous.md
           sections:
             - "`BEGIN` and `END`"
-          header_shift: 1
+          header_shift: 0
     - title: File Structure
       id: files
       content:
@@ -193,6 +191,7 @@
     - title: Globals
       content:
         - source: doc/globals.md
+          header_shift: 0
         - source: lib/English/English.md
           remove: "Include the English library"
           insert:
@@ -285,7 +284,7 @@
                 - [stdlib, prime]
         - title: Symbol and String
           content:
-            - source: '# Symbol and String'
+            - source: '## Symbol and String'
             - source: core/Symbol.md
             - source: core/String.md
             - source: core/Encoding.md
@@ -312,7 +311,7 @@
                 - [stdlib, ostruct]
         - title: Times and Dates
           content:
-            - source: '# Times and Dates'
+            - source: '## Times and Dates'
             - source: core/Time.md
               remove:
                 - "# Examples"
@@ -453,7 +452,7 @@
     - title: System Programming and CLI
       id: system-cli
       content:
-        - source: '# System Programming and Command Line'
+        - source: '## System Programming and Command Line'
       children:
         - title: Processes and Signals
           content:
@@ -662,6 +661,15 @@
           content:
             - source: lib/benchmark/Benchmark.md
               process: require_stdlib
+        - title: "bundler: Managing dependencies"
+          id: bundler
+          content:
+            # Real source is: https://github.com/bundler/bundler/blob/master/README.md
+            # and https://github.com/bundler/bundler-site/blob/master/source/v1.17/index.html.haml
+            - source: content/stdlib/bundler.md
+              insert:
+                - after: '# Bundler'
+                  macros: since(2.6)
         - title: coverage
           content:
             - source: ext/coverage/Coverage.md
@@ -671,7 +679,7 @@
                 - "# Example"
         - title: debug
           content:
-            - source: '# debug'
+            - source: '## debug'
             - source: lib/debug/DEBUGGER__.md
               remove: "# DEBUGGER"
               remove_sections:
@@ -680,6 +688,7 @@
               replace:
                 - from: "DEBUGGER__ Reference"
                   to: "debug Reference"
+              header_shift: 1
             - source: content/stdlib/_debug_alt.md
         - title: "fiddle: FFI wrapper"
           id: fiddle
@@ -701,6 +710,9 @@
                 - How to log a message
                 - How to close a logger
                 - Setting severity threshold
+              replace:
+                - from: '#### Example'
+                  to: '### Example'
         - title: "pp: Debug Print"
           id: pp
           content:
@@ -719,12 +731,13 @@
               sections: _ref
         - title: profiler
           content:
-            - source: "### profile"
+            - source: "## profile"
             - source: lib/profiler/Profiler__.md
               remove: "# Profiler"
               replace:
                 - from: "Profiler__ Reference"
                   to: "profile Reference"
+              header_shift: 1
             - source: content/stdlib/_profiler_alt.md
         - title: "ripper: Parsing Ruby"
           id: ripper
@@ -750,7 +763,7 @@
         - title: "erb: Ruby Templating"
           id: erb
           content:
-            - source: "### ERB"
+            - source: "## ERB"
               process: [[require_stdlib, erb]]
             - source: lib/erb/ERB.md
               sections:
@@ -771,7 +784,7 @@
                   to: "https://ruby-doc.org/core-2.5.0/_lib/racc/rdoc/grammar_en_rdoc.html"
         - title: scanf
           content:
-            - source: '# scanf'
+            - source: '## scanf'
               process: [[require_stdlib, scanf]]
             - source: lib/scanf/Scanf.md
               sections:
@@ -780,6 +793,7 @@
                 - Block usage
                 - _ref
               remove: '## Description'
+              header_shift: 1
         - title: "shellwords: Shell-aware string manipulation"
           id: shellwords
           content:
@@ -804,7 +818,7 @@
 
     - title: Networking and Web
       content:
-        - source: "### Networking and Web Libraries"
+        - source: "## Networking and Web Libraries"
       children:
         - title: cgi
           content:
@@ -1047,7 +1061,7 @@
 
     - title: Cryptography and Encoding
       content:
-        - source: '# Cryptography and Encoding Libraries'
+        - source: '## Cryptography and Encoding Libraries'
       children:
         - title: base64
           content:
@@ -1065,7 +1079,7 @@
     - title: Miscellaneous Libraries
       id: misc
       content:
-        - source: "### Miscellaneous Ruby Libraries"
+        - source: "## Miscellaneous Ruby Libraries"
       children:
         # FIXME: If any of this used at all?..
         - title: Concurrency Utils
@@ -1158,12 +1172,13 @@
       id: bundled
       content:
         - source: content/stdlib/bundled.md
+          header_shift: 0
 
 - title: Developing in Ruby
   id: developing
   content:
     - source: >
-        # Developing in Ruby
+        ## Developing in Ruby
 
         This chapter groups some tools and approaches of professional development, including using
         third-party libraries, documenting and testing code, code style and linting.
@@ -1172,7 +1187,10 @@
       content:
         - source: "## Libraries"
         - source: ruby-lang.org/en/libraries/index.md
-          header_shift: 1
+          header_shift: 0
+          replace:
+            - from: '[9]: http://bundler.io/'
+              to: '[9]: ../stdlib/development/bundler.md'
         # Site covered it better
         # - source: lib/rubygems/Gem.md
         # - source: lib/rubygems/Kernel.md
@@ -1243,8 +1261,9 @@
 - title: "Appendix A: Kernel methods list"
   id: appendix-a
   content:
-    - source: "### Appendix A: Kernel methods list"
+    - source: "## Appendix A: Kernel methods list"
     - source: _special/kernel.md
+      header_shift: 1
       insert:
         - source: "* [gem](ref:rubygems/Kernel#gem) _(defined by RubyGems)_: Use `#gem` to activate a specific version of gem_name."
           after: "* [autoload]"
@@ -1252,3 +1271,4 @@
   id: appendix-b
   content:
     - source: content/appendixes/links.md
+      header_shift: 0

@@ -4,7 +4,7 @@ prev: "/builtin/types/numbers.html"
 next: "/builtin/types/regexp.html"
 ---
 
-# Symbol and String[](#symbol-and-string)
+## Symbol and String[](#symbol-and-string)
 
 
 

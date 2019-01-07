@@ -157,6 +157,8 @@ chapters:
     children:
     - title: benchmark
       path: "/stdlib/development/benchmark.html"
+    - title: 'bundler: Managing dependencies'
+      path: "/stdlib/development/bundler.html"
     - title: coverage
       path: "/stdlib/development/coverage.html"
     - title: debug

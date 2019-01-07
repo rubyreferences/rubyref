@@ -4,7 +4,7 @@ prev: "/stdlib/development/pp.html"
 next: "/stdlib/development/ripper.html"
 ---
 
-### profile[](#profile)
+## profile[](#profile)
 
 
 
@@ -20,7 +20,7 @@ profiling.
 
 There are two ways to activate Profiling:
 
-#### Command line[](#command-line)
+### Command line[](#command-line)
 
 Run your Ruby script with `-rprofile`: 
 
@@ -35,7 +35,7 @@ If you're profiling an executable in your `$PATH` you can use `ruby
 ruby -rprofile -S some_executable
 ```
 
-#### From code[](#from-code)
+### From code[](#from-code)
 
 Just require 'profile': 
 
