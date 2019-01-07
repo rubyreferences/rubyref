@@ -8,6 +8,11 @@ next: "/stdlib/development/fiddle.html"
 
 
 
+
+```ruby
+require 'debug'
+```
+
 This library provides debugging functionality to Ruby.
 
 To add a debugger to your code, start by requiring `debug` in your

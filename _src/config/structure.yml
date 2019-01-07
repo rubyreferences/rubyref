@@ -448,6 +448,9 @@
     - title: Warning
       content:
         - source: core/Warning.md
+          insert:
+            - after: '# Warning'
+              macros: since(2.4)
 
     - title: System Programming and CLI
       id: system-cli
@@ -558,7 +561,8 @@
                 - after: '# RubyVM::AbstractSyntaxTree'
                   macros: since(2.6)
             - source: core/RubyVM--InstructionSequence.md
-            - source: core/RubyVM--MJIT.md
+            # No docs at all :(
+            # - source: core/RubyVM--MJIT.md
     - title: Marshal
       content:
         - source: core/Marshal.md

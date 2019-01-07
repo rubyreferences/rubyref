@@ -51,12 +51,3 @@ what you see.
 class='ruby-doc remote' target='_blank'>RubyVM::InstructionSequence
 Reference</a>
 
-
-
-### RubyVM::MJIT[](#rubyvmmjit)
-
-RubyVM::MJIT
-
-<a href='https://ruby-doc.org/core-2.6/RubyVM/MJIT.html' class='ruby-doc
-remote' target='_blank'>RubyVM::MJIT Reference</a>
-

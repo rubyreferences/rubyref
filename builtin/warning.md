@@ -6,6 +6,8 @@ next: "/builtin/system-cli.html"
 
 ## Warning[](#warning)
 
+<div class="since-version">Since Ruby 2.4</div>
+
 The Warning module contains a single method named `#warn`, and the
 module extends itself, making `Warning.warn` available. Warning.warn is
 called for all warnings issued by Ruby. By default, warnings are printed
