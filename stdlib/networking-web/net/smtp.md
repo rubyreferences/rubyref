@@ -132,6 +132,6 @@ Net::SMTP.start('your.smtp.server', 25, 'mail.from.domain',
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/net/smtp/rdoc/Net/SMTP.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/net/smtp/rdoc/Net/SMTP.html'
 class='ruby-doc remote' target='_blank'>Net::SMTP Reference</a>
 

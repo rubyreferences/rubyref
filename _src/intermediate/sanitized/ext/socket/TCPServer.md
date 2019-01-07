@@ -27,4 +27,4 @@ A more usable server (serving multiple clients):
       end
     end
 
-[TCPServer Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/socket/rdoc/TCPServer.html)
+[TCPServer Reference](https://ruby-doc.org/stdlib-2.6/libdoc/socket/rdoc/TCPServer.html)

@@ -1,7 +1,7 @@
 ---
 title: Interpreter Internals
 prev: "/builtin/concurrency-parallelism.html"
-next: "/builtin/marshal.html"
+next: "/builtin/internals/rubyvm.html"
 ---
 
 ## Interpreter Internals[](#interpreter-internals)
@@ -40,8 +40,8 @@ Finalizer two on 537763470
 Finalizer one on 537763480
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/ObjectSpace.html'
-class='ruby-doc remote' target='_blank'>ObjectSpace Reference</a>
+<a href='https://ruby-doc.org/core-2.6/ObjectSpace.html' class='ruby-doc
+remote' target='_blank'>ObjectSpace Reference</a>
 
 
 
@@ -63,7 +63,7 @@ the MRI implementation. Mainly, this library is for (memory) profiler
 developers and MRI developers who need to know about MRI memory usage.
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/objspace/rdoc/ObjectSpace.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/objspace/rdoc/ObjectSpace.html'
 class='ruby-doc remote' target='_blank'>ObjectSpace Reference</a>
 
 
@@ -79,8 +79,8 @@ module.
 You may obtain information about the operation of the GC through
 GC::Profiler.
 
-<a href='https://ruby-doc.org/core-2.5.0/GC.html' class='ruby-doc
-remote' target='_blank'>GC Reference</a>
+<a href='https://ruby-doc.org/core-2.6/GC.html' class='ruby-doc remote'
+target='_blank'>GC Reference</a>
 
 
 
@@ -132,6 +132,6 @@ To filter what is traced, you can pass any of the following as
 * `:thread_end`: event hook at thread ending
 * `:fiber_switch`: event hook at fiber switch
 
-<a href='https://ruby-doc.org/core-2.5.0/TracePoint.html'
-class='ruby-doc remote' target='_blank'>TracePoint Reference</a>
+<a href='https://ruby-doc.org/core-2.6/TracePoint.html' class='ruby-doc
+remote' target='_blank'>TracePoint Reference</a>
 

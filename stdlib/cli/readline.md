@@ -47,6 +47,6 @@ Documented by Kouji Takao <kouji dot="" takao="" at="" gmail=""
 com="">.</kouji>
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/readline/rdoc/Readline.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/readline/rdoc/Readline.html'
 class='ruby-doc remote' target='_blank'>Readline Reference</a>
 

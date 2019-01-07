@@ -199,4 +199,4 @@ Author: IPR -- Internet Programming with Ruby -- writers
 Copyright (c) 2000 TAKAHASHI Masayoshi, GOTOU YUUZOU Copyright (c) 2002
 Internet Programming with Ruby writers. All rights reserved.
 
-[WEBrick Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/webrick/rdoc/WEBrick.html)
+[WEBrick Reference](https://ruby-doc.org/stdlib-2.6/libdoc/webrick/rdoc/WEBrick.html)

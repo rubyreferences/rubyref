@@ -16,4 +16,4 @@ Since constant names must start with a capital:
 
     NameError: wrong constant name answer
 
-[NameError Reference](https://ruby-doc.org/core-2.5.0/NameError.html)
+[NameError Reference](https://ruby-doc.org/core-2.6/NameError.html)

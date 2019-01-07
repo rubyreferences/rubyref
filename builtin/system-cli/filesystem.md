@@ -10,8 +10,8 @@ Objects of class `Dir` are directory streams representing directories in
 the underlying file system. They provide a variety of ways to list
 directories and their contents. See also `File`.
 
-<a href='https://ruby-doc.org/core-2.5.0/Dir.html' class='ruby-doc
-remote' target='_blank'>Dir Reference</a>
+<a href='https://ruby-doc.org/core-2.6/Dir.html' class='ruby-doc remote'
+target='_blank'>Dir Reference</a>
 
 
 
@@ -45,12 +45,51 @@ be made is to make the file read-only, which is reported as `0444`.
 Various constants for the methods in File can be found in
 File::Constants.
 
-<a href='https://ruby-doc.org/core-2.5.0/File.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/File.html' class='ruby-doc
 remote' target='_blank'>File Reference</a>
 
 
 
-<a href='https://ruby-doc.org/core-2.5.0/FileTest.html' class='ruby-doc
+### File::Constants[](#fileconstants)
+
+File::Constants provides file-related constants. All possible file
+constants are listed in the documentation but they may not all be
+present on your platform.
+
+If the underlying platform doesn't define a constant the corresponding
+Ruby constant is not defined.
+
+Your platform documentations (e.g. man open(2)) may describe more
+detailed information.
+
+<a href='https://ruby-doc.org/core-2.6/File/Constants.html'
+class='ruby-doc remote' target='_blank'>File::Constants Reference</a>
+
+
+
+### File::Stat[](#filestat)
+
+Objects of class `File::Stat` encapsulate common status information for
+`File` objects. The information is recorded at the moment the
+`File::Stat` object is created; changes made to the file after that
+point will not be reflected. `File::Stat` objects are returned by
+`IO#stat`, `File::stat`, `File#lstat`, and `File::lstat`. Many of these
+methods return platform-specific values, and not all values are
+meaningful on all systems. See also `Kernel#test`.
+
+<a href='https://ruby-doc.org/core-2.6/File/Stat.html' class='ruby-doc
+remote' target='_blank'>File::Stat Reference</a>
+
+
+
+### FileTest[](#filetest)
+
+`FileTest` implements file test operations similar to those used in
+`File::Stat`. It exists as a standalone module, and its methods are also
+insinuated into the `File` class. (Note that this is not done by
+inclusion: the interpreter cheats).
+
+<a href='https://ruby-doc.org/core-2.6/FileTest.html' class='ruby-doc
 remote' target='_blank'>FileTest Reference</a>
 
 
@@ -95,7 +134,7 @@ pn.each_line { |line| _ }
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/pathname/rdoc/Pathname.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/pathname/rdoc/Pathname.html'
 class='ruby-doc remote' target='_blank'>Pathname Reference</a>
 
 
@@ -129,7 +168,7 @@ file.unlink    # deletes the temp file
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/tempfile/rdoc/Tempfile.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/tempfile/rdoc/Tempfile.html'
 class='ruby-doc remote' target='_blank'>Tempfile Reference</a>
 
 
@@ -192,7 +231,7 @@ There are some `low level` methods, which do not accept any option:
 
 
 ```ruby
-FileUtils.copy_entry(src, dest, preserve = false, dereference = false)
+FileUtils.copy_entry(src, dest, preserve = false, dereference_root = false, remove_destination = false)
 FileUtils.copy_file(src, dest, preserve = false, dereference = true)
 FileUtils.copy_stream(srcstream, deststream)
 FileUtils.remove_entry(path, force = false)
@@ -204,7 +243,7 @@ FileUtils.uptodate?(file, cmp_list)
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/fileutils/rdoc/FileUtils.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/fileutils/rdoc/FileUtils.html'
 class='ruby-doc remote' target='_blank'>FileUtils Reference</a>
 
 
@@ -238,6 +277,6 @@ Find.find(ENV["HOME"]) do |path|
 end
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/find/rdoc/Find.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/find/rdoc/Find.html'
 class='ruby-doc remote' target='_blank'>Find Reference</a>
 

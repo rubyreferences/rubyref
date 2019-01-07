@@ -18,7 +18,7 @@ receiver and thus can be called in functional form:
 sprintf "%.1f", 1.234 #=> "1.2"
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/Kernel.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Kernel.html' class='ruby-doc
 remote' target='_blank'>Kernel Reference</a>
 
 

@@ -59,30 +59,16 @@ lib/debug.rb
 :   *unmaintained*
 lib/delegate.rb
 :   *unmaintained*
-lib/e2mmap.rb
-:   Keiju ISHITSUKA (keiju)
 lib/erb.rb
 :   Masatoshi SEKI (seki), Takashi Kokubun (k0kubun)
 lib/find.rb
 :   Kazuki Tsujimoto (ktsj)
-lib/forwardable.rb
-:   Keiju ISHITSUKA (keiju)
 lib/getoptlong.rb
 :   *unmaintained*
-lib/ipaddr.rb
-:   Akinori MUSHA (knu)
-lib/irb.rb, lib/irb/*
-:   Keiju ISHITSUKA (keiju)
-lib/logger.rb
-:   Naotoshi Seo (sonots)
-lib/matrix.rb
-:   Marc-Andre Lafortune (marcandre)
 lib/mkmf.rb
 :   *unmaintained*
 lib/monitor.rb
 :   Shugo Maeda (shugo)
-lib/mutex_m.rb
-:   Keiju ISHITSUKA (keiju)
 lib/net/ftp.rb
 :   Shugo Maeda (shugo)
 lib/net/imap.rb
@@ -103,14 +89,10 @@ lib/open3.rb
 :   *unmaintained*
 lib/optparse.rb, lib/optparse/*
 :   Nobuyuki Nakada (nobu)
-lib/ostruct.rb
-:   Marc-Andre Lafortune (marcandre)
 lib/pp.rb
 :   Tanaka Akira (akr)
 lib/prettyprint.rb
 :   Tanaka Akira (akr)
-lib/prime.rb
-:   Yuki Sonoda (yugui)
 lib/profile.rb
 :   *unmaintained*
 lib/profiler.rb
@@ -123,12 +105,8 @@ lib/resolv-replace.rb
 :   Tanaka Akira (akr)
 lib/resolv.rb
 :   Tanaka Akira (akr)
-lib/rexml/*
-:   Kouhei Sutou (kou)
 lib/rinda/*
 :   Masatoshi SEKI (seki)
-lib/rss.rb, lib/rss/*
-:   Kouhei Sutou (kou)
 lib/rubygems.rb, lib/ubygems.rb, lib/rubygems/*
 :   Eric Hodel (drbrain), Hiroshi SHIBATA (hsbt)
     https://github.com/rubygems/rubygems
@@ -136,26 +114,18 @@ lib/set.rb
 :   Akinori MUSHA (knu)
 lib/securerandom.rb
 :   Tanaka Akira (akr)
-lib/shell.rb, lib/shell/*
-:   Keiju ISHITSUKA (keiju)
 lib/shellwords.rb
 :   Akinori MUSHA (knu)
 lib/singleton.rb
 :   Yukihiro Matsumoto (matz)
-lib/sync.rb
-:   Keiju ISHITSUKA (keiju)
 lib/tempfile.rb
 :   *unmaintained*
 lib/tmpdir.rb
 :   *unmaintained*
-lib/thwait.rb
-:   Keiju ISHITSUKA (keiju)
 lib/time.rb
 :   Tanaka Akira (akr)
 lib/timeout.rb
 :   Yukihiro Matsumoto (matz)
-lib/tracer.rb
-:   Keiju ISHITSUKA (keiju)
 lib/tsort.rb
 :   Tanaka Akira (akr)
 lib/un.rb
@@ -215,16 +185,48 @@ ext/win32ole
 
 ### Libraries
 
+lib/bundler.rb, lib/bundler/*
+:   Hiroshi SHIBATA (hsbt) https://github.com/bundler/bundler
 lib/cmath.rb
 :   *unmaintained* https://github.com/ruby/cmath
 lib/csv.rb
-:   James Edward Gray II (jeg2) https://github.com/ruby/csv
+:   Kenta Murata (mrkn), Kouhei Sutou (kou) https://github.com/ruby/csv
+lib/e2mmap.rb
+:   Keiju ISHITSUKA (keiju)
 lib/fileutils.rb
 :   *unmaintained* https://github.com/ruby/fileutils
+lib/forwardable.rb
+:   Keiju ISHITSUKA (keiju)
+lib/ipaddr.rb
+:   Akinori MUSHA (knu)
+lib/irb.rb, lib/irb/*
+:   Keiju ISHITSUKA (keiju)
+lib/logger.rb
+:   Naotoshi Seo (sonots)
+lib/matrix.rb
+:   Marc-Andre Lafortune (marcandre)
+lib/mutex_m.rb
+:   Keiju ISHITSUKA (keiju)
+lib/ostruct.rb
+:   Marc-Andre Lafortune (marcandre)
+lib/prime.rb
+:   Yuki Sonoda (yugui)
 lib/rdoc.rb, lib/rdoc/*
 :   Eric Hodel (drbrain), Hiroshi SHIBATA (hsbt) https://github.com/ruby/rdoc
+lib/rexml/*
+:   Kouhei Sutou (kou)
+lib/rss.rb, lib/rss/*
+:   Kouhei Sutou (kou)
 lib/scanf.rb
 :   David A. Black (dblack) https://github.com/ruby/scanf
+lib/shell.rb, lib/shell/*
+:   Keiju ISHITSUKA (keiju)
+lib/sync.rb
+:   Keiju ISHITSUKA (keiju)
+lib/thwait.rb
+:   Keiju ISHITSUKA (keiju)
+lib/tracer.rb
+:   Keiju ISHITSUKA (keiju)
 lib/webrick.rb, lib/webrick/*
 :   Eric Wong (normalperson) https://bugs.ruby-lang.org/
 
@@ -238,9 +240,9 @@ ext/date
 ext/dbm
 :   *unmaintained* https://github.com/ruby/dbm
 ext/etc
-:   *unmaintained* https://github.com/ruby/etc
+:   Ruby core team https://github.com/ruby/etc
 ext/fcntl
-:   *unmaintained* https://github.com/ruby/fcntl
+:   Ruby core team https://github.com/ruby/fcntl
 ext/fiddle
 :   Aaron Patterson (tenderlove) https://github.com/ruby/fiddle
 ext/gdbm
@@ -261,7 +263,7 @@ ext/stringio
 ext/strscan
 :   *unmaintained* https://github.com/ruby/strscan
 ext/zlib
-:   *unmaintained* https://github.com/ruby/zlib
+:   NARUSE, Yui (naruse) https://github.com/ruby/zlib
 
 
 ## Bundled gems upstream repositories

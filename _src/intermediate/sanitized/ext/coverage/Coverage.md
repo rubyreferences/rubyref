@@ -34,4 +34,4 @@ experimental, so these APIs may be changed in future.
     require "foo.rb"
     p Coverage.result  #=> {"foo.rb"=>[1, 1, 10, nil, nil, 1, 1, nil, 0, nil]}
 
-[Coverage Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/coverage/rdoc/Coverage.html)
+[Coverage Reference](https://ruby-doc.org/stdlib-2.6/libdoc/coverage/rdoc/Coverage.html)

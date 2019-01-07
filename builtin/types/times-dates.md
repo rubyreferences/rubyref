@@ -4,7 +4,7 @@ prev: "/builtin/types/struct.html"
 next: "/builtin/types/enumerable.html"
 ---
 
-# Times and Dates[](#times-and-dates)
+## Times and Dates[](#times-and-dates)
 
 
 
@@ -42,11 +42,25 @@ examples:
 Time.new(2002)         #=> 2002-01-01 00:00:00 -0500
 Time.new(2002, 10)     #=> 2002-10-01 00:00:00 -0500
 Time.new(2002, 10, 31) #=> 2002-10-31 00:00:00 -0500
+```
+
+You can pass a UTC offset:
+
+
+```ruby
 Time.new(2002, 10, 31, 2, 2, 2, "+02:00") #=> 2002-10-31 02:02:02 +0200
 ```
 
-You can also use `#gm`, `#local` and `#utc` to infer GMT, local and UTC
-timezones instead of using the current system setting.
+Or a timezone object:
+
+
+```ruby
+tz = timezone("Europe/Athens") # Eastern European Time, UTC+2
+Time.new(2002, 10, 31, 2, 2, 2, tz) #=> 2002-10-31 02:02:02 +0200
+```
+
+You can also use Time::gm, Time::local and Time::utc to infer GMT, local
+and UTC timezones instead of using the current system setting.
 
 You can also create a new time using Time::at which takes the number of
 seconds (or fraction of seconds) since the <a
@@ -119,7 +133,39 @@ t1 >  t2 #=> false
 Time.new(2010,10,31).between?(t1, t2) #=> true
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/Time.html' class='ruby-doc
+#### Timezone argument[](#timezone-argument)
+
+<div class="since-version">Since Ruby 2.6</div>
+
+A timezone argument must have `local_to_utc` and `utc_to_local` methods,
+and may have `name` and `abbr` methods.
+
+The `local_to_utc` method should convert a Time-like object from the
+timezone to UTC, and `utc_to_local` is the opposite. The result also
+should be a Time or Time-like object (not necessary to be the same
+class). The `#zone` of the result is just ignored. Time-like argument to
+these methods is similar to a Time object in UTC without sub-second; it
+has attribute readers for the parts, e.g. `#year`, `#month`, and so on,
+and epoch time readers, `#to_i`. The sub-second attributes are fixed as
+0, and `#utc_offset`, `#zone`, `#isdst`, and their aliases are same as a
+Time object in UTC. Also `#to_time`, #+, and #- methods are defined.
+
+The `name` method is used for marshaling. If this method is not defined
+on a timezone object, Time objects using that timezone object can not be
+dumped by Marshal.
+
+The `abbr` method is used by '%Z' in `#strftime`.
+
+##### Auto conversion to Timezone[](#auto-conversion-to-timezone)
+
+At loading marshaled data, a timezone name will be converted to a
+timezone object by `find_timezone` class method, if the method is
+defined.
+
+Similary, that class method will be called when a timezone argument does
+not have the necessary methods mentioned above.
+
+<a href='https://ruby-doc.org/core-2.6/Time.html' class='ruby-doc
 remote' target='_blank'>Time Reference</a>
 
 
@@ -129,96 +175,22 @@ remote' target='_blank'>Time Reference</a>
 Part of the useful functionality for `Time` is provided by the standard
 library `time`.
 
-
-
-All examples assume you have loaded Time with:
+Examples:
 
 
 ```ruby
 require 'time'
-```
 
-All of these examples were done using the EST timezone which is GMT-5.
-
-##### Converting to a String[](#converting-to-a-string)
-
-
-```ruby
 t = Time.now
 t.iso8601  # => "2011-10-05T22:26:12-04:00"
 t.rfc2822  # => "Wed, 05 Oct 2011 22:26:12 -0400"
 t.httpdate # => "Thu, 06 Oct 2011 02:26:12 GMT"
-```
 
-##### Time.parse[](#timeparse)
-
-`#parse` takes a string representation of a Time and attempts to parse
-it using a heuristic.
-
-
-```ruby
 Time.parse("2010-10-31") #=> 2010-10-31 00:00:00 -0500
-```
-
-Any missing pieces of the date are inferred based on the current date.
-
-
-```ruby
-# assuming the current date is "2011-10-31"
-Time.parse("12:00") #=> 2011-10-31 12:00:00 -0500
-```
-
-We can change the date used to infer our missing elements by passing a
-second object that responds to `#mon`, `#day` and `#year`, such as Date,
-Time or DateTime. We can also use our own object.
-
-
-```ruby
-class MyDate
-  attr_reader :mon, :day, :year
-
-  def initialize(mon, day, year)
-    @mon, @day, @year = mon, day, year
-  end
-end
-
-d  = Date.parse("2010-10-28")
-t  = Time.parse("2010-10-29")
-dt = DateTime.parse("2010-10-30")
-md = MyDate.new(10,31,2010)
-
-Time.parse("12:00", d)  #=> 2010-10-28 12:00:00 -0500
-Time.parse("12:00", t)  #=> 2010-10-29 12:00:00 -0500
-Time.parse("12:00", dt) #=> 2010-10-30 12:00:00 -0500
-Time.parse("12:00", md) #=> 2010-10-31 12:00:00 -0500
-```
-
-`#parse` also accepts an optional block. You can use this block to
-specify how to handle the year component of the date. This is
-specifically designed for handling two digit years. For example, if you
-wanted to treat all two digit years prior to 70 as the year 2000+ you
-could write this:
-
-
-```ruby
-Time.parse("01-10-31") {|year| year + (year < 70 ? 2000 : 1900)}
-#=> 2001-10-31 00:00:00 -0500
-Time.parse("70-10-31") {|year| year + (year < 70 ? 2000 : 1900)}
-#=> 1970-10-31 00:00:00 -0500
-```
-
-##### Time.strptime[](#timestrptime)
-
-`#strptime` works similar to `parse` except that instead of using a
-heuristic to detect the format of the input string, you provide a second
-argument that describes the format of the string. For example:
-
-
-```ruby
 Time.strptime("2000-10-31", "%Y-%m-%d") #=> 2000-10-31 00:00:00 -0500
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/time/rdoc/Time.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/time/rdoc/Time.html'
 class='ruby-doc remote' target='_blank'>Time Reference</a>
 
 
@@ -306,7 +278,7 @@ d += 1                       #=> #<Date: 2001-02-04 ...>
 d.strftime('%a %d %b %Y')    #=> "Sun 04 Feb 2001"
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/date/rdoc/Date.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/date/rdoc/Date.html'
 class='ruby-doc remote' target='_blank'>Date Reference</a>
 
 
@@ -479,7 +451,6 @@ href='http://en.wikipedia.org/wiki/Standard_time#Great_Britain'
 class='remote' target='_blank'>Standard Time</a> and eventually
 timezones.
 
-<a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/date/rdoc/DateTime.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/date/rdoc/DateTime.html'
 class='ruby-doc remote' target='_blank'>DateTime Reference</a>
 

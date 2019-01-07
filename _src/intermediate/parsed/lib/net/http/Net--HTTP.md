@@ -4,7 +4,7 @@
 
 Net::HTTP provides a rich library which can be used to build HTTP user-agents.
  For more details about HTTP see
-[RFC2616](http://www.ietf.org/rfc/rfc2616.txt)
+[RFC2616](http://www.ietf.org/rfc/rfc2616.txt).
 
 Net::HTTP is designed to work closely with URI.  URI::HTTP#host,
 URI::HTTP#port and URI::HTTP#request_uri are designed to work with Net::HTTP.
@@ -54,8 +54,8 @@ They are not recommended if you are performing many HTTP requests.
 
 ## How to use Net::HTTP
 
-The following example code can be used as the basis of a HTTP user-agent which
-can perform a variety of request types using persistent connections.
+The following example code can be used as the basis of an HTTP user-agent
+which can perform a variety of request types using persistent connections.
 
     uri = URI('http://example.com/some_path?query=string')
 
@@ -70,13 +70,12 @@ kept open for the duration of the block.  The connection will remain open for
 multiple requests in the block if the server indicates it supports persistent
 connections.
 
+If you wish to re-use a connection across multiple HTTP requests without
+automatically closing it you can use ::new and then call #start and #finish
+manually.
+
 The request types Net::HTTP supports are listed below in the section "HTTP
 Request Classes".
-
-If you wish to re-use a connection across multiple HTTP requests without
-automatically closing it you can use ::new instead of ::start.  #request will
-automatically open a connection to the server if one is not currently open. 
-You can manually close the connection with #finish.
 
 For all the Net::HTTP request objects and shortcut request methods you may
 supply either a String for the request path or a URI from which Net::HTTP will
@@ -135,7 +134,7 @@ Using a case statement you can handle various types of responses properly:
 ### POST
 
 A POST can be made using the Net::HTTP::Post request class.  This example
-creates a urlencoded POST body:
+creates a URL encoded POST body:
 
     uri = URI('http://www.example.com/todo.cgi')
     req = Net::HTTP::Post.new(uri)
@@ -152,13 +151,10 @@ creates a urlencoded POST body:
       res.value
     end
 
-At this time Net::HTTP does not support multipart/form-data.  To send
-multipart/form-data use Net::HTTPRequest#body= and
-Net::HTTPRequest#content_type=:
+To send multipart/form-data use Net::HTTPHeader#set_form:
 
     req = Net::HTTP::Post.new(uri)
-    req.body = multipart_data
-    req.content_type = 'multipart/form-data'
+    req.set_form([['upload', File.open('foo.bar')]], 'multipart/form-data')
 
 Other requests that can contain a body such as PUT can be created in the same
 way using the corresponding request class (Net::HTTP::Put).
@@ -187,7 +183,7 @@ details.
 ### Basic Authentication
 
 Basic authentication is performed according to
-[RFC2617](http://www.ietf.org/rfc/rfc2617.txt)
+[RFC2617](http://www.ietf.org/rfc/rfc2617.txt).
 
     uri = URI('http://example.com/index.html?key=value')
 
@@ -231,8 +227,8 @@ HTTPS is enabled for an HTTP connection by Net::HTTP#use_ssl=.
     end
 
 Or if you simply want to make a GET request, you may pass in an URI object
-that has a HTTPS URL. Net::HTTP automatically turn on TLS verification if the
-URI object has a 'https' URI scheme.
+that has an HTTPS URL. Net::HTTP automatically turns on TLS verification if
+the URI object has a 'https' URI scheme.
 
     uri = URI('https://example.com/')
     Net::HTTP.get(uri) # => String
@@ -415,4 +411,4 @@ HTTPNetworkAuthenticationRequired
 There is also the Net::HTTPBadResponse exception which is raised when there is
 a protocol error.
 
-[Net::HTTP Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/net/http/rdoc/Net/HTTP.html)
+[Net::HTTP Reference](https://ruby-doc.org/stdlib-2.6/libdoc/net/http/rdoc/Net/HTTP.html)

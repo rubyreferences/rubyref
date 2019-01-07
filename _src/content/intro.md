@@ -1,6 +1,8 @@
 # The Ruby Reference
 
-This book is the reference for the Ruby programming language created by Yukihiro "Matz" Matsumoto. It describes the language structure, its core classes and standard library, and provides some additional useful information and links for Ruby development.
+<a href='https://www.patreon.com/zverok' target='_blank'><img src="https://img.shields.io/badge/patreon-donate-blue.svg" alt="Patreon"/></a>
+
+This book is the reference for the [Ruby programming language](https://www.ruby-lang.org/). It describes the language structure, its core classes and standard library, and provides some additional useful information and links for Ruby development.
 
 The Reference is intended to be always up-to-date with the current Ruby version.
 

@@ -95,6 +95,6 @@ The built-in subclasses of Exception are:
 * SystemStackError
 * fatal -- impossible to rescue
 
-<a href='https://ruby-doc.org/core-2.5.0/Exception.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Exception.html' class='ruby-doc
 remote' target='_blank'>Exception Reference</a>
 

@@ -3,7 +3,7 @@ title: 'Appendix B: Useful Links'
 prev: "/appendix-a.html"
 ---
 
-### Appendix B: Useful Links[](#appendix-b-useful-links)
+## Appendix B: Useful Links[](#appendix-b-useful-links)
 
 * <a href='https://www.ruby-lang.org/' class='remote'
   target='_blank'>Ruby Site</a>. It also has a <a
@@ -12,20 +12,28 @@ prev: "/appendix-a.html"
 * <a href='https://bugs.ruby-lang.org/' class='remote'
   target='_blank'>Ruby Official Bug Tracker</a>
 
-#### Documentation[](#documentation)
+### Documentation[](#documentation)
 
 * <a href='http://ruby-doc.org/' class='ruby-doc remote'
   target='_blank'>Ruby-Doc.org</a> hosts rendered reference
-  documentation for all <a href='http://www.ruby-doc.org/core'
-  class='remote' target='_blank'>core</a> and <a
-  href='http://www.ruby-doc.org/stdlib' class='remote'
+  documentation for all <a href='http://ruby-doc.org/core'
+  class='ruby-doc remote' target='_blank'>core</a> and <a
+  href='http://ruby-doc.org/stdlib' class='ruby-doc remote'
   target='_blank'>standard library</a> classes and methods. This
   reference links there a lot, marking those links with red icon.
 * <a href='http://www.rubydoc.info/' class='remote'
   target='_blank'>RubyDoc.info</a> hosts rendered documentation for all
   published gems (generated with YARD).
+* <a href='https://silverhammermba.github.io/emberb/' class='remote'
+  target='_blank'>The Definitive Guide to Ruby's C API</a>
+* <a href='https://rubyreferences.github.io/rubychanges/' class='remote'
+  target='_blank'>Ruby Changes</a>\: comprehensive changelog for the
+  latest version
+* <a href='https://stdgems.org/' class='remote' target='_blank'>Ruby
+  Standard Gems</a>\: explanation about concepts of "default" and
+  "bundled" gems in the standard library and actual lists of them.
 
-#### Libraries[](#libraries)
+### Libraries[](#libraries)
 
 * <a href='https://rubygems.org/' class='remote'
   target='_blank'>RubyGems</a> is the central repository of Ruby
@@ -36,7 +44,7 @@ prev: "/appendix-a.html"
 * <a href='http://awesome-ruby.com/' class='remote'
   target='_blank'>Awesome Ruby</a> is another one.
 
-#### News and Community[](#news-and-community)
+### News and Community[](#news-and-community)
 
 * <a href='http://rubyconferences.org/' class='remote'
   target='_blank'>Conferences List</a>
@@ -45,7 +53,7 @@ prev: "/appendix-a.html"
 * <a href='https://www.ruby-lang.org/en/community/mailing-lists/'
   class='remote' target='_blank'>Ruby Maling Lists</a>
 
-#### Organizations[](#organizations)
+### Organizations[](#organizations)
 
 * <a href='http://www.ruby.or.jp/en/' class='remote'
   target='_blank'>Ruby Association</a> is a non-profit organization

@@ -5,8 +5,11 @@
 
 ### Documentation
 
-* [Ruby-Doc.org](http://ruby-doc.org/) hosts rendered reference documentation for all [core](http://www.ruby-doc.org/core) and [standard library](http://www.ruby-doc.org/stdlib) classes and methods. This reference links there a lot, marking those links with red icon.
+* [Ruby-Doc.org](http://ruby-doc.org/) hosts rendered reference documentation for all [core](http://ruby-doc.org/core) and [standard library](http://ruby-doc.org/stdlib) classes and methods. This reference links there a lot, marking those links with red icon.
 * [RubyDoc.info](http://www.rubydoc.info/) hosts rendered documentation for all published gems (generated with YARD).
+* [The Definitive Guide to Ruby's C API](https://silverhammermba.github.io/emberb/)
+* [Ruby Changes](https://rubyreferences.github.io/rubychanges/): comprehensive changelog for the latest version
+* [Ruby Standard Gems](https://stdgems.org/): explanation about concepts of "default" and "bundled" gems in the standard library and actual lists of them.
 
 ### Libraries
 

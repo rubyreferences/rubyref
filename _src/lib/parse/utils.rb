@@ -24,28 +24,72 @@ def prepare_rdoc
   end
 end
 
+module RDoc::Encoding
+  OLD_READ_FILE = method(:read_file)
+
+  def self.read_file(path, *args)
+    OLD_READ_FILE.call(path, *args)
+      .then { |res| fix_source(path, res) }
+  end
+
+  def self.fix_source(path, content)
+    case path
+    when %r{lib/time\.rb$}
+      # There is unfortunate :stopdoc: in
+      # https://github.com/ruby/ruby/commit/8ea6c92eb3877bef97c289c3c2c5624366395b5d
+      # Ideas of dealing with it with more grace?..
+      content.sub("# :stopdoc:\n", "").sub("# :startdoc:\n", "")
+    when %r{/file\.c$}
+      # Weird bug in Rdoc, it parses File::Constants as File::File::Constants...
+      # ...and this code doesn't help. :shrug:
+      # Fixed later.
+      #
+      # content.sub('Document-module: File::Constants', 'Document-class: File::Constants')
+      content
+    else
+      content
+    end
+  end
+end
+
 def parse_files(*pathes)
   prepare_rdoc.parse_files(pathes)
 end
 
 
-# Net::* and IO::* are separate libraries.
-WITH_SUBMODULES = %w[Net IO]
+# Net::* and IO::* are separate libraries
+# Enumerator includes Enumerator::Lazy, which is also separate concept
+# File include Constants and Stat
+WITH_SUBMODULES = %w[Net IO Enumerator File RubyVM]
+
+# We want them anyways!
+ROOT_EXCEPTIONS = %w[]
 
 def root_module?(mod)
-  !mod.full_name.include?('::') ||
-    mod.full_name.split('::')
-      .yield_self { |parts| parts.count == 2 && WITH_SUBMODULES.include?(parts.first) }
+  mod.full_name.then { |name|
+    !name.include?('::') ||
+      ROOT_EXCEPTIONS.include?(name) ||
+      name.split('::').then { |parts| parts.count == 2 && WITH_SUBMODULES.include?(parts.first) }
+  }
 end
 
 def children(context)
   [*context.classes, *context.modules].flat_map { |mod| [mod, *children(mod)] }
 end
 
+def fix_name(mod)
+  # Bug in RDoc, it SHOULD be File::Constants
+  if mod.full_name == 'File::File::Constants'
+    def mod.full_name
+      'File::Constants'
+    end
+  end
+end
 
 def parse_modules(*pathes)
   parse_files(*pathes)
     .flat_map(&method(:children))
+    .each(&method(:fix_name))
     .select(&method(:root_module?))
     .group_by(&:full_name).map { |_, g| g.first }
 end

@@ -73,4 +73,4 @@ $LAST_PAREN_MATCH
 :   $+
 
 
-[English Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/English/rdoc/English.html)
+[English Reference](https://ruby-doc.org/stdlib-2.6/libdoc/English/rdoc/English.html)

@@ -14,7 +14,7 @@ require 'net/http'
 Net::HTTP provides a rich library which can be used to build HTTP
 user-agents. For more details about HTTP see <a
 href='http://www.ietf.org/rfc/rfc2616.txt' class='remote'
-target='_blank'>RFC2616</a>
+target='_blank'>RFC2616</a>.
 
 Net::HTTP is designed to work closely with URI. `URI::HTTP#host`,
 U`RI::HTTP#port` and `URI::HTTP#request_uri` are designed to work with
@@ -84,8 +84,8 @@ puts res.body
 
 ### How to use Net::HTTP[](#how-to-use-nethttp)
 
-The following example code can be used as the basis of a HTTP user-agent
-which can perform a variety of request types using persistent
+The following example code can be used as the basis of an HTTP
+user-agent which can perform a variety of request types using persistent
 connections.
 
 
@@ -104,14 +104,12 @@ which is kept open for the duration of the block. The connection will
 remain open for multiple requests in the block if the server indicates
 it supports persistent connections.
 
+If you wish to re-use a connection across multiple HTTP requests without
+automatically closing it you can use ::new and then call `#start` and
+`#finish` manually.
+
 The request types Net::HTTP supports are listed below in the section
 "HTTP Request Classes".
-
-If you wish to re-use a connection across multiple HTTP requests without
-automatically closing it you can use ::new instead of ::start.
-`#request` will automatically open a connection to the server if one is
-not currently open. You can manually close the connection with
-`#finish`.
 
 For all the Net::HTTP request objects and shortcut request methods you
 may supply either a String for the request path or a URI from which
@@ -178,7 +176,7 @@ print fetch('http://www.ruby-lang.org')
 #### POST[](#post-1)
 
 A POST can be made using the Net::HTTP::Post request class. This example
-creates a urlencoded POST body:
+creates a URL encoded POST body:
 
 
 ```ruby
@@ -198,14 +196,11 @@ else
 end
 ```
 
-At this time Net::HTTP does not support multipart/form-data. To send
-multipart/form-data use `Net::HTTPRequest#body=` and
-Net::`HTTPRequest#content_type=`: 
+To send multipart/form-data use `Net::HTTPHeader#set_form`: 
 
 ```ruby
 req = Net::HTTP::Post.new(uri)
-req.body = multipart_data
-req.content_type = 'multipart/form-data'
+req.set_form([['upload', File.open('foo.bar')]], 'multipart/form-data')
 ```
 
 Other requests that can contain a body such as PUT can be created in the
@@ -239,7 +234,7 @@ end if res.is_a?(Net::HTTPSuccess)
 
 Basic authentication is performed according to <a
 href='http://www.ietf.org/rfc/rfc2617.txt' class='remote'
-target='_blank'>RFC2617</a>
+target='_blank'>RFC2617</a>.
 
 
 ```ruby
@@ -292,7 +287,7 @@ end
 ```
 
 Or if you simply want to make a GET request, you may pass in an URI
-object that has a HTTPS URL. Net::HTTP automatically turn on TLS
+object that has an HTTPS URL. Net::HTTP automatically turns on TLS
 verification if the URI object has a 'https' URI scheme.
 
 
@@ -335,6 +330,6 @@ Compression can be disabled through the Accept-Encoding: identity
 header.
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/net/http/rdoc/Net/HTTP.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/net/http/rdoc/Net/HTTP.html'
 class='ruby-doc remote' target='_blank'>Net::HTTP Reference</a>
 

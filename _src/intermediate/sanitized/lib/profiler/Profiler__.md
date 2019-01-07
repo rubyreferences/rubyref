@@ -57,4 +57,4 @@ The output in both cases is a report when the execution is over:
       0.00     0.19      0.00        1     0.00    90.00  Object#fast_method
       0.00     0.19      0.00        1     0.00   190.00  #toplevel
 
-[Profiler__ Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/profiler/rdoc/Profiler__.html)
+[Profiler__ Reference](https://ruby-doc.org/stdlib-2.6/libdoc/profiler/rdoc/Profiler__.html)

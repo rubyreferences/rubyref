@@ -9,14 +9,14 @@ next: "/stdlib/string-utilities/shellwords.html"
 require 'scanf'
 ```
 
-# scanf[](#scanf)
+## scanf[](#scanf)
 
 
 
 scanf is an implementation of the C function scanf(3), modified as
 necessary for Ruby compatibility.
 
-the methods provided are `String#scanf`, `IO#scanf`, and `Kernel#scanf`.
+The methods provided are `String#scanf`, `IO#scanf`, and `Kernel#scanf`.
 Kernel#scanf is a wrapper around STDIN.scanf. `IO#scanf` can be used on
 any IO stream, including file handles and sockets. scanf can be called
 either with or without a block.
@@ -34,8 +34,8 @@ matches and conversions take place from left to right, and the
 conversions themselves are returned as an array.
 
 The format string may also contain characters other than those in the
-conversion specifiers. White space (blanks, tabs, or newlines) in the
-format string matches any amount of white space, including none, in the
+conversion specifiers. Whitespace (blanks, tabs, or newlines) in the
+format string matches any amount of whitespace, including none, in the
 input. Everything else matches only itself.
 
 Scanning stops, and scanf returns, when any input character fails to
@@ -44,7 +44,7 @@ exhausted, or when everything in the format string has been matched. All
 matches found up to the stopping point are returned in the return array
 (or yielded to the block, if a block was given).
 
-#### Basic usage[](#basic-usage)
+### Basic usage[](#basic-usage)
 
 
 ```ruby
@@ -58,7 +58,7 @@ array = an_io.scanf("%d%s")
 array = scanf("%d%s")
 ```
 
-#### Block usage[](#block-usage)
+### Block usage[](#block-usage)
 
 When called with a block, scanf keeps scanning the input, cycling back
 to the beginning of the format string, and yields a new array of
@@ -74,6 +74,6 @@ str.scanf("%d%s") { |num,str| [ num * 2, str.upcase ] }
 # => [[246, "ABC"], [912, "DEF"], [1578, "GHI"]]
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/scanf/rdoc/Scanf.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/scanf/rdoc/Scanf.html'
 class='ruby-doc remote' target='_blank'>Scanf Reference</a>
 

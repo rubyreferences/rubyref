@@ -24,7 +24,7 @@ end
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/monitor/rdoc/Monitor.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/monitor/rdoc/Monitor.html'
 class='ruby-doc remote' target='_blank'>Monitor Reference</a>
 
 
@@ -117,7 +117,7 @@ items. This Class is implemented as subclass of Array which includes the
 MonitorMixin module.
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/monitor/rdoc/MonitorMixin.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/monitor/rdoc/MonitorMixin.html'
 class='ruby-doc remote' target='_blank'>MonitorMixin Reference</a>
 
 
@@ -145,12 +145,16 @@ obj.extend Mutex_m
 ```
 
 Or mixin Mutex\_m into your module to your class inherit Mutex instance
-methods.
+methods — remember to call super() in your class initialize method.
 
 
 ```ruby
 class Foo
   include Mutex_m
+  def initialize
+    # ...
+    super()
+  end
   # ...
 end
 obj = Foo.new
@@ -158,7 +162,7 @@ obj = Foo.new
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/mutex_m/rdoc/Mutex_m.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/mutex_m/rdoc/Mutex_m.html'
 class='ruby-doc remote' target='_blank'>Mutex\_m Reference</a>
 
 
@@ -168,7 +172,7 @@ class='ruby-doc remote' target='_blank'>Mutex\_m Reference</a>
 A class that provides two-phase lock with a counter. See Sync\_m for
 details.
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/sync/rdoc/Sync.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/sync/rdoc/Sync.html'
 class='ruby-doc remote' target='_blank'>Sync Reference</a>
 
 
@@ -177,7 +181,7 @@ class='ruby-doc remote' target='_blank'>Sync Reference</a>
 
 A module that provides a two-phase lock with a counter.
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/sync/rdoc/Sync_m.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/sync/rdoc/Sync_m.html'
 class='ruby-doc remote' target='_blank'>Sync\_m Reference</a>
 
 
@@ -188,7 +192,7 @@ A class that provides two-phase lock with a counter. See Sync\_m for
 details.
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/sync/rdoc/Synchronizer.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/sync/rdoc/Synchronizer.html'
 class='ruby-doc remote' target='_blank'>Synchronizer Reference</a>
 
 
@@ -198,6 +202,6 @@ class='ruby-doc remote' target='_blank'>Synchronizer Reference</a>
 A module that provides a two-phase lock with a counter.
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/sync/rdoc/Synchronizer_m.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/sync/rdoc/Synchronizer_m.html'
 class='ruby-doc remote' target='_blank'>Synchronizer\_m Reference</a>
 

@@ -148,4 +148,4 @@ mails from the POP server. e.g.
 The `POPMail#unique_id`() method returns the unique-id of the message as a
 String. Normally the unique-id is a hash of the message.
 
-[Net::POP3 Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/net/pop/rdoc/Net/POP3.html)
+[Net::POP3 Reference](https://ruby-doc.org/stdlib-2.6/libdoc/net/pop/rdoc/Net/POP3.html)

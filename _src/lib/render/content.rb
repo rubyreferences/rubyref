@@ -103,7 +103,7 @@ class Content
     else
       elements
         .drop_while { |e| e.type != :header || e.options[:raw_text] != section }
-        .tap { |els| els.empty? and fail "Section #{section} not found!" }
+        .tap { |els| els.empty? and fail "Section #{section} not found in #{@source}!" }
         .take_while { |e| e.type != :header || e.options[:raw_text] == section }
     end
   end
@@ -113,14 +113,19 @@ class Content
       source = source
         .sub(/\A---\n.+?\n---\n/m, '')  # YAML frontmatter
         .gsub(/\{:.+?\}/, '')           # {: .foo} tags
-        .gsub(/\{% highlight sh %\}\n.+?\n\{% endhighlight %\}/m) { |str|   # Shell commands
+        .gsub(/\{% highlight (sh|ruby|c) %\}\n.+?\n\{% endhighlight %\}/m) { |str| # Shell commands, Ruby code
           str.gsub(/\{%.+?%\}/, '').gsub(/^/, '    ')
+        }
+        .gsub(/\{% highlight irb %\}\n.+?\n\{% endhighlight %\}/m) { |str|   # IRB
+          # in one place it is too close to list above. ^ is Kramdown's end-of-block marker
+          # https://kramdown.gettalong.org/syntax.html#eob-marker
+          str.gsub(/\{%.+?%\}/, '').gsub(/^/, '    ').prepend("\n^\n")
         }
     end
     if path.end_with?('ruby-lang.org/en/documentation/installation/index.md')
       source.sub!(/\* \[Package Management Systems.+\(\#building-from-source\)/m, '')
     end
-    @replace.inject(source) { |src, r| src.gsub(r[:from], r[:to]) }
+    @replace.inject(source) { |src, from:, to:| src.gsub(from, to) }
   end
 
   def postprocess
@@ -141,9 +146,11 @@ class Content
       elements.delete_at(idx)
     end
 
-    @insert.each do |after:, source:|
+    @insert.each do |after:, source: nil, macros: nil|
       idx = para_idx(after)
+      source ||= macros&.then(&method(:process_macros)) or fail "source or macros is required for insert"
       source = parse_source(source)
+
       elements.insert(idx + 1, *source.root.children)
     end
 
@@ -152,12 +159,18 @@ class Content
     }
   end
 
+  def process_macros(text)
+    m = text.match(/^(\w+)\((.+)\)$/) or fail ArgumentError, "Unparseable macros #{text}"
+    send("macro_#{m[1]}", m[2])
+  end
+
   STDLIB = <<~DOC
     _Part of standard library. You need to `require '%s'` before using._
 
   DOC
 
   REQ_STDLIB = "    require '%s'\n\n"
+  SINCE_RUBY_VER = "<div class='since-version'>Since Ruby %s</div>\n\n"
 
   def handle_stdlib(libname)
     idx = para_idx('#') # First header
@@ -169,5 +182,9 @@ class Content
       @source.match(%r{(?:lib|ext)/([^/]+)})&.at(1) or fail("Can't guess libname by #{@source}")
 
     elements.insert(0, *parse_source(REQ_STDLIB % libname).root.children)
+  end
+
+  def macro_since(ver)
+    SINCE_RUBY_VER % ver
   end
 end

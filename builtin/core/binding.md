@@ -39,6 +39,6 @@ eval("@secret")       #=> nil
 
 Binding objects have no class-specific methods.
 
-<a href='https://ruby-doc.org/core-2.5.0/Binding.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Binding.html' class='ruby-doc
 remote' target='_blank'>Binding Reference</a>
 

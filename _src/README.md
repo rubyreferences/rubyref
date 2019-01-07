@@ -35,7 +35,8 @@ This is achieved by creating the reference with 90% of content taken from _offic
 * `ruby/` submodule should be switched to new branch;
 * Ruby version should be updated in `config/ruby_version.txt`;
 * new `parse`→`sanitize`→`render` cycle should be done (using `list` to not miss new docs);
-* `content/stdlib/bundled.md` should be checked manually (if new bundled gems were added in a new version).
+* `content/stdlib/bundled.md` should be checked manually (if new bundled gems were added in a new version)
+* `config/kernel.yml` should be checked manually (if new `Kernel` methods were added).
 
 ## Contributing
 

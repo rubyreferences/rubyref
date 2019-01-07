@@ -1,6 +1,6 @@
 ---
 title: Contributing To Ruby
-prev: "/advanced/dtrace.html"
+prev: "/advanced/signals.html"
 next: "/appendix-a.html"
 ---
 
@@ -76,7 +76,7 @@ You can report downstream issues for the following distributions via
 their bug tracker:
 
 * <a
-  href='http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=ruby-defaults'
+  href='https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=ruby-defaults'
   class='remote' target='_blank'>debian</a>
 * <a href='http://www.freebsd.org/cgi/query-pr-summary.cgi?text=ruby'
   class='remote' target='_blank'>freebsd</a>
@@ -86,8 +86,8 @@ their bug tracker:
   target='_blank'>redhat</a>
 
 * <a
-  href='http://trac.macports.org/query?status=assigned&status=new&statu
-  s=reopened&port=~ruby' class='remote' target='_blank'>macports</a>
+  href='https://trac.macports.org/query?status=assigned&status=new&stat
+  us=reopened&port=~ruby' class='remote' target='_blank'>macports</a>
 
 * etc (add your distribution bug tracker here)
 
@@ -100,11 +100,10 @@ The current active platform maintainers are as follows:
 
 * mswin64 (Microsoft Windows): NAKAMURA Usaku (usa)
 * mingw32 (Minimalist GNU for Windows): Nobuyoshi Nakada (nobu)
-* IA-64 (Debian GNU/Linux): TAKANO Mitsuhiro (takano32)
 * AIX: Yutaka Kanemoto (kanemoto)
 * FreeBSD: Akinori MUSHA (knu)
 * Solaris: Naohisa Goto (ngoto)
-* RHEL, CentOS: KOSAKI Motohiro kosaki
+* RHEL, CentOS: KOSAKI Motohiro (kosaki)
 * macOS: Kenta Murata (mrkn)
 * cygwin, bcc32, djgpp, wince, ...\: none. (Maintainer WANTED)
 
@@ -297,7 +296,7 @@ href='https://www.ruby-lang.org/en/community/ruby-core/' class='remote'
 target='_blank'>ruby-core documentation on ruby-lang.org</a>.
 
 This guide will use git for contributing. The <a
-href='http://git-scm.com/' class='remote' target='_blank'>git
+href='https://git-scm.com/' class='remote' target='_blank'>git
 homepage</a> has installation instructions with links to documentation
 for learning more about git. There is a mirror of the subversion
 repository on <a href='https://github.com/ruby/ruby' class='remote'
@@ -332,7 +331,7 @@ Now let's build CRuby:
   
   
   ```
-  git clone git://github.com/ruby/ruby.git ruby-trunk
+  git clone https://github.com/ruby/ruby.git ruby-trunk
   ```
 
 * Generate the configuration files and build:
@@ -384,7 +383,7 @@ wanted to checkout 1.9.3:
 
 
 ```
-git clone git://github.com/ruby/ruby.git --branch ruby_1_9_3
+git clone https://github.com/ruby/ruby.git --branch ruby_1_9_3
 ```
 
 Once you checked out the source code, you can update the local copy by:
@@ -404,11 +403,11 @@ make love
 ### Contributing Documentation[](#contributing-documentation)
 
 If you're interested in contributing documentation directly to CRuby
-there is a wealth of information available at <a
-href='http://documenting-ruby.org/' class='remote'
-target='_blank'>documenting-ruby.org</a>.
+there is some information available at <a
+href='https://github.com/ruby/ruby#contributing' class='remote'
+target='_blank'>Contributing</a>.
 
-There is also the <a href='https://bugs.ruby-lang.org/projects/rurema'
+There is also the <a href='https://github.com/rurema/doctree/wiki'
 class='remote' target='_blank'>Ruby Reference Manual</a> in Japanese.
 
 ### Contributing A Patch[](#contributing-a-patch)
@@ -443,7 +442,7 @@ First thing you should do is check out the code if you haven't already:
 
 
 ```
-git clone git://github.com/ruby/ruby.git ruby-trunk
+git clone https://github.com/ruby/ruby.git ruby-trunk
 ```
 
 Now create a dedicated branch:
@@ -464,8 +463,8 @@ between your branch and trunk, or edge Ruby.
 Here are some general rules to follow when writing Ruby and C code for
 CRuby:
 
-* Indent 4 spaces for C with tabs for eight-space indentation (emacs
-  default)
+* Indent 4 spaces for C without tabs (old codes might use tabs for
+  eight-space indentation, but newer codes recommend to use spaces only)
 
 * Indent 2 space tabs for Ruby
 * Do not use TABs in ruby codes
@@ -565,10 +564,10 @@ href='https://git.wiki.kernel.org/index.php/GitHosting' class='remote'
 target='_blank'>publicly accessible hosting site</a>, including <a
 href='https://www.kernel.org/pub/software/scm/git/docs/user-manual.html#public-
 repositories' class='remote' target='_blank'>hosting your own</a> You
-may use the <a href='http://git-scm.com/docs/git-format-patch'
+may use the <a href='https://git-scm.com/docs/git-format-patch'
 class='remote' target='_blank'>'git format-patch'</a> command to
 generate patch files to upload to redmine. You may also use the <a
-href='http://git-scm.com/docs/git-request-pull' class='remote'
+href='https://git-scm.com/docs/git-request-pull' class='remote'
 target='_blank'>'git request-pull'</a> command for formatting pull
 request messages to redmine.
 

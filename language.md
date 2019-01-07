@@ -1,6 +1,6 @@
 ---
 title: Language Structure
-prev: "/intro/irb.html"
+prev: "/intro/quickstart.html"
 next: "/language/keywords.html"
 ---
 
@@ -34,10 +34,10 @@ As a brief overview, it can be said that:
 
 Note that many of the language constructs you will see in a typical Ruby
 program, are in fact, just *methods*. For example <a
-href='https://ruby-doc.org/core-2.5.0/Kernel.html#method-i-raise'
+href='https://ruby-doc.org/core-2.6/Kernel.html#method-i-raise'
 class='ruby-doc remote' target='_blank'>`Kernel#raise`</a> is used to
 raise an exception, and <a
-href='https://ruby-doc.org/core-2.5.0/Module.html#method-i-private'
+href='https://ruby-doc.org/core-2.6/Module.html#method-i-private'
 class='ruby-doc remote' target='_blank'>`Module#private`</a> is used to
 change a method's visibility. As a result, the language core described
 in this chapter is pretty small, and everything else just follows usual

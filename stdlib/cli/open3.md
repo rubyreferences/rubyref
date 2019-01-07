@@ -32,6 +32,6 @@ program in the same way as for Process.spawn.
 * Open3.pipeline\_start : run a pipeline without waiting
 * Open3.pipeline : run a pipeline and wait for its completion
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/open3/rdoc/Open3.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/open3/rdoc/Open3.html'
 class='ruby-doc remote' target='_blank'>Open3 Reference</a>
 

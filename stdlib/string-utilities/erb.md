@@ -9,7 +9,7 @@ next: "/stdlib/string-utilities/racc.html"
 require 'erb'
 ```
 
-### ERB[](#erb)
+## ERB[](#erb)
 
 
 
@@ -62,6 +62,6 @@ There are several settings you can change when you use ERB:
 
 See the ERB.new and `ERB#result` methods for more detail.
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/erb/rdoc/ERB.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/erb/rdoc/ERB.html'
 class='ruby-doc remote' target='_blank'>ERB Reference</a>
 

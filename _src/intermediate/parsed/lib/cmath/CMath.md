@@ -20,4 +20,4 @@ To start using this library, simply require cmath library:
 
     require "cmath"
 
-[CMath Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/cmath/rdoc/CMath.html)
+[CMath Reference](https://ruby-doc.org/stdlib-2.6/libdoc/cmath/rdoc/CMath.html)

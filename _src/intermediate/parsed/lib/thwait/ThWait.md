@@ -14,4 +14,4 @@ Example:
     th = ThreadsWait.new(thread1,...)
     th.next_wait # next one to be done
 
-[ThWait Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/thwait/rdoc/ThWait.html)
+[ThWait Reference](https://ruby-doc.org/stdlib-2.6/libdoc/thwait/rdoc/ThWait.html)

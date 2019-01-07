@@ -71,4 +71,4 @@ Using the wrapper to compress strings with default parameters is quite simple:
 
 
 
-[Zlib Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/zlib/rdoc/Zlib.html)
+[Zlib Reference](https://ruby-doc.org/stdlib-2.6/libdoc/zlib/rdoc/Zlib.html)

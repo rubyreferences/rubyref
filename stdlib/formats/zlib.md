@@ -61,6 +61,6 @@ puts "Uncompressed data is: #{uncompressed_data}"
 #=> Uncompressed data is: The Project Gutenberg EBook of Don Quixote...
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/zlib/rdoc/Zlib.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/zlib/rdoc/Zlib.html'
 class='ruby-doc remote' target='_blank'>Zlib Reference</a>
 

@@ -16,7 +16,7 @@ the following:
     library in Unix Version 7 but has different API to support multiple
     databases in a process.
 
-*   [Berkeley DB](http://en.wikipedia.org/wiki/Berkeley_DB) versions 1 thru 5,
+*   [Berkeley DB](http://en.wikipedia.org/wiki/Berkeley_DB) versions 1 thru 6,
     also known as BDB and Sleepycat DB, now owned by Oracle Corporation.
 
 *   Berkeley DB 1.x, still found in 4.4BSD derivatives (FreeBSD, OpenBSD,
@@ -65,4 +65,4 @@ Hash for processing large amounts of data.
     db['3068'] = 'An Anycast Prefix for 6to4 Relay Routers'
     puts db['822']
 
-[DBM Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/dbm/rdoc/DBM.html)
+[DBM Reference](https://ruby-doc.org/stdlib-2.6/libdoc/dbm/rdoc/DBM.html)

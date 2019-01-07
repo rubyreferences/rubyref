@@ -66,8 +66,8 @@ class MyObjectSystem < BasicObject
 end
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/BasicObject.html'
-class='ruby-doc remote' target='_blank'>BasicObject Reference</a>
+<a href='https://ruby-doc.org/core-2.6/BasicObject.html' class='ruby-doc
+remote' target='_blank'>BasicObject Reference</a>
 
 
 
@@ -89,6 +89,6 @@ In the descriptions of Object's methods, the parameter *symbol* refers
 to a symbol, which is either a quoted string or a Symbol (such as
 `:name`).
 
-<a href='https://ruby-doc.org/core-2.5.0/Object.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Object.html' class='ruby-doc
 remote' target='_blank'>Object Reference</a>
 

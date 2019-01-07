@@ -32,12 +32,12 @@ To create an array with separate objects a block can be passed instead. This
 method is safe to use with mutable objects such as hashes, strings or other
 arrays:
 
-    Array.new(4) { Hash.new }  #=> [{}, {}, {}, {}]
+    Array.new(4) {Hash.new}    #=> [{}, {}, {}, {}]
     Array.new(4) {|i| i.to_s } #=> ["0", "1", "2", "3"]
 
 This is also a quick way to build up multi-dimensional arrays:
 
-    empty_table = Array.new(3) { Array.new(3) }
+    empty_table = Array.new(3) {Array.new(3)}
     #=> [[nil, nil, nil], [nil, nil, nil], [nil, nil, nil]]
 
 An array can also be created by using the Array() method, provided by Kernel,
@@ -183,7 +183,7 @@ block in sequence.
 Note that this operation leaves the array unchanged.
 
     arr = [1, 2, 3, 4, 5]
-    arr.each { |a| print a -= 10, " " }
+    arr.each {|a| print a -= 10, " "}
     # prints: -9 -8 -7 -6 -5
     #=> [1, 2, 3, 4, 5]
 
@@ -192,15 +192,15 @@ elements in the array in reverse order.
 
     words = %w[first second third fourth fifth sixth]
     str = ""
-    words.reverse_each { |word| str += "#{word} " }
+    words.reverse_each {|word| str += "#{word} "}
     p str #=> "sixth fifth fourth third second first "
 
 The #map method can be used to create a new array based on the original array,
 but with the values modified by the supplied block:
 
-    arr.map { |a| 2*a }   #=> [2, 4, 6, 8, 10]
+    arr.map {|a| 2*a}     #=> [2, 4, 6, 8, 10]
     arr                   #=> [1, 2, 3, 4, 5]
-    arr.map! { |a| a**2 } #=> [1, 4, 9, 16, 25]
+    arr.map! {|a| a**2}   #=> [1, 4, 9, 16, 25]
     arr                   #=> [1, 4, 9, 16, 25]
 
 ## Selecting Items from an Array
@@ -214,9 +214,9 @@ elements, but leave the original array unchanged.
 ### Non-destructive Selection
 
     arr = [1, 2, 3, 4, 5, 6]
-    arr.select { |a| a > 3 }     #=> [4, 5, 6]
-    arr.reject { |a| a < 3 }     #=> [3, 4, 5, 6]
-    arr.drop_while { |a| a < 4 } #=> [4, 5, 6]
+    arr.select {|a| a > 3}       #=> [4, 5, 6]
+    arr.reject {|a| a < 3}       #=> [3, 4, 5, 6]
+    arr.drop_while {|a| a < 4}   #=> [4, 5, 6]
     arr                          #=> [1, 2, 3, 4, 5, 6]
 
 ### Destructive Selection
@@ -227,11 +227,11 @@ elements, but leave the original array unchanged.
 Similar to #select vs. #reject, #delete_if and #keep_if have the exact
 opposite result when supplied with the same block:
 
-    arr.delete_if { |a| a < 4 } #=> [4, 5, 6]
+    arr.delete_if {|a| a < 4}   #=> [4, 5, 6]
     arr                         #=> [4, 5, 6]
 
     arr = [1, 2, 3, 4, 5, 6]
-    arr.keep_if { |a| a < 4 } #=> [1, 2, 3]
+    arr.keep_if {|a| a < 4}   #=> [1, 2, 3]
     arr                       #=> [1, 2, 3]
 
-[Array Reference](https://ruby-doc.org/core-2.5.0/Array.html)
+[Array Reference](https://ruby-doc.org/core-2.6/Array.html)

@@ -14,7 +14,7 @@ rdoc.instance_variable_set(
   )
 )
 
-parsed = rdoc.parse_files(Dir['ruby/*.c'])
+# parsed = rdoc.parse_files(Dir['ruby/*.c'])
 # parsed = rdoc.parse_files(Dir['ruby/lib/rexml'])
 # parsed = rdoc.parse_files(Dir['ruby/lib/erb.rb'])
 # parsed = rdoc.parse_files(["ruby/lib/net/http", "ruby/lib/net/http.rb"])
@@ -25,7 +25,16 @@ parsed = rdoc.parse_files(Dir['ruby/*.c'])
 # p cls.select { |c| c.full_name == 'ERB' }.first.comment_location.first
 # puts RDoc::Markup::ToMarkdown.new.convert(cls.comment.parse)
 
-k = parsed.flat_map(&:modules).select { |mod| mod.full_name == 'Kernel' }
-m = k.first.method_list.first
-p m.methods.sort - Object.methods
-pp k.first.method_list.map(&:arglists)
+# k = parsed.flat_map(&:modules).select { |mod| mod.full_name == 'Kernel' }
+# m = k.first.method_list.first
+# p [k.first.class, m.class]
+# p m.methods.sort - Object.methods
+# pp k.first.method_list.map(&:arglists)
+
+experiment = Dir['ruby/*.c'][25..30] + ['ruby/file.c']
+experiment = ['ruby/dir.c', 'ruby/file.c']
+p experiment
+
+parsed = rdoc.parse_files(experiment)
+
+p parsed.flat_map(&:classes).detect { |c| c.full_name == 'File' }.modules

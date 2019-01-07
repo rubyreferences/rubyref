@@ -5,4 +5,4 @@ creating matrices, operating on them arithmetically and algebraically, and
 determining their mathematical properties such as trace, rank, inverse,
 determinant, or eigensystem.
 
-[Matrix Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/matrix/rdoc/Matrix.html)
+[Matrix Reference](https://ruby-doc.org/stdlib-2.6/libdoc/matrix/rdoc/Matrix.html)

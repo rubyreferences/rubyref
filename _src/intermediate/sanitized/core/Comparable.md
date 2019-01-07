@@ -33,4 +33,4 @@ not comparable then the `<=>` operator should return nil. `Comparable` uses
     s4.between?(s3, s5)           #=> true
     [ s3, s2, s5, s4, s1 ].sort   #=> [Z, YY, XXX, WWWW, VVVVV]
 
-[Comparable Reference](https://ruby-doc.org/core-2.5.0/Comparable.html)
+[Comparable Reference](https://ruby-doc.org/core-2.6/Comparable.html)

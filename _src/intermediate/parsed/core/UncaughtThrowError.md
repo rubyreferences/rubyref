@@ -9,4 +9,4 @@ Raised when `throw` is called with a *tag* which does not have corresponding
 
     UncaughtThrowError: uncaught throw "foo"
 
-[UncaughtThrowError Reference](https://ruby-doc.org/core-2.5.0/UncaughtThrowError.html)
+[UncaughtThrowError Reference](https://ruby-doc.org/core-2.6/UncaughtThrowError.html)

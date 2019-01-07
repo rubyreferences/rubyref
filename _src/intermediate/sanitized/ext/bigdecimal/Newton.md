@@ -27,4 +27,4 @@ It must provide the following methods:
 
 On exit, x is the solution vector.
 
-[Newton Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/bigdecimal/rdoc/Newton.html)
+[Newton Reference](https://ruby-doc.org/stdlib-2.6/libdoc/bigdecimal/rdoc/Newton.html)

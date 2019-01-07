@@ -46,4 +46,4 @@ used to delegate constant lookup to `Object`:
       end
     end
 
-[BasicObject Reference](https://ruby-doc.org/core-2.5.0/BasicObject.html)
+[BasicObject Reference](https://ruby-doc.org/core-2.6/BasicObject.html)

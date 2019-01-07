@@ -8,4 +8,4 @@ Raised when a given numerical value is out of range.
 
     RangeError: bignum too big to convert into `long'
 
-[RangeError Reference](https://ruby-doc.org/core-2.5.0/RangeError.html)
+[RangeError Reference](https://ruby-doc.org/core-2.6/RangeError.html)

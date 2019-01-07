@@ -22,4 +22,4 @@ available as the constants of `Errno`.
 
     Errno.constants   #=> :E2BIG, :EACCES, :EADDRINUSE, :EADDRNOTAVAIL, ...
 
-[Errno Reference](https://ruby-doc.org/core-2.5.0/Errno.html)
+[Errno Reference](https://ruby-doc.org/core-2.6/Errno.html)

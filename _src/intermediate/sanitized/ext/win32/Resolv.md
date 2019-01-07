@@ -6,4 +6,4 @@
 
 
 
-[Resolv Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/win32/rdoc/Resolv.html)
+[Resolv Reference](https://ruby-doc.org/stdlib-2.6/libdoc/win32/rdoc/Resolv.html)

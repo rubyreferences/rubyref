@@ -4,7 +4,7 @@ prev: "/language/files.html"
 next: "/language/metaprogramming.html"
 ---
 
-### Pre-defined variables[](#pre-defined-variables)
+## Pre-defined variables[](#pre-defined-variables)
 
 * `$!`: The exception information message set by 'raise'.
 * `$@`: Array of backtrace of the last exception thrown.
@@ -68,7 +68,7 @@ next: "/language/metaprogramming.html"
 * `$-w`: An alias of `$VERBOSE`. See `$VERBOSE` above for further
   discussion.
 
-### Pre-defined global constants[](#pre-defined-global-constants)
+## Pre-defined global constants[](#pre-defined-global-constants)
 
 * `TRUE`: The typical true value.
 * `FALSE`: The false itself.
@@ -140,6 +140,6 @@ variable:
 * `$LAST_PAREN_MATCH`: `$+`
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/English/rdoc/English.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/English/rdoc/English.html'
 class='ruby-doc remote' target='_blank'>English Reference</a>
 

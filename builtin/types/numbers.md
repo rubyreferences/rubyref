@@ -21,12 +21,14 @@ a = 1
 ```
 
 There can only ever be one instance of the integer `1`, for example.
-Ruby ensures this by preventing instantiation and duplication.
+Ruby ensures this by preventing instantiation. If duplication is
+attempted, the same instance is returned.
 
 
 ```ruby
-Integer.new(1)   #=> NoMethodError: undefined method `new` for Integer:Class
-1.dup            #=> TypeError: can't dup Integer
+Integer.new(1)                   #=> NoMethodError: undefined method `new` for Integer:Class
+1.dup                            #=> 1
+1.object_id == 1.dup.object_id   #=> true
 ```
 
 For this reason, Numeric should be used when defining other numeric
@@ -86,7 +88,7 @@ puts tally * 2            #=> "||||"
 puts tally > 1            #=> true
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/Numeric.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Numeric.html' class='ruby-doc
 remote' target='_blank'>Numeric Reference</a>
 
 
@@ -96,7 +98,7 @@ remote' target='_blank'>Numeric Reference</a>
 Holds Integer values. You cannot add a singleton method to an Integer
 object, any attempt to do so will raise a TypeError.
 
-<a href='https://ruby-doc.org/core-2.5.0/Integer.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Integer.html' class='ruby-doc
 remote' target='_blank'>Integer Reference</a>
 
 
@@ -113,7 +115,7 @@ you should know its esoteric system. See following:
 * http://wiki.github.com/rdp/ruby_tutorials_core/ruby-talk-faq#wiki-floats_imprecise
 * http://en.wikipedia.org/wiki/Floating_point#Accuracy_problems
 
-<a href='https://ruby-doc.org/core-2.5.0/Float.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Float.html' class='ruby-doc
 remote' target='_blank'>Float Reference</a>
 
 
@@ -173,7 +175,7 @@ Rational(-8) ** Rational(1, 3)
                    #=> (1.0000000000000002+1.7320508075688772i)
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/Rational.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Rational.html' class='ruby-doc
 remote' target='_blank'>Rational Reference</a>
 
 
@@ -220,7 +222,7 @@ Complex(1, 1) / 2    #=> ((1/2)+(1/2)*i)
 Complex(1, 1) / 2.0  #=> (0.5+0.5i)
 ```
 
-<a href='https://ruby-doc.org/core-2.5.0/Complex.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Complex.html' class='ruby-doc
 remote' target='_blank'>Complex Reference</a>
 
 
@@ -284,7 +286,7 @@ Similarly:
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/bigdecimal/rdoc/BigDecimal.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/bigdecimal/rdoc/BigDecimal.html'
 class='ruby-doc remote' target='_blank'>BigDecimal Reference</a>
 
 
@@ -301,7 +303,7 @@ define Ruby's floating point accuracy.
 
 Domains and codomains are given only for real (not complex) numbers.
 
-<a href='https://ruby-doc.org/core-2.5.0/Math.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.6/Math.html' class='ruby-doc
 remote' target='_blank'>Math Reference</a>
 
 
@@ -360,6 +362,6 @@ are few implementations of generator.
   integer which is not large but has many prime factors. e.g. for
   Prime#prime? .
 
-<a href='https://ruby-doc.org/stdlib-2.5.0/libdoc/prime/rdoc/Prime.html'
+<a href='https://ruby-doc.org/stdlib-2.6/libdoc/prime/rdoc/Prime.html'
 class='ruby-doc remote' target='_blank'>Prime Reference</a>
 

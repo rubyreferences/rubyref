@@ -78,4 +78,4 @@ thread of new data.
 This Class is implemented as subclass of Array which includes the MonitorMixin
 module.
 
-[MonitorMixin Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/monitor/rdoc/MonitorMixin.html)
+[MonitorMixin Reference](https://ruby-doc.org/stdlib-2.6/libdoc/monitor/rdoc/MonitorMixin.html)

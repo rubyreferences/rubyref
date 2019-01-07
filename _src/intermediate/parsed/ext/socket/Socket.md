@@ -113,4 +113,4 @@ UNIX server socket
 Much material in this documentation is taken with permission from *Programming
 Ruby* from The Pragmatic Bookshelf.
 
-[Socket Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/socket/rdoc/Socket.html)
+[Socket Reference](https://ruby-doc.org/stdlib-2.6/libdoc/socket/rdoc/Socket.html)

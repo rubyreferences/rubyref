@@ -84,6 +84,6 @@ p str.base_uri
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/open-uri/rdoc/OpenURI.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/open-uri/rdoc/OpenURI.html'
 class='ruby-doc remote' target='_blank'>OpenURI Reference</a>
 

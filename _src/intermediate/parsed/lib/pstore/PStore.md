@@ -81,4 +81,4 @@ details.
 Needless to say, if you're storing valuable data with PStore, then you should
 backup the PStore files from time to time.
 
-[PStore Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/pstore/rdoc/PStore.html)
+[PStore Reference](https://ruby-doc.org/stdlib-2.6/libdoc/pstore/rdoc/PStore.html)

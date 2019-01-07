@@ -14,4 +14,4 @@ A simple client may look like:
 
     s.close             # close socket when done
 
-[TCPSocket Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/socket/rdoc/TCPSocket.html)
+[TCPSocket Reference](https://ruby-doc.org/stdlib-2.6/libdoc/socket/rdoc/TCPSocket.html)

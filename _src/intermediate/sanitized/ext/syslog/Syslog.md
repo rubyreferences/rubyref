@@ -14,4 +14,4 @@ allow secure tamper-proof logging.
 
 The syslog protocol is standardized in RFC 5424.
 
-[Syslog Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/syslog/rdoc/Syslog.html)
+[Syslog Reference](https://ruby-doc.org/stdlib-2.6/libdoc/syslog/rdoc/Syslog.html)

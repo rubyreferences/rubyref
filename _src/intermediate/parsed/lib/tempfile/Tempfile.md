@@ -39,7 +39,7 @@ this:
 
     file = Tempfile.new('foo')
     begin
-       ...do something with file...
+       # ...do something with file...
     ensure
        file.close
        file.unlink   # deletes the temp file
@@ -70,4 +70,4 @@ Tempfile itself however may not be entirely thread-safe. If you access the
 same Tempfile object from multiple threads then you should protect it with a
 mutex.
 
-[Tempfile Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/tempfile/rdoc/Tempfile.html)
+[Tempfile Reference](https://ruby-doc.org/stdlib-2.6/libdoc/tempfile/rdoc/Tempfile.html)

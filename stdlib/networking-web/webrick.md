@@ -66,6 +66,6 @@ end
 Remember that `server.mount_proc` must precede `server.start`.
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/webrick/rdoc/WEBrick.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/webrick/rdoc/WEBrick.html'
 class='ruby-doc remote' target='_blank'>WEBrick Reference</a>
 

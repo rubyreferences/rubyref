@@ -312,4 +312,4 @@ There are a few variables in every Irb session that can come in handy:
     # quit irb
     irb(main):010:0> exit
 
-[IRB Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/irb/rdoc/IRB.html)
+[IRB Reference](https://ruby-doc.org/stdlib-2.6/libdoc/irb/rdoc/IRB.html)

@@ -14,4 +14,4 @@ subclass.  These are listed below.
 All classes are defined under the Net module. Indentation indicates
 inheritance.  For a list of the classes see Net::HTTP.
 
-[Net::HTTPResponse Reference](https://ruby-doc.org/stdlib-2.5.0/libdoc/net/http/rdoc/Net/HTTPResponse.html)
+[Net::HTTPResponse Reference](https://ruby-doc.org/stdlib-2.6/libdoc/net/http/rdoc/Net/HTTPResponse.html)

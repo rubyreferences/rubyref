@@ -91,6 +91,48 @@ floats you may use an underscore for readability.
 
 See also [number classes](../builtin/types/numbers.md).
 
+#### Rational numbers[](#rational-numbers)
+
+Numbers suffixed by `r` are Rational numbers.
+
+
+```ruby
+12r         #=> (12/1)
+12.3r       #=> (123/10)
+```
+
+Rational numbers are exact, whereas Float numbers are inexact.
+
+
+```ruby
+0.1r + 0.2r #=> (3/10)
+0.1 + 0.2   #=> 0.30000000000000004
+```
+
+#### Complex numbers[](#complex-numbers)
+
+Numbers suffixed by `i` are Complex (or imaginary) numbers.
+
+
+```ruby
+1i          #=> (0+1i)
+1i * 1i     #=> (-1+0i)
+```
+
+Also Rational numbers may be imaginary numbers.
+
+
+```ruby
+12.3ri      #=> (0+(123/10)*i)
+```
+
+`i` must be placed after `r`, the opposite is not allowed.
+
+
+```
+12.3ir      #=> syntax error
+```
+
 ### Strings[](#strings)
 
 The most common way of writing strings is using `"`: 
@@ -264,6 +306,8 @@ of literal tabs and spaces will be ignored for the purposes of
 determining indentation, but escaped tabs and spaces are considered
 non-indentation characters.
 
+<div class="since-version">Since Ruby 2.3</div>
+
 A heredoc allows interpolation and escaped characters. You may disable
 interpolation and escaping by surrounding the opening identifier with
 single quotes:
@@ -402,6 +446,7 @@ exclude its ending value.
 ```ruby
 (1..2)  # includes its ending value
 (1...2) # excludes its ending value
+(1..)   # endless range, representing infinite sequence from 1 to Infinity
 ```
 
 You may create a range of any object. See the

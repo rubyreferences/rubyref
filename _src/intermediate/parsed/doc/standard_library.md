@@ -17,40 +17,24 @@ Benchmark
 :   Provides methods to measure and report the time used to execute code
 CGI
 :   Support for the Common Gateway Interface protocol
-ConditionVariable
-:   Augments the Mutex class
 DEBUGGER__
 :   Debugging functionality for Ruby
 Delegator
 :   Provides three abilities to delegate method calls to an object
 DRb
 :   Distributed object system for Ruby
-E2MM
-:   Module for defining custom exceptions with specific messages
 English.rb
 :   Require 'English.rb' to reference global variables with less cryptic names
 ERB
 :   An easy to use but powerful templating system for Ruby
 Find
 :   This module supports top-down traversal of a set of file paths
-Forwardable
-:   Provides delegation of specified methods to a designated object
 GetoptLong
 :   Parse command line options similar to the GNU C getopt_long()
-IPAddr
-:   Provides methods to manipulate IPv4 and IPv6 IP addresses
-IRB
-:   Interactive Ruby command-line tool for REPL (Read Eval Print Loop)
-Logger
-:   Provides a simple logging utility for outputting messages
 MakeMakefile
 :   Module used to generate a Makefile for C extensions
-Matrix
-:   Represents a mathematical matrix.
 Monitor
 :   Provides an object or module to use safely by more than one thread
-Mutex_m
-:   Mixin to extend objects to be handled like a Mutex
 Net::FTP
 :   Support for the File Transfer Protocol
 Net::HTTP
@@ -69,22 +53,16 @@ Open3
 :   Provides access to stdin, stdout and stderr when running other programs
 OptionParser
 :   Ruby-oriented class for command-line option analysis
-OpenStruct
-:   Class to build custom data structures, similar to a Hash
 PP
 :   Provides a PrettyPrinter for Ruby objects
 PrettyPrinter
 :   Implements a pretty printing algorithm for readable structure
-Prime
-:   Prime numbers and factorization library
 profile.rb
 :   Runs the Ruby Profiler__
 Profiler__
 :   Provides a way to profile your Ruby application
 PStore
 :   Implements a file based persistence mechanism based on a Hash
-Queue
-:   Synchronized communication between threads
 Racc
 :   A LALR(1) parser generator written in Ruby.
 RbConfig
@@ -93,38 +71,26 @@ resolv-replace.rb
 :   Replace Socket DNS with Resolv
 Resolv
 :   Thread-aware DNS resolver library in Ruby
-REXML
-:   An XML toolkit for Ruby
 Rinda
 :   The Linda distributed computing paradigm in Ruby
-RSS
-:   Family of libraries that support various formats of XML "feeds"
 Gem
 :   Package management framework for Ruby
 SecureRandom
 :   Interface for secure random number generator
 Set
 :   Provides a class to deal with collections of unordered, unique values
-Shell
-:   An idiomatic Ruby interface for common UNIX shell commands
 Shellwords
 :   Manipulates strings with word parsing rules of UNIX Bourne shell
 Singleton
 :   Implementation of the Singleton pattern for Ruby
-Synchronizer
-:   A module that provides a two-phase lock with a counter
 Tempfile
 :   A utility class for managing temporary files
-ThreadsWait
-:   Watches for termination of multiple threads
 Time
 :   Extends the Time class with methods for parsing and conversion
 Timeout
 :   Auto-terminate potentially long-running operations in Ruby
 tmpdir.rb
 :   Extends the Dir class to manage the OS temporary file path
-Tracer
-:   Outputs a source level execution trace of a Ruby program
 TSort
 :   Topological sorting using Tarjan's algorithm
 un.rb
@@ -175,12 +141,42 @@ CMath
 :   Provides Trigonometric and Transcendental functions for complex numbers
 CSV
 :   Provides an interface to read and write CSV files and data
+E2MM
+:   Module for defining custom exceptions with specific messages
 FileUtils
 :   Several file utility methods for copying, moving, removing, etc
+Forwardable
+:   Provides delegation of specified methods to a designated object
+IPAddr
+:   Provides methods to manipulate IPv4 and IPv6 IP addresses
+IRB
+:   Interactive Ruby command-line tool for REPL (Read Eval Print Loop)
+Logger
+:   Provides a simple logging utility for outputting messages
+Matrix
+:   Represents a mathematical matrix.
+Mutex_m
+:   Mixin to extend objects to be handled like a Mutex
+OpenStruct
+:   Class to build custom data structures, similar to a Hash
+Prime
+:   Prime numbers and factorization library
 RDoc
 :   Produces HTML and command-line documentation for Ruby
+REXML
+:   An XML toolkit for Ruby
+RSS
+:   Family of libraries that support various formats of XML "feeds"
 Scanf
 :   A Ruby implementation of the C function scanf(3)
+Shell
+:   An idiomatic Ruby interface for common UNIX shell commands
+Synchronizer
+:   A module that provides a two-phase lock with a counter
+ThreadsWait
+:   Watches for termination of multiple threads
+Tracer
+:   Outputs a source level execution trace of a Ruby program
 WEBrick
 :   An HTTP server toolkit for Ruby
 

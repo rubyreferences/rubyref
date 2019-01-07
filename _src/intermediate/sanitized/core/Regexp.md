@@ -536,10 +536,15 @@ options which control how the pattern can match.
 
 `i`, `m`, and `x` can also be applied on the subexpression level with the
 `(?`*on*`-`*off*`)` construct, which enables options *on*, and disables
-options *off* for the expression enclosed by the parentheses.
+options *off* for the expression enclosed by the parentheses:
 
-    /a(?i:b)c/.match('aBc') #=> #<MatchData "aBc">
-    /a(?i:b)c/.match('abc') #=> #<MatchData "abc">
+    /a(?i:b)c/.match('aBc')   #=> #<MatchData "aBc">
+    /a(?-i:b)c/i.match('ABC') #=> nil
+
+Additionally, these options can also be toggled for the remainder of the
+pattern:
+
+    /a(?i)bc/.match('abC') #=> #<MatchData "abC">
 
 Options may also be used with `Regexp.new`:
 
@@ -696,4 +701,4 @@ optional *a*s, a range of optional *a*s can be matched all at once with
 
     Regexp.new('a{0,29}' + 'a' * 29) =~ 'a' * 29
 
-[Regexp Reference](https://ruby-doc.org/core-2.5.0/Regexp.html)
+[Regexp Reference](https://ruby-doc.org/core-2.6/Regexp.html)

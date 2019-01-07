@@ -1,5 +1,5 @@
 ---
-ruby_version: '2.5'
+ruby_version: '2.6'
 chapters:
 - title: Introduction
   path: "/"
@@ -10,6 +10,8 @@ chapters:
     path: "/intro/implementations.html"
   - title: Interactive Console
     path: "/intro/irb.html"
+  - title: Ruby in Twenty Minutes
+    path: "/intro/quickstart.html"
 - title: Language Structure
   path: "/language.html"
   children:
@@ -114,6 +116,9 @@ chapters:
     path: "/builtin/concurrency-parallelism.html"
   - title: Interpreter Internals
     path: "/builtin/internals.html"
+    children:
+    - title: RubyVM
+      path: "/builtin/internals/rubyvm.html"
   - title: Marshal
     path: "/builtin/marshal.html"
   - title: Random
@@ -152,6 +157,8 @@ chapters:
     children:
     - title: benchmark
       path: "/stdlib/development/benchmark.html"
+    - title: 'bundler: Managing dependencies'
+      path: "/stdlib/development/bundler.html"
     - title: coverage
       path: "/stdlib/development/coverage.html"
     - title: debug
@@ -277,6 +284,8 @@ chapters:
     path: "/advanced/security.html"
   - title: DTrace
     path: "/advanced/dtrace.html"
+  - title: Implementing Signal.trap callbacks
+    path: "/advanced/signals.html"
   - title: Contributing To Ruby
     path: "/advanced/contributing.html"
 - title: 'Appendix A: Kernel methods list'

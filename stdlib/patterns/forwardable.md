@@ -128,7 +128,7 @@ def\_delegator and def\_delegators methods. For full-class delegation
 via DelegateClass, see `delegate.rb`.
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/forwardable/rdoc/Forwardable.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/forwardable/rdoc/Forwardable.html'
 class='ruby-doc remote' target='_blank'>Forwardable Reference</a>
 
 
@@ -169,6 +169,6 @@ If you want to use both Forwardable and SingleForwardable, you can use
 methods def\_instance\_delegator and def\_single\_delegator, etc.
 
 <a
-href='https://ruby-doc.org/stdlib-2.5.0/libdoc/forwardable/rdoc/SingleForwardable.html'
+href='https://ruby-doc.org/stdlib-2.6/libdoc/forwardable/rdoc/SingleForwardable.html'
 class='ruby-doc remote' target='_blank'>SingleForwardable Reference</a>
 
