@@ -8,11 +8,6 @@ next: "/stdlib/development/fiddle.html"
 
 
 
-
-```ruby
-require 'debug'
-```
-
 This library provides debugging functionality to Ruby.
 
 To add a debugger to your code, start by requiring `debug` in your
@@ -156,7 +151,7 @@ class='ruby-doc remote' target='_blank'>debug Reference</a>
 ### Alternative debugging/breakpoint solutions[](#alternative-debuggingbreakpoint-solutions)
 
 Since Ruby 2.5.0, there is the <a
-href='https://ruby-doc.org/core-2.6.0/Binding.html#method-i-irb'
+href='https://ruby-doc.org/core-2.6/Binding.html#method-i-irb'
 class='ruby-doc remote' target='_blank'>Binding#irb</a> method, which
 enters an [IRB](../../intro/irb.md) session at the point of call.
 
