@@ -15,3 +15,4 @@
   * New links in Appendix A
 * Lot of small content fixes and cleanups, including `Since Ruby (version)` badges besides some of functionality (incomplete, mostly catching what's new since 2.6, for reference to stay relevant and helpful for those who uses earlier versions)
 * A bit of visual cleanup, including copyable links to sub-headers.
+* Patreon link :)

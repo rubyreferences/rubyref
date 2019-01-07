@@ -72,7 +72,3 @@ require 'nokogiri'
 Learn More: <a href='https://bundler.io/guides/bundler_setup.html'
 class='remote' target='_blank'>`Bundler.setup`</a>.
 
-<a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/bundler/rdoc/Bundler.html'
-class='ruby-doc remote' target='_blank'>Bundler reference</a>
-

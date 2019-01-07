@@ -6,6 +6,10 @@ permalink: "/index.html"
 
 ## The Ruby Reference[](#the-ruby-reference)
 
+<a href="https://www.patreon.com/zverok" target="_blank"><img
+src="https://img.shields.io/badge/patreon-donate-blue.svg" alt="Patreon"
+/></a>
+
 This book is the reference for the <a href='https://www.ruby-lang.org/'
 class='remote' target='_blank'>Ruby programming language</a>. It
 describes the language structure, its core classes and standard library,
