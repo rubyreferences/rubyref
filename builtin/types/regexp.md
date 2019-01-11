@@ -720,10 +720,10 @@ characters.
 Regular expressions are assumed to use the source encoding. This can be
 overridden with one of the following modifiers.
 
-* `/`*pat*`/u` - UTF-8
-* `/`*pat*`/e` - EUC-JP
-* `/`*pat*`/s` - Windows-31J
-* `/`*pat*`/n` - ASCII-8BIT
+* `/pat/u` - UTF-8
+* `/pat/e` - EUC-JP
+* `/pat/s` - Windows-31J
+* `/pat/n` - ASCII-8BIT
 
 A regexp can be matched against a string when they either share an
 encoding, or the regexp's encoding is *US-ASCII* and the string's
