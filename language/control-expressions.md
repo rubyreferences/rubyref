@@ -369,10 +369,10 @@ end
 p a
 ```
 
-This prints the numbers 0 through 11. Like a while loop the condition `a
->
-10` is checked when entering the loop and each time the loop body
-executes. If the condition is false the loop will continue to execute.
+This prints the numbers 0 through 11. Like a while loop the 
+condition `a > 10` is checked when entering the loop and each time the 
+loop body executes. If the condition is false the loop will continue 
+to execute.
 
 Like a `while` loop, the `do` is optional.
 
