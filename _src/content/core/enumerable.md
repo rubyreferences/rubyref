@@ -2,7 +2,7 @@
 
     numbers = [1, 2, 8, 9, 18, 7]
 
-    nubmers.each { |n| puts n }       # prints each number
+    numbers.each { |n| puts n }       # prints each number
     numbers.map { |n| n**2 }          #=> [1, 4, 64, 81, 324, 49]
     numbers.select { |n| n.odd? }     #=> [1, 9, 7]
     numbers.reject { |n| n.odd? }     #=> [2, 8, 18]
