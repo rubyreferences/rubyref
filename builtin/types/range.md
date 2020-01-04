@@ -1,7 +1,7 @@
 ---
 title: Range
-prev: builtin/types/regexp.html
-next: builtin/types/struct.html
+prev: "/builtin/types/regexp.html"
+next: "/builtin/types/struct.html"
 ---
 
 ## Range[](#range)

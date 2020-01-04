@@ -1,7 +1,7 @@
 ---
 title: Filesystem
-prev: builtin/system-cli/io.html
-next: builtin/system-cli/args.html
+prev: "/builtin/system-cli/io.html"
+next: "/builtin/system-cli/args.html"
 ---
 
 ## Dir[](#dir)
@@ -61,6 +61,9 @@ Ruby constant is not defined.
 
 Your platform documentations (e.g. man open(2)) may describe more
 detailed information.
+
+<a href='https://ruby-doc.org/core-2.7.0/File/Constants.html'
+class='ruby-doc remote' target='_blank'>File::Constants Reference</a>
 
 
 

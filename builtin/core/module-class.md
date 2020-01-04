@@ -1,7 +1,7 @@
 ---
 title: Module and Class
-prev: builtin/core/object.html
-next: builtin/core/method-proc.html
+prev: "/builtin/core/object.html"
+next: "/builtin/core/method-proc.html"
 ---
 
 ## Module[](#module)

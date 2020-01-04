@@ -1,7 +1,7 @@
 ---
 title: Random
-prev: builtin/marshal.html
-next: stdlib.html
+prev: "/builtin/marshal.html"
+next: "/stdlib.html"
 ---
 
 ## Random[](#random)

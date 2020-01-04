@@ -1,7 +1,7 @@
 ---
 title: Matrix
-prev: builtin/types/set.html
-next: builtin/exception.html
+prev: "/builtin/types/set.html"
+next: "/builtin/exception.html"
 ---
 
 ## Matrix[](#matrix)

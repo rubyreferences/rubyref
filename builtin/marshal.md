@@ -1,7 +1,7 @@
 ---
 title: Marshal
-prev: builtin/internals/rubyvm.html
-next: builtin/random.html
+prev: "/builtin/internals/rubyvm.html"
+next: "/builtin/random.html"
 ---
 
 ## Marshal[](#marshal)

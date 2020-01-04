@@ -1,7 +1,7 @@
 ---
 title: Regexp
-prev: builtin/types/symbol-string.html
-next: builtin/types/range.html
+prev: "/builtin/types/symbol-string.html"
+next: "/builtin/types/range.html"
 ---
 
 ## Regexp[](#regexp)
@@ -929,4 +929,6 @@ See also "Special global variables" section in Regexp documentation.
 
 <a href='https://ruby-doc.org/core-2.7.0/MatchData.html' class='ruby-doc
 remote' target='_blank'>MatchData Reference</a>
+
+
 

@@ -1,7 +1,7 @@
 ---
 title: net/http
-prev: stdlib/networking-web/net/ftp.html
-next: stdlib/networking-web/net/imap.html
+prev: "/stdlib/networking-web/net/ftp.html"
+next: "/stdlib/networking-web/net/imap.html"
 ---
 
 
@@ -332,4 +332,26 @@ header.
 <a
 href='https://ruby-doc.org/stdlib-2.7.0/libdoc/net/http/rdoc/Net/HTTP.html'
 class='ruby-doc remote' target='_blank'>Net::HTTP Reference</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

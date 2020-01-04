@@ -1,7 +1,7 @@
 ---
 title: Interpreter Internals
-prev: builtin/concurrency-parallelism.html
-next: builtin/internals/rubyvm.html
+prev: "/builtin/concurrency-parallelism.html"
+next: "/builtin/internals/rubyvm.html"
 ---
 
 ## Interpreter Internals[](#interpreter-internals)

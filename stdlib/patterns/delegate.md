@@ -1,7 +1,7 @@
 ---
 title: delegate
-prev: stdlib/patterns/forwardable.html
-next: stdlib/patterns/observer.html
+prev: "/stdlib/patterns/forwardable.html"
+next: "/stdlib/patterns/observer.html"
 ---
 
 

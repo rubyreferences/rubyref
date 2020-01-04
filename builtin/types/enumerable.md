@@ -1,7 +1,7 @@
 ---
 title: Enumerable
-prev: builtin/types/times-dates.html
-next: builtin/types/array.html
+prev: "/builtin/types/times-dates.html"
+next: "/builtin/types/array.html"
 ---
 
 ## Enumerable[](#enumerable)
@@ -185,4 +185,10 @@ Enumerator#+.
 
 <a href='https://ruby-doc.org/core-2.7.0/Enumerator/Chain.html'
 class='ruby-doc remote' target='_blank'>Enumerator::Chain Reference</a>
+
+
+
+
+
+
 

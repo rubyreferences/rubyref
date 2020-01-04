@@ -12,8 +12,6 @@ these gems can be updated independently from Ruby itself.
 
 Current list of bundled gems:
 
-* <a href='https://github.com/yuki24/did_you_mean' class='remote'
-  target='_blank'>DidYouMean</a>\: "Did you mean?" experience in Ruby
 * <a href='https://github.com/seattlerb/minitest' class='remote'
   target='_blank'>MiniTest</a>\: A test suite with TDD, BDD, mocking and
   benchmarking

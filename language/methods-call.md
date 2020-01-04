@@ -1,7 +1,7 @@
 ---
 title: Calling methods
-prev: language/methods-def.html
-next: language/modules-classes.html
+prev: "/language/methods-def.html"
+next: "/language/modules-classes.html"
 ---
 
 ## Calling Methods[](#calling-methods)

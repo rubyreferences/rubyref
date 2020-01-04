@@ -1,7 +1,7 @@
 ---
 title: Arguments and Environment
-prev: builtin/system-cli/filesystem.html
-next: builtin/concurrency-parallelism.html
+prev: "/builtin/system-cli/filesystem.html"
+next: "/builtin/concurrency-parallelism.html"
 ---
 
 ## Arguments and Enviroment[](#arguments-and-enviroment)

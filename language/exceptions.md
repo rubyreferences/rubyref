@@ -1,7 +1,7 @@
 ---
 title: Exceptions
-prev: language/modules-classes.html
-next: language/refinements.html
+prev: "/language/modules-classes.html"
+next: "/language/refinements.html"
 ---
 
 ## Exceptions[](#exceptions)

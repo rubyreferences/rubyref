@@ -1,7 +1,7 @@
 ---
 title: net/pop
-prev: stdlib/networking-web/net/imap.html
-next: stdlib/networking-web/net/smtp.html
+prev: "/stdlib/networking-web/net/imap.html"
+next: "/stdlib/networking-web/net/smtp.html"
 ---
 
 
@@ -189,4 +189,14 @@ class='ruby-doc remote' target='_blank'>Net::POP3 Reference</a>
 <a
 href='https://ruby-doc.org/stdlib-2.7.0/libdoc/net/pop/rdoc/Net/APOP.html'
 class='ruby-doc remote' target='_blank'>Net::APOP Reference</a>
+
+
+
+
+
+
+
+
+
+
 

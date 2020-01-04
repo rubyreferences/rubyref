@@ -1,7 +1,7 @@
 ---
 title: 'fcntl: POSIX file access constants'
-prev: stdlib/cli/etc.html
-next: stdlib/cli/io.html
+prev: "/stdlib/cli/etc.html"
+next: "/stdlib/cli/io.html"
 ---
 
 

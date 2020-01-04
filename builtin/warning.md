@@ -1,7 +1,7 @@
 ---
 title: Warning
-prev: builtin/exception/exception-classes.html
-next: builtin/system-cli.html
+prev: "/builtin/exception/exception-classes.html"
+next: "/builtin/system-cli.html"
 ---
 
 ## Warning[](#warning)

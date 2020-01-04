@@ -9,6 +9,7 @@ require_relative 'lib/structure'
 require_relative 'lib/ruby_repo_index'
 
 require_relative 'lib/rdoc_wrapper'
+require_relative 'lib/kernel_methods'
 require_relative 'lib/sanitizer'
 
 require_relative 'lib/renderers/chapter'
@@ -91,7 +92,8 @@ end
 # RDoc comment text extraction from *.c/*.rb files
 # ----------------------------
 file 'intermediate/rdoc/core.yml' => ['intermediate/rdoc', *repo_index.core_files] do |t|
-  RDocExtractor.call(*t.prerequisites).then { |modules| File.write(t.name, modules.to_yaml) }
+  RDocExtractor.call(*t.prerequisites, with_methods: %w[Kernel])
+    .then { |modules| File.write(t.name, modules.to_yaml) }
 end
 
 file 'intermediate/rdoc/ext.yml' => ['intermediate/rdoc', *repo_index.ext_files.values.flatten] do |t|
@@ -104,6 +106,14 @@ file "intermediate/rdoc/lib.yml" => ['intermediate/rdoc', *repo_index.lib_files.
   repo_index.lib_files
     .to_h { |lib, pathes| [lib, RDocExtractor.call(*pathes)] }
     .then { File.write(t.name, _1.to_yaml) }
+end
+
+file 'intermediate/sanitized/_special/kernel.md' => %w[intermediate/rdoc/core.yml config/kernel.yml] do |t|
+  FileUtils.mkdir_p File.dirname(t.name)
+
+  rdoc_cache[t.prerequisites.first].dig('Kernel', 'methods')
+    .then { KernelMethods.call(_1) }
+    .then { File.write t.name, _1 }
 end
 
 
@@ -121,6 +131,7 @@ structure.each_chapter do |chap|
   # ------------------------------------------------
   chap.parts.select(&:doc?).each do |part|
     file part.raw_path => part.src_path do |t|
+      FileUtils.mkdir_p File.dirname(t.name)
       File.read(t.prerequisites.first)
           .then(&RDOC_TO_MARKDOWN.method(:convert))
           .then { File.write t.name, _1 }
@@ -130,7 +141,7 @@ structure.each_chapter do |chap|
   chap.parts.select(&:core?).each do |part|
     file part.raw_path => 'intermediate/rdoc/core.yml' do |t|
       rdoc_cache[t.prerequisites.first]
-        .dig(part.module_name)
+        .dig(part.module_name, 'main')
         .tap { |mod| mod or warn "No module found: #{part.module_name}" }
         &.then { |rdoc| rdoc2md(t.name, part.module_name, rdoc, link_prefix: CORE_REFERENCE) }
     end
@@ -138,7 +149,7 @@ structure.each_chapter do |chap|
 
   chap.parts.select(&:ext?).each do |part|
     file part.raw_path => 'intermediate/rdoc/ext.yml' do |t|
-      rdoc_cache[t.prerequisites.first].dig(part.lib_name, part.module_name)
+      rdoc_cache[t.prerequisites.first].dig(part.lib_name, part.module_name, 'main')
         .tap { |mod| mod or warn "No module found: #{part.lib_name}/#{part.module_name}" }
         &.then { |rdoc|
           rdoc2md(t.name, part.module_name, rdoc, link_prefix: LIB_REFERENCE % part.lib_name)
@@ -148,7 +159,7 @@ structure.each_chapter do |chap|
 
   chap.parts.select(&:lib?).each do |part|
     file part.raw_path => "intermediate/rdoc/lib.yml" do |t|
-      rdoc_cache[t.prerequisites.first].dig(part.lib_name, part.module_name)
+      rdoc_cache[t.prerequisites.first].dig(part.lib_name, part.module_name, 'main')
         .tap { |mod| mod or warn "No module found: #{part.lib_name}/#{part.module_name}" }
         &.then { |rdoc|
           rdoc2md(t.name, part.module_name, rdoc, link_prefix: LIB_REFERENCE % part.lib_name)

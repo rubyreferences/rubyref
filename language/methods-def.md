@@ -1,7 +1,7 @@
 ---
 title: Defining methods
-prev: language/control-expressions.html
-next: language/methods-call.html
+prev: "/language/control-expressions.html"
+next: "/language/methods-call.html"
 ---
 
 ## Methods[](#methods)

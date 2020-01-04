@@ -1,7 +1,7 @@
 ---
 title: csv
-prev: stdlib/formats.html
-next: stdlib/formats/json.html
+prev: "/stdlib/formats.html"
+next: "/stdlib/formats/json.html"
 ---
 
 

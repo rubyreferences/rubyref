@@ -1,7 +1,7 @@
 ---
 title: win32ole
-prev: stdlib/cli/syslog.html
-next: stdlib/cryptography-encoding.html
+prev: "/stdlib/cli/syslog.html"
+next: "/stdlib/cryptography-encoding.html"
 ---
 
 
@@ -64,4 +64,48 @@ p refargv3.value # the value of refargv3 after called oleobj.method.
 <a
 href='https://ruby-doc.org/stdlib-2.7.0/libdoc/win32ole/rdoc/WIN32OLE.html'
 class='ruby-doc remote' target='_blank'>WIN32OLE Reference</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

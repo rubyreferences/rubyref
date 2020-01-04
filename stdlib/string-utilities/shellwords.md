@@ -1,7 +1,7 @@
 ---
 title: 'shellwords: Shell-aware string manipulation'
-prev: stdlib/string-utilities/racc.html
-next: stdlib/string-utilities/strscan.html
+prev: "/stdlib/string-utilities/racc.html"
+next: "/stdlib/string-utilities/strscan.html"
 ---
 
 

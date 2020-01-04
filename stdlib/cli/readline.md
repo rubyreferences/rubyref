@@ -1,7 +1,7 @@
 ---
 title: readline
-prev: stdlib/cli/pty.html
-next: stdlib/cli/syslog.html
+prev: "/stdlib/cli/pty.html"
+next: "/stdlib/cli/syslog.html"
 ---
 
 

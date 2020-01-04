@@ -1,7 +1,7 @@
 ---
 title: Globals
-prev: language/files.html
-next: language/metaprogramming.html
+prev: "/language/files.html"
+next: "/language/metaprogramming.html"
 ---
 
 ## Pre-defined global variables[](#pre-defined-global-variables)

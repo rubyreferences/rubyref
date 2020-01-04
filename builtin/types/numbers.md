@@ -1,7 +1,7 @@
 ---
 title: Numbers
-prev: builtin/types/comparable.html
-next: builtin/types/symbol-string.html
+prev: "/builtin/types/comparable.html"
+next: "/builtin/types/symbol-string.html"
 ---
 
 ## Numeric[](#numeric)
@@ -290,6 +290,14 @@ Similarly:
 <a
 href='https://ruby-doc.org/stdlib-2.7.0/libdoc/bigdecimal/rdoc/BigDecimal.html'
 class='ruby-doc remote' target='_blank'>BigDecimal Reference</a>
+
+
+
+
+
+
+
+
 
 
 

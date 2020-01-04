@@ -1,7 +1,7 @@
 ---
 title: 'optparse: CLI arguments parser'
-prev: stdlib/cli/open3.html
-next: stdlib/cli/pty.html
+prev: "/stdlib/cli/open3.html"
+next: "/stdlib/cli/pty.html"
 ---
 
 

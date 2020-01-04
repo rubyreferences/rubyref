@@ -1,7 +1,7 @@
 ---
 title: 'openuri: Open Files and URLs'
-prev: stdlib/networking-web/net/smtp.html
-next: stdlib/networking-web/resolv.html
+prev: "/stdlib/networking-web/net/smtp.html"
+next: "/stdlib/networking-web/resolv.html"
 ---
 
 

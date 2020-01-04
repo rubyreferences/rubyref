@@ -1,7 +1,7 @@
 ---
 title: Method and Proc
-prev: builtin/core/module-class.html
-next: builtin/core/binding.html
+prev: "/builtin/core/module-class.html"
+next: "/builtin/core/binding.html"
 ---
 
 ## Method[](#method)

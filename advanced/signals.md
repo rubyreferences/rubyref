@@ -1,7 +1,7 @@
 ---
 title: Implementing Signal.trap callbacks
-prev: advanced/dtrace.html
-next: advanced/contributing.html
+prev: "/advanced/dtrace.html"
+next: "/advanced/contributing.html"
 ---
 
 ## Caveats for implementing Signal.trap callbacks[](#caveats-for-implementing-signaltrap-callbacks)

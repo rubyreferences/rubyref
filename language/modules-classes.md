@@ -1,7 +1,7 @@
 ---
 title: Modules and Classes
-prev: language/methods-call.html
-next: language/exceptions.html
+prev: "/language/methods-call.html"
+next: "/language/exceptions.html"
 ---
 
 ## Modules[](#modules)

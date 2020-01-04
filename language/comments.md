@@ -1,7 +1,7 @@
 ---
 title: Comments
-prev: language/literals.html
-next: language/variables-constants.html
+prev: "/language/literals.html"
+next: "/language/variables-constants.html"
 ---
 
 ## Code Comments[](#code-comments)

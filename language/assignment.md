@@ -1,7 +1,7 @@
 ---
 title: Assignment
-prev: language/variables-constants.html
-next: language/control-expressions.html
+prev: "/language/variables-constants.html"
+next: "/language/control-expressions.html"
 ---
 
 ## Assignment[](#assignment)

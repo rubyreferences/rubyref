@@ -1,7 +1,7 @@
 ---
 title: logger
-prev: stdlib/development/fiddle.html
-next: stdlib/development/pp.html
+prev: "/stdlib/development/fiddle.html"
+next: "/stdlib/development/pp.html"
 ---
 
 

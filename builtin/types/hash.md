@@ -1,7 +1,7 @@
 ---
 title: Hash
-prev: builtin/types/array.html
-next: builtin/types/set.html
+prev: "/builtin/types/array.html"
+next: "/builtin/types/set.html"
 ---
 
 ## Hash[](#hash)

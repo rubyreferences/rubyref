@@ -1,7 +1,7 @@
 ---
 title: Kernel
-prev: builtin/core.html
-next: builtin/core/object.html
+prev: "/builtin/core.html"
+next: "/builtin/core/object.html"
 ---
 
 ## Kernel[](#kernel)

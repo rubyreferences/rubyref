@@ -1,7 +1,7 @@
 ---
 title: debug
-prev: stdlib/development/coverage.html
-next: stdlib/development/fiddle.html
+prev: "/stdlib/development/coverage.html"
+next: "/stdlib/development/fiddle.html"
 ---
 
 ## debug[](#debug)

@@ -1,7 +1,7 @@
 ---
 title: uri
-prev: stdlib/networking-web/webrick.html
-next: stdlib/cli.html
+prev: "/stdlib/networking-web/webrick.html"
+next: "/stdlib/cli.html"
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: Language Structure
-prev: intro/quickstart.html
-next: language/keywords.html
+prev: "/intro/quickstart.html"
+next: "/language/keywords.html"
 ---
 
 ## Ruby Language Structure[](#ruby-language-structure)
@@ -100,4 +100,8 @@ is not defined and `false` when the instance variable is not zero.
 Using the specific reflection methods such as
 instance\_variable\_defined? for instance variables or const\_defined?
 for constants is less error prone than using `defined?`.
+
+
+
+
 

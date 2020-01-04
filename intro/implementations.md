@@ -1,7 +1,7 @@
 ---
 title: Other Implementations of Ruby
-prev: intro/installation.html
-next: intro/irb.html
+prev: "/intro/installation.html"
+next: "/intro/irb.html"
 ---
 
 ## Other Implementations of Ruby[](#other-implementations-of-ruby)

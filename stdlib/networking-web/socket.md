@@ -1,7 +1,7 @@
 ---
 title: socket
-prev: stdlib/networking-web/resolv.html
-next: stdlib/networking-web/webrick.html
+prev: "/stdlib/networking-web/resolv.html"
+next: "/stdlib/networking-web/webrick.html"
 ---
 
 
@@ -78,4 +78,22 @@ s.close             # close socket when done
 <a
 href='https://ruby-doc.org/stdlib-2.7.0/libdoc/socket/rdoc/Socket.html'
 class='ruby-doc remote' target='_blank'>Socket Reference</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

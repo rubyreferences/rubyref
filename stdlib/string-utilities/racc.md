@@ -1,7 +1,7 @@
 ---
 title: 'racc: Parser Generator'
-prev: stdlib/string-utilities/erb.html
-next: stdlib/string-utilities/shellwords.html
+prev: "/stdlib/string-utilities/erb.html"
+next: "/stdlib/string-utilities/shellwords.html"
 ---
 
 

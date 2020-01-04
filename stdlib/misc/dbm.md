@@ -1,7 +1,7 @@
 ---
 title: dbm, gdbm, sdbm
-prev: stdlib/misc/drb.html
-next: stdlib/misc/timeout.html
+prev: "/stdlib/misc/drb.html"
+next: "/stdlib/misc/timeout.html"
 ---
 
 ## DBM-alike Database Implementations[](#dbm-alike-database-implementations)
@@ -45,6 +45,8 @@ class='ruby-doc remote' target='_blank'>DBM Reference</a>
 
 
 
+
+
 ### GDBM[](#gdbm)
 
 
@@ -67,4 +69,6 @@ GDBM standard libraries rely on external libraries and headers.
 
 <a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/sdbm/rdoc/SDBM.html'
 class='ruby-doc remote' target='_blank'>SDBM Reference</a>
+
+
 

@@ -1,7 +1,7 @@
 ---
 title: Concurrency and Parallelism
-prev: builtin/system-cli/args.html
-next: builtin/internals.html
+prev: "/builtin/system-cli/args.html"
+next: "/builtin/internals.html"
 ---
 
 ## Thread[](#thread)

@@ -32,8 +32,8 @@ module RDoc::Encoding
 end
 
 class RDocExtractor
-  def self.call(*pathes)
-    new.call(pathes)
+  def self.call(*pathes, with_methods: [])
+    new.call(pathes, with_methods: with_methods)
   end
 
   def initialize
@@ -45,17 +45,36 @@ class RDocExtractor
     end
   end
 
-  def call(pathes)
+  def call(pathes, with_methods: [])
     @rdoc.parse_files(pathes.map(&:to_s)).flat_map(&method(:unnest))
       .to_h { |mod|
-        [mod.full_name, mod.comment_location.map(&:first).compact.max_by { |c| c.text.length }&.text]
+        [
+          fix_name(mod.full_name),
+          comments(mod, with_methods: with_methods.include?(mod.full_name))
+        ]
       }
-      .reject { |name, comment| comment.nil? || comment.strip.empty? }
+      .reject { |name, data| data['main'].then { _1.nil? || _1.strip.empty? } }
+      .sort_by(&:first).to_h
   end
 
   private
 
   def unnest(context)
     [*context.classes, *context.modules].flat_map { |mod| [mod, *unnest(mod)] }
+  end
+
+  def fix_name(module_name)
+    # https://github.com/ruby/rdoc/issues/741
+    module_name == 'File::File::Constants' ? 'File::Constants' : module_name
+  end
+
+  def comments(mod, with_methods: false)
+    if with_methods
+      methods = mod.method_list.to_h { [_1.name, _1.comment.text] }
+    end
+    {
+      main: mod.comment_location.map(&:first).compact.max_by { |c| c.text.length }&.text,
+      methods: methods
+    }.compact.transform_keys(&:to_s)
   end
 end

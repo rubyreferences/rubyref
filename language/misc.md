@@ -1,7 +1,7 @@
 ---
 title: Miscellaneous Syntax
-prev: language/precedence.html
-next: language/files.html
+prev: "/language/precedence.html"
+next: "/language/files.html"
 ---
 
 ## `BEGIN` and `END`[](#begin-and-end)

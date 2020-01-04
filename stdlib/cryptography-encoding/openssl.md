@@ -1,7 +1,7 @@
 ---
 title: openssl
-prev: stdlib/cryptography-encoding/digest.html
-next: stdlib/misc.html
+prev: "/stdlib/cryptography-encoding/digest.html"
+next: "/stdlib/misc.html"
 ---
 
 

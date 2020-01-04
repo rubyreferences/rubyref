@@ -1,7 +1,7 @@
 ---
 title: RubyVM
-prev: builtin/internals.html
-next: builtin/marshal.html
+prev: "/builtin/internals.html"
+next: "/builtin/marshal.html"
 ---
 
 ## RubyVM[](#rubyvm)

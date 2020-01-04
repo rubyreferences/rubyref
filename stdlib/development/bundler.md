@@ -1,7 +1,7 @@
 ---
 title: 'bundler: Managing dependencies'
-prev: stdlib/development/benchmark.html
-next: stdlib/development/coverage.html
+prev: "/stdlib/development/benchmark.html"
+next: "/stdlib/development/coverage.html"
 ---
 
 ## Bundler[](#bundler)

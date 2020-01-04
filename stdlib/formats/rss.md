@@ -1,7 +1,7 @@
 ---
 title: rss
-prev: stdlib/formats/rexml.html
-next: stdlib/formats/zlib.html
+prev: "/stdlib/formats/rexml.html"
+next: "/stdlib/formats/zlib.html"
 ---
 
 

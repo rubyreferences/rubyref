@@ -1,7 +1,7 @@
 ---
 title: Developing C Extensions
-prev: advanced.html
-next: advanced/security.html
+prev: "/advanced.html"
+next: "/advanced/security.html"
 ---
 
 ## Creating Extension Libraries for Ruby[](#creating-extension-libraries-for-ruby)

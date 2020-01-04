@@ -1,7 +1,7 @@
 ---
 title: cgi
-prev: stdlib/networking-web.html
-next: stdlib/networking-web/ipaddr.html
+prev: "/stdlib/networking-web.html"
+next: "/stdlib/networking-web/ipaddr.html"
 ---
 
 

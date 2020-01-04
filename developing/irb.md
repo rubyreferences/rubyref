@@ -1,7 +1,7 @@
 ---
 title: Mastering IRB
-prev: developing/libraries.html
-next: developing/documenting.html
+prev: "/developing/libraries.html"
+next: "/developing/documenting.html"
 ---
 
 ## Mastering IRB[](#mastering-irb)

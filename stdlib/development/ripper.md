@@ -1,7 +1,7 @@
 ---
 title: 'ripper: Parsing Ruby'
-prev: stdlib/development/pp.html
-next: stdlib/development/tracer.html
+prev: "/stdlib/development/pp.html"
+next: "/stdlib/development/tracer.html"
 ---
 
 
@@ -68,4 +68,6 @@ an embedded expression. Our expression consists of a local variable, or
 <a
 href='https://ruby-doc.org/stdlib-2.7.0/libdoc/ripper/rdoc/Ripper.html'
 class='ruby-doc remote' target='_blank'>Ripper Reference</a>
+
+
 

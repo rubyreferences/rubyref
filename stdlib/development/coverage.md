@@ -1,7 +1,7 @@
 ---
 title: coverage
-prev: stdlib/development/bundler.html
-next: stdlib/development/debug.html
+prev: "/stdlib/development/bundler.html"
+next: "/stdlib/development/debug.html"
 ---
 
 

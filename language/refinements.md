@@ -1,7 +1,7 @@
 ---
 title: Refinements
-prev: language/exceptions.html
-next: language/precedence.html
+prev: "/language/exceptions.html"
+next: "/language/precedence.html"
 ---
 
 ## Refinements[](#refinements)

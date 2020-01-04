@@ -1,7 +1,7 @@
 ---
 title: digest
-prev: stdlib/cryptography-encoding/base64.html
-next: stdlib/cryptography-encoding/openssl.html
+prev: "/stdlib/cryptography-encoding/base64.html"
+next: "/stdlib/cryptography-encoding/openssl.html"
 ---
 
 

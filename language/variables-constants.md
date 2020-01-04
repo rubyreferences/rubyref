@@ -1,7 +1,7 @@
 ---
 title: Variables and Constants
-prev: language/comments.html
-next: language/assignment.html
+prev: "/language/comments.html"
+next: "/language/assignment.html"
 ---
 
 ## Variables and Constants[](#variables-and-constants)

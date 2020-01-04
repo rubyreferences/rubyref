@@ -1,7 +1,7 @@
 ---
 title: Fiber
-prev: builtin/core/binding.html
-next: builtin/types.html
+prev: "/builtin/core/binding.html"
+next: "/builtin/types.html"
 ---
 
 ## Fiber[](#fiber)

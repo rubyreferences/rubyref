@@ -1,7 +1,7 @@
 ---
 title: Security
-prev: advanced/extensions.html
-next: advanced/dtrace.html
+prev: "/advanced/extensions.html"
+next: "/advanced/dtrace.html"
 ---
 
 ## Ruby Security[](#ruby-security)

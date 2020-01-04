@@ -1,7 +1,7 @@
 ---
 title: yaml
-prev: stdlib/formats/json.html
-next: stdlib/formats/rexml.html
+prev: "/stdlib/formats/json.html"
+next: "/stdlib/formats/rexml.html"
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: ipaddr
-prev: stdlib/networking-web/cgi.html
-next: stdlib/networking-web/net/ftp.html
+prev: "/stdlib/networking-web/cgi.html"
+next: "/stdlib/networking-web/net/ftp.html"
 ---
 
 

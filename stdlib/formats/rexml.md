@@ -1,7 +1,7 @@
 ---
 title: 'rexml: XML parser and generator'
-prev: stdlib/formats/yaml.html
-next: stdlib/formats/rss.html
+prev: "/stdlib/formats/yaml.html"
+next: "/stdlib/formats/rss.html"
 ---
 
 

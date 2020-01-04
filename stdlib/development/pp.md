@@ -1,7 +1,7 @@
 ---
 title: 'pp: Debug Print'
-prev: stdlib/development/logger.html
-next: stdlib/development/ripper.html
+prev: "/stdlib/development/logger.html"
+next: "/stdlib/development/ripper.html"
 ---
 
 ## PP[](#pp)

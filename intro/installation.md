@@ -1,7 +1,7 @@
 ---
 title: Installation
-prev: intro.html
-next: intro/implementations.html
+prev: "/intro.html"
+next: "/intro/implementations.html"
 ---
 
 ## Installation[](#installation)

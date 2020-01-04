@@ -1,7 +1,7 @@
 ---
 title: Symbol and String
-prev: builtin/types/numbers.html
-next: builtin/types/regexp.html
+prev: "/builtin/types/numbers.html"
+next: "/builtin/types/regexp.html"
 ---
 
 ## Symbol and String[](#symbol-and-string)
@@ -292,4 +292,6 @@ transcoded text:
 
 <a href='https://ruby-doc.org/core-2.7.0/Encoding.html' class='ruby-doc
 remote' target='_blank'>Encoding Reference</a>
+
+
 

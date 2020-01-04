@@ -1,7 +1,7 @@
 ---
 title: timeout
-prev: stdlib/misc/dbm.html
-next: stdlib/misc/other.html
+prev: "/stdlib/misc/dbm.html"
+next: "/stdlib/misc/other.html"
 ---
 
 

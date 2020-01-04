@@ -1,7 +1,7 @@
 ---
 title: syslog
-prev: stdlib/cli/readline.html
-next: stdlib/cli/win32ole.html
+prev: "/stdlib/cli/readline.html"
+next: "/stdlib/cli/win32ole.html"
 ---
 
 

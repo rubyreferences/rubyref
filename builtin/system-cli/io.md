@@ -1,7 +1,7 @@
 ---
 title: IO Basics
-prev: builtin/system-cli/processes-signals.html
-next: builtin/system-cli/filesystem.html
+prev: "/builtin/system-cli/processes-signals.html"
+next: "/builtin/system-cli/filesystem.html"
 ---
 
 ## IO[](#io)

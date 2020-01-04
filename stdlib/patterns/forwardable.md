@@ -1,7 +1,7 @@
 ---
 title: forwardable
-prev: stdlib/patterns.html
-next: stdlib/patterns/delegate.html
+prev: "/stdlib/patterns.html"
+next: "/stdlib/patterns/delegate.html"
 ---
 
 

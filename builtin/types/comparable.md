@@ -1,7 +1,7 @@
 ---
 title: Comparable
-prev: builtin/types/atomic.html
-next: builtin/types/numbers.html
+prev: "/builtin/types/atomic.html"
+next: "/builtin/types/numbers.html"
 ---
 
 ## Comparable[](#comparable)

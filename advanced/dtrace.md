@@ -1,7 +1,7 @@
 ---
 title: DTrace
-prev: advanced/security.html
-next: advanced/signals.html
+prev: "/advanced/security.html"
+next: "/advanced/signals.html"
 ---
 
 ## DTrace Probes[](#dtrace-probes)

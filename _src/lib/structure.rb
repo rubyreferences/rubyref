@@ -74,7 +74,7 @@ class Structure
       case
       when ignore?
         nil
-      when from_repo?, site?
+      when from_repo?, site?, special?
         "intermediate/sanitized/#{path}"
       when content?
         path

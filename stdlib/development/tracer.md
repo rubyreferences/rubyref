@@ -1,7 +1,7 @@
 ---
 title: tracer
-prev: stdlib/development/ripper.html
-next: stdlib/string-utilities.html
+prev: "/stdlib/development/ripper.html"
+next: "/stdlib/string-utilities.html"
 ---
 
 ## Tracer[](#tracer)

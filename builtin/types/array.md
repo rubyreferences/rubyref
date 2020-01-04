@@ -1,7 +1,7 @@
 ---
 title: Array
-prev: builtin/types/enumerable.html
-next: builtin/types/hash.html
+prev: "/builtin/types/enumerable.html"
+next: "/builtin/types/hash.html"
 ---
 
 ## Array[](#array)

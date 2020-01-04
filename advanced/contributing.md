@@ -1,7 +1,7 @@
 ---
 title: Contributing To Ruby
-prev: advanced/signals.html
-next: appendix-a.html
+prev: "/advanced/signals.html"
+next: "/appendix-a.html"
 ---
 
 ## Contributing to Ruby[](#contributing-to-ruby)
@@ -556,4 +556,10 @@ git rebase remotes/origin/master
 ```
 
 and then try pushing your changes again.
+
+
+
+
+
+
 

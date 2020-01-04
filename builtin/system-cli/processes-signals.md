@@ -1,7 +1,7 @@
 ---
 title: Processes and Signals
-prev: builtin/system-cli.html
-next: builtin/system-cli/io.html
+prev: "/builtin/system-cli.html"
+next: "/builtin/system-cli/io.html"
 ---
 
 ## Process[](#process)

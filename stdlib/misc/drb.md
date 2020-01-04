@@ -1,7 +1,7 @@
 ---
 title: 'drb: Distributed Ruby'
-prev: stdlib/misc/concurrency-utils.html
-next: stdlib/misc/dbm.html
+prev: "/stdlib/misc/concurrency-utils.html"
+next: "/stdlib/misc/dbm.html"
 ---
 
 
@@ -305,4 +305,6 @@ same dRuby name.
 
 <a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/drb/rdoc/DRb.html'
 class='ruby-doc remote' target='_blank'>DRb Reference</a>
+
+
 

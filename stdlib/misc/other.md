@@ -1,7 +1,7 @@
 ---
 title: Other Libraries
-prev: stdlib/misc/timeout.html
-next: stdlib/bundled.html
+prev: "/stdlib/misc/timeout.html"
+next: "/stdlib/bundled.html"
 ---
 
 ## A Brief List of Less Used Libraries[](#a-brief-list-of-less-used-libraries)
@@ -161,6 +161,8 @@ class='ruby-doc remote' target='_blank'>NKF Reference</a>
 
 
 
+
+
 ### PStore[](#pstore)
 
 PStore implements a file based persistence mechanism based on a Hash.
@@ -238,4 +240,6 @@ p foo.to_s                  # should raise exception (recycled)
 <a
 href='https://ruby-doc.org/stdlib-2.7.0/libdoc/weakref/rdoc/WeakRef.html'
 class='ruby-doc remote' target='_blank'>WeakRef Reference</a>
+
+
 

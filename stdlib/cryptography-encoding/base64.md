@@ -1,7 +1,7 @@
 ---
 title: base64
-prev: stdlib/cryptography-encoding.html
-next: stdlib/cryptography-encoding/digest.html
+prev: "/stdlib/cryptography-encoding.html"
+next: "/stdlib/cryptography-encoding/digest.html"
 ---
 
 

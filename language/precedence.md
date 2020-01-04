@@ -1,7 +1,7 @@
 ---
 title: Precedence
-prev: language/refinements.html
-next: language/misc.html
+prev: "/language/refinements.html"
+next: "/language/misc.html"
 ---
 
 ## Precedence[](#precedence)

@@ -1,7 +1,7 @@
 ---
 title: observer
-prev: stdlib/patterns/delegate.html
-next: stdlib/patterns/singleton.html
+prev: "/stdlib/patterns/delegate.html"
+next: "/stdlib/patterns/singleton.html"
 ---
 
 

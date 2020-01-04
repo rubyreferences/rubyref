@@ -1,7 +1,7 @@
 ---
 title: zlib
-prev: stdlib/formats/rss.html
-next: stdlib/development.html
+prev: "/stdlib/formats/rss.html"
+next: "/stdlib/development.html"
 ---
 
 

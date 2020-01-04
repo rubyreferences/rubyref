@@ -1,7 +1,7 @@
 ---
 title: 'webrick: Simple Web Server'
-prev: stdlib/networking-web/socket.html
-next: stdlib/networking-web/uri.html
+prev: "/stdlib/networking-web/socket.html"
+next: "/stdlib/networking-web/uri.html"
 ---
 
 
@@ -68,4 +68,6 @@ Remember that `server.mount_proc` must precede `server.start`.
 <a
 href='https://ruby-doc.org/stdlib-2.7.0/libdoc/webrick/rdoc/WEBrick.html'
 class='ruby-doc remote' target='_blank'>WEBrick Reference</a>
+
+
 

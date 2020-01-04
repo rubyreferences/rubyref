@@ -1,7 +1,7 @@
 ---
 title: Struct
-prev: builtin/types/range.html
-next: builtin/types/times-dates.html
+prev: "/builtin/types/range.html"
+next: "/builtin/types/times-dates.html"
 ---
 
 ## Struct[](#struct)

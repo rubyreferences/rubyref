@@ -1,7 +1,7 @@
 ---
 title: Keywords
-prev: language.html
-next: language/literals.html
+prev: "/language.html"
+next: "/language/literals.html"
 ---
 
 ## Keywords[](#keywords)

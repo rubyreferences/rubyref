@@ -1,7 +1,7 @@
 ---
 title: Object
-prev: builtin/core/kernel.html
-next: builtin/core/module-class.html
+prev: "/builtin/core/kernel.html"
+next: "/builtin/core/module-class.html"
 ---
 
 ## BasicObject and Object[](#basicobject-and-object)

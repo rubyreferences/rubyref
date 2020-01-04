@@ -1,7 +1,7 @@
 ---
 title: Set
-prev: builtin/types/hash.html
-next: builtin/types/matrix.html
+prev: "/builtin/types/hash.html"
+next: "/builtin/types/matrix.html"
 ---
 
 ## Set[](#set)

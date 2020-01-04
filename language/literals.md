@@ -1,7 +1,7 @@
 ---
 title: Literals
-prev: language/keywords.html
-next: language/comments.html
+prev: "/language/keywords.html"
+next: "/language/comments.html"
 ---
 
 ## Literals[](#literals)
