@@ -60,6 +60,8 @@ class Structure
 
     def raw_path
       case
+      when ignore?
+        nil
       when from_repo?
         "intermediate/parsed/#{path}"
       when site?
@@ -70,12 +72,18 @@ class Structure
 
     def ready_path
       case
+      when ignore?
+        nil
       when from_repo?, site?
         "intermediate/sanitized/#{path}"
       when content?
         path
       end
       # nil -- no "raw" path for literal
+    end
+
+    def ignore?
+      ignore
     end
   end
 
@@ -99,7 +107,7 @@ class Structure
     end
 
     def html_path
-      descriptor.join('/') + '.html'
+      '/' + descriptor.join('/') + '.html'
     end
 
     def each_nested(&block)
@@ -111,6 +119,8 @@ class Structure
   def self.load
     new(YAML.load_file(PATH).map { Hm(_1).transform_keys(&:to_sym).to_h })
   end
+
+  attr_reader :top_chapters
 
   def initialize(source)
     @top_chapters = source.map { Chapter.new(**_1) }

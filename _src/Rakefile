@@ -12,6 +12,7 @@ require_relative 'lib/rdoc_wrapper'
 require_relative 'lib/sanitizer'
 
 require_relative 'lib/renderers/chapter'
+require_relative 'lib/renderers/toc'
 
 structure = Structure.load
 repo_index = RubyRepoIndex.new('ruby')
@@ -40,13 +41,15 @@ namespace :dev do
   ]
 
   desc 'Convert parsed RDoc to Markdown'
-  task rdoc2md: structure.each_part.select(&:from_repo?).map(&:raw_path).sort.uniq
+  task rdoc2md: structure.each_part.select(&:from_repo?).reject(&:ignore?).map(&:raw_path).sort.uniq
 
   desc 'Sanitize Markdown'
   task sanitize_md: structure.each_part.filter_map(&:ready_path).sort.uniq
 
   desc 'Validate that everything available in Ruby sources is listed in structure.yml, and vice versa'
-  task validate_listing: [Structure::PATH] + %w[_src/intermediate/rdoc/core.yml _src/intermediate/rdoc/ext.yml _src/intermediate/rdoc/lib.yml] do
+  task validate_listing: [Structure::PATH] +
+    %w[intermediate/rdoc/core.yml intermediate/rdoc/ext.yml intermediate/rdoc/lib.yml] do
+
     from_structure = structure.each_part.select(&:from_repo?).map(&:path)
 
     from_source =
@@ -55,7 +58,7 @@ namespace :dev do
       rdoc_cache['intermediate/rdoc/ext.yml'].flat_map { |lib, mods|
         mods.keys.map { "ext/#{lib}/#{_1.tr(':', '-')}.md" }
       } +
-      rdoc_cache['_src/intermediate/rdoc/lib.yml'].flat_map { |lib, mods|
+      rdoc_cache['intermediate/rdoc/lib.yml'].flat_map { |lib, mods|
         mods.keys.map { "lib/#{lib}/#{_1.tr(':', '-')}.md" }
       }
 
@@ -69,6 +72,8 @@ namespace :dev do
 
     puts "Modules found in current Ruby version, but not mentioned in structure.yml:"
     (from_source - from_structure).each { puts "  #{_1}" }
+
+    # TODO: Also check custom content, some of it could became outdated
   end
 end
 
@@ -78,7 +83,8 @@ directory 'intermediate/rdoc'
 
 # Book structure conversion
 # -------------------------
-file '../_data/book.yml' => Structure::PATH do
+file '../_data/book.yml' => Structure::PATH do |t|
+  File.write t.name, Renderers::TOC.call(structure).to_yaml
 end
 
 

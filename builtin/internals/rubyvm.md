@@ -74,3 +74,13 @@ href='https://ruby-doc.org/core-2.7.0/RubyVM/InstructionSequence.html'
 class='ruby-doc remote' target='_blank'>RubyVM::InstructionSequence
 Reference</a>
 
+
+
+### RubyVM::MJIT[](#rubyvmmjit)
+
+\::RubyVM::MJIT Provides access to the Method JIT compiler of MRI. Of
+course, this module is MRI specific.
+
+<a href='https://ruby-doc.org/core-2.7.0/RubyVM/MJIT.html'
+class='ruby-doc remote' target='_blank'>RubyVM::MJIT Reference</a>
+

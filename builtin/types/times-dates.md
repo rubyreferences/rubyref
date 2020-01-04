@@ -173,6 +173,34 @@ remote' target='_blank'>Time Reference</a>
 
 
 
+### Time[](#time)
+
+### time.rb[](#timerb)
+
+When 'time' is required, Time is extended with additional methods for
+parsing and converting Times.
+
+#### Features[](#features)
+
+This library extends the Time class with the following conversions
+between date strings and Time objects:
+
+* date-time defined by <a href='http://www.ietf.org/rfc/rfc2822.txt'
+  class='remote' target='_blank'>RFC 2822</a>
+* HTTP-date defined by <a href='http://www.ietf.org/rfc/rfc2616.txt'
+  class='remote' target='_blank'>RFC 2616</a>
+* dateTime defined by XML Schema Part 2: Datatypes (<a
+  href='http://www.iso.org/iso/date_and_time_format' class='remote'
+  target='_blank'>ISO 8601</a>)
+
+* various formats handled by Date.\_parse
+* custom formats handled by Date.\_strptime
+
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html'
+class='ruby-doc remote' target='_blank'>Time Reference</a>
+
+
+
 #### time.rb[](#timerb)
 
 Part of the useful functionality for `Time` is provided by the standard

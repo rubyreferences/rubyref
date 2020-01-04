@@ -17,6 +17,8 @@ module Renderers
     end
 
     def call
+      return '' if definition.ignore?
+
       read_source
         .then { preprocess(_1) }
         .then { Kramdown::Document.new(_1).root.children }

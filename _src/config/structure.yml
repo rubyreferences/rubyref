@@ -32,7 +32,8 @@
             # "Use of irb is easy if you know Ruby." does not look friendly in book intro :)
             - "Use of irb is easy"
         - source: "> Another popular Ruby interactive console is [pry](http://pryrepl.org/)."
-        # - source: lib/irb/XMP.md
+        - source: lib/irb/XMP.md
+          ignore: true
     - title: Ruby in Twenty Minutes
       id: quickstart
       content:
@@ -67,8 +68,12 @@
         - "`defined?`"
         # TODO: continuing the expression on the next line
       header_shift: 1
-    # Rewritten
-    # - source: doc/syntax.md
+    # Deprecated
+    - source: core/Data.md
+      ignore: true
+    # Rewritten totally
+    - source: doc/syntax.md
+      ignore: true
   children:
     - title: Keywords
       content:
@@ -104,6 +109,7 @@
               to: "See [Regexp](../builtin/types/regexp.md) for a description of the syntax"
     - title: Comments
       content:
+        - source: doc/syntax/comments.md
         - source: content/language/comments.md
     - title: Variables and Constants
       content:
@@ -213,7 +219,8 @@
       content:
         - source: content/core/core.md
         # Deprecated/obsolete, see https://bugs.ruby-lang.org/issues/10548
-        # - source: core/Continuation.md
+        - source: core/Continuation.md
+          ignore: true
       children:
         - title: Kernel
           content:
@@ -271,10 +278,15 @@
               remove: '## Introduction'
               process:
                 - [stdlib, bigdecimal]
-            # - source: ext/bigdecimal/BigMath.md
-            # - source: ext/bigdecimal/Jacobian.md
-            # - source: ext/bigdecimal/LUSolve.md
-            # - source: ext/bigdecimal/Newton.md
+            # Internals of BigDecimal
+            - source: ext/bigdecimal/BigMath.md
+              ignore: true
+            - source: ext/bigdecimal/Jacobian.md
+              ignore: true
+            - source: ext/bigdecimal/LUSolve.md
+              ignore: true
+            - source: ext/bigdecimal/Newton.md
+              ignore: true
             - source: '## Number Utilities'
             - source: core/Math.md
               header_shift: 2
@@ -289,14 +301,16 @@
             - source: core/String.md
             - source: core/Encoding.md
             # Nothing documented there
-            # - source: core/UnicodeNormalize.md
+            - source: core/UnicodeNormalize.md
+              ignore: true
         - title: Regexp
           id: regexp
           content:
             - source: core/Regexp.md
             - source: core/MatchData.md
-            # Just mentioning it here, but it is already included in Regexp docs by RDoc means
-            # - source: doc/regexp.md
+            # Just mentioning it here for validate_listing, but it is already included in Regexp docs by RDoc means
+            - source: doc/regexp.md
+              ignore: true
         - title: Range
           content:
             - source: core/Range.md
@@ -321,6 +335,8 @@
               insert:
                 - after: '## Timezone argument'
                   macros: since(2.6)
+            # TODO: reconcile this and content/'s version
+            - source: lib/time/Time.md
             - source: content/builtin/core/time/_timerb.md
             - source: ext/date/Date.md
               sections:
@@ -350,8 +366,12 @@
                 - after: '# Enumerator::Chain'
                   macros: since(2.6)
             # Internal classes
-            # - source: core/Enumerator--Generator.md
-            # - source: core/Enumerator--Yielder.md
+            - source: core/Enumerator--Generator.md
+              ignore: true
+            - source: core/Enumerator--Yielder.md
+              ignore: true
+            - source: core/Enumerator--Producer.md
+              ignore: true
         - title: Array
           content:
             - source: core/Array.md
@@ -563,8 +583,7 @@
                 - after: '# RubyVM::AbstractSyntaxTree'
                   macros: since(2.6)
             - source: core/RubyVM--InstructionSequence.md
-            # No docs at all :(
-            # - source: core/RubyVM--MJIT.md
+            - source: core/RubyVM--MJIT.md
     - title: Marshal
       content:
         - source: core/Marshal.md
@@ -578,14 +597,13 @@
           header_shift: 2
           remove:
             - "## Secure random number"
-    # deprecated
-    # - source: core/Data.md
 
 - title: Standard Library
   id: stdlib
   content:
     - source: content/stdlib.md
-    # - source: doc/standard_library.md
+    - source: doc/standard_library.md
+      ignore: true
   children:
     - title: Design Patterns
       id: patterns
@@ -629,7 +647,8 @@
             - source: ext/json/JSON.md
               process: require_stdlib
               remove: "# JSON"
-            # - source: ext/json/Class.md
+            - source: ext/json/Class.md
+              ignore: true
         - title: yaml
           content:
             - source: lib/yaml/YAML.md
@@ -672,10 +691,19 @@
           content:
             # Real source is: https://github.com/bundler/bundler/blob/master/README.md
             # and https://github.com/bundler/bundler-site/blob/master/source/v1.17/index.html.haml
-            - source: content/stdlib/bundler.md
-              insert:
-                - after: '# Bundler'
-                  macros: since(2.6)
+            # - source: content/stdlib/bundler.md
+            #   insert:
+            #     - after: '# Bundler'
+            #       macros: since(2.6)
+            - source: lib/bundler/Bundler.md
+            - source: lib/bundler/Error.md
+              ignore: true
+            - source: lib/bundler/UndefinedCommandError.md
+              ignore: true
+            - source: lib/bundler/UndefinedTaskError.md
+              ignore: true
+            - source: lib/bundler/InvocationError.md
+              ignore: true
         - title: coverage
           content:
             - source: ext/coverage/Coverage.md
@@ -735,16 +763,6 @@
                 - "[PP Reference]"
             - source: lib/prettyprint/PrettyPrint.md
               sections: _ref
-        # - title: profiler
-        #   content:
-        #     - source: "## profile"
-        #     - source: lib/profiler/Profiler__.md
-        #       remove: "# Profiler"
-        #       replace:
-        #         - from: "Profiler__ Reference"
-        #           to: "profile Reference"
-        #       header_shift: 1
-        #     - source: content/stdlib/_profiler_alt.md
         - title: "ripper: Parsing Ruby"
           id: ripper
           content:
@@ -755,7 +773,8 @@
                 - Requirements
                 - License
             # Nothing useful there:
-            # - source: ext/ripper/DSL.md
+            - source: ext/ripper/DSL.md
+              ignore: true
         - title: tracer
           content:
             - source: lib/tracer/Tracer.md
@@ -788,18 +807,6 @@
                   to: "libdoc/racc/parser/rdoc"
                 - from: "rdoc-ref:lib/racc/rdoc/grammar.en.rdoc"
                   to: "https://ruby-doc.org/core-2.5.0/_lib/racc/rdoc/grammar_en_rdoc.html"
-        # - title: scanf
-        #   content:
-        #     - source: '## scanf'
-        #       process: [[require_stdlib, scanf]]
-        #     - source: lib/scanf/Scanf.md
-        #       sections:
-        #         - Description
-        #         - Basic usage
-        #         - Block usage
-        #         - _ref
-        #       remove: '## Description'
-        #       header_shift: 1
         - title: "shellwords: Shell-aware string manipulation"
           id: shellwords
           content:
@@ -821,10 +828,24 @@
                 - StringScanner
                 - _ref
               process: require_stdlib
+        - title: "did_you_mean: Typo suggestions"
+          id: did_you_mean
+          content:
+            - source: lib/did_you_mean/DidYouMean.md
+              process: require_stdlib
 
     - title: Networking and Web
       content:
         - source: "## Networking and Web Libraries"
+        # Just generic utility classes for other libs
+        - source: lib/net/protocol/Net--OpenTimeout.md
+          ignore: true
+        - source: lib/net/protocol/Net--ReadTimeout.md
+          ignore: true
+        - source: lib/net/protocol/Net--WriteAdapter.md
+          ignore: true
+        - source: lib/net/protocol/Net--WriteTimeout.md
+          ignore: true
       children:
         - title: cgi
           content:
@@ -861,17 +882,29 @@
                 - HTTP Response Classes
               remove:
                 - "## An HTTP client API"
-            # - source: lib/net/http/Net--HTTPExceptions.md
-            # - source: lib/net/http/Net--HTTPGenericRequest.md
-            # - source: lib/net/http/Net--HTTPHeader.md
-            # - source: lib/net/http/Net--HTTPInternalServerError.md
-            # - source: lib/net/http/Net--HTTPMisdirectedRequest.md
-            # - source: lib/net/http/Net--HTTPNotExtended.md
-            # - source: lib/net/http/Net--HTTPRequest.md
-            # - source: lib/net/http/Net--HTTPResponse.md
-            # - source: lib/net/http/Net--HTTPTemporaryRedirect.md
-            # - source: lib/net/http/Net--HTTPUnknownResponse.md
-            # - source: lib/net/http/Net--HTTPUpgradeRequired.md
+            # Make validate_listing happy... Honestly, it should've been nested under HTTP::
+            - source: lib/net/http/Net--HTTPExceptions.md
+              ignore: true
+            - source: lib/net/http/Net--HTTPGenericRequest.md
+              ignore: true
+            - source: lib/net/http/Net--HTTPHeader.md
+              ignore: true
+            - source: lib/net/http/Net--HTTPInternalServerError.md
+              ignore: true
+            - source: lib/net/http/Net--HTTPMisdirectedRequest.md
+              ignore: true
+            - source: lib/net/http/Net--HTTPNotExtended.md
+              ignore: true
+            - source: lib/net/http/Net--HTTPRequest.md
+              ignore: true
+            - source: lib/net/http/Net--HTTPResponse.md
+              ignore: true
+            - source: lib/net/http/Net--HTTPTemporaryRedirect.md
+              ignore: true
+            - source: lib/net/http/Net--HTTPUnknownResponse.md
+              ignore: true
+            - source: lib/net/http/Net--HTTPUpgradeRequired.md
+              ignore: true
         - title: net/imap
           content:
             - source: lib/net/imap/Net--IMAP.md
@@ -890,18 +923,17 @@
                 - "## What is This Library?"
             - source: lib/net/pop/Net--APOP.md
               sections: _ref
-            # - source: lib/net/pop/Net--APOPSession.md
-            # - source: lib/net/pop/Net--POPAuthenticationError.md
-            # - source: lib/net/pop/Net--POPBadResponse.md
-            # - source: lib/net/pop/Net--POPError.md
-            # - source: lib/net/pop/Net--POPMail.md
-        # Just generic utility classes for other libs
-        # - title: net/protocol
-        #   content:
-        #     - source: lib/net/protocol/Net--OpenTimeout.md
-        #     - source: lib/net/protocol/Net--ReadTimeout.md
-        #     - source: lib/net/protocol/Net--WriteAdapter.md
-        #     - source: lib/net/protocol/Net--WriteTimeout.md
+            # Honestly, why is not it nested deeper?...
+            - source: lib/net/pop/Net--APOPSession.md
+              ignore: true
+            - source: lib/net/pop/Net--POPAuthenticationError.md
+              ignore: true
+            - source: lib/net/pop/Net--POPBadResponse.md
+              ignore: true
+            - source: lib/net/pop/Net--POPError.md
+              ignore: true
+            - source: lib/net/pop/Net--POPMail.md
+              ignore: true
         - title: net/smtp
           content:
             - source: lib/net/smtp/Net--SMTP.md
@@ -909,13 +941,21 @@
               remove:
                 - "## What is This Library?"
                 - "## What is This Library NOT?"
-            # - source: lib/net/smtp/Net--SMTPAuthenticationError.md
-            # - source: lib/net/smtp/Net--SMTPError.md
-            # - source: lib/net/smtp/Net--SMTPFatalError.md
-            # - source: lib/net/smtp/Net--SMTPServerBusy.md
-            # - source: lib/net/smtp/Net--SMTPSyntaxError.md
-            # - source: lib/net/smtp/Net--SMTPUnknownError.md
-            # - source: lib/net/smtp/Net--SMTPUnsupportedCommand.md
+            # Nest it into Net::SMPT, Y U NO???
+            - source: lib/net/smtp/Net--SMTPAuthenticationError.md
+              ignore: true
+            - source: lib/net/smtp/Net--SMTPError.md
+              ignore: true
+            - source: lib/net/smtp/Net--SMTPFatalError.md
+              ignore: true
+            - source: lib/net/smtp/Net--SMTPServerBusy.md
+              ignore: true
+            - source: lib/net/smtp/Net--SMTPSyntaxError.md
+              ignore: true
+            - source: lib/net/smtp/Net--SMTPUnknownError.md
+              ignore: true
+            - source: lib/net/smtp/Net--SMTPUnsupportedCommand.md
+              ignore: true
 
         - title: "openuri: Open Files and URLs"
           id: openuri
@@ -932,7 +972,8 @@
               process: require_stdlib
               remove_sections: [Bugs]
             # Nothing there, in fact
-            # - source: ext/win32/Resolv.md
+            - source: ext/win32/Resolv.md
+              ignore: true
 
         - title: socket
           content:
@@ -943,16 +984,24 @@
                 - Exception Handling
                 - Convenience methods
                 - Documentation by
-            # - source: ext/socket/Addrinfo.md
-            # - source: ext/socket/BasicSocket.md
-            # - source: ext/socket/IPSocket.md
-            # - source: ext/socket/SOCKSSocket.md
-            # - source: ext/socket/SocketError.md
-            # - source: ext/socket/TCPServer.md
-            # - source: ext/socket/TCPSocket.md
-            # - source: ext/socket/UDPSocket.md
-            # - source: ext/socket/UNIXServer.md
-            # - source: ext/socket/UNIXSocket.md
+            - source: ext/socket/BasicSocket.md
+              ignore: true
+            - source: ext/socket/IPSocket.md
+              ignore: true
+            - source: ext/socket/SOCKSSocket.md
+              ignore: true
+            - source: ext/socket/SocketError.md
+              ignore: true
+            - source: ext/socket/TCPServer.md
+              ignore: true
+            - source: ext/socket/TCPSocket.md
+              ignore: true
+            - source: ext/socket/UDPSocket.md
+              ignore: true
+            - source: ext/socket/UNIXServer.md
+              ignore: true
+            - source: ext/socket/UNIXSocket.md
+              ignore: true
         - title: "webrick: Simple Web Server"
           id: webrick
           content:
@@ -963,7 +1012,8 @@
                 - Custom Behavior
                 - _ref
               process: require_stdlib
-            # - source: lib/webrick/Errno.md
+            - source: lib/webrick/Errno.md
+              ignore: true
         - title: uri
           content:
             - source: lib/uri/URI.md
@@ -974,6 +1024,7 @@
                 - Copyright Info
               replace:
                 # Continuation of inspect without comment sign, messes the highlighting
+                # FIXME: Better do it in sanitizer...
                 - from: "      URL:http://foo.com"
                   to: "#      URL:http://foo.com"
                 - from: '     "LDAP"=>URI::LDAP'
@@ -1024,7 +1075,8 @@
               process: require_stdlib
               remove_sections:
                 - License
-            # - source: ext/pty/IO.md
+            - source: ext/pty/IO.md
+              ignore: true
         - title: readline
           content:
             - source: ext/readline/Readline.md
@@ -1033,37 +1085,55 @@
           content:
             - source: ext/syslog/Syslog.md
               process: require_stdlib
-        # - title: "shell: Ruby interface to UNIX shell"
-        #   id: shell
-        #   content:
-        #     - source: lib/shell/Shell.md
-        #       process: require_stdlib
         - title: win32ole
           content:
             - source: ext/win32ole/WIN32OLE.md
               process: require_stdlib
-            # - source: ext/win32ole/IE_CONST.md
-            # - source: ext/win32ole/IXMLDOMNode.md
-            # - source: ext/win32ole/IXMLDOMParseError.md
-            # - source: ext/win32ole/IXMLHttpRequest.md
-            # - source: ext/win32ole/IXTLRuntime.md
-            # - source: ext/win32ole/Microsoft_FreeThreadedXMLDOM_1_0.md
-            # - source: ext/win32ole/Microsoft_XMLDOM_1_0.md
-            # - source: ext/win32ole/Microsoft_XMLDSO_1_0.md
-            # - source: ext/win32ole/Microsoft_XMLHTTP_1.md
-            # - source: ext/win32ole/Msxml.md
-            # - source: ext/win32ole/OLEProperty.md
-            # - source: ext/win32ole/OLEtagDOMNodeType.md
-            # - source: ext/win32ole/OLEtagXMLEMEM_TYPE.md
-            # - source: ext/win32ole/WIN32OLERuntimeError.md
-            # - source: ext/win32ole/WIN32OLE_EVENT.md
-            # - source: ext/win32ole/WIN32OLE_METHOD.md
-            # - source: ext/win32ole/WIN32OLE_PARAM.md
-            # - source: ext/win32ole/WIN32OLE_RECORD.md
-            # - source: ext/win32ole/WIN32OLE_TYPE.md
-            # - source: ext/win32ole/WIN32OLE_TYPELIB.md
-            # - source: ext/win32ole/WIN32OLE_VARIABLE.md
-            # - source: ext/win32ole/WIN32OLE_VARIANT.md
+            # Nesting into WIN32OLE module is overrated, right?...
+            - source: ext/win32ole/IE_CONST.md
+              ignore: true
+            - source: ext/win32ole/IXMLDOMNode.md
+              ignore: true
+            - source: ext/win32ole/IXMLDOMParseError.md
+              ignore: true
+            - source: ext/win32ole/IXMLHttpRequest.md
+              ignore: true
+            - source: ext/win32ole/IXTLRuntime.md
+              ignore: true
+            - source: ext/win32ole/Microsoft_FreeThreadedXMLDOM_1_0.md
+              ignore: true
+            - source: ext/win32ole/Microsoft_XMLDOM_1_0.md
+              ignore: true
+            - source: ext/win32ole/Microsoft_XMLDSO_1_0.md
+              ignore: true
+            - source: ext/win32ole/Microsoft_XMLHTTP_1.md
+              ignore: true
+            - source: ext/win32ole/Msxml.md
+              ignore: true
+            - source: ext/win32ole/OLEProperty.md
+              ignore: true
+            - source: ext/win32ole/OLEtagDOMNodeType.md
+              ignore: true
+            - source: ext/win32ole/OLEtagXMLEMEM_TYPE.md
+              ignore: true
+            - source: ext/win32ole/WIN32OLERuntimeError.md
+              ignore: true
+            - source: ext/win32ole/WIN32OLE_EVENT.md
+              ignore: true
+            - source: ext/win32ole/WIN32OLE_METHOD.md
+              ignore: true
+            - source: ext/win32ole/WIN32OLE_PARAM.md
+              ignore: true
+            - source: ext/win32ole/WIN32OLE_RECORD.md
+              ignore: true
+            - source: ext/win32ole/WIN32OLE_TYPE.md
+              ignore: true
+            - source: ext/win32ole/WIN32OLE_TYPELIB.md
+              ignore: true
+            - source: ext/win32ole/WIN32OLE_VARIABLE.md
+              ignore: true
+            - source: ext/win32ole/WIN32OLE_VARIANT.md
+              ignore: true
 
     - title: Cryptography and Encoding
       content:
@@ -1091,13 +1161,10 @@
         - title: Concurrency Utils
           content:
             - source: "## Concurrency Utils"
-            # - source: lib/monitor/Monitor.md
-            # - source: lib/monitor/MonitorMixin.md
+            # It is there, but it is not :)))
+            - source: ext/monitor/Monitor.md
+              ignore: true
             - source: lib/mutex_m/Mutex_m.md
-            # - source: lib/sync/Sync.md
-            # - source: lib/sync/Sync_m.md
-            # - source: lib/sync/Synchronizer.md
-            # - source: lib/sync/Synchronizer_m.md
         - title: "drb: Distributed Ruby"
           id: drb
           content:
@@ -1105,7 +1172,8 @@
               process: require_stdlib
               remove:
                 - '## Overview'
-            # - source: lib/drb/ACL.md
+            - source: lib/drb/ACL.md
+              ignore: true
         - title: "dbm, gdbm, sdbm"
           id: dbm
           content:
@@ -1115,7 +1183,8 @@
               remove_sections:
                 - Cautions
                 - Example
-            # - source: ext/dbm/DBMError.md
+            - source: ext/dbm/DBMError.md
+              ignore: true
             - source: '### GDBM'
             - source: ext/gdbm/GDBM.md
               sections:
@@ -1126,7 +1195,8 @@
               sections:
                 - SDBM
                 - _ref
-            # - source: ext/sdbm/SDBMError.md
+            - source: ext/sdbm/SDBMError.md
+              ignore: true
         - title: timeout
           content:
             - source: lib/timeout/Timeout.md
@@ -1141,21 +1211,13 @@
           content:
             - source: "## A Brief List of Less Used Libraries"
             - source: lib/abbrev/Abbrev.md
-            # - source: lib/cmath/CMath.md
-            #   remove: "# Trigonometric and transcendental"
-            #   remove_sections: [Usage]
             - source: lib/getoptlong/GetoptLong.md
-
-            # - source: lib/e2mmap/Exception2MessageMapper.md
-            #   sections:
-            #     - Exception2MessageMapper
-            #     - _ref
-
             - source: ext/nkf/NKF.md
               sections:
                 - NKF
                 - _ref
-            # - source: ext/nkf/Kconv.md
+            - source: ext/nkf/Kconv.md
+              ignore: true
 
             - source: lib/pstore/PStore.md
               remove_sections:
@@ -1164,8 +1226,6 @@
             - source: lib/rinda/Rinda.md
               remove_sections:
                 - "Example(s)"
-            # - source: lib/thwait/ThreadsWait.md
-            # - source: lib/thwait/ThWait.md
             - source: lib/tsort/TSort.md
               remove_sections:
                 - A Simple Example
@@ -1173,7 +1233,9 @@
                 - Bugs
                 - References
             - source: lib/weakref/WeakRef.md
-            # - source: ext/win32/Win32.md
+            - source: ext/win32/Win32.md
+              ignore: true
+
     - title: Bundled Gems
       id: bundled
       content:
@@ -1198,9 +1260,12 @@
             - from: '[9]: http://bundler.io/'
               to: '[9]: ../stdlib/development/bundler.md'
         # Site covered it better
-        # - source: lib/rubygems/Gem.md
-        # - source: lib/rubygems/Kernel.md
-        # - source: lib/rubygems/TempIO.md
+        - source: lib/rubygems/Gem.md
+          ignore: true
+        - source: lib/rubygems/Kernel.md
+          ignore: true
+        - source: lib/rubygems/TempIO.md
+          ignore: true
     - title: Mastering IRB
       id: irb
       content:
@@ -1218,8 +1283,10 @@
       content:
         - source: content/advanced/documenting.md
         # RDoc core class documentation is not the best entry point
-        # - source: lib/rdoc/RDoc.md
-        # - source: lib/rdoc/RDocTask.md
+        - source: lib/rdoc/RDoc.md
+          ignore: true
+        - source: lib/rdoc/RDocTask.md
+          ignore: true
 
     - title: Testing Ruby Code
       id: testing
@@ -1262,8 +1329,12 @@
               to: "there is a separate channel"
             - from: "[backported](#label-Backport+Requests)"
               to: "backported"
-        # - source: doc/contributors.md
-        # - source: doc/maintainers.md
+        - source: doc/contributors.md
+          ignore: true
+        - source: doc/maintainers.md
+          ignore: true
+        - source: doc/bug_triaging.md
+          ignore: true
 - title: "Appendix A: Kernel methods list"
   id: appendix-a
   content:
