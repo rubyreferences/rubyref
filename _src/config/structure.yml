@@ -144,9 +144,19 @@
           remove:
             - "The `for` loop is similar"
             - "The `for` loop is rarely used"
+          replace:
+            - from: 'when 1, 2 then puts "a is one or two'
+              to: 'when 1, 2 then puts "a is one or two"'
           insert:
             - after: "The result value of a `for`"
               source: content/syntax/control_expressions/_for_vs_each.md
+            - after: "The result value of a `case`"
+              source: content/syntax/control_expressions/_pattern_matching.md
+    # TODO: This, and paragraph above, is copy-paste of my PR to Ruby: https://github.com/ruby/ruby/pull/2786/files
+    # When it would be merged (or any other docs will emerge...), this should be updated.
+    - title: Pattern matching
+      content:
+        - source: content/syntax/pattern_matching.md
     - title: Defining methods
       id: methods-def
       content:
@@ -1344,6 +1354,8 @@
       insert:
         - source: "* [gem](ref:rubygems/Kernel#gem) _(defined by RubyGems)_: Use `#gem` to activate a specific version of gem_name."
           after: "* [autoload]"
+        - source: "* [pp](ref:rubygems/Kernel#pp) Pretty-printing (more detailed version of `p`)."
+          after: "* [gets]"
 - title: "Appendix B: Useful Links"
   id: appendix-b
   content:

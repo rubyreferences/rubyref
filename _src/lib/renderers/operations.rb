@@ -111,6 +111,7 @@ module Renderers
           idx = para_idx(els, opts.fetch(:after))
           source = opts[:source] || opts[:macros]&.then(&method(:process_macros)) or
             fail "source or macros is required for insert"
+          source = File.read(source) if File.exist?(source)
 
           els[..idx] + from_md(source) + els[idx + 1..]
         end

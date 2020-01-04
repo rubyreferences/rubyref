@@ -184,7 +184,7 @@ structure.each_chapter do |chap|
 
   # Rendering to final Markdown in the root folder
   # ----------------------------------------------
-  file chap.out_path => chap.parts.filter_map(&:ready_path) do |t|
+  file chap.out_path => %w[config/structure.yml] + chap.parts.filter_map(&:ready_path) do |t|
     Renderers::Chapter.call(chap).then { File.write t.name, _1 }
   end
 end

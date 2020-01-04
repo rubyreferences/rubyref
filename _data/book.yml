@@ -27,6 +27,8 @@ chapters:
     path: "/language/assignment.html"
   - title: Control Expressions
     path: "/language/control-expressions.html"
+  - title: Pattern matching
+    path: "/language/pattern-matching.html"
   - title: Defining methods
     path: "/language/methods-def.html"
   - title: Calling methods

@@ -205,6 +205,12 @@ next: "/appendix-b.html"
   class='ruby-doc remote' target='_blank'>sprintf</a>\: Returns the
   string resulting from applying *format\_string* to any additional
   arguments.
+^
+
+* <a
+  href='https://ruby-doc.org/stdlib-2.7.0/libdoc/rubygems/rdoc/Kernel.html#method-i-pp'
+  class='ruby-doc remote' target='_blank'>pp</a> Pretty-printing (more
+  detailed version of `p`).
 
 ### Files[](#files)
 

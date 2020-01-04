@@ -1,7 +1,7 @@
 ---
 title: Control Expressions
 prev: "/language/assignment.html"
-next: "/language/methods-def.html"
+next: "/language/pattern-matching.html"
 ---
 
 ## Control Expressions[](#control-expressions)
@@ -289,9 +289,9 @@ You may use `then` after the `when` condition. This is most frequently
 used to place the body of the `when` on a single line.
 
 
-```
+```ruby
 case a
-when 1, 2 then puts "a is one or two
+when 1, 2 then puts "a is one or two"
 when 3    then puts "a is three"
 else           puts "I don't know what a is"
 end
@@ -317,6 +317,23 @@ Again, the `then` and `else` are optional.
 
 The result value of a `case` expression is the last value executed in
 the expression.
+
+Since Ruby 2.7, `case` expressions also provide a more powerful
+experimental pattern matching feature via the `in` keyword:
+
+
+```ruby
+case {a: 1, b: 2, c: 3}
+in a: Integer => m
+  "matched: #{m}"
+else
+  "not matched"
+end
+# => "matched: 1"
+```
+
+Pattern matching syntax is described on [its own
+page](/language/pattern-matching.md).
 
 ### `while` Loop[](#while-loop)
 
@@ -399,7 +416,39 @@ Like `while` and `until`, the `do` is optional.
 The result value of a `for` loop is the value iterated over unless
 `break` is used.
 
-content/syntax/control\_expressions/\_for\_vs\_each.md
+Unlike other languages, a Ruby program typically doesn't need a `for`
+loop, using [Enumerable](../builtin/types/enumerable.md) instead:
+
+
+```ruby
+# Not idiomatic
+for i in 0..3
+  # ...
+end
+# Idiomatic
+(0..3).each do |i|
+  # ...
+end
+
+# Not idiomatic: selecting items
+odds = []
+for value in [1, 2, 3, 4, 5]
+  odds.push(value) if value.odd?
+end
+# Still not idiomatic: just each
+odds = []
+[1, 2, 3, 4, 5].each do |value|
+  odds.push(value) if value.odd?
+end
+# Idiomatic: specialized Enumerable method
+odds = [1, 2, 3, 4, 5].select { |value| value.odd? }
+# Simplify with Symbol#to_proc
+odds = [1, 2, 3, 4, 5].select(&:odd?)
+```
+
+Note that in a lot of cases `until` and `while` loops also could be
+replaced with `Enumerable` methods like `#take_while`, `#drop_while` and
+others.
 
 ### Modifier `while` and `until`[](#modifier-while-and-until)
 

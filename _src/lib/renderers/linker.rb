@@ -12,7 +12,8 @@ module Linker
     'globals.rdoc' => '/language/globals.md',
     'syntax/refinements.rdoc' => '/language/refinements.md',
     'doc/security.rdoc' => '/advanced/security.md',
-    'control_expressions_rdoc.html#label-Modifier+Statements' => '/language/control-expressions.md#modifier-statements'
+    'control_expressions_rdoc.html#label-Modifier+Statements' => '/language/control-expressions.md#modifier-statements',
+    'syntax/pattern_matching.rdoc' => '/language/pattern-matching.md',
   }
 
   # internal links in installation.md, imported from site

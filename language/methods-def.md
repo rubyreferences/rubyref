@@ -1,6 +1,6 @@
 ---
 title: Defining methods
-prev: "/language/control-expressions.html"
+prev: "/language/pattern-matching.html"
 next: "/language/methods-call.html"
 ---
 
@@ -330,7 +330,22 @@ end
 When called, the arguments must be provided in the exact order. In other
 words, the arguments are positional.
 
-content/language/methods/\_underscore.md
+Repeated argument names is syntax error. There is one exception: the
+special name `_` to designate unused argument(s).
+
+
+```
+def some_method(x, y, x) # Syntax error
+  # ...
+end
+
+def some_method(_, y, _) # OK
+  # ...
+end
+```
+
+This is useful for redefining methods, when client code expects a
+particular calling convention.
 
 #### Default Values[](#default-values)
 
@@ -563,7 +578,21 @@ add_values(first: 1, second: 2)
 When mixing keyword arguments and positional arguments, all positional
 arguments must appear before any keyword arguments.
 
-content/language/methods/\_keyword\_vars.md
+It is possible to define a keyword argument with name that is not
+acceptable for a variable name, like `class` or `next` (keywords). In
+this case, argument's value can be obtained via
+[Binding](../builtin/core.md#binding).
+
+
+```ruby
+def html_tag(name, class:)
+  # Will fail with SyntaxError
+  # puts class
+
+  # Works
+  puts binding.local_variable_get('class')
+end
+```
 
 Also, note that `**` can be used to ignore keyword arguments:
 
@@ -772,7 +801,26 @@ If you wish to rescue an exception for only part of your method, use
 `begin` and `end`. For more details see the page on [exception
 handling](/language/exceptions.md).
 
-content/language/methods/\_expression.md
+### Method definition as an expression[](#method-definition-as-an-expression)
+
+`def` (method definition) is an *expression* returning the name of the
+defined method. This feature is mostly useful for method decoration:
+
+
+```ruby
+# Ruby's standard visibility statement
+private def some_private_method
+  # ...
+end
+
+# Decorating with third-party library for memoizing (caching) method value
+memoize def some_expensive_method
+  # ...
+end
+```
+
+`private` and `memoize` above are just method calls, receiving the
+result of `def` (method name to make private/cached) as their argument.
 
 
 

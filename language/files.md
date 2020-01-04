@@ -8,11 +8,11 @@ next: "/language/globals.html"
 
 Ruby does not enforce any particular directory structure. Loading code
 from different files is performed by <a
-href='https://ruby-doc.org/core-2.6/Kernel.html#method-i-require'
+href='https://ruby-doc.org/core-2.7.0/Kernel.html#method-i-require'
 class='ruby-doc remote' target='_blank'>require</a>, <a
-href='https://ruby-doc.org/core-2.6/Kernel.html#method-i-require_relative'
+href='https://ruby-doc.org/core-2.7.0/Kernel.html#method-i-require_relative'
 class='ruby-doc remote' target='_blank'>require\_relative</a> or <a
-href='https://ruby-doc.org/core-2.6/Kernel.html#method-i-load'
+href='https://ruby-doc.org/core-2.7.0/Kernel.html#method-i-load'
 class='ruby-doc remote' target='_blank'>load</a>. The filesystem
 structure is not related to the module structure, because all constants
 (including classes and modules) from loaded files are imported into the

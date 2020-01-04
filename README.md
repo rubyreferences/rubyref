@@ -1,7 +1,6 @@
 ---
 title: Introduction
 next: "/intro/installation.html"
-permalink: "/index.html"
 ---
 
 ## The Ruby Reference[](#the-ruby-reference)
