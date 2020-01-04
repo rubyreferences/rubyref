@@ -1,7 +1,7 @@
 ---
 title: Hash
-prev: "/builtin/types/array.html"
-next: "/builtin/types/set.html"
+prev: builtin/types/array.html
+next: builtin/types/set.html
 ---
 
 ## Hash[](#hash)
@@ -148,6 +148,6 @@ reviews.length #=> 1
 
 See also `Object#hash` and `Object#eql?`
 
-<a href='https://ruby-doc.org/core-2.6/Hash.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Hash.html' class='ruby-doc
 remote' target='_blank'>Hash Reference</a>
 

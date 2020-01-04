@@ -1,7 +1,7 @@
 ---
 title: uri
-prev: "/stdlib/networking-web/webrick.html"
-next: "/stdlib/cli.html"
+prev: stdlib/networking-web/webrick.html
+next: stdlib/cli.html
 ---
 
 
@@ -61,6 +61,6 @@ uri = URI("rsync://rsync.foo.com")
 #=> #<URI::RSYNC rsync://rsync.foo.com>
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/uri/rdoc/URI.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/uri/rdoc/URI.html'
 class='ruby-doc remote' target='_blank'>URI Reference</a>
 

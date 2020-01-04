@@ -48,9 +48,13 @@ precedence operations happen before low precedence operations.
 Unary `+` and unary `-` are for `+1`, `-1` or `-(a + b)`.
 
 Modifier-if, modifier-unless, etc. are for the modifier versions of those
-keywords.  For example, this is a modifier-unless expression:
+keywords.  For example, this is a modifier-unless statement:
 
     a += 1 unless a.zero?
+
+Note that `(a if b rescue c)` is parsed as `((a if b) rescue c)` due to
+reasons not related to precedence. See [modifier
+statements](control_expressions_rdoc.html#label-Modifier+Statements).
 
 `{ ... }` blocks have priority below all listed operations, but `do ... end`
 blocks have lower priority.

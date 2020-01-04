@@ -1,7 +1,7 @@
 ---
 title: Assignment
-prev: "/language/variables-constants.html"
-next: "/language/control-expressions.html"
+prev: language/variables-constants.html
+next: language/control-expressions.html
 ---
 
 ## Assignment[](#assignment)
@@ -132,8 +132,8 @@ But you may only use one `*` in an assignment.
 
 ### Array Decomposition[](#array-decomposition)
 
-Like Array decomposition in [method arguments](methods-def.md) you can
-decompose an Array during assignment using parenthesis:
+Like Array decomposition in [method arguments](/language/methods-def.md)
+you can decompose an Array during assignment using parenthesis:
 
 
 ```ruby

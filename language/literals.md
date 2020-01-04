@@ -1,7 +1,7 @@
 ---
 title: Literals
-prev: "/language/keywords.html"
-next: "/language/comments.html"
+prev: language/keywords.html
+next: language/comments.html
 ---
 
 ## Literals[](#literals)
@@ -253,7 +253,7 @@ the script encoding:
 ?あ      #=> "あ"
 ```
 
-#### Here Documents[](#here-documents)
+#### Here Documents (heredocs)[](#here-documents-heredocs)
 
 If you are writing a large block of text you may use a "here document"
 or "heredoc"\:
@@ -331,6 +331,9 @@ puts <<-`HEREDOC`
 cat #{__FILE__}
 HEREDOC
 ```
+
+When surrounding with quotes, any character but that quote and newline
+(CR and/or LF) can be used as the identifier.
 
 To call a method on a heredoc place it after the opening identifier:
 
@@ -447,6 +450,7 @@ exclude its ending value.
 (1..2)  # includes its ending value
 (1...2) # excludes its ending value
 (1..)   # endless range, representing infinite sequence from 1 to Infinity
+(..1)   # beginless range, representing infinite sequence from -Infinity to 1
 ```
 
 You may create a range of any object. See the

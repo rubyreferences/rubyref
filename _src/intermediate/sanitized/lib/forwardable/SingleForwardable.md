@@ -26,4 +26,4 @@ Module.
 If you want to use both Forwardable and SingleForwardable, you can use methods
 def_instance_delegator and def_single_delegator, etc.
 
-[SingleForwardable Reference](https://ruby-doc.org/stdlib-2.6/libdoc/forwardable/rdoc/SingleForwardable.html)
+[SingleForwardable Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/forwardable/rdoc/SingleForwardable.html)

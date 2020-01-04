@@ -30,4 +30,4 @@ Set the non-blocking flag on `f` in addition to the existing flags in `m`.
 
     f.fcntl(Fcntl::F_SETFL, Fcntl::O_NONBLOCK|m)
 
-[Fcntl Reference](https://ruby-doc.org/stdlib-2.6/libdoc/fcntl/rdoc/Fcntl.html)
+[Fcntl Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/fcntl/rdoc/Fcntl.html)

@@ -13,4 +13,4 @@ Usage:
     GC.start                    # start the garbage collector
     p foo.to_s                  # should raise exception (recycled)
 
-[WeakRef Reference](https://ruby-doc.org/stdlib-2.6/libdoc/weakref/rdoc/WeakRef.html)
+[WeakRef Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/weakref/rdoc/WeakRef.html)

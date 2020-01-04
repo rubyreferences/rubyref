@@ -1,7 +1,7 @@
 ---
 title: 'optparse: CLI arguments parser'
-prev: "/stdlib/cli/open3.html"
-next: "/stdlib/cli/pty.html"
+prev: stdlib/cli/open3.html
+next: stdlib/cli/pty.html
 ---
 
 
@@ -142,7 +142,7 @@ are:
 * Array -- Strings separated by ',' (e.g. 1,2,3)
 * Regexp -- Regular expressions. Also includes options.
 
-We can also add our own coercions, which we will cover soon.
+We can also add our own coercions, which we will cover below.
 
 ##### Using Built-in Conversions[](#using-built-in-conversions)
 
@@ -251,6 +251,6 @@ $ ruby optparse-test.rb -a -b 100
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/optparse/rdoc/OptionParser.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/optparse/rdoc/OptionParser.html'
 class='ruby-doc remote' target='_blank'>OptionParser Reference</a>
 

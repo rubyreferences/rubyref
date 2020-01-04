@@ -98,4 +98,4 @@ Here is a list of all related RFC's:
 * Revision: $Id$
 
 
-[URI Reference](https://ruby-doc.org/stdlib-2.6/libdoc/uri/rdoc/URI.html)
+[URI Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/uri/rdoc/URI.html)

@@ -1,7 +1,7 @@
 ---
 title: singleton
-prev: "/stdlib/patterns/observer.html"
-next: "/stdlib/formats.html"
+prev: stdlib/patterns/observer.html
+next: stdlib/formats.html
 ---
 
 
@@ -58,6 +58,6 @@ ObjectSpace.each_object(OtherKlass){}
 This behavior is preserved under inheritance and cloning.
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/singleton/rdoc/Singleton.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/singleton/rdoc/Singleton.html'
 class='ruby-doc remote' target='_blank'>Singleton Reference</a>
 

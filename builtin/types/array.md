@@ -1,7 +1,7 @@
 ---
 title: Array
-prev: "/builtin/types/enumerable.html"
-next: "/builtin/types/hash.html"
+prev: builtin/types/enumerable.html
+next: builtin/types/hash.html
 ---
 
 ## Array[](#array)
@@ -327,6 +327,6 @@ arr.keep_if {|a| a < 4}   #=> [1, 2, 3]
 arr                       #=> [1, 2, 3]
 ```
 
-<a href='https://ruby-doc.org/core-2.6/Array.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Array.html' class='ruby-doc
 remote' target='_blank'>Array Reference</a>
 

@@ -1,7 +1,7 @@
 ---
 title: dbm, gdbm, sdbm
-prev: "/stdlib/misc/drb.html"
-next: "/stdlib/misc/timeout.html"
+prev: stdlib/misc/drb.html
+next: stdlib/misc/timeout.html
 ---
 
 ## DBM-alike Database Implementations[](#dbm-alike-database-implementations)
@@ -40,7 +40,7 @@ of the following:
 All of these dbm implementations have their own Ruby interfaces
 available, which provide richer (but varying) APIs.
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/dbm/rdoc/DBM.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/dbm/rdoc/DBM.html'
 class='ruby-doc remote' target='_blank'>DBM Reference</a>
 
 
@@ -52,7 +52,7 @@ class='ruby-doc remote' target='_blank'>DBM Reference</a>
 Ruby extension for GNU dbm (gdbm) -- a simple database engine for
 storing key-value pairs on disk.
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/gdbm/rdoc/GDBM.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/gdbm/rdoc/GDBM.html'
 class='ruby-doc remote' target='_blank'>GDBM Reference</a>
 
 
@@ -65,6 +65,6 @@ String keys and values.
 Note that Ruby comes with the source code for SDBM, while the DBM and
 GDBM standard libraries rely on external libraries and headers.
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/sdbm/rdoc/SDBM.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/sdbm/rdoc/SDBM.html'
 class='ruby-doc remote' target='_blank'>SDBM Reference</a>
 

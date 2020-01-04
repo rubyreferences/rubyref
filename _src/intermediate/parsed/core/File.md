@@ -1,8 +1,8 @@
 # File
 
-A `File` is an abstraction of any file object accessible by the program and is
-closely associated with class `IO`. `File` includes the methods of module
-`FileTest` as class methods, allowing you to write (for example)
+A File is an abstraction of any file object accessible by the program and is
+closely associated with class IO.  File includes the methods of module
+FileTest as class methods, allowing you to write (for example)
 `File.exist?("foo")`.
 
 In the description of File methods, *permission bits* are a platform-specific
@@ -27,4 +27,4 @@ read-only, which is reported as `0444`.
 
 Various constants for the methods in File can be found in File::Constants.
 
-[File Reference](https://ruby-doc.org/core-2.6/File.html)
+[File Reference](https://ruby-doc.org/core-2.7.0/File.html)

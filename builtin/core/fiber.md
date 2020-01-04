@@ -1,7 +1,7 @@
 ---
 title: Fiber
-prev: "/builtin/core/binding.html"
-next: "/builtin/types.html"
+prev: builtin/core/binding.html
+next: builtin/types.html
 ---
 
 ## Fiber[](#fiber)
@@ -19,7 +19,7 @@ manpage to configure the size of the fiber stack(s).
 
 When a fiber is created it will not run automatically. Rather it must be
 explicitly asked to run using the `Fiber#resume` method. The code
-running inside the fiber can give up control by calling `Fiber.yield` in
+running inside the fiber can give up control by calling Fiber.yield in
 which case it yields control back to caller (the caller of the
 `Fiber#resume`).
 
@@ -50,9 +50,9 @@ FiberError: dead fiber called
 ```
 
 The `Fiber#resume` method accepts an arbitrary number of parameters, if
-it is the first call to `resume` then they will be passed as block
+it is the first call to `#resume` then they will be passed as block
 arguments. Otherwise they will be the return value of the call to
-`Fiber.yield`
+Fiber.yield
 
 Example:
 
@@ -63,8 +63,8 @@ fiber = Fiber.new do |first|
 end
 
 puts fiber.resume 10
-puts fiber.resume 14
-puts fiber.resume 18
+puts fiber.resume 1_000_000
+puts fiber.resume "The fiber will be dead before I can cause trouble"
 ```
 
 *produces*
@@ -72,10 +72,10 @@ puts fiber.resume 18
 
 ```
 12
-14
+1000000
 FiberError: dead fiber called
 ```
 
-<a href='https://ruby-doc.org/core-2.6/Fiber.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Fiber.html' class='ruby-doc
 remote' target='_blank'>Fiber Reference</a>
 

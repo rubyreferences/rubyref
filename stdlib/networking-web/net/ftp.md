@@ -1,7 +1,7 @@
 ---
 title: net/ftp
-prev: "/stdlib/networking-web/ipaddr.html"
-next: "/stdlib/networking-web/net/http.html"
+prev: stdlib/networking-web/ipaddr.html
+next: stdlib/networking-web/net/http.html
 ---
 
 
@@ -39,6 +39,6 @@ end
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/net/ftp/rdoc/Net/FTP.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/net/ftp/rdoc/Net/FTP.html'
 class='ruby-doc remote' target='_blank'>Net::FTP Reference</a>
 

@@ -1,7 +1,5 @@
 ---
 title: profiler
-prev: "/stdlib/development/pp.html"
-next: "/stdlib/development/ripper.html"
 ---
 
 ## profile[](#profile)
@@ -20,7 +18,7 @@ profiling.
 
 There are two ways to activate Profiling:
 
-### Command line[](#command-line)
+## Command line[](#command-line)
 
 Run your Ruby script with `-rprofile`: 
 
@@ -35,7 +33,7 @@ If you're profiling an executable in your `$PATH` you can use `ruby
 ruby -rprofile -S some_executable
 ```
 
-### From code[](#from-code)
+## From code[](#from-code)
 
 Just require 'profile': 
 
@@ -82,7 +80,7 @@ class='ruby-doc remote' target='_blank'>profile Reference</a>
 
 
 
-### Alternatives[](#alternatives)
+# Alternatives[](#alternatives)
 
 <a href='https://github.com/ruby-prof/ruby-prof' class='remote'
 target='_blank'>ruby-prof</a> is currently the most feature-rich and

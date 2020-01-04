@@ -1,8 +1,7 @@
 # English
 
 Include the English library file in a Ruby script, and you can reference the
-global variables such as VAR{$_} using less cryptic names, listed in the
-following table.% vref{tab:english}.
+global variables such as `$_` using less cryptic names, listed below.
 
 Without 'English':
 
@@ -48,4 +47,4 @@ variable:
 * `$LAST_PAREN_MATCH`: `$+`
 
 
-[English Reference](https://ruby-doc.org/stdlib-2.6/libdoc/English/rdoc/English.html)
+[English Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/English/rdoc/English.html)

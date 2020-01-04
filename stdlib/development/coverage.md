@@ -1,7 +1,7 @@
 ---
 title: coverage
-prev: "/stdlib/development/bundler.html"
-next: "/stdlib/development/debug.html"
+prev: stdlib/development/bundler.html
+next: stdlib/development/debug.html
 ---
 
 
@@ -44,6 +44,6 @@ p Coverage.result  #=> {"foo.rb"=>[1, 1, 10, nil, nil, 1, 1, nil, 0, nil]}
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/coverage/rdoc/Coverage.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/coverage/rdoc/Coverage.html'
 class='ruby-doc remote' target='_blank'>Coverage Reference</a>
 

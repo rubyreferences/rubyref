@@ -41,4 +41,4 @@ or
     oleobj.method(arg1, arg2, refargv3)
     p refargv3.value # the value of refargv3 after called oleobj.method.
 
-[WIN32OLE Reference](https://ruby-doc.org/stdlib-2.6/libdoc/win32ole/rdoc/WIN32OLE.html)
+[WIN32OLE Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/win32ole/rdoc/WIN32OLE.html)

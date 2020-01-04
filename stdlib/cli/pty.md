@@ -1,7 +1,7 @@
 ---
 title: 'pty: Pseudo terminal'
-prev: "/stdlib/cli/optparse.html"
-next: "/stdlib/cli/readline.html"
+prev: stdlib/cli/optparse.html
+next: stdlib/cli/readline.html
 ---
 
 
@@ -56,6 +56,6 @@ ret = begin
 p ret #=> nil
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/pty/rdoc/PTY.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/pty/rdoc/PTY.html'
 class='ruby-doc remote' target='_blank'>PTY Reference</a>
 

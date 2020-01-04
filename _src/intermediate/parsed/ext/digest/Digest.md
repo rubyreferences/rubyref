@@ -68,4 +68,4 @@ SHA2 family
 The latest versions of the FIPS publications can be found here:
 http://csrc.nist.gov/publications/PubsFIPS.html.
 
-[Digest Reference](https://ruby-doc.org/stdlib-2.6/libdoc/digest/rdoc/Digest.html)
+[Digest Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/digest/rdoc/Digest.html)

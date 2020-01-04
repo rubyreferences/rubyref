@@ -1,7 +1,7 @@
 ---
 title: syslog
-prev: "/stdlib/cli/readline.html"
-next: "/stdlib/cli/shell.html"
+prev: stdlib/cli/readline.html
+next: stdlib/cli/win32ole.html
 ---
 
 
@@ -25,6 +25,7 @@ to allow secure tamper-proof logging.
 
 The syslog protocol is standardized in RFC 5424.
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/syslog/rdoc/Syslog.html'
+<a
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/syslog/rdoc/Syslog.html'
 class='ruby-doc remote' target='_blank'>Syslog Reference</a>
 

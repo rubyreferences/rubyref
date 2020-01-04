@@ -1,7 +1,7 @@
 ---
 title: Language Structure
-prev: "/intro/quickstart.html"
-next: "/language/keywords.html"
+prev: intro/quickstart.html
+next: language/keywords.html
 ---
 
 ## Ruby Language Structure[](#ruby-language-structure)
@@ -34,10 +34,10 @@ As a brief overview, it can be said that:
 
 Note that many of the language constructs you will see in a typical Ruby
 program, are in fact, just *methods*. For example <a
-href='https://ruby-doc.org/core-2.6/Kernel.html#method-i-raise'
+href='https://ruby-doc.org/core-2.7.0/Kernel.html#method-i-raise'
 class='ruby-doc remote' target='_blank'>`Kernel#raise`</a> is used to
 raise an exception, and <a
-href='https://ruby-doc.org/core-2.6/Module.html#method-i-private'
+href='https://ruby-doc.org/core-2.7.0/Module.html#method-i-private'
 class='ruby-doc remote' target='_blank'>`Module#private`</a> is used to
 change a method's visibility. As a result, the language core described
 in this chapter is pretty small, and everything else just follows usual
@@ -58,7 +58,7 @@ frequently used with `ruby -e`.
 Ruby does not require any indentation. Typically, ruby programs are
 indented two spaces.
 
-If you run ruby with warnings enabled and have an indentation mis-match,
+If you run ruby with warnings enabled and have an indentation mismatch,
 you will receive a warning.
 
 ### `defined?`[](#defined)
@@ -73,7 +73,7 @@ p defined?(1 + 1)              # prints "method"
 ```
 
 You don't need to use parenthesis with `defined?`, but they are
-recommended due to the [low precedence](language/precedence.md) of
+recommended due to the [low precedence](/language/precedence.md) of
 `defined?`.
 
 For example, if you wish to check if an instance variable exists and

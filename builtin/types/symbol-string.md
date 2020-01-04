@@ -1,7 +1,7 @@
 ---
 title: Symbol and String
-prev: "/builtin/types/numbers.html"
-next: "/builtin/types/regexp.html"
+prev: builtin/types/numbers.html
+next: builtin/types/regexp.html
 ---
 
 ## Symbol and String[](#symbol-and-string)
@@ -10,14 +10,13 @@ next: "/builtin/types/regexp.html"
 
 ### Symbol[](#symbol)
 
-`Symbol` objects represent names and some strings inside the Ruby
-interpreter. They are generated using the `:name` and `:"string"`
-literals syntax, and by the various `to_sym` methods. The same `Symbol`
-object will be created for a given name or string for the duration of a
-program's execution, regardless of the context or meaning of that name.
-Thus if `Fred` is a constant in one context, a method in another, and a
-class in a third, the `Symbol` `:Fred` will be the same object in all
-three contexts.
+Symbol objects represent names inside the Ruby interpreter. They are
+generated using the `:name` and `:"string"` literals syntax, and by the
+various `to_sym` methods. The same Symbol object will be created for a
+given name or string for the duration of a program's execution,
+regardless of the context or meaning of that name. Thus if `Fred` is a
+constant in one context, a method in another, and a class in a third,
+the Symbol `:Fred` will be the same object in all three contexts.
 
 
 ```ruby
@@ -38,24 +37,24 @@ $f2.object_id   #=> 2514190
 $f3.object_id   #=> 2514190
 ```
 
-<a href='https://ruby-doc.org/core-2.6/Symbol.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Symbol.html' class='ruby-doc
 remote' target='_blank'>Symbol Reference</a>
 
 
 
 ### String[](#string)
 
-A `String` object holds and manipulates an arbitrary sequence of bytes,
+A String object holds and manipulates an arbitrary sequence of bytes,
 typically representing characters. String objects may be created using
-`String::new` or as literals.
+String::new or as literals.
 
 Because of aliasing issues, users of strings should be aware of the
-methods that modify the contents of a `String` object. Typically,
-methods with names ending in `!` modify their receiver, while those
-without a `!` return a new `String`. However, there are exceptions, such
-as `String#[]=`.
+methods that modify the contents of a String object. Typically, methods
+with names ending in `!'' modify their receiver, while those without
+a`!'' return a new String. However, there are exceptions, such as
+`String#[]=`.
 
-<a href='https://ruby-doc.org/core-2.6/String.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/String.html' class='ruby-doc
 remote' target='_blank'>String Reference</a>
 
 
@@ -93,7 +92,7 @@ string.encoding
 #=> "some string"
 ```
 
-`Encoding::ASCII_8BIT` is a special encoding that is usually used for a
+Encoding::ASCII\_8BIT is a special encoding that is usually used for a
 byte string, not a character string. But as the name insists, its
 characters in the range of ASCII are considered as ASCII characters.
 This is useful when you use ASCII-8BIT characters with other ASCII
@@ -142,7 +141,7 @@ string.encoding
 All Ruby script code has an associated Encoding which any String literal
 created in the source code will be associated to.
 
-The default script encoding is `Encoding::UTF-8` after v2.0, but it can
+The default script encoding is Encoding::UTF\_8 after v2.0, but it can
 be changed by a magic comment on the first line of the source code file
 (or second line, if there is a shebang line on the first). The comment
 must contain the word `coding` or `encoding`, followed by a colon, space
@@ -291,6 +290,6 @@ transcoded text:
 "R\u00E9sum\u00E9"
 ```
 
-<a href='https://ruby-doc.org/core-2.6/Encoding.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Encoding.html' class='ruby-doc
 remote' target='_blank'>Encoding Reference</a>
 

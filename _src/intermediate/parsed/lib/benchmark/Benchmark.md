@@ -104,4 +104,4 @@ The result:
         >avg:     0.960000   0.000000   0.960000 (  0.961255)
 
 
-[Benchmark Reference](https://ruby-doc.org/stdlib-2.6/libdoc/benchmark/rdoc/Benchmark.html)
+[Benchmark Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/benchmark/rdoc/Benchmark.html)

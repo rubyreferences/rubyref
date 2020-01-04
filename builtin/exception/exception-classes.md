@@ -1,7 +1,7 @@
 ---
 title: Exception Classes
-prev: "/builtin/exception.html"
-next: "/builtin/warning.html"
+prev: builtin/exception.html
+next: builtin/warning.html
 ---
 
 ## Built-in Exception Classes[](#built-in-exception-classes)
@@ -12,7 +12,7 @@ next: "/builtin/warning.html"
 
 Raised when memory allocation fails.
 
-<a href='https://ruby-doc.org/core-2.6/NoMemoryError.html'
+<a href='https://ruby-doc.org/core-2.7.0/NoMemoryError.html'
 class='ruby-doc remote' target='_blank'>NoMemoryError Reference</a>
 
 
@@ -25,8 +25,8 @@ executed because of a `LoadError`, `NotImplementedError` or a
 and will not be rescued unless it is specified explicitly (or its
 ancestor `Exception`).
 
-<a href='https://ruby-doc.org/core-2.6/ScriptError.html' class='ruby-doc
-remote' target='_blank'>ScriptError Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/ScriptError.html'
+class='ruby-doc remote' target='_blank'>ScriptError Reference</a>
 
 
 
@@ -47,7 +47,7 @@ require 'this/file/does/not/exist'
 LoadError: no such file to load -- this/file/does/not/exist
 ```
 
-<a href='https://ruby-doc.org/core-2.6/LoadError.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/LoadError.html' class='ruby-doc
 remote' target='_blank'>LoadError Reference</a>
 
 
@@ -62,7 +62,7 @@ does not support them.
 Note that if `fork` raises a `NotImplementedError`, then
 `respond_to?(:fork)` returns `false`.
 
-<a href='https://ruby-doc.org/core-2.6/NotImplementedError.html'
+<a href='https://ruby-doc.org/core-2.7.0/NotImplementedError.html'
 class='ruby-doc remote' target='_blank'>NotImplementedError
 Reference</a>
 
@@ -84,34 +84,16 @@ eval("1+1=2")
 SyntaxError: (eval):1: syntax error, unexpected '=', expecting $end
 ```
 
-<a href='https://ruby-doc.org/core-2.6/SyntaxError.html' class='ruby-doc
-remote' target='_blank'>SyntaxError Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/SyntaxError.html'
+class='ruby-doc remote' target='_blank'>SyntaxError Reference</a>
 
 
 
 ### SecurityError[](#securityerror)
 
-Raised when attempting a potential unsafe operation, typically when the
-$SAFE level is raised above 0.
+No longer used by internal code.
 
-
-```ruby
-foo = "bar"
-proc = Proc.new do
-  $SAFE = 3
-  foo.untaint
-end
-proc.call
-```
-
-*raises the exception:*
-
-
-```
-SecurityError: Insecure: Insecure operation `untaint` at level 3
-```
-
-<a href='https://ruby-doc.org/core-2.6/SecurityError.html'
+<a href='https://ruby-doc.org/core-2.7.0/SecurityError.html'
 class='ruby-doc remote' target='_blank'>SecurityError Reference</a>
 
 
@@ -137,7 +119,7 @@ end
 received Exception SIGHUP
 ```
 
-<a href='https://ruby-doc.org/core-2.6/SignalException.html'
+<a href='https://ruby-doc.org/core-2.7.0/SignalException.html'
 class='ruby-doc remote' target='_blank'>SignalException Reference</a>
 
 
@@ -172,7 +154,7 @@ Press ctrl-C when you get bored
 Note: You will typically use Signal.trap instead.
 ```
 
-<a href='https://ruby-doc.org/core-2.6/Interrupt.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Interrupt.html' class='ruby-doc
 remote' target='_blank'>Interrupt Reference</a>
 
 
@@ -205,7 +187,7 @@ require 'does/not/exist' rescue "Hi"
 LoadError: no such file to load -- does/not/exist
 ```
 
-<a href='https://ruby-doc.org/core-2.6/StandardError.html'
+<a href='https://ruby-doc.org/core-2.7.0/StandardError.html'
 class='ruby-doc remote' target='_blank'>StandardError Reference</a>
 
 
@@ -243,7 +225,7 @@ Ex: passing an argument that is not acceptable:
 ArgumentError: negative array size
 ```
 
-<a href='https://ruby-doc.org/core-2.6/ArgumentError.html'
+<a href='https://ruby-doc.org/core-2.7.0/ArgumentError.html'
 class='ruby-doc remote' target='_blank'>ArgumentError Reference</a>
 
 
@@ -265,7 +247,7 @@ throw "foo", "bar"
 UncaughtThrowError: uncaught throw "foo"
 ```
 
-<a href='https://ruby-doc.org/core-2.6/UncaughtThrowError.html'
+<a href='https://ruby-doc.org/core-2.7.0/UncaughtThrowError.html'
 class='ruby-doc remote' target='_blank'>UncaughtThrowError Reference</a>
 
 
@@ -274,7 +256,7 @@ class='ruby-doc remote' target='_blank'>UncaughtThrowError Reference</a>
 
 EncodingError is the base class for encoding errors.
 
-<a href='https://ruby-doc.org/core-2.6/EncodingError.html'
+<a href='https://ruby-doc.org/core-2.7.0/EncodingError.html'
 class='ruby-doc remote' target='_blank'>EncodingError Reference</a>
 
 
@@ -292,8 +274,8 @@ fiber.resume #=> nil
 fiber.resume #=> FiberError: dead fiber called
 ```
 
-<a href='https://ruby-doc.org/core-2.6/FiberError.html' class='ruby-doc
-remote' target='_blank'>FiberError Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/FiberError.html'
+class='ruby-doc remote' target='_blank'>FiberError Reference</a>
 
 
 
@@ -319,7 +301,7 @@ File.open("does/not/exist")
   #=> Errno::ENOENT: No such file or directory - does/not/exist
 ```
 
-<a href='https://ruby-doc.org/core-2.6/IOError.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/IOError.html' class='ruby-doc
 remote' target='_blank'>IOError Reference</a>
 
 
@@ -342,7 +324,7 @@ file.gets     #=> nil
 file.readline #=> EOFError: end of file reached
 ```
 
-<a href='https://ruby-doc.org/core-2.6/EOFError.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/EOFError.html' class='ruby-doc
 remote' target='_blank'>EOFError Reference</a>
 
 
@@ -359,8 +341,8 @@ a[4]         #=> nil
 a.fetch(4)   #=> IndexError: index 4 outside of array bounds: -2...2
 ```
 
-<a href='https://ruby-doc.org/core-2.6/IndexError.html' class='ruby-doc
-remote' target='_blank'>IndexError Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/IndexError.html'
+class='ruby-doc remote' target='_blank'>IndexError Reference</a>
 
 
 
@@ -376,7 +358,7 @@ h.fetch("foo") #=> :bar
 h.fetch("baz") #=> KeyError: key not found: "baz"
 ```
 
-<a href='https://ruby-doc.org/core-2.6/KeyError.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/KeyError.html' class='ruby-doc
 remote' target='_blank'>KeyError Reference</a>
 
 
@@ -404,7 +386,7 @@ Hello
 Done!
 ```
 
-<a href='https://ruby-doc.org/core-2.6/StopIteration.html'
+<a href='https://ruby-doc.org/core-2.7.0/StopIteration.html'
 class='ruby-doc remote' target='_blank'>StopIteration Reference</a>
 
 
@@ -414,7 +396,7 @@ class='ruby-doc remote' target='_blank'>StopIteration Reference</a>
 The exception class which will be raised when pushing into a closed
 Queue. See `Queue#close` and `SizedQueue#close`.
 
-<a href='https://ruby-doc.org/core-2.6/ClosedQueueError.html'
+<a href='https://ruby-doc.org/core-2.7.0/ClosedQueueError.html'
 class='ruby-doc remote' target='_blank'>ClosedQueueError Reference</a>
 
 
@@ -457,7 +439,7 @@ get_me_a_return.call
 LocalJumpError: unexpected return
 ```
 
-<a href='https://ruby-doc.org/core-2.6/LocalJumpError.html'
+<a href='https://ruby-doc.org/core-2.7.0/LocalJumpError.html'
 class='ruby-doc remote' target='_blank'>LocalJumpError Reference</a>
 
 
@@ -492,7 +474,7 @@ Integer.const_set :answer, 42
 NameError: wrong constant name answer
 ```
 
-<a href='https://ruby-doc.org/core-2.6/NameError.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/NameError.html' class='ruby-doc
 remote' target='_blank'>NameError Reference</a>
 
 
@@ -514,7 +496,7 @@ defined and also fails to respond with `method_missing`.
 NoMethodError: undefined method `to_ary` for "hello":String
 ```
 
-<a href='https://ruby-doc.org/core-2.6/NoMethodError.html'
+<a href='https://ruby-doc.org/core-2.7.0/NoMethodError.html'
 class='ruby-doc remote' target='_blank'>NoMethodError Reference</a>
 
 
@@ -535,8 +517,8 @@ Raised when a given numerical value is out of range.
 RangeError: bignum too big to convert into `long`
 ```
 
-<a href='https://ruby-doc.org/core-2.6/RangeError.html' class='ruby-doc
-remote' target='_blank'>RangeError Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/RangeError.html'
+class='ruby-doc remote' target='_blank'>RangeError Reference</a>
 
 
 
@@ -550,7 +532,7 @@ Raised when attempting to convert special float values (in particular
 Float::INFINITY.to_r   #=> FloatDomainError: Infinity
 ```
 
-<a href='https://ruby-doc.org/core-2.6/FloatDomainError.html'
+<a href='https://ruby-doc.org/core-2.7.0/FloatDomainError.html'
 class='ruby-doc remote' target='_blank'>FloatDomainError Reference</a>
 
 
@@ -571,8 +553,8 @@ Regexp.new("?")
 RegexpError: target of repeat operator is not specified: /?/
 ```
 
-<a href='https://ruby-doc.org/core-2.6/RegexpError.html' class='ruby-doc
-remote' target='_blank'>RegexpError Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/RegexpError.html'
+class='ruby-doc remote' target='_blank'>RegexpError Reference</a>
 
 
 
@@ -594,7 +576,7 @@ raise "ouch"
 RuntimeError: ouch
 ```
 
-<a href='https://ruby-doc.org/core-2.6/RuntimeError.html'
+<a href='https://ruby-doc.org/core-2.7.0/RuntimeError.html'
 class='ruby-doc remote' target='_blank'>RuntimeError Reference</a>
 
 
@@ -615,8 +597,8 @@ Raised when there is an attempt to modify a frozen object.
 FrozenError: can't modify frozen Array
 ```
 
-<a href='https://ruby-doc.org/core-2.6/FrozenError.html' class='ruby-doc
-remote' target='_blank'>FrozenError Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/FrozenError.html'
+class='ruby-doc remote' target='_blank'>FrozenError Reference</a>
 
 
 
@@ -640,24 +622,23 @@ File.open("does/not/exist")
 Errno::ENOENT: No such file or directory - does/not/exist
 ```
 
-<a href='https://ruby-doc.org/core-2.6/SystemCallError.html'
+<a href='https://ruby-doc.org/core-2.7.0/SystemCallError.html'
 class='ruby-doc remote' target='_blank'>SystemCallError Reference</a>
 
 
 
 #### Errno[](#errno)
 
-Ruby exception objects are subclasses of `Exception`. However, operating
-systems typically report errors using plain integers. Module `Errno` is
+Ruby exception objects are subclasses of Exception. However, operating
+systems typically report errors using plain integers. Module Errno is
 created dynamically to map these operating system errors to Ruby
 classes, with each error number generating its own subclass of
-`SystemCallError`. As the subclass is created in module `Errno`, its
-name will start `Errno::`.
+SystemCallError. As the subclass is created in module Errno, its name
+will start `Errno::`.
 
 The names of the `Errno::` classes depend on the environment in which
-Ruby runs. On a typical Unix or Windows platform, there are `Errno`
-classes such as `Errno::EACCES`, `Errno::EAGAIN`, `Errno::EINTR`, and so
-on.
+Ruby runs. On a typical Unix or Windows platform, there are Errno
+classes such as Errno::EACCES, Errno::EAGAIN, Errno::EINTR, and so on.
 
 The integer operating system error number corresponding to a particular
 error is available as the class constant `Errno::`*error*`::Errno`.
@@ -670,14 +651,14 @@ Errno::EINTR::Errno    #=> 4
 ```
 
 The full list of operating system errors on your particular platform are
-available as the constants of `Errno`.
+available as the constants of Errno.
 
 
 ```ruby
 Errno.constants   #=> :E2BIG, :EACCES, :EADDRINUSE, :EADDRNOTAVAIL, ...
 ```
 
-<a href='https://ruby-doc.org/core-2.6/Errno.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Errno.html' class='ruby-doc
 remote' target='_blank'>Errno Reference</a>
 
 
@@ -701,8 +682,8 @@ ThreadError: stopping only thread
 note: use sleep to stop forever
 ```
 
-<a href='https://ruby-doc.org/core-2.6/ThreadError.html' class='ruby-doc
-remote' target='_blank'>ThreadError Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/ThreadError.html'
+class='ruby-doc remote' target='_blank'>ThreadError Reference</a>
 
 
 
@@ -722,7 +703,7 @@ Raised when encountering an object that is not of the expected type.
 TypeError: no implicit conversion of String into Integer
 ```
 
-<a href='https://ruby-doc.org/core-2.6/TypeError.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/TypeError.html' class='ruby-doc
 remote' target='_blank'>TypeError Reference</a>
 
 
@@ -745,7 +726,7 @@ Note that only division by an exact 0 will raise the exception:
 0  /  0.0   #=> NaN
 ```
 
-<a href='https://ruby-doc.org/core-2.6/ZeroDivisionError.html'
+<a href='https://ruby-doc.org/core-2.7.0/ZeroDivisionError.html'
 class='ruby-doc remote' target='_blank'>ZeroDivisionError Reference</a>
 
 
@@ -754,8 +735,8 @@ class='ruby-doc remote' target='_blank'>ZeroDivisionError Reference</a>
 
 Raised by `exit` to initiate the termination of the script.
 
-<a href='https://ruby-doc.org/core-2.6/SystemExit.html' class='ruby-doc
-remote' target='_blank'>SystemExit Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/SystemExit.html'
+class='ruby-doc remote' target='_blank'>SystemExit Reference</a>
 
 
 
@@ -778,7 +759,7 @@ me_myself_and_i
 SystemStackError: stack level too deep
 ```
 
-<a href='https://ruby-doc.org/core-2.6/SystemStackError.html'
+<a href='https://ruby-doc.org/core-2.7.0/SystemStackError.html'
 class='ruby-doc remote' target='_blank'>SystemStackError Reference</a>
 
 
@@ -786,8 +767,8 @@ class='ruby-doc remote' target='_blank'>SystemStackError Reference</a>
 ### fatal[](#fatal)
 
 fatal is an Exception that is raised when Ruby has encountered a fatal
-error and must exit. You are not able to rescue fatal.
+error and must exit.
 
-<a href='https://ruby-doc.org/core-2.6/fatal.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/fatal.html' class='ruby-doc
 remote' target='_blank'>fatal Reference</a>
 

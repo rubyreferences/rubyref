@@ -122,4 +122,4 @@ Maintained by mrkn <mrkn@mrkn.jp> and ruby-core members.
 Documented by zzak <zachary@zacharyscott.net>, mathew <meta@pobox.com>, and
 many other contributors.
 
-[BigDecimal Reference](https://ruby-doc.org/stdlib-2.6/libdoc/bigdecimal/rdoc/BigDecimal.html)
+[BigDecimal Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/bigdecimal/rdoc/BigDecimal.html)

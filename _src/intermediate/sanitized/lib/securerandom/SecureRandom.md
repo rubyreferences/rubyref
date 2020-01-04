@@ -16,6 +16,24 @@ It supports the following secure random number generators:
 *   Win32
 
 
+SecureRandom is extended by the Random::Formatter module which defines the
+following methods:
+
+*   alphanumeric
+*   base64
+*   choose
+*   gen_random
+*   hex
+*   rand
+*   random_bytes
+*   random_number
+*   urlsafe_base64
+*   uuid
+
+
+These methods are usable as class methods of SecureRandom such as
+`SecureRandom.hex`.
+
 ### Examples
 
 Generate random hexadecimal strings:
@@ -47,4 +65,4 @@ Generate UUIDs:
     SecureRandom.uuid #=> "2d931510-d99f-494a-8c67-87feb05e1594"
     SecureRandom.uuid #=> "bad85eb9-0713-4da7-8d36-07a8e4b00eab"
 
-[SecureRandom Reference](https://ruby-doc.org/stdlib-2.6/libdoc/securerandom/rdoc/SecureRandom.html)
+[SecureRandom Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/securerandom/rdoc/SecureRandom.html)

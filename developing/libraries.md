@@ -1,7 +1,7 @@
 ---
 title: Libraries
-prev: "/developing.html"
-next: "/developing/irb.html"
+prev: developing.html
+next: developing/irb.html
 ---
 
 ## Libraries[](#libraries)

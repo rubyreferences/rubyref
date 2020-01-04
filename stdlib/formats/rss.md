@@ -1,7 +1,7 @@
 ---
 title: rss
-prev: "/stdlib/formats/rexml.html"
-next: "/stdlib/formats/zlib.html"
+prev: stdlib/formats/rexml.html
+next: stdlib/formats/zlib.html
 ---
 
 
@@ -90,6 +90,6 @@ As you can see, this is a very Builder-like DSL. This code will spit out
 an Atom feed with one item. If we needed a second item, we'd make
 another block with maker.items.new\_item and build a second one.
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/rss/rdoc/RSS.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/rss/rdoc/RSS.html'
 class='ruby-doc remote' target='_blank'>RSS Reference</a>
 

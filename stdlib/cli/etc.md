@@ -1,7 +1,7 @@
 ---
 title: 'etc: Access to Unix /etc'
-prev: "/stdlib/cli.html"
-next: "/stdlib/cli/fcntl.html"
+prev: stdlib/cli.html
+next: stdlib/cli/fcntl.html
 ---
 
 
@@ -39,6 +39,6 @@ should be used for informational purposes, and not for security.
 All operations defined in this module are class methods, so that you can
 include the Etc module into your class.
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/etc/rdoc/Etc.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/etc/rdoc/Etc.html'
 class='ruby-doc remote' target='_blank'>Etc Reference</a>
 

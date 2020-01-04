@@ -1,7 +1,7 @@
 ---
 title: forwardable
-prev: "/stdlib/patterns.html"
-next: "/stdlib/patterns/delegate.html"
+prev: stdlib/patterns.html
+next: stdlib/patterns/delegate.html
 ---
 
 
@@ -69,11 +69,10 @@ my_hash.puts "Howdy!"
 
 ### Another example[](#another-example)
 
-We want to rely on what has come before obviously, but with delegation
-we can take just the methods we need and even rename them as
-appropriate. In many cases this is preferable to inheritance, which
-gives us the entire old interface, even if much of it isn't needed.
-
+You could use Forwardable as an alternative to inheritance, when you
+don't want to inherit all methods from the superclass. For instance,
+here is how you might add a range of `Array` instance methods to a new
+class `Queue`: 
 
 ```ruby
 class Queue
@@ -128,7 +127,7 @@ def\_delegator and def\_delegators methods. For full-class delegation
 via DelegateClass, see `delegate.rb`.
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/forwardable/rdoc/Forwardable.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/forwardable/rdoc/Forwardable.html'
 class='ruby-doc remote' target='_blank'>Forwardable Reference</a>
 
 
@@ -169,6 +168,6 @@ If you want to use both Forwardable and SingleForwardable, you can use
 methods def\_instance\_delegator and def\_single\_delegator, etc.
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/forwardable/rdoc/SingleForwardable.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/forwardable/rdoc/SingleForwardable.html'
 class='ruby-doc remote' target='_blank'>SingleForwardable Reference</a>
 

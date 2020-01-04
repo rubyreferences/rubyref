@@ -301,8 +301,10 @@
           content:
             - source: core/Range.md
               insert:
-                - after: '## Endless Ranges'
-                  macros: since(2.6)
+                - after: '## Beginless/Endless Ranges'
+                  macros: since(2.7, beginless)
+                - after: '## Beginless/Endless Ranges'
+                  macros: since(2.6, endless)
         - title: Struct
           content:
             - source: core/Struct.md
@@ -333,7 +335,7 @@
             - source: core/Enumerable.md
               insert:
                 - source: content/core/enumerable.md
-                  after: "The `Enumerable` mixin"
+                  after: "The Enumerable mixin"
             - source: core/Enumerator.md
             - source: content/core/enumerator_lazy.md
             - source: core/Enumerator--Lazy.md
@@ -733,16 +735,16 @@
                 - "[PP Reference]"
             - source: lib/prettyprint/PrettyPrint.md
               sections: _ref
-        - title: profiler
-          content:
-            - source: "## profile"
-            - source: lib/profiler/Profiler__.md
-              remove: "# Profiler"
-              replace:
-                - from: "Profiler__ Reference"
-                  to: "profile Reference"
-              header_shift: 1
-            - source: content/stdlib/_profiler_alt.md
+        # - title: profiler
+        #   content:
+        #     - source: "## profile"
+        #     - source: lib/profiler/Profiler__.md
+        #       remove: "# Profiler"
+        #       replace:
+        #         - from: "Profiler__ Reference"
+        #           to: "profile Reference"
+        #       header_shift: 1
+        #     - source: content/stdlib/_profiler_alt.md
         - title: "ripper: Parsing Ruby"
           id: ripper
           content:
@@ -786,18 +788,18 @@
                   to: "libdoc/racc/parser/rdoc"
                 - from: "rdoc-ref:lib/racc/rdoc/grammar.en.rdoc"
                   to: "https://ruby-doc.org/core-2.5.0/_lib/racc/rdoc/grammar_en_rdoc.html"
-        - title: scanf
-          content:
-            - source: '## scanf'
-              process: [[require_stdlib, scanf]]
-            - source: lib/scanf/Scanf.md
-              sections:
-                - Description
-                - Basic usage
-                - Block usage
-                - _ref
-              remove: '## Description'
-              header_shift: 1
+        # - title: scanf
+        #   content:
+        #     - source: '## scanf'
+        #       process: [[require_stdlib, scanf]]
+        #     - source: lib/scanf/Scanf.md
+        #       sections:
+        #         - Description
+        #         - Basic usage
+        #         - Block usage
+        #         - _ref
+        #       remove: '## Description'
+        #       header_shift: 1
         - title: "shellwords: Shell-aware string manipulation"
           id: shellwords
           content:
@@ -1031,11 +1033,11 @@
           content:
             - source: ext/syslog/Syslog.md
               process: require_stdlib
-        - title: "shell: Ruby interface to UNIX shell"
-          id: shell
-          content:
-            - source: lib/shell/Shell.md
-              process: require_stdlib
+        # - title: "shell: Ruby interface to UNIX shell"
+        #   id: shell
+        #   content:
+        #     - source: lib/shell/Shell.md
+        #       process: require_stdlib
         - title: win32ole
           content:
             - source: ext/win32ole/WIN32OLE.md
@@ -1089,13 +1091,13 @@
         - title: Concurrency Utils
           content:
             - source: "## Concurrency Utils"
-            - source: lib/monitor/Monitor.md
-            - source: lib/monitor/MonitorMixin.md
+            # - source: lib/monitor/Monitor.md
+            # - source: lib/monitor/MonitorMixin.md
             - source: lib/mutex_m/Mutex_m.md
-            - source: lib/sync/Sync.md
-            - source: lib/sync/Sync_m.md
-            - source: lib/sync/Synchronizer.md
-            - source: lib/sync/Synchronizer_m.md
+            # - source: lib/sync/Sync.md
+            # - source: lib/sync/Sync_m.md
+            # - source: lib/sync/Synchronizer.md
+            # - source: lib/sync/Synchronizer_m.md
         - title: "drb: Distributed Ruby"
           id: drb
           content:
@@ -1139,15 +1141,15 @@
           content:
             - source: "## A Brief List of Less Used Libraries"
             - source: lib/abbrev/Abbrev.md
-            - source: lib/cmath/CMath.md
-              remove: "# Trigonometric and transcendental"
-              remove_sections: [Usage]
+            # - source: lib/cmath/CMath.md
+            #   remove: "# Trigonometric and transcendental"
+            #   remove_sections: [Usage]
             - source: lib/getoptlong/GetoptLong.md
 
-            - source: lib/e2mmap/Exception2MessageMapper.md
-              sections:
-                - Exception2MessageMapper
-                - _ref
+            # - source: lib/e2mmap/Exception2MessageMapper.md
+            #   sections:
+            #     - Exception2MessageMapper
+            #     - _ref
 
             - source: ext/nkf/NKF.md
               sections:
@@ -1162,7 +1164,7 @@
             - source: lib/rinda/Rinda.md
               remove_sections:
                 - "Example(s)"
-            - source: lib/thwait/ThreadsWait.md
+            # - source: lib/thwait/ThreadsWait.md
             # - source: lib/thwait/ThWait.md
             - source: lib/tsort/TSort.md
               remove_sections:

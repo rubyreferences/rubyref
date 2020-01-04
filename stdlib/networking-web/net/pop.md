@@ -1,7 +1,7 @@
 ---
 title: net/pop
-prev: "/stdlib/networking-web/net/imap.html"
-next: "/stdlib/networking-web/net/smtp.html"
+prev: stdlib/networking-web/net/imap.html
+next: stdlib/networking-web/net/smtp.html
 ---
 
 
@@ -181,12 +181,12 @@ The `POPMail#unique_id`() method returns the unique-id of the message as
 a String. Normally the unique-id is a hash of the message.
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/net/pop/rdoc/Net/POP3.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/net/pop/rdoc/Net/POP3.html'
 class='ruby-doc remote' target='_blank'>Net::POP3 Reference</a>
 
 
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/net/pop/rdoc/Net/APOP.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/net/pop/rdoc/Net/APOP.html'
 class='ruby-doc remote' target='_blank'>Net::APOP Reference</a>
 

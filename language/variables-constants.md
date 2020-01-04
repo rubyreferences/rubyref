@@ -1,7 +1,7 @@
 ---
 title: Variables and Constants
-prev: "/language/comments.html"
-next: "/language/assignment.html"
+prev: language/comments.html
+next: language/assignment.html
 ---
 
 ## Variables and Constants[](#variables-and-constants)
@@ -71,8 +71,8 @@ local variables: a
 
 You may isolate variables in a block from the outer scope by listing
 them following a `;` in the block's arguments. See the documentation for
-block local variables in the [calling methods](methods-call.md)
-documentation for an example.
+block local variables in the [calling
+methods](/language/methods-call.md) documentation for an example.
 
 See also `Kernel#local_variables`, but note that a `for` loop does not
 create a new scope like a block does.
@@ -112,8 +112,9 @@ Now any reference to `big_calculation` is considered a local variable
 and will be cached. To call the method, use `self.big_calculation`.
 
 You can force a method call by using empty argument parentheses as shown
-above or by using an explicit receiver like `self.`. Using an explicit
-receiver may raise a NameError if the method's visibility is not public.
+above or by using an explicit receiver like `self`. Using an explicit
+receiver may raise a NameError if the method's visibility is not public
+or the receiver is the literal `self`.
 
 Another commonly confusing case is when using a modifier `if`: 
 
@@ -303,7 +304,7 @@ An uninitialized global variable has a value of `nil`.
 Ruby has some special globals that behave differently depending on
 context such as the regular expression match variables or that have a
 side-effect when assigned to. See the [global variables
-documentation](globals.md) for details.
+documentation](/language/globals.md) for details.
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: Ruby in Twenty Minutes
-prev: "/intro/irb.html"
-next: "/language.html"
+prev: intro/irb.html
+next: language.html
 ---
 
 ## Ruby in Twenty Minutes[](#ruby-in-twenty-minutes)

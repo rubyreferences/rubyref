@@ -1,7 +1,7 @@
 ---
 title: 'erb: Ruby Templating'
-prev: "/stdlib/string-utilities.html"
-next: "/stdlib/string-utilities/racc.html"
+prev: stdlib/string-utilities.html
+next: stdlib/string-utilities/racc.html
 ---
 
 
@@ -57,11 +57,10 @@ All other text is passed through ERB filtering unchanged.
 There are several settings you can change when you use ERB:
 
 * the nature of the tags that are recognized;
-* the value of `$SAFE` under which the template is run;
 * the binding used to resolve local variables in the template.
 
 See the ERB.new and `ERB#result` methods for more detail.
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/erb/rdoc/ERB.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/erb/rdoc/ERB.html'
 class='ruby-doc remote' target='_blank'>ERB Reference</a>
 

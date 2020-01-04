@@ -1,7 +1,7 @@
 ---
 title: Times and Dates
-prev: "/builtin/types/struct.html"
-next: "/builtin/types/enumerable.html"
+prev: builtin/types/struct.html
+next: builtin/types/enumerable.html
 ---
 
 ## Times and Dates[](#times-and-dates)
@@ -138,7 +138,7 @@ Time.new(2010,10,31).between?(t1, t2) #=> true
 <div class="since-version">Since Ruby 2.6</div>
 
 A timezone argument must have `local_to_utc` and `utc_to_local` methods,
-and may have `name` and `abbr` methods.
+and may have `name`, `abbr`, and `dst?` methods.
 
 The `local_to_utc` method should convert a Time-like object from the
 timezone to UTC, and `utc_to_local` is the opposite. The result also
@@ -156,16 +156,19 @@ dumped by Marshal.
 
 The `abbr` method is used by '%Z' in `#strftime`.
 
+The `dst?` method is called with a `Time` value and should return
+whether the `Time` value is in daylight savings time in the zone.
+
 ##### Auto conversion to Timezone[](#auto-conversion-to-timezone)
 
 At loading marshaled data, a timezone name will be converted to a
 timezone object by `find_timezone` class method, if the method is
 defined.
 
-Similary, that class method will be called when a timezone argument does
-not have the necessary methods mentioned above.
+Similarly, that class method will be called when a timezone argument
+does not have the necessary methods mentioned above.
 
-<a href='https://ruby-doc.org/core-2.6/Time.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Time.html' class='ruby-doc
 remote' target='_blank'>Time Reference</a>
 
 
@@ -278,7 +281,7 @@ d += 1                       #=> #<Date: 2001-02-04 ...>
 d.strftime('%a %d %b %Y')    #=> "Sun 04 Feb 2001"
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/date/rdoc/Date.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/date/rdoc/Date.html'
 class='ruby-doc remote' target='_blank'>Date Reference</a>
 
 
@@ -451,6 +454,7 @@ href='http://en.wikipedia.org/wiki/Standard_time#Great_Britain'
 class='remote' target='_blank'>Standard Time</a> and eventually
 timezones.
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/date/rdoc/DateTime.html'
+<a
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/date/rdoc/DateTime.html'
 class='ruby-doc remote' target='_blank'>DateTime Reference</a>
 

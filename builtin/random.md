@@ -1,7 +1,7 @@
 ---
 title: Random
-prev: "/builtin/marshal.html"
-next: "/stdlib.html"
+prev: builtin/marshal.html
+next: stdlib.html
 ---
 
 ## Random[](#random)
@@ -26,7 +26,7 @@ marshaled, allowing sequences to be saved and resumed.
 PRNGs are currently implemented as a modified Mersenne Twister with a
 period of 2\*\*19937-1.
 
-<a href='https://ruby-doc.org/core-2.6/Random.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Random.html' class='ruby-doc
 remote' target='_blank'>Random Reference</a>
 
 
@@ -51,6 +51,23 @@ It supports the following secure random number generators:
 * openssl
 * /dev/urandom
 * Win32
+
+SecureRandom is extended by the Random::Formatter module which defines
+the following methods:
+
+* alphanumeric
+* base64
+* choose
+* gen\_random
+* hex
+* rand
+* random\_bytes
+* random\_number
+* urlsafe\_base64
+* uuid
+
+These methods are usable as class methods of SecureRandom such as
+`SecureRandom.hex`.
 
 ##### Examples[](#examples)
 
@@ -99,6 +116,6 @@ SecureRandom.uuid #=> "bad85eb9-0713-4da7-8d36-07a8e4b00eab"
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/securerandom/rdoc/SecureRandom.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/securerandom/rdoc/SecureRandom.html'
 class='ruby-doc remote' target='_blank'>SecureRandom Reference</a>
 

@@ -1,7 +1,7 @@
 ---
 title: 'drb: Distributed Ruby'
-prev: "/stdlib/misc/concurrency-utils.html"
-next: "/stdlib/misc/dbm.html"
+prev: stdlib/misc/concurrency-utils.html
+next: stdlib/misc/dbm.html
 ---
 
 
@@ -116,8 +116,6 @@ end
 # The object that handles requests on the server
 FRONT_OBJECT=TimeServer.new
 
-$SAFE = 1   # disable eval() and friends
-
 DRb.start_service(URI, FRONT_OBJECT)
 # Wait for the drb server thread to finish before exiting.
 DRb.thread.join
@@ -196,7 +194,7 @@ class LoggerFactory
     def get_logger(name)
         if !@loggers.has_key? name
             # make the filename safe, then declare it to be so
-            fname = name.gsub(/[.\/\\\:]/, "_").untaint
+            fname = name.gsub(/[.\/\\\:]/, "_")
             @loggers[name] = Logger.new(name, @basedir + "/" + fname)
         end
         return @loggers[name]
@@ -205,8 +203,6 @@ class LoggerFactory
 end
 
 FRONT_OBJECT=LoggerFactory.new("/tmp/dlog")
-
-$SAFE = 1   # disable eval() and friends
 
 DRb.start_service(URI, FRONT_OBJECT)
 DRb.thread.join
@@ -254,9 +250,7 @@ ro.instance_eval("`rm -rf *`")
 ```
 
 The dangers posed by instance\_eval and friends are such that a
-DRbServer should generally be run with $SAFE set to at least level 1.
-This will disable eval() and related calls on strings passed across the
-wire. The sample usage code given above follows this practice.
+DRbServer should only be used when clients are trusted.
 
 A DRbServer can be configured with an access control list to selectively
 allow or deny access from specified IP addresses. The main druby
@@ -309,6 +303,6 @@ specify their own id or "name". A dRuby reference can be made persistent
 across processes by having each process register an object using the
 same dRuby name.
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/drb/rdoc/DRb.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/drb/rdoc/DRb.html'
 class='ruby-doc remote' target='_blank'>DRb Reference</a>
 

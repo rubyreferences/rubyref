@@ -1,14 +1,32 @@
 ---
 title: Processes and Signals
-prev: "/builtin/system-cli.html"
-next: "/builtin/system-cli/io.html"
+prev: builtin/system-cli.html
+next: builtin/system-cli/io.html
 ---
 
 ## Process[](#process)
 
-Module to handle processes.
+The module contains several groups of functionality for handling OS
+processes:
 
-<a href='https://ruby-doc.org/core-2.6/Process.html' class='ruby-doc
+* Low-level property introspection and management of the current
+  process, like Process.argv0, Process.pid;
+
+* Low-level introspection of other processes, like Process.getpgid,
+  Process.getpriority;
+
+* Management of the current process: Process.abort, Process.exit,
+  Process.daemon, etc. (for convenience, most of those are also
+  available as global functions and module functions of Kernel);
+
+* Creation and management of child processes: Process.fork,
+  Process.spawn, and related methods;
+
+* Management of low-level system clock: Process.times and
+  Process.clock\_gettime, which could be important for proper
+  benchmarking and other elapsed time measurement tasks.
+
+<a href='https://ruby-doc.org/core-2.7.0/Process.html' class='ruby-doc
 remote' target='_blank'>Process Reference</a>
 
 
@@ -51,6 +69,6 @@ The list of available signal names and their interpretation is system
 dependent. Signal delivery semantics may also vary between systems; in
 particular signal delivery may not always be reliable.
 
-<a href='https://ruby-doc.org/core-2.6/Signal.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Signal.html' class='ruby-doc
 remote' target='_blank'>Signal Reference</a>
 

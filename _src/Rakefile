@@ -1,0 +1,173 @@
+require 'yaml'
+require 'hm'
+
+
+require_relative 'lib/common'
+require_relative 'lib/core_ext'
+
+require_relative 'lib/structure'
+require_relative 'lib/ruby_repo_index'
+
+require_relative 'lib/rdoc_wrapper'
+require_relative 'lib/sanitizer'
+
+require_relative 'lib/renderers/chapter'
+
+structure = Structure.load
+repo_index = RubyRepoIndex.new('ruby')
+rdoc_cache = Hash.new { |h, path| h[path] = YAML.load_file(path) }
+
+RDOC_TO_MARKDOWN = RDoc::Markup::ToMarkdown.new
+
+CORE_REFERENCE = "https://ruby-doc.org/core-#{BOOK_RUBY_VERSION}.0"
+LIB_REFERENCE = "https://ruby-doc.org/stdlib-#{BOOK_RUBY_VERSION}.0/libdoc/%s/rdoc"
+
+desc 'Render everything'
+task default: %i[toc chapters]
+
+desc 'Render final book structure file'
+task toc: '../_data/book.yml'
+
+desc 'Render final book chapters from source Markdown'
+task chapters: structure.each_chapter.map(&:out_path)
+
+namespace :dev do
+  desc 'Just parse RDoc sources into YAML temporary representation'
+  task parse_rdoc: %w[
+    intermediate/rdoc/core.yml
+    intermediate/rdoc/ext.yml
+    intermediate/rdoc/lib.yml
+  ]
+
+  desc 'Convert parsed RDoc to Markdown'
+  task rdoc2md: structure.each_part.select(&:from_repo?).map(&:raw_path).sort.uniq
+
+  desc 'Sanitize Markdown'
+  task sanitize_md: structure.each_part.filter_map(&:ready_path).sort.uniq
+
+  desc 'Validate that everything available in Ruby sources is listed in structure.yml, and vice versa'
+  task validate_listing: [Structure::PATH] + %w[_src/intermediate/rdoc/core.yml _src/intermediate/rdoc/ext.yml _src/intermediate/rdoc/lib.yml] do
+    from_structure = structure.each_part.select(&:from_repo?).map(&:path)
+
+    from_source =
+      repo_index.doc_files.map { _1.to_s.sub('ruby/', '').sub('.rdoc', '.md') }.sort +
+      rdoc_cache['intermediate/rdoc/core.yml'].keys.map { "core/#{_1.tr(':', '-')}.md" } +
+      rdoc_cache['intermediate/rdoc/ext.yml'].flat_map { |lib, mods|
+        mods.keys.map { "ext/#{lib}/#{_1.tr(':', '-')}.md" }
+      } +
+      rdoc_cache['_src/intermediate/rdoc/lib.yml'].flat_map { |lib, mods|
+        mods.keys.map { "lib/#{lib}/#{_1.tr(':', '-')}.md" }
+      }
+
+    from_source.reject! { |path|
+      path.split('--').count >= 3 ||
+      path.split('--').count == 2 && !path.match?(/(Net|RubyVM|Enumerator|File)--/)
+    }
+
+    puts "Sources mentioned in structure.yml, but not found in current Ruby version:"
+    (from_structure - from_source).each { puts "  #{_1}" }
+
+    puts "Modules found in current Ruby version, but not mentioned in structure.yml:"
+    (from_source - from_structure).each { puts "  #{_1}" }
+  end
+end
+
+# Particular file rendering rules
+# ===============================
+directory 'intermediate/rdoc'
+
+# Book structure conversion
+# -------------------------
+file '../_data/book.yml' => Structure::PATH do
+end
+
+
+# RDoc comment text extraction from *.c/*.rb files
+# ----------------------------
+file 'intermediate/rdoc/core.yml' => ['intermediate/rdoc', *repo_index.core_files] do |t|
+  RDocExtractor.call(*t.prerequisites).then { |modules| File.write(t.name, modules.to_yaml) }
+end
+
+file 'intermediate/rdoc/ext.yml' => ['intermediate/rdoc', *repo_index.ext_files.values.flatten] do |t|
+  repo_index.ext_files
+    .to_h { |lib, pathes| [lib, RDocExtractor.call(*pathes)] }
+    .then { File.write(t.name, _1.to_yaml) }
+end
+
+file "intermediate/rdoc/lib.yml" => ['intermediate/rdoc', *repo_index.lib_files.values.flatten] do |t|
+  repo_index.lib_files
+    .to_h { |lib, pathes| [lib, RDocExtractor.call(*pathes)] }
+    .then { File.write(t.name, _1.to_yaml) }
+end
+
+
+def rdoc2md(path, module_name, rdoc, link_prefix:)
+  FileUtils.mkdir_p(File.dirname(path))
+
+  File.write path,
+    "# #{module_name}\n\n" +
+    RDOC_TO_MARKDOWN.convert(rdoc) +
+    "\n[#{module_name} Reference](#{link_prefix}/#{module_name.gsub('::', '/')}.html)\n"
+end
+
+structure.each_chapter do |chap|
+  # Automatic conversion of RDoc to (dirty) Markdown
+  # ------------------------------------------------
+  chap.parts.select(&:doc?).each do |part|
+    file part.raw_path => part.src_path do |t|
+      File.read(t.prerequisites.first)
+          .then(&RDOC_TO_MARKDOWN.method(:convert))
+          .then { File.write t.name, _1 }
+    end
+  end
+
+  chap.parts.select(&:core?).each do |part|
+    file part.raw_path => 'intermediate/rdoc/core.yml' do |t|
+      rdoc_cache[t.prerequisites.first]
+        .dig(part.module_name)
+        .tap { |mod| mod or warn "No module found: #{part.module_name}" }
+        &.then { |rdoc| rdoc2md(t.name, part.module_name, rdoc, link_prefix: CORE_REFERENCE) }
+    end
+  end
+
+  chap.parts.select(&:ext?).each do |part|
+    file part.raw_path => 'intermediate/rdoc/ext.yml' do |t|
+      rdoc_cache[t.prerequisites.first].dig(part.lib_name, part.module_name)
+        .tap { |mod| mod or warn "No module found: #{part.lib_name}/#{part.module_name}" }
+        &.then { |rdoc|
+          rdoc2md(t.name, part.module_name, rdoc, link_prefix: LIB_REFERENCE % part.lib_name)
+        }
+    end
+  end
+
+  chap.parts.select(&:lib?).each do |part|
+    file part.raw_path => "intermediate/rdoc/lib.yml" do |t|
+      rdoc_cache[t.prerequisites.first].dig(part.lib_name, part.module_name)
+        .tap { |mod| mod or warn "No module found: #{part.lib_name}/#{part.module_name}" }
+        &.then { |rdoc|
+          rdoc2md(t.name, part.module_name, rdoc, link_prefix: LIB_REFERENCE % part.lib_name)
+        }
+    end
+  end
+
+  # Sanitization of (RDoc-sourced) Markdown
+  # ---------------------------------------
+  chap.parts.select(&:raw_path).each do |part|
+    file part.ready_path => part.raw_path do |t|
+      unless File.exist?(t.prerequisites.first)
+        warn "File not exis #{t.prerequisites.first}"
+        next
+      end
+      FileUtils.mkdir_p File.dirname(t.name)
+      File.read(t.prerequisites.first)
+        .then { part.site? ? Sanitizer.from_site(part.path, _1) : Sanitizer.from_repo(part.path, _1) }
+        .then { File.write(t.name, _1) }
+    end
+  end
+
+  # Rendering to final Markdown in the root folder
+  # ----------------------------------------------
+  file chap.out_path => chap.parts.filter_map(&:ready_path) do |t|
+    Renderers::Chapter.call(chap).then { File.write t.name, _1 }
+  end
+end

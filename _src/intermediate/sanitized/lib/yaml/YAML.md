@@ -44,8 +44,8 @@ For more advanced details on the implementation see Psych, and also check out
 http://yaml.org for spec details and other helpful information.
 
 Psych is maintained by Aaron Patterson on github:
-https://github.com/tenderlove/psych
+https://github.com/ruby/psych
 
-Syck can also be found on github: https://github.com/tenderlove/syck
+Syck can also be found on github: https://github.com/ruby/syck
 
-[YAML Reference](https://ruby-doc.org/stdlib-2.6/libdoc/yaml/rdoc/YAML.html)
+[YAML Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/yaml/rdoc/YAML.html)

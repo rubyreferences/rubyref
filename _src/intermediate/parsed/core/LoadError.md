@@ -9,4 +9,4 @@ load.
 
     LoadError: no such file to load -- this/file/does/not/exist
 
-[LoadError Reference](https://ruby-doc.org/core-2.6/LoadError.html)
+[LoadError Reference](https://ruby-doc.org/core-2.7.0/LoadError.html)

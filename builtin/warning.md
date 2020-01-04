@@ -1,7 +1,7 @@
 ---
 title: Warning
-prev: "/builtin/exception/exception-classes.html"
-next: "/builtin/system-cli.html"
+prev: builtin/exception/exception-classes.html
+next: builtin/system-cli.html
 ---
 
 ## Warning[](#warning)
@@ -9,7 +9,7 @@ next: "/builtin/system-cli.html"
 <div class="since-version">Since Ruby 2.4</div>
 
 The Warning module contains a single method named `#warn`, and the
-module extends itself, making `Warning.warn` available. Warning.warn is
+module extends itself, making Warning.warn available. Warning.warn is
 called for all warnings issued by Ruby. By default, warnings are printed
 to $stderr.
 
@@ -19,6 +19,6 @@ somewhere other than $stderr. When Warning.warn is overridden, super can
 be called to get the default behavior of printing the warning to
 $stderr.
 
-<a href='https://ruby-doc.org/core-2.6/Warning.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Warning.html' class='ruby-doc
 remote' target='_blank'>Warning Reference</a>
 

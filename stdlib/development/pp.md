@@ -1,7 +1,7 @@
 ---
 title: 'pp: Debug Print'
-prev: "/stdlib/development/logger.html"
-next: "/stdlib/development/profiler.html"
+prev: stdlib/development/logger.html
+next: stdlib/development/ripper.html
 ---
 
 ## PP[](#pp)
@@ -67,6 +67,6 @@ class. The method uses `#text`, `#breakable`, `#nest`, `#group` and
 
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/prettyprint/rdoc/PrettyPrint.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/prettyprint/rdoc/PrettyPrint.html'
 class='ruby-doc remote' target='_blank'>PrettyPrint Reference</a>
 

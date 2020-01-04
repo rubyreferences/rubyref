@@ -1,7 +1,7 @@
 ---
 title: net/smtp
-prev: "/stdlib/networking-web/net/pop.html"
-next: "/stdlib/networking-web/openuri.html"
+prev: stdlib/networking-web/net/pop.html
+next: stdlib/networking-web/openuri.html
 ---
 
 
@@ -132,6 +132,6 @@ Net::SMTP.start('your.smtp.server', 25, 'mail.from.domain',
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/net/smtp/rdoc/Net/SMTP.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/net/smtp/rdoc/Net/SMTP.html'
 class='ruby-doc remote' target='_blank'>Net::SMTP Reference</a>
 

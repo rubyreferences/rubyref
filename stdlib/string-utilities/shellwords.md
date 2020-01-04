@@ -1,7 +1,7 @@
 ---
 title: 'shellwords: Shell-aware string manipulation'
-prev: "/stdlib/string-utilities/scanf.html"
-next: "/stdlib/string-utilities/strscan.html"
+prev: stdlib/string-utilities/racc.html
+next: stdlib/string-utilities/strscan.html
 ---
 
 
@@ -69,6 +69,6 @@ tokens separated by a space. In this example we used the literal
 shortcut for Array.new.
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/shellwords/rdoc/Shellwords.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/shellwords/rdoc/Shellwords.html'
 class='ruby-doc remote' target='_blank'>Shellwords Reference</a>
 

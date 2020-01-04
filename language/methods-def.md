@@ -1,7 +1,7 @@
 ---
 title: Defining methods
-prev: "/language/control-expressions.html"
-next: "/language/methods-call.html"
+prev: language/control-expressions.html
+next: language/methods-call.html
 ---
 
 ## Methods[](#methods)
@@ -21,13 +21,13 @@ body of the method, `return` value and the `end` keyword. When called
 the method will execute the body of the method. This method returns `2`.
 
 This section only covers defining methods. See also the [syntax
-documentation on calling methods](methods-call.md).
+documentation on calling methods](/language/methods-call.md).
 
 ### Method Names[](#method-names)
 
 Method names may be one of the operators or must start a letter or a
-character with the eight bit set. It may contain letters, numbers, an
-`_` (underscore or low line) or a character with the eight bit set. The
+character with the eighth bit set. It may contain letters, numbers, an
+`_` (underscore or low line) or a character with the eighth bit set. The
 convention is to use underscores to separate words in a multiword method
 name:
 
@@ -39,7 +39,7 @@ end
 ```
 
 Ruby programs must be written in a US-ASCII-compatible character set
-such as UTF-8, ISO-8859-1 etc. In such character sets if the eight bit
+such as UTF-8, ISO-8859-1 etc. In such character sets if the eighth bit
 is set it indicates an extended character. Ruby allows method names and
 other identifiers to contain such characters. Ruby programs cannot
 contain some characters like ASCII NUL (`\x00`).
@@ -78,9 +78,7 @@ Methods that end with a question mark by convention return boolean, but
 they may not always return just `true` or `false`. Often, they will
 return an object to indicate a true value (or "truthy" value).
 
-Methods that end with an equals sign indicate an assignment method. For
-assignment methods, the return value is ignored and the arguments are
-returned instead.
+Methods that end with an equals sign indicate an assignment method.
 
 These are method names for the various Ruby operators. Each of these
 operators accepts only one argument. Following the operator is the
@@ -110,8 +108,8 @@ the precedence of the operators.
 * `>`: greater-than
 * `>=`: greater-than or equal
 
-To define unary methods minus, plus, tilde and not (`!`) follow the
-operator with an `@` as in `+@` or `!@`: 
+To define unary methods minus and plus, follow the operator with an `@`
+as in `+@`: 
 
 ```ruby
 class C
@@ -124,6 +122,12 @@ obj = C.new
 
 -obj # prints "you inverted this object"
 ```
+
+The `@` is needed to differentiate unary minus and plus operators from
+binary minus and plus operators.
+
+You can also follow tilde and not (`!`) unary methods with `@`, but it
+is not required as there are no binary tilde and not operators.
 
 Unary methods accept zero arguments.
 
@@ -326,22 +330,7 @@ end
 When called, the arguments must be provided in the exact order. In other
 words, the arguments are positional.
 
-Repeated argument names is syntax error. There is one exception: the
-special name `_` to designate unused argument(s).
-
-
-```
-def some_method(x, y, x) # Syntax error
-  # ...
-end
-
-def some_method(_, y, _) # OK
-  # ...
-end
-```
-
-This is useful for redefining methods, when client code expects a
-particular calling convention.
+content/language/methods/\_underscore.md
 
 #### Default Values[](#default-values)
 
@@ -371,6 +360,31 @@ This will raise a SyntaxError:
 def add_values(a = 1, b, c = 1)
   a + b + c
 end
+```
+
+Default argument values can refer to arguments that have already been
+evaluated as local variables, and argument values are always evaluated
+left to right. So this is allowed:
+
+
+```ruby
+def add_values(a = 1, b = a)
+  a + b
+end
+add_values
+# => 2
+```
+
+But this will raise a `NameError` (unless there is a method named `b`
+defined):
+
+
+```ruby
+def add_values(a = b, b = 1)
+  a + b
+end
+add_values
+# NameError (undefined local variable or method `b` for main:Object)
 ```
 
 #### Array Decomposition[](#array-decomposition)
@@ -528,26 +542,144 @@ gather_arguments first: 1, second: 2, third: 3
 ```
 
 When calling a method with keyword arguments the arguments may appear in
-any order. If an unknown keyword argument is sent by the caller an
-ArgumentError is raised.
+any order. If an unknown keyword argument is sent by the caller, and the
+method does not accept arbitrary keyword arguments, an ArgumentError is
+raised.
+
+To require a specific keyword argument, do not include a default value
+for the keyword argument:
+
+
+```ruby
+def add_values(first:, second:)
+  first + second
+end
+add_values
+# ArgumentError (missing keywords: first, second)
+add_values(first: 1, second: 2)
+# => 3
+```
 
 When mixing keyword arguments and positional arguments, all positional
 arguments must appear before any keyword arguments.
 
-It is possible to define a keyword argument with name that is not
-acceptable for a variable name, like `class` or `next` (keywords). In
-this case, argument's value can be obtained via
-[Binding](../builtin/core.md#binding).
+content/language/methods/\_keyword\_vars.md
+
+Also, note that `**` can be used to ignore keyword arguments:
 
 
 ```ruby
-def html_tag(name, class:)
-  # Will fail with SyntaxError
-  # puts class
-
-  # Works
-  puts binding.local_variable_get('class')
+def ignore_keywords(**)
 end
+```
+
+To mark a method as accepting keywords, but not actually accepting
+keywords, you can use the `**nil`: 
+
+```ruby
+def no_keywords(**nil)
+end
+```
+
+Calling such a method with keywords or a non-empty keyword splat will
+result in an ArgumentError. This syntax is supported so that keywords
+can be added to the method later without affected backwards
+compatibility.
+
+#### Keyword and Positional Argument Separation[](#keyword-and-positional-argument-separation)
+
+Between Ruby 2.0 and 2.6, keyword and positional arguments were not
+separated, and a keyword argument could be used as a positional argument
+and vice-versa. In Ruby 3.0, keyword and positional arguments will be
+separated if the method definition includes keyword arguments. In Ruby
+3.0, if the method definition does not include keyword arguments,
+keyword arguments provided when calling the method will continue to be
+treated as a final positional hash argument.
+
+Currently, the keyword and positional arguments are not separated, but
+cases where behavior will change in Ruby 3.0 will result in a warning
+being emitted.
+
+There are a few different types of keyword argument separation issues.
+
+##### Conversion of Hash to Keywords[](#conversion-of-hash-to-keywords)
+
+If a method is called with the hash, the hash could be treated as
+keywords:
+
+
+```ruby
+def my_method(**keywords)
+  keywords
+end
+my_method({a: 1}) # {:a => 1}
+```
+
+This occurs even if the hash could be an optional positional argument or
+an element of a rest argument:
+
+
+```ruby
+def my_method(hash=nil, **keywords)
+  [hash, keywords]
+end
+my_method({a: 1}) # [nil, {:a => 1}]
+
+def my_method(*args, **keywords)
+  [args, keywords]
+end
+my_method({a: 1}) # [[], {:a => 1}]
+```
+
+However, if the hash is needed for a mandatory positional argument, it
+would not be treated as keywords:
+
+
+```ruby
+def my_method(hash, **keywords)
+  [hash, keywords]
+end
+my_method({a: 1}) # [{:a => 1}, {}]
+```
+
+##### Conversion of Keywords to Positional Arguments[](#conversion-of-keywords-to-positional-arguments)
+
+If a method is called with keywords, but it is missing one mandatory
+positional argument, the keywords are converted to a hash and the hash
+used as the mandatory positional argument:
+
+
+```ruby
+def my_method(hash, **keywords)
+  [hash, keywords]
+end
+my_method(a: 1) # [{:a => 1}, {}]
+```
+
+This is also true for empty keyword splats:
+
+
+```ruby
+kw = {}
+my_method(**kw) # [{}, {}]
+```
+
+##### Splitting of Positional Hashes or Keywords[](#splitting-of-positional-hashes-or-keywords)
+
+If a method definition accepts specific keywords and not arbitrary
+keywords, keywords or a positional hash may be split if the hash
+includes both Symbol keys and non-Symbol keys and the keywords or
+positional hash are not needed as a mandatory positional argument. In
+this case, the non-Symbol keys are separated into a positional argument
+hash, and the Symbol keys are used as the keyword arguments:
+
+
+```ruby
+def my_method(hash=3, a: 4)
+  [hash, a]
+end
+my_method(a: 1, 'a' => 2)   # [{"a"=>2}, 1]
+my_method({a: 1, 'a' => 2}) # [{"a"=>2}, 1]
 ```
 
 ### Block Argument[](#block-argument)
@@ -583,15 +715,6 @@ def my_method
 end
 ```
 
-There is also a performance benefit to using yield over a calling a
-block parameter. When a block argument is assigned to a variable a Proc
-object is created which holds the block. When using yield this Proc
-object is not created.
-
-If you only need to use the block sometimes you can use Proc.new to
-create a proc from the block that was passed to your method. See
-Proc.new for further details.
-
 ### Exception Handling[](#exception-handling)
 
 Methods have an implied exception handling block so you do not need to
@@ -619,30 +742,37 @@ rescue
 end
 ```
 
-If you wish to rescue an exception for only part of your method, use
-`begin` and `end`. For more details see the page on [exception
-handling](exceptions.md).
-
-### Method definition as an expression[](#method-definition-as-an-expression)
-
-`def` (method definition) is an *expression* returning the name of the
-defined method. This feature is mostly useful for method decoration:
-
+Similarly, if you wish to always run code even if an exception is
+raised, you can use `ensure` without `begin` and `end`: 
 
 ```ruby
-# Ruby's standard visibility statement
-private def some_private_method
-  # ...
-end
-
-# Decorating with third-party library for memoizing (caching) method value
-memoize def some_expensive_method
-  # ...
+def my_method
+  # code that may raise an exception
+ensure
+  # code that runs even if previous code raised an exception
 end
 ```
 
-`private` and `memoize` above are just method calls, receiving the
-result of `def` (method name to make private/cached) as their argument.
+You can also combine `rescue` with `ensure` and/or `else`, without
+`begin` and `end`: 
+
+```ruby
+def my_method
+  # code that may raise an exception
+rescue
+  # handle exception
+else
+  # only run if no exception raised above
+ensure
+  # code that runs even if previous code raised an exception
+end
+```
+
+If you wish to rescue an exception for only part of your method, use
+`begin` and `end`. For more details see the page on [exception
+handling](/language/exceptions.md).
+
+content/language/methods/\_expression.md
 
 
 

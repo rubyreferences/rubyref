@@ -1,7 +1,7 @@
 ---
 title: delegate
-prev: "/stdlib/patterns/forwardable.html"
-next: "/stdlib/patterns/observer.html"
+prev: stdlib/patterns/forwardable.html
+next: stdlib/patterns/observer.html
 ---
 
 
@@ -47,7 +47,7 @@ end
 Be advised, RDoc will not detect delegated methods.
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/delegate/rdoc/Delegator.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/delegate/rdoc/Delegator.html'
 class='ruby-doc remote' target='_blank'>Delegator Reference</a>
 
 
@@ -132,6 +132,6 @@ Elements:  8
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/delegate/rdoc/SimpleDelegator.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/delegate/rdoc/SimpleDelegator.html'
 class='ruby-doc remote' target='_blank'>SimpleDelegator Reference</a>
 

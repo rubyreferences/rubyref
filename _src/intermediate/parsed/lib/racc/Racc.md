@@ -30,7 +30,7 @@ generates Ruby programs.
 -v, --verbose
 :   verbose mode. create `filename`.output file, like yacc's y.output file.
 -g, --debug
-:   add debug code to parser class. To display debugging information, use this
+:   add debug code to parser class. To display debuggin information, use this
     '-g' option and set @yydebug true in parser class.
 -E, --embedded
 :   Output parser which doesn't need runtime files (racc/parser.rb).
@@ -146,7 +146,7 @@ done by using '-E' option:
 This command creates myparser.rb which `includes' Racc runtime. Only you must
 do is to distribute your parser file (myparser.rb).
 
-Note: parser.rb is LGPL, but your parser is not. Your own parser is completely
-yours.
+Note: parser.rb is ruby license, but your parser is not. Your own parser is
+completely yours.
 
-[Racc Reference](https://ruby-doc.org/stdlib-2.6/libdoc/racc/rdoc/Racc.html)
+[Racc Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/racc/rdoc/Racc.html)

@@ -1,7 +1,7 @@
 ---
 title: Refinements
-prev: "/language/exceptions.html"
-next: "/language/precedence.html"
+prev: language/exceptions.html
+next: language/precedence.html
 ---
 
 ## Refinements[](#refinements)
@@ -296,11 +296,10 @@ Note that `super` in a method of a refinement invokes the method in the
 refined class even if there is another refinement which has been
 activated in the same context.
 
-### Indirect Method Calls[](#indirect-method-calls)
+### Methods Introspection[](#methods-introspection)
 
-When using indirect method access such as `Kernel#send`, `Kernel#method`
-or Kernel#respond\_to? refinements are not honored for the caller
-context during method lookup.
+When using introspection methods such as `Kernel#method` or
+`Kernel#methods` refinements are not honored.
 
 This behavior may be changed in the future.
 

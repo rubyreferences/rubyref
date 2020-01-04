@@ -1,7 +1,7 @@
 ---
 title: tracer
-prev: "/stdlib/development/ripper.html"
-next: "/stdlib/string-utilities.html"
+prev: stdlib/development/ripper.html
+next: stdlib/string-utilities.html
 ---
 
 ## Tracer[](#tracer)
@@ -64,6 +64,7 @@ Symbol table used for displaying incoming events:
 * +^+: raise an exception
 * +<+: return from a Ruby method
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/tracer/rdoc/Tracer.html'
+<a
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/tracer/rdoc/Tracer.html'
 class='ruby-doc remote' target='_blank'>Tracer Reference</a>
 

@@ -1,7 +1,7 @@
 ---
 title: yaml
-prev: "/stdlib/formats/json.html"
-next: "/stdlib/formats/rexml.html"
+prev: stdlib/formats/json.html
+next: stdlib/formats/rexml.html
 ---
 
 
@@ -41,14 +41,14 @@ library).
 
 Do not use YAML to load untrusted data. Doing so is unsafe and could
 allow malicious input to execute arbitrary code inside your application.
-Please see [Security](../../advanced/security.md) section for more
+Please see [Security](/advanced/security.md) section for more
 information.
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/yaml/rdoc/YAML.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/yaml/rdoc/YAML.html'
 class='ruby-doc remote' target='_blank'>YAML Reference</a>
 
 
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/psych/rdoc/Psych.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/psych/rdoc/Psych.html'
 class='ruby-doc remote' target='_blank'>Psych Reference</a>
 

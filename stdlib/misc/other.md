@@ -1,7 +1,7 @@
 ---
 title: Other Libraries
-prev: "/stdlib/misc/timeout.html"
-next: "/stdlib/bundled.html"
+prev: stdlib/misc/timeout.html
+next: stdlib/bundled.html
 ---
 
 ## A Brief List of Less Used Libraries[](#a-brief-list-of-less-used-libraries)
@@ -60,27 +60,9 @@ pp %w{ summer winter }.abbrev
   "w"       => "winter" }
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/abbrev/rdoc/Abbrev.html'
+<a
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/abbrev/rdoc/Abbrev.html'
 class='ruby-doc remote' target='_blank'>Abbrev Reference</a>
-
-
-
-### CMath[](#cmath)
-
-CMath is a library that provides trigonometric and transcendental
-functions for complex numbers. The functions in this module accept
-integers, floating-point numbers or complex numbers as arguments.
-
-Note that the selection of functions is similar, but not identical, to
-that in module math. The reason for having two modules is that some
-users aren't interested in complex numbers, and perhaps don't even know
-what they are. They would rather have Math.sqrt(-1) raise an exception
-than return a complex number.
-
-For more information you can see Complex class.
-
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/cmath/rdoc/CMath.html'
-class='ruby-doc remote' target='_blank'>CMath Reference</a>
 
 
 
@@ -165,19 +147,8 @@ hello -n 6 --name -- /tmp
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/getoptlong/rdoc/GetoptLong.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/getoptlong/rdoc/GetoptLong.html'
 class='ruby-doc remote' target='_blank'>GetoptLong Reference</a>
-
-
-
-### Exception2MessageMapper[](#exception2messagemapper)
-
-Helper module for easily defining exceptions with predefined messages.
-
-<a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/e2mmap/rdoc/Exception2MessageMapper.html'
-class='ruby-doc remote' target='_blank'>Exception2MessageMapper
-Reference</a>
 
 
 
@@ -185,7 +156,7 @@ Reference</a>
 
 NKF - Ruby extension for Network Kanji Filter
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/nkf/rdoc/NKF.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/nkf/rdoc/NKF.html'
 class='ruby-doc remote' target='_blank'>NKF Reference</a>
 
 
@@ -206,7 +177,8 @@ Behind the scenes, Ruby objects are stored to the data store file with
 Marshal. That carries the usual limitations. Proc objects cannot be
 marshalled, for example.
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/pstore/rdoc/PStore.html'
+<a
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/pstore/rdoc/PStore.html'
 class='ruby-doc remote' target='_blank'>PStore Reference</a>
 
 
@@ -217,33 +189,8 @@ A module to implement the Linda distributed computing paradigm in Ruby.
 
 Rinda is part of DRb (dRuby).
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/rinda/rdoc/Rinda.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/rinda/rdoc/Rinda.html'
 class='ruby-doc remote' target='_blank'>Rinda Reference</a>
-
-
-
-### ThreadsWait[](#threadswait)
-
-This class watches for termination of multiple threads. Basic
-functionality (wait until specified threads have terminated) can be
-accessed through the class method ThreadsWait::all\_waits. Finer control
-can be gained using instance methods.
-
-Example:
-
-
-```
-ThreadsWait.all_waits(thr1, thr2, ...) do |t|
-  STDERR.puts "Thread #{t} has terminated."
-end
-
-th = ThreadsWait.new(thread1,...)
-th.next_wait # next one to be done
-```
-
-<a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/thwait/rdoc/ThreadsWait.html'
-class='ruby-doc remote' target='_blank'>ThreadsWait Reference</a>
 
 
 
@@ -264,7 +211,7 @@ tsort\_each\_node and tsort\_each\_child.
 The equality of nodes are defined by eql? and hash since TSort uses Hash
 internally.
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/tsort/rdoc/TSort.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/tsort/rdoc/TSort.html'
 class='ruby-doc remote' target='_blank'>TSort Reference</a>
 
 
@@ -289,6 +236,6 @@ p foo.to_s                  # should raise exception (recycled)
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/weakref/rdoc/WeakRef.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/weakref/rdoc/WeakRef.html'
 class='ruby-doc remote' target='_blank'>WeakRef Reference</a>
 

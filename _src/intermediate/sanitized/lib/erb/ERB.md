@@ -41,7 +41,6 @@ All other text is passed through ERB filtering unchanged.
 There are several settings you can change when you use ERB:
 
 *   the nature of the tags that are recognized;
-*   the value of `$SAFE` under which the template is run;
 *   the binding used to resolve local variables in the template.
 
 
@@ -231,18 +230,11 @@ that the instance variables in the Product object can be resolved.
 ## Notes
 
 There are a variety of templating solutions available in various Ruby
-projects:
+projects. For example, RDoc, distributed with Ruby, uses its own template
+engine, which can be reused elsewhere.
 
-*   ERB's big brother, eRuby, works the same but is written in C for speed;
-*   Amrita (smart at producing HTML/XML);
-*   cs/Template (written in C for speed);
-*   RDoc, distributed with Ruby, uses its own template engine, which can be
-    reused elsewhere;
+Other popular engines could be found in the corresponding
+[Category](https://www.ruby-toolbox.com/categories/template_engines) of The
+Ruby Toolbox.
 
-*   and others; search [RubyGems.org](https://rubygems.org/) or [The Ruby
-    Toolbox](https://www.ruby-toolbox.com/).
-
-
-Rails, the web application framework, uses ERB to create views.
-
-[ERB Reference](https://ruby-doc.org/stdlib-2.6/libdoc/erb/rdoc/ERB.html)
+[ERB Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/erb/rdoc/ERB.html)

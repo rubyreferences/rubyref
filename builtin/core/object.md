@@ -1,7 +1,7 @@
 ---
 title: Object
-prev: "/builtin/core/kernel.html"
-next: "/builtin/core/module-class.html"
+prev: builtin/core/kernel.html
+next: builtin/core/module-class.html
 ---
 
 ## BasicObject and Object[](#basicobject-and-object)
@@ -43,7 +43,7 @@ class MyObjectSystem < BasicObject
   DELEGATE = [:puts, :p]
 
   def method_missing(name, *args, &block)
-    super unless DELEGATE.include? name
+    return super unless DELEGATE.include? name
     ::Kernel.send(name, *args, &block)
   end
 
@@ -66,8 +66,8 @@ class MyObjectSystem < BasicObject
 end
 ```
 
-<a href='https://ruby-doc.org/core-2.6/BasicObject.html' class='ruby-doc
-remote' target='_blank'>BasicObject Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/BasicObject.html'
+class='ruby-doc remote' target='_blank'>BasicObject Reference</a>
 
 
 
@@ -89,6 +89,6 @@ In the descriptions of Object's methods, the parameter *symbol* refers
 to a symbol, which is either a quoted string or a Symbol (such as
 `:name`).
 
-<a href='https://ruby-doc.org/core-2.6/Object.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Object.html' class='ruby-doc
 remote' target='_blank'>Object Reference</a>
 

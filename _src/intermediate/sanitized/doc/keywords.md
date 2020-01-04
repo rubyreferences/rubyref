@@ -55,7 +55,7 @@ The following keywords are used by Ruby.
 * `for`: A loop that is similar to using the `each` method.  See [control
     expressions](rdoc-ref:syntax/control_expressions.rdoc)
 
-* `if`: Used for `if` and modifier `if` expressions.  See [control
+* `if`: Used for `if` and modifier `if` statements.  See [control
     expressions](rdoc-ref:syntax/control_expressions.rdoc)
 
 * `in`: Used to separate the iterable object and iterator variable in a `for`
@@ -83,7 +83,8 @@ The following keywords are used by Ruby.
 * `retry`: Retries an exception block.  See [exception
     handling](rdoc-ref:syntax/exceptions.rdoc)
 
-* `return`: Exits a method.  See [methods](rdoc-ref:syntax/methods.rdoc)
+* `return`: Exits a method.  See [methods](rdoc-ref:syntax/methods.rdoc). If met in
+    top-level scope, immediately stops interpretation of the current file.
 
 * `self`: The object the current method is attached to.  See
     [methods](rdoc-ref:syntax/methods.rdoc)
@@ -99,7 +100,7 @@ The following keywords are used by Ruby.
 * `undef`: Prevents a class or module from responding to a method call. See [modules
     and classes](rdoc-ref:syntax/modules_and_classes.rdoc)
 
-* `unless`: Used for `unless` and modifier `unless` expressions.  See [control
+* `unless`: Used for `unless` and modifier `unless` statements.  See [control
     expressions](rdoc-ref:syntax/control_expressions.rdoc)
 
 * `until`: Creates a loop that executes until the condition is true.  See [control

@@ -1,7 +1,7 @@
 ---
 title: digest
-prev: "/stdlib/cryptography-encoding/base64.html"
-next: "/stdlib/cryptography-encoding/openssl.html"
+prev: stdlib/cryptography-encoding/base64.html
+next: stdlib/cryptography-encoding/openssl.html
 ---
 
 
@@ -82,6 +82,7 @@ Different digest algorithms (or hash functions) are available:
 The latest versions of the FIPS publications can be found here:
 http://csrc.nist.gov/publications/PubsFIPS.html.
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/digest/rdoc/Digest.html'
+<a
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/digest/rdoc/Digest.html'
 class='ruby-doc remote' target='_blank'>Digest Reference</a>
 

@@ -1,7 +1,7 @@
 ---
 title: 'racc: Parser Generator'
-prev: "/stdlib/string-utilities/erb.html"
-next: "/stdlib/string-utilities/scanf.html"
+prev: stdlib/string-utilities/erb.html
+next: stdlib/string-utilities/shellwords.html
 ---
 
 
@@ -42,7 +42,7 @@ racc [-o<var>filename</var>] [--output-file=<var>filename</var>]
   755). where `path` is the Ruby interpreter.
 * -v, --verbose: verbose mode. create `filename`.output file, like
   yacc's y.output file.
-* -g, --debug: add debug code to parser class. To display debugging
+* -g, --debug: add debug code to parser class. To display debuggin
   information, use this '-g' option and set @yydebug true in parser
   class.
 
@@ -168,10 +168,10 @@ $ racc -E -omyparser.rb myparser.y
 This command creates myparser.rb which `includes` Racc runtime. Only you
 must do is to distribute your parser file (myparser.rb).
 
-Note: parser.rb is LGPL, but your parser is not. Your own parser is
-completely yours.
+Note: parser.rb is ruby license, but your parser is not. Your own parser
+is completely yours.
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/racc/parser/rdoc/Racc.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/racc/parser/rdoc/Racc.html'
 class='ruby-doc remote' target='_blank'>Racc Reference</a>
 

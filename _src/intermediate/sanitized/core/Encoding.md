@@ -25,10 +25,10 @@ be passed an Encoding name or alias instead).
     "some string".encode "ISO-8859-1"
     #=> "some string"
 
-`Encoding::ASCII_8BIT` is a special encoding that is usually used for a byte
+Encoding::ASCII_8BIT is a special encoding that is usually used for a byte
 string, not a character string. But as the name insists, its characters in the
-range of ASCII are considered as ASCII characters. This is useful when you use
-ASCII-8BIT characters with other ASCII compatible characters.
+range of ASCII are considered as ASCII characters.  This is useful when you
+use ASCII-8BIT characters with other ASCII compatible characters.
 
 ## Changing an encoding
 
@@ -66,7 +66,7 @@ process.
 All Ruby script code has an associated Encoding which any String literal
 created in the source code will be associated to.
 
-The default script encoding is `Encoding::UTF-8` after v2.0, but it can be
+The default script encoding is Encoding::UTF_8 after v2.0, but it can be
 changed by a magic comment on the first line of the source code file (or
 second line, if there is a shebang line on the first). The comment must
 contain the word `coding` or `encoding`, followed by a colon, space and the
@@ -192,4 +192,4 @@ encoding must be specified to obtain the correct result.
     transcoded text:
     "R\u00E9sum\u00E9"
 
-[Encoding Reference](https://ruby-doc.org/core-2.6/Encoding.html)
+[Encoding Reference](https://ruby-doc.org/core-2.7.0/Encoding.html)

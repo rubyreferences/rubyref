@@ -1,7 +1,7 @@
 ---
 title: Exceptions
-prev: "/language/modules-classes.html"
-next: "/language/refinements.html"
+prev: language/modules-classes.html
+next: language/refinements.html
 ---
 
 ## Exceptions[](#exceptions)
@@ -9,7 +9,7 @@ next: "/language/refinements.html"
 ### Raising Exceptions[](#raising-exceptions)
 
 Exceptions are raised with the <a
-href='https://ruby-doc.org/core-2.6/Kernel.html#method-i-raise'
+href='https://ruby-doc.org/core-2.7.0/Kernel.html#method-i-raise'
 class='ruby-doc remote' target='_blank'>`Kernel#raise`</a> method. It
 has three forms:
 
@@ -22,7 +22,7 @@ raise ErrorClass, "Some message" # Custom error with custom message
 
 `ErrorClass` must be a subclass of [Exception](../builtin/exception.md).
 
-See <a href='https://ruby-doc.org/core-2.6/Kernel.html#method-i-raise'
+See <a href='https://ruby-doc.org/core-2.7.0/Kernel.html#method-i-raise'
 class='ruby-doc remote' target='_blank'>`Kernel#raise`</a> for more
 details on raising exceptions.
 
@@ -53,7 +53,16 @@ rescue
 end
 ```
 
-The same is true for a `class` or `module`.
+The same is true for a `class`, `module`, and `block`: 
+
+```ruby
+[0, 1, 2].map do |i|
+  10 / i
+rescue ZeroDivisionError
+  nil
+end
+#=> [nil, 10, 5]
+```
 
 You can assign the exception to a local variable by using `=>
 variable_name` at the end of the `rescue` line:
@@ -116,8 +125,8 @@ to create an infinite loop.
 
 Inside a rescue block is the only valid location for `retry`, all other
 uses will raise a SyntaxError. If you wish to retry a block iteration
-use `redo`. See [Control Expressions](control-expressions.md) for
-details.
+use `redo`. See [Control Expressions](/language/control-expressions.md)
+for details.
 
 To always run some code whether an exception was raised or not, use
 `ensure`: 

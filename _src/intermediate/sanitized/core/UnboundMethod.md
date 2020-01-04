@@ -1,14 +1,14 @@
 # UnboundMethod
 
-Ruby supports two forms of objectified methods. Class `Method` is used to
+Ruby supports two forms of objectified methods. Class Method is used to
 represent methods that are associated with a particular object: these method
 objects are bound to that object. Bound method objects for an object can be
 created using `Object#method`.
 
 Ruby also supports unbound methods; methods objects that are not associated
 with a particular object. These can be created either by calling
-`Module#instance_method` or by calling `unbind` on a bound method object. The
-result of both of these is an `UnboundMethod` object.
+Module#instance_method or by calling `#unbind` on a bound method object. The
+result of both of these is an UnboundMethod object.
 
 Unbound methods can only be called after they are bound to an object. That
 object must be a kind_of? the method's original class.
@@ -46,4 +46,4 @@ subsequent changes to the underlying class will not affect the unbound method.
     t.test            #=> :modified
     um.bind(t).call   #=> :original
 
-[UnboundMethod Reference](https://ruby-doc.org/core-2.6/UnboundMethod.html)
+[UnboundMethod Reference](https://ruby-doc.org/core-2.7.0/UnboundMethod.html)

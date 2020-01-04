@@ -1,7 +1,7 @@
 ---
 title: Concurrency and Parallelism
-prev: "/builtin/system-cli/args.html"
-next: "/builtin/internals.html"
+prev: builtin/system-cli/args.html
+next: builtin/internals.html
 ---
 
 ## Thread[](#thread)
@@ -16,14 +16,14 @@ execution using ::new.
 
 
 ```ruby
-thr = Thread.new { puts "Whats the big deal" }
+thr = Thread.new { puts "What's the big deal" }
 ```
 
 Then we are able to pause the execution of the main thread and allow our
 new thread to finish, using `#join`: 
 
 ```ruby
-thr.join #=> "Whats the big deal"
+thr.join #=> "What's the big deal"
 ```
 
 If we don't call `thr.join` before the main thread terminates, then all
@@ -35,7 +35,7 @@ once, like in the following example:
 
 ```ruby
 threads = []
-threads << Thread.new { puts "Whats the big deal" }
+threads << Thread.new { puts "What's the big deal" }
 threads << Thread.new { 3.times { puts "Threads are fun!" } }
 ```
 
@@ -45,6 +45,14 @@ consecutively.
 
 ```ruby
 threads.each { |thr| thr.join }
+```
+
+To retrieve the last value of a thread, use `#value`
+
+
+```ruby
+thr = Thread.new { sleep 1; "Useful value" }
+thr.value #=> "Useful value"
 ```
 
 #### Thread initialization[](#thread-initialization)
@@ -64,8 +72,8 @@ For terminating threads, Ruby provides a variety of ways to do this.
 The class method ::kill, is meant to exit a given thread:
 
 
-```
-thr = Thread.new { ... }
+```ruby
+thr = Thread.new { sleep }
 Thread.kill(thr) # sends exit() to thr
 ```
 
@@ -145,15 +153,24 @@ There is also `#thread_variables` to list all thread-locals, and
 
 #### Exception handling[](#exception-handling)
 
-Any thread can raise an exception using the `#raise` instance method,
-which operates similarly to `Kernel#raise`.
+When an unhandled exception is raised inside a thread, it will
+terminate. By default, this exception will not propagate to other
+threads. The exception is stored and when another thread calls `#value`
+or `#join`, the exception will be re-raised in that thread.
 
-However, it's important to note that an exception that occurs in any
-thread except the main thread depends on `#abort_on_exception`. This
-option is `false` by default, meaning that any unhandled exception will
-cause the thread to terminate silently when waited on by either `#join`
-or `#value`. You can change this default by either
-`#abort_on_exception=` `true` or setting $DEBUG to `true`.
+
+```ruby
+t = Thread.new{ raise 'something went wrong' }
+t.value #=> RuntimeError: something went wrong
+```
+
+An exception can be raised from outside the thread using the
+`Thread#raise` instance method, which takes the same parameters as
+`Kernel#raise`.
+
+Setting Thread.abort\_on\_exception = true, `Thread#abort_on_exception`
+= true, or $DEBUG = true will cause a subsequent unhandled exception
+raised in a thread to be automatically re-raised in the main thread.
 
 With the addition of the class method ::handle\_interrupt, you can now
 handle exceptions asynchronously with threads.
@@ -175,7 +192,7 @@ scheduler which threads you want to take precedence when passing
 execution. This method is also dependent on the OS and may be ignored on
 some platforms.
 
-<a href='https://ruby-doc.org/core-2.6/Thread.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Thread.html' class='ruby-doc
 remote' target='_blank'>Thread Reference</a>
 
 
@@ -191,8 +208,8 @@ adding a thread to a new group will remove it from any previous group.
 Newly created threads belong to the same group as the thread from which
 they were created.
 
-<a href='https://ruby-doc.org/core-2.6/ThreadGroup.html' class='ruby-doc
-remote' target='_blank'>ThreadGroup Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/ThreadGroup.html'
+class='ruby-doc remote' target='_blank'>ThreadGroup Reference</a>
 
 
 
@@ -220,7 +237,7 @@ b = Thread.new {
 }
 ```
 
-<a href='https://ruby-doc.org/core-2.6/Mutex.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Mutex.html' class='ruby-doc
 remote' target='_blank'>Mutex Reference</a>
 
 
@@ -254,7 +271,7 @@ b = Thread.new {
 }
 ```
 
-<a href='https://ruby-doc.org/core-2.6/ConditionVariable.html'
+<a href='https://ruby-doc.org/core-2.7.0/ConditionVariable.html'
 class='ruby-doc remote' target='_blank'>ConditionVariable Reference</a>
 
 
@@ -294,7 +311,7 @@ end
 consumer.join
 ```
 
-<a href='https://ruby-doc.org/core-2.6/Queue.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Queue.html' class='ruby-doc
 remote' target='_blank'>Queue Reference</a>
 
 
@@ -306,6 +323,6 @@ operation may be blocked if the capacity is full.
 
 See Queue for an example of how a SizedQueue works.
 
-<a href='https://ruby-doc.org/core-2.6/SizedQueue.html' class='ruby-doc
-remote' target='_blank'>SizedQueue Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/SizedQueue.html'
+class='ruby-doc remote' target='_blank'>SizedQueue Reference</a>
 

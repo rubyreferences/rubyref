@@ -1,7 +1,7 @@
 ---
 title: Modules and Classes
-prev: "/language/methods-call.html"
-next: "/language/exceptions.html"
+prev: language/methods-call.html
+next: language/exceptions.html
 ---
 
 ## Modules[](#modules)
@@ -150,7 +150,7 @@ end
 #### Methods[](#methods)
 
 For method definition documentation see the [syntax documentation for
-methods](methods-def.md).
+methods](/language/methods-def.md).
 
 Class methods may be called directly. (This is slightly confusing, but a
 method on a module is often called a "class method" instead of a "module
@@ -225,66 +225,52 @@ b.n b #=> 1 -- m called on defining class
 a.n b # raises NoMethodError A is not a subclass of B
 ```
 
-The third visibility is `private`. A private method may not be called
-with a receiver, not even `self`. If a private method is called with a
-receiver a NoMethodError will be raised.
+The third visibility is `private`. A private method may only be called
+from inside the owner class without a receiver, or with a literal `self`
+as a receiver. If a private method is called with a receiver other than
+a literal `self`, a NoMethodError will be raised.
 
-There are three ways to define method's visibility, the first one being
-most used:
+content/language/modules\_and\_classes/\_visibility.md
 
 
 ```ruby
-# 1. Define visibility for several methods at once
-private
+class A
+  def without
+    m
+  end
 
-def private_method1
-  # ...
+  def with_self
+    self.m
+  end
+
+  def with_other
+    A.new.m
+  end
+
+  def with_renamed
+    copy = self
+    copy.m
+  end
+
+  def m
+    1
+  end
+
+  private :m
 end
 
-def private_method2
-  # ...
-end
-
-public
-
-def public_again
-  # ...
-end
-
-# 2. Postfactum definition
-def private_method1
-  # ...
-end
-
-def private_method2
-  # ...
-end
-
-private :private_method1, :private_method2
-
-# 3. Inline definition
-private def private_method1
-  # ...
-end
-
-private def private_method2
-  # ...
-end
+a = A.new
+a.without      #=> 1
+a.with_self    #=> 1
+a.with_other   # NoMethodError (private method `m` called for #<A:0x0000559c287f27d0>)
+a.with_renamed # NoMethodError (private method `m` called for #<A:0x0000559c285f8330>)
 ```
-
-The third one is in fact the same as the second (passing method name to
-`private`), just utilizing the fact that `def` is an expression
-returning method name.
-
-Note also that `public`, `private` and `protected` are not, in fact,
-keywords or some special syntax, they are just regular methods of
-[Module](../builtin/core/module-class.md#module) class.
 
 #### `alias` and `undef`[](#alias-and-undef)
 
 You may also alias or undefine methods, but these operations are not
 restricted to modules or classes. See the [miscellaneous syntax
-section](misc.md) for documentation.
+section](/language/misc.md) for documentation.
 
 ## Classes[](#classes)
 

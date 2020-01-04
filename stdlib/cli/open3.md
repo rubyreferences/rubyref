@@ -1,7 +1,7 @@
 ---
 title: 'open3: Flexible child processes'
-prev: "/stdlib/cli/io.html"
-next: "/stdlib/cli/optparse.html"
+prev: stdlib/cli/io.html
+next: stdlib/cli/optparse.html
 ---
 
 
@@ -32,6 +32,6 @@ program in the same way as for Process.spawn.
 * Open3.pipeline\_start : run a pipeline without waiting
 * Open3.pipeline : run a pipeline and wait for its completion
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/open3/rdoc/Open3.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/open3/rdoc/Open3.html'
 class='ruby-doc remote' target='_blank'>Open3 Reference</a>
 

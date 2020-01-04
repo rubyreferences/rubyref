@@ -1,7 +1,7 @@
 ---
 title: openssl
-prev: "/stdlib/cryptography-encoding/digest.html"
-next: "/stdlib/misc.html"
+prev: stdlib/cryptography-encoding/digest.html
+next: stdlib/misc.html
 ---
 
 
@@ -621,6 +621,6 @@ If the server certificate is invalid or `context.ca_file` is not set
 when verifying peers an OpenSSL::SSL::SSLError will be raised.
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/openssl/rdoc/OpenSSL.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/openssl/rdoc/OpenSSL.html'
 class='ruby-doc remote' target='_blank'>OpenSSL Reference</a>
 

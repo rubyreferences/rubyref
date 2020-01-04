@@ -1,14 +1,14 @@
 ---
 title: Regexp
-prev: "/builtin/types/symbol-string.html"
-next: "/builtin/types/range.html"
+prev: builtin/types/symbol-string.html
+next: builtin/types/range.html
 ---
 
 ## Regexp[](#regexp)
 
-A `Regexp` holds a regular expression, used to match a pattern against
+A Regexp holds a regular expression, used to match a pattern against
 strings. Regexps are created using the `/.../` and `%r{...}` literals,
-and by the `Regexp::new` constructor.
+and by the Regexp::new constructor.
 
 Regular expressions (*regexp*s) are patterns which describe the contents
 of a string. They're used for testing whether a string contains a given
@@ -94,8 +94,9 @@ backslash literally, backslash-escape it: `\\\`.
 /a\\\\b/.match('a\\\\b')                    #=> #<MatchData "a\\b">
 ```
 
-Patterns behave like double-quoted strings so can contain the same
-backslash escapes.
+Patterns behave like double-quoted strings and can contain the same
+backslash escapes (the meaning of `\s` is different, however, see
+below).
 
 
 ```ruby
@@ -176,6 +177,8 @@ The following metacharacters also behave like character classes:
 * `/\H/` - A non-hexdigit character (`[^0-9a-fA-F]`)
 * `/\s/` - A whitespace character: `/[ \t\r\n\f\v]/`
 * `/\S/` - A non-whitespace character: `/[^ \t\r\n\f\v]/`
+* `/\R/` - A linebreak: `\n`, `\v`, `\f`, `\r` `\u0085` (NEXT LINE),
+  `\u2028` (LINE SEPARATOR), `\u2029` (PARAGRAPH SEPARATOR) or `\r\n`.
 
 POSIX *bracket expressions* are also similar to character classes. They
 provide a portable alternative to the above, with the added benefit that
@@ -240,8 +243,11 @@ At least one uppercase character ('H'), at least one lowercase character
 Repetition is *greedy* by default: as many occurrences as possible are
 matched while still allowing the overall match to succeed. By contrast,
 *lazy* matching makes the minimal amount of matches necessary for
-overall success. A greedy metacharacter can be made lazy by following it
-with `?`.
+overall success. Most greedy metacharacters can be made lazy by
+following them with `?`. For the `{n}` pattern, because it specifies an
+exact number of characters to match and not a variable number of
+characters, the `?` metacharacter instead makes the repeated pattern
+optional.
 
 Both patterns below match the string. The first uses a greedy quantifier
 so '.+' matches '<a><b>'; the second uses a lazy quantifier so '.+?'
@@ -301,7 +307,18 @@ the group name.
 ```
 
 **Note**\: A regexp can't use named backreferences and numbered
-backreferences simultaneously.
+backreferences simultaneously. Also, if a named capture is used in a
+regexp, then parentheses used for grouping which would otherwise result
+in a unnamed capture are treated as non-capturing.
+
+
+```ruby
+/(\w)(\w)/.match("ab").captures # => ["a", "b"]
+/(\w)(\w)/.match("ab").named_captures # => {}
+
+/(?<c>\w)(\w)/.match("ab").captures # => ["a"]
+/(?<c>\w)(\w)/.match("ab").named_captures # => {"c"=>"a"}
+```
 
 When named capture groups are used with a literal regexp on the
 left-hand side of an expression and the `=~` operator, the captured text
@@ -856,14 +873,14 @@ at once with *a\{0,29}*\:
 Regexp.new('a{0,29}' + 'a' * 29) =~ 'a' * 29
 ```
 
-<a href='https://ruby-doc.org/core-2.6/Regexp.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Regexp.html' class='ruby-doc
 remote' target='_blank'>Regexp Reference</a>
 
 
 
 ### MatchData[](#matchdata)
 
-`MatchData` encapsulates the result of matching a Regexp against string.
+MatchData encapsulates the result of matching a Regexp against string.
 It is returned by `Regexp#match` and `String#match`, and also stored in
 a global variable returned by Regexp.last\_match.
 
@@ -898,7 +915,7 @@ m.values_at(1, 2)           # => ["2.5.0", "MatchData"]
 
 #### Global variables equivalence[](#global-variables-equivalence)
 
-Parts of last `MatchData` (returned by Regexp.last\_match) are also
+Parts of last MatchData (returned by Regexp.last\_match) are also
 aliased as global variables:
 
 * `$~` is `Regexp.last_match`;
@@ -910,6 +927,6 @@ aliased as global variables:
 
 See also "Special global variables" section in Regexp documentation.
 
-<a href='https://ruby-doc.org/core-2.6/MatchData.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/MatchData.html' class='ruby-doc
 remote' target='_blank'>MatchData Reference</a>
 

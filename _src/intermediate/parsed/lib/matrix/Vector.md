@@ -68,4 +68,4 @@ String representations:
 *   #inspect
 
 
-[Vector Reference](https://ruby-doc.org/stdlib-2.6/libdoc/matrix/rdoc/Vector.html)
+[Vector Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/matrix/rdoc/Vector.html)

@@ -55,4 +55,4 @@ Symbol table used for displaying incoming events:
 
 by Keiju ISHITSUKA(keiju@ishitsuka.com)
 
-[Tracer Reference](https://ruby-doc.org/stdlib-2.6/libdoc/tracer/rdoc/Tracer.html)
+[Tracer Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/tracer/rdoc/Tracer.html)

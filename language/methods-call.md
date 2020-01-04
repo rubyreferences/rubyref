@@ -1,7 +1,7 @@
 ---
 title: Calling methods
-prev: "/language/methods-def.html"
-next: "/language/modules-classes.html"
+prev: language/methods-def.html
+next: language/modules-classes.html
 ---
 
 ## Calling Methods[](#calling-methods)
@@ -28,7 +28,7 @@ this document uses parenthesis when arguments are present to avoid
 confusion.
 
 This section only covers calling methods. See also the [syntax
-documentation on defining methods](methods-def.md).
+documentation on defining methods](/language/methods-def.md).
 
 ### Receiver[](#receiver)
 
@@ -141,7 +141,7 @@ method_one argument1, method_two argument2, argument3
 If the method definition has a `*argument` extra positional arguments
 will be assigned to `argument` in the method as an Array.
 
-If the method definition doesn't include keyword arguments the keyword
+If the method definition doesn't include keyword arguments, the keyword
 or hash-type arguments are assigned as a single hash to the last
 argument:
 
@@ -242,7 +242,8 @@ my_method(positional1, keyword1: value1, keyword2: value2)
 
 Any keyword arguments not given will use the default value from the
 method definition. If a keyword argument is given that the method did
-not list an ArgumentError will be raised.
+not list, and the method definition does not accept arbitrary keyword
+arguments, an ArgumentError will be raised.
 
 #### Block Argument[](#block-argument)
 
@@ -383,6 +384,9 @@ arguments = [1, 2, { c: 4 }]
 my_method(*arguments)
 ```
 
+Note that this behavior is currently deprecated and will emit a warning.
+This behavior will be removed in Ruby 3.0.
+
 You may also use the `**` (described next) to convert a Hash into
 keyword arguments.
 
@@ -390,7 +394,13 @@ If the number of objects in the Array do not match the number of
 arguments for the method, an ArgumentError will be raised.
 
 If the splat operator comes first in the call, parentheses must be used
-to avoid a warning.
+to avoid a warning:
+
+
+```ruby
+my_method *arguments  # warning
+my_method(*arguments) # no warning
+```
 
 #### Hash to Keyword Arguments Conversion[](#hash-to-keyword-arguments-conversion)
 
@@ -402,7 +412,8 @@ def my_method(first: 1, second: 2, third: 3)
 end
 ```
 
-You can turn a Hash into keyword arguments with the `**` operator:
+You can turn a Hash into keyword arguments with the `**` (keyword splat)
+operator:
 
 
 ```ruby
@@ -425,8 +436,8 @@ Both are equivalent to:
 my_method(first: 3, second: 4, third: 5)
 ```
 
-If the method definition uses `**` to gather arbitrary keyword
-arguments, they will not be gathered by `*`: 
+If the method definition uses the keyword splat operator to gather
+arbitrary keyword arguments, they will not be gathered by `*`: 
 
 ```ruby
 def my_method(*a, **kw)
@@ -440,11 +451,8 @@ Prints:
 
 
 ```ruby
-{:arguments=>[1, 2, {"3"=>4}], :keywords=>{:five=>6}}
+{:arguments=>[1, 2], :keywords=>{'3'=>4, :five=>6}}
 ```
-
-Unlike the splat operator described above, the `**` operator has no
-commonly recognized name.
 
 #### Proc to Block Conversion[](#proc-to-block-conversion)
 
@@ -457,8 +465,8 @@ def my_method
 end
 ```
 
-You can convert a proc or lambda to a block argument with the `&`
-operator:
+You can convert a proc or lambda to a block argument with the `&` (block
+conversion) operator:
 
 
 ```ruby
@@ -467,11 +475,14 @@ argument = proc { |a| puts "#{a.inspect} was yielded" }
 my_method(&argument)
 ```
 
-If the splat operator comes first in the call, parenthesis must be used
-to avoid a warning.
+If the block conversion operator comes first in the call, parenthesis
+must be used to avoid a warning:
 
-Unlike the splat operator described above, the `&` operator has no
-commonly recognized name.
+
+```ruby
+my_method &argument  # warning
+my_method(&argument) # no warning
+```
 
 ### Method Lookup[](#method-lookup)
 
@@ -495,6 +506,6 @@ If no match is found this repeats from the beginning, but looking for
 `BasicObject#method_missing` which raises a NameError when invoked.
 
 If refinements (an experimental feature) are active, the method lookup
-changes. See the [refinements documentation](refinements.md) for
-details.
+changes. See the [refinements documentation](/language/refinements.md)
+for details.
 

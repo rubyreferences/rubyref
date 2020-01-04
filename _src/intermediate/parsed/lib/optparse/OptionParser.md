@@ -123,7 +123,7 @@ OptionParser comes with a few ready-to-use kinds of  type coercion. They are:
 *   Regexp -- Regular expressions. Also includes options.
 
 
-We can also add our own coercions, which we will cover soon.
+We can also add our own coercions, which we will cover below.
 
 #### Using Built-in Conversions
 
@@ -373,4 +373,4 @@ command line options.
 The above examples should be enough to learn how to use this class.  If you
 have any questions, file a ticket at http://bugs.ruby-lang.org.
 
-[OptionParser Reference](https://ruby-doc.org/stdlib-2.6/libdoc/optparse/rdoc/OptionParser.html)
+[OptionParser Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/optparse/rdoc/OptionParser.html)

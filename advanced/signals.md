@@ -1,7 +1,7 @@
 ---
 title: Implementing Signal.trap callbacks
-prev: "/advanced/dtrace.html"
-next: "/advanced/contributing.html"
+prev: advanced/dtrace.html
+next: advanced/contributing.html
 ---
 
 ## Caveats for implementing Signal.trap callbacks[](#caveats-for-implementing-signaltrap-callbacks)
@@ -26,7 +26,7 @@ handling by registering short C functions with only <a
 href='http://man7.org/linux/man-pages/man7/signal-safety.7.html'
 class='remote' target='_blank'>async-signal-safe functions</a> as signal
 handlers. These short C functions only do enough tell the VM to run
-callbacks registered via Signal.trap later in the main VM loop.
+callbacks registered via Signal.trap later in the main Ruby Thread.
 
 ### Unsafe methods to call in Signal.trap blocks[](#unsafe-methods-to-call-in-signaltrap-blocks)
 

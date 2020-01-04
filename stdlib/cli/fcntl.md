@@ -1,7 +1,7 @@
 ---
 title: 'fcntl: POSIX file access constants'
-prev: "/stdlib/cli/etc.html"
-next: "/stdlib/cli/io.html"
+prev: stdlib/cli/etc.html
+next: stdlib/cli/io.html
 ---
 
 
@@ -53,6 +53,6 @@ Set the non-blocking flag on `f` in addition to the existing flags in
 f.fcntl(Fcntl::F_SETFL, Fcntl::O_NONBLOCK|m)
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/fcntl/rdoc/Fcntl.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/fcntl/rdoc/Fcntl.html'
 class='ruby-doc remote' target='_blank'>Fcntl Reference</a>
 

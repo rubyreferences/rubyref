@@ -1,7 +1,7 @@
 ---
 title: Control Expressions
-prev: "/language/assignment.html"
-next: "/language/methods-def.html"
+prev: language/assignment.html
+next: language/methods-def.html
 ---
 
 ## Control Expressions[](#control-expressions)
@@ -184,8 +184,8 @@ the expression.
 ### Modifier `if` and `unless`[](#modifier-if-and-unless)
 
 `if` and `unless` can also be used to modify an expression. When used as
-a modifier the left-hand side is the "then" expression and the
-right-hand side is the "test" expression:
+a modifier the left-hand side is the "then" statement and the right-hand
+side is the "test" expression:
 
 
 ```ruby
@@ -210,8 +210,8 @@ p a
 This will print 0.
 
 While the modifier and standard versions have both a "test" expression
-and a "then" expression, they are not exact transformations of each
-other due to parse order. Here is an example that shows the difference:
+and a "then" statement, they are not exact transformations of each other
+due to parse order. Here is an example that shows the difference:
 
 
 ```ruby
@@ -399,39 +399,7 @@ Like `while` and `until`, the `do` is optional.
 The result value of a `for` loop is the value iterated over unless
 `break` is used.
 
-Unlike other languages, a Ruby program typically doesn't need a `for`
-loop, using [Enumerable](../builtin/types/enumerable.md) instead:
-
-
-```ruby
-# Not idiomatic
-for i in 0..3
-  # ...
-end
-# Idiomatic
-(0..3).each do |i|
-  # ...
-end
-
-# Not idiomatic: selecting items
-odds = []
-for value in [1, 2, 3, 4, 5]
-  odds.push(value) if value.odd?
-end
-# Still not idiomatic: just each
-odds = []
-[1, 2, 3, 4, 5].each do |value|
-  odds.push(value) if value.odd?
-end
-# Idiomatic: specialized Enumerable method
-odds = [1, 2, 3, 4, 5].select { |value| value.odd? }
-# Simplify with Symbol#to_proc
-odds = [1, 2, 3, 4, 5].select(&:odd?)
-```
-
-Note that in a lot of cases `until` and `while` loops also could be
-replaced with `Enumerable` methods like `#take_while`, `#drop_while` and
-others.
+content/syntax/control\_expressions/\_for\_vs\_each.md
 
 ### Modifier `while` and `until`[](#modifier-while-and-until)
 
@@ -569,8 +537,87 @@ This prints \[0, 1, 3, 3, 5, 5, 7, 7, 9, 9, 11\]
 
 In Ruby 1.8, you could also use `retry` where you used `redo`. This is
 no longer true, now you will receive a SyntaxError when you use `retry`
-outside of a `rescue` block. See [Exceptions](exceptions.md) for proper
-usage of `retry`.
+outside of a `rescue` block. See [Exceptions](/language/exceptions.md)
+for proper usage of `retry`.
+
+### Modifier Statements[](#modifier-statements)
+
+Ruby's grammar differentiates between statements and expressions. All
+expressions are statements (an expression is a type of statement), but
+not all statements are expressions. Some parts of the grammar accept
+expressions and not other types of statements, which causes code that
+looks similar to be parsed differently.
+
+For example, when not used as a modifier, `if`, `else`, `while`,
+`until`, and `begin` are expressions (and also statements). However,
+when used as a modifier, `if`, `else`, `while`, `until` and `rescue` are
+statements but not expressions.
+
+
+```ruby
+if true; 1 end # expression (and therefore statement)
+1 if true      # statement (not expression)
+```
+
+Statements that are not expressions cannot be used in contexts where an
+expression is expected, such as method arguments.
+
+
+```
+puts( 1 if true )      #=> SyntaxError
+```
+
+You can wrap a statement in parentheses to create an expression.
+
+
+```ruby
+puts((1 if true))      #=> 1
+```
+
+If you put a space between the method name and opening parenthesis, you
+do not need two sets of parentheses.
+
+
+```ruby
+puts (1 if true)       #=> 1, because of optional parentheses for method
+```
+
+This is because this is parsed similar to a method call without
+parentheses. It is equivalent to the following code, without the
+creation of a local variable:
+
+
+```ruby
+x = (1 if true)
+p x
+```
+
+In a modifier statement, the left-hand side must be a statement and the
+right-hand side must be an expression.
+
+So in `a if b rescue c`, because `b rescue c` is a statement that is not
+an expression, and therefore is not allowed as the right-hand side of
+the `if` modifier statement, the code is necessarily parsed as `(a if b)
+rescue c`.
+
+This interacts with operator precedence in such a way that:
+
+
+```ruby
+stmt if v = expr rescue x
+stmt if v = expr unless x
+```
+
+are parsed as:
+
+
+```ruby
+stmt if v = (expr rescue x)
+(stmt if v = expr) unless x
+```
+
+This is because modifier `rescue` has higher precedence than `=`, and
+modifier `if` has lower precedence than `=`.
 
 ### Flip-Flop[](#flip-flop)
 

@@ -1,7 +1,7 @@
 ---
 title: csv
-prev: "/stdlib/formats.html"
-next: "/stdlib/formats/json.html"
+prev: stdlib/formats.html
+next: stdlib/formats/json.html
 ---
 
 
@@ -105,7 +105,7 @@ CSV($stdin)     { |csv_in|  csv_in.each { |row| p row } }  # from $stdin
 #### CSV with headers[](#csv-with-headers)
 
 CSV allows to specify column names of CSV file, whether they are in
-data, or provided separately. If headers specified, reading methods
+data, or provided separately. If headers are specified, reading methods
 return an instance of CSV::Table, consisting of CSV::Row.
 
 
@@ -123,7 +123,7 @@ data.first      #=> #<CSV::Row "Name":"Bob" "Department":"Engineering" "Salary":
 data.first.to_h #=> {"Name"=>"Bob", "Department"=>"Engineering", "Salary"=>"1000"}
 
 # Headers provided by developer
-data = CSV.parse('Bob,Engeneering,1000', headers: %i[name department salary])
+data = CSV.parse('Bob,Engineering,1000', headers: %i[name department salary])
 data.first      #=> #<CSV::Row name:"Bob" department:"Engineering" salary:"1000">
 ```
 
@@ -148,6 +148,6 @@ CSV.parse('Bob,2018-03-01,100', converters: [->(v) { Time.parse(v) rescue v }])
 #=> [["Bob", 2018-03-01 00:00:00 +0200, "100"]]
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/csv/rdoc/CSV.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/csv/rdoc/CSV.html'
 class='ruby-doc remote' target='_blank'>CSV Reference</a>
 

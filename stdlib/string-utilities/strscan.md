@@ -1,7 +1,7 @@
 ---
 title: 'strscan: Sequental String Scanner'
-prev: "/stdlib/string-utilities/shellwords.html"
-next: "/stdlib/networking-web.html"
+prev: stdlib/string-utilities/shellwords.html
+next: stdlib/networking-web.html
 ---
 
 
@@ -61,6 +61,6 @@ ready to scan again from the next character onwards. This is
 demonstrated by the example above.
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/strscan/rdoc/StringScanner.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/strscan/rdoc/StringScanner.html'
 class='ruby-doc remote' target='_blank'>StringScanner Reference</a>
 

@@ -1,7 +1,7 @@
 ---
 title: observer
-prev: "/stdlib/patterns/delegate.html"
-next: "/stdlib/patterns/singleton.html"
+prev: stdlib/patterns/delegate.html
+next: stdlib/patterns/singleton.html
 ---
 
 
@@ -125,6 +125,6 @@ Current price: 79
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/observer/rdoc/Observable.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/observer/rdoc/Observable.html'
 class='ruby-doc remote' target='_blank'>Observable Reference</a>
 

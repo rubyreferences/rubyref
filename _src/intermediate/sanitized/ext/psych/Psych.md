@@ -198,4 +198,4 @@ advance or speed is a concern.  See Psych::Emitter for more information.
     Psych::Visitors::ToRuby.new.accept(parser.handler.root.first)
     # => "a"
 
-[Psych Reference](https://ruby-doc.org/stdlib-2.6/libdoc/psych/rdoc/Psych.html)
+[Psych Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/psych/rdoc/Psych.html)

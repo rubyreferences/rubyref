@@ -1,7 +1,7 @@
 ---
 title: Struct
-prev: "/builtin/types/range.html"
-next: "/builtin/types/times-dates.html"
+prev: builtin/types/range.html
+next: builtin/types/times-dates.html
 ---
 
 ## Struct[](#struct)
@@ -33,7 +33,7 @@ In the method descriptions that follow, a "member" parameter refers to a
 struct member which is either a quoted string (`"name"`) or a Symbol
 (`:name`).
 
-<a href='https://ruby-doc.org/core-2.6/Struct.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/Struct.html' class='ruby-doc
 remote' target='_blank'>Struct Reference</a>
 
 
@@ -118,6 +118,6 @@ overhead in the setting of these properties compared to using a Hash or
 a Struct.
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/ostruct/rdoc/OpenStruct.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/ostruct/rdoc/OpenStruct.html'
 class='ruby-doc remote' target='_blank'>OpenStruct Reference</a>
 

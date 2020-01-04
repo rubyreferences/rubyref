@@ -1,7 +1,7 @@
 ---
 title: Precedence
-prev: "/language/refinements.html"
-next: "/language/misc.html"
+prev: language/refinements.html
+next: language/misc.html
 ---
 
 ## Precedence[](#precedence)
@@ -57,12 +57,16 @@ modifier-if, modifier-unless, modifier-while, modifier-until
 Unary `+` and unary `-` are for `+1`, `-1` or `-(a + b)`.
 
 Modifier-if, modifier-unless, etc. are for the modifier versions of
-those keywords. For example, this is a modifier-unless expression:
+those keywords. For example, this is a modifier-unless statement:
 
 
 ```ruby
 a += 1 unless a.zero?
 ```
+
+Note that `(a if b rescue c)` is parsed as `((a if b) rescue c)` due to
+reasons not related to precedence. See [modifier
+statements](/language/control-expressions.md#modifier-statements).
 
 `{ ... }` blocks have priority below all listed operations, but `do ...
 end` blocks have lower priority.

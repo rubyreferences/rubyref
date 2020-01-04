@@ -1,7 +1,7 @@
 ---
 title: IO Basics
-prev: "/builtin/system-cli/processes-signals.html"
-next: "/builtin/system-cli/filesystem.html"
+prev: builtin/system-cli/processes-signals.html
+next: builtin/system-cli/filesystem.html
 ---
 
 ## IO[](#io)
@@ -56,17 +56,17 @@ stream which allows access to all files mentioned on the command line
 `ARGF#filename` are provided to access the name of the file currently
 being read.
 
-<a href='https://ruby-doc.org/core-2.6/IO.html' class='ruby-doc remote'
-target='_blank'>IO Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/IO.html' class='ruby-doc
+remote' target='_blank'>IO Reference</a>
 
 
 
 ### File[](#file)
 
-A `File` is an abstraction of any file object accessible by the program
-and is closely associated with class `IO`. `File` includes the methods
-of module `FileTest` as class methods, allowing you to write (for
-example) `File.exist?("foo")`.
+A File is an abstraction of any file object accessible by the program
+and is closely associated with class IO. File includes the methods of
+module FileTest as class methods, allowing you to write (for example)
+`File.exist?("foo")`.
 
 In the description of File methods, *permission bits* are a
 platform-specific set of bits that indicate permissions of a file. On
@@ -91,7 +91,7 @@ be made is to make the file read-only, which is reported as `0444`.
 Various constants for the methods in File can be found in
 File::Constants.
 
-<a href='https://ruby-doc.org/core-2.6/File.html' class='ruby-doc
+<a href='https://ruby-doc.org/core-2.7.0/File.html' class='ruby-doc
 remote' target='_blank'>File Reference</a>
 
 
@@ -101,7 +101,7 @@ remote' target='_blank'>File Reference</a>
 *Part of standard library. You need to `require 'stringio'` before
 using.*
 
-Pseudo I/O on String object.
+Pseudo I/O on String object, with interface corresponding to IO.
 
 Commonly used to simulate `$stdio` or `$stderr`
 
@@ -111,12 +111,19 @@ Commonly used to simulate `$stdio` or `$stderr`
 ```ruby
 require 'stringio'
 
+# Writing stream emulation
 io = StringIO.new
 io.puts "Hello World"
 io.string #=> "Hello World\n"
+
+# Reading stream emulation
+io = StringIO.new "first\nsecond\nlast\n"
+io.getc #=> "f"
+io.gets #=> "irst\n"
+io.read #=> "second\nlast\n"
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/stringio/rdoc/StringIO.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/stringio/rdoc/StringIO.html'
 class='ruby-doc remote' target='_blank'>StringIO Reference</a>
 

@@ -1,7 +1,7 @@
 ---
 title: Developing C Extensions
-prev: "/advanced.html"
-next: "/advanced/security.html"
+prev: advanced.html
+next: advanced/security.html
 ---
 
 ## Creating Extension Libraries for Ruby[](#creating-extension-libraries-for-ruby)
@@ -193,15 +193,6 @@ rb\_str\_new2(const char \*ptr)
 * rb\_str\_new\_literal(const char \*ptr): Creates a new Ruby string
   from a C string literal.
 
-* rb\_tainted\_str\_new(const char \*ptr, long len): Creates a new
-  tainted Ruby string. Strings from external data sources should be
-  tainted.
-
-rb\_tainted\_str\_new2(const char \*ptr)
-
-* rb\_tainted\_str\_new\_cstr(const char \*ptr): Creates a new tainted
-  Ruby string from a C string.
-
 rb\_sprintf(const char \*format, ...)
 
 * rb\_vsprintf(const char \*format, va\_list ap): Creates a new Ruby
@@ -269,6 +260,12 @@ rb\_utf8\_str\_new(const char \*ptr, long len)
   string. If str is not modifiable, this function raises an exception.
   This function preserves the content up to len bytes, regardless
   RSTRING\_LEN(str). len must not exceed the capacity of str.
+
+* rb\_str\_modify(VALUE str): Prepares a Ruby string to modify. If str
+  is not modifiable, this function raises an exception, or if the buffer
+  of str is shared, this function allocates new buffer to make it
+  unshared. Always you MUST call this function before modifying the
+  contents using RSTRING\_PTR and/or rb\_str\_set\_len.
 
 ##### Array Functions[](#array-functions)
 
@@ -471,6 +468,25 @@ you may rely on:
 ```
 VALUE rb_call_super(int argc, const VALUE *argv)
 ```
+
+To specify whether keyword arguments are passed when calling super:
+
+
+```
+VALUE rb_call_super(int argc, const VALUE *argv, int kw_splat)
+```
+
+`kw_splat` can have these possible values (used by all methods that
+accept `kw_splat` argument):
+
+* RB\_NO\_KEYWORDS: Do not pass keywords
+* RB\_PASS\_KEYWORDS: Pass keywords, final argument should be a hash of
+  keywords
+* RB\_PASS\_EMPTY\_KEYWORDS: Pass empty keywords (not included in
+  arguments) (this will be removed in Ruby 3.0)
+
+* RB\_PASS\_CALLED\_KEYWORDS: Pass keywords if current method was called
+  with keywords, useful for argument delegation
 
 To achieve the receiver of the current scope (if no other way is
 available), you can use:
@@ -791,7 +807,7 @@ flags if you are not sure.
   You can specify this flag if the dfree never unlocks Ruby's internal
   lock (GVL).
   
-  If this flag is not set, Ruby defers invokation of dfree() and invokes
+  If this flag is not set, Ruby defers invocation of dfree() and invokes
   dfree() at the same time as finalizers.
 
 * RUBY\_TYPED\_WB\_PROTECTED: It shows that implementation of the object
@@ -1313,9 +1329,6 @@ golf_prelude.rb     : goruby specific libraries.
 * void Check\_Type(VALUE value, int type): Ensures `value` is of the
   given internal `type` or raises a TypeError
 
-* SafeStringValue(value): Checks that `value` is a String and is not
-  tainted
-
 #### Data Type Conversion[](#data-type-conversion)
 
 * FIX2INT(value), INT2FIX(i): Fixnum <-> integer
@@ -1474,7 +1487,7 @@ golf_prelude.rb     : goruby specific libraries.
   
   
   ```
-    scan-arg-spec  := param-arg-spec [option-hash-arg-spec] [block-arg-spec]
+    scan-arg-spec  := param-arg-spec [keyword-arg-spec] [block-arg-spec]
   
     param-arg-spec := pre-arg-spec [post-arg-spec] / post-arg-spec /
                       pre-opt-post-arg-spec
@@ -1483,7 +1496,7 @@ golf_prelude.rb     : goruby specific libraries.
                       [num-of-trailing-mandatory-args]
     pre-opt-post-arg-spec := num-of-leading-mandatory-args num-of-optional-args
                              num-of-trailing-mandatory-args
-    option-hash-arg-spec := sym-for-option-hash-arg
+    keyword-arg-spec := sym-for-keyword-arg
     block-arg-spec := sym-for-block-arg
   
     num-of-leading-mandatory-args  := DIGIT ; The number of leading
@@ -1495,9 +1508,14 @@ golf_prelude.rb     : goruby specific libraries.
                                             ; captured as a ruby array
     num-of-trailing-mandatory-args := DIGIT ; The number of trailing
                                             ; mandatory arguments
-    sym-for-option-hash-arg        := ":"   ; Indicates that an option
-                                            ; hash is captured if the last
-                                            ; argument is a hash or can be
+    sym-for-keyword-arg            := ":"   ; Indicates that keyword
+                                            ; argument captured as a hash.
+                                            ; If keyword arguments are not
+                                            ; provided, returns nil.
+                                            ;
+                                            ; Currently, will also consider
+                                            ; final argument as keywords if
+                                            ; it is a hash or can be
                                             ; converted to a hash with
                                             ; #to_hash.  When the last
                                             ; argument is nil, it is
@@ -1507,6 +1525,15 @@ golf_prelude.rb     : goruby specific libraries.
                                             ; is not specified and
                                             ; arguments are given more
                                             ; than sufficient.
+                                            ;
+                                            ; However, handling final
+                                            ; argument as keywords if
+                                            ; method was not called with
+                                            ; keywords (whether final
+                                            ; argument is hash or nil) is
+                                            ; deprecated. In that case, a
+                                            ; warning will be emitted, and
+                                            ; in Ruby 3.0 it will be an error.
     sym-for-block-arg              := "&"   ; Indicates that an iterator
                                             ; block should be captured if
                                             ; given
@@ -1521,6 +1548,21 @@ golf_prelude.rb     : goruby specific libraries.
   
   The number of given arguments, excluding an option hash or iterator
   block, is returned.
+
+* rb\_scan\_args\_kw(int kw\_splat, int argc, VALUE \*argv, const char
+  \*fmt, ...): The same as `rb_scan_args`, except the `kw_splat`
+  argument specifies whether keyword arguments are provided (instead of
+  being determined by the call from Ruby to the C function). `kw_splat`
+  should be one of the following values:
+  
+  RB\_SCAN\_ARGS\_PASS\_CALLED\_KEYWORDS
+  : Same behavior as `rb_scan_args`. RB\_SCAN\_ARGS\_KEYWORDS
+  : The final argument should be a hash treated as keywords.
+    RB\_SCAN\_ARGS\_EMPTY\_KEYWORDS
+  : Don't treat a final hash as keywords. (this will be removed in Ruby
+    3.0) RB\_SCAN\_ARGS\_LAST\_HASH\_KEYWORDS
+  : Treat a final argument as keywords if it is a hash, and not as
+    keywords otherwise.
 
 * int rb\_get\_kwargs(VALUE keyword\_hash, const ID \*table, int
   required, int optional, VALUE \*values): Retrieves argument VALUEs
@@ -1557,9 +1599,35 @@ VALUE rb\_funcall2(VALUE recv, ID mid, int argc, VALUE \*argv)
   Invokes a method, passing arguments as an array of values. Able to
   call even private/protected methods.
 
+* VALUE rb\_funcallv\_kw(VALUE recv, ID mid, int argc, VALUE \*argv, int
+  kw\_splat): Same as rb\_funcallv, using `kw_splat` to determine
+  whether keyword arguments are passed.
+
 * VALUE rb\_funcallv\_public(VALUE recv, ID mid, int argc, VALUE
   \*argv): Invokes a method, passing arguments as an array of values.
   Able to call only public methods.
+
+* VALUE rb\_funcallv\_public\_kw(VALUE recv, ID mid, int argc, VALUE
+  \*argv, int kw\_splat): Same as rb\_funcallv\_public, using `kw_splat`
+  to determine whether keyword arguments are passed.
+
+* VALUE rb\_funcall\_passing\_block(VALUE recv, ID mid, int argc, const
+  VALUE\* argv): Same as rb\_funcallv\_public, except is passes the
+  currently active block as the block when calling the method.
+
+* VALUE rb\_funcall\_passing\_block\_kw(VALUE recv, ID mid, int argc,
+  const VALUE\* argv, int kw\_splat): Same as
+  rb\_funcall\_passing\_block, using `kw_splat` to determine whether
+  keyword arguments are passed.
+
+* VALUE rb\_funcall\_with\_block(VALUE recv, ID mid, int argc, const
+  VALUE \*argv, VALUE passed\_procval): Same as rb\_funcallv\_public,
+  except `passed_procval` specifies the block to pass to the method.
+
+* VALUE rb\_funcall\_with\_block\_kw(VALUE recv, ID mid, int argc, const
+  VALUE \*argv, VALUE passed\_procval, int kw\_splat): Same as
+  rb\_funcall\_with\_block, using `kw_splat` to determine whether
+  keyword arguments are passed.
 
 * VALUE rb\_eval\_string(const char \*str): Compiles and executes the
   string as a Ruby program.
@@ -1595,6 +1663,11 @@ VALUE rb\_funcall2(VALUE recv, ID mid, int argc, VALUE \*argv)
   data2 is packed as an Array, whereas yielded values can be gotten via
   argc/argv of the third/fourth arguments.
 
+* VALUE rb\_block\_call\_kw(VALUE recv, ID mid, int argc, VALUE \* argv,
+  VALUE (\*func) (ANYARGS), VALUE data2, int kw\_splat): Same as
+  rb\_funcall\_with\_block, using `kw_splat` to determine whether
+  keyword arguments are passed.
+
 * \[OBSOLETE\] VALUE rb\_iterate(VALUE (*func1)(), VALUE arg1, VALUE
   (*func2)(), VALUE arg2): Calls the function func1, supplying func2 as
   the block. func1 will be called with the argument arg1. func2 receives
@@ -1605,7 +1678,25 @@ VALUE rb\_funcall2(VALUE recv, ID mid, int argc, VALUE \*argv)
   method. This function is obsolete since 1.9; use rb\_block\_call
   instead.
 
-* VALUE rb\_yield(VALUE val): Evaluates the block with value val.
+* VALUE rb\_yield(VALUE val): Yields val as a single argument to the
+  block.
+
+* VALUE rb\_yield\_values(int n, ...): Yields `n` number of arguments to
+  the block, using one C argument per Ruby argument.
+
+* VALUE rb\_yield\_values2(int n, VALUE \*argv): Yields `n` number of
+  arguments to the block, with all Ruby arguments in the C argv array.
+
+* VALUE rb\_yield\_values\_kw(int n, VALUE \*argv, int kw\_splat): Same
+  as rb\_yield\_values2, using `kw_splat` to determine whether keyword
+  arguments are passed.
+
+* VALUE rb\_yield\_splat(VALUE args): Same as rb\_yield\_values2, except
+  arguments are specified by the Ruby array `args`.
+
+* VALUE rb\_yield\_splat\_kw(VALUE args, int kw\_splat): Same as
+  rb\_yield\_splat, using `kw_splat` to determine whether keyword
+  arguments are passed.
 
 * VALUE rb\_rescue(VALUE (*func1)(ANYARGS), VALUE arg1, VALUE
   (*func2)(ANYARGS), VALUE arg2): Calls the function func1, with arg1 as
@@ -1840,9 +1931,54 @@ Some macros to check API compatibilities are available by default.
   rb\_add\_event\_hook() takes the third argument `data`, to be passed
   to the given event hook function.
 
+#### Defining backward compatible macros for keyword argument functions[](#defining-backward-compatible-macros-for-keyword-argument-functions)
+
+Most ruby C extensions are designed to support multiple Ruby versions.
+In order to correctly support Ruby 2.7+ in regards to keyword argument
+separation, C extensions need to use `*_kw` functions. However, these
+functions do not exist in Ruby 2.6 and below, so in those cases macros
+should be defined to allow you to use the same code on multiple Ruby
+versions. Here are example macros you can use in extensions that support
+Ruby 2.6 (or below) when using the `*_kw` functions introduced in Ruby
+2.7.
+
+
+```
+\#ifndef RB_PASS_KEYWORDS
+/* Only define macros on Ruby <2.7 */
+\#define rb_funcallv_kw(o, m, c, v, kw) rb_funcallv(o, m, c, v)
+\#define rb_funcallv_public_kw(o, m, c, v, kw) rb_funcallv_public(o, m, c, v)
+\#define rb_funcall_passing_block_kw(o, m, c, v, kw) rb_funcall_passing_block(o, m, c, v)
+\#define rb_funcall_with_block_kw(o, m, c, v, b, kw) rb_funcall_with_block(o, m, c, v, b)
+\#define rb_scan_args_kw(kw, c, v, s, ...) rb_scan_args(c, v, s, __VA_ARGS__)
+\#define rb_call_super_kw(c, v, kw) rb_call_super(c, v)
+\#define rb_yield_values_kw(c, v, kw) rb_yield_values2(c, v)
+\#define rb_yield_splat_kw(a, kw) rb_yield_splat(a)
+\#define rb_block_call_kw(o, m, c, v, f, p, kw) rb_block_call(o, m, c, v, f, p)
+\#define rb_fiber_resume_kw(o, c, v, kw) rb_fiber_resume(o, c, v)
+\#define rb_fiber_yield_kw(c, v, kw) rb_fiber_yield(c, v)
+\#define rb_enumeratorize_with_size_kw(o, m, c, v, f, kw) rb_enumeratorize_with_size(o, m, c, v, f)
+\#define SIZED_ENUMERATOR_KW(obj, argc, argv, size_fn, kw_splat) \
+    rb_enumeratorize_with_size((obj), ID2SYM(rb_frame_this_func()), \
+                               (argc), (argv), (size_fn))
+\#define RETURN_SIZED_ENUMERATOR_KW(obj, argc, argv, size_fn, kw_splat) do { \
+        if (!rb_block_given_p())                                            \
+            return SIZED_ENUMERATOR(obj, argc, argv, size_fn);              \
+    } while (0)
+\#define RETURN_ENUMERATOR_KW(obj, argc, argv, kw_splat) RETURN_SIZED_ENUMERATOR(obj, argc, argv, 0)
+\#define rb_check_funcall_kw(o, m, c, v, kw) rb_check_funcall(o, m, c, v)
+\#define rb_obj_call_init_kw(o, c, v, kw) rb_obj_call_init(o, c, v)
+\#define rb_class_new_instance_kw(c, v, k, kw) rb_class_new_instance(c, v, k)
+\#define rb_proc_call_kw(p, a, kw) rb_proc_call(p, a)
+\#define rb_proc_call_with_block_kw(p, c, v, b, kw) rb_proc_call_with_block(p, c, v, b)
+\#define rb_method_call_kw(c, v, m, kw) rb_method_call(c, v, m)
+\#define rb_method_call_with_block_kw(c, v, m, b, kw) rb_method_call_with_block(c, v, m, b)
+\#endif
+```
+
 ### Appendix C. Functions available for use in extconf.rb[](#appendix-c-functions-available-for-use-in-extconfrb)
 
-See documentation for [mkmf](../language.md).
+See documentation for mkmf.
 
 ### Appendix D. Generational GC[](#appendix-d-generational-gc)
 
@@ -2006,6 +2142,6 @@ correctly compile and link the C extension to Ruby and a third-party
 library.
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/mkmf/rdoc/MakeMakefile.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/mkmf/rdoc/MakeMakefile.html'
 class='ruby-doc remote' target='_blank'>MakeMakefile Reference</a>
 

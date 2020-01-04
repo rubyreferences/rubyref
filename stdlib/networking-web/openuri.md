@@ -1,7 +1,7 @@
 ---
 title: 'openuri: Open Files and URLs'
-prev: "/stdlib/networking-web/net/smtp.html"
-next: "/stdlib/networking-web/resolv.html"
+prev: stdlib/networking-web/net/smtp.html
+next: stdlib/networking-web/resolv.html
 ---
 
 
@@ -19,7 +19,7 @@ file:
 
 
 ```ruby
-open("http://www.ruby-lang.org/") {|f|
+URI.open("http://www.ruby-lang.org/") {|f|
   f.each_line {|line| p line}
 }
 ```
@@ -29,7 +29,7 @@ follows, since it is extended by OpenURI::Meta.
 
 
 ```ruby
-open("http://www.ruby-lang.org/en") {|f|
+URI.open("http://www.ruby-lang.org/en") {|f|
   f.each_line {|line| p line}
   p f.base_uri         # <URI::HTTP:0x40e6ef2 URL:http://www.ruby-lang.org/en/>
   p f.content_type     # "text/html"
@@ -43,7 +43,7 @@ Additional header fields can be specified by an optional hash argument.
 
 
 ```ruby
-open("http://www.ruby-lang.org/en/",
+URI.open("http://www.ruby-lang.org/en/",
   "User-Agent" => "Ruby/#{RUBY_VERSION}",
   "From" => "foo@bar.invalid",
   "Referer" => "http://www.ruby-lang.org/") {|f|
@@ -56,13 +56,12 @@ ftp\_proxy are in effect by default. Here we disable proxy:
 
 
 ```ruby
-open("http://www.ruby-lang.org/en/", :proxy => nil) {|f|
+URI.open("http://www.ruby-lang.org/en/", :proxy => nil) {|f|
   # ...
 }
 ```
 
-See OpenURI::OpenRead.open and `Kernel#open` for more on available
-options.
+See OpenURI::OpenRead.open and URI.open for more on available options.
 
 URI objects can be opened in a similar way.
 
@@ -84,6 +83,6 @@ p str.base_uri
 ```
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/open-uri/rdoc/OpenURI.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/open-uri/rdoc/OpenURI.html'
 class='ruby-doc remote' target='_blank'>OpenURI Reference</a>
 

@@ -1,7 +1,7 @@
 ---
 title: timeout
-prev: "/stdlib/misc/dbm.html"
-next: "/stdlib/misc/other.html"
+prev: stdlib/misc/dbm.html
+next: stdlib/misc/other.html
 ---
 
 
@@ -29,6 +29,6 @@ Previous versions didn't use a module for namespacing, however
 Timeout.timeout instead.
 
 <a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/timeout/rdoc/Timeout.html'
+href='https://ruby-doc.org/stdlib-2.7.0/libdoc/timeout/rdoc/Timeout.html'
 class='ruby-doc remote' target='_blank'>Timeout Reference</a>
 

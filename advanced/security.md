@@ -1,7 +1,7 @@
 ---
 title: Security
-prev: "/advanced/extensions.html"
-next: "/advanced/dtrace.html"
+prev: advanced/extensions.html
+next: advanced/dtrace.html
 ---
 
 ## Ruby Security[](#ruby-security)
@@ -23,19 +23,6 @@ mailto:security@ruby-lang.org (<a
 href='https://www.ruby-lang.org/security.asc' class='remote'
 target='_blank'>the PGP public key</a>), which is a private mailing
 list. Reported problems will be published after fixes.
-
-### `$SAFE`[](#safe)
-
-Ruby provides a mechanism to restrict what operations can be performed
-by Ruby code in the form of the `$SAFE` variable.
-
-However, `$SAFE` does not provide a secure environment for executing
-untrusted code.
-
-If you need to execute untrusted code, you should use an operating
-system level sandboxing mechanism. On Linux, ptrace or LXC can be used
-to sandbox potentially malicious code. Other similar mechanisms exist on
-every major operating system.
 
 ### `Marshal.load`[](#marshalload)
 

@@ -30,4 +30,4 @@ A complex object is either an exact or an inexact number.
     Complex(1, 1) / 2    #=> ((1/2)+(1/2)*i)
     Complex(1, 1) / 2.0  #=> (0.5+0.5i)
 
-[Complex Reference](https://ruby-doc.org/core-2.6/Complex.html)
+[Complex Reference](https://ruby-doc.org/core-2.7.0/Complex.html)

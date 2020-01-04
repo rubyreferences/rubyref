@@ -1,7 +1,7 @@
 ---
 title: cgi
-prev: "/stdlib/networking-web.html"
-next: "/stdlib/networking-web/ipaddr.html"
+prev: stdlib/networking-web.html
+next: stdlib/networking-web/ipaddr.html
 ---
 
 
@@ -261,7 +261,7 @@ cgi.out do
         end
       end +
       cgi.pre do
-        CGI::escapeHTML(
+        CGI.escapeHTML(
           "params: #{cgi.params.inspect}\n" +
           "cookies: #{cgi.cookies.inspect}\n" +
           ENV.collect do |key, value|
@@ -299,6 +299,6 @@ escapeHTML('Usage: foo "bar" <baz>')
 h('Usage: foo "bar" <baz>') # alias
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/cgi/rdoc/CGI.html'
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/cgi/rdoc/CGI.html'
 class='ruby-doc remote' target='_blank'>CGI Reference</a>
 
