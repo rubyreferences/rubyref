@@ -5,7 +5,7 @@ accessor methods, without having to write an explicit class.
 
 The Struct class generates new subclasses that hold a set of members and their
 values.  For each member a reader and writer method is created similar to
-Module#attr_accessor.
+`Module#attr_accessor`.
 
     Customer = Struct.new(:name, :address) do
       def greeting

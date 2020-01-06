@@ -190,7 +190,7 @@ The `case` expression can be used in two ways.
 The most common way is to compare an object against multiple patterns.  The
 patterns are matched using the +===+ method which is aliased to +==+ on
 Object.  Other classes must override it to give meaningful behavior.  See
-Module#=== and `Regexp#===` for examples.
+`Module#===` and `Regexp#===` for examples.
 
 Here is an example of using `case` to compare a String against a pattern:
 

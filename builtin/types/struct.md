@@ -8,7 +8,7 @@ next: "/builtin/types/times-dates.html"
 
 A Struct is a convenient way to bundle a number of attributes together, using accessor methods, without having to write an explicit class.
 
-The Struct class generates new subclasses that hold a set of members and their values. For each member a reader and writer method is created similar to Module#attr\_accessor.
+The Struct class generates new subclasses that hold a set of members and their values. For each member a reader and writer method is created similar to `Module#attr_accessor`.
 
 
 ```ruby

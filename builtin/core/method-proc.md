@@ -36,7 +36,7 @@ require 'date'
 
 Ruby supports two forms of objectified methods. Class Method is used to represent methods that are associated with a particular object: these method objects are bound to that object. Bound method objects for an object can be created using `Object#method`.
 
-Ruby also supports unbound methods; methods objects that are not associated with a particular object. These can be created either by calling Module#instance\_method or by calling `#unbind` on a bound method object. The result of both of these is an UnboundMethod object.
+Ruby also supports unbound methods; methods objects that are not associated with a particular object. These can be created either by calling `Module#instance_method` or by calling `#unbind` on a bound method object. The result of both of these is an UnboundMethod object.
 
 Unbound methods can only be called after they are bound to an object. That object must be a kind\_of? the method's original class.
 

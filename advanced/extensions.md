@@ -1369,7 +1369,7 @@ VALUE rb\_funcall2(VALUE recv, ID mid, int argc, VALUE \*argv)
 
 * void rb\_bug(const char \*fmt, ...): Terminates the interpreter immediately. This function should be called under the situation caused by the bug in the interpreter. No exception handling nor ensure execution will be done.
 
-Note: In the format string, "%"PRIsVALUE can be used for `Object#to_s` (or Object#inspect if '+' flag is set) output (and related argument must be a VALUE). Since it conflicts with "%i", for integers in format strings, use "%d".
+Note: In the format string, "%"PRIsVALUE can be used for `Object#to_s` (or `Object#inspect` if '+' flag is set) output (and related argument must be a VALUE). Since it conflicts with "%i", for integers in format strings, use "%d".
 
 #### Threading[](#threading)
 

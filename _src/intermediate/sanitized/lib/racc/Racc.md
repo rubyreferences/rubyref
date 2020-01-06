@@ -79,15 +79,15 @@ more information on grammar files.
 Then you must prepare the parse entry method. There are two types of parse
 methods in Racc, `Racc::Parser#do_parse` and `Racc::Parser#yyparse`
 
-Racc::`Parser#do_parse` is simple.
+`Racc::Parser#do_parse` is simple.
 
 It's yyparse() of yacc, and `Racc::Parser#next_token` is yylex(). This method
 must returns an array like [TOKENSYMBOL, ITS_VALUE]. EOF is [false, false].
 (TOKENSYMBOL is a Ruby symbol (taken from `String#intern`) by default. If you
 want to change this, see the grammar reference.
 
-Racc::`Parser#yyparse` is little complicated, but useful. It does not use
-Racc::`Parser#next_token`, instead it gets tokens from any iterator.
+`Racc::Parser#yyparse` is little complicated, but useful. It does not use
+`Racc::Parser#next_token`, instead it gets tokens from any iterator.
 
 For example, `yyparse(obj, :scan)` causes calling +obj#scan+, and you can
 return tokens by yielding them from +obj#scan+.

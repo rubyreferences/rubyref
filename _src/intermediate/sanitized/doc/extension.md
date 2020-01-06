@@ -1462,7 +1462,7 @@ VALUE rb_funcall2(VALUE recv, ID mid, int argc, VALUE *argv)
 
 
 Note: In the format string, "%"PRIsVALUE can be used for `Object#to_s` (or
-Object#inspect if '+' flag is set) output (and related argument must be a
+`Object#inspect` if '+' flag is set) output (and related argument must be a
 VALUE).  Since it conflicts with "%i", for integers in format strings, use
 "%d".
 

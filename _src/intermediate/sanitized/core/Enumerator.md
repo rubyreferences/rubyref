@@ -43,7 +43,7 @@ via:
     # => ["0:foo", "1:bar", "2:baz"]
 
 An Enumerator can also be used as an external iterator. For example,
-Enumerator#next returns the next value of the iterator or raises StopIteration
+`Enumerator#next` returns the next value of the iterator or raises StopIteration
 if the Enumerator is at the end.
 
     e = [1,2,3].each   # returns an enumerator object.

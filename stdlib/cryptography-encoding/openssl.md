@@ -304,7 +304,7 @@ cert2 = OpenSSL::X509::Certificate.new File.read 'certificate.pem'
 
 #### Verifying a Certificate[](#verifying-a-certificate)
 
-Certificate#verify will return true when a certificate was signed with the given public key.
+`Certificate#verify` will return true when a certificate was signed with the given public key.
 
 
 ```ruby
@@ -503,7 +503,7 @@ end
 
 An SSL client is created with a TCP socket and the context. `SSLSocket#connect` must be called to initiate the SSL handshake and start encryption. A key and certificate are not required for the client socket.
 
-Note that `SSLSocket#close` doesn't close the underlying socket by default. Set S`SLSocket#sync_close` to true if you want.
+Note that `SSLSocket#close` doesn't close the underlying socket by default. Set `SSLSocket#sync_close` to true if you want.
 
 
 ```ruby

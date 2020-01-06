@@ -19,7 +19,7 @@ You can use Shellwords to parse a string into a Bourne shell friendly Array.
     argv #=> ["three", "blind", "mice"]
 
 Once you've required Shellwords, you can use the `#split` alias
-String#shellsplit.
+`String#shellsplit`.
 
     argv = "see how they run".shellsplit
     argv #=> ["see", "how", "they", "run"]
@@ -30,7 +30,7 @@ Be careful you don't leave a quote unmatched.
          #=> ArgumentError: Unmatched double quote: ...
 
 In this case, you might want to use Shellwords.escape, or its alias
-String#shellescape.
+`String#shellescape`.
 
 This method will escape the String for you to safely use with a Bourne shell.
 

@@ -18,7 +18,7 @@ The `Kernel#open` method can create an IO (or File) object for these types of ar
 
 * A string equal to `"|-"` will create another Ruby instance as a subprocess.
 
-The IO may be opened with different file modes (read-only, write-only) and encodings for proper conversion. See IO.new for these options. See Kernel#open for details of the various command formats described above.
+The IO may be opened with different file modes (read-only, write-only) and encodings for proper conversion. See IO.new for these options. See `Kernel#open` for details of the various command formats described above.
 
 IO.popen, the Open3 library, or `Process#spawn` may also be used to communicate with subprocesses through an IO.
 

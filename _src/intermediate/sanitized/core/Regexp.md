@@ -223,7 +223,7 @@ with `\1`:
     /[csh](..) [csh]\1 in/.match("The cat sat in the hat")
         #=> #<MatchData "cat sat in" 1:"at">
 
-Regexp#match returns a MatchData object which makes the captured text
+`Regexp#match` returns a MatchData object which makes the captured text
 available with its `#[]` method:
 
     /[csh](..) [csh]\1 in/.match("The cat sat in the hat")[1] #=> 'at'

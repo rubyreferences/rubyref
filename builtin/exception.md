@@ -6,7 +6,7 @@ next: "/builtin/exception/exception-classes.html"
 
 ## Exception[](#exception)
 
-Class Exception and its subclasses are used to communicate between Kernel#raise and `rescue` statements in `begin ... end` blocks.
+Class Exception and its subclasses are used to communicate between `Kernel#raise` and `rescue` statements in `begin ... end` blocks.
 
 An Exception object carries information about an exception:
 
@@ -14,7 +14,7 @@ An Exception object carries information about an exception:
 * An optional descriptive message.
 * Optional backtrace information.
 
-Some built-in subclasses of Exception have additional methods: e.g., Name`Error#name`.
+Some built-in subclasses of Exception have additional methods: e.g., `NameError#name`.
 
 ### Defaults[](#defaults)
 

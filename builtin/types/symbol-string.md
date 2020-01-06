@@ -80,7 +80,7 @@ Encoding::ASCII\_8BIT is a special encoding that is usually used for a byte stri
 
 The associated Encoding of a String can be changed in two different ways.
 
-First, it is possible to set the Encoding of a string to a new Encoding without changing the internal byte representation of the string, with String#force\_encoding. This is how you can tell Ruby the correct encoding of a string.
+First, it is possible to set the Encoding of a string to a new Encoding without changing the internal byte representation of the string, with `String#force_encoding`. This is how you can tell Ruby the correct encoding of a string.
 
 
 ```ruby
@@ -164,7 +164,7 @@ $ LANG=C ruby -e 'p Encoding.default_external'
 
 The default external encoding may also be set through Encoding.default\_external=, but you should not do this as strings created before and after the change will have inconsistent encodings. Instead use `ruby -E` to invoke ruby with the correct external encoding.
 
-When you know that the actual encoding of the data of an IO object is not the default external encoding, you can reset its external encoding with IO#set\_encoding or set it at IO object creation (see IO.new options).
+When you know that the actual encoding of the data of an IO object is not the default external encoding, you can reset its external encoding with `IO#set_encoding` or set it at IO object creation (see IO.new options).
 
 #### Internal encoding[](#internal-encoding)
 

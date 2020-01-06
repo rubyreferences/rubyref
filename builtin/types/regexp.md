@@ -214,7 +214,7 @@ Parentheses can be used for *capturing*. The text enclosed by the *n*<sup>th</su
     #=> #<MatchData "cat sat in" 1:"at">
 ```
 
-Regexp#match returns a MatchData object which makes the captured text available with its `#[]` method:
+`Regexp#match` returns a MatchData object which makes the captured text available with its `#[]` method:
 
 
 ```ruby

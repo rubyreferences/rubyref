@@ -36,7 +36,7 @@ The associated Encoding of a String can be changed in two different ways.
 
 First, it is possible to set the Encoding of a string to a new Encoding
 without changing the internal byte representation of the string, with
-String#force_encoding. This is how you can tell Ruby the correct encoding of a
+`String#force_encoding`. This is how you can tell Ruby the correct encoding of a
 string.
 
     string
@@ -128,7 +128,7 @@ before and after the change will have inconsistent encodings.  Instead use
 
 When you know that the actual encoding of the data of an IO object is not the
 default external encoding, you can reset its external encoding with
-IO#set_encoding or set it at IO object creation (see IO.new options).
+`IO#set_encoding` or set it at IO object creation (see IO.new options).
 
 ## Internal encoding
 

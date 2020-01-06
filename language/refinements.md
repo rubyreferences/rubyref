@@ -29,9 +29,9 @@ module M
 end
 ```
 
-First, a class `C` is defined. Next a refinement for `C` is created using Module#refine.
+First, a class `C` is defined. Next a refinement for `C` is created using `Module#refine`.
 
-Module#refine creates an anonymous module that contains the changes or refinements to the class (`C` in the example). `self` in the refine block is this anonymous module similar to `Module#module_eval`.
+`Module#refine` creates an anonymous module that contains the changes or refinements to the class (`C` in the example). `self` in the refine block is this anonymous module similar to `Module#module_eval`.
 
 Activate the refinement with `#using`: 
 

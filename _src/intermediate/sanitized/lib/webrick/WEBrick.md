@@ -35,7 +35,7 @@ starting the server blocks the current thread:
 ## Custom Behavior
 
 The easiest way to have a server perform custom operations is through
-W`EBrick::HTTPServer#mount_proc`.  The block given will be called with a
+`WEBrick::HTTPServer#mount_proc`.  The block given will be called with a
 WEBrick::HTTPRequest with request info and a WEBrick::HTTPResponse which must
 be filled in appropriately:
 

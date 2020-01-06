@@ -6,7 +6,7 @@ values on as-needed basis. In order to do so it redefines most of Enumerable
 methods so that they just construct another lazy enumerator.
 
 Enumerator::Lazy can be constructed from any Enumerable with the
-Enumerable#lazy method.
+`Enumerable#lazy` method.
 
     lazy = (1..Float::INFINITY).lazy.select(&:odd?).drop(10).take_while { |i| i < 30 }
     # => #<Enumerator::Lazy: #<Enumerator::Lazy: #<Enumerator::Lazy: #<Enumerator::Lazy: 1..Infinity>:select>:drop(10)>:take_while>

@@ -6,7 +6,7 @@ next: "/builtin/types/array.html"
 
 ## Enumerable[](#enumerable)
 
-The Enumerable mixin provides collection classes with several traversal and searching methods, and with the ability to sort. The class must provide a method `#each`, which yields successive members of the collection. If Enumerable#max, `#min`, or `#sort` is used, the objects in the collection must also implement a meaningful `<=>` operator, as these methods rely on an ordering between members of the collection.
+The Enumerable mixin provides collection classes with several traversal and searching methods, and with the ability to sort. The class must provide a method `#each`, which yields successive members of the collection. If `Enumerable#max`, `#min`, or `#sort` is used, the objects in the collection must also implement a meaningful `<=>` operator, as these methods rely on an ordering between members of the collection.
 
 **`Enumerable` is a very important module.** It is Ruby's way for performing almost any cycle. The module is included in collections, like `Array` and `Hash` (see next chapters), and some other classes (like `Range`).
 
@@ -86,7 +86,7 @@ puts %w[foo bar baz].map.with_index { |w, i| "#{i}:#{w}" }
 # => ["0:foo", "1:bar", "2:baz"]
 ```
 
-An Enumerator can also be used as an external iterator. For example, Enumerator#next returns the next value of the iterator or raises StopIteration if the Enumerator is at the end.
+An Enumerator can also be used as an external iterator. For example, `Enumerator#next` returns the next value of the iterator or raises StopIteration if the Enumerator is at the end.
 
 
 ```ruby

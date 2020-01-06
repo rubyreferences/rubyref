@@ -23,7 +23,7 @@ argv = Shellwords.split('three blind "mice"')
 argv #=> ["three", "blind", "mice"]
 ```
 
-Once you've required Shellwords, you can use the `#split` alias String#shellsplit.
+Once you've required Shellwords, you can use the `#split` alias `String#shellsplit`.
 
 
 ```ruby
@@ -39,7 +39,7 @@ argv = "they all ran after the farmer's wife".shellsplit
      #=> ArgumentError: Unmatched double quote: ...
 ```
 
-In this case, you might want to use Shellwords.escape, or its alias String#shellescape.
+In this case, you might want to use Shellwords.escape, or its alias `String#shellescape`.
 
 This method will escape the String for you to safely use with a Bourne shell.
 

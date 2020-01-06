@@ -24,7 +24,7 @@ arguments:
 
 The IO may be opened with different file modes (read-only, write-only) and
 encodings for proper conversion.  See IO.new for these options.  See
-Kernel#open for details of the various command formats described above.
+`Kernel#open` for details of the various command formats described above.
 
 IO.popen, the Open3 library, or  `Process#spawn` may also be used to communicate
 with subprocesses through an IO.

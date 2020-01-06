@@ -45,11 +45,11 @@ module Sanitizer
     return ln if ln.start_with?('    ') # It's code, don't touch it!
 
     ln
-      .gsub(/(?<=[^`])([A-Z][a-zA-Z:]+[#][a-z_?!\[\]=]+)(?=[^`a-z_?!=\[\]]|$)/, '`\1`')   # FooBar#foobar, always method reference
-      .gsub(/(?<= |^)([#][a-z_?!\[\]=]+)(?=[^`a-z_?!=\[\]]|$)/, '`\1`')                   # #foobar, always method reference
+      .gsub(/(?<=[^`]|^)([A-Z][a-zA-Z:]+[#][a-z_?!\[\]=]+)(?=[^`a-z_?!=\[\]]|$)/, '`\1`')   # FooBar#foobar, always method reference
+      .gsub(/(?<= |^)([#][a-z_?!\[\]=]+)(?=[^`a-z_?!=\[\]]|$)/, '`\1`')                     # #foobar, always method reference
       .gsub(/(?<=[^`])(__[A-Z_]+__)(?=[^`])/, '`\1`')
-      .gsub(/(?<=[a-z])`(?=[a-z])/, "'")                                                  # Fancy apostrophe for typesetting
-      .gsub('---', '—')                                                                   # Just dash. Probably should be done smarter
+      .gsub(/(?<=[a-z])`(?=[a-z])/, "'")                                                    # Fancy apostrophe for typesetting
+      .gsub('---', '—')                                                                     # Just dash. Probably should be done smarter
   end
 
   def per_repo_file(path, content)

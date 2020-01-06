@@ -7,7 +7,7 @@ created using `Object#method`.
 
 Ruby also supports unbound methods; methods objects that are not associated
 with a particular object. These can be created either by calling
-Module#instance_method or by calling `#unbind` on a bound method object. The
+`Module#instance_method` or by calling `#unbind` on a bound method object. The
 result of both of these is an UnboundMethod object.
 
 Unbound methods can only be called after they are bound to an object. That

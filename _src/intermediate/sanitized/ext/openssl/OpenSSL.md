@@ -275,7 +275,7 @@ Like a key, a cert can also be loaded from a file.
 
 ### Verifying a Certificate
 
-Certificate#verify will return true when a certificate was signed with the
+`Certificate#verify` will return true when a certificate was signed with the
 given public key.
 
     raise 'certificate can not be verified' unless cert2.verify key
@@ -449,7 +449,7 @@ must be called to initiate the SSL handshake and start encryption.  A key and
 certificate are not required for the client socket.
 
 Note that `SSLSocket#close` doesn't close the underlying socket by default. Set
-S`SLSocket#sync_close` to true if you want.
+`SSLSocket#sync_close` to true if you want.
 
     require 'socket'
 
