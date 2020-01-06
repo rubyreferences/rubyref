@@ -6,15 +6,9 @@ next: "/language/precedence.html"
 
 ## Refinements[](#refinements)
 
-Due to Ruby's open classes you can redefine or add functionality to
-existing classes. This is called a "monkey patch". Unfortunately the
-scope of such changes is global. All users of the monkey-patched class
-see the same changes. This can cause unintended side-effects or breakage
-of programs.
+Due to Ruby's open classes you can redefine or add functionality to existing classes. This is called a "monkey patch". Unfortunately the scope of such changes is global. All users of the monkey-patched class see the same changes. This can cause unintended side-effects or breakage of programs.
 
-Refinements are designed to reduce the impact of monkey patching on
-other users of the monkey-patched class. Refinements provide a way to
-extend a class locally. Refinements can modify both classes and modules.
+Refinements are designed to reduce the impact of monkey patching on other users of the monkey-patched class. Refinements provide a way to extend a class locally. Refinements can modify both classes and modules.
 
 Here is a basic refinement:
 
@@ -35,12 +29,9 @@ module M
 end
 ```
 
-First, a class `C` is defined. Next a refinement for `C` is created
-using Module#refine.
+First, a class `C` is defined. Next a refinement for `C` is created using Module#refine.
 
-Module#refine creates an anonymous module that contains the changes or
-refinements to the class (`C` in the example). `self` in the refine
-block is this anonymous module similar to `Module#module_eval`.
+Module#refine creates an anonymous module that contains the changes or refinements to the class (`C` in the example). `self` in the refine block is this anonymous module similar to `Module#module_eval`.
 
 Activate the refinement with `#using`: 
 
@@ -54,22 +45,13 @@ c.foo # prints "C#foo in M"
 
 ### Scope[](#scope)
 
-You may activate refinements at top-level, and inside classes and
-modules. You may not activate refinements in method scope. Refinements
-are activated until the end of the current class or module definition,
-or until the end of the current file if used at the top-level.
+You may activate refinements at top-level, and inside classes and modules. You may not activate refinements in method scope. Refinements are activated until the end of the current class or module definition, or until the end of the current file if used at the top-level.
 
-You may activate refinements in a string passed to `Kernel#eval`.
-Refinements are active until the end of the eval string.
+You may activate refinements in a string passed to `Kernel#eval`. Refinements are active until the end of the eval string.
 
-Refinements are lexical in scope. Refinements are only active within a
-scope after the call to `using`. Any code before the `using` statement
-will not have the refinement activated.
+Refinements are lexical in scope. Refinements are only active within a scope after the call to `using`. Any code before the `using` statement will not have the refinement activated.
 
-When control is transferred outside the scope, the refinement is
-deactivated. This means that if you require or load a file or call a
-method that is defined outside the current scope the refinement will be
-deactivated:
+When control is transferred outside the scope, the refinement is deactivated. This means that if you require or load a file or call a method that is defined outside the current scope the refinement will be deactivated:
 
 
 ```ruby
@@ -95,9 +77,7 @@ x.foo       # prints "C#foo in M"
 call_foo(x) #=> raises NoMethodError
 ```
 
-If a method is defined in a scope where a refinement is active, the
-refinement will be active when the method is called. This example spans
-multiple files:
+If a method is defined in a scope where a refinement is active, the refinement will be active when the method is called. This example spans multiple files:
 
 c.rb:
 
@@ -149,12 +129,9 @@ m_user.call_foo(x) # prints "C#foo in M"
 x.foo              #=> raises NoMethodError
 ```
 
-Since the refinement `M` is active in `m_user.rb` where `MUser#call_foo`
-is defined it is also active when `main.rb` calls `call_foo`.
+Since the refinement `M` is active in `m_user.rb` where `MUser#call_foo` is defined it is also active when `main.rb` calls `call_foo`.
 
-Since `#using` is a method, refinements are only active when it is
-called. Here are examples of where a refinement `M` is and is not
-active.
+Since `#using` is a method, refinements are only active when it is called. Here are examples of where a refinement `M` is and is not active.
 
 In a file:
 
@@ -193,8 +170,7 @@ end
 # not activated here
 ```
 
-Note that the refinements in `M` are **not** activated automatically if
-the class `Foo` is reopened later.
+Note that the refinements in `M` are **not** activated automatically if the class `Foo` is reopened later.
 
 In eval:
 
@@ -220,10 +196,7 @@ end
 # not activated here
 ```
 
-When defining multiple refinements in the same module inside multiple
-`refine` blocks, all refinements from the same module are active when a
-refined method (any of the `to_json` methods from the example below) is
-called:
+When defining multiple refinements in the same module inside multiple `refine` blocks, all refinements from the same module are active when a refined method (any of the `to_json` methods from the example below) is called:
 
 
 ```ruby
@@ -256,8 +229,7 @@ p [{1=>2}, {3=>4}].to_json # prints "[{\"1\":2},{\"3\":4}]"
 
 When looking up a method for an instance of class `C` Ruby checks:
 
-* If refinements are active for `C`, in the reverse order they were
-  activated:
+* If refinements are active for `C`, in the reverse order they were activated:
   * The prepended modules from the refinement for `C`
   * The refinement for `C`
   * The included modules from the refinement for `C`
@@ -266,47 +238,33 @@ When looking up a method for an instance of class `C` Ruby checks:
 * `C`
 * The included modules of `C`
 
-If no method was found at any point this repeats with the superclass of
-`C`.
+If no method was found at any point this repeats with the superclass of `C`.
 
-Note that methods in a subclass have priority over refinements in a
-superclass. For example, if the method `/` is defined in a refinement
-for Numeric `1 / 2` invokes the original Integer#/ because Integer is a
-subclass of Numeric and is searched before the refinements for the
-superclass Numeric. Since the method `/` is also present in child
-`Integer`, the method lookup does not move up to the superclass.
+Note that methods in a subclass have priority over refinements in a superclass. For example, if the method `/` is defined in a refinement for Numeric `1 / 2` invokes the original Integer#/ because Integer is a subclass of Numeric and is searched before the refinements for the superclass Numeric. Since the method `/` is also present in child `Integer`, the method lookup does not move up to the superclass.
 
-However, if a method `foo` is defined on Numeric in a refinement,
-`1.foo` invokes that method since `foo` does not exist on Integer.
+However, if a method `foo` is defined on Numeric in a refinement, `1.foo` invokes that method since `foo` does not exist on Integer.
 
 ### `super`[](#super)
 
 When `super` is invoked method lookup checks:
 
-* The included modules of the current class. Note that the current class
-  may be a refinement.
+* The included modules of the current class. Note that the current class may be a refinement.
 
-* If the current class is a refinement, the method lookup proceeds as in
-  the Method Lookup section above.
+* If the current class is a refinement, the method lookup proceeds as in the Method Lookup section above.
 
-* If the current class has a direct superclass, the method proceeds as
-  in the Method Lookup section above using the superclass.
+* If the current class has a direct superclass, the method proceeds as in the Method Lookup section above using the superclass.
 
-Note that `super` in a method of a refinement invokes the method in the
-refined class even if there is another refinement which has been
-activated in the same context.
+Note that `super` in a method of a refinement invokes the method in the refined class even if there is another refinement which has been activated in the same context.
 
 ### Methods Introspection[](#methods-introspection)
 
-When using introspection methods such as `Kernel#method` or
-`Kernel#methods` refinements are not honored.
+When using introspection methods such as `Kernel#method` or `Kernel#methods` refinements are not honored.
 
 This behavior may be changed in the future.
 
 ### Refinement inheritance by `Module#include`[](#refinement-inheritance-by-moduleinclude)
 
-When a module X is included into a module Y, Y inherits refinements from
-X.
+When a module X is included into a module Y, Y inherits refinements from X.
 
 For example, C inherits refinements from A and B in the following code:
 
@@ -328,12 +286,9 @@ using C
 # Refinements in A and B are activated here.
 ```
 
-Refinements in descendants have higher precedence than those of
-ancestors.
+Refinements in descendants have higher precedence than those of ancestors.
 
 ### Further Reading[](#further-reading)
 
-See https://bugs.ruby-lang.org/projects/ruby-trunk/wiki/RefinementsSpec
-for the current specification for implementing refinements. The
-specification also contains more details.
+See https://bugs.ruby-lang.org/projects/ruby-trunk/wiki/RefinementsSpec for the current specification for implementing refinements. The specification also contains more details.
 

@@ -14,8 +14,7 @@ next: "/stdlib/misc/drb.html"
 
 ### mutex\_m.rb[](#mutexmrb)
 
-When 'mutex\_m' is required, any object that extends or includes
-Mutex\_m will be treated like a Mutex.
+When 'mutex\_m' is required, any object that extends or includes Mutex\_m will be treated like a Mutex.
 
 Start by requiring the standard library Mutex\_m:
 
@@ -32,8 +31,7 @@ obj = Object.new
 obj.extend Mutex_m
 ```
 
-Or mixin Mutex\_m into your module to your class inherit Mutex instance
-methods — remember to call super() in your class initialize method.
+Or mixin Mutex\_m into your module to your class inherit Mutex instance methods — remember to call super() in your class initialize method.
 
 
 ```ruby
@@ -49,7 +47,5 @@ obj = Foo.new
 # this obj can be handled like Mutex
 ```
 
-<a
-href='https://ruby-doc.org/stdlib-2.7.0/libdoc/mutex_m/rdoc/Mutex_m.html'
-class='ruby-doc remote' target='_blank'>Mutex\_m Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/mutex_m/rdoc/Mutex_m.html' class='ruby-doc remote' target='_blank'>Mutex\_m Reference</a>
 

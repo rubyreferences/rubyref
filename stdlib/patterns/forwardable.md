@@ -11,14 +11,9 @@ require 'forwardable'
 
 ## Forwardable[](#forwardable)
 
-The Forwardable module provides delegation of specified methods to a
-designated object, using the methods `#def_delegator` and
-`#def_delegators`.
+The Forwardable module provides delegation of specified methods to a designated object, using the methods `#def_delegator` and `#def_delegators`.
 
-For example, say you have a class RecordCollection which contains an
-array `@records`. You could provide the lookup method
-`#record_number`(), which simply calls `#[]` on the `@records` array,
-like this:
+For example, say you have a class RecordCollection which contains an array `@records`. You could provide the lookup method `#record_number`(), which simply calls `#[]` on the `@records` array, like this:
 
 
 ```ruby
@@ -40,8 +35,7 @@ r.records = [4,5,6]
 r.record_number(0)  # => 4
 ```
 
-Further, if you wish to provide the methods `#size`, #<<, and `#map`,
-all of which delegate to @records, this is how you can do it:
+Further, if you wish to provide the methods `#size`, #<<, and `#map`, all of which delegate to @records, this is how you can do it:
 
 
 ```ruby
@@ -69,10 +63,7 @@ my_hash.puts "Howdy!"
 
 ### Another example[](#another-example)
 
-You could use Forwardable as an alternative to inheritance, when you
-don't want to inherit all methods from the superclass. For instance,
-here is how you might add a range of `Array` instance methods to a new
-class `Queue`: 
+You could use Forwardable as an alternative to inheritance, when you don't want to inherit all methods from the superclass. For instance, here is how you might add a range of `Array` instance methods to a new class `Queue`: 
 
 ```ruby
 class Queue
@@ -122,20 +113,15 @@ nil
 
 Be advised, RDoc will not detect delegated methods.
 
-`forwardable.rb` provides single-method delegation via the
-def\_delegator and def\_delegators methods. For full-class delegation
-via DelegateClass, see `delegate.rb`.
+`forwardable.rb` provides single-method delegation via the def\_delegator and def\_delegators methods. For full-class delegation via DelegateClass, see `delegate.rb`.
 
-<a
-href='https://ruby-doc.org/stdlib-2.7.0/libdoc/forwardable/rdoc/Forwardable.html'
-class='ruby-doc remote' target='_blank'>Forwardable Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/forwardable/rdoc/Forwardable.html' class='ruby-doc remote' target='_blank'>Forwardable Reference</a>
 
 
 
 ### SingleForwardable[](#singleforwardable)
 
-SingleForwardable can be used to setup delegation at the object level as
-well.
+SingleForwardable can be used to setup delegation at the object level as well.
 
 
 ```ruby
@@ -145,8 +131,7 @@ printer.def_delegator "STDOUT", "puts"  # add delegation for STDOUT.puts()
 printer.puts "Howdy!"
 ```
 
-Also, SingleForwardable can be used to set up delegation for a Class or
-Module.
+Also, SingleForwardable can be used to set up delegation for a Class or Module.
 
 
 ```ruby
@@ -164,10 +149,7 @@ end
 Facade.service #=> serviced!
 ```
 
-If you want to use both Forwardable and SingleForwardable, you can use
-methods def\_instance\_delegator and def\_single\_delegator, etc.
+If you want to use both Forwardable and SingleForwardable, you can use methods def\_instance\_delegator and def\_single\_delegator, etc.
 
-<a
-href='https://ruby-doc.org/stdlib-2.7.0/libdoc/forwardable/rdoc/SingleForwardable.html'
-class='ruby-doc remote' target='_blank'>SingleForwardable Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/forwardable/rdoc/SingleForwardable.html' class='ruby-doc remote' target='_blank'>SingleForwardable Reference</a>
 

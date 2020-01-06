@@ -11,11 +11,9 @@ require 'open-uri'
 
 ## OpenURI[](#openuri)
 
-OpenURI is an easy-to-use wrapper for Net::HTTP, Net::HTTPS and
-Net::FTP.
+OpenURI is an easy-to-use wrapper for Net::HTTP, Net::HTTPS and Net::FTP.
 
-It is possible to open an http, https or ftp URL as though it were a
-file:
+It is possible to open an http, https or ftp URL as though it were a file:
 
 
 ```ruby
@@ -24,8 +22,7 @@ URI.open("http://www.ruby-lang.org/") {|f|
 }
 ```
 
-The opened file has several getter methods for its meta-information, as
-follows, since it is extended by OpenURI::Meta.
+The opened file has several getter methods for its meta-information, as follows, since it is extended by OpenURI::Meta.
 
 
 ```ruby
@@ -51,8 +48,7 @@ URI.open("http://www.ruby-lang.org/en/",
 }
 ```
 
-The environment variables such as http\_proxy, https\_proxy and
-ftp\_proxy are in effect by default. Here we disable proxy:
+The environment variables such as http\_proxy, https\_proxy and ftp\_proxy are in effect by default. Here we disable proxy:
 
 
 ```ruby
@@ -73,8 +69,7 @@ uri.open {|f|
 }
 ```
 
-URI objects can be read directly. The returned string is also extended
-by OpenURI::Meta.
+URI objects can be read directly. The returned string is also extended by OpenURI::Meta.
 
 
 ```ruby
@@ -82,7 +77,5 @@ str = uri.read
 p str.base_uri
 ```
 
-<a
-href='https://ruby-doc.org/stdlib-2.7.0/libdoc/open-uri/rdoc/OpenURI.html'
-class='ruby-doc remote' target='_blank'>OpenURI Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/open-uri/rdoc/OpenURI.html' class='ruby-doc remote' target='_blank'>OpenURI Reference</a>
 

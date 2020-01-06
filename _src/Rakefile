@@ -102,7 +102,7 @@ namespace :dev do
     # Regexp is just too hard :( And probably broken.
     t.prerequisites.grep_v(/regexp\.md/).each do |path|
       # FIXME: Probably better way...
-      # Kramdown::Document.new(path)
+      # Kramdown::Document.new(path)...and find real links...
 
       dir = File.dirname(path.sub('../', ''))
 

@@ -6,20 +6,17 @@ next: "/language/control-expressions.html"
 
 ## Assignment[](#assignment)
 
-In Ruby, assignment uses the `=` (equals sign) character. This example
-assigns the number five to the local variable `v`: 
+In Ruby, assignment uses the `=` (equals sign) character. This example assigns the number five to the local variable `v`: 
 
 ```ruby
 v = 5
 ```
 
-Assignment creates a local variable if the variable was not previously
-referenced.
+Assignment creates a local variable if the variable was not previously referenced.
 
 ### Abbreviated Assignment[](#abbreviated-assignment)
 
-You can mix several of the operators and assignment. To add 1 to an
-object you can write:
+You can mix several of the operators and assignment. To add 1 to an object you can write:
 
 
 ```ruby
@@ -41,12 +38,9 @@ a = a + 2
 p a # prints 3
 ```
 
-You can use the following operators this way: `+`, `-`, `*`, `/`, `%`,
-`**`, `&`, `|`, `^`, `<<`, `>>`
+You can use the following operators this way: `+`, `-`, `*`, `/`, `%`, `**`, `&`, `|`, `^`, `<<`, `>>`
 
-There are also `||=` and `&&=`. The former makes an assignment if the
-value was `nil` or `false` while the latter makes an assignment if the
-value was not `nil` or `false`.
+There are also `||=` and `&&=`. The former makes an assignment if the value was `nil` or `false` while the latter makes an assignment if the value was not `nil` or `false`.
 
 Here is an example:
 
@@ -58,13 +52,11 @@ a &&= 1
 p a # prints 1
 ```
 
-Note that these two operators behave more like `a || a = 0` than `a = a
-|| 0`.
+Note that these two operators behave more like `a || a = 0` than `a = a || 0`.
 
 ### Multiple Assignment[](#multiple-assignment)
 
-You can assign multiple values on the right-hand side to multiple
-variables:
+You can assign multiple values on the right-hand side to multiple variables:
 
 
 ```ruby
@@ -73,8 +65,7 @@ a, b = 1, 2
 p a: a, b: b # prints {:a=>1, :b=>2}
 ```
 
-In the following sections any place "variable" is used an assignment
-method, instance, class or global will also work:
+In the following sections any place "variable" is used an assignment method, instance, class or global will also work:
 
 
 ```ruby
@@ -99,8 +90,7 @@ p new_value: new_value, old_value: old_value
 # prints {:new_value=>1, :old_value=>2}
 ```
 
-If you have more values on the right hand side of the assignment than
-variables on the left hand side, the extra values are ignored:
+If you have more values on the right hand side of the assignment than variables on the left hand side, the extra values are ignored:
 
 
 ```ruby
@@ -109,8 +99,7 @@ a, b = 1, 2, 3
 p a: a, b: b # prints {:a=>1, :b=>2}
 ```
 
-You can use `*` to gather extra values on the right-hand side of the
-assignment.
+You can use `*` to gather extra values on the right-hand side of the assignment.
 
 
 ```ruby
@@ -132,8 +121,7 @@ But you may only use one `*` in an assignment.
 
 ### Array Decomposition[](#array-decomposition)
 
-Like Array decomposition in [method arguments](methods-def.md)
-you can decompose an Array during assignment using parenthesis:
+Like Array decomposition in [method arguments](methods-def.md) you can decompose an Array during assignment using parenthesis:
 
 
 ```ruby
@@ -151,8 +139,7 @@ a, (b, c) = 1, [2, 3]
 p a: a, b: b, c: c # prints {:a=>1, :b=>2, :c=>3}
 ```
 
-Since each decomposition is considered its own multiple assignment you
-can use `*` to gather arguments in the decomposition:
+Since each decomposition is considered its own multiple assignment you can use `*` to gather arguments in the decomposition:
 
 
 ```ruby

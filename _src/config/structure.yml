@@ -147,6 +147,10 @@
           replace:
             - from: 'when 1, 2 then puts "a is one or two'
               to: 'when 1, 2 then puts "a is one or two"'
+            - from: 'using the +===+ method which is aliased to +==+ on'
+              to: 'using the `===` method which is aliased to `==` on'
+            - from: "loop the condition `a >\n"
+              to: "loop the condition `a > "
           insert:
             - after: "The result value of a `for`"
               source: content/syntax/control_expressions/_for_vs_each.md
@@ -316,6 +320,9 @@
             - source: '## Symbol and String'
             - source: core/Symbol.md
             - source: core/String.md
+              replace:
+                - from: "``!'' modify their receiver, while those without a ``!''"
+                  to: "`!` modify their receiver, while those without a `!`"
             - source: core/Encoding.md
             # Nothing documented there
             - source: core/UnicodeNormalize.md
@@ -324,6 +331,9 @@
           id: regexp
           content:
             - source: core/Regexp.md
+              replace:
+                - from: "'.+' matches '<a><b>'; the second uses a lazy quantifier so '.+?' matches\n'<a>'"
+                  to: "`'.+'` matches `'<a><b>'`; the second uses a lazy quantifier so `'.+?'` matches `'<a>'`"
             - source: core/MatchData.md
             # Just mentioning it here for validate_listing, but it is already included in Regexp docs by RDoc means
             - source: doc/regexp.md

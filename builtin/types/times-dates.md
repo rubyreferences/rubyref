@@ -10,32 +10,15 @@ next: "/builtin/types/enumerable.html"
 
 ### Time[](#time)
 
-Time is an abstraction of dates and times. Time is stored internally as
-the number of seconds with fraction since the *Epoch*, January 1, 1970
-00:00 UTC. Also see the library module Date. The Time class treats GMT
-(Greenwich Mean Time) and UTC (Coordinated Universal Time) as
-equivalent. GMT is the older way of referring to these baseline times
-but persists in the names of calls on POSIX systems.
+Time is an abstraction of dates and times. Time is stored internally as the number of seconds with fraction since the *Epoch*, January 1, 1970 00:00 UTC. Also see the library module Date. The Time class treats GMT (Greenwich Mean Time) and UTC (Coordinated Universal Time) as equivalent. GMT is the older way of referring to these baseline times but persists in the names of calls on POSIX systems.
 
-All times may have fraction. Be aware of this fact when comparing times
-with each other -- times that are apparently equal when displayed may be
-different when compared.
+All times may have fraction. Be aware of this fact when comparing times with each other -- times that are apparently equal when displayed may be different when compared.
 
-Since Ruby 1.9.2, Time implementation uses a signed 63 bit integer,
-Bignum or Rational. The integer is a number of nanoseconds since the
-*Epoch* which can represent 1823-11-12 to 2116-02-20. When Bignum or
-Rational is used (before 1823, after 2116, under nanosecond), Time works
-slower as when integer is used.
+Since Ruby 1.9.2, Time implementation uses a signed 63 bit integer, Bignum or Rational. The integer is a number of nanoseconds since the *Epoch* which can represent 1823-11-12 to 2116-02-20. When Bignum or Rational is used (before 1823, after 2116, under nanosecond), Time works slower as when integer is used.
 
 #### Creating a new Time instance[](#creating-a-new-time-instance)
 
-You can create a new instance of Time with Time::new. This will use the
-current system time. Time::now is an alias for this. You can also pass
-parts of the time to Time::new such as year, month, minute, etc. When
-you want to construct a time this way you must pass at least a year. If
-you pass the year with nothing else time will default to January 1 of
-that year at 00:00:00 with the current system timezone. Here are some
-examples:
+You can create a new instance of Time with Time::new. This will use the current system time. Time::now is an alias for this. You can also pass parts of the time to Time::new such as year, month, minute, etc. When you want to construct a time this way you must pass at least a year. If you pass the year with nothing else time will default to January 1 of that year at 00:00:00 with the current system timezone. Here are some examples:
 
 
 ```ruby
@@ -59,13 +42,9 @@ tz = timezone("Europe/Athens") # Eastern European Time, UTC+2
 Time.new(2002, 10, 31, 2, 2, 2, tz) #=> 2002-10-31 02:02:02 +0200
 ```
 
-You can also use Time::gm, Time::local and Time::utc to infer GMT, local
-and UTC timezones instead of using the current system setting.
+You can also use Time::gm, Time::local and Time::utc to infer GMT, local and UTC timezones instead of using the current system setting.
 
-You can also create a new time using Time::at which takes the number of
-seconds (or fraction of seconds) since the <a
-href='http://en.wikipedia.org/wiki/Unix_time' class='remote'
-target='_blank'>Unix Epoch</a>.
+You can also create a new time using Time::at which takes the number of seconds (or fraction of seconds) since the <a href='http://en.wikipedia.org/wiki/Unix_time' class='remote' target='_blank'>Unix Epoch</a>.
 
 
 ```ruby
@@ -74,9 +53,7 @@ Time.at(628232400) #=> 1989-11-28 00:00:00 -0500
 
 #### Working with an instance of Time[](#working-with-an-instance-of-time)
 
-Once you have an instance of Time there is a multitude of things you can
-do with it. Below are some examples. For all of the following examples,
-we will work on the assumption that you have done the following:
+Once you have an instance of Time there is a multitude of things you can do with it. Below are some examples. For all of the following examples, we will work on the assumption that you have done the following:
 
 
 ```ruby
@@ -137,39 +114,23 @@ Time.new(2010,10,31).between?(t1, t2) #=> true
 
 <div class="since-version">Since Ruby 2.6</div>
 
-A timezone argument must have `local_to_utc` and `utc_to_local` methods,
-and may have `name`, `abbr`, and `dst?` methods.
+A timezone argument must have `local_to_utc` and `utc_to_local` methods, and may have `name`, `abbr`, and `dst?` methods.
 
-The `local_to_utc` method should convert a Time-like object from the
-timezone to UTC, and `utc_to_local` is the opposite. The result also
-should be a Time or Time-like object (not necessary to be the same
-class). The `#zone` of the result is just ignored. Time-like argument to
-these methods is similar to a Time object in UTC without sub-second; it
-has attribute readers for the parts, e.g. `#year`, `#month`, and so on,
-and epoch time readers, `#to_i`. The sub-second attributes are fixed as
-0, and `#utc_offset`, `#zone`, `#isdst`, and their aliases are same as a
-Time object in UTC. Also `#to_time`, #+, and #- methods are defined.
+The `local_to_utc` method should convert a Time-like object from the timezone to UTC, and `utc_to_local` is the opposite. The result also should be a Time or Time-like object (not necessary to be the same class). The `#zone` of the result is just ignored. Time-like argument to these methods is similar to a Time object in UTC without sub-second; it has attribute readers for the parts, e.g. `#year`, `#month`, and so on, and epoch time readers, `#to_i`. The sub-second attributes are fixed as 0, and `#utc_offset`, `#zone`, `#isdst`, and their aliases are same as a Time object in UTC. Also `#to_time`, #+, and #- methods are defined.
 
-The `name` method is used for marshaling. If this method is not defined
-on a timezone object, Time objects using that timezone object can not be
-dumped by Marshal.
+The `name` method is used for marshaling. If this method is not defined on a timezone object, Time objects using that timezone object can not be dumped by Marshal.
 
 The `abbr` method is used by '%Z' in `#strftime`.
 
-The `dst?` method is called with a `Time` value and should return
-whether the `Time` value is in daylight savings time in the zone.
+The `dst?` method is called with a `Time` value and should return whether the `Time` value is in daylight savings time in the zone.
 
 ##### Auto conversion to Timezone[](#auto-conversion-to-timezone)
 
-At loading marshaled data, a timezone name will be converted to a
-timezone object by `find_timezone` class method, if the method is
-defined.
+At loading marshaled data, a timezone name will be converted to a timezone object by `find_timezone` class method, if the method is defined.
 
-Similarly, that class method will be called when a timezone argument
-does not have the necessary methods mentioned above.
+Similarly, that class method will be called when a timezone argument does not have the necessary methods mentioned above.
 
-<a href='https://ruby-doc.org/core-2.7.0/Time.html' class='ruby-doc
-remote' target='_blank'>Time Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/Time.html' class='ruby-doc remote' target='_blank'>Time Reference</a>
 
 
 
@@ -177,8 +138,7 @@ remote' target='_blank'>Time Reference</a>
 
 #### time.rb[](#timerb)
 
-Part of the useful functionality for `Time` is provided by the standard
-library `time`.
+Part of the useful functionality for `Time` is provided by the standard library `time`.
 
 Examples:
 
@@ -195,8 +155,7 @@ Time.parse("2010-10-31") #=> 2010-10-31 00:00:00 -0500
 Time.strptime("2000-10-31", "%Y-%m-%d") #=> 2000-10-31 00:00:00 -0500
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html'
-class='ruby-doc remote' target='_blank'>Time Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html' class='ruby-doc remote' target='_blank'>Time Reference</a>
 
 
 
@@ -204,12 +163,9 @@ class='ruby-doc remote' target='_blank'>Time Reference</a>
 
 *Part of standard library. You need to `require 'date'` before using.*
 
-A subclass of Object that includes the Comparable module and easily
-handles date.
+A subclass of Object that includes the Comparable module and easily handles date.
 
-A Date object is created with Date::new, Date::jd, Date::ordinal,
-Date::commercial, Date::parse, Date::strptime, Date::today,
-`Time#to_date`, etc.
+A Date object is created with Date::new, Date::jd, Date::ordinal, Date::commercial, Date::parse, Date::strptime, Date::today, `Time#to_date`, etc.
 
 
 ```ruby
@@ -233,23 +189,13 @@ Time.new(2001,2,3).to_date
 
 All date objects are immutable; hence cannot modify themselves.
 
-The concept of a date object can be represented as a tuple of the day
-count, the offset and the day of calendar reform.
+The concept of a date object can be represented as a tuple of the day count, the offset and the day of calendar reform.
 
-The day count denotes the absolute position of a temporal dimension. The
-offset is relative adjustment, which determines decoded local time with
-the day count. The day of calendar reform denotes the start day of the
-new style. The old style of the West is the Julian calendar which was
-adopted by Caesar. The new style is the Gregorian calendar, which is the
-current civil calendar of many countries.
+The day count denotes the absolute position of a temporal dimension. The offset is relative adjustment, which determines decoded local time with the day count. The day of calendar reform denotes the start day of the new style. The old style of the West is the Julian calendar which was adopted by Caesar. The new style is the Gregorian calendar, which is the current civil calendar of many countries.
 
-The day count is virtually the astronomical Julian day number. The
-offset in this class is usually zero, and cannot be specified directly.
+The day count is virtually the astronomical Julian day number. The offset in this class is usually zero, and cannot be specified directly.
 
-A Date object can be created with an optional argument, the day of
-calendar reform as a Julian day number, which should be 2298874 to
-2426355 or negative/positive infinity. The default value is
-`Date::ITALY` (2299161=1582-10-15). See also sample/cal.rb.
+A Date object can be created with an optional argument, the day of calendar reform as a Julian day number, which should be 2298874 to 2426355 or negative/positive infinity. The default value is `Date::ITALY` (2299161=1582-10-15). See also sample/cal.rb.
 
 
 ```
@@ -283,8 +229,7 @@ d += 1                       #=> #<Date: 2001-02-04 ...>
 d.strftime('%a %d %b %Y')    #=> "Sun 04 Feb 2001"
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/date/rdoc/Date.html'
-class='ruby-doc remote' target='_blank'>Date Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/date/rdoc/Date.html' class='ruby-doc remote' target='_blank'>Date Reference</a>
 
 
 
@@ -292,15 +237,11 @@ class='ruby-doc remote' target='_blank'>Date Reference</a>
 
 *Part of standard library. You need to `require 'date'` before using.*
 
-A subclass of Date that easily handles date, hour, minute, second, and
-offset.
+A subclass of Date that easily handles date, hour, minute, second, and offset.
 
-DateTime does not consider any leap seconds, does not track any summer
-time rules.
+DateTime does not consider any leap seconds, does not track any summer time rules.
 
-A DateTime object is created with DateTime::new, DateTime::jd,
-DateTime::ordinal, DateTime::commercial, DateTime::parse,
-DateTime::strptime, DateTime::now, `Time#to_datetime`, etc.
+A DateTime object is created with DateTime::new, DateTime::jd, DateTime::ordinal, DateTime::commercial, DateTime::parse, DateTime::strptime, DateTime::now, `Time#to_datetime`, etc.
 
 
 ```ruby
@@ -310,8 +251,7 @@ DateTime.new(2001,2,3,4,5,6)
                     #=> #<DateTime: 2001-02-03T04:05:06+00:00 ...>
 ```
 
-The last element of day, hour, minute, or second can be a fractional
-number. The fractional number's precision is assumed at most nanosecond.
+The last element of day, hour, minute, or second can be a fractional number. The fractional number's precision is assumed at most nanosecond.
 
 
 ```ruby
@@ -319,11 +259,7 @@ DateTime.new(2001,2,3.5)
                     #=> #<DateTime: 2001-02-03T12:00:00+00:00 ...>
 ```
 
-An optional argument, the offset, indicates the difference between the
-local time and UTC. For example, `Rational(3,24)` represents ahead of 3
-hours of UTC, `Rational(-5,24)` represents behind of 5 hours of UTC. The
-offset should be -1 to +1, and its precision is assumed at most second.
-The default value is zero (equals to UTC).
+An optional argument, the offset, indicates the difference between the local time and UTC. For example, `Rational(3,24)` represents ahead of 3 hours of UTC, `Rational(-5,24)` represents behind of 5 hours of UTC. The offset should be -1 to +1, and its precision is assumed at most second. The default value is zero (equals to UTC).
 
 
 ```ruby
@@ -339,10 +275,7 @@ DateTime.new(2001,2,3,4,5,6,'+03:00')
                     #=> #<DateTime: 2001-02-03T04:05:06+03:00 ...>
 ```
 
-An optional argument, the day of calendar reform (`start`), denotes a
-Julian day number, which should be 2298874 to 2426355 or
-negative/positive infinity. The default value is `Date::ITALY`
-(2299161=1582-10-15).
+An optional argument, the day of calendar reform (`start`), denotes a Julian day number, which should be 2298874 to 2426355 or negative/positive infinity. The default value is `Date::ITALY` (2299161=1582-10-15).
 
 A DateTime object has various methods. See each reference.
 
@@ -367,25 +300,8 @@ d > DateTime.new(1999)
 
 ##### When should you use DateTime and when should you use Time?[](#when-should-you-use-datetime-and-when-should-you-use-time)
 
-It's a common misconception that <a
-href='http://en.wikipedia.org/wiki/William_Shakespeare' class='remote'
-target='_blank'>William Shakespeare</a> and <a
-href='http://en.wikipedia.org/wiki/Miguel_de_Cervantes' class='remote'
-target='_blank'>Miguel de Cervantes</a> died on the same day in history
-- so much so that UNESCO named April 23 as <a
-href='http://en.wikipedia.org/wiki/World_Book_Day' class='remote'
-target='_blank'>World Book Day because of this fact</a>. However,
-because England hadn't yet adopted the <a
-href='http://en.wikipedia.org/wiki/Gregorian_calendar#Gregorian_reform'
-class='remote' target='_blank'>Gregorian Calendar Reform</a> (and
-wouldn't until <a
-href='http://en.wikipedia.org/wiki/Calendar_(New_Style)_Act_1750'
-class='remote' target='_blank'>1752</a>) their deaths are actually 10
-days apart. Since Ruby's Time class implements a <a
-href='http://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar'
-class='remote' target='_blank'>proleptic Gregorian calendar</a> and has
-no concept of calendar reform there's no way to express this with Time
-objects. This is where DateTime steps in:
+It's a common misconception that <a href='http://en.wikipedia.org/wiki/William_Shakespeare' class='remote' target='_blank'>William Shakespeare</a> and <a href='http://en.wikipedia.org/wiki/Miguel_de_Cervantes' class='remote' target='_blank'>Miguel de Cervantes</a> died on the same day in history - so much so that UNESCO named April 23 as <a href='http://en.wikipedia.org/wiki/World_Book_Day' class='remote' target='_blank'>World Book Day because of this fact</a>. However, because England hadn't yet adopted the <a href='http://en.wikipedia.org/wiki/Gregorian_calendar#Gregorian_reform' class='remote' target='_blank'>Gregorian Calendar Reform</a> (and wouldn't until <a href='http://en.wikipedia.org/wiki/Calendar_(New_Style)_Act_1750' class='remote' target='_blank'>1752</a>) their deaths are actually 10 days apart. Since Ruby's Time class implements a <a href='http://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar' class='remote' target='_blank'>proleptic Gregorian calendar</a> and has no
+concept of calendar reform there's no way to express this with Time objects. This is where DateTime steps in:
 
 
 ```ruby
@@ -395,8 +311,7 @@ cervantes = DateTime.iso8601('1616-04-23', Date::ITALY)
  #=> Sat, 23 Apr 1616 00:00:00 +0000
 ```
 
-Already you can see something is weird - the days of the week are
-different. Taking this further:
+Already you can see something is weird - the days of the week are different. Taking this further:
 
 
 ```ruby
@@ -406,10 +321,7 @@ cervantes == shakespeare
  #=> 10
 ```
 
-This shows that in fact they died 10 days apart (in reality 11 days
-since Cervantes died a day earlier but was buried on the 23rd). We can
-see the actual date of Shakespeare's death by using the `#gregorian`
-method to convert it:
+This shows that in fact they died 10 days apart (in reality 11 days since Cervantes died a day earlier but was buried on the 23rd). We can see the actual date of Shakespeare's death by using the `#gregorian` method to convert it:
 
 
 ```ruby
@@ -417,10 +329,7 @@ shakespeare.gregorian
  #=> Tue, 03 May 1616 00:00:00 +0000
 ```
 
-So there's an argument that all the celebrations that take place on the
-23rd April in Stratford-upon-Avon are actually the wrong date since
-England is now using the Gregorian calendar. You can see why when we
-transition across the reform date boundary:
+So there's an argument that all the celebrations that take place on the 23rd April in Stratford-upon-Avon are actually the wrong date since England is now using the Gregorian calendar. You can see why when we transition across the reform date boundary:
 
 
 ```ruby
@@ -437,26 +346,9 @@ shakespeare + 366 + 365
  #=> Fri, 04 May 1753 00:00:00 +0000
 ```
 
-As you can see, if we're accurately tracking the number of <a
-href='http://en.wikipedia.org/wiki/Tropical_year' class='remote'
-target='_blank'>solar years</a> since Shakespeare's birthday then the
-correct anniversary date would be the 4th May and not the 23rd April.
+As you can see, if we're accurately tracking the number of <a href='http://en.wikipedia.org/wiki/Tropical_year' class='remote' target='_blank'>solar years</a> since Shakespeare's birthday then the correct anniversary date would be the 4th May and not the 23rd April.
 
-So when should you use DateTime in Ruby and when should you use Time?
-Almost certainly you'll want to use Time since your app is probably
-dealing with current dates and times. However, if you need to deal with
-dates and times in a historical context you'll want to use DateTime to
-avoid making the same mistakes as UNESCO. If you also have to deal with
-timezones then best of luck - just bear in mind that you'll probably be
-dealing with <a href='http://en.wikipedia.org/wiki/Solar_time'
-class='remote' target='_blank'>local solar times</a>, since it wasn't
-until the 19th century that the introduction of the railways
-necessitated the need for <a
-href='http://en.wikipedia.org/wiki/Standard_time#Great_Britain'
-class='remote' target='_blank'>Standard Time</a> and eventually
-timezones.
+So when should you use DateTime in Ruby and when should you use Time? Almost certainly you'll want to use Time since your app is probably dealing with current dates and times. However, if you need to deal with dates and times in a historical context you'll want to use DateTime to avoid making the same mistakes as UNESCO. If you also have to deal with timezones then best of luck - just bear in mind that you'll probably be dealing with <a href='http://en.wikipedia.org/wiki/Solar_time' class='remote' target='_blank'>local solar times</a>, since it wasn't until the 19th century that the introduction of the railways necessitated the need for <a href='http://en.wikipedia.org/wiki/Standard_time#Great_Britain' class='remote' target='_blank'>Standard Time</a> and eventually timezones.
 
-<a
-href='https://ruby-doc.org/stdlib-2.7.0/libdoc/date/rdoc/DateTime.html'
-class='ruby-doc remote' target='_blank'>DateTime Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/date/rdoc/DateTime.html' class='ruby-doc remote' target='_blank'>DateTime Reference</a>
 

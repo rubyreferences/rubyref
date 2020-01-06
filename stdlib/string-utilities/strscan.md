@@ -11,8 +11,7 @@ require 'strscan'
 
 ## StringScanner[](#stringscanner)
 
-StringScanner provides for lexical scanning operations on a String. Here
-is an example of its usage:
+StringScanner provides for lexical scanning operations on a String. Here is an example of its usage:
 
 
 ```ruby
@@ -38,13 +37,9 @@ p s.scan(/\s+/)      # -> nil
 p s.scan(/\w+/)      # -> nil
 ```
 
-Scanning a string means remembering the position of a *scan pointer*,
-which is just an index. The point of scanning is to move forward a bit
-at a time, so matches are sought after the scan pointer; usually
-immediately after it.
+Scanning a string means remembering the position of a *scan pointer*, which is just an index. The point of scanning is to move forward a bit at a time, so matches are sought after the scan pointer; usually immediately after it.
 
-Given the string "test string", here are the pertinent scan pointer
-positions:
+Given the string "test string", here are the pertinent scan pointer positions:
 
 
 ```
@@ -53,14 +48,7 @@ positions:
                       0
 ```
 
-When you `#scan` for a pattern (a regular expression), the match must
-occur at the character after the scan pointer. If you use `#scan_until`,
-then the match can occur anywhere after the scan pointer. In both cases,
-the scan pointer moves *just beyond* the last character of the match,
-ready to scan again from the next character onwards. This is
-demonstrated by the example above.
+When you `#scan` for a pattern (a regular expression), the match must occur at the character after the scan pointer. If you use `#scan_until`, then the match can occur anywhere after the scan pointer. In both cases, the scan pointer moves *just beyond* the last character of the match, ready to scan again from the next character onwards. This is demonstrated by the example above.
 
-<a
-href='https://ruby-doc.org/stdlib-2.7.0/libdoc/strscan/rdoc/StringScanner.html'
-class='ruby-doc remote' target='_blank'>StringScanner Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/strscan/rdoc/StringScanner.html' class='ruby-doc remote' target='_blank'>StringScanner Reference</a>
 

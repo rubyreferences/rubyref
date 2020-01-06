@@ -57,7 +57,7 @@ module Renderers
       root = Kramdown::Element.new(:root)
       root.options[:encoding] = 'UTF-8'
       root.children = elements
-      CustomKramdownRenderer.convert(root).first
+      CustomKramdownRenderer.convert(root, line_width: 1000).first
     end
 
     def postprocess(markdown)

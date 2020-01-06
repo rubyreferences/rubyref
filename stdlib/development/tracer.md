@@ -8,10 +8,7 @@ next: "/stdlib/string-utilities.html"
 
 Outputs a source level execution trace of a Ruby program.
 
-It does this by registering an event handler with
-`Kernel#set_trace_func` for processing incoming events. It also provides
-methods for filtering unwanted trace output (see Tracer.add\_filter,
-Tracer.on, and Tracer.off).
+It does this by registering an event handler with `Kernel#set_trace_func` for processing incoming events. It also provides methods for filtering unwanted trace output (see Tracer.add\_filter, Tracer.on, and Tracer.off).
 
 ### Example[](#example)
 
@@ -29,9 +26,7 @@ a = A.new
 a.square(5)
 ```
 
-Running the above script using `ruby -r tracer example.rb` will output
-the following trace to STDOUT (Note you can also explicitly `require
-`tracer'\`)
+Running the above script using `ruby -r tracer example.rb` will output the following trace to STDOUT (Note you can also explicitly `require `tracer'\`)
 
 
 ```
@@ -64,7 +59,5 @@ Symbol table used for displaying incoming events:
 * +^+: raise an exception
 * +<+: return from a Ruby method
 
-<a
-href='https://ruby-doc.org/stdlib-2.7.0/libdoc/tracer/rdoc/Tracer.html'
-class='ruby-doc remote' target='_blank'>Tracer Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/tracer/rdoc/Tracer.html' class='ruby-doc remote' target='_blank'>Tracer Reference</a>
 

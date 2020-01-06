@@ -40,10 +40,7 @@ excel.ActiveWorkbook.Close(0);
 excel.Quit();
 ```
 
-Unfortunately, Win32OLE doesn't support the argument passed by reference
-directly. Instead, Win32OLE provides WIN32OLE::ARGV or WIN32OLE\_VARIANT
-object. If you want to get the result value of argument passed by
-reference, you can use WIN32OLE::ARGV or WIN32OLE\_VARIANT.
+Unfortunately, Win32OLE doesn't support the argument passed by reference directly. Instead, Win32OLE provides WIN32OLE::ARGV or WIN32OLE\_VARIANT object. If you want to get the result value of argument passed by reference, you can use WIN32OLE::ARGV or WIN32OLE\_VARIANT.
 
 
 ```ruby
@@ -61,9 +58,7 @@ oleobj.method(arg1, arg2, refargv3)
 p refargv3.value # the value of refargv3 after called oleobj.method.
 ```
 
-<a
-href='https://ruby-doc.org/stdlib-2.7.0/libdoc/win32ole/rdoc/WIN32OLE.html'
-class='ruby-doc remote' target='_blank'>WIN32OLE Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/win32ole/rdoc/WIN32OLE.html' class='ruby-doc remote' target='_blank'>WIN32OLE Reference</a>
 
 
 

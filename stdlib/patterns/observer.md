@@ -11,41 +11,26 @@ require 'observer'
 
 ## Observable[](#observable)
 
-The Observer pattern (also known as publish/subscribe) provides a simple
-mechanism for one object to inform a set of interested third-party
-objects when its state changes.
+The Observer pattern (also known as publish/subscribe) provides a simple mechanism for one object to inform a set of interested third-party objects when its state changes.
 
 ### Mechanism[](#mechanism)
 
-The notifying class mixes in the `Observable` module, which provides the
-methods for managing the associated observer objects.
+The notifying class mixes in the `Observable` module, which provides the methods for managing the associated observer objects.
 
 The observable object must:
 
 * assert that it has `#changed`
 * call `#notify_observers`
 
-An observer subscribes to updates using `Observable#add_observer`, which
-also specifies the method called via `#notify_observers`. The default
-method for `#notify_observers` is `#update`.
+An observer subscribes to updates using `Observable#add_observer`, which also specifies the method called via `#notify_observers`. The default method for `#notify_observers` is `#update`.
 
 #### Example[](#example)
 
-The following example demonstrates this nicely. A `Ticker`, when run,
-continually receives the stock `Price` for its `@symbol`. A `Warner` is
-a general observer of the price, and two warners are demonstrated, a
-`WarnLow` and a `WarnHigh`, which print a warning if the price is below
-or above their set limits, respectively.
+The following example demonstrates this nicely. A `Ticker`, when run, continually receives the stock `Price` for its `@symbol`. A `Warner` is a general observer of the price, and two warners are demonstrated, a `WarnLow` and a `WarnHigh`, which print a warning if the price is below or above their set limits, respectively.
 
-The `update` callback allows the warners to run without being explicitly
-called. The system is set up with the `Ticker` and several observers,
-and the observers do their duty without the top-level code having to
-interfere.
+The `update` callback allows the warners to run without being explicitly called. The system is set up with the `Ticker` and several observers, and the observers do their duty without the top-level code having to interfere.
 
-Note that the contract between publisher and subscriber (observable and
-observer) is not declared or enforced. The `Ticker` publishes a time and
-a price, and the warners receive that. But if you don't ensure that your
-contracts are correct, nothing else can warn you.
+Note that the contract between publisher and subscriber (observable and observer) is not declared or enforced. The `Ticker` publishes a time and a price, and the warners receive that. But if you don't ensure that your contracts are correct, nothing else can warn you.
 
 
 ```ruby
@@ -124,7 +109,5 @@ Current price: 79
 --- Sun Jun 09 00:10:25 CDT 2002: Price below 80: 79
 ```
 
-<a
-href='https://ruby-doc.org/stdlib-2.7.0/libdoc/observer/rdoc/Observable.html'
-class='ruby-doc remote' target='_blank'>Observable Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/observer/rdoc/Observable.html' class='ruby-doc remote' target='_blank'>Observable Reference</a>
 

@@ -20,15 +20,11 @@ Literals create objects you can use in your program. Literals include:
 
 ### Booleans and nil[](#booleans-and-nil)
 
-`nil` and `false` are both false values. `nil` is sometimes used to
-indicate "no value" or "unknown" but evaluates to `false` in conditional
-expressions.
+`nil` and `false` are both false values. `nil` is sometimes used to indicate "no value" or "unknown" but evaluates to `false` in conditional expressions.
 
-`true` is a true value. All objects except `nil` and `false` evaluate to
-a true value in conditional expressions.
+`true` is a true value. All objects except `nil` and `false` evaluate to a true value in conditional expressions.
 
-(There are also the constants `TRUE`, `FALSE` and `NIL`, but the
-lowercase literal forms are preferred.)
+(There are also the constants `TRUE`, `FALSE` and `NIL`, but the lowercase literal forms are preferred.)
 
 See also [TrueClass, FalseClass, NilClass](builtin/types/atomic.md).
 
@@ -42,9 +38,7 @@ You can write integers of any size as follows:
 1_234
 ```
 
-These numbers have the same value, 1,234. The underscore may be used to
-enhance readability for humans. You may place an underscore anywhere in
-the number.
+These numbers have the same value, 1,234. The underscore may be used to enhance readability for humans. You may place an underscore anywhere in the number.
 
 Floating point numbers may be written as follows:
 
@@ -55,14 +49,9 @@ Floating point numbers may be written as follows:
 1.234E1
 ```
 
-These numbers have the same value, 12.34. You may use underscores in
-floating point numbers as well.
+These numbers have the same value, 12.34. You may use underscores in floating point numbers as well.
 
-You can use a special prefix to write numbers in decimal, hexadecimal,
-octal or binary formats. For decimal numbers use a prefix of `0d`, for
-hexadecimal numbers use a prefix of `0x`, for octal numbers use a prefix
-of `0` or `0o`, for binary numbers use a prefix of `0b`. The alphabetic
-component of the number is not case-sensitive.
+You can use a special prefix to write numbers in decimal, hexadecimal, octal or binary formats. For decimal numbers use a prefix of `0d`, for hexadecimal numbers use a prefix of `0x`, for octal numbers use a prefix of `0` or `0o`, for binary numbers use a prefix of `0b`. The alphabetic component of the number is not case-sensitive.
 
 Examples:
 
@@ -86,8 +75,7 @@ Examples:
 0B10101010
 ```
 
-All these numbers have the same decimal value, 170. Like integers and
-floats you may use an underscore for readability.
+All these numbers have the same decimal value, 170. Like integers and floats you may use an underscore for readability.
 
 See also [number classes](../builtin/types/numbers.md).
 
@@ -150,9 +138,7 @@ Any internal `"` must be escaped:
 "This string has a quote: \".  As you can see, it is escaped"
 ```
 
-Double-quote strings allow escaped characters such as `\n` for newline,
-`\t` for tab, etc. The full list of supported escape sequences are as
-follows:
+Double-quote strings allow escaped characters such as `\n` for newline, `\t` for tab, etc. The full list of supported escape sequences are as follows:
 
 
 ```
@@ -178,30 +164,24 @@ follows:
 \c? or \C-?    delete, ASCII 7Fh (DEL)
 ```
 
-Any other character following a backslash is interpreted as the
-character itself.
+Any other character following a backslash is interpreted as the character itself.
 
-Double-quote strings allow interpolation of other values using
-`#{...}`: 
+Double-quote strings allow interpolation of other values using `#{...}`: 
 
 ```ruby
 "One plus one is two: #{1 + 1}"
 ```
 
-Any expression may be placed inside the interpolated section, but it's
-best to keep the expression small for readability.
+Any expression may be placed inside the interpolated section, but it's best to keep the expression small for readability.
 
-Interpolation may be disabled by escaping the "#" character or using
-single-quote strings:
+Interpolation may be disabled by escaping the "#" character or using single-quote strings:
 
 
 ```ruby
 '#{1 + 1}' #=> "\#{1 + 1}"
 ```
 
-In addition to disabling interpolation, single-quoted strings also
-disable all escape sequences except for the single-quote (`\'`) and
-backslash (`\\\`).
+In addition to disabling interpolation, single-quoted strings also disable all escape sequences except for the single-quote (`\'`) and backslash (`\\\`).
 
 You may also create strings using `%`: 
 
@@ -209,13 +189,9 @@ You may also create strings using `%`:
 %(1 + 1 is #{1 + 1}) #=> "1 + 1 is 2"
 ```
 
-There are two different types of `%` strings `%q(...)` behaves like a
-single-quote string (no interpolation or character escaping), while `%Q`
-behaves as a double-quote string. See Percent Strings below for more
-discussion of the syntax of percent strings.
+There are two different types of `%` strings `%q(...)` behaves like a single-quote string (no interpolation or character escaping), while `%Q` behaves as a double-quote string. See Percent Strings below for more discussion of the syntax of percent strings.
 
-Adjacent string literals are automatically concatenated by the
-interpreter:
+Adjacent string literals are automatically concatenated by the interpreter:
 
 
 ```ruby
@@ -224,8 +200,7 @@ interpreter:
 "no newlines."              #=> "This string contains no newlines."
 ```
 
-Any combination of adjacent single-quote, double-quote, percent strings
-will be concatenated as long as a percent-string is not last.
+Any combination of adjacent single-quote, double-quote, percent strings will be concatenated as long as a percent-string is not last.
 
 
 ```ruby
@@ -233,10 +208,7 @@ will be concatenated as long as a percent-string is not last.
 "a" 'b' %q{c} #=> NameError: uninitialized constant q
 ```
 
-There is also a character literal notation to represent single character
-strings, which syntax is a question mark (`?`) followed by a single
-character or escape sequence that corresponds to a single codepoint in
-the script encoding:
+There is also a character literal notation to represent single character strings, which syntax is a question mark (`?`) followed by a single character or escape sequence that corresponds to a single codepoint in the script encoding:
 
 
 ```
@@ -255,8 +227,7 @@ the script encoding:
 
 #### Here Documents (heredocs)[](#here-documents-heredocs)
 
-If you are writing a large block of text you may use a "here document"
-or "heredoc"\:
+If you are writing a large block of text you may use a "here document" or "heredoc"\:
 
 
 ```ruby
@@ -267,12 +238,9 @@ That might span many lines
 HEREDOC
 ```
 
-The heredoc starts on the line following `<<HEREDOC` and ends with the
-next line that starts with `HEREDOC`. The result includes the ending
-newline.
+The heredoc starts on the line following `<<HEREDOC` and ends with the next line that starts with `HEREDOC`. The result includes the ending newline.
 
-You may use any identifier with a heredoc, but all-uppercase identifiers
-are typically used.
+You may use any identifier with a heredoc, but all-uppercase identifiers are typically used.
 
 You may indent the ending identifier if you place a "-" after `<<`: 
 
@@ -284,13 +252,9 @@ That might span many lines
   INDENTED_HEREDOC
 ```
 
-Note that the while the closing identifier may be indented, the content
-is always treated as if it is flush left. If you indent the content
-those spaces will appear in the output.
+Note that the while the closing identifier may be indented, the content is always treated as if it is flush left. If you indent the content those spaces will appear in the output.
 
-To have indented content as well as an indented closing identifier, you
-can use a "squiggly" heredoc, which uses a "~" instead of a "-" after
-`<<`: 
+To have indented content as well as an indented closing identifier, you can use a "squiggly" heredoc, which uses a "~" instead of a "-" after `<<`: 
 
 ```ruby
 expected_result = <<~SQUIGGLY_HEREDOC
@@ -300,17 +264,11 @@ expected_result = <<~SQUIGGLY_HEREDOC
 SQUIGGLY_HEREDOC
 ```
 
-The indentation of the least-indented line will be removed from each
-line of the content. Note that empty lines and lines consisting solely
-of literal tabs and spaces will be ignored for the purposes of
-determining indentation, but escaped tabs and spaces are considered
-non-indentation characters.
+The indentation of the least-indented line will be removed from each line of the content. Note that empty lines and lines consisting solely of literal tabs and spaces will be ignored for the purposes of determining indentation, but escaped tabs and spaces are considered non-indentation characters.
 
 <div class="since-version">Since Ruby 2.3</div>
 
-A heredoc allows interpolation and escaped characters. You may disable
-interpolation and escaping by surrounding the opening identifier with
-single quotes:
+A heredoc allows interpolation and escaped characters. You may disable interpolation and escaping by surrounding the opening identifier with single quotes:
 
 
 ```ruby
@@ -321,9 +279,7 @@ EXPECTED
 p expected_result # prints: "One plus one is \#{1 + 1}\n"
 ```
 
-The identifier may also be surrounded with double quotes (which is the
-same as no quotes) or with backticks. When surrounded by backticks the
-HEREDOC behaves like Kernel#\`:
+The identifier may also be surrounded with double quotes (which is the same as no quotes) or with backticks. When surrounded by backticks the HEREDOC behaves like Kernel#\`:
 
 
 ```ruby
@@ -332,8 +288,7 @@ cat #{__FILE__}
 HEREDOC
 ```
 
-When surrounding with quotes, any character but that quote and newline
-(CR and/or LF) can be used as the identifier.
+When surrounding with quotes, any character but that quote and newline (CR and/or LF) can be used as the identifier.
 
 To call a method on a heredoc place it after the opening identifier:
 
@@ -344,8 +299,7 @@ One plus one is #{1 + 1}
 EXPECTED
 ```
 
-You may open multiple heredocs on the same line, but this can be
-difficult to read:
+You may open multiple heredocs on the same line, but this can be difficult to read:
 
 
 ```ruby
@@ -360,8 +314,7 @@ See also [String](../builtin/types/symbol-string.md#string) class.
 
 ### Symbols[](#symbols)
 
-A Symbol represents a name inside the ruby interpreter. See Symbol for
-more details on what symbols are and when ruby creates them internally.
+A Symbol represents a name inside the ruby interpreter. See Symbol for more details on what symbols are and when ruby creates them internally.
 
 You may reference a symbol using a colon: `:my_symbol`.
 
@@ -380,8 +333,7 @@ Like strings, a single-quote may be used to disable interpolation:
 :'my_symbol#{1 + 1}' #=> :"my_symbol\#{1 + 1}"
 ```
 
-When creating a Hash, there is a special syntax for referencing a Symbol
-as well.
+When creating a Hash, there is a special syntax for referencing a Symbol as well.
 
 See also [Symbol](../builtin/types/symbol-string.md#symbol) class.
 
@@ -401,8 +353,7 @@ You may place expressions inside the array:
 [1, [1 + 1, [1 + 2]]]
 ```
 
-See [Array](../builtin/types/array.md) for the methods you may use with an
-array.
+See [Array](../builtin/types/array.md) for the methods you may use with an array.
 
 ### Hashes[](#hashes)
 
@@ -437,13 +388,11 @@ is equal to
 { :"a 1" => 1, :"b 2" => 2 }
 ```
 
-See [Hash](../builtin/types/hash.md) for the methods you may use with a
-hash.
+See [Hash](../builtin/types/hash.md) for the methods you may use with a hash.
 
 ### Ranges[](#ranges)
 
-A range represents an interval of values. The range may include or
-exclude its ending value.
+A range represents an interval of values. The range may include or exclude its ending value.
 
 
 ```ruby
@@ -453,9 +402,7 @@ exclude its ending value.
 (..1)   # beginless range, representing infinite sequence from -Infinity to 1
 ```
 
-You may create a range of any object. See the
-[Range](../builtin/types/range.md) documentation for details on the methods
-you need to implement.
+You may create a range of any object. See the [Range](../builtin/types/range.md) documentation for details on the methods you need to implement.
 
 ### Regular Expressions[](#regular-expressions)
 
@@ -466,21 +413,16 @@ A regular expression is created using "/"\:
 /my regular expression/
 ```
 
-The regular expression may be followed by flags which adjust the
-matching behavior of the regular expression. The "i" flag makes the
-regular expression case-insensitive:
+The regular expression may be followed by flags which adjust the matching behavior of the regular expression. The "i" flag makes the regular expression case-insensitive:
 
 
 ```ruby
 /my regular expression/i
 ```
 
-Interpolation may be used inside regular expressions along with escaped
-characters. Note that a regular expression may require additional
-escaped characters than a string.
+Interpolation may be used inside regular expressions along with escaped characters. Note that a regular expression may require additional escaped characters than a string.
 
-See [Regexp](../builtin/types/regexp.md) for a description of the syntax of
-regular expressions.
+See [Regexp](../builtin/types/regexp.md) for a description of the syntax of regular expressions.
 
 ### Procs[](#procs)
 
@@ -505,9 +447,7 @@ See also [Proc](../builtin/core/method-proc.md#proc) class.
 
 ### Percent Strings[](#percent-strings)
 
-Besides `%(...)` which creates a String, the `%` may create other types
-of object. As with strings, an uppercase letter allows interpolation and
-escaped characters while a lowercase letter disables them.
+Besides `%(...)` which creates a String, the `%` may create other types of object. As with strings, an uppercase letter allows interpolation and escaped characters while a lowercase letter disables them.
 
 These are the types of percent strings in ruby:
 
@@ -518,9 +458,7 @@ These are the types of percent strings in ruby:
 * `%w`: Array of Strings
 * `%x`: Backtick (capture subshell result)
 
-For the two array forms of percent string, if you wish to include a
-space in one of the array entries you must escape it with a "\"
-character:
+For the two array forms of percent string, if you wish to include a space in one of the array entries you must escape it with a "\" character:
 
 
 ```ruby
@@ -528,7 +466,5 @@ character:
 #=> ["one", "one-hundred one"]
 ```
 
-If you are using "(", "\[", "\{", "<" you must close it with ")", "\]",
-"}", ">" respectively. You may use most other non-alphanumeric
-characters for percent string delimiters such as "%", "\|", "^", etc.
+If you are using "(", "\[", "\{", "<" you must close it with ")", "\]", "}", ">" respectively. You may use most other non-alphanumeric characters for percent string delimiters such as "%", "\|", "^", etc.
 

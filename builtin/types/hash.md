@@ -6,13 +6,9 @@ next: "/builtin/types/set.html"
 
 ## Hash[](#hash)
 
-A Hash is a dictionary-like collection of unique keys and their values.
-Also called associative arrays, they are similar to Arrays, but where an
-Array uses integers as its index, a Hash allows you to use any object
-type.
+A Hash is a dictionary-like collection of unique keys and their values. Also called associative arrays, they are similar to Arrays, but where an Array uses integers as its index, a Hash allows you to use any object type.
 
-Hashes enumerate their values in the order that the corresponding keys
-were inserted.
+Hashes enumerate their values in the order that the corresponding keys were inserted.
 
 A Hash can be easily created by using its implicit form:
 
@@ -50,9 +46,7 @@ grades = Hash.new
 grades["Dorothy Doe"] = 9
 ```
 
-Hashes have a *default value* that is returned when accessing keys that
-do not exist in the hash. If no default is set `nil` is used. You can
-set the default value by sending it as an argument to Hash.new:
+Hashes have a *default value* that is returned when accessing keys that do not exist in the hash. If no default is set `nil` is used. You can set the default value by sending it as an argument to Hash.new:
 
 
 ```ruby
@@ -85,10 +79,7 @@ books[:matz]  = "The Ruby Programming Language"
 books[:black] = "The Well-Grounded Rubyist"
 ```
 
-Hashes are also commonly used as a way to have named parameters in
-functions. Note that no brackets are used below. If a hash is the last
-argument on a method call, no braces are needed, thus creating a really
-clean interface:
+Hashes are also commonly used as a way to have named parameters in functions. Note that no brackets are used below. If a hash is the last argument on a method call, no braces are needed, thus creating a really clean interface:
 
 
 ```ruby
@@ -102,15 +93,11 @@ end
 
 #### Hash Keys[](#hash-keys)
 
-Two objects refer to the same hash key when their `hash` value is
-identical and the two objects are `eql?` to each other.
+Two objects refer to the same hash key when their `hash` value is identical and the two objects are `eql?` to each other.
 
-A user-defined class may be used as a hash key if the `hash` and `eql?`
-methods are overridden to provide meaningful behavior. By default,
-separate instances refer to separate hash keys.
+A user-defined class may be used as a hash key if the `hash` and `eql?` methods are overridden to provide meaningful behavior. By default, separate instances refer to separate hash keys.
 
-A typical implementation of `hash` is based on the object's data while
-`eql?` is usually aliased to the overridden `==` method:
+A typical implementation of `hash` is based on the object's data while `eql?` is usually aliased to the overridden `==` method:
 
 
 ```ruby
@@ -148,6 +135,5 @@ reviews.length #=> 1
 
 See also `Object#hash` and `Object#eql?`
 
-<a href='https://ruby-doc.org/core-2.7.0/Hash.html' class='ruby-doc
-remote' target='_blank'>Hash Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/Hash.html' class='ruby-doc remote' target='_blank'>Hash Reference</a>
 

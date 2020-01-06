@@ -11,11 +11,9 @@ require 'shellwords'
 
 ## Shellwords[](#shellwords)
 
-This module manipulates strings according to the word parsing rules of
-the UNIX Bourne shell.
+This module manipulates strings according to the word parsing rules of the UNIX Bourne shell.
 
-You can use Shellwords to parse a string into a Bourne shell friendly
-Array.
+You can use Shellwords to parse a string into a Bourne shell friendly Array.
 
 
 ```ruby
@@ -25,8 +23,7 @@ argv = Shellwords.split('three blind "mice"')
 argv #=> ["three", "blind", "mice"]
 ```
 
-Once you've required Shellwords, you can use the `#split` alias
-String#shellsplit.
+Once you've required Shellwords, you can use the `#split` alias String#shellsplit.
 
 
 ```ruby
@@ -42,11 +39,9 @@ argv = "they all ran after the farmer's wife".shellsplit
      #=> ArgumentError: Unmatched double quote: ...
 ```
 
-In this case, you might want to use Shellwords.escape, or its alias
-String#shellescape.
+In this case, you might want to use Shellwords.escape, or its alias String#shellescape.
 
-This method will escape the String for you to safely use with a Bourne
-shell.
+This method will escape the String for you to safely use with a Bourne shell.
 
 
 ```ruby
@@ -55,8 +50,7 @@ argv #=> "special\\'s.txt"
 system("cat " + argv)
 ```
 
-Shellwords also comes with a core extension for Array,
-`Array#shelljoin`.
+Shellwords also comes with a core extension for Array, `Array#shelljoin`.
 
 
 ```ruby
@@ -64,11 +58,7 @@ argv = %w{ls -lta lib}
 system(argv.shelljoin)
 ```
 
-You can use this method to create an escaped string out of an array of
-tokens separated by a space. In this example we used the literal
-shortcut for Array.new.
+You can use this method to create an escaped string out of an array of tokens separated by a space. In this example we used the literal shortcut for Array.new.
 
-<a
-href='https://ruby-doc.org/stdlib-2.7.0/libdoc/shellwords/rdoc/Shellwords.html'
-class='ruby-doc remote' target='_blank'>Shellwords Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/shellwords/rdoc/Shellwords.html' class='ruby-doc remote' target='_blank'>Shellwords Reference</a>
 

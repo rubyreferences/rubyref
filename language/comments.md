@@ -8,8 +8,7 @@ next: "/language/variables-constants.html"
 
 Ruby has two types of comments: inline and block.
 
-Inline comments start with the `#` character and continue until the end
-of the line:
+Inline comments start with the `#` character and continue until the end of the line:
 
 
 ```ruby
@@ -21,8 +20,7 @@ class Foo # or at the end of the line
 end
 ```
 
-Block comments start with `=begin` and end with `=end`. Each should
-start on a separate line.
+Block comments start with `=begin` and end with `=end`. Each should start on a separate line.
 
 
 ```ruby
@@ -54,11 +52,5 @@ end
 
 #### Comments as documentation[](#comments-as-documentation)
 
-The Ruby standard library includes the [RDoc](../developing/documenting.md)
-tool for generating documentation from code. RDoc format is
-"unobtrusive" (plain text) documentation. Ruby gem <a
-href='https://yardoc.org/' class='remote' target='_blank'>YARD</a> is
-also frequently used to generate documentation, providing a more strict
-format allowing rendering of "tags" (param types, return type, examples
-and so on).
+The Ruby standard library includes the [RDoc](../developing/documenting.md) tool for generating documentation from code. RDoc format is "unobtrusive" (plain text) documentation. Ruby gem <a href='https://yardoc.org/' class='remote' target='_blank'>YARD</a> is also frequently used to generate documentation, providing a more strict format allowing rendering of "tags" (param types, return type, examples and so on).
 

@@ -11,19 +11,15 @@ require 'pty'
 
 ## PTY[](#pty)
 
-Creates and manages pseudo terminals (PTYs). See also
-http://en.wikipedia.org/wiki/Pseudo_terminal
+Creates and manages pseudo terminals (PTYs). See also http://en.wikipedia.org/wiki/Pseudo_terminal
 
-PTY allows you to allocate new terminals using ::open or ::spawn a new
-terminal with a specific command.
+PTY allows you to allocate new terminals using ::open or ::spawn a new terminal with a specific command.
 
 ### Example[](#example)
 
-In this example we will change the buffering type in the `factor`
-command, assuming that factor uses stdio for stdout buffering.
+In this example we will change the buffering type in the `factor` command, assuming that factor uses stdio for stdout buffering.
 
-If IO.pipe is used instead of PTY.open, this code deadlocks because
-factor's stdout is fully buffered.
+If IO.pipe is used instead of PTY.open, this code deadlocks because factor's stdout is fully buffered.
 
 
 ```ruby
@@ -56,8 +52,7 @@ ret = begin
 p ret #=> nil
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/pty/rdoc/PTY.html'
-class='ruby-doc remote' target='_blank'>PTY Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/pty/rdoc/PTY.html' class='ruby-doc remote' target='_blank'>PTY Reference</a>
 
 
 

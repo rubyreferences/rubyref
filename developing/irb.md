@@ -48,16 +48,14 @@ Usage:  irb.rb [options] [programfile] [arguments]
 
 IRB reads from `~/.irbrc` when it's invoked.
 
-If `~/.irbrc` doesn't exist, `irb` will try to read in the following
-order:
+If `~/.irbrc` doesn't exist, `irb` will try to read in the following order:
 
 * `.irbrc`
 * `irb.rc`
 * `_irbrc`
 * `$irbrc`
 
-The following are alternatives to the command line options. To use them
-type as follows in an `irb` session:
+The following are alternatives to the command line options. To use them type as follows in an `irb` session:
 
 
 ```
@@ -94,8 +92,7 @@ require 'irb/completion'
 
 #### History[](#history)
 
-By default, irb will store the last 1000 commands you used in
-`IRB.conf[:HISTORY_FILE]` (`~/.irb_history` by default).
+By default, irb will store the last 1000 commands you used in `IRB.conf[:HISTORY_FILE]` (`~/.irb_history` by default).
 
 If you want to disable history, add the following to your `.irbrc`: 
 
@@ -105,16 +102,14 @@ IRB.conf[:SAVE_HISTORY] = nil
 
 See `IRB::Context#save_history=` for more information.
 
-The history of *results* of commands evaluated is not stored by default,
-but can be turned on to be stored with this `.irbrc` setting:
+The history of *results* of commands evaluated is not stored by default, but can be turned on to be stored with this `.irbrc` setting:
 
 
 ```
 IRB.conf[:EVAL_HISTORY] = <number>
 ```
 
-See `IRB::Context#eval_history=` and History class. The history of
-command results is not permanently saved in any file.
+See `IRB::Context#eval_history=` and History class. The history of command results is not permanently saved in any file.
 
 ### Customizing the IRB Prompt[](#customizing-the-irb-prompt)
 
@@ -147,8 +142,7 @@ Or, invoke irb with the above prompt mode by:
 irb --prompt my-prompt
 ```
 
-Constants `PROMPT_I`, `PROMPT_S` and `PROMPT_C` specify the format. In
-the prompt specification, some special strings are available:
+Constants `PROMPT_I`, `PROMPT_S` and `PROMPT_C` specify the format. In the prompt specification, some special strings are available:
 
 
 ```
@@ -226,17 +220,13 @@ irb comes with a number of available modes:
 
 ### Restrictions[](#restrictions)
 
-Because irb evaluates input immediately after it is syntactically
-complete, the results may be slightly different than directly using
-Ruby.
+Because irb evaluates input immediately after it is syntactically complete, the results may be slightly different than directly using Ruby.
 
 ### IRB Sessions[](#irb-sessions)
 
-IRB has a special feature, that allows you to manage many sessions at
-once.
+IRB has a special feature, that allows you to manage many sessions at once.
 
-You can create new sessions with Irb.irb, and get a list of current
-sessions with the `jobs` command in the prompt.
+You can create new sessions with Irb.irb, and get a list of current sessions with the `jobs` command in the prompt.
 
 #### Commands[](#commands)
 
@@ -249,42 +239,31 @@ fg      # Switches to the session of the given number
 kill    # Kills the session with the given number
 ```
 
-The `exit` command, or ::irb\_exit, will quit the current session and
-call any exit hooks with IRB.irb\_at\_exit.
+The `exit` command, or ::irb\_exit, will quit the current session and call any exit hooks with IRB.irb\_at\_exit.
 
 A few commands for loading files within the session are also available:
 
-* `source`: Loads a given file in the current session and displays the
-  source lines, see IrbLoader#source\_file
+* `source`: Loads a given file in the current session and displays the source lines, see IrbLoader#source\_file
 
-* `irb_load`: Loads the given file similarly to `Kernel#load`, see
-  `IrbLoader#irb_load`
+* `irb_load`: Loads the given file similarly to `Kernel#load`, see `IrbLoader#irb_load`
 * `irb_require`: Loads the given file similarly to `Kernel#require`
 
 #### Configuration[](#configuration-1)
 
-The command line options, or IRB.conf, specify the default behavior of
-Irb.irb.
+The command line options, or IRB.conf, specify the default behavior of Irb.irb.
 
-On the other hand, each conf in IRB@Command+line+options is used to
-individually configure IRB.irb.
+On the other hand, each conf in IRB@Command+line+options is used to individually configure IRB.irb.
 
-If a proc is set for `IRB.conf[:IRB_RC]`, its will be invoked after
-execution of that proc with the context of the current session as its
-argument. Each session can be configured using this mechanism.
+If a proc is set for `IRB.conf[:IRB_RC]`, its will be invoked after execution of that proc with the context of the current session as its argument. Each session can be configured using this mechanism.
 
 #### Session variables[](#session-variables)
 
 There are a few variables in every Irb session that can come in handy:
 
 * `_`: The value command executed, as a local variable
-* `__`: The history of evaluated commands. Available only if
-  `IRB.conf[:EVAL_HISTORY]` is not `nil` (which is the default). See
-  also IRB::Context#eval\_history= and IRB::History.
+* `__`: The history of evaluated commands. Available only if `IRB.conf[:EVAL_HISTORY]` is not `nil` (which is the default). See also IRB::Context#eval\_history= and IRB::History.
 
-* `__[line_no]`: Returns the evaluation value at the given line number,
-  `line_no`. If `line_no` is a negative, the return value `line_no` many
-  lines before the most recent return value.
+* `__[line_no]`: Returns the evaluation value at the given line number, `line_no`. If `line_no` is a negative, the return value `line_no` many lines before the most recent return value.
 
 #### Example using IRB Sessions[](#example-using-irb-sessions)
 
@@ -350,6 +329,5 @@ irb(main):009:0> jobs
 irb(main):010:0> exit
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/irb/rdoc/IRB.html'
-class='ruby-doc remote' target='_blank'>IRB Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/irb/rdoc/IRB.html' class='ruby-doc remote' target='_blank'>IRB Reference</a>
 

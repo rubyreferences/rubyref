@@ -13,10 +13,7 @@ require 'erb'
 
 
 
-ERB provides an easy to use but powerful templating system for Ruby.
-Using ERB, actual Ruby code can be added to any plain text document for
-the purposes of generating document information details and/or flow
-control.
+ERB provides an easy to use but powerful templating system for Ruby. Using ERB, actual Ruby code can be added to any plain text document for the purposes of generating document information details and/or flow control.
 
 A very simple example is this:
 
@@ -37,8 +34,7 @@ More complex examples are given below.
 
 #### Recognized Tags[](#recognized-tags)
 
-ERB recognizes certain tags in the provided template and converts them
-based on the rules below:
+ERB recognizes certain tags in the provided template and converts them based on the rules below:
 
 
 ```
@@ -61,6 +57,5 @@ There are several settings you can change when you use ERB:
 
 See the ERB.new and `ERB#result` methods for more detail.
 
-<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/erb/rdoc/ERB.html'
-class='ruby-doc remote' target='_blank'>ERB Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/erb/rdoc/ERB.html' class='ruby-doc remote' target='_blank'>ERB Reference</a>
 

@@ -11,22 +11,17 @@ require 'optparse'
 
 ## OptionParser[](#optionparser)
 
-OptionParser is a class for command-line option analysis. It is much
-more advanced, yet also easier to use, than GetoptLong, and is a more
-Ruby-oriented solution.
+OptionParser is a class for command-line option analysis. It is much more advanced, yet also easier to use, than GetoptLong, and is a more Ruby-oriented solution.
 
 #### Features[](#features)
 
-1.  The argument specification and the code to handle it are written in
-    the same place.
-2.  It can output an option summary; you don't need to maintain this
-    string separately.
+1.  The argument specification and the code to handle it are written in the same place.
+2.  It can output an option summary; you don't need to maintain this string separately.
 3.  Optional and mandatory arguments are specified very gracefully.
 4.  Arguments can be automatically converted to a specified class.
 5.  Arguments can be restricted to a certain set.
 
-All of these features are demonstrated in the examples below. See
-`#make_switch` for full documentation.
+All of these features are demonstrated in the examples below. See `#make_switch` for full documentation.
 
 #### Minimal example[](#minimal-example)
 
@@ -49,8 +44,7 @@ p ARGV
 
 #### Generating Help[](#generating-help)
 
-OptionParser can be used to automatically generate help for the commands
-you write:
+OptionParser can be used to automatically generate help for the commands you write:
 
 
 ```ruby
@@ -89,9 +83,7 @@ options = Parser.parse %w[--help]
 
 #### Required Arguments[](#required-arguments)
 
-For options that require an argument, option specification strings may
-include an option name in all caps. If an option is used without the
-required argument, an exception will be raised.
+For options that require an argument, option specification strings may include an option name in all caps. If an option is used without the required argument, an exception will be raised.
 
 
 ```ruby
@@ -118,11 +110,9 @@ You required my-library!
 
 #### Type Coercion[](#type-coercion)
 
-OptionParser supports the ability to coerce command line arguments into
-objects for us.
+OptionParser supports the ability to coerce command line arguments into objects for us.
 
-OptionParser comes with a few ready-to-use kinds of type coercion. They
-are:
+OptionParser comes with a few ready-to-use kinds of type coercion. They are:
 
 * Date -- Anything accepted by `Date.parse`
 * DateTime -- Anything accepted by `DateTime.parse`
@@ -136,8 +126,7 @@ are:
 * DecimalInteger -- Like `Integer`, but no octal format.
 * OctalInteger -- Like `Integer`, but no decimal format.
 * DecimalNumeric -- Decimal integer or float.
-* TrueClass -- Accepts '+, yes, true, -, no, false' and defaults as
-  `true`
+* TrueClass -- Accepts '+, yes, true, -, no, false' and defaults as `true`
 * FalseClass -- Same as `TrueClass`, but defaults to `false`
 * Array -- Strings separated by ',' (e.g. 1,2,3)
 * Regexp -- Regular expressions. Also includes options.
@@ -146,10 +135,7 @@ We can also add our own coercions, which we will cover below.
 
 ##### Using Built-in Conversions[](#using-built-in-conversions)
 
-As an example, the built-in `Time` conversion is used. The other
-built-in conversions behave in the same way. OptionParser will attempt
-to parse the argument as a `Time`. If it succeeds, that time will be
-passed to the handler block. Otherwise, an exception will be raised.
+As an example, the built-in `Time` conversion is used. The other built-in conversions behave in the same way. OptionParser will attempt to parse the argument as a `Time`. If it succeeds, that time will be passed to the handler block. Otherwise, an exception will be raised.
 
 
 ```ruby
@@ -176,10 +162,7 @@ $ ruby optparse-test.rb  -t 9:30
 
 ##### Creating Custom Conversions[](#creating-custom-conversions)
 
-The `accept` method on OptionParser may be used to create converters. It
-specifies which conversion block to call whenever a class is specified.
-The example below uses it to fetch a `User` object before the `on`
-handler receives it.
+The `accept` method on OptionParser may be used to create converters. It specifies which conversion block to call whenever a class is specified. The example below uses it to fetch a `User` object before the `on` handler receives it.
 
 
 ```ruby
@@ -221,8 +204,7 @@ optparse-test.rb:15:in `block in find_user`: No User Found for id 3 (RuntimeErro
 
 #### Store options to a Hash[](#store-options-to-a-hash)
 
-The `into` option of `order`, `parse` and so on methods stores command
-line options into a Hash.
+The `into` option of `order`, `parse` and so on methods stores command line options into a Hash.
 
 
 ```ruby
@@ -250,7 +232,5 @@ $ ruby optparse-test.rb -a -b 100
 {:a=>true, :b=>100}
 ```
 
-<a
-href='https://ruby-doc.org/stdlib-2.7.0/libdoc/optparse/rdoc/OptionParser.html'
-class='ruby-doc remote' target='_blank'>OptionParser Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/optparse/rdoc/OptionParser.html' class='ruby-doc remote' target='_blank'>OptionParser Reference</a>
 

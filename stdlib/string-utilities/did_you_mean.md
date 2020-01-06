@@ -11,9 +11,7 @@ require 'did_you_mean'
 
 ## DidYouMean[](#didyoumean)
 
-The `DidYouMean` gem adds functionality to suggest possible method/class
-names upon errors such as `NameError` and `NoMethodError`. In Ruby 2.3
-or later, it is automatically activated during startup.
+The `DidYouMean` gem adds functionality to suggest possible method/class names upon errors such as `NameError` and `NoMethodError`. In Ruby 2.3 or later, it is automatically activated during startup.
 
 
 ```ruby
@@ -49,9 +47,7 @@ hash.fetch(:fooo)
 
 ### Disabling `did_you_mean`[](#disabling-didyoumean)
 
-Occasionally, you may want to disable the `did_you_mean` gem for e.g.
-debugging issues in the error object itself. You can disable it entirely
-by specifying `--disable-did_you_mean` option to the `ruby` command:
+Occasionally, you may want to disable the `did_you_mean` gem for e.g. debugging issues in the error object itself. You can disable it entirely by specifying `--disable-did_you_mean` option to the `ruby` command:
 
 
 ```
@@ -59,9 +55,7 @@ $ ruby --disable-did_you_mean -e "1.zeor?"
 -e:1:in `<main>': undefined method `zeor?` for 1:Integer (NameError)
 ```
 
-When you do not have direct access to the `ruby` command (e.g. +rails
-console+, `irb`), you could applyoptions using the `RUBYOPT` environment
-variable:
+When you do not have direct access to the `ruby` command (e.g. +rails console+, `irb`), you could applyoptions using the `RUBYOPT` environment variable:
 
 
 ```
@@ -72,9 +66,7 @@ irb:0> 1.zeor?
 
 ### Getting the original error message[](#getting-the-original-error-message)
 
-Sometimes, you do not want to disable the gem entirely, but need to get
-the original error message without suggestions (e.g. testing). In this
-case, you could use the `#original_message` method on the error object:
+Sometimes, you do not want to disable the gem entirely, but need to get the original error message without suggestions (e.g. testing). In this case, you could use the `#original_message` method on the error object:
 
 
 ```ruby
@@ -92,7 +84,5 @@ no_method_error.original_message
 # => NoMethodError (undefined method `zeor?` for 1:Integer)
 ```
 
-<a
-href='https://ruby-doc.org/stdlib-2.7.0/libdoc/did_you_mean/rdoc/DidYouMean.html'
-class='ruby-doc remote' target='_blank'>DidYouMean Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/did_you_mean/rdoc/DidYouMean.html' class='ruby-doc remote' target='_blank'>DidYouMean Reference</a>
 

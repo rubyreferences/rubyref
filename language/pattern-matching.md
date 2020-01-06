@@ -8,12 +8,9 @@ next: "/language/methods-def.html"
 
 <div class="since-version">Since Ruby 2.7</div>
 
-Pattern matching is an experimental feature allowing deep matching of
-structured values: checking the structure, and binding the matched parts
-to local variables.
+Pattern matching is an experimental feature allowing deep matching of structured values: checking the structure, and binding the matched parts to local variables.
 
-Pattern matching in Ruby is implemented with the `in` operator, which
-can be used in a standalone expression:
+Pattern matching in Ruby is implemented with the `in` operator, which can be used in a standalone expression:
 
 
 ```
@@ -36,16 +33,11 @@ else
 end
 ```
 
-(Note that `in` and `when` branches can *not* be mixed in one `case`
-statement.)
+(Note that `in` and `when` branches can *not* be mixed in one `case` statement.)
 
-Pattern matching is *exhaustive*\: if variable doesn't match pattern (in
-a separate `in` statement), or doesn't matches any branch of `case`
-statement (and `else` branch is absent), `NoMatchingPatternError` is
-raised.
+Pattern matching is *exhaustive*\: if variable doesn't match pattern (in a separate `in` statement), or doesn't matches any branch of `case` statement (and `else` branch is absent), `NoMatchingPatternError` is raised.
 
-Therefore, standalone `in` statement is most useful when expected data
-structure is known beforehand, to unpack parts of it:
+Therefore, standalone `in` statement is most useful when expected data structure is known beforehand, to unpack parts of it:
 
 
 ```ruby
@@ -58,8 +50,7 @@ def connect_to_db(config) # imagine config is a huge configuration hash from YAM
 end
 ```
 
-whilst `case` form can be used for matching and unpacking
-simultaneously:
+whilst `case` form can be used for matching and unpacking simultaneously:
 
 
 ```ruby
@@ -97,16 +88,11 @@ Patterns can be:
 * hash pattern: `{key: <subpattern>, key: <supattern>, ...}`
 * combination of patterns with `|`
 
-Any pattern can be nested inside array/hash patterns where
-`<subpattern>` is specified.
+Any pattern can be nested inside array/hash patterns where `<subpattern>` is specified.
 
-Array patterns match arrays, or objects that respond to `deconstruct`
-(see below about the latter). Hash patterns match hashes, or objects
-that respond to `deconstruct_keys` (see below about the latter). Note
-that only symbol keys are supported for hash patterns, at least for now.
+Array patterns match arrays, or objects that respond to `deconstruct` (see below about the latter). Hash patterns match hashes, or objects that respond to `deconstruct_keys` (see below about the latter). Note that only symbol keys are supported for hash patterns, at least for now.
 
-Important difference between array and hash patterns behavior is arrays
-match only a *whole* array
+Important difference between array and hash patterns behavior is arrays match only a *whole* array
 
 
 ```ruby
@@ -119,8 +105,7 @@ end
 #=> "not matched"
 ```
 
-while the hash matches even if there are other keys besides specified
-part:
+while the hash matches even if there are other keys besides specified part:
 
 
 ```ruby
@@ -133,9 +118,7 @@ end
 #=> "matched"
 ```
 
-There is also a way to specify there should be no other keys in the
-matched hash except those explicitly specified by pattern, with
-`**nil`: 
+There is also a way to specify there should be no other keys in the matched hash except those explicitly specified by pattern, with `**nil`: 
 
 ```ruby
 case {a: 1, b: 2}
@@ -170,8 +153,7 @@ end
 #=> "matched"
 ```
 
-In `case` (but not in standalone `in`) statement, parentheses around
-both kinds of patterns could be omitted
+In `case` (but not in standalone `in`) statement, parentheses around both kinds of patterns could be omitted
 
 
 ```ruby
@@ -194,12 +176,7 @@ end
 
 ### Variable binding[](#variable-binding)
 
-Besides deep structural checks, one of the very important features of
-the pattern matching is the binding of the matched parts to local
-variables. The basic form of binding is just specifying `=>
-variable_name` after the matched (sub)pattern (one might find this
-similar to storing exceptions in local variables in `rescue
-ExceptionClass => var` clause):
+Besides deep structural checks, one of the very important features of the pattern matching is the binding of the matched parts to local variables. The basic form of binding is just specifying `=> variable_name` after the matched (sub)pattern (one might find this similar to storing exceptions in local variables in `rescue ExceptionClass => var` clause):
 
 
 ```ruby
@@ -220,8 +197,7 @@ end
 #=> "matched: 1"
 ```
 
-If no additional check is required, only binding some part of the data
-to a variable, a simpler form could be used:
+If no additional check is required, only binding some part of the data to a variable, a simpler form could be used:
 
 
 ```ruby
@@ -242,8 +218,7 @@ end
 #=> "matched: 1"
 ```
 
-For hash patterns, even a simpler form exists: key-only specification
-(without any value) binds the local variable with the key's name, too:
+For hash patterns, even a simpler form exists: key-only specification (without any value) binds the local variable with the key's name, too:
 
 
 ```ruby
@@ -290,8 +265,7 @@ end
 #=> "matched: 1, {:b=>2, :c=>3}"
 ```
 
-Binding to variables currently does NOT work for alternative patterns
-joined with `|`: 
+Binding to variables currently does NOT work for alternative patterns joined with `|`: 
 
 ```ruby
 case {a: 1, b: 2}
@@ -305,8 +279,7 @@ end
 
 ### Variable pinning[](#variable-pinning)
 
-Due to variable binding feature, existing local variable can't be
-straightforwardly used as a sub-pattern:
+Due to variable binding feature, existing local variable can't be straightforwardly used as a sub-pattern:
 
 
 ```ruby
@@ -322,8 +295,7 @@ end
 # real: "matched. expectation was: 1" -- local variable just rewritten
 ```
 
-For this case, "variable pinning" operator `^` can be used, to tell Ruby
-"just use this value as a part of pattern"
+For this case, "variable pinning" operator `^` can be used, to tell Ruby "just use this value as a part of pattern"
 
 
 ```ruby
@@ -337,8 +309,7 @@ end
 #=> "not matched. expectation was: 18"
 ```
 
-One important usage of variable pinning is specifying the same value
-should happen in the pattern several times:
+One important usage of variable pinning is specifying the same value should happen in the pattern several times:
 
 
 ```ruby
@@ -364,10 +335,7 @@ end
 
 ### Matching non-primitive objects: `deconstruct_keys` and `deconstruct`[](#matching-non-primitive-objects-deconstructkeys-and-deconstruct)
 
-As already mentioned above, hash and array patterns besides literal
-arrays and hashes will try to match any object implementing
-`deconstruct` (for array patterns) or `deconstruct_keys` (for hash
-patterns).
+As already mentioned above, hash and array patterns besides literal arrays and hashes will try to match any object implementing `deconstruct` (for array patterns) or `deconstruct_keys` (for hash patterns).
 
 
 ```ruby
@@ -406,13 +374,9 @@ end
 #=> "matched: 1"
 ```
 
-`keys` are passed to `deconstruct_keys` to provide a room for
-optimization in the matched class: if calculating a full hash
-representation is expensive, one may calculate only the necessary
-subhash.
+`keys` are passed to `deconstruct_keys` to provide a room for optimization in the matched class: if calculating a full hash representation is expensive, one may calculate only the necessary subhash.
 
-Additionally, when matching custom classes, expected class could be
-specified as a part of the pattern and is checked with `===`
+Additionally, when matching custom classes, expected class could be specified as a part of the pattern and is checked with `===`
 
 
 ```ruby
@@ -438,8 +402,7 @@ end
 
 ### Guard clauses[](#guard-clauses)
 
-`if` can be used to attach an additional condition (guard clause) when
-the pattern matches
+`if` can be used to attach an additional condition (guard clause) when the pattern matches
 
 
 ```ruby
@@ -475,9 +438,7 @@ end
 
 ### Current feature status[](#current-feature-status)
 
-As of Ruby 2.7, feature is considered *experimental*\: its syntax can
-change in the future, and the performance is not optimized yet. Every
-time you use pattern matching in code, the warning will be printed:
+As of Ruby 2.7, feature is considered *experimental*\: its syntax can change in the future, and the performance is not optimized yet. Every time you use pattern matching in code, the warning will be printed:
 
 
 ```ruby
@@ -485,8 +446,7 @@ time you use pattern matching in code, the warning will be printed:
 # warning: Pattern matching is experimental, and the behavior may change in future versions of Ruby!
 ```
 
-To suppress this warning, one may use newly introduced Warning::\[\]=
-method:
+To suppress this warning, one may use newly introduced Warning::\[\]= method:
 
 
 ```ruby
@@ -495,13 +455,9 @@ Warning[:experimental] = false
 # ...no warning printed...
 ```
 
-Alternatively, command-line key `-W:no-experimental` can be used to turn
-off "experimental" feature warnings.
+Alternatively, command-line key `-W:no-experimental` can be used to turn off "experimental" feature warnings.
 
-One of the things developer should be aware of, which probably to be
-fixed in the upcoming versions, is that pattern matching statement
-rewrites mentioned local variables on partial match, *even if the whole
-pattern is not matched*.
+One of the things developer should be aware of, which probably to be fixed in the upcoming versions, is that pattern matching statement rewrites mentioned local variables on partial match, *even if the whole pattern is not matched*.
 
 
 ```ruby
@@ -527,8 +483,7 @@ a
 #=> 1  -- the whole pattern not matched, but partial match happened, a is rewritten
 ```
 
-Currently, the only core class implementing `deconstruct` and
-`deconstruct_keys` is Struct.
+Currently, the only core class implementing `deconstruct` and `deconstruct_keys` is Struct.
 
 
 ```ruby

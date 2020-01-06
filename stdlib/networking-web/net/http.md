@@ -11,14 +11,9 @@ require 'net/http'
 
 ## Net::HTTP[](#nethttp)
 
-Net::HTTP provides a rich library which can be used to build HTTP
-user-agents. For more details about HTTP see <a
-href='http://www.ietf.org/rfc/rfc2616.txt' class='remote'
-target='_blank'>RFC2616</a>.
+Net::HTTP provides a rich library which can be used to build HTTP user-agents. For more details about HTTP see <a href='http://www.ietf.org/rfc/rfc2616.txt' class='remote' target='_blank'>RFC2616</a>.
 
-Net::HTTP is designed to work closely with URI. `URI::HTTP#host`,
-U`RI::HTTP#port` and `URI::HTTP#request_uri` are designed to work with
-Net::HTTP.
+Net::HTTP is designed to work closely with URI. `URI::HTTP#host`, U`RI::HTTP#port` and `URI::HTTP#request_uri` are designed to work with Net::HTTP.
 
 If you are only performing a few GET requests you should try OpenURI.
 
@@ -33,9 +28,7 @@ require 'net/http'
 
 This will also require 'uri' so you don't need to require it separately.
 
-The Net::HTTP methods in the following section do not persist
-connections. They are not recommended if you are performing many HTTP
-requests.
+The Net::HTTP methods in the following section do not persist connections. They are not recommended if you are performing many HTTP requests.
 
 #### GET[](#get)
 
@@ -84,9 +77,7 @@ puts res.body
 
 ### How to use Net::HTTP[](#how-to-use-nethttp)
 
-The following example code can be used as the basis of an HTTP
-user-agent which can perform a variety of request types using persistent
-connections.
+The following example code can be used as the basis of an HTTP user-agent which can perform a variety of request types using persistent connections.
 
 
 ```ruby
@@ -99,21 +90,13 @@ Net::HTTP.start(uri.host, uri.port) do |http|
 end
 ```
 
-Net::HTTP::start immediately creates a connection to an HTTP server
-which is kept open for the duration of the block. The connection will
-remain open for multiple requests in the block if the server indicates
-it supports persistent connections.
+Net::HTTP::start immediately creates a connection to an HTTP server which is kept open for the duration of the block. The connection will remain open for multiple requests in the block if the server indicates it supports persistent connections.
 
-If you wish to re-use a connection across multiple HTTP requests without
-automatically closing it you can use ::new and then call `#start` and
-`#finish` manually.
+If you wish to re-use a connection across multiple HTTP requests without automatically closing it you can use ::new and then call `#start` and `#finish` manually.
 
-The request types Net::HTTP supports are listed below in the section
-"HTTP Request Classes".
+The request types Net::HTTP supports are listed below in the section "HTTP Request Classes".
 
-For all the Net::HTTP request objects and shortcut request methods you
-may supply either a String for the request path or a URI from which
-Net::HTTP will extract the request path.
+For all the Net::HTTP request objects and shortcut request methods you may supply either a String for the request path or a URI from which Net::HTTP will extract the request path.
 
 #### Response Data[](#response-data)
 
@@ -141,14 +124,9 @@ puts res.body if res.response_body_permitted?
 
 Each Net::HTTPResponse object belongs to a class for its response code.
 
-For example, all 2XX responses are instances of a Net::HTTPSuccess
-subclass, a 3XX response is an instance of a Net::HTTPRedirection
-subclass and a 200 response is an instance of the Net::HTTPOK class. For
-details of response classes, see the section "HTTP Response Classes"
-below.
+For example, all 2XX responses are instances of a Net::HTTPSuccess subclass, a 3XX response is an instance of a Net::HTTPRedirection subclass and a 200 response is an instance of the Net::HTTPOK class. For details of response classes, see the section "HTTP Response Classes" below.
 
-Using a case statement you can handle various types of responses
-properly:
+Using a case statement you can handle various types of responses properly:
 
 
 ```ruby
@@ -175,8 +153,7 @@ print fetch('http://www.ruby-lang.org')
 
 #### POST[](#post-1)
 
-A POST can be made using the Net::HTTP::Post request class. This example
-creates a URL encoded POST body:
+A POST can be made using the Net::HTTP::Post request class. This example creates a URL encoded POST body:
 
 
 ```ruby
@@ -203,15 +180,11 @@ req = Net::HTTP::Post.new(uri)
 req.set_form([['upload', File.open('foo.bar')]], 'multipart/form-data')
 ```
 
-Other requests that can contain a body such as PUT can be created in the
-same way using the corresponding request class (Net::HTTP::Put).
+Other requests that can contain a body such as PUT can be created in the same way using the corresponding request class (Net::HTTP::Put).
 
 #### Setting Headers[](#setting-headers)
 
-The following example performs a conditional GET using the
-If-Modified-Since header. If the files has not been modified since the
-time in the header a Not Modified response will be returned. See RFC
-2616 section 9.3 for further details.
+The following example performs a conditional GET using the If-Modified-Since header. If the files has not been modified since the time in the header a Not Modified response will be returned. See RFC 2616 section 9.3 for further details.
 
 
 ```ruby
@@ -232,9 +205,7 @@ end if res.is_a?(Net::HTTPSuccess)
 
 #### Basic Authentication[](#basic-authentication)
 
-Basic authentication is performed according to <a
-href='http://www.ietf.org/rfc/rfc2617.txt' class='remote'
-target='_blank'>RFC2617</a>.
+Basic authentication is performed according to <a href='http://www.ietf.org/rfc/rfc2617.txt' class='remote' target='_blank'>RFC2617</a>.
 
 
 ```ruby
@@ -251,9 +222,7 @@ puts res.body
 
 #### Streaming Response Bodies[](#streaming-response-bodies)
 
-By default Net::HTTP reads an entire response into memory. If you are
-handling large files or wish to implement a progress bar you can instead
-stream the body directly to an IO.
+By default Net::HTTP reads an entire response into memory. If you are handling large files or wish to implement a progress bar you can instead stream the body directly to an IO.
 
 
 ```ruby
@@ -286,9 +255,7 @@ Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
 end
 ```
 
-Or if you simply want to make a GET request, you may pass in an URI
-object that has an HTTPS URL. Net::HTTP automatically turns on TLS
-verification if the URI object has a 'https' URI scheme.
+Or if you simply want to make a GET request, you may pass in an URI object that has an HTTPS URL. Net::HTTP automatically turns on TLS verification if the URI object has a 'https' URI scheme.
 
 
 ```ruby
@@ -296,14 +263,11 @@ uri = URI('https://example.com/')
 Net::HTTP.get(uri) # => String
 ```
 
-In previous versions of Ruby you would need to require 'net/https' to
-use HTTPS. This is no longer true.
+In previous versions of Ruby you would need to require 'net/https' to use HTTPS. This is no longer true.
 
 #### Proxies[](#proxies)
 
-Net::HTTP will automatically create a proxy from the `http_proxy`
-environment variable if it is present. To disable use of `http_proxy`,
-pass `nil` for the proxy address.
+Net::HTTP will automatically create a proxy from the `http_proxy` environment variable if it is present. To disable use of `http_proxy`, pass `nil` for the proxy address.
 
 You may also create a custom proxy:
 
@@ -317,21 +281,15 @@ Net::HTTP.new('example.com', nil, proxy_addr, proxy_port).start { |http|
 }
 ```
 
-See Net::HTTP.new for further details and examples such as proxies that
-require a username and password.
+See Net::HTTP.new for further details and examples such as proxies that require a username and password.
 
 #### Compression[](#compression)
 
-Net::HTTP automatically adds Accept-Encoding for compression of response
-bodies and automatically decompresses gzip and deflate responses unless
-a Range header was sent.
+Net::HTTP automatically adds Accept-Encoding for compression of response bodies and automatically decompresses gzip and deflate responses unless a Range header was sent.
 
-Compression can be disabled through the Accept-Encoding: identity
-header.
+Compression can be disabled through the Accept-Encoding: identity header.
 
-<a
-href='https://ruby-doc.org/stdlib-2.7.0/libdoc/net/http/rdoc/Net/HTTP.html'
-class='ruby-doc remote' target='_blank'>Net::HTTP Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/net/http/rdoc/Net/HTTP.html' class='ruby-doc remote' target='_blank'>Net::HTTP Reference</a>
 
 
 

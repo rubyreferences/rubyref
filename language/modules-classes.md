@@ -6,23 +6,13 @@ next: "/language/exceptions.html"
 
 ## Modules[](#modules)
 
-Modules serve two purposes in Ruby, namespacing and mix-in
-functionality.
+Modules serve two purposes in Ruby, namespacing and mix-in functionality.
 
-A namespace can be used to organize code by package or functionality
-that separates common names from interference by other packages. For
-example, the IRB namespace provides functionality for irb that prevents
-a collision for the common name "Context".
+A namespace can be used to organize code by package or functionality that separates common names from interference by other packages. For example, the IRB namespace provides functionality for irb that prevents a collision for the common name "Context".
 
-Mix-in functionality allows sharing common methods across multiple
-classes or modules. Ruby comes with the Enumerable mix-in module which
-provides many enumeration methods based on the `each` method and
-Comparable allows comparison of objects based on the `<=>` comparison
-method.
+Mix-in functionality allows sharing common methods across multiple classes or modules. Ruby comes with the Enumerable mix-in module which provides many enumeration methods based on the `each` method and Comparable allows comparison of objects based on the `<=>` comparison method.
 
-Note that there are many similarities between modules and classes.
-Besides the ability to mix-in a module, the description of modules below
-also applies to classes.
+Note that there are many similarities between modules and classes. Besides the ability to mix-in a module, the description of modules below also applies to classes.
 
 ### Module Definition[](#module-definition)
 
@@ -35,8 +25,7 @@ module MyModule
 end
 ```
 
-A module may be reopened any number of times to add, change or remove
-functionality:
+A module may be reopened any number of times to add, change or remove functionality:
 
 
 ```ruby
@@ -54,9 +43,7 @@ module MyModule
 end
 ```
 
-Reopening classes is a very powerful feature of Ruby, but it is best to
-only reopen classes you own. Reopening classes you do not own may lead
-to naming conflicts or difficult to diagnose bugs.
+Reopening classes is a very powerful feature of Ruby, but it is best to only reopen classes you own. Reopening classes you do not own may lead to naming conflicts or difficult to diagnose bugs.
 
 ### Nesting[](#nesting)
 
@@ -70,11 +57,9 @@ module Outer
 end
 ```
 
-Many packages create a single outermost module (or class) to provide a
-namespace for their functionality.
+Many packages create a single outermost module (or class) to provide a namespace for their functionality.
 
-You may also define inner modules using `::` provided the outer modules
-(or classes) are already defined:
+You may also define inner modules using `::` provided the outer modules (or classes) are already defined:
 
 
 ```ruby
@@ -82,27 +67,19 @@ module Outer::Inner::GrandChild
 end
 ```
 
-Note that this will raise a `NameError` if `Outer` and `Outer::Inner`
-are not already defined.
+Note that this will raise a `NameError` if `Outer` and `Outer::Inner` are not already defined.
 
-This style has the benefit of allowing the author to reduce the amount
-of indentation. Instead of 3 levels of indentation only one is
-necessary. However, the scope of constant lookup is different for
-creating a namespace using this syntax instead of the more verbose
-syntax.
+This style has the benefit of allowing the author to reduce the amount of indentation. Instead of 3 levels of indentation only one is necessary. However, the scope of constant lookup is different for creating a namespace using this syntax instead of the more verbose syntax.
 
 ### Scope[](#scope)
 
 #### `self`[](#self)
 
-`self` refers to the object that defines the current scope. `self` will
-change when entering a different method or when defining a new module.
+`self` refers to the object that defines the current scope. `self` will change when entering a different method or when defining a new module.
 
 #### Constants[](#constants)
 
-Accessible constants are different depending on the module nesting
-(which syntax was used to define the module). In the following example
-the constant `A::Z` is accessible from B as A is part of the nesting:
+Accessible constants are different depending on the module nesting (which syntax was used to define the module). In the following example the constant `A::Z` is accessible from B as A is part of the nesting:
 
 
 ```ruby
@@ -116,9 +93,7 @@ module A
 end
 ```
 
-However, if you use `::` to define `A::B` without nesting it inside `A`,
-a NameError exception will be raised because the nesting does not
-include `A`: 
+However, if you use `::` to define `A::B` without nesting it inside `A`, a NameError exception will be raised because the nesting does not include `A`: 
 
 ```ruby
 module A
@@ -131,8 +106,7 @@ module A::B
 end
 ```
 
-If a constant is defined at the top-level you may preceded it with `::`
-to reference it:
+If a constant is defined at the top-level you may preceded it with `::` to reference it:
 
 
 ```ruby
@@ -149,20 +123,13 @@ end
 
 #### Methods[](#methods)
 
-For method definition documentation see the [syntax documentation for
-methods](methods-def.md).
+For method definition documentation see the [syntax documentation for methods](methods-def.md).
 
-Class methods may be called directly. (This is slightly confusing, but a
-method on a module is often called a "class method" instead of a "module
-method". See also `Module#module_function` which can convert an instance
-method into a class method.)
+Class methods may be called directly. (This is slightly confusing, but a method on a module is often called a "class method" instead of a "module method". See also `Module#module_function` which can convert an instance method into a class method.)
 
-When a class method references a constant, it uses the same rules as
-referencing it outside the method as the scope is the same.
+When a class method references a constant, it uses the same rules as referencing it outside the method as the scope is the same.
 
-Instance methods defined in a module are only callable when included.
-These methods have access to the constants defined when they were
-included through the ancestors list:
+Instance methods defined in a module are only callable when included. These methods have access to the constants defined when they were included through the ancestors list:
 
 
 ```ruby
@@ -182,17 +149,11 @@ p z #=> 1
 
 #### Visibility[](#visibility)
 
-Ruby has three types of visibility. The default is `public`. A public
-method may be called from any other object.
+Ruby has three types of visibility. The default is `public`. A public method may be called from any other object.
 
-The second visibility is `protected`. When calling a protected method
-the sender must be a subclass of the receiver or the receiver must be a
-subclass of the sender. Otherwise a NoMethodError will be raised.
+The second visibility is `protected`. When calling a protected method the sender must be a subclass of the receiver or the receiver must be a subclass of the sender. Otherwise a NoMethodError will be raised.
 
-Protected visibility is most frequently used to define `==` and other
-comparison methods where the author does not wish to expose an object's
-state to any caller and would like to restrict it only to inherited
-classes.
+Protected visibility is most frequently used to define `==` and other comparison methods where the author does not wish to expose an object's state to any caller and would like to restrict it only to inherited classes.
 
 Here is an example:
 
@@ -225,13 +186,9 @@ b.n b #=> 1 -- m called on defining class
 a.n b # raises NoMethodError A is not a subclass of B
 ```
 
-The third visibility is `private`. A private method may only be called
-from inside the owner class without a receiver, or with a literal `self`
-as a receiver. If a private method is called with a receiver other than
-a literal `self`, a NoMethodError will be raised.
+The third visibility is `private`. A private method may only be called from inside the owner class without a receiver, or with a literal `self` as a receiver. If a private method is called with a receiver other than a literal `self`, a NoMethodError will be raised.
 
-There are three ways to define method's visibility, the first one being
-most used:
+There are three ways to define method's visibility, the first one being most used:
 
 
 ```ruby
@@ -273,13 +230,9 @@ private def private_method2
 end
 ```
 
-The third one is in fact the same as the second (passing method name to
-`private`), just utilizing the fact that `def` is an expression
-returning method name.
+The third one is in fact the same as the second (passing method name to `private`), just utilizing the fact that `def` is an expression returning method name.
 
-Note also that `public`, `private` and `protected` are not, in fact,
-keywords or some special syntax, they are just regular methods of
-[Module](../builtin/core/module-class.md#module) class.
+Note also that `public`, `private` and `protected` are not, in fact, keywords or some special syntax, they are just regular methods of [Module](../builtin/core/module-class.md#module) class.
 
 
 ```ruby
@@ -317,16 +270,11 @@ a.with_renamed # NoMethodError (private method `m` called for #<A:0x0000559c285f
 
 #### `alias` and `undef`[](#alias-and-undef)
 
-You may also alias or undefine methods, but these operations are not
-restricted to modules or classes. See the [miscellaneous syntax
-section](misc.md) for documentation.
+You may also alias or undefine methods, but these operations are not restricted to modules or classes. See the [miscellaneous syntax section](misc.md) for documentation.
 
 ## Classes[](#classes)
 
-Every class is also a module, but unlike modules a class may not be
-mixed-in to another module (or class). Like a module, a class can be
-used as a namespace. A class also inherits methods and constants from
-its superclass.
+Every class is also a module, but unlike modules a class may not be mixed-in to another module (or class). Like a module, a class can be used as a namespace. A class also inherits methods and constants from its superclass.
 
 ### Defining a class[](#defining-a-class)
 
@@ -339,9 +287,7 @@ class MyClass
 end
 ```
 
-If you do not supply a superclass your new class will inherit from
-Object. You may inherit from a different class using `<` followed by a
-class name:
+If you do not supply a superclass your new class will inherit from Object. You may inherit from a different class using `<` followed by a class name:
 
 
 ```ruby
@@ -350,10 +296,7 @@ class MySubclass < MyClass
 end
 ```
 
-There is a special class BasicObject which is designed as a blank class
-and includes a minimum of built-in methods. You can use BasicObject to
-create an independent inheritance structure. See the BasicObject
-documentation for further details.
+There is a special class BasicObject which is designed as a blank class and includes a minimum of built-in methods. You can use BasicObject to create an independent inheritance structure. See the BasicObject documentation for further details.
 
 ### Inheritance[](#inheritance)
 
@@ -392,8 +335,7 @@ end
 p B.new.z #=> 1
 ```
 
-You can override the functionality of a superclass method by redefining
-the method:
+You can override the functionality of a superclass method by redefining the method:
 
 
 ```ruby
@@ -412,8 +354,7 @@ end
 p B.new.m #=> 2
 ```
 
-If you wish to invoke the superclass functionality from a method use
-`super`: 
+If you wish to invoke the superclass functionality from a method use `super`: 
 
 ```ruby
 class A
@@ -431,19 +372,13 @@ end
 p B.new.m #=> 3
 ```
 
-When used without any arguments `super` uses the arguments given to the
-subclass method. To send no arguments to the superclass method use
-`super()`. To send specific arguments to the superclass method provide
-them manually like `super(2)`.
+When used without any arguments `super` uses the arguments given to the subclass method. To send no arguments to the superclass method use `super()`. To send specific arguments to the superclass method provide them manually like `super(2)`.
 
 `super` may be called as many times as you like in the subclass method.
 
 ## Singleton Classes[](#singleton-classes)
 
-The singleton class (also known as the metaclass or eigenclass) of an
-object is a class that holds methods for only that instance. You can
-access the singleton class of an object using `class << object` like
-this:
+The singleton class (also known as the metaclass or eigenclass) of an object is a class that holds methods for only that instance. You can access the singleton class of an object using `class << object` like this:
 
 
 ```ruby
@@ -466,11 +401,9 @@ class C
 end
 ```
 
-This allows definition of methods and attributes on a class (or module)
-without needing to write `def self.my_method`.
+This allows definition of methods and attributes on a class (or module) without needing to write `def self.my_method`.
 
-Since you can open the singleton class of any object this means that
-this code block:
+Since you can open the singleton class of any object this means that this code block:
 
 
 ```ruby

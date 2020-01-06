@@ -6,8 +6,7 @@ next: "/language/misc.html"
 
 ## Precedence[](#precedence)
 
-From highest to lowest, this is the precedence table for ruby. High
-precedence operations happen before low precedence operations.
+From highest to lowest, this is the precedence table for ruby. High precedence operations happen before low precedence operations.
 
 
 ```
@@ -56,20 +55,16 @@ modifier-if, modifier-unless, modifier-while, modifier-until
 
 Unary `+` and unary `-` are for `+1`, `-1` or `-(a + b)`.
 
-Modifier-if, modifier-unless, etc. are for the modifier versions of
-those keywords. For example, this is a modifier-unless statement:
+Modifier-if, modifier-unless, etc. are for the modifier versions of those keywords. For example, this is a modifier-unless statement:
 
 
 ```ruby
 a += 1 unless a.zero?
 ```
 
-Note that `(a if b rescue c)` is parsed as `((a if b) rescue c)` due to
-reasons not related to precedence. See [modifier
-statements](control-expressions.md#modifier-statements).
+Note that `(a if b rescue c)` is parsed as `((a if b) rescue c)` due to reasons not related to precedence. See [modifier statements](control-expressions.md#modifier-statements).
 
-`{ ... }` blocks have priority below all listed operations, but `do ...
-end` blocks have lower priority.
+`{ ... }` blocks have priority below all listed operations, but `do ... end` blocks have lower priority.
 
 All other words in the precedence table above are keywords.
 

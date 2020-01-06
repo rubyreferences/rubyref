@@ -12,21 +12,15 @@ next: "/language/assignment.html"
 
 
 
-A local variable name must start with a lowercase US-ASCII letter or a
-character with the eight bit set. Typically local variables are US-ASCII
-compatible since the keys to type them exist on all keyboards.
+A local variable name must start with a lowercase US-ASCII letter or a character with the eight bit set. Typically local variables are US-ASCII compatible since the keys to type them exist on all keyboards.
 
-(Ruby programs must be written in a US-ASCII-compatible character set.
-In such character sets if the eight bit is set it indicates an extended
-character. Ruby allows local variables to contain such characters.)
+(Ruby programs must be written in a US-ASCII-compatible character set. In such character sets if the eight bit is set it indicates an extended character. Ruby allows local variables to contain such characters.)
 
-A local variable name may contain letters, numbers, an `_` (underscore
-or low line) or a character with the eighth bit set.
+A local variable name may contain letters, numbers, an `_` (underscore or low line) or a character with the eighth bit set.
 
 #### Local Variable Scope[](#local-variable-scope)
 
-Once a local variable name has been assigned-to all uses of the name for
-the rest of the scope are considered local variables.
+Once a local variable name has been assigned-to all uses of the name for the rest of the scope are considered local variables.
 
 Here is an example:
 
@@ -48,8 +42,7 @@ local variables in the block: a
 no local variables outside the block
 ```
 
-Since the block creates a new scope, any local variables created inside
-it do not leak to the surrounding scope.
+Since the block creates a new scope, any local variables created inside it do not leak to the surrounding scope.
 
 Variables defined in an outer scope appear inner scope:
 
@@ -69,23 +62,15 @@ This prints:
 local variables: a
 ```
 
-You may isolate variables in a block from the outer scope by listing
-them following a `;` in the block's arguments. See the documentation for
-block local variables in the [calling methods](methods-call.md)
-documentation for an example.
+You may isolate variables in a block from the outer scope by listing them following a `;` in the block's arguments. See the documentation for block local variables in the [calling methods](methods-call.md) documentation for an example.
 
-See also `Kernel#local_variables`, but note that a `for` loop does not
-create a new scope like a block does.
+See also `Kernel#local_variables`, but note that a `for` loop does not create a new scope like a block does.
 
 #### Local Variables and Methods[](#local-variables-and-methods)
 
-In Ruby local variable names and method names are nearly identical. If
-you have not assigned to one of these ambiguous names ruby will assume
-you wish to call a method. Once you have assigned to the name ruby will
-assume you wish to reference a local variable.
+In Ruby local variable names and method names are nearly identical. If you have not assigned to one of these ambiguous names ruby will assume you wish to call a method. Once you have assigned to the name ruby will assume you wish to reference a local variable.
 
-The local variable is created when the parser encounters the assignment,
-not when the assignment occurs:
+The local variable is created when the parser encounters the assignment, not when the assignment occurs:
 
 
 ```ruby
@@ -96,8 +81,7 @@ p local_variables # prints [:a]
 p a # prints nil
 ```
 
-The similarity between method and local variable names can lead to
-confusing code, for example:
+The similarity between method and local variable names can lead to confusing code, for example:
 
 
 ```ruby
@@ -108,13 +92,9 @@ end
 big_calculation = big_calculation()
 ```
 
-Now any reference to `big_calculation` is considered a local variable
-and will be cached. To call the method, use `self.big_calculation`.
+Now any reference to `big_calculation` is considered a local variable and will be cached. To call the method, use `self.big_calculation`.
 
-You can force a method call by using empty argument parentheses as shown
-above or by using an explicit receiver like `self`. Using an explicit
-receiver may raise a NameError if the method's visibility is not public
-or the receiver is the literal `self`.
+You can force a method call by using empty argument parentheses as shown above or by using an explicit receiver like `self`. Using an explicit receiver may raise a NameError if the method's visibility is not public or the receiver is the literal `self`.
 
 Another commonly confusing case is when using a modifier `if`: 
 
@@ -122,15 +102,9 @@ Another commonly confusing case is when using a modifier `if`:
 p a if a = 0.zero?
 ```
 
-Rather than printing "true" you receive a NameError, "undefined local
-variable or method `a`". Since ruby parses the bare `a` left of the `if`
-first and has not yet seen an assignment to `a` it assumes you wish to
-call a method. Ruby then sees the assignment to `a` and will assume you
-are referencing a local method.
+Rather than printing "true" you receive a NameError, "undefined local variable or method `a`". Since ruby parses the bare `a` left of the `if` first and has not yet seen an assignment to `a` it assumes you wish to call a method. Ruby then sees the assignment to `a` and will assume you are referencing a local method.
 
-The confusion comes from the out-of-order execution of the expression.
-First the local variable is assigned-to then you attempt to call a
-nonexistent method.
+The confusion comes from the out-of-order execution of the expression. First the local variable is assigned-to then you attempt to call a nonexistent method.
 
 
 
@@ -138,10 +112,7 @@ nonexistent method.
 
 Instance variables are shared across all methods for the same object.
 
-An instance variable must start with a `@` ("at" sign or commercial at).
-Otherwise instance variable names follow the rules as local variable
-names. Since the instance variable starts with an `@` the second
-character may be an upper-case letter.
+An instance variable must start with a `@` ("at" sign or commercial at). Otherwise instance variable names follow the rules as local variable names. Since the instance variable starts with an `@` the second character may be an upper-case letter.
 
 Here is an example of instance variable usage:
 
@@ -164,20 +135,15 @@ p object1.value # prints "some value"
 p object2.value # prints "other value"
 ```
 
-An uninitialized instance variable has a value of `nil`. If you run Ruby
-with warnings enabled, you will get a warning when accessing an
-uninitialized instance variable.
+An uninitialized instance variable has a value of `nil`. If you run Ruby with warnings enabled, you will get a warning when accessing an uninitialized instance variable.
 
-The `value` method has access to the value set by the `initialize`
-method, but only for the same object.
+The `value` method has access to the value set by the `initialize` method, but only for the same object.
 
 ### Class Variables[](#class-variables)
 
-Class variables are shared between a class, its subclasses and its
-instances.
+Class variables are shared between a class, its subclasses and its instances.
 
-A class variable must start with a `@@` (two "at" signs). The rest of
-the name follows the same rules as instance variables.
+A class variable must start with a `@@` (two "at" signs). The rest of the name follows the same rules as instance variables.
 
 Here is an example:
 
@@ -216,8 +182,7 @@ A value: 0
 B value: 0
 ```
 
-Continuing with the same example, we can update using objects from
-either class and the value is shared:
+Continuing with the same example, we can update using objects from either class and the value is shared:
 
 
 ```ruby
@@ -255,18 +220,15 @@ A value: 4
 B value: 4
 ```
 
-Accessing an uninitialized class variable will raise a NameError
-exception.
+Accessing an uninitialized class variable will raise a NameError exception.
 
-Note that classes have instance variables because classes are objects,
-so try not to confuse class and instance variables.
+Note that classes have instance variables because classes are objects, so try not to confuse class and instance variables.
 
 ### Global Variables[](#global-variables)
 
 Global variables are accessible everywhere.
 
-Global variables start with a `$` (dollar sign). The rest of the name
-follows the same rules as instance variables.
+Global variables start with a `$` (dollar sign). The rest of the name follows the same rules as instance variables.
 
 Here is an example:
 
@@ -301,17 +263,13 @@ at top-level, $global: 1, $other_global: 3
 
 An uninitialized global variable has a value of `nil`.
 
-Ruby has some special globals that behave differently depending on
-context such as the regular expression match variables or that have a
-side-effect when assigned to. See the [global variables
-documentation](globals.md) for details.
+Ruby has some special globals that behave differently depending on context such as the regular expression match variables or that have a side-effect when assigned to. See the [global variables documentation](globals.md) for details.
 
 
 
 ### Constants[](#constants)
 
-Constants are defined by assigning a value to any identifier starting
-with an **upper-case letter**\:
+Constants are defined by assigning a value to any identifier starting with an **upper-case letter**\:
 
 
 ```ruby
@@ -319,9 +277,7 @@ X = 1
 NAMES = %w[Bob Jane Jim]
 ```
 
-Class and module definitions (see [Modules and
-Classes](modules-classes.md)) also define constants, assigned
-to the class/module name:
+Class and module definitions (see [Modules and Classes](modules-classes.md)) also define constants, assigned to the class/module name:
 
 
 ```ruby
@@ -334,6 +290,5 @@ A = Class.new do
 end
 ```
 
-See also: [Constants scoping](modules-classes.md#constants)
-section in "Modules and Classes" chapter.
+See also: [Constants scoping](modules-classes.md#constants) section in "Modules and Classes" chapter.
 

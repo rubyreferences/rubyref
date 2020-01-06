@@ -11,10 +11,7 @@ require 'net/ftp'
 
 ## Net::FTP[](#netftp)
 
-This class implements the File Transfer Protocol. If you have used a
-command-line FTP program, and are familiar with the commands, you will
-be able to use this class easily. Some extra features are included to
-take advantage of Ruby's style and strengths.
+This class implements the File Transfer Protocol. If you have used a command-line FTP program, and are familiar with the commands, you will be able to use this class easily. Some extra features are included to take advantage of Ruby's style and strengths.
 
 
 ```ruby
@@ -38,7 +35,5 @@ Net::FTP.open('example.com') do |ftp|
 end
 ```
 
-<a
-href='https://ruby-doc.org/stdlib-2.7.0/libdoc/net/ftp/rdoc/Net/FTP.html'
-class='ruby-doc remote' target='_blank'>Net::FTP Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/net/ftp/rdoc/Net/FTP.html' class='ruby-doc remote' target='_blank'>Net::FTP Reference</a>
 

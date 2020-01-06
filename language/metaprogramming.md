@@ -6,26 +6,18 @@ next: "/builtin.html"
 
 ## Metaprogramming and Domain-Specific Languages[](#metaprogramming-and-domain-specific-languages)
 
-This chapter briefly investigates two advanced concepts which Ruby
-provides: metaprogramming and building domain-specific languages which
-are also valid Ruby code.
+This chapter briefly investigates two advanced concepts which Ruby provides: metaprogramming and building domain-specific languages which are also valid Ruby code.
 
 ### Metaprogramming[](#metaprogramming)
 
-Ruby is known to have very powerful **metaprogramming** capabilities,
-that is, defining language structures (classes, modules, methods) at
-runtime. Unlike many other languages, Ruby's metaprogramming does not
-use special constructs different from "normal" programming, like macros,
-decorators or templates. The power of Ruby's metaprogramming comes from
-two facts:
+Ruby is known to have very powerful **metaprogramming** capabilities, that is, defining language structures (classes, modules, methods) at runtime. Unlike many other languages, Ruby's metaprogramming does not use special constructs different from "normal" programming, like macros, decorators or templates. The power of Ruby's metaprogramming comes from two facts:
 
 * Everything is an object;
 * Core classes are hackable.
 
 #### Everything is an object[](#everything-is-an-object)
 
-That also includes core language concepts like classes and methods. They
-can be inspected and changed at runtime.
+That also includes core language concepts like classes and methods. They can be inspected and changed at runtime.
 
 
 ```ruby
@@ -42,8 +34,7 @@ A.instance_method(:m).parameters #=> [[:req, :x], [:req, :y]]
 
 #### Core classes are hackable[](#core-classes-are-hackable)
 
-Core classes (like `Class`, `Module`, `Method`) provide methods to
-change their behavior and define new concepts with regular Ruby code:
+Core classes (like `Class`, `Module`, `Method`) provide methods to change their behavior and define new concepts with regular Ruby code:
 
 
 ```ruby
@@ -65,8 +56,7 @@ end
 
 #### Metaprogramming example[](#metaprogramming-example)
 
-It is a common pattern to have some variable calculated on first method
-call:
+It is a common pattern to have some variable calculated on first method call:
 
 
 ```ruby
@@ -75,8 +65,7 @@ def value
 end
 ```
 
-With metaprogramming, we can encapsulate this pattern into `memoize`
-method, allowing us to write code like this:
+With metaprogramming, we can encapsulate this pattern into `memoize` method, allowing us to write code like this:
 
 
 ```ruby
@@ -102,20 +91,13 @@ def self.memoize(method_name) # define class-level method receiving method name 
 end
 ```
 
-> **Note**\: This implementation is naive and just shows the principle.
-> See third-party libraries like <a
-> href='https://github.com/matthewrudy/memoist' class='remote'
-> target='_blank'>memoist</a> for a proper implementation.
+> **Note**\: This implementation is naive and just shows the principle. See third-party libraries like <a href='https://github.com/matthewrudy/memoist' class='remote' target='_blank'>memoist</a> for a proper implementation.
 
-See [Language Core](../builtin/core.md) classes documentation to understand
-what you can do with core objects.
+See [Language Core](../builtin/core.md) classes documentation to understand what you can do with core objects.
 
 ### Domain-Specific Languages[](#domain-specific-languages)
 
-Ruby is naturally flexible enough for defining clean and readable
-sublanguages by means of *methods* and *blocks*. Short example (from the
-syntax of the <a href='http://rspec.info/' class='remote'
-target='_blank'>RSpec</a> testing library):
+Ruby is naturally flexible enough for defining clean and readable sublanguages by means of *methods* and *blocks*. Short example (from the syntax of the <a href='http://rspec.info/' class='remote' target='_blank'>RSpec</a> testing library):
 
 
 ```ruby
@@ -130,8 +112,7 @@ RSpec.describe Calculator do
 end
 ```
 
-All components in this example are built with just methods, their
-arguments and blocks:
+All components in this example are built with just methods, their arguments and blocks:
 
 
 ```ruby
@@ -148,7 +129,5 @@ RSpec.describe Calculator do                          # Method RSpec.describe() 
 end
 ```
 
-Note how varying elements of syntax (optional paretheses around method
-arguments and `{}` vs `do / end` around blocks) allows the creation of
-boilerplate-less tests.
+Note how varying elements of syntax (optional paretheses around method arguments and `{}` vs `do / end` around blocks) allows the creation of boilerplate-less tests.
 

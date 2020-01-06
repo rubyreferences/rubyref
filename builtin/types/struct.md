@@ -6,12 +6,9 @@ next: "/builtin/types/times-dates.html"
 
 ## Struct[](#struct)
 
-A Struct is a convenient way to bundle a number of attributes together,
-using accessor methods, without having to write an explicit class.
+A Struct is a convenient way to bundle a number of attributes together, using accessor methods, without having to write an explicit class.
 
-The Struct class generates new subclasses that hold a set of members and
-their values. For each member a reader and writer method is created
-similar to Module#attr\_accessor.
+The Struct class generates new subclasses that hold a set of members and their values. For each member a reader and writer method is created similar to Module#attr\_accessor.
 
 
 ```ruby
@@ -26,27 +23,19 @@ dave.name     #=> "Dave"
 dave.greeting #=> "Hello Dave!"
 ```
 
-See Struct::new for further examples of creating struct subclasses and
-instances.
+See Struct::new for further examples of creating struct subclasses and instances.
 
-In the method descriptions that follow, a "member" parameter refers to a
-struct member which is either a quoted string (`"name"`) or a Symbol
-(`:name`).
+In the method descriptions that follow, a "member" parameter refers to a struct member which is either a quoted string (`"name"`) or a Symbol (`:name`).
 
-<a href='https://ruby-doc.org/core-2.7.0/Struct.html' class='ruby-doc
-remote' target='_blank'>Struct Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/Struct.html' class='ruby-doc remote' target='_blank'>Struct Reference</a>
 
 
 
 ### OpenStruct[](#openstruct)
 
-*Part of standard library. You need to `require 'ostruct'` before
-using.*
+*Part of standard library. You need to `require 'ostruct'` before using.*
 
-An OpenStruct is a data structure, similar to a Hash, that allows the
-definition of arbitrary attributes with their accompanying values. This
-is accomplished by using Ruby's metaprogramming to define methods on the
-class itself.
+An OpenStruct is a data structure, similar to a Hash, that allows the definition of arbitrary attributes with their accompanying values. This is accomplished by using Ruby's metaprogramming to define methods on the class itself.
 
 #### Examples[](#examples)
 
@@ -63,8 +52,7 @@ person.age       # => 70
 person.address   # => nil
 ```
 
-An OpenStruct employs a Hash internally to store the attributes and
-values and can even be initialized with one:
+An OpenStruct employs a Hash internally to store the attributes and values and can even be initialized with one:
 
 
 ```ruby
@@ -72,10 +60,7 @@ australia = OpenStruct.new(:country => "Australia", :capital => "Canberra")
   # => #<OpenStruct country="Australia", capital="Canberra">
 ```
 
-Hash keys with spaces or characters that could normally not be used for
-method calls (e.g. `()[]*`) will not be immediately available on the
-OpenStruct object as a method for retrieval or assignment, but can still
-be reached through the `Object#send` method.
+Hash keys with spaces or characters that could normally not be used for method calls (e.g. `()[]*`) will not be immediately available on the OpenStruct object as a method for retrieval or assignment, but can still be reached through the `Object#send` method.
 
 
 ```ruby
@@ -88,9 +73,7 @@ message.send("queued?=", false)
 message.queued?                           # => false
 ```
 
-Removing the presence of an attribute requires the execution of the
-delete\_field method as setting the property value to `nil` will not
-remove the attribute.
+Removing the presence of an attribute requires the execution of the delete\_field method as setting the property value to `nil` will not remove the attribute.
 
 
 ```ruby
@@ -108,16 +91,9 @@ first_pet == second_pet   # => true
 
 #### Implementation[](#implementation)
 
-An OpenStruct utilizes Ruby's method lookup structure to find and define
-the necessary methods for properties. This is accomplished through the
-methods method\_missing and define\_singleton\_method.
+An OpenStruct utilizes Ruby's method lookup structure to find and define the necessary methods for properties. This is accomplished through the methods method\_missing and define\_singleton\_method.
 
-This should be a consideration if there is a concern about the
-performance of the objects that are created, as there is much more
-overhead in the setting of these properties compared to using a Hash or
-a Struct.
+This should be a consideration if there is a concern about the performance of the objects that are created, as there is much more overhead in the setting of these properties compared to using a Hash or a Struct.
 
-<a
-href='https://ruby-doc.org/stdlib-2.7.0/libdoc/ostruct/rdoc/OpenStruct.html'
-class='ruby-doc remote' target='_blank'>OpenStruct Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/ostruct/rdoc/OpenStruct.html' class='ruby-doc remote' target='_blank'>OpenStruct Reference</a>
 

@@ -6,8 +6,7 @@ next: "/builtin/exception/exception-classes.html"
 
 ## Exception[](#exception)
 
-Class Exception and its subclasses are used to communicate between
-Kernel#raise and `rescue` statements in `begin ... end` blocks.
+Class Exception and its subclasses are used to communicate between Kernel#raise and `rescue` statements in `begin ... end` blocks.
 
 An Exception object carries information about an exception:
 
@@ -15,8 +14,7 @@ An Exception object carries information about an exception:
 * An optional descriptive message.
 * Optional backtrace information.
 
-Some built-in subclasses of Exception have additional methods: e.g.,
-Name`Error#name`.
+Some built-in subclasses of Exception have additional methods: e.g., Name`Error#name`.
 
 ### Defaults[](#defaults)
 
@@ -27,24 +25,16 @@ Two Ruby statements have default exception classes:
 
 ### Global Variables[](#global-variables)
 
-When an exception has been raised but not yet handled (in `rescue`,
-`ensure`, `at_exit` and `END` blocks), two global variables are set:
+When an exception has been raised but not yet handled (in `rescue`, `ensure`, `at_exit` and `END` blocks), two global variables are set:
 
 * `$!` contains the current exception.
 * `$@` contains its backtrace.
 
 ### Custom Exceptions[](#custom-exceptions)
 
-To provide additional or alternate information, a program may create
-custom exception classes that derive from the built-in exception
-classes.
+To provide additional or alternate information, a program may create custom exception classes that derive from the built-in exception classes.
 
-A good practice is for a library to create a single "generic" exception
-class (typically a subclass of StandardError or RuntimeError) and have
-its other exception classes derive from that class. This allows the user
-to rescue the generic exception, thus catching all exceptions the
-library may raise even if future versions of the library add new
-exception subclasses.
+A good practice is for a library to create a single "generic" exception class (typically a subclass of StandardError or RuntimeError) and have its other exception classes derive from that class. This allows the user to rescue the generic exception, thus catching all exceptions the library may raise even if future versions of the library add new exception subclasses.
 
 For example:
 
@@ -63,8 +53,7 @@ class MyLibrary
 end
 ```
 
-To handle both MyLibrary::WidgetError and MyLibrary::FrobError the
-library user can rescue MyLibrary::Error.
+To handle both MyLibrary::WidgetError and MyLibrary::FrobError the library user can rescue MyLibrary::Error.
 
 ### Built-In Exception Classes[](#built-in-exception-classes)
 
@@ -116,6 +105,5 @@ The built-in subclasses of Exception are:
 * SystemStackError
 * fatal
 
-<a href='https://ruby-doc.org/core-2.7.0/Exception.html' class='ruby-doc
-remote' target='_blank'>Exception Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/Exception.html' class='ruby-doc remote' target='_blank'>Exception Reference</a>
 

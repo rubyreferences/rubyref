@@ -11,12 +11,9 @@ require 'logger'
 
 ## Logger[](#logger)
 
-The Logger class provides a simple but sophisticated logging utility
-that you can use to output messages.
+The Logger class provides a simple but sophisticated logging utility that you can use to output messages.
 
-The messages have associated levels, such as `INFO` or `ERROR` that
-indicate their importance. You can then give the Logger a level, and
-only messages at that level or higher will be printed.
+The messages have associated levels, such as `INFO` or `ERROR` that indicate their importance. You can then give the Logger a level, and only messages at that level or higher will be printed.
 
 The levels are:
 
@@ -27,15 +24,9 @@ The levels are:
 * `INFO`: Generic (useful) information about system operation.
 * `DEBUG`: Low-level information for developers.
 
-For instance, in a production system, you may have your Logger set to
-`INFO` or even `WARN`. When you are developing the system, however, you
-probably want to know about the program's internal state, and would set
-the Logger to `DEBUG`.
+For instance, in a production system, you may have your Logger set to `INFO` or even `WARN`. When you are developing the system, however, you probably want to know about the program's internal state, and would set the Logger to `DEBUG`.
 
-**Note**\: Logger does not escape or sanitize any messages passed to it.
-Developers should be aware of when potentially malicious data
-(user-input) is passed to Logger, and manually escape the untrusted
-data:
+**Note**\: Logger does not escape or sanitize any messages passed to it. Developers should be aware of when potentially malicious data (user-input) is passed to Logger, and manually escape the untrusted data:
 
 
 ```ruby
@@ -56,8 +47,7 @@ logger.info(input)
 
 #### Example[](#example)
 
-This creates a Logger that outputs to the standard output stream, with a
-level of `WARN`: 
+This creates a Logger that outputs to the standard output stream, with a level of `WARN`: 
 
 ```ruby
 require 'logger'
@@ -83,14 +73,11 @@ rescue => err
 end
 ```
 
-Because the Logger's level is set to `WARN`, only the warning, error,
-and fatal messages are recorded. The debug and info messages are
-silently discarded.
+Because the Logger's level is set to `WARN`, only the warning, error, and fatal messages are recorded. The debug and info messages are silently discarded.
 
 ### Format[](#format)
 
-Log messages are rendered in the output stream in a certain format by
-default. The default format and a sample are shown below:
+Log messages are rendered in the output stream in a certain format by default. The default format and a sample are shown below:
 
 Log format
 
@@ -140,7 +127,5 @@ Logger.new(logdev, formatter: proc {|severity, datetime, progname, msg|
 })
 ```
 
-<a
-href='https://ruby-doc.org/stdlib-2.7.0/libdoc/logger/rdoc/Logger.html'
-class='ruby-doc remote' target='_blank'>Logger Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/logger/rdoc/Logger.html' class='ruby-doc remote' target='_blank'>Logger Reference</a>
 
