@@ -17,7 +17,7 @@
           sections: 'Other Implementations of Ruby'
           header_shift: -1
         - source: >
-            > See "Installers" and "Managers" sections of the [previous chapter](installation.md)
+            > See "Installers" and "Managers" sections of the [previous chapter](intro/installation.md)
             about downloading and installing different versions and implementations of Ruby.
     - title: Interactive Console
       id: irb

@@ -22,5 +22,5 @@ For a more complete list, see <a href='https://github.com/planetruby/awesome-rub
 
 
 
-> See "Installers" and "Managers" sections of the [previous chapter](../installation.md) about downloading and installing different versions and implementations of Ruby.
+> See "Installers" and "Managers" sections of the [previous chapter](installation.md) about downloading and installing different versions and implementations of Ruby.
 

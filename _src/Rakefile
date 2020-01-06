@@ -7,7 +7,7 @@ require_relative 'lib/core_ext'
 require_relative 'lib/structure'
 require_relative 'lib/ruby_repo_index'
 
-require_relative 'lib/rdoc_wrapper'
+require_relative 'lib/rdoc_extractor'
 require_relative 'lib/kernel_methods'
 require_relative 'lib/sanitizer'
 
