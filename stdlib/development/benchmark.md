@@ -1,7 +1,7 @@
 ---
 title: benchmark
 prev: "/stdlib/development.html"
-next: "/stdlib/development/bundler.html"
+next: "/stdlib/development/coverage.html"
 ---
 
 

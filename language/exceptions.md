@@ -125,7 +125,7 @@ to create an infinite loop.
 
 Inside a rescue block is the only valid location for `retry`, all other
 uses will raise a SyntaxError. If you wish to retry a block iteration
-use `redo`. See [Control Expressions](/language/control-expressions.md)
+use `redo`. See [Control Expressions](control-expressions.md)
 for details.
 
 To always run some code whether an exception was raised or not, use

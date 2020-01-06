@@ -20,9 +20,9 @@ global namespace.
 
 Ruby looks for the files passed to `require` in the directories
 enumerated in `$LOAD_PATH` constant. If the file is not found,
-[LoadError](../builtin/exception/exception-classes.md#loaderror)
-exception is raised and can be caught. This allows implementation of
-"optional library" pattern:
+[LoadError](../builtin/exception/exception-classes.md#loaderror) exception
+is raised and can be caught. This allows implementation of "optional
+library" pattern:
 
 
 ```ruby
@@ -42,6 +42,6 @@ enforced by default.
 See also:
 
 * [Standard Library](../stdlib.md)
-* [Third-party Libraries](../developing/libraries.md)
+* [Third-party Libraries](developing/libraries.md)
 * [Code Style and Linting](../developing/code-style.md)
 

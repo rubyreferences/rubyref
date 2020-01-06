@@ -1,7 +1,6 @@
 require 'yaml'
 require 'hm'
 
-
 require_relative 'lib/common'
 require_relative 'lib/core_ext'
 
@@ -69,13 +68,56 @@ namespace :dev do
     }
 
     puts "Sources mentioned in structure.yml, but not found in current Ruby version:"
-    (from_structure - from_source).each { puts "  #{_1}" }
+    (from_structure - from_source).each { puts "  #{_1}" }.then { puts "  — None —" if _1.empty? }
 
     puts "Modules found in current Ruby version, but not mentioned in structure.yml:"
-    (from_source - from_structure).each { puts "  #{_1}" }
-
-    # TODO: Also check custom content, some of it could became outdated
+    (from_source - from_structure).each { puts "  #{_1}" }.then { puts "  — None —" if _1.empty? }
   end
+
+  desc 'Validate that all content/ files are used in structure.yml'
+  task validate_content: [Structure::PATH] + Dir['content/**/*.md'] do |t|
+    from_structure = structure.each_part.select(&:content?).map(&:path) +
+      structure.each_part.filter_map(&:insert).flatten.filter_map { _1[:source] }.select(&File.method(:exist?))
+    from_source = t.prerequisites[1..]
+
+    puts "Content from content/ which is not mentioned in structure.yml:"
+    (from_source - from_structure).each { puts "  #{_1}" }.then { puts "  — None —" if _1.empty? }
+  end
+
+  desc 'Validate that no files in ../ is missing in structure.yml (artifacts of old versions)'
+  task validate_rendered: [Structure::PATH] do
+    from_structure = structure.each_chapter.map(&:out_path)
+    from_site = Dir['../**/*.md'].grep_v(/^\.\.\/_/)
+    puts "Rendered content which is not mentioned in structure.yml:"
+    (from_site - from_structure).each { puts "  #{_1}" }.then { puts "  — None —" if _1.empty? }
+  end
+
+  desc 'Validate internal cross-links'
+  task validate_links: structure.each_chapter.map(&:out_path) do |t|
+    puts "Validating internal links..."
+
+    existing = t.prerequisites.map { _1.sub('../', '') }
+    root = __dir__ + '/'
+    checker = DidYouMean::SpellChecker.new(dictionary: existing)
+    # Regexp is just too hard :( And probably broken.
+    t.prerequisites.grep_v(/regexp\.md/).each do |path|
+      # FIXME: Probably better way...
+      # Kramdown::Document.new(path)
+
+      dir = File.dirname(path.sub('../', ''))
+
+      # TODO: RELATIVE to current
+      File.read(path).scan(/\[(?:\w|\s)+?\]\((.+?)(?:\#.+)?\)/m).flatten.grep_v(/^https?:/)
+        .map { File.expand_path(_1, dir).sub(root, '') }
+        .-(existing)
+        .each do
+          candidates = checker.correct(_1)
+          puts "#{path}: #{_1} link incorrect." + (candidates ? " Options: #{candidates.join(', ')}" : "")
+        end
+    end
+  end
+
+  task validate: %i[validate_listing validate_content validate_rendered validate_links]
 end
 
 # Particular file rendering rules
@@ -185,6 +227,7 @@ structure.each_chapter do |chap|
   # Rendering to final Markdown in the root folder
   # ----------------------------------------------
   file chap.out_path => %w[config/structure.yml] + chap.parts.filter_map(&:ready_path) do |t|
+    FileUtils.mkdir_p File.dirname(t.name)
     Renderers::Chapter.call(chap).then { File.write t.name, _1 }
   end
 end

@@ -86,8 +86,6 @@ remote' target='_blank'>GC Reference</a>
 
 ### TracePoint[](#tracepoint)
 
-Document-class: TracePoint
-
 A class that provides the functionality of `Kernel#set_trace_func` in a
 nice Object-Oriented API.
 

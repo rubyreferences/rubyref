@@ -34,6 +34,7 @@ run by default. This can be demonstrated by overriding `#new` in Class:
 Classes, modules, and objects are interrelated. In the diagram that follows,
 the vertical arrows represent inheritance, and the parentheses metaclasses.
 All metaclasses are instances of the class `Class`.
+
                              +---------+             +-...
                              |         |             |
              BasicObject-----|-->(BasicObject)-------|-...

@@ -1,10 +1,16 @@
 ---
-title: 'bundler: Managing dependencies'
-prev: "/stdlib/development/benchmark.html"
-next: "/stdlib/development/coverage.html"
+title: Bundler dependency manager
+prev: "/developing/libraries.html"
+next: "/developing/irb.html"
 ---
 
 ## Bundler[](#bundler)
+
+<div class="since-version">Since Ruby 2.6</div>
+
+> Bundler was de-facto Ruby's dependency manager for several years, but
+> became part of the standard library only at version 2.6. Before that,
+> it should've been installed separately.
 
 Bundler provides a consistent environment for Ruby projects by tracking
 and installing the exact gems and versions that are needed.

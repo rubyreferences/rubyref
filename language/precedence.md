@@ -66,7 +66,7 @@ a += 1 unless a.zero?
 
 Note that `(a if b rescue c)` is parsed as `((a if b) rescue c)` due to
 reasons not related to precedence. See [modifier
-statements](/language/control-expressions.md#modifier-statements).
+statements](control-expressions.md#modifier-statements).
 
 `{ ... }` blocks have priority below all listed operations, but `do ...
 end` blocks have lower priority.

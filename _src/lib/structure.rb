@@ -107,6 +107,7 @@ class Structure
     end
 
     def html_path
+      return '/' if descriptor == %w[intro]
       '/' + descriptor.join('/') + '.html'
     end
 

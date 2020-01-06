@@ -121,7 +121,7 @@ module Renderers
 
       def process_macros(text)
         m = text.match(/^(\w+)\((.+)\)$/) or fail ArgumentError, "Unparseable macros #{text}"
-        send("macro_#{m[1]}", m[2].split(/\s*,\s*/))
+        send("macro_#{m[1]}", *m[2].split(/\s*,\s*/))
       end
 
       def macro_since(ver, clarification = nil)

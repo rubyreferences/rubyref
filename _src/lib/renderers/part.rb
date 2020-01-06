@@ -65,13 +65,33 @@ module Renderers
         .gsub(/^(?=\#[a-z])/, '\\')       # Again! New methods could be at the beginning of the line after Kramdown render
         .gsub(/([`'])\\:\s/, '\1: ')      # IDK why Kramdown turns "`something`: definition" into "`something`\: definition", but Jekyll becomes unhappy
         .gsub_r(/(https?:\S+)\\_/, '\1_') # Kramdown helpfully screens _ in URLs... And then GitBook screens them again.
-        .gsub(/\[.+?\]\(\/.+?\)/, &method(:fix_relative_link))
+        .gsub(/\[(?:\w|\s)+?\]\(.+?\)/m, &method(:fix_relative_link))
     end
 
+    # Current chapter: 'stdlib/formats/yaml.md', link: 'advanced/security.md'
+    #   Result: '../../advanced/security.md'
+    # Current chapter: 'language/keywords.md', link: 'language/misc.md'
+    #   Result: 'misc.md'
+    # Current chapter: 'builtin/core/kerne.md', link 'appendix-a.md'
+    #   Result: '../../appendix-a.md'
     def fix_relative_link(text)
-      # TODO: fix it
-      # TODO: we had "link validation" service earlier...
-      text
+      title, link = text.scan(/\[(.+?)\]\((.+?)\)/m).flatten
+      return text if link.match?(/^https?:/)
+
+      current_path = File.dirname(chapter.out_path.sub('../', '')).split('/').grep_v(/^\.$/)
+      link_path = link.split('/').tap { _1.unshift(nil) until _1.length >= current_path.length }
+
+      link_path.zip(current_path)
+        .drop_while { _1 == _2 }
+        .transpose
+        .then { |lnk, cur| '../' * cur.compact.length + lnk.compact.join('/') }
+        .then { "[#{title}](#{_1})"}
+        # .tap {
+        #   if chapter.out_path.include?('keywords.md') && link.include?('exceptions.md')
+        #     p [current_path, link_path, _1]
+        #     exit
+        #   end
+        # }
     end
   end
 end

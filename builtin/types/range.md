@@ -23,9 +23,9 @@ sequence.
 
 ### Beginless/Endless Ranges[](#beginlessendless-ranges)
 
-<div class="since-version">Since Ruby 2.6</div>
+<div class="since-version">Since Ruby 2.6 <i>(endless)</i></div>
 
-<div class="since-version">Since Ruby 2.7</div>
+<div class="since-version">Since Ruby 2.7 <i>(beginless)</i></div>
 
 A "beginless range" and "endless range" represents a semi-infinite
 range. Literal notation for a beginless range is:

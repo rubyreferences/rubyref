@@ -150,7 +150,7 @@ end
 #### Methods[](#methods)
 
 For method definition documentation see the [syntax documentation for
-methods](/language/methods-def.md).
+methods](methods-def.md).
 
 Class methods may be called directly. (This is slightly confusing, but a
 method on a module is often called a "class method" instead of a "module
@@ -319,7 +319,7 @@ a.with_renamed # NoMethodError (private method `m` called for #<A:0x0000559c285f
 
 You may also alias or undefine methods, but these operations are not
 restricted to modules or classes. See the [miscellaneous syntax
-section](/language/misc.md) for documentation.
+section](misc.md) for documentation.
 
 ## Classes[](#classes)
 

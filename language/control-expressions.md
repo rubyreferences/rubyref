@@ -333,7 +333,7 @@ end
 ```
 
 Pattern matching syntax is described on [its own
-page](/language/pattern-matching.md).
+page](pattern-matching.md).
 
 ### `while` Loop[](#while-loop)
 
@@ -586,7 +586,7 @@ This prints \[0, 1, 3, 3, 5, 5, 7, 7, 9, 9, 11\]
 
 In Ruby 1.8, you could also use `retry` where you used `redo`. This is
 no longer true, now you will receive a SyntaxError when you use `retry`
-outside of a `rescue` block. See [Exceptions](/language/exceptions.md)
+outside of a `rescue` block. See [Exceptions](exceptions.md)
 for proper usage of `retry`.
 
 ### Modifier Statements[](#modifier-statements)

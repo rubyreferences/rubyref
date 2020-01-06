@@ -1,6 +1,6 @@
 ---
 title: Mastering IRB
-prev: "/developing/libraries.html"
+prev: "/developing/libraries/bundler.html"
 next: "/developing/documenting.html"
 ---
 

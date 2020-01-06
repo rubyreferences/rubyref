@@ -78,7 +78,7 @@ The implementation can look like this:
 
 > **Note**: This implementation is naive and just shows the principle. See third-party libraries like [memoist](https://github.com/matthewrudy/memoist) for a proper implementation.
 
-See [Language Core](../builtin/core.md) classes documentation to understand what you can do with
+See [Language Core](builtin/core.md) classes documentation to understand what you can do with
 core objects.
 
 ## Domain-Specific Languages

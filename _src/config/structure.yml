@@ -81,36 +81,36 @@
           header_shift: 0
           replace:
             - from: "* `defined?`: Returns a string describing its argument.  See [miscellaneous\n    syntax](rdoc-ref:syntax/miscellaneous.rdoc)"
-              to: "* `defined?`: Returns a string describing its argument.  See [defined?](../language.md#defined)"
+              to: "* `defined?`: Returns a string describing its argument.  See [defined?](language.md#defined)"
     - title: Literals
       content:
         - source: doc/syntax/literals.md
           insert:
             - after: "(There are also the constants"
-              source: "See also [TrueClass, FalseClass, NilClass](../builtin/types/atomic.md)."
+              source: "See also [TrueClass, FalseClass, NilClass](builtin/types/atomic.md)."
             - after: "All these numbers have"
-              source: "See also [number classes](../builtin/types/numbers.md)."
+              source: "See also [number classes](builtin/types/numbers.md)."
             - after: "    puts(<<-ONE, <<-TWO)"
-              source: "See also [String](../builtin/types/symbol-string.md#string) class."
+              source: "See also [String](builtin/types/symbol-string.md#string) class."
             - after: "When creating a Hash, there is"
-              source: "See also [Symbol](../builtin/types/symbol-string.md#symbol) class."
+              source: "See also [Symbol](builtin/types/symbol-string.md#symbol) class."
             - after: "This proc will add one"
-              source: "See also [Proc](../builtin/core/method-proc.md#proc) class."
+              source: "See also [Proc](builtin/core/method-proc.md#proc) class."
             - after: "The indentation of the least-indented"
               macros: since(2.3)
           replace:
             - from: "See Array for the methods"
-              to: "See [Array](../builtin/types/array.md) for the methods"
+              to: "See [Array](builtin/types/array.md) for the methods"
             - from: "See Hash for the methods"
-              to: "See [Hash](../builtin/types/hash.md) for the methods"
+              to: "See [Hash](builtin/types/hash.md) for the methods"
             - from: "See the Range documentation"
-              to: "See the [Range](../builtin/types/range.md) documentation"
+              to: "See the [Range](builtin/types/range.md) documentation"
             - from: "See Regexp for a description of the syntax"
-              to: "See [Regexp](../builtin/types/regexp.md) for a description of the syntax"
+              to: "See [Regexp](builtin/types/regexp.md) for a description of the syntax"
     - title: Comments
       content:
         - source: doc/syntax/comments.md
-        - source: content/language/comments.md
+        - source: content/language/_comments.md
     - title: Variables and Constants
       content:
         - source: '## Variables and Constants'
@@ -157,6 +157,9 @@
     - title: Pattern matching
       content:
         - source: content/syntax/pattern_matching.md
+          insert:
+            - after: '# Pattern matching'
+              macros: since(2.7)
     - title: Defining methods
       id: methods-def
       content:
@@ -235,7 +238,7 @@
         - title: Kernel
           content:
             - source: core/Kernel.md
-            - source: "> See also [Appendix A](../../appendix-a.md) for a structured list of Kernel methods."
+            - source: "> See also [Appendix A](appendix-a.md) for a structured list of Kernel methods."
         - title: Object
           content:
             - source: '## BasicObject and Object'
@@ -254,9 +257,6 @@
         - title: Binding
           content:
             - source: core/Binding.md
-        - title: Fiber
-          content:
-            - source: core/Fiber.md
 
     - title: Value Types
       id: types
@@ -304,6 +304,13 @@
               header_shift: 2
               process:
                 - [stdlib, prime]
+            - source: core/Random.md
+            - source: lib/securerandom/SecureRandom.md
+              process:
+                - [stdlib, securerandom]
+              header_shift: 2
+              remove:
+                - "## Secure random number"
         - title: Symbol and String
           content:
             - source: '## Symbol and String'
@@ -345,8 +352,9 @@
               insert:
                 - after: '## Timezone argument'
                   macros: since(2.6)
-            # TODO: reconcile this and content/'s version
+            # Really non-informative... Rewritten in content/
             - source: lib/time/Time.md
+              ignore: true
             - source: content/builtin/core/time/_timerb.md
             - source: ext/date/Date.md
               sections:
@@ -513,6 +521,7 @@
             # - source: core/IO--EWOULDBLOCKWaitWritable.md
             # - source: core/IO--WaitReadable.md
             # - source: core/IO--WaitWritable.md
+            - source: content/stdlib/io.md
         - title: Filesystem
           content:
             - source: core/Dir.md
@@ -563,6 +572,7 @@
     - title: Concurrency and Parallelism
       content:
         - source: core/Thread.md
+        - source: core/Fiber.md
         - source: core/ThreadGroup.md
         - source: core/Mutex.md
         - source: core/ConditionVariable.md
@@ -584,6 +594,8 @@
           remove: "# ObjectSpace"
         - source: core/GC.md
         - source: core/TracePoint.md
+          remove:
+            - 'Document-class: TracePoint'
       children:
         - title: RubyVM
           content:
@@ -598,15 +610,6 @@
       content:
         - source: core/Marshal.md
         - source: doc/marshal.md
-    - title: Random
-      content:
-        - source: core/Random.md
-        - source: lib/securerandom/SecureRandom.md
-          process:
-            - [stdlib, securerandom]
-          header_shift: 2
-          remove:
-            - "## Secure random number"
 
 - title: Standard Library
   id: stdlib
@@ -696,24 +699,6 @@
           content:
             - source: lib/benchmark/Benchmark.md
               process: require_stdlib
-        - title: "bundler: Managing dependencies"
-          id: bundler
-          content:
-            # Real source is: https://github.com/bundler/bundler/blob/master/README.md
-            # and https://github.com/bundler/bundler-site/blob/master/source/v1.17/index.html.haml
-            # - source: content/stdlib/bundler.md
-            #   insert:
-            #     - after: '# Bundler'
-            #       macros: since(2.6)
-            - source: lib/bundler/Bundler.md
-            - source: lib/bundler/Error.md
-              ignore: true
-            - source: lib/bundler/UndefinedCommandError.md
-              ignore: true
-            - source: lib/bundler/UndefinedTaskError.md
-              ignore: true
-            - source: lib/bundler/InvocationError.md
-              ignore: true
         - title: coverage
           content:
             - source: ext/coverage/Coverage.md
@@ -843,6 +828,8 @@
           content:
             - source: lib/did_you_mean/DidYouMean.md
               process: require_stdlib
+              remove:
+                - "@example"
 
     - title: Networking and Web
       content:
@@ -1057,10 +1044,6 @@
           content:
             - source: ext/fcntl/Fcntl.md
               process: require_stdlib
-        - title: 'io/*: IO class addons'
-          id: io
-          content:
-            - source: content/stdlib/io.md
         - title: "open3: Flexible child processes"
           id: open3
           content:
@@ -1268,7 +1251,7 @@
           header_shift: 0
           replace:
             - from: '[9]: http://bundler.io/'
-              to: '[9]: ../stdlib/development/bundler.md'
+              to: '[9]: developing/libraries/bundler.md'
         # Site covered it better
         - source: lib/rubygems/Gem.md
           ignore: true
@@ -1276,6 +1259,28 @@
           ignore: true
         - source: lib/rubygems/TempIO.md
           ignore: true
+      children:
+        - title: "Bundler dependency manager"
+          id: bundler
+          content:
+            - source: lib/bundler/Bundler.md
+              insert:
+                - after: '# Bundler'
+                  source: >
+                    > Bundler was de-facto Ruby's dependency manager for several years, but became
+                    part of the standard library only at version 2.6. Before that, it should've been
+                    installed separately.
+                - after: '# Bundler'
+                  macros: since(2.6)
+            - source: lib/bundler/Error.md
+              ignore: true
+            - source: lib/bundler/UndefinedCommandError.md
+              ignore: true
+            - source: lib/bundler/UndefinedTaskError.md
+              ignore: true
+            - source: lib/bundler/InvocationError.md
+              ignore: true
+
     - title: Mastering IRB
       id: irb
       content:

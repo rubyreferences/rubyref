@@ -82,13 +82,28 @@ Creating a new Name
 Classes, modules, and objects are interrelated. In the diagram that
 follows, the vertical arrows represent inheritance, and the parentheses
 metaclasses. All metaclasses are instances of the class `Class`.
-+---------+ +-... \| \| \|
-BasicObject-----\|-->(BasicObject)-------\|-... ^ \| ^ \| \| \| \| \|
-Object---------\|----->(Object)---------\|-... ^ \| ^ \| \| \| \| \|
-+-------+ \| +--------+ \| \| \| \| \| \| \| \|
-Module-\|---------\|--->(Module)-\|-... \| ^ \| \| ^ \| \| \| \| \| \|
-\| \| Class-\|---------\|---->(Class)-\|-... \| ^ \| \| ^ \| \| +---+ \|
-+----+ \| \| obj--->OtherClass---------->(OtherClass)-----------...
+
+
+```
+                         +---------+             +-...
+                         |         |             |
+         BasicObject-----|-->(BasicObject)-------|-...
+             ^           |         ^             |
+             |           |         |             |
+          Object---------|----->(Object)---------|-...
+             ^           |         ^             |
+             |           |         |             |
+             +-------+   |         +--------+    |
+             |       |   |         |        |    |
+             |    Module-|---------|--->(Module)-|-...
+             |       ^   |         |        ^    |
+             |       |   |         |        |    |
+             |     Class-|---------|---->(Class)-|-...
+             |       ^   |         |        ^    |
+             |       +---+         |        +----+
+             |                     |
+obj--->OtherClass---------->(OtherClass)-----------...
+```
 
 <a href='https://ruby-doc.org/core-2.7.0/Class.html' class='ruby-doc
 remote' target='_blank'>Class Reference</a>

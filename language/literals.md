@@ -30,7 +30,7 @@ a true value in conditional expressions.
 (There are also the constants `TRUE`, `FALSE` and `NIL`, but the
 lowercase literal forms are preferred.)
 
-See also [TrueClass, FalseClass, NilClass](../builtin/types/atomic.md).
+See also [TrueClass, FalseClass, NilClass](builtin/types/atomic.md).
 
 ### Numbers[](#numbers)
 
@@ -401,8 +401,8 @@ You may place expressions inside the array:
 [1, [1 + 1, [1 + 2]]]
 ```
 
-See [Array](../builtin/types/array.md) for the methods you may use with
-an array.
+See [Array](../builtin/types/array.md) for the methods you may use with an
+array.
 
 ### Hashes[](#hashes)
 
@@ -454,8 +454,8 @@ exclude its ending value.
 ```
 
 You may create a range of any object. See the
-[Range](../builtin/types/range.md) documentation for details on the
-methods you need to implement.
+[Range](../builtin/types/range.md) documentation for details on the methods
+you need to implement.
 
 ### Regular Expressions[](#regular-expressions)
 
@@ -479,8 +479,8 @@ Interpolation may be used inside regular expressions along with escaped
 characters. Note that a regular expression may require additional
 escaped characters than a string.
 
-See [Regexp](../builtin/types/regexp.md) for a description of the syntax
-of regular expressions.
+See [Regexp](../builtin/types/regexp.md) for a description of the syntax of
+regular expressions.
 
 ### Procs[](#procs)
 

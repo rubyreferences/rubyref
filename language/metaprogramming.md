@@ -107,8 +107,8 @@ end
 > href='https://github.com/matthewrudy/memoist' class='remote'
 > target='_blank'>memoist</a> for a proper implementation.
 
-See [Language Core](../builtin/core.md) classes documentation to
-understand what you can do with core objects.
+See [Language Core](../builtin/core.md) classes documentation to understand
+what you can do with core objects.
 
 ### Domain-Specific Languages[](#domain-specific-languages)
 

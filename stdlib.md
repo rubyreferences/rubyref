@@ -1,6 +1,6 @@
 ---
 title: Standard Library
-prev: "/builtin/random.html"
+prev: "/builtin/marshal.html"
 next: "/stdlib/patterns.html"
 ---
 

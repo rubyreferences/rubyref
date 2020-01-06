@@ -1,6 +1,6 @@
 ---
 title: 'open3: Flexible child processes'
-prev: "/stdlib/cli/io.html"
+prev: "/stdlib/cli/fcntl.html"
 next: "/stdlib/cli/optparse.html"
 ---
 

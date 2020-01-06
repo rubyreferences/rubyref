@@ -15,8 +15,6 @@ The `DidYouMean` gem adds functionality to suggest possible method/class
 names upon errors such as `NameError` and `NoMethodError`. In Ruby 2.3
 or later, it is automatically activated during startup.
 
-@example
-
 
 ```ruby
 methosd

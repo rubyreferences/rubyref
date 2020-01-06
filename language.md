@@ -73,7 +73,7 @@ p defined?(1 + 1)              # prints "method"
 ```
 
 You don't need to use parenthesis with `defined?`, but they are
-recommended due to the [low precedence](/language/precedence.md) of
+recommended due to the [low precedence](language/precedence.md) of
 `defined?`.
 
 For example, if you wish to check if an instance variable exists and

@@ -1,7 +1,7 @@
 ---
 title: Libraries
 prev: "/developing.html"
-next: "/developing/irb.html"
+next: "/developing/libraries/bundler.html"
 ---
 
 ## Libraries[](#libraries)
@@ -139,7 +139,7 @@ all `gem`’s commands.
 
 RubyGems.org has <a href='http://guides.rubygems.org/' class='remote'
 target='_blank'>several guides</a> about this topic. You may also want
-to investigate [Bundler](../stdlib/development/bundler.md), a generic
+to investigate [Bundler](libraries/bundler.md), a generic
 tool which helps you manage an application’s dependencies and may be
 used along RubyGems.
 

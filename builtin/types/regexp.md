@@ -275,7 +275,7 @@ pattern use `MatchData[n]`.
 later with `\1`: 
 
 ```ruby
-/[csh](..) [csh]\1 in/.match("The cat sat in the hat")
+/[csh](../../..) [csh]\1 in/.match("The cat sat in the hat")
     #=> #<MatchData "cat sat in" 1:"at">
 ```
 
@@ -284,7 +284,7 @@ available with its `#[]` method:
 
 
 ```ruby
-/[csh](..) [csh]\1 in/.match("The cat sat in the hat")[1] #=> 'at'
+/[csh](../../..) [csh]\1 in/.match("The cat sat in the hat")[1] #=> 'at'
 ```
 
 Capture groups can be referred to by name when defined with the

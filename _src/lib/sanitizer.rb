@@ -66,7 +66,7 @@ module Sanitizer
         .sub('`$s`tderr', '`$stderr`')
         .sub('`$``') { '<code class="highlighter-rouge">$`</code>' } # Without block, '`' has special meaning in sub
         .gsub(/(?<!`)\$(stdin|stdout|DEBUG|VERBOSE)/, '`$\1`')
-    when 'core/Class\.md'
+    when 'core/Class.md'
       content.sub('of the class `Class`.', "of the class `Class`.\n") # To properly render the diagram after
     when 'core/Float.md'
       content.sub("wiki-floats_i\n    mprecise\n\n", "wiki-floats_imprecise\n")

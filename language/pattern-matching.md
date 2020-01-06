@@ -6,6 +6,8 @@ next: "/language/methods-def.html"
 
 ## Pattern matching[](#pattern-matching)
 
+<div class="since-version">Since Ruby 2.7</div>
+
 Pattern matching is an experimental feature allowing deep matching of
 structured values: checking the structure, and binding the matched parts
 to local variables.

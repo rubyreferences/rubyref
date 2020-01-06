@@ -1,19 +1,19 @@
 module Linker
   # internal cross-links in doc/*.rdoc and some classes, we convert them into new structure of the book.
   RDOC_REF = {
-    'syntax/precedence.rdoc' => '/language/precedence.md',
-    'syntax/miscellaneous.rdoc' => '/language/misc.md',
-    'syntax/modules_and_classes.rdoc' => '/language/modules-classes.md',
-    'syntax/exceptions.rdoc' => '/language/exceptions.md',
-    'syntax/control_expressions.rdoc' => '/language/control-expressions.md',
-    'syntax/methods.rdoc' => '/language/methods-def.md',
-    'syntax/literals.rdoc' => '/language/literals.md',
-    'syntax/calling_methods.rdoc' => '/language/methods-call.md',
-    'globals.rdoc' => '/language/globals.md',
-    'syntax/refinements.rdoc' => '/language/refinements.md',
-    'doc/security.rdoc' => '/advanced/security.md',
-    'control_expressions_rdoc.html#label-Modifier+Statements' => '/language/control-expressions.md#modifier-statements',
-    'syntax/pattern_matching.rdoc' => '/language/pattern-matching.md',
+    'syntax/precedence.rdoc' => 'language/precedence.md',
+    'syntax/miscellaneous.rdoc' => 'language/misc.md',
+    'syntax/modules_and_classes.rdoc' => 'language/modules-classes.md',
+    'syntax/exceptions.rdoc' => 'language/exceptions.md',
+    'syntax/control_expressions.rdoc' => 'language/control-expressions.md',
+    'syntax/methods.rdoc' => 'language/methods-def.md',
+    'syntax/literals.rdoc' => 'language/literals.md',
+    'syntax/calling_methods.rdoc' => 'language/methods-call.md',
+    'globals.rdoc' => 'language/globals.md',
+    'syntax/refinements.rdoc' => 'language/refinements.md',
+    'doc/security.rdoc' => 'advanced/security.md',
+    'control_expressions_rdoc.html#label-Modifier+Statements' => 'language/control-expressions.md#modifier-statements',
+    'syntax/pattern_matching.rdoc' => 'language/pattern-matching.md',
   }
 
   # internal links in installation.md, imported from site

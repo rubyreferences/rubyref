@@ -21,7 +21,7 @@ body of the method, `return` value and the `end` keyword. When called
 the method will execute the body of the method. This method returns `2`.
 
 This section only covers defining methods. See also the [syntax
-documentation on calling methods](/language/methods-call.md).
+documentation on calling methods](methods-call.md).
 
 ### Method Names[](#method-names)
 
@@ -799,7 +799,7 @@ end
 
 If you wish to rescue an exception for only part of your method, use
 `begin` and `end`. For more details see the page on [exception
-handling](/language/exceptions.md).
+handling](exceptions.md).
 
 ### Method definition as an expression[](#method-definition-as-an-expression)
 

@@ -2,7 +2,7 @@
 ruby_version: '2.7'
 chapters:
 - title: Introduction
-  path: "/intro.html"
+  path: "/"
   children:
   - title: Installation
     path: "/intro/installation.html"
@@ -65,8 +65,6 @@ chapters:
       path: "/builtin/core/method-proc.html"
     - title: Binding
       path: "/builtin/core/binding.html"
-    - title: Fiber
-      path: "/builtin/core/fiber.html"
   - title: Value Types
     path: "/builtin/types.html"
     children:
@@ -123,8 +121,6 @@ chapters:
       path: "/builtin/internals/rubyvm.html"
   - title: Marshal
     path: "/builtin/marshal.html"
-  - title: Random
-    path: "/builtin/random.html"
 - title: Standard Library
   path: "/stdlib.html"
   children:
@@ -159,8 +155,6 @@ chapters:
     children:
     - title: benchmark
       path: "/stdlib/development/benchmark.html"
-    - title: 'bundler: Managing dependencies'
-      path: "/stdlib/development/bundler.html"
     - title: coverage
       path: "/stdlib/development/coverage.html"
     - title: debug
@@ -222,8 +216,6 @@ chapters:
       path: "/stdlib/cli/etc.html"
     - title: 'fcntl: POSIX file access constants'
       path: "/stdlib/cli/fcntl.html"
-    - title: 'io/*: IO class addons'
-      path: "/stdlib/cli/io.html"
     - title: 'open3: Flexible child processes'
       path: "/stdlib/cli/open3.html"
     - title: 'optparse: CLI arguments parser'
@@ -265,6 +257,9 @@ chapters:
   children:
   - title: Libraries
     path: "/developing/libraries.html"
+    children:
+    - title: Bundler dependency manager
+      path: "/developing/libraries/bundler.html"
   - title: Mastering IRB
     path: "/developing/irb.html"
   - title: Documenting Ruby Code

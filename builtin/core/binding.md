@@ -1,7 +1,7 @@
 ---
 title: Binding
 prev: "/builtin/core/method-proc.html"
-next: "/builtin/core/fiber.html"
+next: "/builtin/types.html"
 ---
 
 ## Binding[](#binding)

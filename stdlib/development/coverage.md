@@ -1,6 +1,6 @@
 ---
 title: coverage
-prev: "/stdlib/development/bundler.html"
+prev: "/stdlib/development/benchmark.html"
 next: "/stdlib/development/debug.html"
 ---
 
