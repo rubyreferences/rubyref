@@ -1,5 +1,6 @@
 ---
 title: Introduction
+permalink: "/"
 next: "/intro/installation.html"
 ---
 
