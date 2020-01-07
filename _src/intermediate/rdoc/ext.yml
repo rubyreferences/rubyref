@@ -1,0 +1,5064 @@
+---
+bigdecimal:
+  BigDecimal:
+    main: |-
+      BigDecimal provides arbitrary-precision floating point decimal arithmetic.
+
+      == Introduction
+
+      Ruby provides built-in support for arbitrary precision integer arithmetic.
+
+      For example:
+
+           42**13  #=>   1265437718438866624512
+
+      BigDecimal provides similar support for very large or very accurate floating
+      point numbers.
+
+      Decimal arithmetic is also useful for general calculation, because it
+      provides the correct answers people expect--whereas normal binary floating
+      point arithmetic often introduces subtle errors because of the conversion
+      between base 10 and base 2.
+
+      For example, try:
+
+        sum = 0
+        10_000.times do
+          sum = sum + 0.0001
+        end
+        print sum #=> 0.9999999999999062
+
+      and contrast with the output from:
+
+        require 'bigdecimal'
+
+        sum = BigDecimal("0")
+        10_000.times do
+          sum = sum + BigDecimal("0.0001")
+        end
+        print sum #=> 0.1E1
+
+      Similarly:
+
+           (BigDecimal("1.2") - BigDecimal("1.0")) == BigDecimal("0.2") #=> true
+
+           (1.2 - 1.0) == 0.2 #=> false
+
+      == Special features of accurate decimal arithmetic
+
+      Because BigDecimal is more accurate than normal binary floating point
+      arithmetic, it requires some special values.
+
+      === Infinity
+
+      BigDecimal sometimes needs to return infinity, for example if you divide
+      a value by zero.
+
+           BigDecimal("1.0") / BigDecimal("0.0")  #=> Infinity
+           BigDecimal("-1.0") / BigDecimal("0.0")  #=> -Infinity
+
+      You can represent infinite numbers to BigDecimal using the strings
+      <code>'Infinity'</code>, <code>'+Infinity'</code> and
+      <code>'-Infinity'</code> (case-sensitive)
+
+      === Not a Number
+
+      When a computation results in an undefined value, the special value +NaN+
+      (for 'not a number') is returned.
+
+      Example:
+
+           BigDecimal("0.0") / BigDecimal("0.0") #=> NaN
+
+      You can also create undefined values.
+
+      NaN is never considered to be the same as any other value, even NaN itself:
+
+           n = BigDecimal('NaN')
+           n == 0.0 #=> false
+           n == n #=> false
+
+      === Positive and negative zero
+
+      If a computation results in a value which is too small to be represented as
+      a BigDecimal within the currently specified limits of precision, zero must
+      be returned.
+
+      If the value which is too small to be represented is negative, a BigDecimal
+      value of negative zero is returned.
+
+           BigDecimal("1.0") / BigDecimal("-Infinity") #=> -0.0
+
+      If the value is positive, a value of positive zero is returned.
+
+           BigDecimal("1.0") / BigDecimal("Infinity") #=> 0.0
+
+      (See BigDecimal.mode for how to specify limits of precision.)
+
+      Note that +-0.0+ and +0.0+ are considered to be the same for the purposes of
+      comparison.
+
+      Note also that in mathematics, there is no particular concept of negative
+      or positive zero; true mathematical zero has no sign.
+
+      == bigdecimal/util
+
+      When you require +bigdecimal/util+, the #to_d method will be
+      available on BigDecimal and the native Integer, Float, Rational,
+      and String classes:
+
+           require 'bigdecimal/util'
+
+           42.to_d         # => 0.42e2
+           0.5.to_d        # => 0.5e0
+           (2/3r).to_d(3)  # => 0.667e0
+           "0.5".to_d      # => 0.5e0
+
+      == License
+
+      Copyright (C) 2002 by Shigeo Kobayashi <shigeo@tinyforest.gr.jp>.
+
+      BigDecimal is released under the Ruby and 2-clause BSD licenses.
+      See LICENSE.txt for details.
+
+      Maintained by mrkn <mrkn@mrkn.jp> and ruby-core members.
+
+      Documented by zzak <zachary@zacharyscott.net>, mathew <meta@pobox.com>, and
+      many other contributors.
+  BigMath:
+    main: |-
+      Provides mathematical functions.
+
+      Example:
+
+        require "bigdecimal/math"
+
+        include BigMath
+
+        a = BigDecimal((PI(100)/2).to_s)
+        puts sin(a,100) # => 0.99999999999999999999......e0
+  Jacobian:
+    main: |-
+      require 'bigdecimal/jacobian'
+
+      Provides methods to compute the Jacobian matrix of a set of equations at a
+      point x. In the methods below:
+
+      f is an Object which is used to compute the Jacobian matrix of the equations.
+      It must provide the following methods:
+
+      f.values(x):: returns the values of all functions at x
+
+      f.zero:: returns 0.0
+      f.one:: returns 1.0
+      f.two:: returns 2.0
+      f.ten:: returns 10.0
+
+      f.eps:: returns the convergence criterion (epsilon value) used to determine whether two values are considered equal. If |a-b| < epsilon, the two values are considered equal.
+
+      x is the point at which to compute the Jacobian.
+
+      fx is f.values(x).
+  LUSolve:
+    main: Solves a*x = b for x, using LU decomposition.
+  Newton:
+    main: |-
+      newton.rb
+
+      Solves the nonlinear algebraic equation system f = 0 by Newton's method.
+      This program is not dependent on BigDecimal.
+
+      To call:
+         n = nlsolve(f,x)
+       where n is the number of iterations required,
+             x is the initial value vector
+             f is an Object which is used to compute the values of the equations to be solved.
+      It must provide the following methods:
+
+      f.values(x):: returns the values of all functions at x
+
+      f.zero:: returns 0.0
+      f.one:: returns 1.0
+      f.two:: returns 2.0
+      f.ten:: returns 10.0
+
+      f.eps:: returns the convergence criterion (epsilon value) used to determine whether two values are considered equal. If |a-b| < epsilon, the two values are considered equal.
+
+      On exit, x is the solution vector.
+cgi: {}
+continuation: {}
+coverage:
+  Coverage:
+    main: |-
+      Coverage provides coverage measurement feature for Ruby.
+      This feature is experimental, so these APIs may be changed in future.
+
+      = Usage
+
+      1. require "coverage"
+      2. do Coverage.start
+      3. require or load Ruby source file
+      4. Coverage.result will return a hash that contains filename as key and
+         coverage array as value. A coverage array gives, for each line, the
+         number of line execution by the interpreter. A +nil+ value means
+         coverage is disabled for this line (lines like +else+ and +end+).
+
+      = Example
+
+        [foo.rb]
+        s = 0
+        10.times do |x|
+          s += x
+        end
+
+        if s == 45
+          p :ok
+        else
+          p :ng
+        end
+        [EOF]
+
+        require "coverage"
+        Coverage.start
+        require "foo.rb"
+        p Coverage.result  #=> {"foo.rb"=>[1, 1, 10, nil, nil, 1, 1, nil, 0, nil]}
+date:
+  Date:
+    main: |-
+      date and datetime class - Tadayoshi Funaba 1998-2011
+
+      'date' provides two classes: Date and DateTime.
+
+      == Terms and Definitions
+
+      Some terms and definitions are based on ISO 8601 and JIS X 0301.
+
+      === Calendar Date
+
+      The calendar date is a particular day of a calendar year,
+      identified by its ordinal number within a calendar month within
+      that year.
+
+      In those classes, this is so-called "civil".
+
+      === Ordinal Date
+
+      The ordinal date is a particular day of a calendar year identified
+      by its ordinal number within the year.
+
+      In those classes, this is so-called "ordinal".
+
+      === Week Date
+
+      The week date is a date identified by calendar week and day numbers.
+
+      The calendar week is a seven day period within a calendar year,
+      starting on a Monday and identified by its ordinal number within
+      the year; the first calendar week of the year is the one that
+      includes the first Thursday of that year. In the Gregorian
+      calendar, this is equivalent to the week which includes January 4.
+
+      In those classes, this is so-called "commercial".
+
+      === Julian Day Number
+
+      The Julian day number is in elapsed days since noon (Greenwich Mean
+      Time) on January 1, 4713 BCE (in the Julian calendar).
+
+      In this document, the astronomical Julian day number is the same as
+      the original Julian day number. And the chronological Julian day
+      number is a variation of the Julian day number. Its days begin at
+      midnight on local time.
+
+      In this document, when the term "Julian day number" simply appears,
+      it just refers to "chronological Julian day number", not the
+      original.
+
+      In those classes, those are so-called "ajd" and "jd".
+
+      === Modified Julian Day Number
+
+      The modified Julian day number is in elapsed days since midnight
+      (Coordinated Universal Time) on November 17, 1858 CE (in the
+      Gregorian calendar).
+
+      In this document, the astronomical modified Julian day number is
+      the same as the original modified Julian day number. And the
+      chronological modified Julian day number is a variation of the
+      modified Julian day number. Its days begin at midnight on local
+      time.
+
+      In this document, when the term "modified Julian day number" simply
+      appears, it just refers to "chronological modified Julian day
+      number", not the original.
+
+      In those classes, those are so-called "amjd" and "mjd".
+
+      == Date
+
+      A subclass of Object that includes the Comparable module and
+      easily handles date.
+
+      A Date object is created with Date::new, Date::jd, Date::ordinal,
+      Date::commercial, Date::parse, Date::strptime, Date::today,
+      Time#to_date, etc.
+
+          require 'date'
+
+          Date.new(2001,2,3)
+           #=> #<Date: 2001-02-03 ...>
+          Date.jd(2451944)
+           #=> #<Date: 2001-02-03 ...>
+          Date.ordinal(2001,34)
+           #=> #<Date: 2001-02-03 ...>
+          Date.commercial(2001,5,6)
+           #=> #<Date: 2001-02-03 ...>
+          Date.parse('2001-02-03')
+           #=> #<Date: 2001-02-03 ...>
+          Date.strptime('03-02-2001', '%d-%m-%Y')
+           #=> #<Date: 2001-02-03 ...>
+          Time.new(2001,2,3).to_date
+           #=> #<Date: 2001-02-03 ...>
+
+      All date objects are immutable; hence cannot modify themselves.
+
+      The concept of a date object can be represented as a tuple
+      of the day count, the offset and the day of calendar reform.
+
+      The day count denotes the absolute position of a temporal
+      dimension. The offset is relative adjustment, which determines
+      decoded local time with the day count. The day of calendar
+      reform denotes the start day of the new style. The old style
+      of the West is the Julian calendar which was adopted by
+      Caesar. The new style is the Gregorian calendar, which is the
+      current civil calendar of many countries.
+
+      The day count is virtually the astronomical Julian day number.
+      The offset in this class is usually zero, and cannot be
+      specified directly.
+
+      A Date object can be created with an optional argument,
+      the day of calendar reform as a Julian day number, which
+      should be 2298874 to 2426355 or negative/positive infinity.
+      The default value is +Date::ITALY+ (2299161=1582-10-15).
+      See also sample/cal.rb.
+
+          $ ruby sample/cal.rb -c it 10 1582
+              October 1582
+           S  M Tu  W Th  F  S
+              1  2  3  4 15 16
+          17 18 19 20 21 22 23
+          24 25 26 27 28 29 30
+          31
+
+          $ ruby sample/cal.rb -c gb  9 1752
+             September 1752
+           S  M Tu  W Th  F  S
+                 1  2 14 15 16
+          17 18 19 20 21 22 23
+          24 25 26 27 28 29 30
+
+      A Date object has various methods. See each reference.
+
+          d = Date.parse('3rd Feb 2001')
+                                       #=> #<Date: 2001-02-03 ...>
+          d.year                       #=> 2001
+          d.mon                        #=> 2
+          d.mday                       #=> 3
+          d.wday                       #=> 6
+          d += 1                       #=> #<Date: 2001-02-04 ...>
+          d.strftime('%a %d %b %Y')    #=> "Sun 04 Feb 2001"
+  DateTime:
+    main: |-
+      == DateTime
+
+      A subclass of Date that easily handles date, hour, minute, second,
+      and offset.
+
+      DateTime does not consider any leap seconds, does not track
+      any summer time rules.
+
+      A DateTime object is created with DateTime::new, DateTime::jd,
+      DateTime::ordinal, DateTime::commercial, DateTime::parse,
+      DateTime::strptime, DateTime::now, Time#to_datetime, etc.
+
+          require 'date'
+
+          DateTime.new(2001,2,3,4,5,6)
+                              #=> #<DateTime: 2001-02-03T04:05:06+00:00 ...>
+
+      The last element of day, hour, minute, or second can be a
+      fractional number. The fractional number's precision is assumed
+      at most nanosecond.
+
+          DateTime.new(2001,2,3.5)
+                              #=> #<DateTime: 2001-02-03T12:00:00+00:00 ...>
+
+      An optional argument, the offset, indicates the difference
+      between the local time and UTC. For example, <tt>Rational(3,24)</tt>
+      represents ahead of 3 hours of UTC, <tt>Rational(-5,24)</tt> represents
+      behind of 5 hours of UTC. The offset should be -1 to +1, and
+      its precision is assumed at most second. The default value is
+      zero (equals to UTC).
+
+          DateTime.new(2001,2,3,4,5,6,Rational(3,24))
+                              #=> #<DateTime: 2001-02-03T04:05:06+03:00 ...>
+
+      The offset also accepts string form:
+
+          DateTime.new(2001,2,3,4,5,6,'+03:00')
+                              #=> #<DateTime: 2001-02-03T04:05:06+03:00 ...>
+
+      An optional argument, the day of calendar reform (+start+), denotes
+      a Julian day number, which should be 2298874 to 2426355 or
+      negative/positive infinity.
+      The default value is +Date::ITALY+ (2299161=1582-10-15).
+
+      A DateTime object has various methods. See each reference.
+
+          d = DateTime.parse('3rd Feb 2001 04:05:06+03:30')
+                              #=> #<DateTime: 2001-02-03T04:05:06+03:30 ...>
+          d.hour              #=> 4
+          d.min               #=> 5
+          d.sec               #=> 6
+          d.offset            #=> (7/48)
+          d.zone              #=> "+03:30"
+          d += Rational('1.5')
+                              #=> #<DateTime: 2001-02-04%16:05:06+03:30 ...>
+          d = d.new_offset('+09:00')
+                              #=> #<DateTime: 2001-02-04%21:35:06+09:00 ...>
+          d.strftime('%I:%M:%S %p')
+                              #=> "09:35:06 PM"
+          d > DateTime.new(1999)
+                              #=> true
+
+      === When should you use DateTime and when should you use Time?
+
+      It's a common misconception that
+      {William Shakespeare}[http://en.wikipedia.org/wiki/William_Shakespeare]
+      and
+      {Miguel de Cervantes}[http://en.wikipedia.org/wiki/Miguel_de_Cervantes]
+      died on the same day in history -
+      so much so that UNESCO named April 23 as
+      {World Book Day because of this fact}[http://en.wikipedia.org/wiki/World_Book_Day].
+      However, because England hadn't yet adopted the
+      {Gregorian Calendar Reform}[http://en.wikipedia.org/wiki/Gregorian_calendar#Gregorian_reform]
+      (and wouldn't until {1752}[http://en.wikipedia.org/wiki/Calendar_(New_Style)_Act_1750])
+      their deaths are actually 10 days apart.
+      Since Ruby's Time class implements a
+      {proleptic Gregorian calendar}[http://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar]
+      and has no concept of calendar reform there's no way
+      to express this with Time objects. This is where DateTime steps in:
+
+          shakespeare = DateTime.iso8601('1616-04-23', Date::ENGLAND)
+           #=> Tue, 23 Apr 1616 00:00:00 +0000
+          cervantes = DateTime.iso8601('1616-04-23', Date::ITALY)
+           #=> Sat, 23 Apr 1616 00:00:00 +0000
+
+      Already you can see something is weird - the days of the week
+      are different. Taking this further:
+
+          cervantes == shakespeare
+           #=> false
+          (shakespeare - cervantes).to_i
+           #=> 10
+
+      This shows that in fact they died 10 days apart (in reality
+      11 days since Cervantes died a day earlier but was buried on
+      the 23rd). We can see the actual date of Shakespeare's death by
+      using the #gregorian method to convert it:
+
+          shakespeare.gregorian
+           #=> Tue, 03 May 1616 00:00:00 +0000
+
+      So there's an argument that all the celebrations that take
+      place on the 23rd April in Stratford-upon-Avon are actually
+      the wrong date since England is now using the Gregorian calendar.
+      You can see why when we transition across the reform
+      date boundary:
+
+          # start off with the anniversary of Shakespeare's birth in 1751
+          shakespeare = DateTime.iso8601('1751-04-23', Date::ENGLAND)
+           #=> Tue, 23 Apr 1751 00:00:00 +0000
+
+          # add 366 days since 1752 is a leap year and April 23 is after February 29
+          shakespeare + 366
+           #=> Thu, 23 Apr 1752 00:00:00 +0000
+
+          # add another 365 days to take us to the anniversary in 1753
+          shakespeare + 366 + 365
+           #=> Fri, 04 May 1753 00:00:00 +0000
+
+      As you can see, if we're accurately tracking the number of
+      {solar years}[http://en.wikipedia.org/wiki/Tropical_year]
+      since Shakespeare's birthday then the correct anniversary date
+      would be the 4th May and not the 23rd April.
+
+      So when should you use DateTime in Ruby and when should
+      you use Time? Almost certainly you'll want to use Time
+      since your app is probably dealing with current dates and
+      times. However, if you need to deal with dates and times in a
+      historical context you'll want to use DateTime to avoid
+      making the same mistakes as UNESCO. If you also have to deal
+      with timezones then best of luck - just bear in mind that
+      you'll probably be dealing with
+      {local solar times}[http://en.wikipedia.org/wiki/Solar_time],
+      since it wasn't until the 19th century that the introduction
+      of the railways necessitated the need for
+      {Standard Time}[http://en.wikipedia.org/wiki/Standard_time#Great_Britain]
+      and eventually timezones.
+dbm:
+  DBM:
+    main: |-
+      == Introduction
+
+      The DBM class provides a wrapper to a Unix-style
+      {dbm}[http://en.wikipedia.org/wiki/Dbm] or Database Manager library.
+
+      Dbm databases do not have tables or columns; they are simple key-value
+      data stores, like a Ruby Hash except not resident in RAM. Keys and values
+      must be strings.
+
+      The exact library used depends on how Ruby was compiled. It could be any
+      of the following:
+
+      - The original ndbm library is released in 4.3BSD.
+        It is based on dbm library in Unix Version 7 but has different API to
+        support multiple databases in a process.
+      - {Berkeley DB}[http://en.wikipedia.org/wiki/Berkeley_DB] versions
+        1 thru 6, also known as BDB and Sleepycat DB, now owned by Oracle
+        Corporation.
+      - Berkeley DB 1.x, still found in 4.4BSD derivatives (FreeBSD, OpenBSD, etc).
+      - {gdbm}[http://www.gnu.org/software/gdbm/], the GNU implementation of dbm.
+      - {qdbm}[http://fallabs.com/qdbm/index.html], another open source
+        reimplementation of dbm.
+
+      All of these dbm implementations have their own Ruby interfaces
+      available, which provide richer (but varying) APIs.
+
+      == Cautions
+
+      Before you decide to use DBM, there are some issues you should consider:
+
+      - Each implementation of dbm has its own file format. Generally, dbm
+        libraries will not read each other's files. This makes dbm files
+        a bad choice for data exchange.
+
+      - Even running the same OS and the same dbm implementation, the database
+        file format may depend on the CPU architecture. For example, files may
+        not be portable between PowerPC and 386, or between 32 and 64 bit Linux.
+
+      - Different versions of Berkeley DB use different file formats. A change to
+        the OS may therefore break DBM access to existing files.
+
+      - Data size limits vary between implementations. Original Berkeley DB was
+        limited to 2GB of data. Dbm libraries also sometimes limit the total
+        size of a key/value pair, and the total size of all the keys that hash
+        to the same value. These limits can be as little as 512 bytes. That said,
+        gdbm and recent versions of Berkeley DB do away with these limits.
+
+      Given the above cautions, DBM is not a good choice for long term storage of
+      important data. It is probably best used as a fast and easy alternative
+      to a Hash for processing large amounts of data.
+
+      == Example
+
+       require 'dbm'
+       db = DBM.open('rfcs', 0666, DBM::WRCREAT)
+       db['822'] = 'Standard for the Format of ARPA Internet Text Messages'
+       db['1123'] = 'Requirements for Internet Hosts - Application and Support'
+       db['3068'] = 'An Anycast Prefix for 6to4 Relay Routers'
+       puts db['822']
+  DBMError:
+    main: Exception class used to return errors from the dbm library.
+digest:
+  Digest:
+    main: |-
+      This module provides a framework for message digest libraries.
+
+      You may want to look at OpenSSL::Digest as it supports more algorithms.
+
+      A cryptographic hash function is a procedure that takes data and returns a
+      fixed bit string: the hash value, also known as _digest_. Hash functions
+      are also called one-way functions, it is easy to compute a digest from
+      a message, but it is infeasible to generate a message from a digest.
+
+      == Examples
+
+        require 'digest'
+
+        # Compute a complete digest
+        Digest::SHA256.digest 'message'       #=> "\xABS\n\x13\xE4Y..."
+
+        sha256 = Digest::SHA256.new
+        sha256.digest 'message'               #=> "\xABS\n\x13\xE4Y..."
+
+        # Other encoding formats
+        Digest::SHA256.hexdigest 'message'    #=> "ab530a13e459..."
+        Digest::SHA256.base64digest 'message' #=> "q1MKE+RZFJgr..."
+
+        # Compute digest by chunks
+        md5 = Digest::MD5.new
+        md5.update 'message1'
+        md5 << 'message2'                     # << is an alias for update
+
+        md5.hexdigest                         #=> "94af09c09bb9..."
+
+        # Compute digest for a file
+        sha256 = Digest::SHA256.file 'testfile'
+        sha256.hexdigest
+
+      Additionally digests can be encoded in "bubble babble" format as a sequence
+      of consonants and vowels which is more recognizable and comparable than a
+      hexadecimal digest.
+
+        require 'digest/bubblebabble'
+
+        Digest::SHA256.bubblebabble 'message' #=> "xopoh-fedac-fenyh-..."
+
+      See the bubble babble specification at
+      http://web.mit.edu/kenta/www/one/bubblebabble/spec/jrtrjwzi/draft-huima-01.txt.
+
+      == Digest algorithms
+
+      Different digest algorithms (or hash functions) are available:
+
+      MD5::
+       See RFC 1321 The MD5 Message-Digest Algorithm
+      RIPEMD-160::
+        As Digest::RMD160.
+        See http://homes.esat.kuleuven.be/~bosselae/ripemd160.html.
+      SHA1::
+        See FIPS 180 Secure Hash Standard.
+      SHA2 family::
+        See FIPS 180 Secure Hash Standard which defines the following algorithms:
+        * SHA512
+        * SHA384
+        * SHA256
+
+      The latest versions of the FIPS publications can be found here:
+      http://csrc.nist.gov/publications/PubsFIPS.html.
+  Digest::Base:
+    main: |-
+      This abstract class provides a common interface to message digest
+      implementation classes written in C.
+
+      ==Write a Digest subclass in C
+      Digest::Base provides a common interface to message digest
+      classes written in C. These classes must provide a struct
+      of type rb_digest_metadata_t:
+       typedef int (*rb_digest_hash_init_func_t)(void *);
+       typedef void (*rb_digest_hash_update_func_t)(void *, unsigned char *, size_t);
+       typedef int (*rb_digest_hash_finish_func_t)(void *, unsigned char *);
+
+       typedef struct {
+         int api_version;
+         size_t digest_len;
+         size_t block_len;
+         size_t ctx_size;
+         rb_digest_hash_init_func_t init_func;
+         rb_digest_hash_update_func_t update_func;
+         rb_digest_hash_finish_func_t finish_func;
+       } rb_digest_metadata_t;
+
+      This structure must be set as an instance variable named +metadata+
+      (without the +@+ in front of the name). By example:
+        static const rb_digest_metadata_t sha1 = {
+           RUBY_DIGEST_API_VERSION,
+           SHA1_DIGEST_LENGTH,
+           SHA1_BLOCK_LENGTH,
+           sizeof(SHA1_CTX),
+           (rb_digest_hash_init_func_t)SHA1_Init,
+           (rb_digest_hash_update_func_t)SHA1_Update,
+           (rb_digest_hash_finish_func_t)SHA1_Finish,
+       };
+
+       rb_ivar_set(cDigest_SHA1, rb_intern("metadata"),
+                   Data_Wrap_Struct(0, 0, 0, (void *)&sha1));
+  Digest::Class:
+    main: |-
+      This module stands as a base class for digest implementation
+      classes.
+  Digest::Instance:
+    main: |-
+      This module provides instance methods for a digest implementation
+      object to calculate message digest values.
+  Digest::MD5:
+    main: |-
+      A class for calculating message digests using the MD5
+      Message-Digest Algorithm by RSA Data Security, Inc., described in
+      RFC1321.
+
+      MD5 calculates a digest of 128 bits (16 bytes).
+
+      == Examples
+       require 'digest'
+
+       # Compute a complete digest
+       Digest::MD5.hexdigest 'abc'      #=> "90015098..."
+
+       # Compute digest by chunks
+       md5 = Digest::MD5.new               # =>#<Digest::MD5>
+       md5.update "ab"
+       md5 << "c"                           # alias for #update
+       md5.hexdigest                        # => "90015098..."
+
+       # Use the same object to compute another digest
+       md5.reset
+       md5 << "message"
+       md5.hexdigest                        # => "78e73102..."
+  Digest::RMD160:
+    main: |-
+      A class for calculating message digests using RIPEMD-160
+      cryptographic hash function, designed by Hans Dobbertin, Antoon
+      Bosselaers, and Bart Preneel.
+
+      RMD160 calculates a digest of 160 bits (20 bytes).
+
+      == Examples
+       require 'digest'
+
+       # Compute a complete digest
+       Digest::RMD160.hexdigest 'abc'      #=> "8eb208f7..."
+
+       # Compute digest by chunks
+       rmd160 = Digest::RMD160.new               # =>#<Digest::RMD160>
+       rmd160.update "ab"
+       rmd160 << "c"                           # alias for #update
+       rmd160.hexdigest                        # => "8eb208f7..."
+
+       # Use the same object to compute another digest
+       rmd160.reset
+       rmd160 << "message"
+       rmd160.hexdigest                        # => "1dddbe1b..."
+  Digest::SHA1:
+    main: |-
+      A class for calculating message digests using the SHA-1 Secure Hash
+      Algorithm by NIST (the US' National Institute of Standards and
+      Technology), described in FIPS PUB 180-1.
+
+      See Digest::Instance for digest API.
+
+      SHA-1 calculates a digest of 160 bits (20 bytes).
+
+      == Examples
+       require 'digest'
+
+       # Compute a complete digest
+       Digest::SHA1.hexdigest 'abc'      #=> "a9993e36..."
+
+       # Compute digest by chunks
+       sha1 = Digest::SHA1.new               # =>#<Digest::SHA1>
+       sha1.update "ab"
+       sha1 << "c"                           # alias for #update
+       sha1.hexdigest                        # => "a9993e36..."
+
+       # Use the same object to compute another digest
+       sha1.reset
+       sha1 << "message"
+       sha1.hexdigest                        # => "6f9b9af3..."
+  Digest::SHA2:
+    main: |-
+      A meta digest provider class for SHA256, SHA384 and SHA512.
+
+      FIPS 180-2 describes SHA2 family of digest algorithms. It defines
+      three algorithms:
+      * one which works on chunks of 512 bits and returns a 256-bit
+        digest (SHA256),
+      * one which works on chunks of 1024 bits and returns a 384-bit
+        digest (SHA384),
+      * and one which works on chunks of 1024 bits and returns a 512-bit
+        digest (SHA512).
+
+      ==Examples
+       require 'digest'
+
+       # Compute a complete digest
+       Digest::SHA2.hexdigest 'abc'          # => "ba7816bf8..."
+       Digest::SHA2.new(256).hexdigest 'abc' # => "ba7816bf8..."
+       Digest::SHA256.hexdigest 'abc'        # => "ba7816bf8..."
+
+       Digest::SHA2.new(384).hexdigest 'abc' # => "cb00753f4..."
+       Digest::SHA384.hexdigest 'abc'        # => "cb00753f4..."
+
+       Digest::SHA2.new(512).hexdigest 'abc' # => "ddaf35a19..."
+       Digest::SHA512.hexdigest 'abc'        # => "ddaf35a19..."
+
+       # Compute digest by chunks
+       sha2 = Digest::SHA2.new               # =>#<Digest::SHA2:256>
+       sha2.update "ab"
+       sha2 << "c"                           # alias for #update
+       sha2.hexdigest                        # => "ba7816bf8..."
+
+       # Use the same object to compute another digest
+       sha2.reset
+       sha2 << "message"
+       sha2.hexdigest                        # => "ab530a13e..."
+etc:
+  Etc:
+    main: |-
+      The Etc module provides access to information typically stored in
+      files in the /etc directory on Unix systems.
+
+      The information accessible consists of the information found in the
+      /etc/passwd and /etc/group files, plus information about the system's
+      temporary directory (/tmp) and configuration directory (/etc).
+
+      The Etc module provides a more reliable way to access information about
+      the logged in user than environment variables such as +$USER+.
+
+      == Example:
+
+          require 'etc'
+
+          login = Etc.getlogin
+          info = Etc.getpwnam(login)
+          username = info.gecos.split(/,/).first
+          puts "Hello #{username}, I see your login name is #{login}"
+
+      Note that the methods provided by this module are not always secure.
+      It should be used for informational purposes, and not for security.
+
+      All operations defined in this module are class methods, so that you can
+      include the Etc module into your class.
+fcntl:
+  Fcntl:
+    main: |-
+      Fcntl loads the constants defined in the system's <fcntl.h> C header
+      file, and used with both the fcntl(2) and open(2) POSIX system calls.
+
+      To perform a fcntl(2) operation, use IO::fcntl.
+
+      To perform an open(2) operation, use IO::sysopen.
+
+      The set of operations and constants available depends upon specific
+      operating system.  Some values listed below may not be supported on your
+      system.
+
+      See your fcntl(2) man page for complete details.
+
+      Open /tmp/tempfile as a write-only file that is created if it doesn't
+      exist:
+
+        require 'fcntl'
+
+        fd = IO.sysopen('/tmp/tempfile',
+                        Fcntl::O_WRONLY | Fcntl::O_EXCL | Fcntl::O_CREAT)
+        f = IO.open(fd)
+        f.syswrite("TEMP DATA")
+        f.close
+
+      Get the flags on file +s+:
+
+        m = s.fcntl(Fcntl::F_GETFL, 0)
+
+      Set the non-blocking flag on +f+ in addition to the existing flags in +m+.
+
+        f.fcntl(Fcntl::F_SETFL, Fcntl::O_NONBLOCK|m)
+fiber: {}
+fiddle:
+  Fiddle:
+    main: |-
+      A libffi wrapper for Ruby.
+
+      == Description
+
+      Fiddle is an extension to translate a foreign function interface (FFI)
+      with ruby.
+
+      It wraps {libffi}[http://sourceware.org/libffi/], a popular C library
+      which provides a portable interface that allows code written in one
+      language to call code written in another language.
+
+      == Example
+
+      Here we will use Fiddle::Function to wrap {floor(3) from
+      libm}[http://linux.die.net/man/3/floor]
+
+           require 'fiddle'
+
+           libm = Fiddle.dlopen('/lib/libm.so.6')
+
+           floor = Fiddle::Function.new(
+             libm['floor'],
+             [Fiddle::TYPE_DOUBLE],
+             Fiddle::TYPE_DOUBLE
+           )
+
+           puts floor.call(3.14159) #=> 3.0
+  Fiddle::BasicTypes:
+    main: |-
+      Adds basic type aliases to the including class for use with Fiddle::Importer.
+
+      The aliases added are +uint+ and +u_int+ (<tt>unsigned int</tt>) and
+      +ulong+ and +u_long+ (<tt>unsigned long</tt>)
+  Fiddle::CParser:
+    main: |-
+      A mixin that provides methods for parsing C struct and prototype signatures.
+
+      == Example
+        require 'fiddle/import'
+
+        include Fiddle::CParser
+          #=> Object
+
+        parse_ctype('int')
+          #=> Fiddle::TYPE_INT
+
+        parse_struct_signature(['int i', 'char c'])
+          #=> [[Fiddle::TYPE_INT, Fiddle::TYPE_CHAR], ["i", "c"]]
+
+        parse_signature('double sum(double, double)')
+          #=> ["sum", Fiddle::TYPE_DOUBLE, [Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]]
+  Fiddle::CStruct:
+    main: C struct shell
+  Fiddle::CStructBuilder:
+    main: |-
+      Used to construct C classes (CUnion, CStruct, etc)
+
+      Fiddle::Importer#struct and Fiddle::Importer#union wrap this functionality in an
+      easy-to-use manner.
+  Fiddle::CStructEntity:
+    main: A C struct wrapper
+  Fiddle::CUnion:
+    main: C union shell
+  Fiddle::CUnionEntity:
+    main: A C union wrapper
+  Fiddle::Closure:
+    main: |-
+      == Description
+
+      An FFI closure wrapper, for handling callbacks.
+
+      == Example
+
+        closure = Class.new(Fiddle::Closure) {
+          def call
+            10
+          end
+        }.new(Fiddle::TYPE_INT, [])
+           #=> #<#<Class:0x0000000150d308>:0x0000000150d240>
+        func = Fiddle::Function.new(closure, [], Fiddle::TYPE_INT)
+           #=> #<Fiddle::Function:0x00000001516e58>
+        func.call
+           #=> 10
+  Fiddle::Closure::BlockCaller:
+    main: Extends Fiddle::Closure to allow for building the closure in a block
+  Fiddle::CompositeHandler:
+    main: Used internally by Fiddle::Importer
+  Fiddle::DLError:
+    main: standard dynamic load exception
+  Fiddle::Function:
+    main: |-
+      == Description
+
+      A representation of a C function
+
+      == Examples
+
+      === 'strcpy'
+
+        @libc = Fiddle.dlopen "/lib/libc.so.6"
+           #=> #<Fiddle::Handle:0x00000001d7a8d8>
+        f = Fiddle::Function.new(
+          @libc['strcpy'],
+          [Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP],
+          Fiddle::TYPE_VOIDP)
+           #=> #<Fiddle::Function:0x00000001d8ee00>
+        buff = "000"
+           #=> "000"
+        str = f.call(buff, "123")
+           #=> #<Fiddle::Pointer:0x00000001d0c380 ptr=0x000000018a21b8 size=0 free=0x00000000000000>
+        str.to_s
+        => "123"
+
+      === ABI check
+
+        @libc = Fiddle.dlopen "/lib/libc.so.6"
+           #=> #<Fiddle::Handle:0x00000001d7a8d8>
+        f = Fiddle::Function.new(@libc['strcpy'], [TYPE_VOIDP, TYPE_VOIDP], TYPE_VOIDP)
+           #=> #<Fiddle::Function:0x00000001d8ee00>
+        f.abi == Fiddle::Function::DEFAULT
+           #=> true
+  Fiddle::Handle:
+    main: |-
+      The Fiddle::Handle is the manner to access the dynamic library
+
+      == Example
+
+      === Setup
+
+        libc_so = "/lib64/libc.so.6"
+        => "/lib64/libc.so.6"
+        @handle = Fiddle::Handle.new(libc_so)
+        => #<Fiddle::Handle:0x00000000d69ef8>
+
+      === Setup, with flags
+
+        libc_so = "/lib64/libc.so.6"
+        => "/lib64/libc.so.6"
+        @handle = Fiddle::Handle.new(libc_so, Fiddle::RTLD_LAZY | Fiddle::RTLD_GLOBAL)
+        => #<Fiddle::Handle:0x00000000d69ef8>
+
+      See RTLD_LAZY and RTLD_GLOBAL
+
+      === Addresses to symbols
+
+        strcpy_addr = @handle['strcpy']
+        => 140062278451968
+
+      or
+
+        strcpy_addr = @handle.sym('strcpy')
+        => 140062278451968
+  Fiddle::Importer:
+    main: |-
+      A DSL that provides the means to dynamically load libraries and build
+      modules around them including calling extern functions within the C
+      library that has been loaded.
+
+      == Example
+
+        require 'fiddle'
+        require 'fiddle/import'
+
+        module LibSum
+          extend Fiddle::Importer
+          dlload './libsum.so'
+          extern 'double sum(double*, int)'
+          extern 'double split(double)'
+        end
+  Fiddle::Pointer:
+    main: Fiddle::Pointer is a class to handle C pointers
+  Fiddle::Win32Types:
+    main: |-
+      Adds Windows type aliases to the including class for use with
+      Fiddle::Importer.
+
+      The aliases added are:
+      * ATOM
+      * BOOL
+      * BYTE
+      * DWORD
+      * DWORD32
+      * DWORD64
+      * HANDLE
+      * HDC
+      * HINSTANCE
+      * HWND
+      * LPCSTR
+      * LPSTR
+      * PBYTE
+      * PDWORD
+      * PHANDLE
+      * PVOID
+      * PWORD
+      * UCHAR
+      * UINT
+      * ULONG
+      * WORD
+gdbm:
+  GDBM:
+    main: |-
+      == Summary
+
+      Ruby extension for GNU dbm (gdbm) -- a simple database engine for storing
+      key-value pairs on disk.
+
+      == Description
+
+      GNU dbm is a library for simple databases. A database is a file that stores
+      key-value pairs. Gdbm allows the user to store, retrieve, and delete data by
+      key. It furthermore allows a non-sorted traversal of all key-value pairs.
+      A gdbm database thus provides the same functionality as a hash. As
+      with objects of the Hash class, elements can be accessed with <tt>[]</tt>.
+      Furthermore, GDBM mixes in the Enumerable module, thus providing convenient
+      methods such as #find, #collect, #map, etc.
+
+      A process is allowed to open several different databases at the same time.
+      A process can open a database as a "reader" or a "writer". Whereas a reader
+      has only read-access to the database, a writer has read- and write-access.
+      A database can be accessed either by any number of readers or by exactly one
+      writer at the same time.
+
+      == Examples
+
+      1. Opening/creating a database, and filling it with some entries:
+
+           require 'gdbm'
+
+           gdbm = GDBM.new("fruitstore.db")
+           gdbm["ananas"]    = "3"
+           gdbm["banana"]    = "8"
+           gdbm["cranberry"] = "4909"
+           gdbm.close
+
+      2. Reading out a database:
+
+           require 'gdbm'
+
+           gdbm = GDBM.new("fruitstore.db")
+           gdbm.each_pair do |key, value|
+             print "#{key}: #{value}\n"
+           end
+           gdbm.close
+
+         produces
+
+           banana: 8
+           ananas: 3
+           cranberry: 4909
+
+      == Links
+
+      * http://www.gnu.org/software/gdbm/
+io: {}
+json:
+  Class:
+    main: Extends any Class to include _json_creatable?_ method.
+  JSON:
+    main: |-
+      = JavaScript Object Notation (JSON)
+
+      JSON is a lightweight data-interchange format. It is easy for us
+      humans to read and write. Plus, equally simple for machines to generate or parse.
+      JSON is completely language agnostic, making it the ideal interchange format.
+
+      Built on two universally available structures:
+        1. A collection of name/value pairs. Often referred to as an _object_, hash table, record, struct, keyed list, or associative array.
+        2. An ordered list of values. More commonly called an _array_, vector, sequence or list.
+
+      To read more about JSON visit: http://json.org
+
+      == Parsing JSON
+
+      To parse a JSON string received by another application or generated within
+      your existing application:
+
+        require 'json'
+
+        my_hash = JSON.parse('{"hello": "goodbye"}')
+        puts my_hash["hello"] => "goodbye"
+
+      Notice the extra quotes <tt>''</tt> around the hash notation. Ruby expects
+      the argument to be a string and can't convert objects like a hash or array.
+
+      Ruby converts your string into a hash
+
+      == Generating JSON
+
+      Creating a JSON string for communication or serialization is
+      just as simple.
+
+        require 'json'
+
+        my_hash = {:hello => "goodbye"}
+        puts JSON.generate(my_hash) => "{\"hello\":\"goodbye\"}"
+
+      Or an alternative way:
+
+        require 'json'
+        puts {:hello => "goodbye"}.to_json => "{\"hello\":\"goodbye\"}"
+
+      <tt>JSON.generate</tt> only allows objects or arrays to be converted
+      to JSON syntax. <tt>to_json</tt>, however, accepts many Ruby classes
+      even though it acts only as a method for serialization:
+
+        require 'json'
+
+        1.to_json => "1"
+  JSON::Ext:
+    main: |-
+      This module holds all the modules/classes that implement JSON's
+      functionality as C extensions.
+  JSON::Ext::Generator:
+    main: |-
+      This is the JSON generator implemented as a C extension. It can be
+      configured to be used by setting
+
+       JSON.generator = JSON::Ext::Generator
+
+      with the method generator= in JSON.
+  JSON::Ext::Parser:
+    main: |-
+      This is the JSON parser implemented as a C extension. It can be configured
+      to be used by setting
+
+       JSON.parser = JSON::Ext::Parser
+
+      with the method parser= in JSON.
+  JSON::GeneratorError:
+    main: This exception is raised if a generator or unparser error occurs.
+  JSON::JSONError:
+    main: The base exception for JSON errors.
+  JSON::MissingUnicodeSupport:
+    main: |-
+      This exception is raised if the required unicode support is missing on the
+      system. Usually this means that the iconv library is not installed.
+  JSON::NestingError:
+    main: |-
+      This exception is raised if the nesting of parsed data structures is too
+      deep.
+  JSON::ParserError:
+    main: This exception is raised if a parser error occurs.
+  JSON::UnparserError:
+    main: This exception is raised if a generator or unparser error occurs.
+monitor:
+  Monitor:
+    main: |-
+      Use the Monitor class when you want to have a lock object for blocks with
+      mutual exclusion.
+
+        require 'monitor'
+
+        lock = Monitor.new
+        lock.synchronize do
+          # exclusive access
+        end
+  MonitorMixin::ConditionVariable:
+    main: |-
+      FIXME: This isn't documented in Nutshell.
+
+      Since MonitorMixin.new_cond returns a ConditionVariable, and the example
+      above calls while_wait and signal, this class should be documented.
+nkf:
+  Kconv:
+    main: Kanji Converter for Ruby.
+  NKF:
+    main: |-
+      NKF - Ruby extension for Network Kanji Filter
+
+      == Description
+
+      This is a Ruby Extension version of nkf (Network Kanji Filter).
+      It converts the first argument and returns converted result. Conversion
+      details are specified by flags as the first argument.
+
+      *Nkf* is a yet another kanji code converter among networks, hosts and terminals.
+      It converts input kanji code to designated kanji code
+      such as ISO-2022-JP, Shift_JIS, EUC-JP, UTF-8 or UTF-16.
+
+      One of the most unique faculty of *nkf* is the guess of the input kanji encodings.
+      It currently recognizes ISO-2022-JP, Shift_JIS, EUC-JP, UTF-8 and UTF-16.
+      So users needn't set the input kanji code explicitly.
+
+      By default, X0201 kana is converted into X0208 kana.
+      For X0201 kana, SO/SI, SSO and ESC-(-I methods are supported.
+      For automatic code detection, nkf assumes no X0201 kana in Shift_JIS.
+      To accept X0201 in Shift_JIS, use <b>-X</b>, <b>-x</b> or <b>-S</b>.
+
+      == Flags
+
+      === -b -u
+
+      Output is buffered (DEFAULT), Output is unbuffered.
+
+      === -j -s -e -w -w16 -w32
+
+      Output code is ISO-2022-JP (7bit JIS), Shift_JIS, EUC-JP,
+      UTF-8N, UTF-16BE, UTF-32BE.
+      Without this option and compile option, ISO-2022-JP is assumed.
+
+      === -J -S -E -W -W16 -W32
+
+      Input assumption is JIS 7 bit, Shift_JIS, EUC-JP,
+      UTF-8, UTF-16, UTF-32.
+
+      ==== -J
+
+      Assume  JIS input. It also accepts EUC-JP.
+      This is the default. This flag does not exclude Shift_JIS.
+
+      ==== -S
+
+      Assume Shift_JIS and X0201 kana input. It also accepts JIS.
+      EUC-JP is recognized as X0201 kana. Without <b>-x</b> flag,
+      X0201 kana (halfwidth kana) is converted into X0208.
+
+      ==== -E
+
+      Assume EUC-JP input. It also accepts JIS.
+      Same as -J.
+
+      === -t
+
+      No conversion.
+
+      === -i_
+
+      Output sequence to designate JIS-kanji. (DEFAULT B)
+
+      === -o_
+
+      Output sequence to designate ASCII. (DEFAULT B)
+
+      === -r
+
+      {de/en}crypt ROT13/47
+
+      === -h[123] --hiragana --katakana --katakana-hiragana
+
+      [-h1 --hiragana] Katakana to Hiragana conversion.
+
+      [-h2 --katakana] Hiragana to Katakana conversion.
+
+      [-h3 --katakana-hiragana] Katakana to Hiragana and Hiragana to Katakana conversion.
+
+      === -T
+
+      Text mode output (MS-DOS)
+
+      === -l
+
+      ISO8859-1 (Latin-1) support
+
+      === -f[<code>m</code> [- <code>n</code>]]
+
+      Folding on <code>m</code> length with <code>n</code> margin in a line.
+      Without this option, fold length is 60 and fold margin is 10.
+
+      === -F
+
+      New line preserving line folding.
+
+      === -Z[0-3]
+
+      Convert X0208 alphabet (Fullwidth Alphabets) to ASCII.
+
+      [-Z -Z0] Convert X0208 alphabet to ASCII.
+
+      [-Z1] Converts X0208 kankaku to single ASCII space.
+
+      [-Z2] Converts X0208 kankaku to double ASCII spaces.
+
+      [-Z3] Replacing Fullwidth >, <, ", & into '&gt;', '&lt;', '&quot;', '&amp;' as in HTML.
+
+      === -X -x
+
+      Assume X0201 kana in MS-Kanji.
+      With <b>-X</b> or without this option, X0201 is converted into X0208 Kana.
+      With <b>-x</b>, try to preserve X0208 kana and do not convert X0201 kana to X0208.
+      In JIS output, ESC-(-I is used. In EUC output, SSO is used.
+
+      === -B[0-2]
+
+      Assume broken JIS-Kanji input, which lost ESC.
+      Useful when your site is using old B-News Nihongo patch.
+
+      [-B1] allows any char after ESC-( or ESC-$.
+
+      [-B2] forces ASCII after NL.
+
+      === -I
+
+      Replacing non iso-2022-jp char into a geta character
+      (substitute character in Japanese).
+
+      === -d -c
+
+      Delete \r in line feed, Add \r in line feed.
+
+      === -m[BQN0]
+
+      MIME ISO-2022-JP/ISO8859-1 decode. (DEFAULT)
+      To see ISO8859-1 (Latin-1) -l is necessary.
+
+      [-mB] Decode MIME base64 encoded stream. Remove header or other part before
+      conversion.
+
+      [-mQ] Decode MIME quoted stream. '_' in quoted stream is converted to space.
+
+      [-mN] Non-strict decoding.
+      It allows line break in the middle of the base64 encoding.
+
+      [-m0] No MIME decode.
+
+      === -M
+
+      MIME encode. Header style. All ASCII code and control characters are intact.
+      Kanji conversion is performed before encoding, so this cannot be used as a picture encoder.
+
+      [-MB] MIME encode Base64 stream.
+
+      [-MQ] Perfome quoted encoding.
+
+      === -l
+
+      Input and output code is ISO8859-1 (Latin-1) and ISO-2022-JP.
+      <b>-s</b>, <b>-e</b> and <b>-x</b> are not compatible with this option.
+
+      === -L[uwm]
+
+      new line mode
+      Without this option, nkf doesn't convert line breaks.
+
+      [-Lu] unix (LF)
+
+      [-Lw] windows (CRLF)
+
+      [-Lm] mac (CR)
+
+      === --fj --unix --mac --msdos --windows
+
+      convert for these system
+
+      === --jis --euc --sjis --mime --base64
+
+      convert for named code
+
+      === --jis-input --euc-input --sjis-input --mime-input --base64-input
+
+      assume input system
+
+      === --ic=<code>input codeset</code> --oc=<code>output codeset</code>
+
+      Set the input or output codeset.
+      NKF supports following codesets and those codeset name are case insensitive.
+
+      [ISO-2022-JP] a.k.a. RFC1468, 7bit JIS, JUNET
+
+      [EUC-JP (eucJP-nkf)] a.k.a. AT&T JIS, Japanese EUC, UJIS
+
+      [eucJP-ascii] a.k.a. x-eucjp-open-19970715-ascii
+
+      [eucJP-ms] a.k.a. x-eucjp-open-19970715-ms
+
+      [CP51932] Microsoft Version of EUC-JP.
+
+      [Shift_JIS] SJIS, MS-Kanji
+
+      [Windows-31J] a.k.a. CP932
+
+      [UTF-8] same as UTF-8N
+
+      [UTF-8N] UTF-8 without BOM
+
+      [UTF-8-BOM] UTF-8 with BOM
+
+      [UTF-16] same as UTF-16BE
+
+      [UTF-16BE] UTF-16 Big Endian without BOM
+
+      [UTF-16BE-BOM] UTF-16 Big Endian with BOM
+
+      [UTF-16LE] UTF-16 Little Endian without BOM
+
+      [UTF-16LE-BOM] UTF-16 Little Endian with BOM
+
+      [UTF-32] same as UTF-32BE
+
+      [UTF-32BE] UTF-32 Big Endian without BOM
+
+      [UTF-32BE-BOM] UTF-32 Big Endian with BOM
+
+      [UTF-32LE] UTF-32 Little Endian without BOM
+
+      [UTF-32LE-BOM] UTF-32 Little Endian with BOM
+
+      [UTF8-MAC] NKDed UTF-8, a.k.a. UTF8-NFD (input only)
+
+      === --fb-{skip, html, xml, perl, java, subchar}
+
+      Specify the way that nkf handles unassigned characters.
+      Without this option, --fb-skip is assumed.
+
+      === --prefix= <code>escape character</code> <code>target character</code> ..
+
+      When nkf converts to Shift_JIS,
+      nkf adds a specified escape character to specified 2nd byte of Shift_JIS characters.
+      1st byte of argument is the escape character and following bytes are target characters.
+
+      === --no-cp932ext
+
+      Handle the characters extended in CP932 as unassigned characters.
+
+      == --no-best-fit-chars
+
+      When Unicode to Encoded byte conversion,
+      don't convert characters which is not round trip safe.
+      When Unicode to Unicode conversion,
+      with this and -x option, nkf can be used as UTF converter.
+      (In other words, without this and -x option, nkf doesn't save some characters)
+
+      When nkf convert string which related to path, you should use this opion.
+
+      === --cap-input
+
+      Decode hex encoded characters.
+
+      === --url-input
+
+      Unescape percent escaped characters.
+
+      === --
+
+      Ignore rest of -option.
+objspace:
+  ObjectSpace:
+    main: |-
+      The objspace library extends the ObjectSpace module and adds several
+      methods to get internal statistic information about
+      object/memory management.
+
+      You need to <code>require 'objspace'</code> to use this extension module.
+
+      Generally, you *SHOULD NOT* use this library if you do not know
+      about the MRI implementation.  Mainly, this library is for (memory)
+      profiler developers and MRI developers who need to know about MRI
+      memory usage.
+  ObjectSpace::InternalObjectWrapper:
+    main: |-
+      This class is used as a return value from
+      ObjectSpace::reachable_objects_from.
+
+      When ObjectSpace::reachable_objects_from returns an object with
+      references to an internal object, an instance of this class is returned.
+
+      You can use the #type method to check the type of the internal object.
+openssl:
+  OpenSSL:
+    main: |-
+      OpenSSL provides SSL, TLS and general purpose cryptography.  It wraps the
+      OpenSSL[https://www.openssl.org/] library.
+
+      = Examples
+
+      All examples assume you have loaded OpenSSL with:
+
+        require 'openssl'
+
+      These examples build atop each other.  For example the key created in the
+      next is used in throughout these examples.
+
+      == Keys
+
+      === Creating a Key
+
+      This example creates a 2048 bit RSA keypair and writes it to the current
+      directory.
+
+        key = OpenSSL::PKey::RSA.new 2048
+
+        open 'private_key.pem', 'w' do |io| io.write key.to_pem end
+        open 'public_key.pem', 'w' do |io| io.write key.public_key.to_pem end
+
+      === Exporting a Key
+
+      Keys saved to disk without encryption are not secure as anyone who gets
+      ahold of the key may use it unless it is encrypted.  In order to securely
+      export a key you may export it with a pass phrase.
+
+        cipher = OpenSSL::Cipher.new 'AES-128-CBC'
+        pass_phrase = 'my secure pass phrase goes here'
+
+        key_secure = key.export cipher, pass_phrase
+
+        open 'private.secure.pem', 'w' do |io|
+          io.write key_secure
+        end
+
+      OpenSSL::Cipher.ciphers returns a list of available ciphers.
+
+      === Loading a Key
+
+      A key can also be loaded from a file.
+
+        key2 = OpenSSL::PKey::RSA.new File.read 'private_key.pem'
+        key2.public? # => true
+        key2.private? # => true
+
+      or
+
+        key3 = OpenSSL::PKey::RSA.new File.read 'public_key.pem'
+        key3.public? # => true
+        key3.private? # => false
+
+      === Loading an Encrypted Key
+
+      OpenSSL will prompt you for your pass phrase when loading an encrypted key.
+      If you will not be able to type in the pass phrase you may provide it when
+      loading the key:
+
+        key4_pem = File.read 'private.secure.pem'
+        pass_phrase = 'my secure pass phrase goes here'
+        key4 = OpenSSL::PKey::RSA.new key4_pem, pass_phrase
+
+      == RSA Encryption
+
+      RSA provides encryption and decryption using the public and private keys.
+      You can use a variety of padding methods depending upon the intended use of
+      encrypted data.
+
+      === Encryption & Decryption
+
+      Asymmetric public/private key encryption is slow and victim to attack in
+      cases where it is used without padding or directly to encrypt larger chunks
+      of data. Typical use cases for RSA encryption involve "wrapping" a symmetric
+      key with the public key of the recipient who would "unwrap" that symmetric
+      key again using their private key.
+      The following illustrates a simplified example of such a key transport
+      scheme. It shouldn't be used in practice, though, standardized protocols
+      should always be preferred.
+
+        wrapped_key = key.public_encrypt key
+
+      A symmetric key encrypted with the public key can only be decrypted with
+      the corresponding private key of the recipient.
+
+        original_key = key.private_decrypt wrapped_key
+
+      By default PKCS#1 padding will be used, but it is also possible to use
+      other forms of padding, see PKey::RSA for further details.
+
+      === Signatures
+
+      Using "private_encrypt" to encrypt some data with the private key is
+      equivalent to applying a digital signature to the data. A verifying
+      party may validate the signature by comparing the result of decrypting
+      the signature with "public_decrypt" to the original data. However,
+      OpenSSL::PKey already has methods "sign" and "verify" that handle
+      digital signatures in a standardized way - "private_encrypt" and
+      "public_decrypt" shouldn't be used in practice.
+
+      To sign a document, a cryptographically secure hash of the document is
+      computed first, which is then signed using the private key.
+
+        digest = OpenSSL::Digest::SHA256.new
+        signature = key.sign digest, document
+
+      To validate the signature, again a hash of the document is computed and
+      the signature is decrypted using the public key. The result is then
+      compared to the hash just computed, if they are equal the signature was
+      valid.
+
+        digest = OpenSSL::Digest::SHA256.new
+        if key.verify digest, signature, document
+          puts 'Valid'
+        else
+          puts 'Invalid'
+        end
+
+      == PBKDF2 Password-based Encryption
+
+      If supported by the underlying OpenSSL version used, Password-based
+      Encryption should use the features of PKCS5. If not supported or if
+      required by legacy applications, the older, less secure methods specified
+      in RFC 2898 are also supported (see below).
+
+      PKCS5 supports PBKDF2 as it was specified in PKCS#5
+      v2.0[http://www.rsa.com/rsalabs/node.asp?id=2127]. It still uses a
+      password, a salt, and additionally a number of iterations that will
+      slow the key derivation process down. The slower this is, the more work
+      it requires being able to brute-force the resulting key.
+
+      === Encryption
+
+      The strategy is to first instantiate a Cipher for encryption, and
+      then to generate a random IV plus a key derived from the password
+      using PBKDF2. PKCS #5 v2.0 recommends at least 8 bytes for the salt,
+      the number of iterations largely depends on the hardware being used.
+
+        cipher = OpenSSL::Cipher.new 'AES-128-CBC'
+        cipher.encrypt
+        iv = cipher.random_iv
+
+        pwd = 'some hopefully not to easily guessable password'
+        salt = OpenSSL::Random.random_bytes 16
+        iter = 20000
+        key_len = cipher.key_len
+        digest = OpenSSL::Digest::SHA256.new
+
+        key = OpenSSL::PKCS5.pbkdf2_hmac(pwd, salt, iter, key_len, digest)
+        cipher.key = key
+
+        Now encrypt the data:
+
+        encrypted = cipher.update document
+        encrypted << cipher.final
+
+      === Decryption
+
+      Use the same steps as before to derive the symmetric AES key, this time
+      setting the Cipher up for decryption.
+
+        cipher = OpenSSL::Cipher.new 'AES-128-CBC'
+        cipher.decrypt
+        cipher.iv = iv # the one generated with #random_iv
+
+        pwd = 'some hopefully not to easily guessable password'
+        salt = ... # the one generated above
+        iter = 20000
+        key_len = cipher.key_len
+        digest = OpenSSL::Digest::SHA256.new
+
+        key = OpenSSL::PKCS5.pbkdf2_hmac(pwd, salt, iter, key_len, digest)
+        cipher.key = key
+
+        Now decrypt the data:
+
+        decrypted = cipher.update encrypted
+        decrypted << cipher.final
+
+      == PKCS #5 Password-based Encryption
+
+      PKCS #5 is a password-based encryption standard documented at
+      RFC2898[http://www.ietf.org/rfc/rfc2898.txt].  It allows a short password or
+      passphrase to be used to create a secure encryption key. If possible, PBKDF2
+      as described above should be used if the circumstances allow it.
+
+      PKCS #5 uses a Cipher, a pass phrase and a salt to generate an encryption
+      key.
+
+        pass_phrase = 'my secure pass phrase goes here'
+        salt = '8 octets'
+
+      === Encryption
+
+      First set up the cipher for encryption
+
+        encryptor = OpenSSL::Cipher.new 'AES-128-CBC'
+        encryptor.encrypt
+        encryptor.pkcs5_keyivgen pass_phrase, salt
+
+      Then pass the data you want to encrypt through
+
+        encrypted = encryptor.update 'top secret document'
+        encrypted << encryptor.final
+
+      === Decryption
+
+      Use a new Cipher instance set up for decryption
+
+        decryptor = OpenSSL::Cipher.new 'AES-128-CBC'
+        decryptor.decrypt
+        decryptor.pkcs5_keyivgen pass_phrase, salt
+
+      Then pass the data you want to decrypt through
+
+        plain = decryptor.update encrypted
+        plain << decryptor.final
+
+      == X509 Certificates
+
+      === Creating a Certificate
+
+      This example creates a self-signed certificate using an RSA key and a SHA1
+      signature.
+
+        key = OpenSSL::PKey::RSA.new 2048
+        name = OpenSSL::X509::Name.parse 'CN=nobody/DC=example'
+
+        cert = OpenSSL::X509::Certificate.new
+        cert.version = 2
+        cert.serial = 0
+        cert.not_before = Time.now
+        cert.not_after = Time.now + 3600
+
+        cert.public_key = key.public_key
+        cert.subject = name
+
+      === Certificate Extensions
+
+      You can add extensions to the certificate with
+      OpenSSL::SSL::ExtensionFactory to indicate the purpose of the certificate.
+
+        extension_factory = OpenSSL::X509::ExtensionFactory.new nil, cert
+
+        cert.add_extension \
+          extension_factory.create_extension('basicConstraints', 'CA:FALSE', true)
+
+        cert.add_extension \
+          extension_factory.create_extension(
+            'keyUsage', 'keyEncipherment,dataEncipherment,digitalSignature')
+
+        cert.add_extension \
+          extension_factory.create_extension('subjectKeyIdentifier', 'hash')
+
+      The list of supported extensions (and in some cases their possible values)
+      can be derived from the "objects.h" file in the OpenSSL source code.
+
+      === Signing a Certificate
+
+      To sign a certificate set the issuer and use OpenSSL::X509::Certificate#sign
+      with a digest algorithm.  This creates a self-signed cert because we're using
+      the same name and key to sign the certificate as was used to create the
+      certificate.
+
+        cert.issuer = name
+        cert.sign key, OpenSSL::Digest::SHA1.new
+
+        open 'certificate.pem', 'w' do |io| io.write cert.to_pem end
+
+      === Loading a Certificate
+
+      Like a key, a cert can also be loaded from a file.
+
+        cert2 = OpenSSL::X509::Certificate.new File.read 'certificate.pem'
+
+      === Verifying a Certificate
+
+      Certificate#verify will return true when a certificate was signed with the
+      given public key.
+
+        raise 'certificate can not be verified' unless cert2.verify key
+
+      == Certificate Authority
+
+      A certificate authority (CA) is a trusted third party that allows you to
+      verify the ownership of unknown certificates.  The CA issues key signatures
+      that indicate it trusts the user of that key.  A user encountering the key
+      can verify the signature by using the CA's public key.
+
+      === CA Key
+
+      CA keys are valuable, so we encrypt and save it to disk and make sure it is
+      not readable by other users.
+
+        ca_key = OpenSSL::PKey::RSA.new 2048
+        pass_phrase = 'my secure pass phrase goes here'
+
+        cipher = OpenSSL::Cipher.new 'AES-128-CBC'
+
+        open 'ca_key.pem', 'w', 0400 do |io|
+          io.write ca_key.export(cipher, pass_phrase)
+        end
+
+      === CA Certificate
+
+      A CA certificate is created the same way we created a certificate above, but
+      with different extensions.
+
+        ca_name = OpenSSL::X509::Name.parse 'CN=ca/DC=example'
+
+        ca_cert = OpenSSL::X509::Certificate.new
+        ca_cert.serial = 0
+        ca_cert.version = 2
+        ca_cert.not_before = Time.now
+        ca_cert.not_after = Time.now + 86400
+
+        ca_cert.public_key = ca_key.public_key
+        ca_cert.subject = ca_name
+        ca_cert.issuer = ca_name
+
+        extension_factory = OpenSSL::X509::ExtensionFactory.new
+        extension_factory.subject_certificate = ca_cert
+        extension_factory.issuer_certificate = ca_cert
+
+        ca_cert.add_extension \
+          extension_factory.create_extension('subjectKeyIdentifier', 'hash')
+
+      This extension indicates the CA's key may be used as a CA.
+
+        ca_cert.add_extension \
+          extension_factory.create_extension('basicConstraints', 'CA:TRUE', true)
+
+      This extension indicates the CA's key may be used to verify signatures on
+      both certificates and certificate revocations.
+
+        ca_cert.add_extension \
+          extension_factory.create_extension(
+            'keyUsage', 'cRLSign,keyCertSign', true)
+
+      Root CA certificates are self-signed.
+
+        ca_cert.sign ca_key, OpenSSL::Digest::SHA1.new
+
+      The CA certificate is saved to disk so it may be distributed to all the
+      users of the keys this CA will sign.
+
+        open 'ca_cert.pem', 'w' do |io|
+          io.write ca_cert.to_pem
+        end
+
+      === Certificate Signing Request
+
+      The CA signs keys through a Certificate Signing Request (CSR).  The CSR
+      contains the information necessary to identify the key.
+
+        csr = OpenSSL::X509::Request.new
+        csr.version = 0
+        csr.subject = name
+        csr.public_key = key.public_key
+        csr.sign key, OpenSSL::Digest::SHA1.new
+
+      A CSR is saved to disk and sent to the CA for signing.
+
+        open 'csr.pem', 'w' do |io|
+          io.write csr.to_pem
+        end
+
+      === Creating a Certificate from a CSR
+
+      Upon receiving a CSR the CA will verify it before signing it.  A minimal
+      verification would be to check the CSR's signature.
+
+        csr = OpenSSL::X509::Request.new File.read 'csr.pem'
+
+        raise 'CSR can not be verified' unless csr.verify csr.public_key
+
+      After verification a certificate is created, marked for various usages,
+      signed with the CA key and returned to the requester.
+
+        csr_cert = OpenSSL::X509::Certificate.new
+        csr_cert.serial = 0
+        csr_cert.version = 2
+        csr_cert.not_before = Time.now
+        csr_cert.not_after = Time.now + 600
+
+        csr_cert.subject = csr.subject
+        csr_cert.public_key = csr.public_key
+        csr_cert.issuer = ca_cert.subject
+
+        extension_factory = OpenSSL::X509::ExtensionFactory.new
+        extension_factory.subject_certificate = csr_cert
+        extension_factory.issuer_certificate = ca_cert
+
+        csr_cert.add_extension \
+          extension_factory.create_extension('basicConstraints', 'CA:FALSE')
+
+        csr_cert.add_extension \
+          extension_factory.create_extension(
+            'keyUsage', 'keyEncipherment,dataEncipherment,digitalSignature')
+
+        csr_cert.add_extension \
+          extension_factory.create_extension('subjectKeyIdentifier', 'hash')
+
+        csr_cert.sign ca_key, OpenSSL::Digest::SHA1.new
+
+        open 'csr_cert.pem', 'w' do |io|
+          io.write csr_cert.to_pem
+        end
+
+      == SSL and TLS Connections
+
+      Using our created key and certificate we can create an SSL or TLS connection.
+      An SSLContext is used to set up an SSL session.
+
+        context = OpenSSL::SSL::SSLContext.new
+
+      === SSL Server
+
+      An SSL server requires the certificate and private key to communicate
+      securely with its clients:
+
+        context.cert = cert
+        context.key = key
+
+      Then create an SSLServer with a TCP server socket and the context.  Use the
+      SSLServer like an ordinary TCP server.
+
+        require 'socket'
+
+        tcp_server = TCPServer.new 5000
+        ssl_server = OpenSSL::SSL::SSLServer.new tcp_server, context
+
+        loop do
+          ssl_connection = ssl_server.accept
+
+          data = connection.gets
+
+          response = "I got #{data.dump}"
+          puts response
+
+          connection.puts "I got #{data.dump}"
+          connection.close
+        end
+
+      === SSL client
+
+      An SSL client is created with a TCP socket and the context.
+      SSLSocket#connect must be called to initiate the SSL handshake and start
+      encryption.  A key and certificate are not required for the client socket.
+
+      Note that SSLSocket#close doesn't close the underlying socket by default. Set
+      SSLSocket#sync_close to true if you want.
+
+        require 'socket'
+
+        tcp_socket = TCPSocket.new 'localhost', 5000
+        ssl_client = OpenSSL::SSL::SSLSocket.new tcp_socket, context
+        ssl_client.sync_close = true
+        ssl_client.connect
+
+        ssl_client.puts "hello server!"
+        puts ssl_client.gets
+
+        ssl_client.close # shutdown the TLS connection and close tcp_socket
+
+      === Peer Verification
+
+      An unverified SSL connection does not provide much security.  For enhanced
+      security the client or server can verify the certificate of its peer.
+
+      The client can be modified to verify the server's certificate against the
+      certificate authority's certificate:
+
+        context.ca_file = 'ca_cert.pem'
+        context.verify_mode = OpenSSL::SSL::VERIFY_PEER
+
+        require 'socket'
+
+        tcp_socket = TCPSocket.new 'localhost', 5000
+        ssl_client = OpenSSL::SSL::SSLSocket.new tcp_socket, context
+        ssl_client.connect
+
+        ssl_client.puts "hello server!"
+        puts ssl_client.gets
+
+      If the server certificate is invalid or <tt>context.ca_file</tt> is not set
+      when verifying peers an OpenSSL::SSL::SSLError will be raised.
+  OpenSSL::ASN1:
+    main: |-
+      Abstract Syntax Notation One (or ASN.1) is a notation syntax to
+      describe data structures and is defined in ITU-T X.680. ASN.1 itself
+      does not mandate any encoding or parsing rules, but usually ASN.1 data
+      structures are encoded using the Distinguished Encoding Rules (DER) or
+      less often the Basic Encoding Rules (BER) described in ITU-T X.690. DER
+      and BER encodings are binary Tag-Length-Value (TLV) encodings that are
+      quite concise compared to other popular data description formats such
+      as XML, JSON etc.
+      ASN.1 data structures are very common in cryptographic applications,
+      e.g. X.509 public key certificates or certificate revocation lists
+      (CRLs) are all defined in ASN.1 and DER-encoded. ASN.1, DER and BER are
+      the building blocks of applied cryptography.
+      The ASN1 module provides the necessary classes that allow generation
+      of ASN.1 data structures and the methods to encode them using a DER
+      encoding. The decode method allows parsing arbitrary BER-/DER-encoded
+      data to a Ruby object that can then be modified and re-encoded at will.
+
+      == ASN.1 class hierarchy
+
+      The base class representing ASN.1 structures is ASN1Data. ASN1Data offers
+      attributes to read and set the _tag_, the _tag_class_ and finally the
+      _value_ of a particular ASN.1 item. Upon parsing, any tagged values
+      (implicit or explicit) will be represented by ASN1Data instances because
+      their "real type" can only be determined using out-of-band information
+      from the ASN.1 type declaration. Since this information is normally
+      known when encoding a type, all sub-classes of ASN1Data offer an
+      additional attribute _tagging_ that allows to encode a value implicitly
+      (+:IMPLICIT+) or explicitly (+:EXPLICIT+).
+
+      === Constructive
+
+      Constructive is, as its name implies, the base class for all
+      constructed encodings, i.e. those that consist of several values,
+      opposed to "primitive" encodings with just one single value. The value of
+      an Constructive is always an Array.
+
+      ==== ASN1::Set and ASN1::Sequence
+
+      The most common constructive encodings are SETs and SEQUENCEs, which is
+      why there are two sub-classes of Constructive representing each of
+      them.
+
+      === Primitive
+
+      This is the super class of all primitive values. Primitive
+      itself is not used when parsing ASN.1 data, all values are either
+      instances of a corresponding sub-class of Primitive or they are
+      instances of ASN1Data if the value was tagged implicitly or explicitly.
+      Please cf. Primitive documentation for details on sub-classes and
+      their respective mappings of ASN.1 data types to Ruby objects.
+
+      == Possible values for _tagging_
+
+      When constructing an ASN1Data object the ASN.1 type definition may
+      require certain elements to be either implicitly or explicitly tagged.
+      This can be achieved by setting the _tagging_ attribute manually for
+      sub-classes of ASN1Data. Use the symbol +:IMPLICIT+ for implicit
+      tagging and +:EXPLICIT+ if the element requires explicit tagging.
+
+      == Possible values for _tag_class_
+
+      It is possible to create arbitrary ASN1Data objects that also support
+      a PRIVATE or APPLICATION tag class. Possible values for the _tag_class_
+      attribute are:
+      * +:UNIVERSAL+ (the default for untagged values)
+      * +:CONTEXT_SPECIFIC+ (the default for tagged values)
+      * +:APPLICATION+
+      * +:PRIVATE+
+
+      == Tag constants
+
+      There is a constant defined for each universal tag:
+      * OpenSSL::ASN1::EOC (0)
+      * OpenSSL::ASN1::BOOLEAN (1)
+      * OpenSSL::ASN1::INTEGER (2)
+      * OpenSSL::ASN1::BIT_STRING (3)
+      * OpenSSL::ASN1::OCTET_STRING (4)
+      * OpenSSL::ASN1::NULL (5)
+      * OpenSSL::ASN1::OBJECT (6)
+      * OpenSSL::ASN1::ENUMERATED (10)
+      * OpenSSL::ASN1::UTF8STRING (12)
+      * OpenSSL::ASN1::SEQUENCE (16)
+      * OpenSSL::ASN1::SET (17)
+      * OpenSSL::ASN1::NUMERICSTRING (18)
+      * OpenSSL::ASN1::PRINTABLESTRING (19)
+      * OpenSSL::ASN1::T61STRING (20)
+      * OpenSSL::ASN1::VIDEOTEXSTRING (21)
+      * OpenSSL::ASN1::IA5STRING (22)
+      * OpenSSL::ASN1::UTCTIME (23)
+      * OpenSSL::ASN1::GENERALIZEDTIME (24)
+      * OpenSSL::ASN1::GRAPHICSTRING (25)
+      * OpenSSL::ASN1::ISO64STRING (26)
+      * OpenSSL::ASN1::GENERALSTRING (27)
+      * OpenSSL::ASN1::UNIVERSALSTRING (28)
+      * OpenSSL::ASN1::BMPSTRING (30)
+
+      == UNIVERSAL_TAG_NAME constant
+
+      An Array that stores the name of a given tag number. These names are
+      the same as the name of the tag constant that is additionally defined,
+      e.g. UNIVERSAL_TAG_NAME[2] = "INTEGER" and OpenSSL::ASN1::INTEGER = 2.
+
+      == Example usage
+
+      === Decoding and viewing a DER-encoded file
+        require 'openssl'
+        require 'pp'
+        der = File.binread('data.der')
+        asn1 = OpenSSL::ASN1.decode(der)
+        pp der
+
+      === Creating an ASN.1 structure and DER-encoding it
+        require 'openssl'
+        version = OpenSSL::ASN1::Integer.new(1)
+        # Explicitly 0-tagged implies context-specific tag class
+        serial = OpenSSL::ASN1::Integer.new(12345, 0, :EXPLICIT, :CONTEXT_SPECIFIC)
+        name = OpenSSL::ASN1::PrintableString.new('Data 1')
+        sequence = OpenSSL::ASN1::Sequence.new( [ version, serial, name ] )
+        der = sequence.to_der
+  OpenSSL::ASN1::ASN1Data:
+    main: |-
+      The top-level class representing any ASN.1 object. When parsed by
+      ASN1.decode, tagged values are always represented by an instance
+      of ASN1Data.
+
+      == The role of ASN1Data for parsing tagged values
+
+      When encoding an ASN.1 type it is inherently clear what original
+      type (e.g. INTEGER, OCTET STRING etc.) this value has, regardless
+      of its tagging.
+      But opposed to the time an ASN.1 type is to be encoded, when parsing
+      them it is not possible to deduce the "real type" of tagged
+      values. This is why tagged values are generally parsed into ASN1Data
+      instances, but with a different outcome for implicit and explicit
+      tagging.
+
+      === Example of a parsed implicitly tagged value
+
+      An implicitly 1-tagged INTEGER value will be parsed as an
+      ASN1Data with
+      * _tag_ equal to 1
+      * _tag_class_ equal to +:CONTEXT_SPECIFIC+
+      * _value_ equal to a String that carries the raw encoding
+        of the INTEGER.
+      This implies that a subsequent decoding step is required to
+      completely decode implicitly tagged values.
+
+      === Example of a parsed explicitly tagged value
+
+      An explicitly 1-tagged INTEGER value will be parsed as an
+      ASN1Data with
+      * _tag_ equal to 1
+      * _tag_class_ equal to +:CONTEXT_SPECIFIC+
+      * _value_ equal to an Array with one single element, an
+        instance of OpenSSL::ASN1::Integer, i.e. the inner element
+        is the non-tagged primitive value, and the tagging is represented
+        in the outer ASN1Data
+
+      == Example - Decoding an implicitly tagged INTEGER
+        int = OpenSSL::ASN1::Integer.new(1, 0, :IMPLICIT) # implicit 0-tagged
+        seq = OpenSSL::ASN1::Sequence.new( [int] )
+        der = seq.to_der
+        asn1 = OpenSSL::ASN1.decode(der)
+        # pp asn1 => #<OpenSSL::ASN1::Sequence:0x87326e0
+        #              @indefinite_length=false,
+        #              @tag=16,
+        #              @tag_class=:UNIVERSAL,
+        #              @tagging=nil,
+        #              @value=
+        #                [#<OpenSSL::ASN1::ASN1Data:0x87326f4
+        #                   @indefinite_length=false,
+        #                   @tag=0,
+        #                   @tag_class=:CONTEXT_SPECIFIC,
+        #                   @value="\x01">]>
+        raw_int = asn1.value[0]
+        # manually rewrite tag and tag class to make it an UNIVERSAL value
+        raw_int.tag = OpenSSL::ASN1::INTEGER
+        raw_int.tag_class = :UNIVERSAL
+        int2 = OpenSSL::ASN1.decode(raw_int)
+        puts int2.value # => 1
+
+      == Example - Decoding an explicitly tagged INTEGER
+        int = OpenSSL::ASN1::Integer.new(1, 0, :EXPLICIT) # explicit 0-tagged
+        seq = OpenSSL::ASN1::Sequence.new( [int] )
+        der = seq.to_der
+        asn1 = OpenSSL::ASN1.decode(der)
+        # pp asn1 => #<OpenSSL::ASN1::Sequence:0x87326e0
+        #              @indefinite_length=false,
+        #              @tag=16,
+        #              @tag_class=:UNIVERSAL,
+        #              @tagging=nil,
+        #              @value=
+        #                [#<OpenSSL::ASN1::ASN1Data:0x87326f4
+        #                   @indefinite_length=false,
+        #                   @tag=0,
+        #                   @tag_class=:CONTEXT_SPECIFIC,
+        #                   @value=
+        #                     [#<OpenSSL::ASN1::Integer:0x85bf308
+        #                        @indefinite_length=false,
+        #                        @tag=2,
+        #                        @tag_class=:UNIVERSAL
+        #                        @tagging=nil,
+        #                        @value=1>]>]>
+        int2 = asn1.value[0].value[0]
+        puts int2.value # => 1
+  OpenSSL::ASN1::ASN1Error:
+    main: |-
+      Generic error class for all errors raised in ASN1 and any of the
+      classes defined in it.
+  OpenSSL::ASN1::Constructive:
+    main: |-
+      The parent class for all constructed encodings. The _value_ attribute
+      of a Constructive is always an Array. Attributes are the same as
+      for ASN1Data, with the addition of _tagging_.
+
+      == SET and SEQUENCE
+
+      Most constructed encodings come in the form of a SET or a SEQUENCE.
+      These encodings are represented by one of the two sub-classes of
+      Constructive:
+      * OpenSSL::ASN1::Set
+      * OpenSSL::ASN1::Sequence
+      Please note that tagged sequences and sets are still parsed as
+      instances of ASN1Data. Find further details on tagged values
+      there.
+
+      === Example - constructing a SEQUENCE
+        int = OpenSSL::ASN1::Integer.new(1)
+        str = OpenSSL::ASN1::PrintableString.new('abc')
+        sequence = OpenSSL::ASN1::Sequence.new( [ int, str ] )
+
+      === Example - constructing a SET
+        int = OpenSSL::ASN1::Integer.new(1)
+        str = OpenSSL::ASN1::PrintableString.new('abc')
+        set = OpenSSL::ASN1::Set.new( [ int, str ] )
+  OpenSSL::ASN1::ObjectId:
+    main: Represents the primitive object id for OpenSSL::ASN1
+  OpenSSL::ASN1::Primitive:
+    main: |-
+      The parent class for all primitive encodings. Attributes are the same as
+      for ASN1Data, with the addition of _tagging_.
+      Primitive values can never be encoded with indefinite length form, thus
+      it is not possible to set the _indefinite_length_ attribute for Primitive
+      and its sub-classes.
+
+      == Primitive sub-classes and their mapping to Ruby classes
+      * OpenSSL::ASN1::EndOfContent    <=> _value_ is always +nil+
+      * OpenSSL::ASN1::Boolean         <=> _value_ is +true+ or +false+
+      * OpenSSL::ASN1::Integer         <=> _value_ is an OpenSSL::BN
+      * OpenSSL::ASN1::BitString       <=> _value_ is a String
+      * OpenSSL::ASN1::OctetString     <=> _value_ is a String
+      * OpenSSL::ASN1::Null            <=> _value_ is always +nil+
+      * OpenSSL::ASN1::Object          <=> _value_ is a String
+      * OpenSSL::ASN1::Enumerated      <=> _value_ is an OpenSSL::BN
+      * OpenSSL::ASN1::UTF8String      <=> _value_ is a String
+      * OpenSSL::ASN1::NumericString   <=> _value_ is a String
+      * OpenSSL::ASN1::PrintableString <=> _value_ is a String
+      * OpenSSL::ASN1::T61String       <=> _value_ is a String
+      * OpenSSL::ASN1::VideotexString  <=> _value_ is a String
+      * OpenSSL::ASN1::IA5String       <=> _value_ is a String
+      * OpenSSL::ASN1::UTCTime         <=> _value_ is a Time
+      * OpenSSL::ASN1::GeneralizedTime <=> _value_ is a Time
+      * OpenSSL::ASN1::GraphicString   <=> _value_ is a String
+      * OpenSSL::ASN1::ISO64String     <=> _value_ is a String
+      * OpenSSL::ASN1::GeneralString   <=> _value_ is a String
+      * OpenSSL::ASN1::UniversalString <=> _value_ is a String
+      * OpenSSL::ASN1::BMPString       <=> _value_ is a String
+
+      == OpenSSL::ASN1::BitString
+
+      === Additional attributes
+      _unused_bits_: if the underlying BIT STRING's
+      length is a multiple of 8 then _unused_bits_ is 0. Otherwise
+      _unused_bits_ indicates the number of bits that are to be ignored in
+      the final octet of the BitString's _value_.
+
+      == OpenSSL::ASN1::ObjectId
+
+      NOTE: While OpenSSL::ASN1::ObjectId.new will allocate a new ObjectId,
+      it is not typically allocated this way, but rather that are received from
+      parsed ASN1 encodings.
+
+      === Additional attributes
+      * _sn_: the short name as defined in <openssl/objects.h>.
+      * _ln_: the long name as defined in <openssl/objects.h>.
+      * _oid_: the object identifier as a String, e.g. "1.2.3.4.5"
+      * _short_name_: alias for _sn_.
+      * _long_name_: alias for _ln_.
+
+      == Examples
+      With the Exception of OpenSSL::ASN1::EndOfContent, each Primitive class
+      constructor takes at least one parameter, the _value_.
+
+      === Creating EndOfContent
+        eoc = OpenSSL::ASN1::EndOfContent.new
+
+      === Creating any other Primitive
+        prim = <class>.new(value) # <class> being one of the sub-classes except EndOfContent
+        prim_zero_tagged_implicit = <class>.new(value, 0, :IMPLICIT)
+        prim_zero_tagged_explicit = <class>.new(value, 0, :EXPLICIT)
+  OpenSSL::BNError:
+    main: Generic Error for all of OpenSSL::BN (big num)
+  OpenSSL::Buffering:
+    main: |-
+      OpenSSL IO buffering mix-in module.
+
+      This module allows an OpenSSL::SSL::SSLSocket to behave like an IO.
+
+      You typically won't use this module directly, you can see it implemented in
+      OpenSSL::SSL::SSLSocket.
+  OpenSSL::Cipher:
+    main: |-
+      Provides symmetric algorithms for encryption and decryption. The
+      algorithms that are available depend on the particular version
+      of OpenSSL that is installed.
+
+      === Listing all supported algorithms
+
+      A list of supported algorithms can be obtained by
+
+        puts OpenSSL::Cipher.ciphers
+
+      === Instantiating a Cipher
+
+      There are several ways to create a Cipher instance. Generally, a
+      Cipher algorithm is categorized by its name, the key length in bits
+      and the cipher mode to be used. The most generic way to create a
+      Cipher is the following
+
+        cipher = OpenSSL::Cipher.new('<name>-<key length>-<mode>')
+
+      That is, a string consisting of the hyphenated concatenation of the
+      individual components name, key length and mode. Either all uppercase
+      or all lowercase strings may be used, for example:
+
+       cipher = OpenSSL::Cipher.new('AES-128-CBC')
+
+      For each algorithm supported, there is a class defined under the
+      Cipher class that goes by the name of the cipher, e.g. to obtain an
+      instance of AES, you could also use
+
+        # these are equivalent
+        cipher = OpenSSL::Cipher::AES.new(128, :CBC)
+        cipher = OpenSSL::Cipher::AES.new(128, 'CBC')
+        cipher = OpenSSL::Cipher::AES.new('128-CBC')
+
+      Finally, due to its wide-spread use, there are also extra classes
+      defined for the different key sizes of AES
+
+        cipher = OpenSSL::Cipher::AES128.new(:CBC)
+        cipher = OpenSSL::Cipher::AES192.new(:CBC)
+        cipher = OpenSSL::Cipher::AES256.new(:CBC)
+
+      === Choosing either encryption or decryption mode
+
+      Encryption and decryption are often very similar operations for
+      symmetric algorithms, this is reflected by not having to choose
+      different classes for either operation, both can be done using the
+      same class. Still, after obtaining a Cipher instance, we need to
+      tell the instance what it is that we intend to do with it, so we
+      need to call either
+
+        cipher.encrypt
+
+      or
+
+        cipher.decrypt
+
+      on the Cipher instance. This should be the first call after creating
+      the instance, otherwise configuration that has already been set could
+      get lost in the process.
+
+      === Choosing a key
+
+      Symmetric encryption requires a key that is the same for the encrypting
+      and for the decrypting party and after initial key establishment should
+      be kept as private information. There are a lot of ways to create
+      insecure keys, the most notable is to simply take a password as the key
+      without processing the password further. A simple and secure way to
+      create a key for a particular Cipher is
+
+       cipher = OpenSSL::AES256.new(:CFB)
+       cipher.encrypt
+       key = cipher.random_key # also sets the generated key on the Cipher
+
+      If you absolutely need to use passwords as encryption keys, you
+      should use Password-Based Key Derivation Function 2 (PBKDF2) by
+      generating the key with the help of the functionality provided by
+      OpenSSL::PKCS5.pbkdf2_hmac_sha1 or OpenSSL::PKCS5.pbkdf2_hmac.
+
+      Although there is Cipher#pkcs5_keyivgen, its use is deprecated and
+      it should only be used in legacy applications because it does not use
+      the newer PKCS#5 v2 algorithms.
+
+      === Choosing an IV
+
+      The cipher modes CBC, CFB, OFB and CTR all need an "initialization
+      vector", or short, IV. ECB mode is the only mode that does not require
+      an IV, but there is almost no legitimate use case for this mode
+      because of the fact that it does not sufficiently hide plaintext
+      patterns. Therefore
+
+      <b>You should never use ECB mode unless you are absolutely sure that
+      you absolutely need it</b>
+
+      Because of this, you will end up with a mode that explicitly requires
+      an IV in any case. Although the IV can be seen as public information,
+      i.e. it may be transmitted in public once generated, it should still
+      stay unpredictable to prevent certain kinds of attacks. Therefore,
+      ideally
+
+      <b>Always create a secure random IV for every encryption of your
+      Cipher</b>
+
+      A new, random IV should be created for every encryption of data. Think
+      of the IV as a nonce (number used once) - it's public but random and
+      unpredictable. A secure random IV can be created as follows
+
+        cipher = ...
+        cipher.encrypt
+        key = cipher.random_key
+        iv = cipher.random_iv # also sets the generated IV on the Cipher
+
+      Although the key is generally a random value, too, it is a bad choice
+      as an IV. There are elaborate ways how an attacker can take advantage
+      of such an IV. As a general rule of thumb, exposing the key directly
+      or indirectly should be avoided at all cost and exceptions only be
+      made with good reason.
+
+      === Calling Cipher#final
+
+      ECB (which should not be used) and CBC are both block-based modes.
+      This means that unlike for the other streaming-based modes, they
+      operate on fixed-size blocks of data, and therefore they require a
+      "finalization" step to produce or correctly decrypt the last block of
+      data by appropriately handling some form of padding. Therefore it is
+      essential to add the output of OpenSSL::Cipher#final to your
+      encryption/decryption buffer or you will end up with decryption errors
+      or truncated data.
+
+      Although this is not really necessary for streaming-mode ciphers, it is
+      still recommended to apply the same pattern of adding the output of
+      Cipher#final there as well - it also enables you to switch between
+      modes more easily in the future.
+
+      === Encrypting and decrypting some data
+
+        data = "Very, very confidential data"
+
+        cipher = OpenSSL::Cipher::AES.new(128, :CBC)
+        cipher.encrypt
+        key = cipher.random_key
+        iv = cipher.random_iv
+
+        encrypted = cipher.update(data) + cipher.final
+        ...
+        decipher = OpenSSL::Cipher::AES.new(128, :CBC)
+        decipher.decrypt
+        decipher.key = key
+        decipher.iv = iv
+
+        plain = decipher.update(encrypted) + decipher.final
+
+        puts data == plain #=> true
+
+      === Authenticated Encryption and Associated Data (AEAD)
+
+      If the OpenSSL version used supports it, an Authenticated Encryption
+      mode (such as GCM or CCM) should always be preferred over any
+      unauthenticated mode. Currently, OpenSSL supports AE only in combination
+      with Associated Data (AEAD) where additional associated data is included
+      in the encryption process to compute a tag at the end of the encryption.
+      This tag will also be used in the decryption process and by verifying
+      its validity, the authenticity of a given ciphertext is established.
+
+      This is superior to unauthenticated modes in that it allows to detect
+      if somebody effectively changed the ciphertext after it had been
+      encrypted. This prevents malicious modifications of the ciphertext that
+      could otherwise be exploited to modify ciphertexts in ways beneficial to
+      potential attackers.
+
+      An associated data is used where there is additional information, such as
+      headers or some metadata, that must be also authenticated but not
+      necessarily need to be encrypted. If no associated data is needed for
+      encryption and later decryption, the OpenSSL library still requires a
+      value to be set - "" may be used in case none is available.
+
+      An example using the GCM (Galois/Counter Mode). You have 16 bytes _key_,
+      12 bytes (96 bits) _nonce_ and the associated data _auth_data_. Be sure
+      not to reuse the _key_ and _nonce_ pair. Reusing an nonce ruins the
+      security guarantees of GCM mode.
+
+        cipher = OpenSSL::Cipher::AES.new(128, :GCM).encrypt
+        cipher.key = key
+        cipher.iv = nonce
+        cipher.auth_data = auth_data
+
+        encrypted = cipher.update(data) + cipher.final
+        tag = cipher.auth_tag # produces 16 bytes tag by default
+
+      Now you are the receiver. You know the _key_ and have received _nonce_,
+      _auth_data_, _encrypted_ and _tag_ through an untrusted network. Note
+      that GCM accepts an arbitrary length tag between 1 and 16 bytes. You may
+      additionally need to check that the received tag has the correct length,
+      or you allow attackers to forge a valid single byte tag for the tampered
+      ciphertext with a probability of 1/256.
+
+        raise "tag is truncated!" unless tag.bytesize == 16
+        decipher = OpenSSL::Cipher::AES.new(128, :GCM).decrypt
+        decipher.key = key
+        decipher.iv = nonce
+        decipher.auth_tag = tag
+        decipher.auth_data = auth_data
+
+        decrypted = decipher.update(encrypted) + decipher.final
+
+        puts data == decrypted #=> true
+  OpenSSL::Cipher::Cipher:
+    main: |-
+      Deprecated.
+
+      This class is only provided for backwards compatibility.
+      Use OpenSSL::Cipher.
+  OpenSSL::Config:
+    main: |-
+      = OpenSSL::Config
+
+      Configuration for the openssl library.
+
+      Many system's installation of openssl library will depend on your system
+      configuration. See the value of OpenSSL::Config::DEFAULT_CONFIG_FILE for
+      the location of the file for your host.
+
+      See also http://www.openssl.org/docs/apps/config.html
+  OpenSSL::ConfigError:
+    main: |-
+      General error for openssl library configuration files. Including formatting,
+      parsing errors, etc.
+  OpenSSL::Digest:
+    main: |-
+      OpenSSL::Digest allows you to compute message digests (sometimes
+      interchangeably called "hashes") of arbitrary data that are
+      cryptographically secure, i.e. a Digest implements a secure one-way
+      function.
+
+      One-way functions offer some useful properties. E.g. given two
+      distinct inputs the probability that both yield the same output
+      is highly unlikely. Combined with the fact that every message digest
+      algorithm has a fixed-length output of just a few bytes, digests are
+      often used to create unique identifiers for arbitrary data. A common
+      example is the creation of a unique id for binary documents that are
+      stored in a database.
+
+      Another useful characteristic of one-way functions (and thus the name)
+      is that given a digest there is no indication about the original
+      data that produced it, i.e. the only way to identify the original input
+      is to "brute-force" through every possible combination of inputs.
+
+      These characteristics make one-way functions also ideal companions
+      for public key signature algorithms: instead of signing an entire
+      document, first a hash of the document is produced with a considerably
+      faster message digest algorithm and only the few bytes of its output
+      need to be signed using the slower public key algorithm. To validate
+      the integrity of a signed document, it suffices to re-compute the hash
+      and verify that it is equal to that in the signature.
+
+      Among the supported message digest algorithms are:
+      * SHA, SHA1, SHA224, SHA256, SHA384 and SHA512
+      * MD2, MD4, MDC2 and MD5
+      * RIPEMD160
+      * DSS, DSS1 (Pseudo algorithms to be used for DSA signatures. DSS is
+        equal to SHA and DSS1 is equal to SHA1)
+
+      For each of these algorithms, there is a sub-class of Digest that
+      can be instantiated as simply as e.g.
+
+        digest = OpenSSL::Digest::SHA1.new
+
+      === Mapping between Digest class and sn/ln
+
+      The sn (short names) and ln (long names) are defined in
+      <openssl/object.h> and <openssl/obj_mac.h>. They are textual
+      representations of ASN.1 OBJECT IDENTIFIERs. Each supported digest
+      algorithm has an OBJECT IDENTIFIER associated to it and those again
+      have short/long names assigned to them.
+      E.g. the OBJECT IDENTIFIER for SHA-1 is 1.3.14.3.2.26 and its
+      sn is "SHA1" and its ln is "sha1".
+      ==== MD2
+      * sn: MD2
+      * ln: md2
+      ==== MD4
+      * sn: MD4
+      * ln: md4
+      ==== MD5
+      * sn: MD5
+      * ln: md5
+      ==== SHA
+      * sn: SHA
+      * ln: SHA
+      ==== SHA-1
+      * sn: SHA1
+      * ln: sha1
+      ==== SHA-224
+      * sn: SHA224
+      * ln: sha224
+      ==== SHA-256
+      * sn: SHA256
+      * ln: sha256
+      ==== SHA-384
+      * sn: SHA384
+      * ln: sha384
+      ==== SHA-512
+      * sn: SHA512
+      * ln: sha512
+
+      "Breaking" a message digest algorithm means defying its one-way
+      function characteristics, i.e. producing a collision or finding a way
+      to get to the original data by means that are more efficient than
+      brute-forcing etc. Most of the supported digest algorithms can be
+      considered broken in this sense, even the very popular MD5 and SHA1
+      algorithms. Should security be your highest concern, then you should
+      probably rely on SHA224, SHA256, SHA384 or SHA512.
+
+      === Hashing a file
+
+        data = File.read('document')
+        sha256 = OpenSSL::Digest::SHA256.new
+        digest = sha256.digest(data)
+
+      === Hashing several pieces of data at once
+
+        data1 = File.read('file1')
+        data2 = File.read('file2')
+        data3 = File.read('file3')
+        sha256 = OpenSSL::Digest::SHA256.new
+        sha256 << data1
+        sha256 << data2
+        sha256 << data3
+        digest = sha256.digest
+
+      === Reuse a Digest instance
+
+        data1 = File.read('file1')
+        sha256 = OpenSSL::Digest::SHA256.new
+        digest1 = sha256.digest(data1)
+
+        data2 = File.read('file2')
+        sha256.reset
+        digest2 = sha256.digest(data2)
+  OpenSSL::Digest::DigestError:
+    main: |-
+      Generic Exception class that is raised if an error occurs during a
+      Digest operation.
+  OpenSSL::Engine:
+    main: |-
+      This class is the access to openssl's ENGINE cryptographic module
+      implementation.
+
+      See also, https://www.openssl.org/docs/crypto/engine.html
+  OpenSSL::Engine::EngineError:
+    main: This is the generic exception for OpenSSL::Engine related errors
+  OpenSSL::ExtConfig:
+    main: |-
+      This module contains configuration information about the SSL extension,
+      for example if socket support is enabled, or the host name TLS extension
+      is enabled.  Constants in this module will always be defined, but contain
+      +true+ or +false+ values depending on the configuration of your OpenSSL
+      installation.
+  OpenSSL::HMAC:
+    main: |-
+      OpenSSL::HMAC allows computing Hash-based Message Authentication Code
+      (HMAC). It is a type of message authentication code (MAC) involving a
+      hash function in combination with a key. HMAC can be used to verify the
+      integrity of a message as well as the authenticity.
+
+      OpenSSL::HMAC has a similar interface to OpenSSL::Digest.
+
+      === HMAC-SHA256 using one-shot interface
+
+        key = "key"
+        data = "message-to-be-authenticated"
+        mac = OpenSSL::HMAC.hexdigest("SHA256", key, data)
+        #=> "cddb0db23f469c8bf072b21fd837149bd6ace9ab771cceef14c9e517cc93282e"
+
+      === HMAC-SHA256 using incremental interface
+
+        data1 = File.read("file1")
+        data2 = File.read("file2")
+        key = "key"
+        digest = OpenSSL::Digest::SHA256.new
+        hmac = OpenSSL::HMAC.new(key, digest)
+        hmac << data1
+        hmac << data2
+        mac = hmac.digest
+  OpenSSL::HMACError:
+    main: |-
+      Document-class: OpenSSL::HMAC
+
+      OpenSSL::HMAC allows computing Hash-based Message Authentication Code
+      (HMAC). It is a type of message authentication code (MAC) involving a
+      hash function in combination with a key. HMAC can be used to verify the
+      integrity of a message as well as the authenticity.
+
+      OpenSSL::HMAC has a similar interface to OpenSSL::Digest.
+
+      === HMAC-SHA256 using one-shot interface
+
+        key = "key"
+        data = "message-to-be-authenticated"
+        mac = OpenSSL::HMAC.hexdigest("SHA256", key, data)
+        #=> "cddb0db23f469c8bf072b21fd837149bd6ace9ab771cceef14c9e517cc93282e"
+
+      === HMAC-SHA256 using incremental interface
+
+        data1 = File.read("file1")
+        data2 = File.read("file2")
+        key = "key"
+        digest = OpenSSL::Digest::SHA256.new
+        hmac = OpenSSL::HMAC.new(key, digest)
+        hmac << data1
+        hmac << data2
+        mac = hmac.digest
+  OpenSSL::KDF:
+    main: |-
+      Provides functionality of various KDFs (key derivation function).
+
+      KDF is typically used for securely deriving arbitrary length symmetric
+      keys to be used with an OpenSSL::Cipher from passwords. Another use case
+      is for storing passwords: Due to the ability to tweak the effort of
+      computation by increasing the iteration count, computation can be slowed
+      down artificially in order to render possible attacks infeasible.
+
+      Currently, OpenSSL::KDF provides implementations for the following KDF:
+
+      * PKCS #5 PBKDF2 (Password-Based Key Derivation Function 2) in
+        combination with HMAC
+      * scrypt
+      * HKDF
+
+      == Examples
+      === Generating a 128 bit key for a Cipher (e.g. AES)
+        pass = "secret"
+        salt = OpenSSL::Random.random_bytes(16)
+        iter = 20_000
+        key_len = 16
+        key = OpenSSL::KDF.pbkdf2_hmac(pass, salt: salt, iterations: iter,
+                                       length: key_len, hash: "sha1")
+
+      === Storing Passwords
+        pass = "secret"
+        # store this with the generated value
+        salt = OpenSSL::Random.random_bytes(16)
+        iter = 20_000
+        hash = OpenSSL::Digest::SHA256.new
+        len = hash.digest_length
+        # the final value to be stored
+        value = OpenSSL::KDF.pbkdf2_hmac(pass, salt: salt, iterations: iter,
+                                         length: len, hash: hash)
+
+      == Important Note on Checking Passwords
+      When comparing passwords provided by the user with previously stored
+      values, a common mistake made is comparing the two values using "==".
+      Typically, "==" short-circuits on evaluation, and is therefore
+      vulnerable to timing attacks. The proper way is to use a method that
+      always takes the same amount of time when comparing two values, thus
+      not leaking any information to potential attackers. To compare two
+      values, the following could be used:
+
+        def eql_time_cmp(a, b)
+          unless a.length == b.length
+            return false
+          end
+          cmp = b.bytes
+          result = 0
+          a.bytes.each_with_index {|c,i|
+            result |= c ^ cmp[i]
+          }
+          result == 0
+        end
+
+      Please note that the premature return in case of differing lengths
+      typically does not leak valuable information - when using PBKDF2, the
+      length of the values to be compared is of fixed size.
+  OpenSSL::KDF::KDFError:
+    main: Generic exception class raised if an error occurs in OpenSSL::KDF module.
+  OpenSSL::Netscape:
+    main: |-
+      OpenSSL::Netscape is a namespace for SPKI (Simple Public Key
+      Infrastructure) which implements Signed Public Key and Challenge.
+      See {RFC 2692}[http://tools.ietf.org/html/rfc2692] and {RFC
+      2693}[http://tools.ietf.org/html/rfc2692] for details.
+  OpenSSL::Netscape::SPKI:
+    main: |-
+      A Simple Public Key Infrastructure implementation (pronounced "spooky").
+      The structure is defined as
+        PublicKeyAndChallenge ::= SEQUENCE {
+          spki SubjectPublicKeyInfo,
+          challenge IA5STRING
+        }
+
+        SignedPublicKeyAndChallenge ::= SEQUENCE {
+          publicKeyAndChallenge PublicKeyAndChallenge,
+          signatureAlgorithm AlgorithmIdentifier,
+          signature BIT STRING
+        }
+      where the definitions of SubjectPublicKeyInfo and AlgorithmIdentifier can
+      be found in RFC5280. SPKI is typically used in browsers for generating
+      a public/private key pair and a subsequent certificate request, using
+      the HTML <keygen> element.
+
+      == Examples
+
+      === Creating an SPKI
+        key = OpenSSL::PKey::RSA.new 2048
+        spki = OpenSSL::Netscape::SPKI.new
+        spki.challenge = "RandomChallenge"
+        spki.public_key = key.public_key
+        spki.sign(key, OpenSSL::Digest::SHA256.new)
+        #send a request containing this to a server generating a certificate
+      === Verifying an SPKI request
+        request = #...
+        spki = OpenSSL::Netscape::SPKI.new request
+        unless spki.verify(spki.public_key)
+          # signature is invalid
+        end
+        #proceed
+  OpenSSL::Netscape::SPKIError:
+    main: |-
+      Generic Exception class that is raised if an error occurs during an
+      operation on an instance of OpenSSL::Netscape::SPKI.
+  OpenSSL::OCSP:
+    main: |-
+      OpenSSL::OCSP implements Online Certificate Status Protocol requests
+      and responses.
+
+      Creating and sending an OCSP request requires a subject certificate
+      that contains an OCSP URL in an authorityInfoAccess extension and the
+      issuer certificate for the subject certificate.  First, load the issuer
+      and subject certificates:
+
+        subject = OpenSSL::X509::Certificate.new subject_pem
+        issuer  = OpenSSL::X509::Certificate.new issuer_pem
+
+      To create the request we need to create a certificate ID for the
+      subject certificate so the CA knows which certificate we are asking
+      about:
+
+        digest = OpenSSL::Digest::SHA1.new
+        certificate_id =
+          OpenSSL::OCSP::CertificateId.new subject, issuer, digest
+
+      Then create a request and add the certificate ID to it:
+
+        request = OpenSSL::OCSP::Request.new
+        request.add_certid certificate_id
+
+      Adding a nonce to the request protects against replay attacks but not
+      all CA process the nonce.
+
+        request.add_nonce
+
+      To submit the request to the CA for verification we need to extract the
+      OCSP URI from the subject certificate:
+
+        authority_info_access = subject.extensions.find do |extension|
+          extension.oid == 'authorityInfoAccess'
+        end
+
+        descriptions = authority_info_access.value.split "\n"
+        ocsp = descriptions.find do |description|
+          description.start_with? 'OCSP'
+        end
+
+        require 'uri'
+
+        ocsp_uri = URI ocsp[/URI:(.*)/, 1]
+
+      To submit the request we'll POST the request to the OCSP URI (per RFC
+      2560).  Note that we only handle HTTP requests and don't handle any
+      redirects in this example, so this is insufficient for serious use.
+
+        require 'net/http'
+
+        http_response =
+          Net::HTTP.start ocsp_uri.hostname, ocsp.port do |http|
+            http.post ocsp_uri.path, request.to_der,
+                      'content-type' => 'application/ocsp-request'
+        end
+
+        response = OpenSSL::OCSP::Response.new http_response.body
+        response_basic = response.basic
+
+      First we check if the response has a valid signature.  Without a valid
+      signature we cannot trust it.  If you get a failure here you may be
+      missing a system certificate store or may be missing the intermediate
+      certificates.
+
+        store = OpenSSL::X509::Store.new
+        store.set_default_paths
+
+        unless response_basic.verify [], store then
+          raise 'response is not signed by a trusted certificate'
+        end
+
+      The response contains the status information (success/fail).  We can
+      display the status as a string:
+
+        puts response.status_string #=> successful
+
+      Next we need to know the response details to determine if the response
+      matches our request.  First we check the nonce.  Again, not all CAs
+      support a nonce.  See Request#check_nonce for the meanings of the
+      return values.
+
+        p request.check_nonce basic_response #=> value from -1 to 3
+
+      Then extract the status information for the certificate from the basic
+      response.
+
+        single_response = basic_response.find_response(certificate_id)
+
+        unless single_response
+          raise 'basic_response does not have the status for the certificiate'
+        end
+
+      Then check the validity. A status issued in the future must be rejected.
+
+        unless single_response.check_validity
+          raise 'this_update is in the future or next_update time has passed'
+        end
+
+        case single_response.cert_status
+        when OpenSSL::OCSP::V_CERTSTATUS_GOOD
+          puts 'certificate is still valid'
+        when OpenSSL::OCSP::V_CERTSTATUS_REVOKED
+          puts "certificate has been revoked at #{single_response.revocation_time}"
+        when OpenSSL::OCSP::V_CERTSTATUS_UNKNOWN
+          puts 'responder doesn't know about the certificate'
+        end
+  OpenSSL::OCSP::BasicResponse:
+    main: |-
+      An OpenSSL::OCSP::BasicResponse contains the status of a certificate
+      check which is created from an OpenSSL::OCSP::Request.  A
+      BasicResponse is more detailed than a Response.
+  OpenSSL::OCSP::CertificateId:
+    main: |-
+      An OpenSSL::OCSP::CertificateId identifies a certificate to the CA so
+      that a status check can be performed.
+  OpenSSL::OCSP::OCSPError:
+    main: OCSP error class.
+  OpenSSL::OCSP::Request:
+    main: |-
+      An OpenSSL::OCSP::Request contains the certificate information for
+      determining if a certificate has been revoked or not.  A Request can be
+      created for a certificate or from a DER-encoded request created
+      elsewhere.
+  OpenSSL::OCSP::Response:
+    main: |-
+      An OpenSSL::OCSP::Response contains the status of a certificate check
+      which is created from an OpenSSL::OCSP::Request.
+  OpenSSL::OCSP::SingleResponse:
+    main: |-
+      An OpenSSL::OCSP::SingleResponse represents an OCSP SingleResponse
+      structure, which contains the basic information of the status of the
+      certificate.
+  OpenSSL::OpenSSLError:
+    main: |-
+      Generic error,
+      common for all classes under OpenSSL module
+  OpenSSL::PKCS12:
+    main: |-
+      Defines a file format commonly used to store private keys with
+      accompanying public key certificates, protected with a password-based
+      symmetric key.
+  OpenSSL::PKey:
+    main: |-
+      == Asymmetric Public Key Algorithms
+
+      Asymmetric public key algorithms solve the problem of establishing and
+      sharing secret keys to en-/decrypt messages. The key in such an
+      algorithm consists of two parts: a public key that may be distributed
+      to others and a private key that needs to remain secret.
+
+      Messages encrypted with a public key can only be decrypted by
+      recipients that are in possession of the associated private key.
+      Since public key algorithms are considerably slower than symmetric
+      key algorithms (cf. OpenSSL::Cipher) they are often used to establish
+      a symmetric key shared between two parties that are in possession of
+      each other's public key.
+
+      Asymmetric algorithms offer a lot of nice features that are used in a
+      lot of different areas. A very common application is the creation and
+      validation of digital signatures. To sign a document, the signatory
+      generally uses a message digest algorithm (cf. OpenSSL::Digest) to
+      compute a digest of the document that is then encrypted (i.e. signed)
+      using the private key. Anyone in possession of the public key may then
+      verify the signature by computing the message digest of the original
+      document on their own, decrypting the signature using the signatory's
+      public key and comparing the result to the message digest they
+      previously computed. The signature is valid if and only if the
+      decrypted signature is equal to this message digest.
+
+      The PKey module offers support for three popular public/private key
+      algorithms:
+      * RSA (OpenSSL::PKey::RSA)
+      * DSA (OpenSSL::PKey::DSA)
+      * Elliptic Curve Cryptography (OpenSSL::PKey::EC)
+      Each of these implementations is in fact a sub-class of the abstract
+      PKey class which offers the interface for supporting digital signatures
+      in the form of PKey#sign and PKey#verify.
+
+      == Diffie-Hellman Key Exchange
+
+      Finally PKey also features OpenSSL::PKey::DH, an implementation of
+      the Diffie-Hellman key exchange protocol based on discrete logarithms
+      in finite fields, the same basis that DSA is built on.
+      The Diffie-Hellman protocol can be used to exchange (symmetric) keys
+      over insecure channels without needing any prior joint knowledge
+      between the participating parties. As the security of DH demands
+      relatively long "public keys" (i.e. the part that is overtly
+      transmitted between participants) DH tends to be quite slow. If
+      security or speed is your primary concern, OpenSSL::PKey::EC offers
+      another implementation of the Diffie-Hellman protocol.
+  OpenSSL::PKey::DH:
+    main: |-
+      An implementation of the Diffie-Hellman key exchange protocol based on
+      discrete logarithms in finite fields, the same basis that DSA is built
+      on.
+
+      === Accessor methods for the Diffie-Hellman parameters
+      DH#p::
+        The prime (an OpenSSL::BN) of the Diffie-Hellman parameters.
+      DH#g::
+        The generator (an OpenSSL::BN) g of the Diffie-Hellman parameters.
+      DH#pub_key::
+        The per-session public key (an OpenSSL::BN) matching the private key.
+        This needs to be passed to DH#compute_key.
+      DH#priv_key::
+        The per-session private key, an OpenSSL::BN.
+
+      === Example of a key exchange
+       dh1 = OpenSSL::PKey::DH.new(2048)
+       der = dh1.public_key.to_der #you may send this publicly to the participating party
+       dh2 = OpenSSL::PKey::DH.new(der)
+       dh2.generate_key! #generate the per-session key pair
+       symm_key1 = dh1.compute_key(dh2.pub_key)
+       symm_key2 = dh2.compute_key(dh1.pub_key)
+
+       puts symm_key1 == symm_key2 # => true
+  OpenSSL::PKey::DHError:
+    main: |-
+      Generic exception that is raised if an operation on a DH PKey
+      fails unexpectedly or in case an instantiation of an instance of DH
+      fails due to non-conformant input data.
+  OpenSSL::PKey::DSA:
+    main: |-
+      DSA, the Digital Signature Algorithm, is specified in NIST's
+      FIPS 186-3. It is an asymmetric public key algorithm that may be used
+      similar to e.g. RSA.
+  OpenSSL::PKey::DSAError:
+    main: |-
+      Generic exception that is raised if an operation on a DSA PKey
+      fails unexpectedly or in case an instantiation of an instance of DSA
+      fails due to non-conformant input data.
+  OpenSSL::PKey::EC:
+    main: |-
+      OpenSSL::PKey::EC provides access to Elliptic Curve Digital Signature
+      Algorithm (ECDSA) and Elliptic Curve Diffie-Hellman (ECDH).
+
+      === Key exchange
+        ec1 = OpenSSL::PKey::EC.generate("prime256v1")
+        ec2 = OpenSSL::PKey::EC.generate("prime256v1")
+        # ec1 and ec2 have own private key respectively
+        shared_key1 = ec1.dh_compute_key(ec2.public_key)
+        shared_key2 = ec2.dh_compute_key(ec1.public_key)
+
+        p shared_key1 == shared_key2 #=> true
+  OpenSSL::PKey::PKey:
+    main: |-
+      An abstract class that bundles signature creation (PKey#sign) and
+      validation (PKey#verify) that is common to all implementations except
+      OpenSSL::PKey::DH
+      * OpenSSL::PKey::RSA
+      * OpenSSL::PKey::DSA
+      * OpenSSL::PKey::EC
+  OpenSSL::PKey::PKeyError:
+    main: Raised when errors occur during PKey#sign or PKey#verify.
+  OpenSSL::PKey::RSA:
+    main: |-
+      RSA is an asymmetric public key algorithm that has been formalized in
+      RFC 3447. It is in widespread use in public key infrastructures (PKI)
+      where certificates (cf. OpenSSL::X509::Certificate) often are issued
+      on the basis of a public/private RSA key pair. RSA is used in a wide
+      field of applications such as secure (symmetric) key exchange, e.g.
+      when establishing a secure TLS/SSL connection. It is also used in
+      various digital signature schemes.
+  OpenSSL::PKey::RSAError:
+    main: |-
+      Generic exception that is raised if an operation on an RSA PKey
+      fails unexpectedly or in case an instantiation of an instance of RSA
+      fails due to non-conformant input data.
+  OpenSSL::SSL:
+    main: |-
+      Use SSLContext to set up the parameters for a TLS (former SSL)
+      connection. Both client and server TLS connections are supported,
+      SSLSocket and SSLServer may be used in conjunction with an instance
+      of SSLContext to set up connections.
+  OpenSSL::SSL::SSLContext:
+    main: |-
+      An SSLContext is used to set various options regarding certificates,
+      algorithms, verification, session caching, etc.  The SSLContext is
+      used to create an SSLSocket.
+
+      All attributes must be set before creating an SSLSocket as the
+      SSLContext will be frozen afterward.
+  OpenSSL::SSL::SSLError:
+    main: Generic error class raised by SSLSocket and SSLContext.
+  OpenSSL::SSL::SSLServer:
+    main: SSLServer represents a TCP/IP server socket with Secure Sockets Layer.
+  OpenSSL::X509::Certificate:
+    main: |-
+      Implementation of an X.509 certificate as specified in RFC 5280.
+      Provides access to a certificate's attributes and allows certificates
+      to be read from a string, but also supports the creation of new
+      certificates from scratch.
+
+      === Reading a certificate from a file
+
+      Certificate is capable of handling DER-encoded certificates and
+      certificates encoded in OpenSSL's PEM format.
+
+        raw = File.read "cert.cer" # DER- or PEM-encoded
+        certificate = OpenSSL::X509::Certificate.new raw
+
+      === Saving a certificate to a file
+
+      A certificate may be encoded in DER format
+
+        cert = ...
+        File.open("cert.cer", "wb") { |f| f.print cert.to_der }
+
+      or in PEM format
+
+        cert = ...
+        File.open("cert.pem", "wb") { |f| f.print cert.to_pem }
+
+      X.509 certificates are associated with a private/public key pair,
+      typically a RSA, DSA or ECC key (see also OpenSSL::PKey::RSA,
+      OpenSSL::PKey::DSA and OpenSSL::PKey::EC), the public key itself is
+      stored within the certificate and can be accessed in form of an
+      OpenSSL::PKey. Certificates are typically used to be able to associate
+      some form of identity with a key pair, for example web servers serving
+      pages over HTTPs use certificates to authenticate themselves to the user.
+
+      The public key infrastructure (PKI) model relies on trusted certificate
+      authorities ("root CAs") that issue these certificates, so that end
+      users need to base their trust just on a selected few authorities
+      that themselves again vouch for subordinate CAs issuing their
+      certificates to end users.
+
+      The OpenSSL::X509 module provides the tools to set up an independent
+      PKI, similar to scenarios where the 'openssl' command line tool is
+      used for issuing certificates in a private PKI.
+
+      === Creating a root CA certificate and an end-entity certificate
+
+      First, we need to create a "self-signed" root certificate. To do so,
+      we need to generate a key first. Please note that the choice of "1"
+      as a serial number is considered a security flaw for real certificates.
+      Secure choices are integers in the two-digit byte range and ideally
+      not sequential but secure random numbers, steps omitted here to keep
+      the example concise.
+
+        root_key = OpenSSL::PKey::RSA.new 2048 # the CA's public/private key
+        root_ca = OpenSSL::X509::Certificate.new
+        root_ca.version = 2 # cf. RFC 5280 - to make it a "v3" certificate
+        root_ca.serial = 1
+        root_ca.subject = OpenSSL::X509::Name.parse "/DC=org/DC=ruby-lang/CN=Ruby CA"
+        root_ca.issuer = root_ca.subject # root CA's are "self-signed"
+        root_ca.public_key = root_key.public_key
+        root_ca.not_before = Time.now
+        root_ca.not_after = root_ca.not_before + 2 * 365 * 24 * 60 * 60 # 2 years validity
+        ef = OpenSSL::X509::ExtensionFactory.new
+        ef.subject_certificate = root_ca
+        ef.issuer_certificate = root_ca
+        root_ca.add_extension(ef.create_extension("basicConstraints","CA:TRUE",true))
+        root_ca.add_extension(ef.create_extension("keyUsage","keyCertSign, cRLSign", true))
+        root_ca.add_extension(ef.create_extension("subjectKeyIdentifier","hash",false))
+        root_ca.add_extension(ef.create_extension("authorityKeyIdentifier","keyid:always",false))
+        root_ca.sign(root_key, OpenSSL::Digest::SHA256.new)
+
+      The next step is to create the end-entity certificate using the root CA
+      certificate.
+
+        key = OpenSSL::PKey::RSA.new 2048
+        cert = OpenSSL::X509::Certificate.new
+        cert.version = 2
+        cert.serial = 2
+        cert.subject = OpenSSL::X509::Name.parse "/DC=org/DC=ruby-lang/CN=Ruby certificate"
+        cert.issuer = root_ca.subject # root CA is the issuer
+        cert.public_key = key.public_key
+        cert.not_before = Time.now
+        cert.not_after = cert.not_before + 1 * 365 * 24 * 60 * 60 # 1 years validity
+        ef = OpenSSL::X509::ExtensionFactory.new
+        ef.subject_certificate = cert
+        ef.issuer_certificate = root_ca
+        cert.add_extension(ef.create_extension("keyUsage","digitalSignature", true))
+        cert.add_extension(ef.create_extension("subjectKeyIdentifier","hash",false))
+        cert.sign(root_key, OpenSSL::Digest::SHA256.new)
+  OpenSSL::X509::Name:
+    main: |-
+      An X.509 name represents a hostname, email address or other entity
+      associated with a public key.
+
+      You can create a Name by parsing a distinguished name String or by
+      supplying the distinguished name as an Array.
+
+        name = OpenSSL::X509::Name.parse 'CN=nobody/DC=example'
+
+        name = OpenSSL::X509::Name.new [['CN', 'nobody'], ['DC', 'example']]
+  OpenSSL::X509::Store:
+    main: |-
+      The X509 certificate store holds trusted CA certificates used to verify
+      peer certificates.
+
+      The easiest way to create a useful certificate store is:
+
+        cert_store = OpenSSL::X509::Store.new
+        cert_store.set_default_paths
+
+      This will use your system's built-in certificates.
+
+      If your system does not have a default set of certificates you can obtain
+      a set extracted from Mozilla CA certificate store by cURL maintainers
+      here: https://curl.haxx.se/docs/caextract.html (You may wish to use the
+      firefox-db2pem.sh script to extract the certificates from a local install
+      to avoid man-in-the-middle attacks.)
+
+      After downloading or generating a cacert.pem from the above link you
+      can create a certificate store from the pem file like this:
+
+        cert_store = OpenSSL::X509::Store.new
+        cert_store.add_file 'cacert.pem'
+
+      The certificate store can be used with an SSLSocket like this:
+
+        ssl_context = OpenSSL::SSL::SSLContext.new
+        ssl_context.verify_mode = OpenSSL::SSL::VERIFY_PEER
+        ssl_context.cert_store = cert_store
+
+        tcp_socket = TCPSocket.open 'example.com', 443
+
+        ssl_socket = OpenSSL::SSL::SSLSocket.new tcp_socket, ssl_context
+  OpenSSL::X509::StoreContext:
+    main: |-
+      A StoreContext is used while validating a single certificate and holds
+      the status involved.
+pathname:
+  Pathname:
+    main: |-
+      Pathname represents the name of a file or directory on the filesystem,
+      but not the file itself.
+
+      The pathname depends on the Operating System: Unix, Windows, etc.
+      This library works with pathnames of local OS, however non-Unix pathnames
+      are supported experimentally.
+
+      A Pathname can be relative or absolute.  It's not until you try to
+      reference the file that it even matters whether the file exists or not.
+
+      Pathname is immutable.  It has no method for destructive update.
+
+      The goal of this class is to manipulate file path information in a neater
+      way than standard Ruby provides.  The examples below demonstrate the
+      difference.
+
+      *All* functionality from File, FileTest, and some from Dir and FileUtils is
+      included, in an unsurprising way.  It is essentially a facade for all of
+      these, and more.
+
+      == Examples
+
+      === Example 1: Using Pathname
+
+        require 'pathname'
+        pn = Pathname.new("/usr/bin/ruby")
+        size = pn.size              # 27662
+        isdir = pn.directory?       # false
+        dir  = pn.dirname           # Pathname:/usr/bin
+        base = pn.basename          # Pathname:ruby
+        dir, base = pn.split        # [Pathname:/usr/bin, Pathname:ruby]
+        data = pn.read
+        pn.open { |f| _ }
+        pn.each_line { |line| _ }
+
+      === Example 2: Using standard Ruby
+
+        pn = "/usr/bin/ruby"
+        size = File.size(pn)        # 27662
+        isdir = File.directory?(pn) # false
+        dir  = File.dirname(pn)     # "/usr/bin"
+        base = File.basename(pn)    # "ruby"
+        dir, base = File.split(pn)  # ["/usr/bin", "ruby"]
+        data = File.read(pn)
+        File.open(pn) { |f| _ }
+        File.foreach(pn) { |line| _ }
+
+      === Example 3: Special features
+
+        p1 = Pathname.new("/usr/lib")   # Pathname:/usr/lib
+        p2 = p1 + "ruby/1.8"            # Pathname:/usr/lib/ruby/1.8
+        p3 = p1.parent                  # Pathname:/usr
+        p4 = p2.relative_path_from(p3)  # Pathname:lib/ruby/1.8
+        pwd = Pathname.pwd              # Pathname:/home/gavin
+        pwd.absolute?                   # true
+        p5 = Pathname.new "."           # Pathname:.
+        p5 = p5 + "music/../articles"   # Pathname:music/../articles
+        p5.cleanpath                    # Pathname:articles
+        p5.realpath                     # Pathname:/home/gavin/articles
+        p5.children                     # [Pathname:/home/gavin/articles/linux, ...]
+
+      == Breakdown of functionality
+
+      === Core methods
+
+      These methods are effectively manipulating a String, because that's
+      all a path is.  None of these access the file system except for
+      #mountpoint?, #children, #each_child, #realdirpath and #realpath.
+
+      - +
+      - #join
+      - #parent
+      - #root?
+      - #absolute?
+      - #relative?
+      - #relative_path_from
+      - #each_filename
+      - #cleanpath
+      - #realpath
+      - #realdirpath
+      - #children
+      - #each_child
+      - #mountpoint?
+
+      === File status predicate methods
+
+      These methods are a facade for FileTest:
+      - #blockdev?
+      - #chardev?
+      - #directory?
+      - #executable?
+      - #executable_real?
+      - #exist?
+      - #file?
+      - #grpowned?
+      - #owned?
+      - #pipe?
+      - #readable?
+      - #world_readable?
+      - #readable_real?
+      - #setgid?
+      - #setuid?
+      - #size
+      - #size?
+      - #socket?
+      - #sticky?
+      - #symlink?
+      - #writable?
+      - #world_writable?
+      - #writable_real?
+      - #zero?
+
+      === File property and manipulation methods
+
+      These methods are a facade for File:
+      - #atime
+      - #birthtime
+      - #ctime
+      - #mtime
+      - #chmod(mode)
+      - #lchmod(mode)
+      - #chown(owner, group)
+      - #lchown(owner, group)
+      - #fnmatch(pattern, *args)
+      - #fnmatch?(pattern, *args)
+      - #ftype
+      - #make_link(old)
+      - #open(*args, &block)
+      - #readlink
+      - #rename(to)
+      - #stat
+      - #lstat
+      - #make_symlink(old)
+      - #truncate(length)
+      - #utime(atime, mtime)
+      - #basename(*args)
+      - #dirname
+      - #extname
+      - #expand_path(*args)
+      - #split
+
+      === Directory methods
+
+      These methods are a facade for Dir:
+      - Pathname.glob(*args)
+      - Pathname.getwd / Pathname.pwd
+      - #rmdir
+      - #entries
+      - #each_entry(&block)
+      - #mkdir(*args)
+      - #opendir(*args)
+
+      === IO
+
+      These methods are a facade for IO:
+      - #each_line(*args, &block)
+      - #read(*args)
+      - #binread(*args)
+      - #readlines(*args)
+      - #sysopen(*args)
+
+      === Utilities
+
+      These methods are a mixture of Find, FileUtils, and others:
+      - #find(&block)
+      - #mkpath
+      - #rmtree
+      - #unlink / #delete
+
+      == Method documentation
+
+      As the above section shows, most of the methods in Pathname are facades.  The
+      documentation for these methods generally just says, for instance, "See
+      FileTest.writable?", as you should be familiar with the original method
+      anyway, and its documentation (e.g. through +ri+) will contain more
+      information.  In some cases, a brief description will follow.
+psych:
+  Psych:
+    main: |-
+      = Overview
+
+      Psych is a YAML parser and emitter.
+      Psych leverages libyaml [Home page: https://pyyaml.org/wiki/LibYAML]
+      or [HG repo: https://bitbucket.org/xi/libyaml] for its YAML parsing
+      and emitting capabilities. In addition to wrapping libyaml, Psych also
+      knows how to serialize and de-serialize most Ruby objects to and from
+      the YAML format.
+
+      = I NEED TO PARSE OR EMIT YAML RIGHT NOW!
+
+        # Parse some YAML
+        Psych.load("--- foo") # => "foo"
+
+        # Emit some YAML
+        Psych.dump("foo")     # => "--- foo\n...\n"
+        { :a => 'b'}.to_yaml  # => "---\n:a: b\n"
+
+      Got more time on your hands?  Keep on reading!
+
+      == YAML Parsing
+
+      Psych provides a range of interfaces for parsing a YAML document ranging from
+      low level to high level, depending on your parsing needs.  At the lowest
+      level, is an event based parser.  Mid level is access to the raw YAML AST,
+      and at the highest level is the ability to unmarshal YAML to Ruby objects.
+
+      == YAML Emitting
+
+      Psych provides a range of interfaces ranging from low to high level for
+      producing YAML documents.  Very similar to the YAML parsing interfaces, Psych
+      provides at the lowest level, an event based system, mid-level is building
+      a YAML AST, and the highest level is converting a Ruby object straight to
+      a YAML document.
+
+      == High-level API
+
+      === Parsing
+
+      The high level YAML parser provided by Psych simply takes YAML as input and
+      returns a Ruby data structure.  For information on using the high level parser
+      see Psych.load
+
+      ==== Reading from a string
+
+        Psych.load("--- a")             # => 'a'
+        Psych.load("---\n - a\n - b")   # => ['a', 'b']
+
+      ==== Reading from a file
+
+        Psych.load_file("database.yml")
+
+      ==== Exception handling
+
+        begin
+          # The second argument changes only the exception contents
+          Psych.parse("--- `", "file.txt")
+        rescue Psych::SyntaxError => ex
+          ex.file    # => 'file.txt'
+          ex.message # => "(file.txt): found character that cannot start any token"
+        end
+
+      === Emitting
+
+      The high level emitter has the easiest interface.  Psych simply takes a Ruby
+      data structure and converts it to a YAML document.  See Psych.dump for more
+      information on dumping a Ruby data structure.
+
+      ==== Writing to a string
+
+        # Dump an array, get back a YAML string
+        Psych.dump(['a', 'b'])  # => "---\n- a\n- b\n"
+
+        # Dump an array to an IO object
+        Psych.dump(['a', 'b'], StringIO.new)  # => #<StringIO:0x000001009d0890>
+
+        # Dump an array with indentation set
+        Psych.dump(['a', ['b']], :indentation => 3) # => "---\n- a\n-  - b\n"
+
+        # Dump an array to an IO with indentation set
+        Psych.dump(['a', ['b']], StringIO.new, :indentation => 3)
+
+      ==== Writing to a file
+
+      Currently there is no direct API for dumping Ruby structure to file:
+
+        File.open('database.yml', 'w') do |file|
+          file.write(Psych.dump(['a', 'b']))
+        end
+
+      == Mid-level API
+
+      === Parsing
+
+      Psych provides access to an AST produced from parsing a YAML document.  This
+      tree is built using the Psych::Parser and Psych::TreeBuilder.  The AST can
+      be examined and manipulated freely.  Please see Psych::parse_stream,
+      Psych::Nodes, and Psych::Nodes::Node for more information on dealing with
+      YAML syntax trees.
+
+      ==== Reading from a string
+
+        # Returns Psych::Nodes::Stream
+        Psych.parse_stream("---\n - a\n - b")
+
+        # Returns Psych::Nodes::Document
+        Psych.parse("---\n - a\n - b")
+
+      ==== Reading from a file
+
+        # Returns Psych::Nodes::Stream
+        Psych.parse_stream(File.read('database.yml'))
+
+        # Returns Psych::Nodes::Document
+        Psych.parse_file('database.yml')
+
+      ==== Exception handling
+
+        begin
+          # The second argument changes only the exception contents
+          Psych.parse("--- `", "file.txt")
+        rescue Psych::SyntaxError => ex
+          ex.file    # => 'file.txt'
+          ex.message # => "(file.txt): found character that cannot start any token"
+        end
+
+      === Emitting
+
+      At the mid level is building an AST.  This AST is exactly the same as the AST
+      used when parsing a YAML document.  Users can build an AST by hand and the
+      AST knows how to emit itself as a YAML document.  See Psych::Nodes,
+      Psych::Nodes::Node, and Psych::TreeBuilder for more information on building
+      a YAML AST.
+
+      ==== Writing to a string
+
+        # We need Psych::Nodes::Stream (not Psych::Nodes::Document)
+        stream = Psych.parse_stream("---\n - a\n - b")
+
+        stream.to_yaml # => "---\n- a\n- b\n"
+
+      ==== Writing to a file
+
+        # We need Psych::Nodes::Stream (not Psych::Nodes::Document)
+        stream = Psych.parse_stream(File.read('database.yml'))
+
+        File.open('database.yml', 'w') do |file|
+          file.write(stream.to_yaml)
+        end
+
+      == Low-level API
+
+      === Parsing
+
+      The lowest level parser should be used when the YAML input is already known,
+      and the developer does not want to pay the price of building an AST or
+      automatic detection and conversion to Ruby objects.  See Psych::Parser for
+      more information on using the event based parser.
+
+      ==== Reading to Psych::Nodes::Stream structure
+
+        parser = Psych::Parser.new(TreeBuilder.new) # => #<Psych::Parser>
+        parser = Psych.parser                       # it's an alias for the above
+
+        parser.parse("---\n - a\n - b")             # => #<Psych::Parser>
+        parser.handler                              # => #<Psych::TreeBuilder>
+        parser.handler.root                         # => #<Psych::Nodes::Stream>
+
+      ==== Receiving an events stream
+
+        recorder = Psych::Handlers::Recorder.new
+        parser = Psych::Parser.new(recorder)
+
+        parser.parse("---\n - a\n - b")
+        recorder.events # => [list of [event, args] lists]
+                        # event is one of: Psych::Handler::EVENTS
+                        # args are the arguments passed to the event
+
+      === Emitting
+
+      The lowest level emitter is an event based system.  Events are sent to a
+      Psych::Emitter object.  That object knows how to convert the events to a YAML
+      document.  This interface should be used when document format is known in
+      advance or speed is a concern.  See Psych::Emitter for more information.
+
+      ==== Writing to a Ruby structure
+
+        Psych.parser.parse("--- a")       # => #<Psych::Parser>
+
+        parser.handler.first              # => #<Psych::Nodes::Stream>
+        parser.handler.first.to_ruby      # => ["a"]
+
+        parser.handler.root.first         # => #<Psych::Nodes::Document>
+        parser.handler.root.first.to_ruby # => "a"
+
+        # You can instantiate an Emitter manually
+        Psych::Visitors::ToRuby.new.accept(parser.handler.root.first)
+        # => "a"
+  Psych::Coder:
+    main: |-
+      If an object defines +encode_with+, then an instance of Psych::Coder will
+      be passed to the method when the object is being serialized.  The Coder
+      automatically assumes a Psych::Nodes::Mapping is being emitted.  Other
+      objects like Sequence and Scalar may be emitted if +seq=+ or +scalar=+ are
+      called, respectively.
+  Psych::Handler:
+    main: |-
+      Psych::Handler is an abstract base class that defines the events used
+      when dealing with Psych::Parser.  Clients who want to use Psych::Parser
+      should implement a class that inherits from Psych::Handler and define
+      events that they can handle.
+
+      Psych::Handler defines all events that Psych::Parser can possibly send to
+      event handlers.
+
+      See Psych::Parser for more details
+  Psych::Handler::DumperOptions:
+    main: Configuration options for dumping YAML.
+  Psych::Handlers::Recorder:
+    main: |-
+      This handler will capture an event and record the event.  Recorder events
+      are available vial Psych::Handlers::Recorder#events.
+
+      For example:
+
+        recorder = Psych::Handlers::Recorder.new
+        parser = Psych::Parser.new recorder
+        parser.parse '--- foo'
+
+        recorder.events # => [list of events]
+
+        # Replay the events
+
+        emitter = Psych::Emitter.new $stdout
+        recorder.events.each do |m, args|
+          emitter.send m, *args
+        end
+  Psych::JSON::TreeBuilder:
+    main: |-
+      Psych::JSON::TreeBuilder is an event based AST builder.  Events are sent
+      to an instance of Psych::JSON::TreeBuilder and a JSON AST is constructed.
+  Psych::Nodes:
+    main: |-
+      = Overview
+
+      When using Psych.load to deserialize a YAML document, the document is
+      translated to an intermediary AST.  That intermediary AST is then
+      translated in to a Ruby object graph.
+
+      In the opposite direction, when using Psych.dump, the Ruby object graph is
+      translated to an intermediary AST which is then converted to a YAML
+      document.
+
+      Psych::Nodes contains all of the classes that make up the nodes of a YAML
+      AST.  You can manually build an AST and use one of the visitors (see
+      Psych::Visitors) to convert that AST to either a YAML document or to a
+      Ruby object graph.
+
+      Here is an example of building an AST that represents a list with one
+      scalar:
+
+        # Create our nodes
+        stream = Psych::Nodes::Stream.new
+        doc    = Psych::Nodes::Document.new
+        seq    = Psych::Nodes::Sequence.new
+        scalar = Psych::Nodes::Scalar.new('foo')
+
+        # Build up our tree
+        stream.children << doc
+        doc.children    << seq
+        seq.children    << scalar
+
+      The stream is the root of the tree.  We can then convert the tree to YAML:
+
+        stream.to_yaml => "---\n- foo\n"
+
+      Or convert it to Ruby:
+
+        stream.to_ruby => [["foo"]]
+
+      == YAML AST Requirements
+
+      A valid YAML AST *must* have one Psych::Nodes::Stream at the root.  A
+      Psych::Nodes::Stream node must have 1 or more Psych::Nodes::Document nodes
+      as children.
+
+      Psych::Nodes::Document nodes must have one and *only* one child.  That child
+      may be one of:
+
+      * Psych::Nodes::Sequence
+      * Psych::Nodes::Mapping
+      * Psych::Nodes::Scalar
+
+      Psych::Nodes::Sequence and Psych::Nodes::Mapping nodes may have many
+      children, but Psych::Nodes::Mapping nodes should have an even number of
+      children.
+
+      All of these are valid children for Psych::Nodes::Sequence and
+      Psych::Nodes::Mapping nodes:
+
+      * Psych::Nodes::Sequence
+      * Psych::Nodes::Mapping
+      * Psych::Nodes::Scalar
+      * Psych::Nodes::Alias
+
+      Psych::Nodes::Scalar and Psych::Nodes::Alias are both terminal nodes and
+      should not have any children.
+  Psych::Nodes::Alias:
+    main: |-
+      This class represents a {YAML Alias}[http://yaml.org/spec/1.1/#alias].
+      It points to an +anchor+.
+
+      A Psych::Nodes::Alias is a terminal node and may have no children.
+  Psych::Nodes::Document:
+    main: |-
+      This represents a YAML Document.  This node must be a child of
+      Psych::Nodes::Stream.  A Psych::Nodes::Document must have one child,
+      and that child may be one of the following:
+
+      * Psych::Nodes::Sequence
+      * Psych::Nodes::Mapping
+      * Psych::Nodes::Scalar
+  Psych::Nodes::Mapping:
+    main: |-
+      This class represents a {YAML Mapping}[http://yaml.org/spec/1.1/#mapping].
+
+      A Psych::Nodes::Mapping node may have 0 or more children, but must have
+      an even number of children.  Here are the valid children a
+      Psych::Nodes::Mapping node may have:
+
+      * Psych::Nodes::Sequence
+      * Psych::Nodes::Mapping
+      * Psych::Nodes::Scalar
+      * Psych::Nodes::Alias
+  Psych::Nodes::Node:
+    main: |-
+      The base class for any Node in a YAML parse tree.  This class should
+      never be instantiated.
+  Psych::Nodes::Scalar:
+    main: |-
+      This class represents a {YAML Scalar}[http://yaml.org/spec/1.1/#id858081].
+
+      This node type is a terminal node and should not have any children.
+  Psych::Nodes::Sequence:
+    main: |-
+      This class represents a
+      {YAML sequence}[http://yaml.org/spec/1.1/#sequence/syntax].
+
+      A YAML sequence is basically a list, and looks like this:
+
+        %YAML 1.1
+        ---
+        - I am
+        - a Sequence
+
+      A YAML sequence may have an anchor like this:
+
+        %YAML 1.1
+        ---
+        &A [
+          "This sequence",
+          "has an anchor"
+        ]
+
+      A YAML sequence may also have a tag like this:
+
+        %YAML 1.1
+        ---
+        !!seq [
+          "This sequence",
+          "has a tag"
+        ]
+
+      This class represents a sequence in a YAML document.  A
+      Psych::Nodes::Sequence node may have 0 or more children.  Valid children
+      for this node are:
+
+      * Psych::Nodes::Sequence
+      * Psych::Nodes::Mapping
+      * Psych::Nodes::Scalar
+      * Psych::Nodes::Alias
+  Psych::Nodes::Stream:
+    main: |-
+      Represents a YAML stream.  This is the root node for any YAML parse
+      tree.  This node must have one or more child nodes.  The only valid
+      child node for a Psych::Nodes::Stream node is Psych::Nodes::Document.
+  Psych::Parser:
+    main: |-
+      YAML event parser class.  This class parses a YAML document and calls
+      events on the handler that is passed to the constructor.  The events can
+      be used for things such as constructing a YAML AST or deserializing YAML
+      documents.  It can even be fed back to Psych::Emitter to emit the same
+      document that was parsed.
+
+      See Psych::Handler for documentation on the events that Psych::Parser emits.
+
+      Here is an example that prints out ever scalar found in a YAML document:
+
+        # Handler for detecting scalar values
+        class ScalarHandler < Psych::Handler
+          def scalar value, anchor, tag, plain, quoted, style
+            puts value
+          end
+        end
+
+        parser = Psych::Parser.new(ScalarHandler.new)
+        parser.parse(yaml_document)
+
+      Here is an example that feeds the parser back in to Psych::Emitter.  The
+      YAML document is read from STDIN and written back out to STDERR:
+
+        parser = Psych::Parser.new(Psych::Emitter.new($stderr))
+        parser.parse($stdin)
+
+      Psych uses Psych::Parser in combination with Psych::TreeBuilder to
+      construct an AST of the parsed YAML document.
+  Psych::ScalarScanner:
+    main: Scan scalars for built in types
+  Psych::Stream:
+    main: |-
+      Psych::Stream is a streaming YAML emitter.  It will not buffer your YAML,
+      but send it straight to an IO.
+
+      Here is an example use:
+
+        stream = Psych::Stream.new($stdout)
+        stream.start
+        stream.push({:foo => 'bar'})
+        stream.finish
+
+      YAML will be immediately emitted to $stdout with no buffering.
+
+      Psych::Stream#start will take a block and ensure that Psych::Stream#finish
+      is called, so you can do this form:
+
+        stream = Psych::Stream.new($stdout)
+        stream.start do |em|
+          em.push(:foo => 'bar')
+        end
+  Psych::TreeBuilder:
+    main: |-
+      This class works in conjunction with Psych::Parser to build an in-memory
+      parse tree that represents a YAML document.
+
+      == Example
+
+        parser = Psych::Parser.new Psych::TreeBuilder.new
+        parser.parse('--- foo')
+        tree = parser.handler.root
+
+      See Psych::Handler for documentation on the event methods used in this
+      class.
+  Psych::Visitors::ToRuby:
+    main: This class walks a YAML AST, converting each node to Ruby
+  Psych::Visitors::YAMLTree:
+    main: |-
+      YAMLTree builds a YAML ast given a Ruby object.  For example:
+
+        builder = Psych::Visitors::YAMLTree.new
+        builder << { :foo => 'bar' }
+        builder.tree # => #<Psych::Nodes::Stream .. }
+pty:
+  IO:
+    main: |-
+      Expect library adds the IO instance method #expect, which does similar act to
+      tcl's expect extension.
+
+      In order to use this method, you must require expect:
+
+        require 'expect'
+
+      Please see #expect for usage.
+  PTY:
+    main: |-
+      Creates and manages pseudo terminals (PTYs).  See also
+      http://en.wikipedia.org/wiki/Pseudo_terminal
+
+      PTY allows you to allocate new terminals using ::open or ::spawn a new
+      terminal with a specific command.
+
+      == Example
+
+      In this example we will change the buffering type in the +factor+ command,
+      assuming that factor uses stdio for stdout buffering.
+
+      If IO.pipe is used instead of PTY.open, this code deadlocks because factor's
+      stdout is fully buffered.
+
+        # start by requiring the standard library PTY
+        require 'pty'
+
+        master, slave = PTY.open
+        read, write = IO.pipe
+        pid = spawn("factor", :in=>read, :out=>slave)
+        read.close     # we dont need the read
+        slave.close    # or the slave
+
+        # pipe "42" to the factor command
+        write.puts "42"
+        # output the response from factor
+        p master.gets #=> "42: 2 3 7\n"
+
+        # pipe "144" to factor and print out the response
+        write.puts "144"
+        p master.gets #=> "144: 2 2 2 2 3 3\n"
+        write.close # close the pipe
+
+        # The result of read operation when pty slave is closed is platform
+        # dependent.
+        ret = begin
+                master.gets     # FreeBSD returns nil.
+              rescue Errno::EIO # GNU/Linux raises EIO.
+                nil
+              end
+        p ret #=> nil
+
+      == License
+
+       C) Copyright 1998 by Akinori Ito.
+
+       This software may be redistributed freely for this purpose, in full
+       or in part, provided that this entire copyright notice is included
+       on any copies of this software and applications and derivations thereof.
+
+       This software is provided on an "as is" basis, without warranty of any
+       kind, either expressed or implied, as to any matter including, but not
+       limited to warranty of fitness of purpose, or merchantability, or
+       results obtained from use of this software.
+  PTY::ChildExited:
+    main: |-
+      Thrown when PTY::check is called for a pid that represents a process that
+      has exited.
+racc: {}
+rbconfig: {}
+readline:
+  Readline:
+    main: |-
+      The Readline module provides interface for GNU Readline.
+      This module defines a number of methods to facilitate completion
+      and accesses input history from the Ruby interpreter.
+      This module supported Edit Line(libedit) too.
+      libedit is compatible with GNU Readline.
+
+      GNU Readline:: http://www.gnu.org/directory/readline.html
+      libedit::      http://www.thrysoee.dk/editline/
+
+      Reads one inputted line with line edit by Readline.readline method.
+      At this time, the facilitatation completion and the key
+      bind like Emacs can be operated like GNU Readline.
+
+        require "readline"
+        while buf = Readline.readline("> ", true)
+          p buf
+        end
+
+      The content that the user input can be recorded to the history.
+      The history can be accessed by Readline::HISTORY constant.
+
+        require "readline"
+        while buf = Readline.readline("> ", true)
+          p Readline::HISTORY.to_a
+          print("-> ", buf, "\n")
+        end
+
+      Documented by Kouji Takao <kouji dot takao at gmail dot com>.
+ripper:
+  DSL:
+    main: |-
+      Simple DSL implementation for Ripper code generation
+
+      input: /*% ripper: stmts_add(stmts_new, void_stmt) %*/
+      output:
+        VALUE v1, v2;
+        v1 = dispatch0(stmts_new);
+        v2 = dispatch0(void_stmt);
+        $$ = dispatch2(stmts_add, v1, v2);
+  Ripper:
+    main: |-
+      Ripper is a Ruby script parser.
+
+      You can get information from the parser with event-based style.
+      Information such as abstract syntax trees or simple lexical analysis of the
+      Ruby program.
+
+      == Usage
+
+      Ripper provides an easy interface for parsing your program into a symbolic
+      expression tree (or S-expression).
+
+      Understanding the output of the parser may come as a challenge, it's
+      recommended you use PP to format the output for legibility.
+
+        require 'ripper'
+        require 'pp'
+
+        pp Ripper.sexp('def hello(world) "Hello, #{world}!"; end')
+          #=> [:program,
+               [[:def,
+                 [:@ident, "hello", [1, 4]],
+                 [:paren,
+                  [:params, [[:@ident, "world", [1, 10]]], nil, nil, nil, nil, nil, nil]],
+                 [:bodystmt,
+                  [[:string_literal,
+                    [:string_content,
+                     [:@tstring_content, "Hello, ", [1, 18]],
+                     [:string_embexpr, [[:var_ref, [:@ident, "world", [1, 27]]]]],
+                     [:@tstring_content, "!", [1, 33]]]]],
+                  nil,
+                  nil,
+                  nil]]]]
+
+      You can see in the example above, the expression starts with +:program+.
+
+      From here, a method definition at +:def+, followed by the method's identifier
+      <code>:@ident</code>. After the method's identifier comes the parentheses
+      +:paren+ and the method parameters under +:params+.
+
+      Next is the method body, starting at +:bodystmt+ (+stmt+ meaning statement),
+      which contains the full definition of the method.
+
+      In our case, we're simply returning a String, so next we have the
+      +:string_literal+ expression.
+
+      Within our +:string_literal+ you'll notice two <code>@tstring_content</code>,
+      this is the literal part for <code>Hello, </code> and <code>!</code>. Between
+      the two <code>@tstring_content</code> statements is a +:string_embexpr+,
+      where _embexpr_ is an embedded expression. Our expression consists of a local
+      variable, or +var_ref+, with the identifier (<code>@ident</code>) of +world+.
+
+      == Resources
+
+      * {Ruby Inside}[http://www.rubyinside.com/using-ripper-to-see-how-ruby-is-parsing-your-code-5270.html]
+
+      == Requirements
+
+      * ruby 1.9 (support CVS HEAD only)
+      * bison 1.28 or later (Other yaccs do not work)
+
+      == License
+
+      Ruby License.
+
+      - Minero Aoki
+      - aamine@loveruby.net
+      - http://i.loveruby.net
+  Ripper::Filter:
+    main: |-
+      This class handles only scanner events,
+      which are dispatched in the 'right' order (same with input).
+rubyvm: {}
+sdbm:
+  SDBM:
+    main: |-
+      SDBM provides a simple file-based key-value store, which can only store
+      String keys and values.
+
+      Note that Ruby comes with the source code for SDBM, while the DBM and GDBM
+      standard libraries rely on external libraries and headers.
+
+      === Examples
+
+      Insert values:
+
+        require 'sdbm'
+
+        SDBM.open 'my_database' do |db|
+          db['apple'] = 'fruit'
+          db['pear'] = 'fruit'
+          db['carrot'] = 'vegetable'
+          db['tomato'] = 'vegetable'
+        end
+
+      Bulk update:
+
+        require 'sdbm'
+
+        SDBM.open 'my_database' do |db|
+          db.update('peach' => 'fruit', 'tomato' => 'fruit')
+        end
+
+      Retrieve values:
+
+        require 'sdbm'
+
+        SDBM.open 'my_database' do |db|
+          db.each do |key, value|
+            puts "Key: #{key}, Value: #{value}"
+          end
+        end
+
+      Outputs:
+
+        Key: apple, Value: fruit
+        Key: pear, Value: fruit
+        Key: carrot, Value: vegetable
+        Key: peach, Value: fruit
+        Key: tomato, Value: fruit
+  SDBMError:
+    main: Exception class used to return errors from the sdbm library.
+socket:
+  BasicSocket:
+    main: BasicSocket is the super class for all the Socket classes.
+  IPSocket:
+    main: IPSocket is the super class of TCPSocket and UDPSocket.
+  SOCKSSocket:
+    main: |-
+      SOCKS is an Internet protocol that routes packets between a client and
+      a server through a proxy server.  SOCKS5, if supported, additionally
+      provides authentication so only authorized users may access a server.
+  Socket:
+    main: |-
+      Class +Socket+ provides access to the underlying operating system
+      socket implementations.  It can be used to provide more operating system
+      specific functionality than the protocol-specific socket classes.
+
+      The constants defined under Socket::Constants are also defined under
+      Socket.  For example, Socket::AF_INET is usable as well as
+      Socket::Constants::AF_INET.  See Socket::Constants for the list of
+      constants.
+
+      === What's a socket?
+
+      Sockets are endpoints of a bidirectional communication channel.
+      Sockets can communicate within a process, between processes on the same
+      machine or between different machines.  There are many types of socket:
+      TCPSocket, UDPSocket or UNIXSocket for example.
+
+      Sockets have their own vocabulary:
+
+      *domain:*
+      The family of protocols:
+      *    Socket::PF_INET
+      *    Socket::PF_INET6
+      *    Socket::PF_UNIX
+      *    etc.
+
+      *type:*
+      The type of communications between the two endpoints, typically
+      *    Socket::SOCK_STREAM
+      *    Socket::SOCK_DGRAM.
+
+      *protocol:*
+      Typically _zero_.
+      This may be used to identify a variant of a protocol.
+
+      *hostname:*
+      The identifier of a network interface:
+      *    a string (hostname, IPv4 or IPv6 address or +broadcast+
+           which specifies a broadcast address)
+      *    a zero-length string which specifies INADDR_ANY
+      *    an integer (interpreted as binary address in host byte order).
+
+      === Quick start
+
+      Many of the classes, such as TCPSocket, UDPSocket or UNIXSocket,
+      ease the use of sockets comparatively to the equivalent C programming interface.
+
+      Let's create an internet socket using the IPv4 protocol in a C-like manner:
+
+        require 'socket'
+
+        s = Socket.new Socket::AF_INET, Socket::SOCK_STREAM
+        s.connect Socket.pack_sockaddr_in(80, 'example.com')
+
+      You could also use the TCPSocket class:
+
+        s = TCPSocket.new 'example.com', 80
+
+      A simple server might look like this:
+
+        require 'socket'
+
+        server = TCPServer.new 2000 # Server bound to port 2000
+
+        loop do
+          client = server.accept    # Wait for a client to connect
+          client.puts "Hello !"
+          client.puts "Time is #{Time.now}"
+          client.close
+        end
+
+      A simple client may look like this:
+
+        require 'socket'
+
+        s = TCPSocket.new 'localhost', 2000
+
+        while line = s.gets # Read lines from socket
+          puts line         # and print them
+        end
+
+        s.close             # close socket when done
+
+      === Exception Handling
+
+      Ruby's Socket implementation raises exceptions based on the error
+      generated by the system dependent implementation.  This is why the
+      methods are documented in a way that isolate Unix-based system
+      exceptions from Windows based exceptions. If more information on a
+      particular exception is needed, please refer to the Unix manual pages or
+      the Windows WinSock reference.
+
+      === Convenience methods
+
+      Although the general way to create socket is Socket.new,
+      there are several methods of socket creation for most cases.
+
+      TCP client socket::
+        Socket.tcp, TCPSocket.open
+      TCP server socket::
+        Socket.tcp_server_loop, TCPServer.open
+      UNIX client socket::
+        Socket.unix, UNIXSocket.open
+      UNIX server socket::
+        Socket.unix_server_loop, UNIXServer.open
+
+      === Documentation by
+
+      * Zach Dennis
+      * Sam Roberts
+      * <em>Programming Ruby</em> from The Pragmatic Bookshelf.
+
+      Much material in this documentation is taken with permission from
+      <em>Programming Ruby</em> from The Pragmatic Bookshelf.
+  Socket::AncillaryData:
+    main: |-
+      Socket::AncillaryData represents the ancillary data (control information)
+      used by sendmsg and recvmsg system call.  It contains socket #family,
+      control message (cmsg) #level, cmsg #type and cmsg #data.
+  Socket::Ifaddr:
+    main: Socket::Ifaddr represents a result of getifaddrs() function.
+  Socket::Option:
+    main: |-
+      Socket::Option represents a socket option used by
+      BasicSocket#getsockopt and BasicSocket#setsockopt.  A socket option
+      contains the socket #family, protocol #level, option name #optname and
+      option value #data.
+  Socket::UDPSource:
+    main: UDP/IP address information used by Socket.udp_server_loop.
+  SocketError:
+    main: SocketError is the error class for socket.
+  TCPServer:
+    main: |-
+      TCPServer represents a TCP/IP server socket.
+
+      A simple TCP server may look like:
+
+        require 'socket'
+
+        server = TCPServer.new 2000 # Server bind to port 2000
+        loop do
+          client = server.accept    # Wait for a client to connect
+          client.puts "Hello !"
+          client.puts "Time is #{Time.now}"
+          client.close
+        end
+
+      A more usable server (serving multiple clients):
+
+        require 'socket'
+
+        server = TCPServer.new 2000
+        loop do
+          Thread.start(server.accept) do |client|
+            client.puts "Hello !"
+            client.puts "Time is #{Time.now}"
+            client.close
+          end
+        end
+  TCPSocket:
+    main: |-
+      TCPSocket represents a TCP/IP client socket.
+
+      A simple client may look like:
+
+        require 'socket'
+
+        s = TCPSocket.new 'localhost', 2000
+
+        while line = s.gets # Read lines from socket
+          puts line         # and print them
+        end
+
+        s.close             # close socket when done
+  UDPSocket:
+    main: UDPSocket represents a UDP/IP socket.
+  UNIXServer:
+    main: UNIXServer represents a UNIX domain stream server socket.
+  UNIXSocket:
+    main: UNIXSocket represents a UNIX domain stream client socket.
+stringio:
+  StringIO:
+    main: |-
+      Pseudo I/O on String object, with interface corresponding to IO.
+
+      Commonly used to simulate <code>$stdio</code> or <code>$stderr</code>
+
+      === Examples
+
+        require 'stringio'
+
+        # Writing stream emulation
+        io = StringIO.new
+        io.puts "Hello World"
+        io.string #=> "Hello World\n"
+
+        # Reading stream emulation
+        io = StringIO.new "first\nsecond\nlast\n"
+        io.getc #=> "f"
+        io.gets #=> "irst\n"
+        io.read #=> "second\nlast\n"
+strscan:
+  StringScanner:
+    main: |-
+      StringScanner provides for lexical scanning operations on a String.  Here is
+      an example of its usage:
+
+        s = StringScanner.new('This is an example string')
+        s.eos?               # -> false
+
+        p s.scan(/\w+/)      # -> "This"
+        p s.scan(/\w+/)      # -> nil
+        p s.scan(/\s+/)      # -> " "
+        p s.scan(/\s+/)      # -> nil
+        p s.scan(/\w+/)      # -> "is"
+        s.eos?               # -> false
+
+        p s.scan(/\s+/)      # -> " "
+        p s.scan(/\w+/)      # -> "an"
+        p s.scan(/\s+/)      # -> " "
+        p s.scan(/\w+/)      # -> "example"
+        p s.scan(/\s+/)      # -> " "
+        p s.scan(/\w+/)      # -> "string"
+        s.eos?               # -> true
+
+        p s.scan(/\s+/)      # -> nil
+        p s.scan(/\w+/)      # -> nil
+
+      Scanning a string means remembering the position of a <i>scan pointer</i>,
+      which is just an index.  The point of scanning is to move forward a bit at
+      a time, so matches are sought after the scan pointer; usually immediately
+      after it.
+
+      Given the string "test string", here are the pertinent scan pointer
+      positions:
+
+          t e s t   s t r i n g
+        0 1 2 ...             1
+                              0
+
+      When you #scan for a pattern (a regular expression), the match must occur
+      at the character after the scan pointer.  If you use #scan_until, then the
+      match can occur anywhere after the scan pointer.  In both cases, the scan
+      pointer moves <i>just beyond</i> the last character of the match, ready to
+      scan again from the next character onwards.  This is demonstrated by the
+      example above.
+
+      == Method Categories
+
+      There are other methods besides the plain scanners.  You can look ahead in
+      the string without actually scanning.  You can access the most recent match.
+      You can modify the string being scanned, reset or terminate the scanner,
+      find out or change the position of the scan pointer, skip ahead, and so on.
+
+      === Advancing the Scan Pointer
+
+      - #getch
+      - #get_byte
+      - #scan
+      - #scan_until
+      - #skip
+      - #skip_until
+
+      === Looking Ahead
+
+      - #check
+      - #check_until
+      - #exist?
+      - #match?
+      - #peek
+
+      === Finding Where we Are
+
+      - #beginning_of_line? (#bol?)
+      - #eos?
+      - #rest?
+      - #rest_size
+      - #pos
+
+      === Setting Where we Are
+
+      - #reset
+      - #terminate
+      - #pos=
+
+      === Match Data
+
+      - #matched
+      - #matched?
+      - #matched_size
+      - []
+      - #pre_match
+      - #post_match
+
+      === Miscellaneous
+
+      - <<
+      - #concat
+      - #string
+      - #string=
+      - #unscan
+
+      There are aliases to several of the methods.
+syslog:
+  Syslog:
+    main: |-
+      The syslog package provides a Ruby interface to the POSIX system logging
+      facility.
+
+      Syslog messages are typically passed to a central logging daemon.
+      The daemon may filter them; route them into different files (usually
+      found under /var/log); place them in SQL databases; forward
+      them to centralized logging servers via TCP or UDP; or even alert the
+      system administrator via email, pager or text message.
+
+      Unlike application-level logging via Logger or Log4r, syslog is designed
+      to allow secure tamper-proof logging.
+
+      The syslog protocol is standardized in RFC 5424.
+  Syslog::Logger:
+    main: |-
+      Syslog::Logger is a Logger work-alike that logs via syslog instead of to a
+      file.  You can use Syslog::Logger to aggregate logs between multiple
+      machines.
+
+      By default, Syslog::Logger uses the program name 'ruby', but this can be
+      changed via the first argument to Syslog::Logger.new.
+
+      NOTE! You can only set the Syslog::Logger program name when you initialize
+      Syslog::Logger for the first time.  This is a limitation of the way
+      Syslog::Logger uses syslog (and in some ways, a limitation of the way
+      syslog(3) works).  Attempts to change Syslog::Logger's program name after
+      the first initialization will be ignored.
+
+      === Example
+
+      The following will log to syslogd on your local machine:
+
+        require 'syslog/logger'
+
+        log = Syslog::Logger.new 'my_program'
+        log.info 'this line will be logged via syslog(3)'
+
+      Also the facility may be set to specify the facility level which will be used:
+
+        log.info 'this line will be logged using Syslog default facility level'
+
+        log_local1 = Syslog::Logger.new 'my_program', Syslog::LOG_LOCAL1
+        log_local1.info 'this line will be logged using local1 facility level'
+
+      You may need to perform some syslog.conf setup first.  For a BSD machine add
+      the following lines to /etc/syslog.conf:
+
+       !my_program
+       *.*                                             /var/log/my_program.log
+
+      Then touch /var/log/my_program.log and signal syslogd with a HUP
+      (killall -HUP syslogd, on FreeBSD).
+
+      If you wish to have logs automatically roll over and archive, see the
+      newsyslog.conf(5) and newsyslog(8) man pages.
+  Syslog::Logger::Formatter:
+    main: Default formatter for log messages.
+win32:
+  Resolv:
+    main: |-
+      ====================================================================
+       Windows NT
+      ====================================================================
+  Win32:
+    main: |-
+      ====================================================================
+       Windows 9x
+      ====================================================================
+  Win32::Registry::API:
+    main: Win32 APIs
+  Win32::Registry::Constants:
+    main: |-
+      For detail, see the MSDN[http://msdn.microsoft.com/library/en-us/sysinfo/base/registry.asp].
+
+      --- HKEY_*
+
+          Predefined key ((*handle*)).
+          These are Integer, not Win32::Registry.
+
+      --- REG_*
+
+          Registry value type.
+
+      --- KEY_*
+
+          Security access mask.
+
+      --- KEY_OPTIONS_*
+
+          Key options.
+
+      --- REG_CREATED_NEW_KEY
+
+      --- REG_OPENED_EXISTING_KEY
+
+          If the key is created newly or opened existing key.
+          See also Registry#disposition method.
+  Win32::Registry::Error:
+    main: Error
+  Win32::Registry::PredefinedKey:
+    main: Predefined Keys
+  Win32::SSPI::API:
+    main: Win32 API Functions. Uses Win32API to bind methods to constants contained
+      in class.
+  Win32::SSPI::Identity:
+    main: SEC_WINNT_AUTH_IDENTITY structure
+  Win32::SSPI::NegotiateAuth:
+    main: Handles "Negotiate" type authentication. Geared towards authenticating with
+      a proxy server over HTTP
+  Win32::SSPI::SSPIResult:
+    main: Takes a return result from an SSPI function and interprets the value.
+  Win32::SSPI::SecurityBuffer:
+    main: |-
+      Creates binary representations of a SecBufferDesc structure,
+      including the SecBuffer contained inside.
+  Win32::SSPI::SecurityHandle:
+    main: SecHandle struct
+  Win32::SSPI::TimeStamp:
+    main: TimeStamp struct
+win32ole:
+  IE_CONST:
+    main: |-
+      WIN32OLE.const_load(ie)
+      WIN32OLE.constants.sort.each do |c|
+        puts "#{c} = #{WIN32OLE.const_get(c)}"
+      end
+  IXMLDOMNode:
+    main: Core DOM node interface
+  IXMLDOMParseError:
+    main: structure for reporting parser errors
+  IXMLHttpRequest:
+    main: IXMLHttpRequest Interface
+  IXTLRuntime:
+    main: XTL runtime object
+  Microsoft_FreeThreadedXMLDOM_1_0:
+    main: W3C-DOM XML Document (Apartment)
+  Microsoft_XMLDOM_1_0:
+    main: W3C-DOM XML Document
+  Microsoft_XMLDSO_1_0:
+    main: XML Data Source Object
+  Microsoft_XMLHTTP_1:
+    main: XML HTTP Request class.
+  Msxml:
+    main: XMLDocument extends IXML Document.  It is obsolete.  You should use DOMDocument.  This
+      object should not be confused with the XMLDocument property on the XML data
+      island.
+  OLEProperty:
+    main: |-
+      OLEProperty
+      helper class of Property with arguments.
+  OLEtagDOMNodeType:
+    main: Constants that define a node's type
+  OLEtagXMLEMEM_TYPE:
+    main: Constants that define types for IXMLElement.
+  WIN32OLE:
+    main: |-
+      <code>WIN32OLE</code> objects represent OLE Automation object in Ruby.
+
+      By using WIN32OLE, you can access OLE server like VBScript.
+
+      Here is sample script.
+
+        require 'win32ole'
+
+        excel = WIN32OLE.new('Excel.Application')
+        excel.visible = true
+        workbook = excel.Workbooks.Add();
+        worksheet = workbook.Worksheets(1);
+        worksheet.Range("A1:D1").value = ["North","South","East","West"];
+        worksheet.Range("A2:B2").value = [5.2, 10];
+        worksheet.Range("C2").value = 8;
+        worksheet.Range("D2").value = 20;
+
+        range = worksheet.Range("A1:D2");
+        range.select
+        chart = workbook.Charts.Add;
+
+        workbook.saved = true;
+
+        excel.ActiveWorkbook.Close(0);
+        excel.Quit();
+
+      Unfortunately, Win32OLE doesn't support the argument passed by
+      reference directly.
+      Instead, Win32OLE provides WIN32OLE::ARGV or WIN32OLE_VARIANT object.
+      If you want to get the result value of argument passed by reference,
+      you can use WIN32OLE::ARGV or WIN32OLE_VARIANT.
+
+        oleobj.method(arg1, arg2, refargv3)
+        puts WIN32OLE::ARGV[2]   # the value of refargv3 after called oleobj.method
+
+      or
+
+        refargv3 = WIN32OLE_VARIANT.new(XXX,
+                    WIN32OLE::VARIANT::VT_BYREF|WIN32OLE::VARIANT::VT_XXX)
+        oleobj.method(arg1, arg2, refargv3)
+        p refargv3.value # the value of refargv3 after called oleobj.method.
+  WIN32OLE::VARIANT:
+    main: |-
+      The WIN32OLE::VARIANT module includes constants of VARIANT type constants.
+      The constants is used when creating WIN32OLE_VARIANT object.
+
+        obj = WIN32OLE_VARIANT.new("2e3", WIN32OLE::VARIANT::VT_R4)
+        obj.value # => 2000.0
+  WIN32OLERuntimeError:
+    main: |-
+      Raised when OLE processing failed.
+
+      EX:
+
+        obj = WIN32OLE.new("NonExistProgID")
+
+      raises the exception:
+
+        WIN32OLERuntimeError: unknown OLE server: `NonExistProgID'
+            HRESULT error code:0x800401f3
+              Invalid class string
+  WIN32OLE_EVENT:
+    main: "<code>WIN32OLE_EVENT</code> objects controls OLE event."
+  WIN32OLE_METHOD:
+    main: "<code>WIN32OLE_METHOD</code> objects represent OLE method information."
+  WIN32OLE_PARAM:
+    main: |-
+      <code>WIN32OLE_PARAM</code> objects represent param information of
+      the OLE method.
+  WIN32OLE_RECORD:
+    main: |-
+      <code>WIN32OLE_RECORD</code> objects represents VT_RECORD OLE variant.
+      Win32OLE returns WIN32OLE_RECORD object if the result value of invoking
+      OLE methods.
+
+      If COM server in VB.NET ComServer project is the following:
+
+        Imports System.Runtime.InteropServices
+        Public Class ComClass
+            Public Structure Book
+                <MarshalAs(UnmanagedType.BStr)> _
+                Public title As String
+                Public cost As Integer
+            End Structure
+            Public Function getBook() As Book
+                Dim book As New Book
+                book.title = "The Ruby Book"
+                book.cost = 20
+                Return book
+            End Function
+        End Class
+
+      then, you can retrieve getBook return value from the following
+      Ruby script:
+
+        require 'win32ole'
+        obj = WIN32OLE.new('ComServer.ComClass')
+        book = obj.getBook
+        book.class # => WIN32OLE_RECORD
+        book.title # => "The Ruby Book"
+        book.cost  # => 20
+  WIN32OLE_TYPE:
+    main: "<code>WIN32OLE_TYPE</code> objects represent OLE type libarary information."
+  WIN32OLE_TYPELIB:
+    main: "<code>WIN32OLE_TYPELIB</code> objects represent OLE tyblib information."
+  WIN32OLE_VARIABLE:
+    main: "<code>WIN32OLE_VARIABLE</code> objects represent OLE variable information."
+  WIN32OLE_VARIANT:
+    main: |-
+      <code>WIN32OLE_VARIANT</code> objects represents OLE variant.
+
+      Win32OLE converts Ruby object into OLE variant automatically when
+      invoking OLE methods. If OLE method requires the argument which is
+      different from the variant by automatic conversion of Win32OLE, you
+      can convert the specfied variant type by using WIN32OLE_VARIANT class.
+
+        param = WIN32OLE_VARIANT.new(10, WIN32OLE::VARIANT::VT_R4)
+        oleobj.method(param)
+
+      WIN32OLE_VARIANT does not support VT_RECORD variant. Use WIN32OLE_RECORD
+      class instead of WIN32OLE_VARIANT if the VT_RECORD variant is needed.
+zlib:
+  Zlib:
+    main: |-
+      This module provides access to the {zlib library}[http://zlib.net]. Zlib is
+      designed to be a portable, free, general-purpose, legally unencumbered --
+      that is, not covered by any patents -- lossless data-compression library
+      for use on virtually any computer hardware and operating system.
+
+      The zlib compression library provides in-memory compression and
+      decompression functions, including integrity checks of the uncompressed
+      data.
+
+      The zlib compressed data format is described in RFC 1950, which is a
+      wrapper around a deflate stream which is described in RFC 1951.
+
+      The library also supports reading and writing files in gzip (.gz) format
+      with an interface similar to that of IO. The gzip format is described in
+      RFC 1952 which is also a wrapper around a deflate stream.
+
+      The zlib format was designed to be compact and fast for use in memory and on
+      communications channels. The gzip format was designed for single-file
+      compression on file systems, has a larger header than zlib to maintain
+      directory information, and uses a different, slower check method than zlib.
+
+      See your system's zlib.h for further information about zlib
+
+      == Sample usage
+
+      Using the wrapper to compress strings with default parameters is quite
+      simple:
+
+        require "zlib"
+
+        data_to_compress = File.read("don_quixote.txt")
+
+        puts "Input size: #{data_to_compress.size}"
+        #=> Input size: 2347740
+
+        data_compressed = Zlib::Deflate.deflate(data_to_compress)
+
+        puts "Compressed size: #{data_compressed.size}"
+        #=> Compressed size: 887238
+
+        uncompressed_data = Zlib::Inflate.inflate(data_compressed)
+
+        puts "Uncompressed data is: #{uncompressed_data}"
+        #=> Uncompressed data is: The Project Gutenberg EBook of Don Quixote...
+
+      == Class tree
+
+      - Zlib::Deflate
+      - Zlib::Inflate
+      - Zlib::ZStream
+      - Zlib::Error
+        - Zlib::StreamEnd
+        - Zlib::NeedDict
+        - Zlib::DataError
+        - Zlib::StreamError
+        - Zlib::MemError
+        - Zlib::BufError
+        - Zlib::VersionError
+
+      (if you have GZIP_SUPPORT)
+      - Zlib::GzipReader
+      - Zlib::GzipWriter
+      - Zlib::GzipFile
+      - Zlib::GzipFile::Error
+        - Zlib::GzipFile::LengthError
+        - Zlib::GzipFile::CRCError
+        - Zlib::GzipFile::NoFooter
+  Zlib::BufError:
+    main: |-
+      Subclass of Zlib::Error when zlib returns a Z_BUF_ERROR.
+
+      Usually if no progress is possible.
+  Zlib::DataError:
+    main: |-
+      Subclass of Zlib::Error when zlib returns a Z_DATA_ERROR.
+
+      Usually if a stream was prematurely freed.
+  Zlib::Deflate:
+    main: |-
+      Zlib::Deflate is the class for compressing data.  See Zlib::ZStream for more
+      information.
+  Zlib::Error:
+    main: |-
+      The superclass for all exceptions raised by Ruby/zlib.
+
+      The following exceptions are defined as subclasses of Zlib::Error. These
+      exceptions are raised when zlib library functions return with an error
+      status.
+
+      - Zlib::StreamEnd
+      - Zlib::NeedDict
+      - Zlib::DataError
+      - Zlib::StreamError
+      - Zlib::MemError
+      - Zlib::BufError
+      - Zlib::VersionError
+  Zlib::GzipFile:
+    main: |-
+      Zlib::GzipFile is an abstract class for handling a gzip formatted
+      compressed file. The operations are defined in the subclasses,
+      Zlib::GzipReader for reading, and Zlib::GzipWriter for writing.
+
+      GzipReader should be used by associating an IO, or IO-like, object.
+
+      == Method Catalogue
+
+      - ::wrap
+      - ::open (Zlib::GzipReader::open and Zlib::GzipWriter::open)
+      - #close
+      - #closed?
+      - #comment
+      - comment= (Zlib::GzipWriter#comment=)
+      - #crc
+      - eof? (Zlib::GzipReader#eof?)
+      - #finish
+      - #level
+      - lineno (Zlib::GzipReader#lineno)
+      - lineno= (Zlib::GzipReader#lineno=)
+      - #mtime
+      - mtime= (Zlib::GzipWriter#mtime=)
+      - #orig_name
+      - orig_name (Zlib::GzipWriter#orig_name=)
+      - #os_code
+      - path (when the underlying IO supports #path)
+      - #sync
+      - #sync=
+      - #to_io
+
+      (due to internal structure, documentation may appear under Zlib::GzipReader
+      or Zlib::GzipWriter)
+  Zlib::GzipFile::CRCError:
+    main: |-
+      Raised when the CRC checksum recorded in gzip file footer is not equivalent
+      to the CRC checksum of the actual uncompressed data.
+  Zlib::GzipFile::Error:
+    main: Base class of errors that occur when processing GZIP files.
+  Zlib::GzipFile::LengthError:
+    main: |-
+      Raised when the data length recorded in the gzip file footer is not equivalent
+      to the length of the actual uncompressed data.
+  Zlib::GzipFile::NoFooter:
+    main: Raised when gzip file footer is not found.
+  Zlib::GzipReader:
+    main: |-
+      Zlib::GzipReader is the class for reading a gzipped file.  GzipReader should
+      be used as an IO, or -IO-like, object.
+
+        Zlib::GzipReader.open('hoge.gz') {|gz|
+          print gz.read
+        }
+
+        File.open('hoge.gz') do |f|
+          gz = Zlib::GzipReader.new(f)
+          print gz.read
+          gz.close
+        end
+
+      == Method Catalogue
+
+      The following methods in Zlib::GzipReader are just like their counterparts
+      in IO, but they raise Zlib::Error or Zlib::GzipFile::Error exception if an
+      error was found in the gzip file.
+      - #each
+      - #each_line
+      - #each_byte
+      - #gets
+      - #getc
+      - #lineno
+      - #lineno=
+      - #read
+      - #readchar
+      - #readline
+      - #readlines
+      - #ungetc
+
+      Be careful of the footer of the gzip file. A gzip file has the checksum of
+      pre-compressed data in its footer. GzipReader checks all uncompressed data
+      against that checksum at the following cases, and if it fails, raises
+      <tt>Zlib::GzipFile::NoFooter</tt>, <tt>Zlib::GzipFile::CRCError</tt>, or
+      <tt>Zlib::GzipFile::LengthError</tt> exception.
+
+      - When an reading request is received beyond the end of file (the end of
+        compressed data). That is, when Zlib::GzipReader#read,
+        Zlib::GzipReader#gets, or some other methods for reading returns nil.
+      - When Zlib::GzipFile#close method is called after the object reaches the
+        end of file.
+      - When Zlib::GzipReader#unused method is called after the object reaches
+        the end of file.
+
+      The rest of the methods are adequately described in their own
+      documentation.
+  Zlib::GzipWriter:
+    main: |-
+      Zlib::GzipWriter is a class for writing gzipped files.  GzipWriter should
+      be used with an instance of IO, or IO-like, object.
+
+      Following two example generate the same result.
+
+        Zlib::GzipWriter.open('hoge.gz') do |gz|
+          gz.write 'jugemu jugemu gokou no surikire...'
+        end
+
+        File.open('hoge.gz', 'w') do |f|
+          gz = Zlib::GzipWriter.new(f)
+          gz.write 'jugemu jugemu gokou no surikire...'
+          gz.close
+        end
+
+      To make like gzip(1) does, run following:
+
+        orig = 'hoge.txt'
+        Zlib::GzipWriter.open('hoge.gz') do |gz|
+          gz.mtime = File.mtime(orig)
+          gz.orig_name = orig
+          gz.write IO.binread(orig)
+        end
+
+      NOTE: Due to the limitation of Ruby's finalizer, you must explicitly close
+      GzipWriter objects by Zlib::GzipWriter#close etc.  Otherwise, GzipWriter
+      will be not able to write the gzip footer and will generate a broken gzip
+      file.
+  Zlib::Inflate:
+    main: |-
+      Zlib:Inflate is the class for decompressing compressed data.  Unlike
+      Zlib::Deflate, an instance of this class is not able to duplicate (clone,
+      dup) itself.
+  Zlib::MemError:
+    main: |-
+      Subclass of Zlib::Error
+
+      When zlib returns a Z_MEM_ERROR,
+      usually if there was not enough memory.
+  Zlib::NeedDict:
+    main: |-
+      Subclass of Zlib::Error
+
+      When zlib returns a Z_NEED_DICT
+      if a preset dictionary is needed at this point.
+
+      Used by Zlib::Inflate.inflate and <tt>Zlib.inflate</tt>
+  Zlib::StreamEnd:
+    main: |-
+      Subclass of Zlib::Error
+
+      When zlib returns a Z_STREAM_END
+      is return if the end of the compressed data has been reached
+      and all uncompressed out put has been produced.
+  Zlib::StreamError:
+    main: |-
+      Subclass of Zlib::Error
+
+      When zlib returns a Z_STREAM_ERROR,
+      usually if the stream state was inconsistent.
+  Zlib::VersionError:
+    main: |-
+      Subclass of Zlib::Error
+
+      When zlib returns a Z_VERSION_ERROR,
+      usually if the zlib library version is incompatible with the
+      version assumed by the caller.
+  Zlib::ZStream:
+    main: |-
+      Zlib::ZStream is the abstract class for the stream which handles the
+      compressed data. The operations are defined in the subclasses:
+      Zlib::Deflate for compression, and Zlib::Inflate for decompression.
+
+      An instance of Zlib::ZStream has one stream (struct zstream in the source)
+      and two variable-length buffers which associated to the input (next_in) of
+      the stream and the output (next_out) of the stream. In this document,
+      "input buffer" means the buffer for input, and "output buffer" means the
+      buffer for output.
+
+      Data input into an instance of Zlib::ZStream are temporally stored into
+      the end of input buffer, and then data in input buffer are processed from
+      the beginning of the buffer until no more output from the stream is
+      produced (i.e. until avail_out > 0 after processing).  During processing,
+      output buffer is allocated and expanded automatically to hold all output
+      data.
+
+      Some particular instance methods consume the data in output buffer and
+      return them as a String.
+
+      Here is an ascii art for describing above:
+
+         +================ an instance of Zlib::ZStream ================+
+         ||                                                            ||
+         ||     +--------+          +-------+          +--------+      ||
+         ||  +--| output |<---------|zstream|<---------| input  |<--+  ||
+         ||  |  | buffer |  next_out+-------+next_in   | buffer |   |  ||
+         ||  |  +--------+                             +--------+   |  ||
+         ||  |                                                      |  ||
+         +===|======================================================|===+
+             |                                                      |
+             v                                                      |
+         "output data"                                         "input data"
+
+      If an error occurs during processing input buffer, an exception which is a
+      subclass of Zlib::Error is raised.  At that time, both input and output
+      buffer keep their conditions at the time when the error occurs.
+
+      == Method Catalogue
+
+      Many of the methods in this class are fairly low-level and unlikely to be
+      of interest to users.  In fact, users are unlikely to use this class
+      directly; rather they will be interested in Zlib::Inflate and
+      Zlib::Deflate.
+
+      The higher level methods are listed below.
+
+      - #total_in
+      - #total_out
+      - #data_type
+      - #adler
+      - #reset
+      - #finish
+      - #finished?
+      - #close
+      - #closed?

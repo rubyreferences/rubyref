@@ -70,4 +70,4 @@ Tempfile itself however may not be entirely thread-safe. If you access the
 same Tempfile object from multiple threads then you should protect it with a
 mutex.
 
-[Tempfile Reference](https://ruby-doc.org/stdlib-2.6/libdoc/tempfile/rdoc/Tempfile.html)
+[Tempfile Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/tempfile/rdoc/Tempfile.html)

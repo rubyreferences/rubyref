@@ -1,20 +1,14 @@
 ---
 title: Binding
 prev: "/builtin/core/method-proc.html"
-next: "/builtin/core/fiber.html"
+next: "/builtin/types.html"
 ---
 
 ## Binding[](#binding)
 
-Objects of class `Binding` encapsulate the execution context at some
-particular place in the code and retain this context for future use. The
-variables, methods, value of `self`, and possibly an iterator block that
-can be accessed in this context are all retained. Binding objects can be
-created using `Kernel#binding`, and are made available to the callback
-of `Kernel#set_trace_func`.
+Objects of class Binding encapsulate the execution context at some particular place in the code and retain this context for future use. The variables, methods, value of `self`, and possibly an iterator block that can be accessed in this context are all retained. Binding objects can be created using `Kernel#binding`, and are made available to the callback of `Kernel#set_trace_func` and instances of TracePoint.
 
-These binding objects can be passed as the second argument of the
-`Kernel#eval` method, establishing an environment for the evaluation.
+These binding objects can be passed as the second argument of the `Kernel#eval` method, establishing an environment for the evaluation.
 
 
 ```ruby
@@ -39,6 +33,5 @@ eval("@secret")       #=> nil
 
 Binding objects have no class-specific methods.
 
-<a href='https://ruby-doc.org/core-2.6/Binding.html' class='ruby-doc
-remote' target='_blank'>Binding Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/Binding.html' class='ruby-doc remote' target='_blank'>Binding Reference</a>
 

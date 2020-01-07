@@ -1,5 +1,7 @@
 # TracePoint
 
+Document-class: TracePoint
+
 A class that provides the functionality of Kernel#set_trace_func in a nice
 Object-Oriented API.
 
@@ -55,6 +57,8 @@ To filter what is traced, you can pass any of the following as `events`:
 :   event hook at thread ending
 `:fiber_switch`
 :   event hook at fiber switch
+`:script_compiled`
+:   new Ruby code compiled (with `eval`, `load` or `require`)
 
 
-[TracePoint Reference](https://ruby-doc.org/core-2.6/TracePoint.html)
+[TracePoint Reference](https://ruby-doc.org/core-2.7.0/TracePoint.html)

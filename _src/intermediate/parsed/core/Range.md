@@ -1,20 +1,26 @@
 # Range
 
-A `Range` represents an interval---a set of values with a beginning and an
-end. Ranges may be constructed using the *s*`..`*e* and *s*`...`*e* literals,
-or with Range::new. Ranges constructed using `..` run from the beginning to
-the end inclusively. Those created using `...` exclude the end value. When
-used as an iterator, ranges return each value in the sequence.
+A Range represents an interval---a set of values with a beginning and an end.
+Ranges may be constructed using the *s*`..`*e* and *s*`...`*e* literals, or
+with Range::new. Ranges constructed using `..` run from the beginning to the
+end inclusively. Those created using `...` exclude the end value. When used as
+an iterator, ranges return each value in the sequence.
 
     (-1..-5).to_a      #=> []
     (-5..-1).to_a      #=> [-5, -4, -3, -2, -1]
     ('a'..'e').to_a    #=> ["a", "b", "c", "d", "e"]
     ('a'...'e').to_a   #=> ["a", "b", "c", "d"]
 
-## Endless Ranges
+## Beginless/Endless Ranges
 
-An "endless range" represents a semi-infinite range. Literal notation for an
-endless range is:
+A "beginless range" and "endless range" represents a semi-infinite range. 
+Literal notation for a beginless range is:
+
+    (..1)
+    # or
+    (...1)
+
+Literal notation for an endless range is:
 
     (1..)
     # or similarly
@@ -25,13 +31,16 @@ Which is equivalent to
     (1..nil)  # or similarly (1...nil)
     Range.new(1, nil) # or Range.new(1, nil, true)
 
-Endless ranges are useful, for example, for idiomatic slicing of arrays:
+Beginless/endless ranges are useful, for example, for idiomatic slicing of
+arrays:
 
+    [1, 2, 3, 4, 5][...2]   # => [1, 2]
     [1, 2, 3, 4, 5][2...]   # => [3, 4, 5]
 
 Some implementation details:
 
-*   `end` of endless range is `nil`;
+*   `begin` of beginless range and `end` of endless range are `nil`;
+*   `each` of beginless range raises an exception;
 *   `each` of endless range enumerates infinite sequence (may be useful in
     combination with Enumerable#take_while or similar methods);
 *   `(1..)` and `(1...)` are not equal, although technically representing the
@@ -76,4 +85,4 @@ An example of using `Xs` to construct a range:
     r.to_a                     #=> [xxx, xxxx, xxxxx, xxxxxx]
     r.member?(Xs.new(5))       #=> true
 
-[Range Reference](https://ruby-doc.org/core-2.6/Range.html)
+[Range Reference](https://ruby-doc.org/core-2.7.0/Range.html)

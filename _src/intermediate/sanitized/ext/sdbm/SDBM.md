@@ -45,4 +45,4 @@ Outputs:
     Key: peach, Value: fruit
     Key: tomato, Value: fruit
 
-[SDBM Reference](https://ruby-doc.org/stdlib-2.6/libdoc/sdbm/rdoc/SDBM.html)
+[SDBM Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/sdbm/rdoc/SDBM.html)

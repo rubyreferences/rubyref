@@ -11,23 +11,15 @@ require 'socket'
 
 ## Socket[](#socket)
 
-Class `Socket` provides access to the underlying operating system socket
-implementations. It can be used to provide more operating system
-specific functionality than the protocol-specific socket classes.
+Class `Socket` provides access to the underlying operating system socket implementations. It can be used to provide more operating system specific functionality than the protocol-specific socket classes.
 
-The constants defined under Socket::Constants are also defined under
-Socket. For example, Socket::AF\_INET is usable as well as
-Socket::Constants::AF\_INET. See Socket::Constants for the list of
-constants.
+The constants defined under Socket::Constants are also defined under Socket. For example, Socket::AF\_INET is usable as well as Socket::Constants::AF\_INET. See Socket::Constants for the list of constants.
 
 #### Quick start[](#quick-start)
 
-Many of the classes, such as TCPSocket, UDPSocket or UNIXSocket, ease
-the use of sockets comparatively to the equivalent C programming
-interface.
+Many of the classes, such as TCPSocket, UDPSocket or UNIXSocket, ease the use of sockets comparatively to the equivalent C programming interface.
 
-Let's create an internet socket using the IPv4 protocol in a C-like
-manner:
+Let's create an internet socket using the IPv4 protocol in a C-like manner:
 
 
 ```ruby
@@ -75,6 +67,23 @@ end
 s.close             # close socket when done
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/socket/rdoc/Socket.html'
-class='ruby-doc remote' target='_blank'>Socket Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/socket/rdoc/Socket.html' class='ruby-doc remote' target='_blank'>Socket Reference</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -8,4 +8,4 @@ Raised when given an invalid regexp expression.
 
     RegexpError: target of repeat operator is not specified: /?/
 
-[RegexpError Reference](https://ruby-doc.org/core-2.6/RegexpError.html)
+[RegexpError Reference](https://ruby-doc.org/core-2.7.0/RegexpError.html)

@@ -5,4 +5,4 @@ Raised when attempting to convert special float values (in particular
 
     Float::INFINITY.to_r   #=> FloatDomainError: Infinity
 
-[FloatDomainError Reference](https://ruby-doc.org/core-2.6/FloatDomainError.html)
+[FloatDomainError Reference](https://ruby-doc.org/core-2.7.0/FloatDomainError.html)

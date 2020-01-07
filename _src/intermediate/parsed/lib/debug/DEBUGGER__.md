@@ -156,4 +156,4 @@ code. Failing to do so may result in your program hanging unpredictably.
 
 Debug is not available in safe mode.
 
-[DEBUGGER__ Reference](https://ruby-doc.org/stdlib-2.6/libdoc/debug/rdoc/DEBUGGER__.html)
+[DEBUGGER__ Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/debug/rdoc/DEBUGGER__.html)

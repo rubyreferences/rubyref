@@ -37,4 +37,4 @@ It also provides an array core extension, `Array#abbrev`.
       "wi"      => "winter",
       "w"       => "winter" }
 
-[Abbrev Reference](https://ruby-doc.org/stdlib-2.6/libdoc/abbrev/rdoc/Abbrev.html)
+[Abbrev Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/abbrev/rdoc/Abbrev.html)

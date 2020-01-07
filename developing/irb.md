@@ -1,6 +1,6 @@
 ---
 title: Mastering IRB
-prev: "/developing/libraries.html"
+prev: "/developing/libraries/bundler.html"
 next: "/developing/documenting.html"
 ---
 
@@ -23,21 +23,24 @@ Usage:  irb.rb [options] [programfile] [arguments]
   -W[level=2]       Same as `ruby -W`
   --inspect         Use `inspect` for output (default except for bc mode)
   --noinspect       Don't use inspect for output
-  --readline        Use Readline extension module
-  --noreadline      Don't use Readline extension module
+  --multiline       Use multiline editor module
+  --nomultiline     Don't use multiline editor module
+  --singleline      Use singleline editor module
+  --nosingleline    Don't use singleline editor module
+  --colorize        Use colorization
+  --nocolorize      Don't use colorization
   --prompt prompt-mode
   --prompt-mode prompt-mode
                     Switch prompt mode. Pre-defined prompt modes are
                     `default`, `simple`, `xmp` and `inf-ruby`
   --inf-ruby-mode   Use prompt appropriate for inf-ruby-mode on emacs.
-                    Suppresses --readline.
+                    Suppresses --multiline and --singleline.
   --simple-prompt   Simple prompt mode
   --noprompt        No prompt mode
   --tracer          Display trace for each execution of commands.
   --back-trace-limit n
                     Display backtrace top n and tail n. The default
                     value is 16.
-  --irb_debug n     Set internal debug level to n (not for popular use)
   -v, --version     Print the version of irb
 ```
 
@@ -45,16 +48,14 @@ Usage:  irb.rb [options] [programfile] [arguments]
 
 IRB reads from `~/.irbrc` when it's invoked.
 
-If `~/.irbrc` doesn't exist, `irb` will try to read in the following
-order:
+If `~/.irbrc` doesn't exist, `irb` will try to read in the following order:
 
 * `.irbrc`
 * `irb.rc`
 * `_irbrc`
 * `$irbrc`
 
-The following are alternatives to the command line options. To use them
-type as follows in an `irb` session:
+The following are alternatives to the command line options. To use them type as follows in an `irb` session:
 
 
 ```
@@ -63,21 +64,22 @@ IRB.conf[:INSPECT_MODE]=nil
 IRB.conf[:IRB_RC] = nil
 IRB.conf[:BACK_TRACE_LIMIT]=16
 IRB.conf[:USE_LOADER] = false
-IRB.conf[:USE_READLINE] = nil
+IRB.conf[:USE_MULTILINE] = nil
+IRB.conf[:USE_SINGLELINE] = nil
+IRB.conf[:USE_COLORIZE] = true
 IRB.conf[:USE_TRACER] = false
 IRB.conf[:IGNORE_SIGINT] = true
 IRB.conf[:IGNORE_EOF] = false
 IRB.conf[:PROMPT_MODE] = :DEFAULT
 IRB.conf[:PROMPT] = {...}
-IRB.conf[:DEBUG_LEVEL]=0
 ```
 
 #### Auto indentation[](#auto-indentation)
 
-To enable auto-indent mode in irb, add the following to your `.irbrc`: 
+To disable auto-indent mode in irb, add the following to your `.irbrc`: 
 
 ```ruby
-IRB.conf[:AUTO_INDENT] = true
+IRB.conf[:AUTO_INDENT] = false
 ```
 
 #### Autocompletion[](#autocompletion)
@@ -90,18 +92,24 @@ require 'irb/completion'
 
 #### History[](#history)
 
-By default, irb disables history and will not store any commands you
-used.
+By default, irb will store the last 1000 commands you used in `IRB.conf[:HISTORY_FILE]` (`~/.irb_history` by default).
 
-If you want to enable history, add the following to your `.irbrc`: 
+If you want to disable history, add the following to your `.irbrc`: 
 
 ```ruby
-IRB.conf[:SAVE_HISTORY] = 1000
+IRB.conf[:SAVE_HISTORY] = nil
 ```
 
-This will now store the last 1000 commands in `~/.irb_history`.
-
 See `IRB::Context#save_history=` for more information.
+
+The history of *results* of commands evaluated is not stored by default, but can be turned on to be stored with this `.irbrc` setting:
+
+
+```
+IRB.conf[:EVAL_HISTORY] = <number>
+```
+
+See `IRB::Context#eval_history=` and History class. The history of command results is not permanently saved in any file.
 
 ### Customizing the IRB Prompt[](#customizing-the-irb-prompt)
 
@@ -117,7 +125,7 @@ This example can be used in your `.irbrc`
 
 ```ruby
 IRB.conf[:PROMPT][:MY_PROMPT] = { # name of prompt mode
-  :AUTO_INDENT => true,           # enables auto-indent mode
+  :AUTO_INDENT => false,          # disables auto-indent mode
   :PROMPT_I =>  ">> ",            # simple prompt
   :PROMPT_S => nil,               # prompt for continuated strings
   :PROMPT_C => nil,               # prompt for continuated statement
@@ -134,8 +142,7 @@ Or, invoke irb with the above prompt mode by:
 irb --prompt my-prompt
 ```
 
-Constants `PROMPT_I`, `PROMPT_S` and `PROMPT_C` specify the format. In
-the prompt specification, some special strings are available:
+Constants `PROMPT_I`, `PROMPT_S` and `PROMPT_C` specify the format. In the prompt specification, some special strings are available:
 
 
 ```
@@ -155,6 +162,7 @@ For instance, the default prompt mode is defined as follows:
 ```ruby
 IRB.conf[:PROMPT_MODE][:DEFAULT] = {
   :PROMPT_I => "%N(%m):%03n:%i> ",
+  :PROMPT_N => "%N(%m):%03n:%i> ",
   :PROMPT_S => "%N(%m):%03n:%i%l ",
   :PROMPT_C => "%N(%m):%03n:%i* ",
   :RETURN => "%s\n" # used to printf
@@ -212,17 +220,13 @@ irb comes with a number of available modes:
 
 ### Restrictions[](#restrictions)
 
-Because irb evaluates input immediately after it is syntactically
-complete, the results may be slightly different than directly using
-Ruby.
+Because irb evaluates input immediately after it is syntactically complete, the results may be slightly different than directly using Ruby.
 
 ### IRB Sessions[](#irb-sessions)
 
-IRB has a special feature, that allows you to manage many sessions at
-once.
+IRB has a special feature, that allows you to manage many sessions at once.
 
-You can create new sessions with Irb.irb, and get a list of current
-sessions with the `jobs` command in the prompt.
+You can create new sessions with Irb.irb, and get a list of current sessions with the `jobs` command in the prompt.
 
 #### Commands[](#commands)
 
@@ -235,39 +239,31 @@ fg      # Switches to the session of the given number
 kill    # Kills the session with the given number
 ```
 
-The `exit` command, or ::irb\_exit, will quit the current session and
-call any exit hooks with IRB.irb\_at\_exit.
+The `exit` command, or ::irb\_exit, will quit the current session and call any exit hooks with IRB.irb\_at\_exit.
 
 A few commands for loading files within the session are also available:
 
-* `source`: Loads a given file in the current session and displays the
-  source lines, see IrbLoader#source\_file
+* `source`: Loads a given file in the current session and displays the source lines, see IrbLoader#source\_file
 
-* `irb_load`: Loads the given file similarly to `Kernel#load`, see
-  `IrbLoader#irb_load`
+* `irb_load`: Loads the given file similarly to `Kernel#load`, see `IrbLoader#irb_load`
 * `irb_require`: Loads the given file similarly to `Kernel#require`
 
 #### Configuration[](#configuration-1)
 
-The command line options, or IRB.conf, specify the default behavior of
-Irb.irb.
+The command line options, or IRB.conf, specify the default behavior of Irb.irb.
 
-On the other hand, each conf in IRB@Command+line+options is used to
-individually configure IRB.irb.
+On the other hand, each conf in IRB@Command+line+options is used to individually configure IRB.irb.
 
-If a proc is set for `IRB.conf[:IRB_RC]`, its will be invoked after
-execution of that proc with the context of the current session as its
-argument. Each session can be configured using this mechanism.
+If a proc is set for `IRB.conf[:IRB_RC]`, its will be invoked after execution of that proc with the context of the current session as its argument. Each session can be configured using this mechanism.
 
 #### Session variables[](#session-variables)
 
 There are a few variables in every Irb session that can come in handy:
 
 * `_`: The value command executed, as a local variable
-* `__`: The history of evaluated commands
-* `__[line_no]`: Returns the evaluation value at the given line number,
-  `line_no`. If `line_no` is a negative, the return value `line_no` many
-  lines before the most recent return value.
+* `__`: The history of evaluated commands. Available only if `IRB.conf[:EVAL_HISTORY]` is not `nil` (which is the default). See also IRB::Context#eval\_history= and IRB::History.
+
+* `__[line_no]`: Returns the evaluation value at the given line number, `line_no`. If `line_no` is a negative, the return value `line_no` many lines before the most recent return value.
 
 #### Example using IRB Sessions[](#example-using-irb-sessions)
 
@@ -301,7 +297,7 @@ irb(main):004:0> jobs
 # check if Foo#foo is available
 irb(main):005:0> Foo.instance_methods #=> [:foo, ...]
 
-# change the active sesssion
+# change the active session
 irb(main):006:0> fg 2
 # define Foo#bar in the context of Foo
 irb.2(Foo):005:0> def bar
@@ -333,6 +329,5 @@ irb(main):009:0> jobs
 irb(main):010:0> exit
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/irb/rdoc/IRB.html'
-class='ruby-doc remote' target='_blank'>IRB Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/irb/rdoc/IRB.html' class='ruby-doc remote' target='_blank'>IRB Reference</a>
 

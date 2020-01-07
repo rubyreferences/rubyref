@@ -1,7 +1,7 @@
 ---
 title: 'pp: Debug Print'
 prev: "/stdlib/development/logger.html"
-next: "/stdlib/development/profiler.html"
+next: "/stdlib/development/ripper.html"
 ---
 
 ## PP[](#pp)
@@ -57,16 +57,11 @@ It returns `obj(s)`.
 
 ### Output Customization[](#output-customization)
 
-To define a customized pretty printing function for your classes,
-redefine method `#pretty_print(pp)` in the class.
+To define a customized pretty printing function for your classes, redefine method `#pretty_print(pp)` in the class.
 
-`#pretty_print` takes the `pp` argument, which is an instance of the PP
-class. The method uses `#text`, `#breakable`, `#nest`, `#group` and
-`#pp` to print the object.
+`#pretty_print` takes the `pp` argument, which is an instance of the PP class. The method uses `#text`, `#breakable`, `#nest`, `#group` and `#pp` to print the object.
 
 
 
-<a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/prettyprint/rdoc/PrettyPrint.html'
-class='ruby-doc remote' target='_blank'>PrettyPrint Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/prettyprint/rdoc/PrettyPrint.html' class='ruby-doc remote' target='_blank'>PrettyPrint Reference</a>
 

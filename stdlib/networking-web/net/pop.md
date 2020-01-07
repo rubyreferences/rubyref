@@ -11,21 +11,15 @@ require 'net/pop'
 
 ## Net::POP3[](#netpop3)
 
-This library provides functionality for retrieving email via POP3, the
-Post Office Protocol version 3. For details of POP3, see <a
-href='http://www.ietf.org/rfc/rfc1939.txt' class='remote'
-target='_blank'>RFC1939</a>.
+This library provides functionality for retrieving email via POP3, the Post Office Protocol version 3. For details of POP3, see <a href='http://www.ietf.org/rfc/rfc1939.txt' class='remote' target='_blank'>RFC1939</a>.
 
 ### Examples[](#examples)
 
 #### Retrieving Messages[](#retrieving-messages)
 
-This example retrieves messages from the server and deletes them on the
-server.
+This example retrieves messages from the server and deletes them on the server.
 
-Messages are written to files named 'inbox/1', 'inbox/2', .... Replace
-'pop.example.com' with your POP3 server address, and 'YourAccount' and
-'YourPassword' with the appropriate account details.
+Messages are written to files named 'inbox/1', 'inbox/2', .... Replace 'pop.example.com' with your POP3 server address, and 'YourAccount' and 'YourPassword' with the appropriate account details.
 
 
 ```ruby
@@ -51,14 +45,11 @@ pop.finish                                           # (3)
 
 1.  Call Net::POP3#start and start POP session.
 2.  Access messages by using POP3#each\_mail and/or POP3#mails.
-3.  Close POP session by calling POP3#finish or use the block form of
-    `#start`.
+3.  Close POP session by calling POP3#finish or use the block form of `#start`.
 
 #### Shortened Code[](#shortened-code)
 
-The example above is very verbose. You can shorten the code by using
-some utility methods. First, the block form of Net::POP3.start can be
-used instead of POP3.new, POP3#start and POP3#finish.
+The example above is very verbose. You can shorten the code by using some utility methods. First, the block form of Net::POP3.start can be used instead of POP3.new, POP3#start and POP3#finish.
 
 
 ```ruby
@@ -122,8 +113,7 @@ end
 
 #### Memory Space Issues[](#memory-space-issues)
 
-All the examples above get each message as one big string. This example
-avoids this.
+All the examples above get each message as one big string. This example avoids this.
 
 
 ```ruby
@@ -143,9 +133,7 @@ end
 
 #### Using APOP[](#using-apop)
 
-The net/pop library supports APOP authentication. To use APOP, use the
-Net::APOP class instead of the Net::POP3 class. You can use the utility
-method, Net::POP3.APOP(). For example:
+The net/pop library supports APOP authentication. To use APOP, use the Net::APOP class instead of the Net::POP3 class. You can use the utility method, Net::POP3.APOP(). For example:
 
 
 ```ruby
@@ -160,8 +148,7 @@ end
 
 #### Fetch Only Selected Mail Using 'UIDL' POP Command[](#fetch-only-selected-mail-using-uidl-pop-command)
 
-If your POP server provides UIDL functionality, you can grab only
-selected mails from the POP server. e.g.
+If your POP server provides UIDL functionality, you can grab only selected mails from the POP server. e.g.
 
 
 ```ruby
@@ -177,16 +164,21 @@ Net::POP3.start('pop.example.com', 110,
 end
 ```
 
-The `POPMail#unique_id`() method returns the unique-id of the message as
-a String. Normally the unique-id is a hash of the message.
+The `POPMail#unique_id`() method returns the unique-id of the message as a String. Normally the unique-id is a hash of the message.
 
-<a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/net/pop/rdoc/Net/POP3.html'
-class='ruby-doc remote' target='_blank'>Net::POP3 Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/net/pop/rdoc/Net/POP3.html' class='ruby-doc remote' target='_blank'>Net::POP3 Reference</a>
 
 
 
-<a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/net/pop/rdoc/Net/APOP.html'
-class='ruby-doc remote' target='_blank'>Net::APOP Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/net/pop/rdoc/Net/APOP.html' class='ruby-doc remote' target='_blank'>Net::APOP Reference</a>
+
+
+
+
+
+
+
+
+
+
 

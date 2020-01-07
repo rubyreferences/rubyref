@@ -13,7 +13,7 @@ frequently used with `ruby -e`.
 Ruby does not require any indentation.  Typically, ruby programs are indented
 two spaces.
 
-If you run ruby with warnings enabled and have an indentation mis-match, you
+If you run ruby with warnings enabled and have an indentation mismatch, you
 will receive a warning.
 
 ## `alias`

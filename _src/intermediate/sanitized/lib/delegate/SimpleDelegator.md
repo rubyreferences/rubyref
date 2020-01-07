@@ -65,4 +65,4 @@ Prints:
      Non-Nil:  7
       Unique:  6
 
-[SimpleDelegator Reference](https://ruby-doc.org/stdlib-2.6/libdoc/delegate/rdoc/SimpleDelegator.html)
+[SimpleDelegator Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/delegate/rdoc/SimpleDelegator.html)

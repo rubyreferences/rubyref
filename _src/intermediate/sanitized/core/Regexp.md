@@ -1,8 +1,8 @@
 # Regexp
 
-A `Regexp` holds a regular expression, used to match a pattern against
-strings. Regexps are created using the `/.../` and `%r{...}` literals, and by
-the `Regexp::new` constructor.
+A Regexp holds a regular expression, used to match a pattern against strings.
+Regexps are created using the `/.../` and `%r{...}` literals, and by the
+Regexp::new constructor.
 
 Regular expressions (*regexp*s) are patterns which describe the contents of a
 string. They're used for testing whether a string contains a given pattern, or
@@ -67,8 +67,9 @@ backslash-escape it: `\\\`.
     /1 \+ 2 = 3\?/.match('Does 1 + 2 = 3?') #=> #<MatchData "1 + 2 = 3?">
     /a\\\\b/.match('a\\\\b')                    #=> #<MatchData "a\\b">
 
-Patterns behave like double-quoted strings so can contain the same backslash
-escapes.
+Patterns behave like double-quoted strings and can contain the same backslash
+escapes (the meaning of `\s` is different, however, see
+[below](#label-Character+Classes)).
 
     /\s\u{6771 4eac 90fd}/.match("Go to 東京都")
         #=> #<MatchData " 東京都">
@@ -128,6 +129,8 @@ The following metacharacters also behave like character classes:
 *   `/\H/` - A non-hexdigit character (`[^0-9a-fA-F]`)
 *   `/\s/` - A whitespace character: `/[ \t\r\n\f\v]/`
 *   `/\S/` - A non-whitespace character: `/[^ \t\r\n\f\v]/`
+*   `/\R/` - A linebreak: `\n`, `\v`, `\f`, `\r` `\u0085` (NEXT LINE),
+    `\u2028` (LINE SEPARATOR), `\u2029` (PARAGRAPH SEPARATOR) or `\r\n`.
 
 
 POSIX *bracket expressions* are also similar to character classes. They
@@ -189,8 +192,11 @@ At least one uppercase character ('H'), at least one lowercase character
 
 Repetition is *greedy* by default: as many occurrences as possible are matched
 while still allowing the overall match to succeed. By contrast, *lazy*
-matching makes the minimal amount of matches necessary for overall success. A
-greedy metacharacter can be made lazy by following it with `?`.
+matching makes the minimal amount of matches necessary for overall success.
+Most greedy metacharacters can be made lazy by following them with `?`. For
+the `{n}` pattern, because it specifies an exact number of characters to match
+and not a variable number of characters, the `?` metacharacter instead makes
+the repeated pattern optional.
 
 Both patterns below match the string. The first uses a greedy quantifier so
 '.+' matches '<a><b>'; the second uses a lazy quantifier so '.+?' matches
@@ -217,7 +223,7 @@ with `\1`:
     /[csh](..) [csh]\1 in/.match("The cat sat in the hat")
         #=> #<MatchData "cat sat in" 1:"at">
 
-Regexp#match returns a MatchData object which makes the captured text
+`Regexp#match` returns a MatchData object which makes the captured text
 available with its `#[]` method:
 
     /[csh](..) [csh]\1 in/.match("The cat sat in the hat")[1] #=> 'at'
@@ -236,7 +242,15 @@ group name.
         #=> #<MatchData "ototo" vowel:"o">
 
 **Note**: A regexp can't use named backreferences and numbered backreferences
-simultaneously.
+simultaneously. Also, if a named capture is used in a regexp, then parentheses
+used for grouping which would otherwise result in a unnamed capture are
+treated as non-capturing.
+
+    /(\w)(\w)/.match("ab").captures # => ["a", "b"]
+    /(\w)(\w)/.match("ab").named_captures # => {}
+
+    /(?<c>\w)(\w)/.match("ab").captures # => ["a"]
+    /(?<c>\w)(\w)/.match("ab").named_captures # => {"c"=>"a"}
 
 When named capture groups are used with a literal regexp on the left-hand side
 of an expression and the `=~` operator, the captured text is also assigned to
@@ -701,4 +715,5 @@ optional *a*s, a range of optional *a*s can be matched all at once with
 
     Regexp.new('a{0,29}' + 'a' * 29) =~ 'a' * 29
 
-[Regexp Reference](https://ruby-doc.org/core-2.6/Regexp.html)
+
+[Regexp Reference](https://ruby-doc.org/core-2.7.0/Regexp.html)

@@ -1,6 +1,6 @@
 # CSV
 
-This class provides a complete interface to CSV files and data.  It offers
+This class provides a complete interface to CSV files and data. It offers
 tools to enable you to read and write to and from Strings or IO objects, as
 needed.
 
@@ -81,8 +81,8 @@ see Data Conversion section for the description of the latter.
 ### CSV with headers
 
 CSV allows to specify column names of CSV file, whether they are in data, or
-provided separately. If headers specified, reading methods return an instance
-of CSV::Table, consisting of CSV::Row.
+provided separately. If headers are specified, reading methods return an
+instance of CSV::Table, consisting of CSV::Row.
 
     # Headers are part of data
     data = CSV.parse(<<~ROWS, headers: true)
@@ -97,7 +97,7 @@ of CSV::Table, consisting of CSV::Row.
     data.first.to_h #=> {"Name"=>"Bob", "Department"=>"Engineering", "Salary"=>"1000"}
 
     # Headers provided by developer
-    data = CSV.parse('Bob,Engeneering,1000', headers: %i[name department salary])
+    data = CSV.parse('Bob,Engineering,1000', headers: %i[name department salary])
     data.first      #=> #<CSV::Row name:"Bob" department:"Engineering" salary:"1000">
 
 ### Typed data reading
@@ -121,43 +121,43 @@ keys, or lambda.
 ## CSV and Character Encodings (M17n or Multilingualization)
 
 This new CSV parser is m17n savvy.  The parser works in the Encoding of the IO
-or String object being read from or written to.  Your data is never transcoded
+or String object being read from or written to. Your data is never transcoded
 (unless you ask Ruby to transcode it for you) and will literally be parsed in
-the Encoding it is in.  Thus CSV will return Arrays or Rows of Strings in the
-Encoding of your data.  This is accomplished by transcoding the parser itself
+the Encoding it is in. Thus CSV will return Arrays or Rows of Strings in the
+Encoding of your data. This is accomplished by transcoding the parser itself
 into your Encoding.
 
 Some transcoding must take place, of course, to accomplish this multiencoding
-support.  For example, `:col_sep`, `:row_sep`, and `:quote_char` must be
+support. For example, `:col_sep`, `:row_sep`, and `:quote_char` must be
 transcoded to match your data.  Hopefully this makes the entire process feel
-transparent, since CSV's defaults should just magically work for your data. 
+transparent, since CSV's defaults should just magically work for your data.
 However, you can set these values manually in the target Encoding to avoid the
 translation.
 
 It's also important to note that while all of CSV's core parser is now
-Encoding agnostic, some features are not.  For example, the built-in
-converters will try to transcode data to UTF-8 before making conversions.
-Again, you can provide custom converters that are aware of your Encodings to
-avoid this translation.  It's just too hard for me to support native
-conversions in all of Ruby's Encodings.
+Encoding agnostic, some features are not. For example, the built-in converters
+will try to transcode data to UTF-8 before making conversions. Again, you can
+provide custom converters that are aware of your Encodings to avoid this
+translation. It's just too hard for me to support native conversions in all of
+Ruby's Encodings.
 
-Anyway, the practical side of this is simple:  make sure IO and String objects
+Anyway, the practical side of this is simple: make sure IO and String objects
 passed into CSV have the proper Encoding set and everything should just work.
 CSV methods that allow you to open IO objects (CSV::foreach(), CSV::open(),
 CSV::read(), and CSV::readlines()) do allow you to specify the Encoding.
 
 One minor exception comes when generating CSV into a String with an Encoding
-that is not ASCII compatible.  There's no existing data for CSV to use to
+that is not ASCII compatible. There's no existing data for CSV to use to
 prepare itself and thus you will probably need to manually specify the desired
-Encoding for most of those cases.  It will try to guess using the fields in a
+Encoding for most of those cases. It will try to guess using the fields in a
 row of output though, when using CSV::generate_line() or Array#to_csv().
 
 I try to point out any other Encoding issues in the documentation of methods
 as they come up.
 
 This has been tested to the best of my ability with all non-"dummy" Encodings
-Ruby ships with.  However, it is brave new code and may have some bugs. Please
+Ruby ships with. However, it is brave new code and may have some bugs. Please
 feel free to [report](mailto:james@grayproductions.net) any issues you find
 with it.
 
-[CSV Reference](https://ruby-doc.org/stdlib-2.6/libdoc/csv/rdoc/CSV.html)
+[CSV Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/csv/rdoc/CSV.html)

@@ -129,4 +129,4 @@ times](http://en.wikipedia.org/wiki/Solar_time), since it wasn't until the
 [Standard Time](http://en.wikipedia.org/wiki/Standard_time#Great_Britain) and
 eventually timezones.
 
-[DateTime Reference](https://ruby-doc.org/stdlib-2.6/libdoc/date/rdoc/DateTime.html)
+[DateTime Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/date/rdoc/DateTime.html)

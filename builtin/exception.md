@@ -6,34 +6,42 @@ next: "/builtin/exception/exception-classes.html"
 
 ## Exception[](#exception)
 
-Descendants of class Exception are used to communicate between
-`Kernel#raise` and `rescue` statements in `begin ... end` blocks.
-Exception objects carry information about the exception -- its type (the
-exception's class name), an optional descriptive string, and optional
-traceback information. Exception subclasses may add additional
-information like `NameError#name`.
+Class Exception and its subclasses are used to communicate between `Kernel#raise` and `rescue` statements in `begin ... end` blocks.
 
-Programs may make subclasses of Exception, typically of StandardError or
-RuntimeError, to provide custom classes and add additional information.
-See the subclass list below for defaults for `raise` and `rescue`.
+An Exception object carries information about an exception:
 
-When an exception has been raised but not yet handled (in `rescue`,
-`ensure`, `at_exit` and `END` blocks) the global variable `$!` will
-contain the current exception and `$@` contains the current exception's
-backtrace.
+* Its type (the exception's class).
+* An optional descriptive message.
+* Optional backtrace information.
 
-It is recommended that a library should have one subclass of
-StandardError or RuntimeError and have specific exception types inherit
-from it. This allows the user to rescue a generic exception type to
-catch all exceptions the library may raise even if future versions of
-the library add new exception subclasses.
+Some built-in subclasses of Exception have additional methods: e.g., `NameError#name`.
+
+### Defaults[](#defaults)
+
+Two Ruby statements have default exception classes:
+
+* `raise`: defaults to RuntimeError.
+* `rescue`: defaults to StandardError.
+
+### Global Variables[](#global-variables)
+
+When an exception has been raised but not yet handled (in `rescue`, `ensure`, `at_exit` and `END` blocks), two global variables are set:
+
+* `$!` contains the current exception.
+* `$@` contains its backtrace.
+
+### Custom Exceptions[](#custom-exceptions)
+
+To provide additional or alternate information, a program may create custom exception classes that derive from the built-in exception classes.
+
+A good practice is for a library to create a single "generic" exception class (typically a subclass of StandardError or RuntimeError) and have its other exception classes derive from that class. This allows the user to rescue the generic exception, thus catching all exceptions the library may raise even if future versions of the library add new exception subclasses.
 
 For example:
 
 
 ```ruby
 class MyLibrary
-  class Error < RuntimeError
+  class Error < ::StandardError
   end
 
   class WidgetError < Error
@@ -45,8 +53,9 @@ class MyLibrary
 end
 ```
 
-To handle both WidgetError and FrobError the library user can rescue
-MyLibrary::Error.
+To handle both MyLibrary::WidgetError and MyLibrary::FrobError the library user can rescue MyLibrary::Error.
+
+### Built-In Exception Classes[](#built-in-exception-classes)
 
 The built-in subclasses of Exception are:
 
@@ -60,7 +69,7 @@ The built-in subclasses of Exception are:
 * SignalException
   * Interrupt
 
-* StandardError -- default for `rescue`
+* StandardError
   * ArgumentError
     * UncaughtThrowError
   
@@ -72,6 +81,7 @@ The built-in subclasses of Exception are:
   * IndexError
     * KeyError
     * StopIteration
+      * ClosedQueueError
   
   * LocalJumpError
   * NameError
@@ -81,7 +91,7 @@ The built-in subclasses of Exception are:
     * FloatDomainError
   
   * RegexpError
-  * RuntimeError -- default for `raise`
+  * RuntimeError
     * FrozenError
   
   * SystemCallError
@@ -93,8 +103,7 @@ The built-in subclasses of Exception are:
 
 * SystemExit
 * SystemStackError
-* fatal -- impossible to rescue
+* fatal
 
-<a href='https://ruby-doc.org/core-2.6/Exception.html' class='ruby-doc
-remote' target='_blank'>Exception Reference</a>
+<a href='https://ruby-doc.org/core-2.7.0/Exception.html' class='ruby-doc remote' target='_blank'>Exception Reference</a>
 

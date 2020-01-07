@@ -11,29 +11,19 @@ require 'cgi'
 
 ## CGI[](#cgi)
 
-CGI is a large class, providing several categories of methods, many of
-which are mixed in from other modules. Some of the documentation is in
-this class, some in the modules CGI::QueryExtension and
-CGI::HtmlExtension. See CGI::Cookie for specific information on handling
-cookies, and cgi/session.rb (CGI::Session) for information on sessions.
+CGI is a large class, providing several categories of methods, many of which are mixed in from other modules. Some of the documentation is in this class, some in the modules CGI::QueryExtension and CGI::HtmlExtension. See CGI::Cookie for specific information on handling cookies, and cgi/session.rb (CGI::Session) for information on sessions.
 
-For queries, CGI provides methods to get at environmental variables,
-parameters, cookies, and multipart request data. For responses, CGI
-provides methods for writing output and generating HTML.
+For queries, CGI provides methods to get at environmental variables, parameters, cookies, and multipart request data. For responses, CGI provides methods for writing output and generating HTML.
 
 Read on for more details. Examples are provided at the bottom.
 
 ### Queries[](#queries)
 
-The CGI class dynamically mixes in parameter and cookie-parsing
-functionality, environmental variable access, and support for parsing
-multipart requests (including uploaded files) from the
-CGI::QueryExtension module.
+The CGI class dynamically mixes in parameter and cookie-parsing functionality, environmental variable access, and support for parsing multipart requests (including uploaded files) from the CGI::QueryExtension module.
 
 #### Environmental Variables[](#environmental-variables)
 
-The standard CGI environmental variables are available as read-only
-attributes of a CGI object. The following is a list of these variables:
+The standard CGI environmental variables are available as read-only attributes of a CGI object. The following is a list of these variables:
 
 
 ```ruby
@@ -49,21 +39,13 @@ HTTP_CACHE_CONTROL      REMOTE_ADDR
 HTTP_FROM               REMOTE_HOST
 ```
 
-For each of these variables, there is a corresponding attribute with the
-same name, except all lower case and without a preceding HTTP\_.
-`content_length` and `server_port` are integers; the rest are strings.
+For each of these variables, there is a corresponding attribute with the same name, except all lower case and without a preceding HTTP\_. `content_length` and `server_port` are integers; the rest are strings.
 
 #### Parameters[](#parameters)
 
-The method `#params`() returns a hash of all parameters in the request
-as name/value-list pairs, where the value-list is an Array of one or
-more values. The CGI object itself also behaves as a hash of parameter
-names to values, but only returns a single value (as a String) for each
-parameter name.
+The method `#params`() returns a hash of all parameters in the request as name/value-list pairs, where the value-list is an Array of one or more values. The CGI object itself also behaves as a hash of parameter names to values, but only returns a single value (as a String) for each parameter name.
 
-For instance, suppose the request contains the parameter
-"favourite\_colours" with the multiple values "blue" and "green". The
-following behavior would occur:
+For instance, suppose the request contains the parameter "favourite\_colours" with the multiple values "blue" and "green". The following behavior would occur:
 
 
 ```ruby
@@ -71,25 +53,15 @@ cgi.params["favourite_colours"]  # => ["blue", "green"]
 cgi["favourite_colours"]         # => "blue"
 ```
 
-If a parameter does not exist, the former method will return an empty
-array, the latter an empty string. The simplest way to test for
-existence of a parameter is by the `#has_key?` method.
+If a parameter does not exist, the former method will return an empty array, the latter an empty string. The simplest way to test for existence of a parameter is by the `#has_key?` method.
 
 #### Cookies[](#cookies)
 
-HTTP Cookies are automatically parsed from the request. They are
-available from the `#cookies`() accessor, which returns a hash from
-cookie name to CGI::Cookie object.
+HTTP Cookies are automatically parsed from the request. They are available from the `#cookies`() accessor, which returns a hash from cookie name to CGI::Cookie object.
 
 #### Multipart requests[](#multipart-requests)
 
-If a request's method is POST and its content type is
-multipart/form-data, then it may contain uploaded files. These are
-stored by the QueryExtension module in the parameters of the request.
-The parameter name is the name attribute of the file input field, as
-usual. However, the value is not a string, but an IO object, either an
-IOString for small files, or a Tempfile for larger ones. This object
-also has the additional singleton methods:
+If a request's method is POST and its content type is multipart/form-data, then it may contain uploaded files. These are stored by the QueryExtension module in the parameters of the request. The parameter name is the name attribute of the file input field, as usual. However, the value is not a string, but an IO object, either an IOString for small files, or a Tempfile for larger ones. This object also has the additional singleton methods:
 
 * `#local_path`(): the path of the uploaded file on the local filesystem
 * `#original_filename`(): the name of the file on the client computer
@@ -97,40 +69,21 @@ also has the additional singleton methods:
 
 ### Responses[](#responses)
 
-The CGI class provides methods for sending header and content output to
-the HTTP client, and mixes in methods for programmatic HTML generation
-from CGI::HtmlExtension and CGI::TagMaker modules. The precise version
-of HTML to use for HTML generation is specified at object creation time.
+The CGI class provides methods for sending header and content output to the HTTP client, and mixes in methods for programmatic HTML generation from CGI::HtmlExtension and CGI::TagMaker modules. The precise version of HTML to use for HTML generation is specified at object creation time.
 
 #### Writing output[](#writing-output)
 
-The simplest way to send output to the HTTP client is using the `#out`()
-method. This takes the HTTP headers as a hash parameter, and the body
-content via a block. The headers can be generated as a string using the
-`#http_header`() method. The output stream can be written directly to
-using the `#print`() method.
+The simplest way to send output to the HTTP client is using the `#out`() method. This takes the HTTP headers as a hash parameter, and the body content via a block. The headers can be generated as a string using the `#http_header`() method. The output stream can be written directly to using the `#print`() method.
 
 #### Generating HTML[](#generating-html)
 
-Each HTML element has a corresponding method for generating that element
-as a String. The name of this method is the same as that of the element,
-all lowercase. The attributes of the element are passed in as a hash,
-and the body as a no-argument block that evaluates to a String. The HTML
-generation module knows which elements are always empty, and silently
-drops any passed-in body. It also knows which elements require matching
-closing tags and which don't. However, it does not know what attributes
-are legal for which elements.
+Each HTML element has a corresponding method for generating that element as a String. The name of this method is the same as that of the element, all lowercase. The attributes of the element are passed in as a hash, and the body as a no-argument block that evaluates to a String. The HTML generation module knows which elements are always empty, and silently drops any passed-in body. It also knows which elements require matching closing tags and which don't. However, it does not know what attributes are legal for which elements.
 
-There are also some additional HTML generation methods mixed in from the
-CGI::HtmlExtension module. These include individual methods for the
-different types of form inputs, and methods for elements that commonly
-take particular attributes where the attributes can be directly
-specified as arguments, rather than via a hash.
+There are also some additional HTML generation methods mixed in from the CGI::HtmlExtension module. These include individual methods for the different types of form inputs, and methods for elements that commonly take particular attributes where the attributes can be directly specified as arguments, rather than via a hash.
 
 #### Utility HTML escape and other methods like a function.[](#utility-html-escape-and-other-methods-like-a-function)
 
-There are some utility tool defined in cgi/util.rb . And when include,
-you can use utility methods like a function.
+There are some utility tool defined in cgi/util.rb . And when include, you can use utility methods like a function.
 
 ### Examples of use[](#examples-of-use)
 
@@ -150,8 +103,7 @@ cgi.has_key?('field_name')
 cgi.include?('field_name')
 ```
 
-CAUTION! `cgi['field_name']` returned an Array with the old
-cgi.rb(included in Ruby 1.6)
+CAUTION! `cgi['field_name']` returned an Array with the old cgi.rb(included in Ruby 1.6)
 
 #### Get form values as hash[](#get-form-values-as-hash)
 
@@ -261,7 +213,7 @@ cgi.out do
         end
       end +
       cgi.pre do
-        CGI::escapeHTML(
+        CGI.escapeHTML(
           "params: #{cgi.params.inspect}\n" +
           "cookies: #{cgi.cookies.inspect}\n" +
           ENV.collect do |key, value|
@@ -299,6 +251,5 @@ escapeHTML('Usage: foo "bar" <baz>')
 h('Usage: foo "bar" <baz>') # alias
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/cgi/rdoc/CGI.html'
-class='ruby-doc remote' target='_blank'>CGI Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/cgi/rdoc/CGI.html' class='ruby-doc remote' target='_blank'>CGI Reference</a>
 

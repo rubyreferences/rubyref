@@ -8,4 +8,4 @@ fiber, or calling a fiber across threads.
     fiber.resume #=> nil
     fiber.resume #=> FiberError: dead fiber called
 
-[FiberError Reference](https://ruby-doc.org/core-2.6/FiberError.html)
+[FiberError Reference](https://ruby-doc.org/core-2.7.0/FiberError.html)

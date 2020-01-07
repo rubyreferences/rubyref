@@ -11,22 +11,13 @@ require 'delegate'
 
 ## Delegator[](#delegator)
 
-This library provides three different ways to delegate method calls to
-an object. The easiest to use is SimpleDelegator. Pass an object to the
-constructor and all methods supported by the object will be delegated.
-This object can be changed later.
+This library provides three different ways to delegate method calls to an object. The easiest to use is SimpleDelegator. Pass an object to the constructor and all methods supported by the object will be delegated. This object can be changed later.
 
-Going a step further, the top level DelegateClass method allows you to
-easily setup delegation through class inheritance. This is considerably
-more flexible and thus probably the most common use for this library.
+Going a step further, the top level DelegateClass method allows you to easily setup delegation through class inheritance. This is considerably more flexible and thus probably the most common use for this library.
 
-Finally, if you need full control over the delegation scheme, you can
-inherit from the abstract class Delegator and customize as needed. (If
-you find yourself needing this control, have a look at Forwardable which
-is also in the standard library. It may suit your needs better.)
+Finally, if you need full control over the delegation scheme, you can inherit from the abstract class Delegator and customize as needed. (If you find yourself needing this control, have a look at Forwardable which is also in the standard library. It may suit your needs better.)
 
-SimpleDelegator's implementation serves as a nice example of the use of
-Delegator:
+SimpleDelegator's implementation serves as a nice example of the use of Delegator:
 
 
 ```ruby
@@ -46,18 +37,13 @@ end
 
 Be advised, RDoc will not detect delegated methods.
 
-<a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/delegate/rdoc/Delegator.html'
-class='ruby-doc remote' target='_blank'>Delegator Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/delegate/rdoc/Delegator.html' class='ruby-doc remote' target='_blank'>Delegator Reference</a>
 
 
 
 ### SimpleDelegator[](#simpledelegator)
 
-A concrete implementation of Delegator, this class provides the means to
-delegate all supported method calls to the object passed into the
-constructor and even to change the object being delegated to at a later
-time with `#__setobj__`.
+A concrete implementation of Delegator, this class provides the means to delegate all supported method calls to the object passed into the constructor and even to change the object being delegated to at a later time with `#__setobj__`.
 
 
 ```ruby
@@ -78,9 +64,7 @@ decorated_user.birth_year  #=> 1989
 decorated_user.__getobj__  #=> #<User: ...>
 ```
 
-A SimpleDelegator instance can take advantage of the fact that
-SimpleDelegator is a subclass of `Delegator` to call `super` to have
-methods called on the object being delegated to.
+A SimpleDelegator instance can take advantage of the fact that SimpleDelegator is a subclass of `Delegator` to call `super` to have methods called on the object being delegated to.
 
 
 ```ruby
@@ -93,8 +77,7 @@ end
 SuperArray.new([1])[0]  #=> 2
 ```
 
-Here's a simple example that takes advantage of the fact that
-SimpleDelegator's delegation object can be changed at any time.
+Here's a simple example that takes advantage of the fact that SimpleDelegator's delegation object can be changed at any time.
 
 
 ```ruby
@@ -131,7 +114,5 @@ Elements:  8
   Unique:  6
 ```
 
-<a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/delegate/rdoc/SimpleDelegator.html'
-class='ruby-doc remote' target='_blank'>SimpleDelegator Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/delegate/rdoc/SimpleDelegator.html' class='ruby-doc remote' target='_blank'>SimpleDelegator Reference</a>
 

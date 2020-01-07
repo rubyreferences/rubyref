@@ -28,4 +28,4 @@ Or mixin Mutex_m into your module to your class inherit Mutex instance methods
     obj = Foo.new
     # this obj can be handled like Mutex
 
-[Mutex_m Reference](https://ruby-doc.org/stdlib-2.6/libdoc/mutex_m/rdoc/Mutex_m.html)
+[Mutex_m Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/mutex_m/rdoc/Mutex_m.html)

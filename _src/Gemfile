@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# We can't render with a different version of Ruby: code highlighting would be off.
+ruby File.read('config/ruby_version.txt').chomp
+
 gem 'kramdown'
 gem 'dry-inflector'
 gem 'hm'

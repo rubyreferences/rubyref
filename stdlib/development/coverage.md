@@ -1,6 +1,6 @@
 ---
 title: coverage
-prev: "/stdlib/development/bundler.html"
+prev: "/stdlib/development/benchmark.html"
 next: "/stdlib/development/debug.html"
 ---
 
@@ -11,16 +11,12 @@ require 'coverage'
 
 ## Coverage[](#coverage)
 
-Coverage provides coverage measurement feature for Ruby. This feature is
-experimental, so these APIs may be changed in future.
+Coverage provides coverage measurement feature for Ruby. This feature is experimental, so these APIs may be changed in future.
 
 1.  require "coverage"
 2.  do Coverage.start
 3.  require or load Ruby source file
-4.  Coverage.result will return a hash that contains filename as key and
-    coverage array as value. A coverage array gives, for each line, the
-    number of line execution by the interpreter. A `nil` value means
-    coverage is disabled for this line (lines like `else` and `end`).
+4.  Coverage.result will return a hash that contains filename as key and coverage array as value. A coverage array gives, for each line, the number of line execution by the interpreter. A `nil` value means coverage is disabled for this line (lines like `else` and `end`).
 
 
 ```ruby
@@ -43,7 +39,5 @@ require "foo.rb"
 p Coverage.result  #=> {"foo.rb"=>[1, 1, 10, nil, nil, 1, 1, nil, 0, nil]}
 ```
 
-<a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/coverage/rdoc/Coverage.html'
-class='ruby-doc remote' target='_blank'>Coverage Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/coverage/rdoc/Coverage.html' class='ruby-doc remote' target='_blank'>Coverage Reference</a>
 

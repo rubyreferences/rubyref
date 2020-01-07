@@ -1,5 +1,5 @@
 ---
-ruby_version: '2.6'
+ruby_version: '2.7'
 chapters:
 - title: Introduction
   path: "/"
@@ -27,6 +27,8 @@ chapters:
     path: "/language/assignment.html"
   - title: Control Expressions
     path: "/language/control-expressions.html"
+  - title: Pattern matching
+    path: "/language/pattern-matching.html"
   - title: Defining methods
     path: "/language/methods-def.html"
   - title: Calling methods
@@ -63,8 +65,6 @@ chapters:
       path: "/builtin/core/method-proc.html"
     - title: Binding
       path: "/builtin/core/binding.html"
-    - title: Fiber
-      path: "/builtin/core/fiber.html"
   - title: Value Types
     path: "/builtin/types.html"
     children:
@@ -121,8 +121,6 @@ chapters:
       path: "/builtin/internals/rubyvm.html"
   - title: Marshal
     path: "/builtin/marshal.html"
-  - title: Random
-    path: "/builtin/random.html"
 - title: Standard Library
   path: "/stdlib.html"
   children:
@@ -157,8 +155,6 @@ chapters:
     children:
     - title: benchmark
       path: "/stdlib/development/benchmark.html"
-    - title: 'bundler: Managing dependencies'
-      path: "/stdlib/development/bundler.html"
     - title: coverage
       path: "/stdlib/development/coverage.html"
     - title: debug
@@ -169,8 +165,6 @@ chapters:
       path: "/stdlib/development/logger.html"
     - title: 'pp: Debug Print'
       path: "/stdlib/development/pp.html"
-    - title: profiler
-      path: "/stdlib/development/profiler.html"
     - title: 'ripper: Parsing Ruby'
       path: "/stdlib/development/ripper.html"
     - title: tracer
@@ -182,12 +176,12 @@ chapters:
       path: "/stdlib/string-utilities/erb.html"
     - title: 'racc: Parser Generator'
       path: "/stdlib/string-utilities/racc.html"
-    - title: scanf
-      path: "/stdlib/string-utilities/scanf.html"
     - title: 'shellwords: Shell-aware string manipulation'
       path: "/stdlib/string-utilities/shellwords.html"
     - title: 'strscan: Sequental String Scanner'
       path: "/stdlib/string-utilities/strscan.html"
+    - title: 'did_you_mean: Typo suggestions'
+      path: "/stdlib/string-utilities/did_you_mean.html"
   - title: Networking and Web
     path: "/stdlib/networking-web.html"
     children:
@@ -222,8 +216,6 @@ chapters:
       path: "/stdlib/cli/etc.html"
     - title: 'fcntl: POSIX file access constants'
       path: "/stdlib/cli/fcntl.html"
-    - title: 'io/*: IO class addons'
-      path: "/stdlib/cli/io.html"
     - title: 'open3: Flexible child processes'
       path: "/stdlib/cli/open3.html"
     - title: 'optparse: CLI arguments parser'
@@ -234,8 +226,6 @@ chapters:
       path: "/stdlib/cli/readline.html"
     - title: syslog
       path: "/stdlib/cli/syslog.html"
-    - title: 'shell: Ruby interface to UNIX shell'
-      path: "/stdlib/cli/shell.html"
     - title: win32ole
       path: "/stdlib/cli/win32ole.html"
   - title: Cryptography and Encoding
@@ -267,6 +257,9 @@ chapters:
   children:
   - title: Libraries
     path: "/developing/libraries.html"
+    children:
+    - title: Bundler dependency manager
+      path: "/developing/libraries/bundler.html"
   - title: Mastering IRB
     path: "/developing/irb.html"
   - title: Documenting Ruby Code

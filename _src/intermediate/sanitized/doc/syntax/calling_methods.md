@@ -98,7 +98,7 @@ to:
 If the method definition has a `*argument` extra positional arguments will be
 assigned to `argument` in the method as an Array.
 
-If the method definition doesn't include keyword arguments the keyword or
+If the method definition doesn't include keyword arguments, the keyword or
 hash-type arguments are assigned as a single hash to the last argument:
 
     def my_method(options)
@@ -171,7 +171,8 @@ like positional arguments:
     my_method(positional1, keyword1: value1, keyword2: value2)
 
 Any keyword arguments not given will use the default value from the method
-definition.  If a keyword argument is given that the method did not list an
+definition.  If a keyword argument is given that the method did not list, and
+the method definition does not accept arbitrary keyword arguments, an
 ArgumentError will be raised.
 
 ### Block Argument
@@ -275,6 +276,9 @@ hash at the end of the array into keyword arguments:
     arguments = [1, 2, { c: 4 }]
     my_method(*arguments)
 
+Note that this behavior is currently deprecated and will emit a warning. This
+behavior will be removed in Ruby 3.0.
+
 You may also use the `**` (described next) to convert a Hash into keyword
 arguments.
 
@@ -282,7 +286,10 @@ If the number of objects in the Array do not match the number of arguments for
 the method, an ArgumentError will be raised.
 
 If the splat operator comes first in the call, parentheses must be used to
-avoid a warning.
+avoid a warning:
+
+    my_method *arguments  # warning
+    my_method(*arguments) # no warning
 
 ### Hash to Keyword Arguments Conversion
 
@@ -291,7 +298,8 @@ Given the following method:
     def my_method(first: 1, second: 2, third: 3)
     end
 
-You can turn a Hash into keyword arguments with the `**` operator:
+You can turn a Hash into keyword arguments with the `**` (keyword splat)
+operator:
 
     arguments = { first: 3, second: 4, third: 5 }
     my_method(**arguments)
@@ -305,8 +313,8 @@ Both are equivalent to:
 
     my_method(first: 3, second: 4, third: 5)
 
-If the method definition uses `**` to gather arbitrary keyword arguments, they
-will not be gathered by `*`:
+If the method definition uses the keyword splat operator to gather arbitrary
+keyword arguments, they will not be gathered by `*`:
 
     def my_method(*a, **kw)
       p arguments: a, keywords: kw
@@ -316,10 +324,7 @@ will not be gathered by `*`:
 
 Prints:
 
-    {:arguments=>[1, 2, {"3"=>4}], :keywords=>{:five=>6}}
-
-Unlike the splat operator described above, the `**` operator has no commonly
-recognized name.
+    {:arguments=>[1, 2], :keywords=>{'3'=>4, :five=>6}}
 
 ### Proc to Block Conversion
 
@@ -329,17 +334,18 @@ Given a method that use a block:
       yield self
     end
 
-You can convert a proc or lambda to a block argument with the `&` operator:
+You can convert a proc or lambda to a block argument with the `&` (block
+conversion) operator:
 
     argument = proc { |a| puts "#{a.inspect} was yielded" }
 
     my_method(&argument)
 
-If the splat operator comes first in the call, parenthesis must be used to
-avoid a warning.
+If the block conversion operator comes first in the call, parenthesis must be
+used to avoid a warning:
 
-Unlike the splat operator described above, the `&` operator has no commonly
-recognized name.
+    my_method &argument  # warning
+    my_method(&argument) # no warning
 
 ## Method Lookup
 

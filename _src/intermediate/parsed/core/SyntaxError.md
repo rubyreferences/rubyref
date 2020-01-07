@@ -8,4 +8,4 @@ Raised when encountering Ruby code with an invalid syntax.
 
     SyntaxError: (eval):1: syntax error, unexpected '=', expecting $end
 
-[SyntaxError Reference](https://ruby-doc.org/core-2.6/SyntaxError.html)
+[SyntaxError Reference](https://ruby-doc.org/core-2.7.0/SyntaxError.html)

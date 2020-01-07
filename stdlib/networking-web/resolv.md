@@ -11,9 +11,7 @@ require 'resolv'
 
 ## Resolv[](#resolv)
 
-Resolv is a thread-aware DNS resolver library written in Ruby. Resolv
-can handle multiple DNS requests concurrently without blocking the
-entire Ruby interpreter.
+Resolv is a thread-aware DNS resolver library written in Ruby. Resolv can handle multiple DNS requests concurrently without blocking the entire Ruby interpreter.
 
 See also resolv-replace.rb to replace the libc resolver with Resolv.
 
@@ -34,6 +32,7 @@ Resolv::DNS.open do |dns|
 end
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/resolv/rdoc/Resolv.html'
-class='ruby-doc remote' target='_blank'>Resolv Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/resolv/rdoc/Resolv.html' class='ruby-doc remote' target='_blank'>Resolv Reference</a>
+
+
 

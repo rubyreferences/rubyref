@@ -61,4 +61,4 @@ This should be a consideration if there is a concern about the performance of
 the objects that are created, as there is much more overhead in the setting of
 these properties compared to using a Hash or a Struct.
 
-[OpenStruct Reference](https://ruby-doc.org/stdlib-2.6/libdoc/ostruct/rdoc/OpenStruct.html)
+[OpenStruct Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/ostruct/rdoc/OpenStruct.html)

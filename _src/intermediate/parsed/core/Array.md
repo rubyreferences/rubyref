@@ -234,4 +234,4 @@ opposite result when supplied with the same block:
     arr.keep_if {|a| a < 4}   #=> [1, 2, 3]
     arr                       #=> [1, 2, 3]
 
-[Array Reference](https://ruby-doc.org/core-2.6/Array.html)
+[Array Reference](https://ruby-doc.org/core-2.7.0/Array.html)

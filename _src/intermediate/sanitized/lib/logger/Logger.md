@@ -215,4 +215,4 @@ or via the constructor.
       "#{datetime}: #{msg}\n"
     })
 
-[Logger Reference](https://ruby-doc.org/stdlib-2.6/libdoc/logger/rdoc/Logger.html)
+[Logger Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/logger/rdoc/Logger.html)

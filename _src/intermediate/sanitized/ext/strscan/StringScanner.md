@@ -106,4 +106,4 @@ or change the position of the scan pointer, skip ahead, and so on.
 
 There are aliases to several of the methods.
 
-[StringScanner Reference](https://ruby-doc.org/stdlib-2.6/libdoc/strscan/rdoc/StringScanner.html)
+[StringScanner Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/strscan/rdoc/StringScanner.html)

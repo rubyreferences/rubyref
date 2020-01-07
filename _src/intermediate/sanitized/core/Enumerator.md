@@ -4,8 +4,8 @@ A class which allows both internal and external iteration.
 
 An Enumerator can be created by the following methods.
 
-*   `Kernel#to_enum`
-*   `Kernel#enum_for`
+*   `Object#to_enum`
+*   `Object#enum_for`
 *   Enumerator.new
 
 
@@ -43,7 +43,7 @@ via:
     # => ["0:foo", "1:bar", "2:baz"]
 
 An Enumerator can also be used as an external iterator. For example,
-Enumerator#next returns the next value of the iterator or raises StopIteration
+`Enumerator#next` returns the next value of the iterator or raises StopIteration
 if the Enumerator is at the end.
 
     e = [1,2,3].each   # returns an enumerator object.
@@ -84,4 +84,4 @@ You can use this to implement an internal iterator as follows:
     puts ext_each(o.to_enum) {|*x| puts x; [:b, *x] }
     # => [], [:b], [1], [:b, 1], [1, 2], [:b, 1, 2], 3
 
-[Enumerator Reference](https://ruby-doc.org/core-2.6/Enumerator.html)
+[Enumerator Reference](https://ruby-doc.org/core-2.7.0/Enumerator.html)

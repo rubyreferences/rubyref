@@ -26,7 +26,7 @@ included or delegation can be used via `#method_missing`:
       DELEGATE = [:puts, :p]
 
       def method_missing(name, *args, &block)
-        super unless DELEGATE.include? name
+        return super unless DELEGATE.include? name
         ::Kernel.send(name, *args, &block)
       end
 
@@ -46,4 +46,4 @@ used to delegate constant lookup to `Object`:
       end
     end
 
-[BasicObject Reference](https://ruby-doc.org/core-2.6/BasicObject.html)
+[BasicObject Reference](https://ruby-doc.org/core-2.7.0/BasicObject.html)

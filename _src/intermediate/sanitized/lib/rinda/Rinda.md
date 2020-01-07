@@ -8,4 +8,4 @@ Rinda is part of DRb (dRuby).
 
 See the sample/drb/ directory in the Ruby distribution, from 1.8.2 onwards.
 
-[Rinda Reference](https://ruby-doc.org/stdlib-2.6/libdoc/rinda/rdoc/Rinda.html)
+[Rinda Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/rinda/rdoc/Rinda.html)

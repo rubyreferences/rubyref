@@ -19,4 +19,4 @@ pressed Control-C (on most posix platforms). As such, it is a subclass of
 
     Note: You will typically use Signal.trap instead.
 
-[Interrupt Reference](https://ruby-doc.org/core-2.6/Interrupt.html)
+[Interrupt Reference](https://ruby-doc.org/core-2.7.0/Interrupt.html)

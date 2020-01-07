@@ -1,7 +1,7 @@
 # RuntimeError
 
 A generic error class raised when an invalid operation is attempted.
-Kernel#raise will raise a RuntimeError if no Exception class is specified.
+`Kernel#raise` will raise a RuntimeError if no Exception class is specified.
 
     raise "ouch"
 
@@ -9,4 +9,4 @@ Kernel#raise will raise a RuntimeError if no Exception class is specified.
 
     RuntimeError: ouch
 
-[RuntimeError Reference](https://ruby-doc.org/core-2.6/RuntimeError.html)
+[RuntimeError Reference](https://ruby-doc.org/core-2.7.0/RuntimeError.html)

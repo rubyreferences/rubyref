@@ -76,7 +76,7 @@ for
     expressions](rdoc-ref:syntax/control_expressions.rdoc)
 
 if
-:   Used for `if` and modifier `if` expressions.  See [control
+:   Used for `if` and modifier `if` statements.  See [control
     expressions](rdoc-ref:syntax/control_expressions.rdoc)
 
 in
@@ -114,7 +114,8 @@ retry
     handling](rdoc-ref:syntax/exceptions.rdoc)
 
 return
-:   Exits a method.  See [methods](rdoc-ref:syntax/methods.rdoc)
+:   Exits a method.  See [methods](rdoc-ref:syntax/methods.rdoc). If met in
+    top-level scope, immediately stops interpretation of the current file.
 
 self
 :   The object the current method is attached to.  See
@@ -136,7 +137,7 @@ undef
     and classes](rdoc-ref:syntax/modules_and_classes.rdoc)
 
 unless
-:   Used for `unless` and modifier `unless` expressions.  See [control
+:   Used for `unless` and modifier `unless` statements.  See [control
     expressions](rdoc-ref:syntax/control_expressions.rdoc)
 
 until

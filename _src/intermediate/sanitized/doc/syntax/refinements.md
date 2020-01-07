@@ -26,9 +26,9 @@ Here is a basic refinement:
     end
 
 First, a class `C` is defined.  Next a refinement for `C` is created using
-Module#refine.
+`Module#refine`.
 
-Module#refine creates an anonymous module that contains the changes or
+`Module#refine` creates an anonymous module that contains the changes or
 refinements to the class (`C` in the example).  `self` in the refine block is
 this anonymous module similar to `Module#module_eval`.
 
@@ -251,11 +251,10 @@ Note that `super` in a method of a refinement invokes the method in the
 refined class even if there is another refinement which has been activated in
 the same context.
 
-## Indirect Method Calls
+## Methods Introspection
 
-When using indirect method access such as `Kernel#send`, `Kernel#method` or
-Kernel#respond_to? refinements are not honored for the caller context during
-method lookup.
+When using introspection methods such as `Kernel#method` or `Kernel#methods`
+refinements are not honored.
 
 This behavior may be changed in the future.
 

@@ -35,7 +35,7 @@ starting the server blocks the current thread:
 ## Custom Behavior
 
 The easiest way to have a server perform custom operations is through
-W`EBrick::HTTPServer#mount_proc`.  The block given will be called with a
+`WEBrick::HTTPServer#mount_proc`.  The block given will be called with a
 WEBrick::HTTPRequest with request info and a WEBrick::HTTPResponse which must
 be filled in appropriately:
 
@@ -199,4 +199,4 @@ Author: IPR -- Internet Programming with Ruby -- writers
 Copyright (c) 2000 TAKAHASHI Masayoshi, GOTOU YUUZOU Copyright (c) 2002
 Internet Programming with Ruby writers. All rights reserved.
 
-[WEBrick Reference](https://ruby-doc.org/stdlib-2.6/libdoc/webrick/rdoc/WEBrick.html)
+[WEBrick Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/webrick/rdoc/WEBrick.html)

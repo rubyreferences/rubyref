@@ -22,8 +22,8 @@ expression. An input is executed when it is syntactically complete.
     irb(main):006:1> end
     #=> nil
 
-The Readline extension module can be used with irb. Use of Readline is default
-if it's installed.
+The singleline editor module or multiline editor module can be used with irb.
+Use of multiline editor is default if it's installed.
 
 ## Command line options
 
@@ -38,21 +38,24 @@ if it's installed.
       -W[level=2]       Same as `ruby -W`
       --inspect         Use `inspect` for output (default except for bc mode)
       --noinspect       Don't use inspect for output
-      --readline        Use Readline extension module
-      --noreadline      Don't use Readline extension module
+      --multiline       Use multiline editor module
+      --nomultiline     Don't use multiline editor module
+      --singleline      Use singleline editor module
+      --nosingleline    Don't use singleline editor module
+      --colorize        Use colorization
+      --nocolorize      Don't use colorization
       --prompt prompt-mode
       --prompt-mode prompt-mode
                         Switch prompt mode. Pre-defined prompt modes are
                         `default`, `simple`, `xmp` and `inf-ruby`
       --inf-ruby-mode   Use prompt appropriate for inf-ruby-mode on emacs.
-                        Suppresses --readline.
+                        Suppresses --multiline and --singleline.
       --simple-prompt   Simple prompt mode
       --noprompt        No prompt mode
       --tracer          Display trace for each execution of commands.
       --back-trace-limit n
                         Display backtrace top n and tail n. The default
                         value is 16.
-      --irb_debug n     Set internal debug level to n (not for popular use)
       -v, --version     Print the version of irb
 
 ## Configuration
@@ -75,19 +78,20 @@ as follows in an `irb` session:
     IRB.conf[:IRB_RC] = nil
     IRB.conf[:BACK_TRACE_LIMIT]=16
     IRB.conf[:USE_LOADER] = false
-    IRB.conf[:USE_READLINE] = nil
+    IRB.conf[:USE_MULTILINE] = nil
+    IRB.conf[:USE_SINGLELINE] = nil
+    IRB.conf[:USE_COLORIZE] = true
     IRB.conf[:USE_TRACER] = false
     IRB.conf[:IGNORE_SIGINT] = true
     IRB.conf[:IGNORE_EOF] = false
     IRB.conf[:PROMPT_MODE] = :DEFAULT
     IRB.conf[:PROMPT] = {...}
-    IRB.conf[:DEBUG_LEVEL]=0
 
 ### Auto indentation
 
-To enable auto-indent mode in irb, add the following to your `.irbrc`:
+To disable auto-indent mode in irb, add the following to your `.irbrc`:
 
-    IRB.conf[:AUTO_INDENT] = true
+    IRB.conf[:AUTO_INDENT] = false
 
 ### Autocompletion
 
@@ -97,15 +101,22 @@ To enable autocompletion for irb, add the following to your `.irbrc`:
 
 ### History
 
-By default, irb disables history and will not store any commands you used.
+By default, irb will store the last 1000 commands you used in
+`IRB.conf[:HISTORY_FILE]` (`~/.irb_history` by default).
 
-If you want to enable history, add the following to your `.irbrc`:
+If you want to disable history, add the following to your `.irbrc`:
 
-    IRB.conf[:SAVE_HISTORY] = 1000
-
-This will now store the last 1000 commands in `~/.irb_history`.
+    IRB.conf[:SAVE_HISTORY] = nil
 
 See `IRB::Context#save_history=` for more information.
+
+The history of *results* of commands evaluated is not stored by default, but
+can be turned on to be stored with this `.irbrc` setting:
+
+    IRB.conf[:EVAL_HISTORY] = <number>
+
+See `IRB::Context#eval_history=` and History class. The history of command
+results is not permanently saved in any file.
 
 ## Customizing the IRB Prompt
 
@@ -116,7 +127,7 @@ In order to customize the prompt, you can change the following Hash:
 This example can be used in your `.irbrc`
 
     IRB.conf[:PROMPT][:MY_PROMPT] = { # name of prompt mode
-      :AUTO_INDENT => true,           # enables auto-indent mode
+      :AUTO_INDENT => false,          # disables auto-indent mode
       :PROMPT_I =>  ">> ",            # simple prompt
       :PROMPT_S => nil,               # prompt for continuated strings
       :PROMPT_C => nil,               # prompt for continuated statement
@@ -145,6 +156,7 @@ For instance, the default prompt mode is defined as follows:
 
     IRB.conf[:PROMPT_MODE][:DEFAULT] = {
       :PROMPT_I => "%N(%m):%03n:%i> ",
+      :PROMPT_N => "%N(%m):%03n:%i> ",
       :PROMPT_S => "%N(%m):%03n:%i%l ",
       :PROMPT_C => "%N(%m):%03n:%i* ",
       :RETURN => "%s\n" # used to printf
@@ -245,7 +257,10 @@ session can be configured using this mechanism.
 There are a few variables in every Irb session that can come in handy:
 
 * `_`: The value command executed, as a local variable
-* `__`: The history of evaluated commands
+* `__`: The history of evaluated commands. Available only if
+    `IRB.conf[:EVAL_HISTORY]` is not `nil` (which is the default). See also
+    IRB::Context#eval_history= and IRB::History.
+
 * `__[line_no]`: Returns the evaluation value at the given line number, `line_no`. If
     `line_no` is a negative, the return value `line_no` many lines before the
     most recent return value.
@@ -281,7 +296,7 @@ There are a few variables in every Irb session that can come in handy:
     # check if Foo#foo is available
     irb(main):005:0> Foo.instance_methods #=> [:foo, ...]
 
-    # change the active sesssion
+    # change the active session
     irb(main):006:0> fg 2
     # define Foo#bar in the context of Foo
     irb.2(Foo):005:0> def bar
@@ -312,4 +327,4 @@ There are a few variables in every Irb session that can come in handy:
     # quit irb
     irb(main):010:0> exit
 
-[IRB Reference](https://ruby-doc.org/stdlib-2.6/libdoc/irb/rdoc/IRB.html)
+[IRB Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/irb/rdoc/IRB.html)

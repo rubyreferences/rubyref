@@ -11,16 +11,13 @@ require 'uri'
 
 ## URI[](#uri)
 
-URI is a module providing classes to handle Uniform Resource Identifiers
-(<a href='http://tools.ietf.org/html/rfc2396' class='remote'
-target='_blank'>RFC2396</a>).
+URI is a module providing classes to handle Uniform Resource Identifiers (<a href='http://tools.ietf.org/html/rfc2396' class='remote' target='_blank'>RFC2396</a>).
 
 ### Features[](#features)
 
 * Uniform way of handling URIs.
 * Flexibility to introduce custom URI schemes.
-* Flexibility to have an alternate URI::Parser (or just different
-  patterns and regexp's).
+* Flexibility to have an alternate URI::Parser (or just different patterns and regexp's).
 
 ### Basic example[](#basic-example)
 
@@ -61,6 +58,5 @@ uri = URI("rsync://rsync.foo.com")
 #=> #<URI::RSYNC rsync://rsync.foo.com>
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/uri/rdoc/URI.html'
-class='ruby-doc remote' target='_blank'>URI Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/uri/rdoc/URI.html' class='ruby-doc remote' target='_blank'>URI Reference</a>
 

@@ -11,25 +11,22 @@ require 'open-uri'
 
 ## OpenURI[](#openuri)
 
-OpenURI is an easy-to-use wrapper for Net::HTTP, Net::HTTPS and
-Net::FTP.
+OpenURI is an easy-to-use wrapper for Net::HTTP, Net::HTTPS and Net::FTP.
 
-It is possible to open an http, https or ftp URL as though it were a
-file:
+It is possible to open an http, https or ftp URL as though it were a file:
 
 
 ```ruby
-open("http://www.ruby-lang.org/") {|f|
+URI.open("http://www.ruby-lang.org/") {|f|
   f.each_line {|line| p line}
 }
 ```
 
-The opened file has several getter methods for its meta-information, as
-follows, since it is extended by OpenURI::Meta.
+The opened file has several getter methods for its meta-information, as follows, since it is extended by OpenURI::Meta.
 
 
 ```ruby
-open("http://www.ruby-lang.org/en") {|f|
+URI.open("http://www.ruby-lang.org/en") {|f|
   f.each_line {|line| p line}
   p f.base_uri         # <URI::HTTP:0x40e6ef2 URL:http://www.ruby-lang.org/en/>
   p f.content_type     # "text/html"
@@ -43,7 +40,7 @@ Additional header fields can be specified by an optional hash argument.
 
 
 ```ruby
-open("http://www.ruby-lang.org/en/",
+URI.open("http://www.ruby-lang.org/en/",
   "User-Agent" => "Ruby/#{RUBY_VERSION}",
   "From" => "foo@bar.invalid",
   "Referer" => "http://www.ruby-lang.org/") {|f|
@@ -51,18 +48,16 @@ open("http://www.ruby-lang.org/en/",
 }
 ```
 
-The environment variables such as http\_proxy, https\_proxy and
-ftp\_proxy are in effect by default. Here we disable proxy:
+The environment variables such as http\_proxy, https\_proxy and ftp\_proxy are in effect by default. Here we disable proxy:
 
 
 ```ruby
-open("http://www.ruby-lang.org/en/", :proxy => nil) {|f|
+URI.open("http://www.ruby-lang.org/en/", :proxy => nil) {|f|
   # ...
 }
 ```
 
-See OpenURI::OpenRead.open and `Kernel#open` for more on available
-options.
+See OpenURI::OpenRead.open and URI.open for more on available options.
 
 URI objects can be opened in a similar way.
 
@@ -74,8 +69,7 @@ uri.open {|f|
 }
 ```
 
-URI objects can be read directly. The returned string is also extended
-by OpenURI::Meta.
+URI objects can be read directly. The returned string is also extended by OpenURI::Meta.
 
 
 ```ruby
@@ -83,7 +77,5 @@ str = uri.read
 p str.base_uri
 ```
 
-<a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/open-uri/rdoc/OpenURI.html'
-class='ruby-doc remote' target='_blank'>OpenURI Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/open-uri/rdoc/OpenURI.html' class='ruby-doc remote' target='_blank'>OpenURI Reference</a>
 

@@ -44,10 +44,9 @@ You can even extend regular objects with Forwardable.
 
 ## Another example
 
-We want to rely on what has come before obviously, but with delegation we can
-take just the methods we need and even rename them as appropriate.  In many
-cases this is preferable to inheritance, which gives us the entire old
-interface, even if much of it isn't needed.
+You could use Forwardable as an alternative to inheritance, when you don't
+want to inherit all methods from the superclass. For instance, here is how you
+might add a range of `Array` instance methods to a new class `Queue`:
 
     class Queue
       extend Forwardable
@@ -96,4 +95,4 @@ Be advised, RDoc will not detect delegated methods.
 def_delegators methods. For full-class delegation via DelegateClass, see
 `delegate.rb`.
 
-[Forwardable Reference](https://ruby-doc.org/stdlib-2.6/libdoc/forwardable/rdoc/Forwardable.html)
+[Forwardable Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/forwardable/rdoc/Forwardable.html)

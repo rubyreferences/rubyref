@@ -14,4 +14,4 @@ Examples:
     Time.parse("2010-10-31") #=> 2010-10-31 00:00:00 -0500
     Time.strptime("2000-10-31", "%Y-%m-%d") #=> 2000-10-31 00:00:00 -0500
 
-[Time Reference](https://ruby-doc.org/stdlib-2.6/libdoc/time/rdoc/Time.html)
+[Time Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html)

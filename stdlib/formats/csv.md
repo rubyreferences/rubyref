@@ -11,9 +11,7 @@ require 'csv'
 
 ## CSV[](#csv)
 
-This class provides a complete interface to CSV files and data. It
-offers tools to enable you to read and write to and from Strings or IO
-objects, as needed.
+This class provides a complete interface to CSV files and data. It offers tools to enable you to read and write to and from Strings or IO objects, as needed.
 
 The most generic interface of the library is:
 
@@ -34,16 +32,11 @@ row = csv.shift
 csv << row
 ```
 
-There are several specialized class methods for one-statement reading or
-writing, described in the Specialized Methods section.
+There are several specialized class methods for one-statement reading or writing, described in the Specialized Methods section.
 
-If a String is passed into ::new, it is internally wrapped into a
-StringIO object.
+If a String is passed into ::new, it is internally wrapped into a StringIO object.
 
-`options` can be used for specifying the particular CSV flavor (column
-separators, row separators, value quoting and so on), and for data
-conversion, see Data Conversion section for the description of the
-latter.
+`options` can be used for specifying the particular CSV flavor (column separators, row separators, value quoting and so on), and for data conversion, see Data Conversion section for the description of the latter.
 
 ### Specialized Methods[](#specialized-methods)
 
@@ -104,9 +97,7 @@ CSV($stdin)     { |csv_in|  csv_in.each { |row| p row } }  # from $stdin
 
 #### CSV with headers[](#csv-with-headers)
 
-CSV allows to specify column names of CSV file, whether they are in
-data, or provided separately. If headers specified, reading methods
-return an instance of CSV::Table, consisting of CSV::Row.
+CSV allows to specify column names of CSV file, whether they are in data, or provided separately. If headers are specified, reading methods return an instance of CSV::Table, consisting of CSV::Row.
 
 
 ```ruby
@@ -123,15 +114,13 @@ data.first      #=> #<CSV::Row "Name":"Bob" "Department":"Engineering" "Salary":
 data.first.to_h #=> {"Name"=>"Bob", "Department"=>"Engineering", "Salary"=>"1000"}
 
 # Headers provided by developer
-data = CSV.parse('Bob,Engeneering,1000', headers: %i[name department salary])
+data = CSV.parse('Bob,Engineering,1000', headers: %i[name department salary])
 data.first      #=> #<CSV::Row name:"Bob" department:"Engineering" salary:"1000">
 ```
 
 #### Typed data reading[](#typed-data-reading)
 
-CSV allows to provide a set of data *converters* e.g. transformations to
-try on input data. Converter could be a symbol from CSV::Converters
-constant's keys, or lambda.
+CSV allows to provide a set of data *converters* e.g. transformations to try on input data. Converter could be a symbol from CSV::Converters constant's keys, or lambda.
 
 
 ```ruby
@@ -148,6 +137,5 @@ CSV.parse('Bob,2018-03-01,100', converters: [->(v) { Time.parse(v) rescue v }])
 #=> [["Bob", 2018-03-01 00:00:00 +0200, "100"]]
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/csv/rdoc/CSV.html'
-class='ruby-doc remote' target='_blank'>CSV Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/csv/rdoc/CSV.html' class='ruby-doc remote' target='_blank'>CSV Reference</a>
 
