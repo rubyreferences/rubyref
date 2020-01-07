@@ -22,7 +22,7 @@ module Renderers
         title: @definition.title,
         prev: @definition.prev_chapter&.html_path,
         next: @definition.next_chapter&.html_path,
-        permalink: ('/index.html' if @definition.out_path == 'README.md') # :shrug:
+        permalink: ('/' if @definition.out_path == '../README.md') # :shrug:
       }.compact.transform_keys(&:to_s)
     end
   end

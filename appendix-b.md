@@ -26,7 +26,7 @@ prev: "/appendix-a.html"
 
 * <a href='http://rubyconferences.org/' class='remote' target='_blank'>Conferences List</a>
 * <a href='https://rubyweekly.com/' class='remote' target='_blank'>Ruby Weekly Digest</a>
-* <a href='https://www.ruby-lang.org/en/community/mailing-lists/' class='remote' target='_blank'>Ruby Maling Lists</a>
+* <a href='https://www.ruby-lang.org/en/community/mailing-lists/' class='remote' target='_blank'>Ruby Mailing Lists</a>
 
 ### Organizations[](#organizations)
 

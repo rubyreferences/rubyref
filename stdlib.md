@@ -13,7 +13,7 @@ This chapter provides documentation and links to class and module references for
 Some notes about this chapter's structure:
 
 * Libraries are grouped into logical sections; inside each section libraries are listed alphabetically;
-* Libraries known to be of leasser usage or support are mentioned briefly in the [last section](stdlib/misc/other.md);
+* Libraries known to be of lesser usage or support are mentioned briefly in the [last section](stdlib/misc/other.md);
 * Some libraries documentation is moved to the [previous part](builtin.md) of this Reference with an attached note indicating it is part of the standard library. For example, [Set](builtin/types/set.md) is documented beside [Hash](builtin/types/hash.md) and [Array](builtin/types/array.md), [Pathname](builtin/system-cli/filesystem.md#pahtname) is documented beside [File](builtin/system-cli/filesystem.md#file) and [Dir](builtin/system-cli/filesystem.md#dir), and so on.
 * IRB (Ruby interactive console) and RDoc (Ruby documentation tool), despite being formally parts of standard library, are documented in the [Developing in Ruby](developing.md) chapter.
 

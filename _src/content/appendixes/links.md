@@ -21,7 +21,7 @@
 
 * [Conferences List](http://rubyconferences.org/)
 * [Ruby Weekly Digest](https://rubyweekly.com/)
-* [Ruby Maling Lists](https://www.ruby-lang.org/en/community/mailing-lists/)
+* [Ruby Mailing Lists](https://www.ruby-lang.org/en/community/mailing-lists/)
 
 ### Organizations
 

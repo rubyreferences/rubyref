@@ -129,5 +129,5 @@ RSpec.describe Calculator do                          # Method RSpec.describe() 
 end
 ```
 
-Note how varying elements of syntax (optional paretheses around method arguments and `{}` vs `do / end` around blocks) allows the creation of boilerplate-less tests.
+Note how varying elements of syntax (optional parentheses around method arguments and `{}` vs `do / end` around blocks) allows the creation of boilerplate-less tests.
 

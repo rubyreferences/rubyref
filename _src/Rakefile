@@ -117,6 +117,7 @@ namespace :dev do
     end
   end
 
+  desc 'Run all validations on structure, intermediate and rendered files'
   task validate: %i[validate_listing validate_content validate_rendered validate_links]
 end
 
