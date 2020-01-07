@@ -3,11 +3,11 @@
 ## 2020-01-07 -- Ruby 2.7 update
 
 * The whole site is re-rendered from [ruby_2_7](https://github.com/ruby/ruby/tree/ruby_2_7) branch of Ruby repo. Notable changes:
-  * Pattern matching docs are added (in the absense of official docs, just a copy-paste of [my own PR](https://github.com/ruby/ruby/pull/2786) to Ruby itself)
+  * Pattern matching docs are added (in the absence of official docs, just a copy-paste of [my own PR](https://github.com/ruby/ruby/pull/2786) to Ruby itself)
   * Removed docs for stdlib parts that were dropped: scanf, shell, profiler
 * Minor logical restructuring (bundler moved under Developing/Libraries, Fiber under Concurrency, etc.)
-* Rendering and validation scripts are finally rewritten into proper `Rakefile` from bunch of ad-hoc `*.rb` executables;
-* Lot of small rendering bugs are fixed in the process.
+* Rendering and validation scripts are finally rewritten into proper `Rakefile` from a bunch of ad-hoc `*.rb` executables;
+* A lot of small rendering bugs are fixed in the process.
 
 ## 2019-01-07 -- Ruby 2.6 update
 
