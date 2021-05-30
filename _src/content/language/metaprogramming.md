@@ -78,7 +78,7 @@ The implementation can look like this:
 
 > **Note**: This implementation is naive and just shows the principle. See third-party libraries like [memoist](https://github.com/matthewrudy/memoist) for a proper implementation.
 
-See [Language Core](../builtin/core.md) classes documentation to understand what you can do with
+See [Language Core](builtin/core.md) classes documentation to understand what you can do with
 core objects.
 
 ## Domain-Specific Languages
@@ -109,4 +109,4 @@ All components in this example are built with just methods, their arguments and 
       end
     end
 
-Note how varying elements of syntax (optional paretheses around method arguments and `{}` vs `do / end` around blocks) allows the creation of boilerplate-less tests.
+Note how varying elements of syntax (optional parentheses around method arguments and `{}` vs `do / end` around blocks) allows the creation of boilerplate-less tests.

@@ -55,4 +55,4 @@ stdout is fully buffered.
     limited to warranty of fitness of purpose, or merchantability, or
     results obtained from use of this software.
 
-[PTY Reference](https://ruby-doc.org/stdlib-2.6/libdoc/pty/rdoc/PTY.html)
+[PTY Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/pty/rdoc/PTY.html)

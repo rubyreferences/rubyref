@@ -58,8 +58,8 @@ This above is achieved by:
 ## Singleton and Marshal
 
 By default Singleton's #_dump(depth) returns the empty string. Marshalling by
-default will strip state information, e.g. instance variables and taint state,
-from the instance. Classes using Singleton can provide custom _load(str) and
+default will strip state information, e.g. instance variables from the
+instance. Classes using Singleton can provide custom _load(str) and
 _dump(depth) methods to retain some of the previous state of the instance.
 
     require 'singleton'
@@ -81,7 +81,6 @@ _dump(depth) methods to retain some of the previous state of the instance.
     a = Example.instance
     a.keep = "keep this"
     a.strip = "get rid of this"
-    a.taint
 
     stored_state = Marshal.dump(a)
 
@@ -92,4 +91,4 @@ _dump(depth) methods to retain some of the previous state of the instance.
     p a.keep  #  => "keep this"
     p a.strip #  => nil
 
-[Singleton Reference](https://ruby-doc.org/stdlib-2.6/libdoc/singleton/rdoc/Singleton.html)
+[Singleton Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/singleton/rdoc/Singleton.html)

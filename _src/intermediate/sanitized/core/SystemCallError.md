@@ -11,4 +11,4 @@ and are defined in the Errno module.
 
     Errno::ENOENT: No such file or directory - does/not/exist
 
-[SystemCallError Reference](https://ruby-doc.org/core-2.6/SystemCallError.html)
+[SystemCallError Reference](https://ruby-doc.org/core-2.7.0/SystemCallError.html)

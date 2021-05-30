@@ -5,7 +5,7 @@ Constants are defined by assigning a value to any identifier starting with an **
     X = 1
     NAMES = %w[Bob Jane Jim]
 
-Class and module definitions (see [Modules and Classes](./modules-classes.md)) also define constants,
+Class and module definitions (see [Modules and Classes](language/modules-classes.md)) also define constants,
 assigned to the class/module name:
 
     class A
@@ -16,4 +16,4 @@ assigned to the class/module name:
       # ...
     end
 
-See also: [Constants scoping](./modules-classes.md#constants) section in "Modules and Classes" chapter.
+See also: [Constants scoping](language/modules-classes.md#constants) section in "Modules and Classes" chapter.

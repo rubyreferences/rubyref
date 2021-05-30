@@ -24,4 +24,4 @@ Example:
        }
     }
 
-[ConditionVariable Reference](https://ruby-doc.org/core-2.6/ConditionVariable.html)
+[ConditionVariable Reference](https://ruby-doc.org/core-2.7.0/ConditionVariable.html)

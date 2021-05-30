@@ -25,7 +25,7 @@ generates Ruby programs.
 
 * -e+rubypath+, --executable=`rubypath`: output executable file(mode 755). where `path` is the Ruby interpreter.
 * -v, --verbose: verbose mode. create `filename`.output file, like yacc's y.output file.
-* -g, --debug: add debug code to parser class. To display debugging information, use this
+* -g, --debug: add debug code to parser class. To display debuggin information, use this
     '-g' option and set @yydebug true in parser class.
 
 * -E, --embedded: Output parser which doesn't need runtime files (racc/parser.rb).
@@ -79,15 +79,15 @@ more information on grammar files.
 Then you must prepare the parse entry method. There are two types of parse
 methods in Racc, `Racc::Parser#do_parse` and `Racc::Parser#yyparse`
 
-Racc::`Parser#do_parse` is simple.
+`Racc::Parser#do_parse` is simple.
 
 It's yyparse() of yacc, and `Racc::Parser#next_token` is yylex(). This method
 must returns an array like [TOKENSYMBOL, ITS_VALUE]. EOF is [false, false].
 (TOKENSYMBOL is a Ruby symbol (taken from `String#intern`) by default. If you
 want to change this, see the grammar reference.
 
-Racc::`Parser#yyparse` is little complicated, but useful. It does not use
-Racc::`Parser#next_token`, instead it gets tokens from any iterator.
+`Racc::Parser#yyparse` is little complicated, but useful. It does not use
+`Racc::Parser#next_token`, instead it gets tokens from any iterator.
 
 For example, `yyparse(obj, :scan)` causes calling +obj#scan+, and you can
 return tokens by yielding them from +obj#scan+.
@@ -133,7 +133,7 @@ done by using '-E' option:
 This command creates myparser.rb which `includes` Racc runtime. Only you must
 do is to distribute your parser file (myparser.rb).
 
-Note: parser.rb is LGPL, but your parser is not. Your own parser is completely
-yours.
+Note: parser.rb is ruby license, but your parser is not. Your own parser is
+completely yours.
 
-[Racc Reference](https://ruby-doc.org/stdlib-2.6/libdoc/racc/rdoc/Racc.html)
+[Racc Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/racc/rdoc/Racc.html)

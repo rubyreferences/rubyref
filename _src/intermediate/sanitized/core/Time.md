@@ -95,7 +95,7 @@ You can also do standard functions like compare two times.
 ## Timezone argument
 
 A timezone argument must have `local_to_utc` and `utc_to_local` methods, and
-may have `name` and `abbr` methods.
+may have `name`, `abbr`, and `dst?` methods.
 
 The `local_to_utc` method should convert a Time-like object from the timezone
 to UTC, and `utc_to_local` is the opposite.  The result also should be a Time
@@ -113,12 +113,15 @@ Marshal.
 
 The `abbr` method is used by '%Z' in `#strftime`.
 
+The `dst?` method is called with a `Time` value and should return whether the
+`Time` value is in daylight savings time in the zone.
+
 ### Auto conversion to Timezone
 
 At loading marshaled data, a timezone name will be converted to a timezone
 object by `find_timezone` class method, if the method is defined.
 
-Similary, that class method will be called when a timezone argument does not
+Similarly, that class method will be called when a timezone argument does not
 have the necessary methods mentioned above.
 
-[Time Reference](https://ruby-doc.org/core-2.6/Time.html)
+[Time Reference](https://ruby-doc.org/core-2.7.0/Time.html)

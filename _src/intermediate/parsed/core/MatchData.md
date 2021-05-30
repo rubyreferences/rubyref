@@ -1,6 +1,6 @@
 # MatchData
 
-`MatchData` encapsulates the result of matching a Regexp against string. It is
+MatchData encapsulates the result of matching a Regexp against string. It is
 returned by Regexp#match and String#match, and also stored in a global
 variable returned by Regexp.last_match.
 
@@ -32,17 +32,17 @@ Usage:
 
 ## Global variables equivalence
 
-Parts of last `MatchData` (returned by Regexp.last_match) are also aliased as
+Parts of last MatchData (returned by Regexp.last_match) are also aliased as
 global variables:
 
-*   `$~` is `Regexp.last_match`;
-*   `$&` is `Regexp.last_match[0]`;
-*   `$1`, `$2`, and so on are `Regexp.last_match[i]` (captures by number);
-*   `$`` is `Regexp.last_match.pre_match`;
-*   `$'` is `Regexp.last_match.post_match`;
-*   `$+` is `Regexp.last_match[-1]` (the last capture).
+*   `$~` is Regexp.last_match;
+*   `$&` is [Regexp.last_match](0);
+*   `$1`, `$2`, and so on are [Regexp.last_match](i) (captures by number);
+*   `$`` is Regexp.last_match`.pre_match`;
+*   `$'` is Regexp.last_match`.post_match`;
+*   `$+` is [Regexp.last_match](-1) (the last capture).
 
 
 See also "Special global variables" section in Regexp documentation.
 
-[MatchData Reference](https://ruby-doc.org/core-2.6/MatchData.html)
+[MatchData Reference](https://ruby-doc.org/core-2.7.0/MatchData.html)

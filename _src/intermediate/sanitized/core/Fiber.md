@@ -12,9 +12,9 @@ function calls within the fiber block.  See the ruby(1) manpage to configure
 the size of the fiber stack(s).
 
 When a fiber is created it will not run automatically. Rather it must be
-explicitly asked to run using the `Fiber#resume` method. The code running
-inside the fiber can give up control by calling `Fiber.yield` in which case it
-yields control back to caller (the caller of the `Fiber#resume`).
+explicitly asked to run using the `Fiber#resume` method. The code running inside
+the fiber can give up control by calling Fiber.yield in which case it yields
+control back to caller (the caller of the `Fiber#resume`).
 
 Upon yielding or termination the Fiber returns the value of the last executed
 expression
@@ -37,8 +37,8 @@ For instance:
     FiberError: dead fiber called
 
 The `Fiber#resume` method accepts an arbitrary number of parameters, if it is
-the first call to `resume` then they will be passed as block arguments.
-Otherwise they will be the return value of the call to `Fiber.yield`
+the first call to `#resume` then they will be passed as block arguments.
+Otherwise they will be the return value of the call to Fiber.yield
 
 Example:
 
@@ -47,13 +47,13 @@ Example:
     end
 
     puts fiber.resume 10
-    puts fiber.resume 14
-    puts fiber.resume 18
+    puts fiber.resume 1_000_000
+    puts fiber.resume "The fiber will be dead before I can cause trouble"
 
 *produces*
 
     12
-    14
+    1000000
     FiberError: dead fiber called
 
-[Fiber Reference](https://ruby-doc.org/core-2.6/Fiber.html)
+[Fiber Reference](https://ruby-doc.org/core-2.7.0/Fiber.html)

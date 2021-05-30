@@ -6,25 +6,21 @@ next: "/advanced/signals.html"
 
 ## DTrace Probes[](#dtrace-probes)
 
-A list of DTrace probes and their functionality. "Module" and "Function"
-cannot be defined in user defined probes (known as USDT), so they will
-not be specified. Probe definitions are in the format of:
+A list of DTrace probes and their functionality. "Module" and "Function" cannot be defined in user defined probes (known as USDT), so they will not be specified. Probe definitions are in the format of:
 
 
 ```
 provider:module:function:name(arguments)
 ```
 
-Since module and function cannot be specified, they will be blank. An
-example probe definition for Ruby would then be:
+Since module and function cannot be specified, they will be blank. An example probe definition for Ruby would then be:
 
 
 ```
 ruby:::method-entry(class name, method name, file name, line number)
 ```
 
-Where "ruby" is the provider name, module and function names are blank,
-the probe name is "method-entry", and the probe takes four arguments:
+Where "ruby" is the provider name, module and function names are blank, the probe name is "method-entry", and the probe takes four arguments:
 
 * class name
 * method name
@@ -35,34 +31,21 @@ the probe name is "method-entry", and the probe takes four arguments:
 
 #### Stability[](#stability)
 
-Before we list the specific probes, let's talk about stability. Probe
-stability is declared in the probes.d file at the bottom on the
-`#pragma` D attributes lines. Here is a description of each of the
-stability declarations.
+Before we list the specific probes, let's talk about stability. Probe stability is declared in the probes.d file at the bottom on the `#pragma` D attributes lines. Here is a description of each of the stability declarations.
 
-* Provider name stability: The provider name of "ruby" has been declared
-  as stable. It is unlikely that we will change the provider name from
-  "ruby" to something else.
+* Provider name stability: The provider name of "ruby" has been declared as stable. It is unlikely that we will change the provider name from "ruby" to something else.
 
-* Module and Function stability: Since we are not allowed to provide
-  values for the module and function name, the values we have provided
-  (no value) is declared as stable.
+* Module and Function stability: Since we are not allowed to provide values for the module and function name, the values we have provided (no value) is declared as stable.
 
-* Probe name stability: The probe names are likely to change in the
-  future, so they are marked as "Evolving". Consumers should not depend
-  on these names to be stable.
+* Probe name stability: The probe names are likely to change in the future, so they are marked as "Evolving". Consumers should not depend on these names to be stable.
 
-* Probe argument stability: The parameters passed to the probes are
-  likely to change in the future, so they are marked as "Evolving".
-  Consumers should not depend on these to be stable.
+* Probe argument stability: The parameters passed to the probes are likely to change in the future, so they are marked as "Evolving". Consumers should not depend on these to be stable.
 
 #### Declared probes[](#declared-probes)
 
-Probes are defined in the probes.d file. Here are the declared probes
-along with when they are fired and the arguments they take:
+Probes are defined in the probes.d file. Here are the declared probes along with when they are fired and the arguments they take:
 
-* ruby:::method-entry(classname, methodname, filename, lineno);: This
-  probe is fired just before a method is entered.
+* ruby:::method-entry(classname, methodname, filename, lineno);: This probe is fired just before a method is entered.
   
   
   ```
@@ -72,20 +55,13 @@ along with when they are fired and the arguments they take:
     lineno the line number where the method is _being called_ (an int)
   ```
 
-* ruby:::method-return(classname, methodname, filename, lineno);: This
-  probe is fired just after a method has returned. The arguments are the
-  same as "ruby:::method-entry".
+* ruby:::method-return(classname, methodname, filename, lineno);: This probe is fired just after a method has returned. The arguments are the same as "ruby:::method-entry".
 
-* ruby:::cmethod-entry(classname, methodname, filename, lineno);: This
-  probe is fired just before a C method is entered. The arguments are
-  the same as "ruby:::method-entry".
+* ruby:::cmethod-entry(classname, methodname, filename, lineno);: This probe is fired just before a C method is entered. The arguments are the same as "ruby:::method-entry".
 
-* ruby:::cmethod-return(classname, methodname, filename, lineno);: This
-  probe is fired just before a C method returns. The arguments are the
-  same as "ruby:::method-entry".
+* ruby:::cmethod-return(classname, methodname, filename, lineno);: This probe is fired just before a C method returns. The arguments are the same as "ruby:::method-entry".
 
-* ruby:::require-entry(requiredfile, filename, lineno);: This probe is
-  fired on calls to rb\_require\_safe (when a file is required).
+* ruby:::require-entry(requiredfile, filename, lineno);: This probe is fired on calls to rb\_require\_safe (when a file is required).
   
   
   ```
@@ -94,16 +70,9 @@ along with when they are fired and the arguments they take:
     lineno is the line number where the call to require was made (int).
   ```
 
-* ruby:::require-return(requiredfile, filename, lineno);: This probe is
-  fired just before rb\_require\_safe (when a file is required) returns.
-  The arguments are the same as "ruby:::require-entry". This probe will
-  not fire if there was an exception during file require.
+* ruby:::require-return(requiredfile, filename, lineno);: This probe is fired just before rb\_require\_safe (when a file is required) returns. The arguments are the same as "ruby:::require-entry". This probe will not fire if there was an exception during file require.
 
-* ruby:::find-require-entry(requiredfile, filename, lineno);: This probe
-  is fired right before search\_required is called. search\_required
-  determines whether the file has already been required by searching
-  loaded features ($"), and if not, figures out which file must be
-  loaded.
+* ruby:::find-require-entry(requiredfile, filename, lineno);: This probe is fired right before search\_required is called. search\_required determines whether the file has already been required by searching loaded features ($"), and if not, figures out which file must be loaded.
   
   
   ```
@@ -112,21 +81,13 @@ along with when they are fired and the arguments they take:
     lineno is the line number where the call to require was made (int).
   ```
 
-* ruby:::find-require-return(requiredfile, filename, lineno);: This
-  probe is fired right after search\_required returns. See the
-  documentation for "ruby:::find-require-entry" for more details.
-  Arguments for this probe are the same as "ruby:::find-require-entry".
+* ruby:::find-require-return(requiredfile, filename, lineno);: This probe is fired right after search\_required returns. See the documentation for "ruby:::find-require-entry" for more details. Arguments for this probe are the same as "ruby:::find-require-entry".
 
-* ruby:::load-entry(loadedfile, filename, lineno);: This probe is fired
-  when calls to "load" are made. The arguments are the same as
-  "ruby:::require-entry".
+* ruby:::load-entry(loadedfile, filename, lineno);: This probe is fired when calls to "load" are made. The arguments are the same as "ruby:::require-entry".
 
-* ruby:::load-return(loadedfile, filename, lineno);: This probe is fired
-  when "load" returns. The arguments are the same as
-  "ruby:::load-entry".
+* ruby:::load-return(loadedfile, filename, lineno);: This probe is fired when "load" returns. The arguments are the same as "ruby:::load-entry".
 
-* ruby:::raise(classname, filename, lineno);: This probe is fired when
-  an exception is raised.
+* ruby:::raise(classname, filename, lineno);: This probe is fired when an exception is raised.
   
   
   ```
@@ -135,8 +96,7 @@ along with when they are fired and the arguments they take:
     lineno the line number in the file where the exception was raised (int)
   ```
 
-* ruby:::object-create(classname, filename, lineno);: This probe is
-  fired when an object is about to be allocated.
+* ruby:::object-create(classname, filename, lineno);: This probe is fired when an object is about to be allocated.
   
   
   ```
@@ -145,8 +105,7 @@ along with when they are fired and the arguments they take:
     lineno the line number in the file where the object is allocated (int)
   ```
 
-* ruby:::array-create(length, filename, lineno);: This probe is fired
-  when an Array is about to be allocated.
+* ruby:::array-create(length, filename, lineno);: This probe is fired when an Array is about to be allocated.
   
   
   ```
@@ -155,8 +114,7 @@ along with when they are fired and the arguments they take:
     lineno the line number in the file where the array is allocated (int)
   ```
 
-* ruby:::hash-create(length, filename, lineno);: This probe is fired
-  when a Hash is about to be allocated.
+* ruby:::hash-create(length, filename, lineno);: This probe is fired when a Hash is about to be allocated.
   
   
   ```
@@ -165,8 +123,7 @@ along with when they are fired and the arguments they take:
     lineno the line number in the file where the hash is allocated (int)
   ```
 
-* ruby:::string-create(length, filename, lineno);: This probe is fired
-  when a String is about to be allocated.
+* ruby:::string-create(length, filename, lineno);: This probe is fired when a String is about to be allocated.
   
   
   ```
@@ -175,8 +132,7 @@ along with when they are fired and the arguments they take:
     lineno the line number in the file where the string is allocated (int)
   ```
 
-* ruby:::symbol-create(str, filename, lineno);: This probe is fired when
-  a Symbol is about to be allocated.
+* ruby:::symbol-create(str, filename, lineno);: This probe is fired when a Symbol is about to be allocated.
   
   
   ```
@@ -185,8 +141,7 @@ along with when they are fired and the arguments they take:
     lineno the line number in the file where the string is allocated (int)
   ```
 
-* ruby:::parse-begin(sourcefile, lineno);: Fired just before parsing and
-  compiling a source file.
+* ruby:::parse-begin(sourcefile, lineno);: Fired just before parsing and compiling a source file.
   
   
   ```ruby
@@ -194,8 +149,7 @@ along with when they are fired and the arguments they take:
     lineno the line number where the source starts (int)
   ```
 
-* ruby:::parse-end(sourcefile, lineno);: Fired just after parsing and
-  compiling a source file.
+* ruby:::parse-end(sourcefile, lineno);: Fired just after parsing and compiling a source file.
   
   
   ```ruby
@@ -211,8 +165,7 @@ along with when they are fired and the arguments they take:
 
 * ruby:::gc-sweep-end();: Fired at the end of a sweep phase.
 
-* ruby:::method-cache-clear(class, sourcefile, lineno);: Fired when the
-  method cache is cleared.
+* ruby:::method-cache-clear(class, sourcefile, lineno);: Fired when the method cache is cleared.
   
   
   ```

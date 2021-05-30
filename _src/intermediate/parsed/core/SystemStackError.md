@@ -11,4 +11,4 @@ Raised in case of a stack overflow.
 
     SystemStackError: stack level too deep
 
-[SystemStackError Reference](https://ruby-doc.org/core-2.6/SystemStackError.html)
+[SystemStackError Reference](https://ruby-doc.org/core-2.7.0/SystemStackError.html)

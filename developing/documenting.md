@@ -6,10 +6,7 @@ next: "/developing/testing.html"
 
 ## Documenting Ruby Code[](#documenting-ruby-code)
 
-Ruby Standard Library includes <a href='https://ruby.github.io/rdoc/'
-class='remote' target='_blank'>RDoc</a> tool for generating code
-documentation from comments. Here is an example of RDoc documentation
-format, taken from its README:
+Ruby Standard Library includes <a href='https://ruby.github.io/rdoc/' class='remote' target='_blank'>RDoc</a> tool for generating code documentation from comments. Here is an example of RDoc documentation format, taken from its README:
 
 
 ```ruby
@@ -34,11 +31,7 @@ class Shape
 end
 ```
 
-Another popular Ruby documentation tool is <a href='https://yardoc.org/'
-class='remote' target='_blank'>YARD</a>. It supports RDoc format, and
-also provides more formalized approach, with tags specifying various
-aspects of documentation. Here is an example of YARD documentation
-format, taken from its README:
+Another popular Ruby documentation tool is <a href='https://yardoc.org/' class='remote' target='_blank'>YARD</a>. It supports RDoc format, and also provides more formalized approach, with tags specifying various aspects of documentation. Here is an example of YARD documentation format, taken from its README:
 
 
 ```ruby
@@ -51,4 +44,8 @@ def reverse(contents)
   contents.reverse
 end
 ```
+
+
+
+
 

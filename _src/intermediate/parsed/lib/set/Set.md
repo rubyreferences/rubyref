@@ -42,4 +42,4 @@ vs. {x, z} for example).
 
     - Akinori MUSHA <knu@iDaemons.org> (current maintainer)
 
-[Set Reference](https://ruby-doc.org/stdlib-2.6/libdoc/set/rdoc/Set.html)
+[Set Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/set/rdoc/Set.html)

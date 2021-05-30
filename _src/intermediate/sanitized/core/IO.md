@@ -24,7 +24,7 @@ arguments:
 
 The IO may be opened with different file modes (read-only, write-only) and
 encodings for proper conversion.  See IO.new for these options.  See
-Kernel#open for details of the various command formats described above.
+`Kernel#open` for details of the various command formats described above.
 
 IO.popen, the Open3 library, or  `Process#spawn` may also be used to communicate
 with subprocesses through an IO.
@@ -75,4 +75,4 @@ Example:
     rows, columns = $stdout.winsize
     puts "Your screen is #{columns} wide and #{rows} tall"
 
-[IO Reference](https://ruby-doc.org/core-2.6/IO.html)
+[IO Reference](https://ruby-doc.org/core-2.7.0/IO.html)

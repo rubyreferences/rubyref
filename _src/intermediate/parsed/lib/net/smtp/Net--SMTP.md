@@ -101,4 +101,4 @@ extra arguments to SMTP.start/SMTP#start.
     Net::SMTP.start('your.smtp.server', 25, 'mail.from.domain',
                     'Your Account', 'Your Password', :cram_md5)
 
-[Net::SMTP Reference](https://ruby-doc.org/stdlib-2.6/libdoc/net/smtp/rdoc/Net/SMTP.html)
+[Net::SMTP Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/net/smtp/rdoc/Net/SMTP.html)

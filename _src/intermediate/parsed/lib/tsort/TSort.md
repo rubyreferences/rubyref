@@ -118,4 +118,4 @@ A very simple `make' like tool can be implemented as follows:
 
 *SIAM Journal on Computing*, Vol. 1, No. 2, pp. 146-160, June 1972.
 
-[TSort Reference](https://ruby-doc.org/stdlib-2.6/libdoc/tsort/rdoc/TSort.html)
+[TSort Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/tsort/rdoc/TSort.html)

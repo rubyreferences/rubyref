@@ -1,7 +1,7 @@
 ---
 title: benchmark
 prev: "/stdlib/development.html"
-next: "/stdlib/development/bundler.html"
+next: "/stdlib/development/coverage.html"
 ---
 
 
@@ -11,11 +11,9 @@ require 'benchmark'
 
 ## Benchmark[](#benchmark)
 
-The Benchmark module provides methods to measure and report the time
-used to execute Ruby code.
+The Benchmark module provides methods to measure and report the time used to execute Ruby code.
 
-* Measure the time to construct the string given by the expression
-  `"a"*1_000_000_000`:   
+* Measure the time to construct the string given by the expression `"a"*1_000_000_000`:   
   
   ```ruby
   require 'benchmark'
@@ -30,9 +28,7 @@ used to execute Ruby code.
   0.350000   0.400000   0.750000 (  0.835234)
   ```
   
-  This report shows the user CPU time, system CPU time, the sum of the
-  user and system CPU times, and the elapsed real time. The unit of time
-  is seconds.
+  This report shows the user CPU time, system CPU time, the sum of the user and system CPU times, and the elapsed real time. The unit of time is seconds.
 
 * Do some experiments sequentially using the `#bm` method:
   
@@ -82,10 +78,7 @@ times:    1.000000   0.000000   1.000000 (  1.003611)
 upto:     1.030000   0.000000   1.030000 (  1.028098)
 ```
 
-* The times for some benchmarks depend on the order in which items are
-  run. These differences are due to the cost of memory allocation and
-  garbage collection. To avoid these discrepancies, the #bmbm method is
-  provided. For example, to compare ways to sort an array of floats:
+* The times for some benchmarks depend on the order in which items are run. These differences are due to the cost of memory allocation and garbage collection. To avoid these discrepancies, the #bmbm method is provided. For example, to compare ways to sort an array of floats:
   
   
   ```ruby
@@ -113,8 +106,7 @@ upto:     1.030000   0.000000   1.030000 (  1.028098)
   sort    1.450000   0.010000   1.460000 (  1.448327)
   ```
 
-* Report statistics of sequential experiments with unique labels, using
-  the #benchmark method:
+* Report statistics of sequential experiments with unique labels, using the #benchmark method:
   
   
   ```ruby
@@ -142,7 +134,5 @@ upto:     1.030000   0.000000   1.030000 (  1.028098)
   >avg:     0.960000   0.000000   0.960000 (  0.961255)
   ```
 
-<a
-href='https://ruby-doc.org/stdlib-2.6/libdoc/benchmark/rdoc/Benchmark.html'
-class='ruby-doc remote' target='_blank'>Benchmark Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/benchmark/rdoc/Benchmark.html' class='ruby-doc remote' target='_blank'>Benchmark Reference</a>
 

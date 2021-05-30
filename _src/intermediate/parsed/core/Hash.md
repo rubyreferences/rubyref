@@ -107,4 +107,4 @@ is usually aliased to the overridden `==` method:
 
 See also Object#hash and Object#eql?
 
-[Hash Reference](https://ruby-doc.org/core-2.6/Hash.html)
+[Hash Reference](https://ruby-doc.org/core-2.7.0/Hash.html)

@@ -11,8 +11,7 @@ require 'ipaddr'
 
 ## IPAddr[](#ipaddr)
 
-IPAddr provides a set of methods to manipulate an IP address. Both IPv4
-and IPv6 are supported.
+IPAddr provides a set of methods to manipulate an IP address. Both IPv4 and IPv6 are supported.
 
 
 ```ruby
@@ -33,6 +32,5 @@ ipaddr3 = IPAddr.new "192.168.2.0/24"
 p ipaddr3                   #=> #<IPAddr: IPv4:192.168.2.0/255.255.255.0>
 ```
 
-<a href='https://ruby-doc.org/stdlib-2.6/libdoc/ipaddr/rdoc/IPAddr.html'
-class='ruby-doc remote' target='_blank'>IPAddr Reference</a>
+<a href='https://ruby-doc.org/stdlib-2.7.0/libdoc/ipaddr/rdoc/IPAddr.html' class='ruby-doc remote' target='_blank'>IPAddr Reference</a>
 

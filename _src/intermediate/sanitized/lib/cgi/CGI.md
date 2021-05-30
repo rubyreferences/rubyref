@@ -235,7 +235,7 @@ and cgi.cookies is a hash.
             end
           end +
           cgi.pre do
-            CGI::escapeHTML(
+            CGI.escapeHTML(
               "params: #{cgi.params.inspect}\n" +
               "cookies: #{cgi.cookies.inspect}\n" +
               ENV.collect do |key, value|
@@ -266,4 +266,4 @@ and cgi.cookies is a hash.
     escapeHTML('Usage: foo "bar" <baz>')
     h('Usage: foo "bar" <baz>') # alias
 
-[CGI Reference](https://ruby-doc.org/stdlib-2.6/libdoc/cgi/rdoc/CGI.html)
+[CGI Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/cgi/rdoc/CGI.html)

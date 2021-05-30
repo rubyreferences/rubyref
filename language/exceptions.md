@@ -8,10 +8,7 @@ next: "/language/refinements.html"
 
 ### Raising Exceptions[](#raising-exceptions)
 
-Exceptions are raised with the <a
-href='https://ruby-doc.org/core-2.6/Kernel.html#method-i-raise'
-class='ruby-doc remote' target='_blank'>`Kernel#raise`</a> method. It
-has three forms:
+Exceptions are raised with the <a href='https://ruby-doc.org/core-2.7.0/Kernel.html#method-i-raise' class='ruby-doc remote' target='_blank'>`Kernel#raise`</a> method. It has three forms:
 
 
 ```ruby
@@ -22,9 +19,7 @@ raise ErrorClass, "Some message" # Custom error with custom message
 
 `ErrorClass` must be a subclass of [Exception](../builtin/exception.md).
 
-See <a href='https://ruby-doc.org/core-2.6/Kernel.html#method-i-raise'
-class='ruby-doc remote' target='_blank'>`Kernel#raise`</a> for more
-details on raising exceptions.
+See <a href='https://ruby-doc.org/core-2.7.0/Kernel.html#method-i-raise' class='ruby-doc remote' target='_blank'>`Kernel#raise`</a> for more details on raising exceptions.
 
 
 
@@ -41,8 +36,7 @@ rescue
 end
 ```
 
-If you are inside a method, you do not need to use `begin` or `end`
-unless you wish to limit the scope of rescued exceptions:
+If you are inside a method, you do not need to use `begin` or `end` unless you wish to limit the scope of rescued exceptions:
 
 
 ```ruby
@@ -53,10 +47,18 @@ rescue
 end
 ```
 
-The same is true for a `class` or `module`.
+The same is true for a `class`, `module`, and `block`: 
 
-You can assign the exception to a local variable by using `=>
-variable_name` at the end of the `rescue` line:
+```ruby
+[0, 1, 2].map do |i|
+  10 / i
+rescue ZeroDivisionError
+  nil
+end
+#=> [nil, 10, 5]
+```
+
+You can assign the exception to a local variable by using `=> variable_name` at the end of the `rescue` line:
 
 
 ```ruby
@@ -68,9 +70,7 @@ rescue => exception
 end
 ```
 
-By default, StandardError and its subclasses are rescued. You can rescue
-a specific set of exception classes (and their subclasses) by listing
-them after `rescue`: 
+By default, StandardError and its subclasses are rescued. You can rescue a specific set of exception classes (and their subclasses) by listing them after `rescue`: 
 
 ```ruby
 begin
@@ -95,9 +95,7 @@ rescue
 end
 ```
 
-The exception is matched to the rescue section starting at the top, and
-matches only once. If an ArgumentError is raised in the begin section,
-it will not be handled in the StandardError section.
+The exception is matched to the rescue section starting at the top, and matches only once. If an ArgumentError is raised in the begin section, it will not be handled in the StandardError section.
 
 You may retry rescued exceptions:
 
@@ -111,16 +109,11 @@ rescue
 end
 ```
 
-Execution will resume at the start of the begin block, so be careful not
-to create an infinite loop.
+Execution will resume at the start of the begin block, so be careful not to create an infinite loop.
 
-Inside a rescue block is the only valid location for `retry`, all other
-uses will raise a SyntaxError. If you wish to retry a block iteration
-use `redo`. See [Control Expressions](control-expressions.md) for
-details.
+Inside a rescue block is the only valid location for `retry`, all other uses will raise a SyntaxError. If you wish to retry a block iteration use `redo`. See [Control Expressions](control-expressions.md) for details.
 
-To always run some code whether an exception was raised or not, use
-`ensure`: 
+To always run some code whether an exception was raised or not, use `ensure`: 
 
 ```ruby
 begin

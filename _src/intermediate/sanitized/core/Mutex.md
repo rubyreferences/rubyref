@@ -19,4 +19,4 @@ Example:
       }
     }
 
-[Mutex Reference](https://ruby-doc.org/core-2.6/Mutex.html)
+[Mutex Reference](https://ruby-doc.org/core-2.7.0/Mutex.html)

@@ -30,4 +30,4 @@ Example:
 
     consumer.join
 
-[Queue Reference](https://ruby-doc.org/core-2.6/Queue.html)
+[Queue Reference](https://ruby-doc.org/core-2.7.0/Queue.html)

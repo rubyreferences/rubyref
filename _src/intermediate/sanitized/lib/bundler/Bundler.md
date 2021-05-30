@@ -1,14 +1,22 @@
 # Bundler
 
-Some versions of the Bundler 1.1 RC series introduced corrupted lockfiles.
-There were two major problems:
+Bundler provides a consistent environment for Ruby projects by tracking and
+installing the exact gems and versions that are needed.
 
-*   multiple copies of the same GIT section appeared in the lockfile
-*   when this happened, those sections got multiple copies of gems in those
-    sections.
+Since Ruby 2.6, Bundler is a part of Ruby's standard library.
 
+Bunder is used by creating *gemfiles* listing all the project dependencies and
+(optionally) their versions and then using
 
-As a result, Bundler 1.1 contains code that fixes the earlier corruption. We
-will remove this fix-up code in Bundler 1.2.
+    require 'bundler/setup'
 
-[Bundler Reference](https://ruby-doc.org/stdlib-2.6/libdoc/bundler/rdoc/Bundler.html)
+or Bundler.setup to setup environment where only specified gems and their
+specified versions could be used.
+
+See [Bundler website](https://bundler.io/docs.html) for extensive
+documentation on gemfiles creation and Bundler usage.
+
+As a standard library inside project, Bundler could be used for introspection
+of loaded and required modules.
+
+[Bundler Reference](https://ruby-doc.org/stdlib-2.7.0/libdoc/bundler/rdoc/Bundler.html)

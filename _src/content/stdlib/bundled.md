@@ -4,7 +4,6 @@
 
 Current list of bundled gems:
 
-* [DidYouMean](https://github.com/yuki24/did_you_mean): "Did you mean?" experience in Ruby
 * [MiniTest](https://github.com/seattlerb/minitest): A test suite with TDD, BDD, mocking and benchmarking
 * [Net::Telnet](https://github.com/ruby/net-telnet): Telnet client library for Ruby
 * [PowerAssert](https://github.com/k-tsj/power_assert): Power Assert for Ruby.
