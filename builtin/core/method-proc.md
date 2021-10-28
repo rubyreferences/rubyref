@@ -162,7 +162,7 @@ Procs are coming in two flavors: lambda and non-lambda (regular procs). Differen
 * In lambdas, `return` and `break` means exit from this lambda;
 * In non-lambda procs, `return` means exit from embracing method (and will throw `LocalJumpError` if invoked outside the method);
 
-* In non-lambda procs, `break` means exit from the method which the block given for. (and will throw `LocalJumpError` if invoked after the method returns);
+* In non-lambda procs, `break` means exit from the method which the block is given for. (and will throw `LocalJumpError` if invoked after the method returns);
 
 * In lambdas, arguments are treated in the same way as in methods: strict, with `ArgumentError` for mismatching argument number, and no additional argument processing;
 
@@ -282,7 +282,7 @@ The wrapper `def2` receives *body* as a non-lambda proc, yet defines a method wh
 
 #### Conversion of other objects to procs[](#conversion-of-other-objects-to-procs)
 
-Any object that implements the `to_proc` method can be converted into a proc by the `&` operator, and therefore con be consumed by iterators.
+Any object that implements the `to_proc` method can be converted into a proc by the `&` operator, and therefore can be consumed by iterators.
 
 
 ```ruby
