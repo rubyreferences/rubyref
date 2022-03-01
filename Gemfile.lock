@@ -240,9 +240,10 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   github-pages
 
 BUNDLED WITH
-   2.1.2
+   2.2.0
