@@ -31,7 +31,7 @@
             - "## Usage"
             # "Use of irb is easy if you know Ruby." does not look friendly in book intro :)
             - "Use of irb is easy"
-        - source: "> Another popular Ruby interactive console is [pry](http://pryrepl.org/)."
+        - source: "> Another popular Ruby interactive console is [pry](https://pry.github.io/)."
         - source: lib/irb/XMP.md
           ignore: true
     - title: Ruby in Twenty Minutes
